@@ -20,8 +20,7 @@ struct LoginView: View {
                 .modifier(TextFieldModifier())
             SecureField("디미고인 비밀번호를 입력해 주세요", text: $password)
                 .modifier(TextFieldModifier())
-            Spacer()
-                .frame(height:30)
+            VSpacer(30)
             Button(action: {}) {
                 Text("로그인")
             }.modifier(PrimaryButtonModifier())

@@ -15,14 +15,12 @@ struct IngangItem: View {
         HStack {
             VStack(alignment: .leading) {
                 HStack(alignment: .bottom) {
-                    Text(self.ingang.title)
-                        .modifier(HeadlineModifier())
-                    Text(ingangTime[self.ingang.time])
-                        .font(.caption)
+                    Text(self.ingang.title).highlight().headline()
+                    Text(ingangTime[self.ingang.time]).caption()
 
                 }
                 
-                Spacer().frame(height: 10.0)
+                VSpacer(10)
                 
                 HStack {
                     Text("현원 \(self.ingang.present)명 / 총원 \(self.ingang.max_user)명")

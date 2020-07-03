@@ -14,14 +14,11 @@ struct NoticeItem: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text(notice.registered)
-                    .modifier(HeadlineModifier())
-                Text(notice.type)
-                    .font(.caption)
-                    .modifier(HelperTextModifier())
+                Text(notice.registered).highlight().headline()
+                Text(notice.type).caption().headline()
             }
             
-            Spacer().frame(height: 10.0)
+            VSpacer(10)
 
             Text(self.notice.description)
                 .background(Color.white)

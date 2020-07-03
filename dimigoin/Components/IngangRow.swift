@@ -14,14 +14,13 @@ struct IngangRow: View {
     var body: some View {
         VStack {
             HStack {
-                Text("인강실 목록")
-                    .font(.headline)
+                Text("인강실 목록").headline()
                 Spacer()
                 NavigationLink(destination: IngangListView()) {
                     Text("자세히 보기")
                 }
             }
-            Spacer().frame(height: 15.0)
+            VSpacer(15)
             VStack(spacing: 15.0) {
                 ForEach(self.ingangs, id: \.self) { ingang in
                     IngangItem(ingang: ingang)

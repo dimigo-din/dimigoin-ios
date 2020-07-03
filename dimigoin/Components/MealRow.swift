@@ -18,15 +18,14 @@ struct MealRow: View {
     var body: some View {
         VStack {
             HStack {
-                Text("급식")
-                    .font(.headline)
+                Text("급식").headline()
                 Spacer()
                 NavigationLink(destination: MealListView()) {
                     Text("전체 급식 보기")
                 }
             }
             
-            Spacer().frame(height: 15.0)
+            VSpacer(15)
             
             if currentHour < 8 {
                 MealItem(mealType: "아침", mealContent: self.dimibob.breakfast)
