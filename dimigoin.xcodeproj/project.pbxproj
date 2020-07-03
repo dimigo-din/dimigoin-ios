@@ -117,12 +117,8 @@
 				08C9ABFF24A74A83002AF525 /* Model */,
 				08C9ABFC24A74A83002AF525 /* Modifiers */,
 				08C9AC0124A74A83002AF525 /* Views */,
-				08C9ABE824A74A53002AF525 /* AppDelegate.swift */,
-				08C9ABEA24A74A53002AF525 /* SceneDelegate.swift */,
-				08C9ABEC24A74A53002AF525 /* ContentView.swift */,
+				42364EA124AFF1B5008427D5 /* Application */,
 				08C9ABEE24A74A54002AF525 /* Assets.xcassets */,
-				08C9ABF324A74A54002AF525 /* LaunchScreen.storyboard */,
-				08C9ABF624A74A54002AF525 /* Info.plist */,
 				08C9ABF024A74A54002AF525 /* Preview Content */,
 			);
 			path = dimigoin;
@@ -163,6 +159,7 @@
 		08C9AC0124A74A83002AF525 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				08C9ABEC24A74A53002AF525 /* ContentView.swift */,
 				08C9AC0224A74A83002AF525 /* NoticeListView.swift */,
 				08C9AC0324A74A83002AF525 /* ProfileView.swift */,
 				08C9AC0424A74A83002AF525 /* LoginView.swift */,
@@ -195,6 +192,17 @@
 				EE121925BCA629E654C4D856 /* Pods_dimigoin.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		42364EA124AFF1B5008427D5 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				08C9ABE824A74A53002AF525 /* AppDelegate.swift */,
+				08C9ABEA24A74A53002AF525 /* SceneDelegate.swift */,
+				08C9ABF324A74A54002AF525 /* LaunchScreen.storyboard */,
+				08C9ABF624A74A54002AF525 /* Info.plist */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 		E2595481E8D59B18C46619DF /* Pods */ = {
@@ -489,9 +497,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
-				DEVELOPMENT_TEAM = HPU8XGH3GG;
+				DEVELOPMENT_TEAM = 5F2KLXFAD3;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = dimigoin/Info.plist;
+				INFOPLIST_FILE = dimigoin/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -510,9 +518,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
-				DEVELOPMENT_TEAM = HPU8XGH3GG;
+				DEVELOPMENT_TEAM = 5F2KLXFAD3;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = dimigoin/Info.plist;
+				INFOPLIST_FILE = dimigoin/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
