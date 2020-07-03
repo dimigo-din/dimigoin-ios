@@ -22,7 +22,7 @@ struct TimetableRow: View {
                 }
             }
             
-            Spacer().frame(height: 15.0)
+            VSpacer(15)
 
             TimetableItem(subjects: subjects)
         }

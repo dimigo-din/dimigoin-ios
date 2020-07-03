@@ -21,7 +21,7 @@ struct NoticeItem: View {
                     .modifier(HelperTextModifier())
             }
             
-            Spacer().frame(height: 10.0)
+            VSpacer(10)
 
             Text(self.notice.description)
                 .background(Color.white)

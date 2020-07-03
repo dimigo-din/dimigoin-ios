@@ -26,7 +26,7 @@ struct MealRow: View {
                 }
             }
             
-            Spacer().frame(height: 15.0)
+            VSpacer(15)
             
             if currentHour < 8 {
                 MealItem(mealType: "아침", mealContent: self.dimibob.breakfast)

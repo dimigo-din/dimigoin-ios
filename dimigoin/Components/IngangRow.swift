@@ -21,7 +21,7 @@ struct IngangRow: View {
                     Text("자세히 보기")
                 }
             }
-            Spacer().frame(height: 15.0)
+            VSpacer(15)
             VStack(spacing: 15.0) {
                 ForEach(self.ingangs, id: \.self) { ingang in
                     IngangItem(ingang: ingang)

@@ -23,7 +23,7 @@ struct NoticeRow: View {
                 
             }
             
-            Spacer().frame(height: 15.0)
+            VSpacer(15)
             
             VStack(spacing: 15.0) {
                 ForEach(0 ..< self.notices.count) { noticeIndex in

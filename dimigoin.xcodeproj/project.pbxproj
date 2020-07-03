@@ -11,6 +11,8 @@
 		083D74F524A778AA00989B47 /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083D74F424A778AA00989B47 /* Notice.swift */; };
 		083D74F924A77A9E00989B47 /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083D74F824A77A9E00989B47 /* Tokens.swift */; };
 		0842D9E024A8ED6C00D0F330 /* TimetableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0842D9DF24A8ED6C00D0F330 /* TimetableItem.swift */; };
+		086CC54D24AF816200456846 /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54C24AF816200456846 /* VSpacer.swift */; };
+		086CC54F24AF819400456846 /* HSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54E24AF819400456846 /* HSpacer.swift */; };
 		088E5D4D24A889CB0031342D /* RoundBoxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088E5D4C24A889CB0031342D /* RoundBoxModifier.swift */; };
 		088E5D4F24A88FD30031342D /* HeadlineModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088E5D4E24A88FD30031342D /* HeadlineModifier.swift */; };
 		08B8493B24A90403000A9ACD /* TimetableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8493A24A90403000A9ACD /* TimetableRow.swift */; };
@@ -46,6 +48,8 @@
 		083D74F424A778AA00989B47 /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
 		083D74F824A77A9E00989B47 /* Tokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokens.swift; sourceTree = "<group>"; };
 		0842D9DF24A8ED6C00D0F330 /* TimetableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableItem.swift; sourceTree = "<group>"; };
+		086CC54C24AF816200456846 /* VSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSpacer.swift; sourceTree = "<group>"; };
+		086CC54E24AF819400456846 /* HSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSpacer.swift; sourceTree = "<group>"; };
 		088E5D4C24A889CB0031342D /* RoundBoxModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundBoxModifier.swift; sourceTree = "<group>"; };
 		088E5D4E24A88FD30031342D /* HeadlineModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineModifier.swift; sourceTree = "<group>"; };
 		08B8493A24A90403000A9ACD /* TimetableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableRow.swift; sourceTree = "<group>"; };
@@ -92,6 +96,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		086CC54B24AF812C00456846 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				086CC54C24AF816200456846 /* VSpacer.swift */,
+				086CC54E24AF819400456846 /* HSpacer.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		08C9ABDC24A74A53002AF525 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +126,7 @@
 		08C9ABE724A74A53002AF525 /* dimigoin */ = {
 			isa = PBXGroup;
 			children = (
+				086CC54B24AF812C00456846 /* CustomViews */,
 				08C9AC0824A74A83002AF525 /* Components */,
 				08C9ABFF24A74A83002AF525 /* Model */,
 				08C9ABFC24A74A83002AF525 /* Modifiers */,
@@ -323,6 +337,7 @@
 			files = (
 				08C9AC1324A74A83002AF525 /* ProfileView.swift in Sources */,
 				08C9AC1724A74A83002AF525 /* MainView.swift in Sources */,
+				086CC54D24AF816200456846 /* VSpacer.swift in Sources */,
 				08C9ABE924A74A53002AF525 /* AppDelegate.swift in Sources */,
 				088E5D4D24A889CB0031342D /* RoundBoxModifier.swift in Sources */,
 				08C9AC1A24A74A83002AF525 /* MealRow.swift in Sources */,
@@ -334,6 +349,7 @@
 				083D74F324A7783300989B47 /* Dimibob.swift in Sources */,
 				08C9AC1C24A74A83002AF525 /* IngangItem.swift in Sources */,
 				08B8493B24A90403000A9ACD /* TimetableRow.swift in Sources */,
+				086CC54F24AF819400456846 /* HSpacer.swift in Sources */,
 				08C9AC1424A74A83002AF525 /* LoginView.swift in Sources */,
 				08C9AC1D24A74A83002AF525 /* MealItem.swift in Sources */,
 				08C9AC1124A74A83002AF525 /* Ingang.swift in Sources */,

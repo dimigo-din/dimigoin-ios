@@ -22,7 +22,7 @@ struct IngangItem: View {
 
                 }
                 
-                Spacer().frame(height: 10.0)
+                VSpacer(10)
                 
                 HStack {
                     Text("현원 \(self.ingang.present)명 / 총원 \(self.ingang.max_user)명")

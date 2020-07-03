@@ -17,7 +17,7 @@ struct MealItem: View {
             Text(self.mealType)
                 .modifier(HeadlineModifier())
 
-            Spacer().frame(height: 10.0)
+            VSpacer(10)
 
             Text(self.mealContent)
                 .foregroundColor(Color.black)
