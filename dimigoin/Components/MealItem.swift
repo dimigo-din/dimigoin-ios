@@ -14,14 +14,12 @@ struct MealItem: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(self.mealType)
-                .modifier(HeadlineModifier())
+            Text(self.mealType).highlight().headline()
 
             VSpacer(10)
 
             Text(self.mealContent)
-                .foregroundColor(Color.black)
-                .font(.body)
+                .foregroundColor(Color.black).body()
         }
         .modifier(RoundBoxModifier())
     }

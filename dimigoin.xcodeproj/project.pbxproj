@@ -13,6 +13,7 @@
 		0842D9E024A8ED6C00D0F330 /* TimetableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0842D9DF24A8ED6C00D0F330 /* TimetableItem.swift */; };
 		086CC54D24AF816200456846 /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54C24AF816200456846 /* VSpacer.swift */; };
 		086CC54F24AF819400456846 /* HSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54E24AF819400456846 /* HSpacer.swift */; };
+		086CC55124AF849D00456846 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC55024AF849D00456846 /* TextStyles.swift */; };
 		088E5D4D24A889CB0031342D /* RoundBoxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088E5D4C24A889CB0031342D /* RoundBoxModifier.swift */; };
 		088E5D4F24A88FD30031342D /* HeadlineModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088E5D4E24A88FD30031342D /* HeadlineModifier.swift */; };
 		08B8493B24A90403000A9ACD /* TimetableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8493A24A90403000A9ACD /* TimetableRow.swift */; };
@@ -50,6 +51,7 @@
 		0842D9DF24A8ED6C00D0F330 /* TimetableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableItem.swift; sourceTree = "<group>"; };
 		086CC54C24AF816200456846 /* VSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSpacer.swift; sourceTree = "<group>"; };
 		086CC54E24AF819400456846 /* HSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSpacer.swift; sourceTree = "<group>"; };
+		086CC55024AF849D00456846 /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
 		088E5D4C24A889CB0031342D /* RoundBoxModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundBoxModifier.swift; sourceTree = "<group>"; };
 		088E5D4E24A88FD30031342D /* HeadlineModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineModifier.swift; sourceTree = "<group>"; };
 		08B8493A24A90403000A9ACD /* TimetableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableRow.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				086CC54C24AF816200456846 /* VSpacer.swift */,
 				086CC54E24AF819400456846 /* HSpacer.swift */,
+				086CC55024AF849D00456846 /* TextStyles.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				0842D9E024A8ED6C00D0F330 /* TimetableItem.swift in Sources */,
 				08B8493F24A90487000A9ACD /* WeekTimetableView.swift in Sources */,
 				08C9ABEB24A74A53002AF525 /* SceneDelegate.swift in Sources */,
+				086CC55124AF849D00456846 /* TextStyles.swift in Sources */,
 				08B8493D24A90432000A9ACD /* Timetable.swift in Sources */,
 				08C9AC1924A74A83002AF525 /* NoticeRow.swift in Sources */,
 				08C9ABED24A74A53002AF525 /* ContentView.swift in Sources */,

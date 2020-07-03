@@ -13,27 +13,27 @@ struct ProfileView: View {
         NavigationView {
             VStack(spacing: 15.0) {
                 HStack {
-                    Text("이름").modifier(HeadlineModifier())
+                    Text("이름").highlight().headline()
                     Text("엄서훈")
                 }.modifier(RoundBoxModifier())
                 
                 HStack {
-                    Text("아이디").modifier(HeadlineModifier())
+                    Text("아이디").highlight().headline()
                     Text("uhmtoto")
                 }.modifier(RoundBoxModifier())
                 
                 HStack {
-                    Text("학적").modifier(HeadlineModifier())
+                    Text("학적").highlight().headline()
                     Text("2학년 5반 19번 (해킹방어과)")
                 }.modifier(RoundBoxModifier())
                 
                 HStack {
-                    Text("금주 잔여 인강실 티켓").modifier(HeadlineModifier())
+                    Text("금주 잔여 인강실 티켓").highlight().headline()
                     Text("5개")
                 }.modifier(RoundBoxModifier())
                 
                 HStack {
-                    Text("금일 잔여 인강실 티켓").modifier(HeadlineModifier())
+                    Text("금일 잔여 인강실 티켓").highlight().headline()
                     Text("2개")
                 }.modifier(RoundBoxModifier())
                 
@@ -42,7 +42,7 @@ struct ProfileView: View {
                         UIApplication.shared.open(url)
                     }
                 }) {
-                    Text("프로필 수정하기").modifier(HeadlineModifier())
+                    Text("프로필 수정하기").highlight().headline()
                 }.modifier(RoundBoxModifier())
                 
                 Spacer()

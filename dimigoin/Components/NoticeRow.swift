@@ -14,8 +14,7 @@ struct NoticeRow: View {
     var body: some View {
         VStack {
             HStack {
-                Text("공지사항")
-                    .font(.headline)
+                Text("공지사항").headline()
                 Spacer()
                 NavigationLink(destination: NoticeListView()) {
                     Text("더 보기")

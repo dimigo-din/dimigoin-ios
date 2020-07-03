@@ -15,10 +15,8 @@ struct IngangItem: View {
         HStack {
             VStack(alignment: .leading) {
                 HStack(alignment: .bottom) {
-                    Text(self.ingang.title)
-                        .modifier(HeadlineModifier())
-                    Text(ingangTime[self.ingang.time])
-                        .font(.caption)
+                    Text(self.ingang.title).highlight().headline()
+                    Text(ingangTime[self.ingang.time]).caption()
 
                 }
                 

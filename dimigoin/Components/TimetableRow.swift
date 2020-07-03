@@ -14,16 +14,13 @@ struct TimetableRow: View {
     var body: some View {
         VStack {
             HStack {
-                Text("시간표")
-                    .font(.headline)
+                Text("시간표").headline()
                 Spacer()
                 NavigationLink(destination: WeekTimetableView()) {
                     Text("전체 시간표 보기")
                 }
             }
-            
             VSpacer(15)
-
             TimetableItem(subjects: subjects)
         }
     }

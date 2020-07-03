@@ -47,8 +47,7 @@ struct TimetableItem: View {
             HStack {
                 ForEach(0 ..< subjectsCount) { index in
                     if index == self.currentTime {
-                        Text(self.subjects[index])
-                            .modifier(HeadlineModifier())
+                        Text(self.subjects[index]).highlight().headline()
                     } else {
                         Text(self.subjects[index])
                     }
