@@ -15,9 +15,7 @@ struct MealItem: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(self.mealType).highlight().headline()
-
             VSpacer(10)
-
             Text(self.mealContent)
                 .foregroundColor(Color.black).body()
         }

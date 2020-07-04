@@ -19,7 +19,6 @@ struct NoticeRow: View {
                 NavigationLink(destination: NoticeListView()) {
                     Text("더 보기")
                 }
-                
             }
             
             VSpacer(15)

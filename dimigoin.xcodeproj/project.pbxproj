@@ -41,6 +41,10 @@
 		08C9AC1B24A74A83002AF525 /* IngangRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9AC0C24A74A83002AF525 /* IngangRow.swift */; };
 		08C9AC1C24A74A83002AF525 /* IngangItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9AC0D24A74A83002AF525 /* IngangItem.swift */; };
 		08C9AC1D24A74A83002AF525 /* MealItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9AC0E24A74A83002AF525 /* MealItem.swift */; };
+		42364EA724B0CFEC008427D5 /* NanumSquareLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA324B0CFEC008427D5 /* NanumSquareLight.ttf */; };
+		42364EA824B0CFEC008427D5 /* NanumSquareBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA424B0CFEC008427D5 /* NanumSquareBold.ttf */; };
+		42364EA924B0CFEC008427D5 /* NanumSquareExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA524B0CFEC008427D5 /* NanumSquareExtraBold.ttf */; };
+		42364EAA24B0CFEC008427D5 /* NanumSquareRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA624B0CFEC008427D5 /* NanumSquareRegular.ttf */; };
 		EB941E85C20343F8AF98D7B6 /* Pods_dimigoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE121925BCA629E654C4D856 /* Pods_dimigoin.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +85,10 @@
 		08C9AC0C24A74A83002AF525 /* IngangRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngangRow.swift; sourceTree = "<group>"; };
 		08C9AC0D24A74A83002AF525 /* IngangItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngangItem.swift; sourceTree = "<group>"; };
 		08C9AC0E24A74A83002AF525 /* MealItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealItem.swift; sourceTree = "<group>"; };
+		42364EA324B0CFEC008427D5 /* NanumSquareLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareLight.ttf; sourceTree = "<group>"; };
+		42364EA424B0CFEC008427D5 /* NanumSquareBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareBold.ttf; sourceTree = "<group>"; };
+		42364EA524B0CFEC008427D5 /* NanumSquareExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareExtraBold.ttf; sourceTree = "<group>"; };
+		42364EA624B0CFEC008427D5 /* NanumSquareRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRegular.ttf; sourceTree = "<group>"; };
 		6ACB4E700C00E21031932D7E /* Pods-dimigoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dimigoin.debug.xcconfig"; path = "Target Support Files/Pods-dimigoin/Pods-dimigoin.debug.xcconfig"; sourceTree = "<group>"; };
 		A6C5C6B80BABBA45181496A6 /* Pods-dimigoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dimigoin.release.xcconfig"; path = "Target Support Files/Pods-dimigoin/Pods-dimigoin.release.xcconfig"; sourceTree = "<group>"; };
 		EE121925BCA629E654C4D856 /* Pods_dimigoin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dimigoin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +137,7 @@
 		08C9ABE724A74A53002AF525 /* dimigoin */ = {
 			isa = PBXGroup;
 			children = (
+				42364EA224B0CFB9008427D5 /* Fonts */,
 				086CC54B24AF812C00456846 /* CustomViews */,
 				08C9AC0824A74A83002AF525 /* Components */,
 				08C9ABFF24A74A83002AF525 /* Model */,
@@ -222,6 +231,17 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		42364EA224B0CFB9008427D5 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				42364EA424B0CFEC008427D5 /* NanumSquareBold.ttf */,
+				42364EA524B0CFEC008427D5 /* NanumSquareExtraBold.ttf */,
+				42364EA324B0CFEC008427D5 /* NanumSquareLight.ttf */,
+				42364EA624B0CFEC008427D5 /* NanumSquareRegular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		E2595481E8D59B18C46619DF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +311,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42364EA824B0CFEC008427D5 /* NanumSquareBold.ttf in Resources */,
+				42364EA924B0CFEC008427D5 /* NanumSquareExtraBold.ttf in Resources */,
+				42364EA724B0CFEC008427D5 /* NanumSquareLight.ttf in Resources */,
+				42364EAA24B0CFEC008427D5 /* NanumSquareRegular.ttf in Resources */,
 				08C9ABF524A74A54002AF525 /* LaunchScreen.storyboard in Resources */,
 				08C9ABF224A74A54002AF525 /* Preview Assets.xcassets in Resources */,
 				08C9ABEF24A74A54002AF525 /* Assets.xcassets in Resources */,
