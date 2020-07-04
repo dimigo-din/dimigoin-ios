@@ -25,6 +25,7 @@ struct LoginView: View {
                 Text("로그인")
             }.modifier(PrimaryButtonModifier())
         }.padding(.horizontal)
+        .keyboardResponsive()
     }
 }
 

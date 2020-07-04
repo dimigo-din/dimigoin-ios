@@ -45,6 +45,7 @@
 		42364EA824B0CFEC008427D5 /* NanumSquareBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA424B0CFEC008427D5 /* NanumSquareBold.ttf */; };
 		42364EA924B0CFEC008427D5 /* NanumSquareExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA524B0CFEC008427D5 /* NanumSquareExtraBold.ttf */; };
 		42364EAA24B0CFEC008427D5 /* NanumSquareRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA624B0CFEC008427D5 /* NanumSquareRegular.ttf */; };
+		42364EAC24B14E02008427D5 /* KeyboardResponsive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42364EAB24B14E02008427D5 /* KeyboardResponsive.swift */; };
 		EB941E85C20343F8AF98D7B6 /* Pods_dimigoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE121925BCA629E654C4D856 /* Pods_dimigoin.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		42364EA424B0CFEC008427D5 /* NanumSquareBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareBold.ttf; sourceTree = "<group>"; };
 		42364EA524B0CFEC008427D5 /* NanumSquareExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareExtraBold.ttf; sourceTree = "<group>"; };
 		42364EA624B0CFEC008427D5 /* NanumSquareRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRegular.ttf; sourceTree = "<group>"; };
+		42364EAB24B14E02008427D5 /* KeyboardResponsive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponsive.swift; sourceTree = "<group>"; };
 		6ACB4E700C00E21031932D7E /* Pods-dimigoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dimigoin.debug.xcconfig"; path = "Target Support Files/Pods-dimigoin/Pods-dimigoin.debug.xcconfig"; sourceTree = "<group>"; };
 		A6C5C6B80BABBA45181496A6 /* Pods-dimigoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dimigoin.release.xcconfig"; path = "Target Support Files/Pods-dimigoin/Pods-dimigoin.release.xcconfig"; sourceTree = "<group>"; };
 		EE121925BCA629E654C4D856 /* Pods_dimigoin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dimigoin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +168,7 @@
 				08B8494024A9082A000A9ACD /* HelperTextModifier.swift */,
 				08C9ABFE24A74A83002AF525 /* TextFieldModifier.swift */,
 				088E5D4C24A889CB0031342D /* RoundBoxModifier.swift */,
+				42364EAB24B14E02008427D5 /* KeyboardResponsive.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				08C9AC1424A74A83002AF525 /* LoginView.swift in Sources */,
 				08C9AC1D24A74A83002AF525 /* MealItem.swift in Sources */,
 				08C9AC1124A74A83002AF525 /* Ingang.swift in Sources */,
+				42364EAC24B14E02008427D5 /* KeyboardResponsive.swift in Sources */,
 				08C9AC1024A74A83002AF525 /* TextFieldModifier.swift in Sources */,
 				08C9AC1524A74A83002AF525 /* IngangListView.swift in Sources */,
 				083D74F924A77A9E00989B47 /* Tokens.swift in Sources */,
