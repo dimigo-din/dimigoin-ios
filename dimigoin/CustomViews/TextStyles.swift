@@ -14,17 +14,17 @@ extension Text {
             .foregroundColor(Color("Highlight"))
     }
     func headline() -> Text {
-       self
-           .font(.headline)
+        self
+            .font(Font.custom("NanumSquare", size: 17))
     }
     func helperText() -> Text {
         self
-            .font(.callout)
+            .font(Font.custom("NanumSquareR", size: 13))
             .foregroundColor(Color("HelperMessage"))
     }
     func PrimaryButton() -> some View {
         self
-            .font(Font.body.bold())
+            .font(Font.custom("NanumSquareEB", size: 17))
             .padding()
             .background(Color("Primary"))
             .foregroundColor(Color.white)
@@ -32,7 +32,7 @@ extension Text {
     }
     func RoundedButton() -> some View {
         self
-            .font(Font.body.bold())
+            .font(Font.custom("NanumSquareEB", size: 17))
             .frame(width: 312, height: 22)
             .padding()
             .background(Color("Primary"))
@@ -41,10 +41,16 @@ extension Text {
     }
     func caption() -> Text {
         self
-            .font(.caption)
+            .font(Font.custom("NanumSquareR", size: 13))
     }
     func body() -> Text {
         self
-            .font(.body)
+            .font(Font.custom("NanumSquareR", size: 15))
+    }
+}
+
+struct TextStyles_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
     }
 }

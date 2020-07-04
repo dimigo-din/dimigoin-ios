@@ -13,7 +13,7 @@ struct NoticeItem: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
+            HStack(alignment: .bottom) {
                 Text(notice.registered).highlight().headline()
                 Text(notice.type).caption().headline()
             }
