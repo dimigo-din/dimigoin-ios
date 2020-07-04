@@ -7,8 +7,10 @@
 //
 
 import SwiftUI
+import SPAlert
 
 struct ProfileView: View {
+    @Environment(\.presentationMode) private var presentationMode
     var body: some View {
         NavigationView {
             VStack(spacing: 15.0) {
@@ -42,18 +44,24 @@ struct ProfileView: View {
                         UIApplication.shared.open(url)
                     }
                 }) {
-                    Text("프로필 수정하기").highlight().headline()
-                }.modifier(RoundBoxModifier())
-                
+                    Text("프로필 수정하기").RoundedButton()
+                }
+                Button(action: {
+                    // log out
+                }) {
+                    Text("로그아웃").RoundedButton()
+                }
                 Spacer()
             }.padding()
             .navigationBarTitle("나의 프로필")
             .navigationBarItems(
-                trailing: Button(action: {}) {
-                    Text("로그아웃")
+                trailing: Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "xmark")
                 }
             )
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

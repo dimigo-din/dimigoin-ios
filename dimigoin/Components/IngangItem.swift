@@ -19,14 +19,10 @@ struct IngangItem: View {
                     Text(ingangTime[self.ingang.time]).caption()
 
                 }
-                
                 VSpacer(10)
-                
                 HStack {
                     Text("현원 \(self.ingang.present)명 / 총원 \(self.ingang.max_user)명")
-
                     Spacer()
-
                     if !self.ingang.status {
                         Button(action: {}) {
                             Text("신청하기")

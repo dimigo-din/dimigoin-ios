@@ -30,6 +30,15 @@ extension Text {
             .foregroundColor(Color.white)
             .cornerRadius(7.0)
     }
+    func RoundedButton() -> some View {
+        self
+            .font(Font.body.bold())
+            .frame(width: 312, height: 22)
+            .padding()
+            .background(Color("Primary"))
+            .foregroundColor(Color.white)
+            .cornerRadius(7.0)
+    }
     func caption() -> Text {
         self
             .font(.caption)

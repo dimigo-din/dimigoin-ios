@@ -47,7 +47,7 @@ struct MainView: View {
             .navigationBarTitle("\(date), \(day)요일")
             .navigationBarItems(
                 trailing: Button(action: { self.showProfile.toggle() }) {
-                    Image(systemName: "person.circle")
+                    Image(systemName: "person.crop.circle")
                         .resizable()
                         .frame(width: 30, height: 30)
                 }.sheet(isPresented: $showProfile) {
@@ -55,6 +55,7 @@ struct MainView: View {
                 }
             )
         }
+//        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
