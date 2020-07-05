@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct Notice: Hashable, Codable {
+struct Notice: Hashable, Codable, Identifiable {
+    var id = UUID()
     var type: String
     var registered: String
     var description: String

@@ -13,19 +13,31 @@ struct LoginView: View {
     @State var password = ""
     
     var body: some View {
-        VStack {
-            Text("로그인")
-                .font(.largeTitle)
-            TextField("디미고인 아이디를 입력해 주세요", text: $id)
-                .modifier(TextFieldModifier())
-            SecureField("디미고인 비밀번호를 입력해 주세요", text: $password)
-                .modifier(TextFieldModifier())
-            VSpacer(30)
-            Button(action: {}) {
-                Text("로그인")
-            }.modifier(PrimaryButtonModifier())
-        }.padding(.horizontal)
-        .keyboardResponsive()
+        ZStack {
+            Background()
+            Image("school")
+                .resizable()
+                .frame(width: UIScreen.screenWidth, height: 363*UIScreen.screenWidth/1920)
+                .offset(y: UIScreen.screenHeight/2 - (363*UIScreen.screenWidth/1920)/2)
+            VStack(alignment: .leading) {
+                HStack {
+                    Image("FullLogo").resizable().frame(width: 240, height: 64)
+                }
+                VSpacer(42)
+                TextField("아이디", text: $id)
+                    .modifier(TextFieldModifier())
+                VSpacer(16)
+                SecureField("비밀번호", text: $password)
+                    .modifier(TextFieldModifier())
+                VSpacer(30)
+                Button(action: {
+                    // login request
+                }) {
+                    Text("로그인").PrimaryButton(312, 27)
+                }
+            }.padding(.horizontal)
+            .keyboardResponsive()
+        }
     }
 }
 

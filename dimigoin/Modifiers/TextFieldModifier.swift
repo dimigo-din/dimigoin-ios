@@ -13,8 +13,8 @@ struct TextFieldModifier: ViewModifier {
         return content
             .padding()
             .overlay(
-                RoundedRectangle(cornerRadius: 7.0)
-                    .stroke(Color("TextFieldBorder"), lineWidth: 1.5)
+                RoundedRectangle(cornerRadius: 0)
+                    .stroke(Color("TextFieldBorder"), lineWidth: 1)
             )
     }
 }
@@ -23,10 +23,11 @@ struct TextFieldModifier_Previews: PreviewProvider {
     @State static var previewText = ""
     
     static var previews: some View {
-        TextField("텍스트 필드", text: $previewText)
-            .modifier(TextFieldModifier())
-            .padding()
-            .previewLayout(.sizeThatFits)
-            .border(Color("TextFieldBorder"), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+//        TextField("텍스트 필드", text: $previewText)
+//            .modifier(TextFieldModifier())
+//            .padding()
+//            .previewLayout(.sizeThatFits)
+//            .border(Color("TextFieldBorder"), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
+        LoginView()
     }
 }

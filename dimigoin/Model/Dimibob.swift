@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct Dimibob: Codable {
+struct Dimibob: Codable, Identifiable {
+    var id = UUID()
     var breakfast: String
     var lunch: String
     var dinner: String

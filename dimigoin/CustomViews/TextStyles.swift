@@ -13,6 +13,10 @@ extension Text {
         self
             .foregroundColor(Color("Highlight"))
     }
+    func title() -> Text {
+        self
+            .font(Font.custom("NanumSquare", size: 40))
+    }
     func headline() -> Text {
         self
             .font(Font.custom("NanumSquare", size: 17))
@@ -22,13 +26,14 @@ extension Text {
             .font(Font.custom("NanumSquareR", size: 13))
             .foregroundColor(Color("HelperMessage"))
     }
-    func PrimaryButton() -> some View {
+    func PrimaryButton(_ w:CGFloat, _ h:CGFloat) -> some View {
         self
-            .font(Font.custom("NanumSquareEB", size: 17))
+            .font(Font.custom("NanumSquareB", size: 17))
+            .frame(width: w, height: h)
             .padding()
             .background(Color("Primary"))
             .foregroundColor(Color.white)
-            .cornerRadius(7.0)
+            .cornerRadius(5.0)
     }
     func RoundedButton() -> some View {
         self

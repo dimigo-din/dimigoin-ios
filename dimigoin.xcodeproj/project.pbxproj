@@ -46,6 +46,8 @@
 		42364EA924B0CFEC008427D5 /* NanumSquareExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA524B0CFEC008427D5 /* NanumSquareExtraBold.ttf */; };
 		42364EAA24B0CFEC008427D5 /* NanumSquareRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA624B0CFEC008427D5 /* NanumSquareRegular.ttf */; };
 		42364EAC24B14E02008427D5 /* KeyboardResponsive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42364EAB24B14E02008427D5 /* KeyboardResponsive.swift */; };
+		423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71EF24B191AF0099CE3E /* ClearButton.swift */; };
+		423B71F224B1932E0099CE3E /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F124B1932E0099CE3E /* Background.swift */; };
 		EB941E85C20343F8AF98D7B6 /* Pods_dimigoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE121925BCA629E654C4D856 /* Pods_dimigoin.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +93,8 @@
 		42364EA524B0CFEC008427D5 /* NanumSquareExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareExtraBold.ttf; sourceTree = "<group>"; };
 		42364EA624B0CFEC008427D5 /* NanumSquareRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRegular.ttf; sourceTree = "<group>"; };
 		42364EAB24B14E02008427D5 /* KeyboardResponsive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponsive.swift; sourceTree = "<group>"; };
+		423B71EF24B191AF0099CE3E /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
+		423B71F124B1932E0099CE3E /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		6ACB4E700C00E21031932D7E /* Pods-dimigoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dimigoin.debug.xcconfig"; path = "Target Support Files/Pods-dimigoin/Pods-dimigoin.debug.xcconfig"; sourceTree = "<group>"; };
 		A6C5C6B80BABBA45181496A6 /* Pods-dimigoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dimigoin.release.xcconfig"; path = "Target Support Files/Pods-dimigoin/Pods-dimigoin.release.xcconfig"; sourceTree = "<group>"; };
 		EE121925BCA629E654C4D856 /* Pods_dimigoin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dimigoin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +118,7 @@
 				086CC54C24AF816200456846 /* VSpacer.swift */,
 				086CC54E24AF819400456846 /* HSpacer.swift */,
 				086CC55024AF849D00456846 /* TextStyles.swift */,
+				423B71F124B1932E0099CE3E /* Background.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -139,7 +144,6 @@
 		08C9ABE724A74A53002AF525 /* dimigoin */ = {
 			isa = PBXGroup;
 			children = (
-				42364EA224B0CFB9008427D5 /* Fonts */,
 				086CC54B24AF812C00456846 /* CustomViews */,
 				08C9AC0824A74A83002AF525 /* Components */,
 				08C9ABFF24A74A83002AF525 /* Model */,
@@ -147,6 +151,7 @@
 				08C9AC0124A74A83002AF525 /* Views */,
 				42364EA124AFF1B5008427D5 /* Application */,
 				08C9ABEE24A74A54002AF525 /* Assets.xcassets */,
+				42364EA224B0CFB9008427D5 /* Fonts */,
 				08C9ABF024A74A54002AF525 /* Preview Content */,
 			);
 			path = dimigoin;
@@ -169,6 +174,7 @@
 				08C9ABFE24A74A83002AF525 /* TextFieldModifier.swift */,
 				088E5D4C24A889CB0031342D /* RoundBoxModifier.swift */,
 				42364EAB24B14E02008427D5 /* KeyboardResponsive.swift */,
+				423B71EF24B191AF0099CE3E /* ClearButton.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -394,6 +400,7 @@
 				42364EAC24B14E02008427D5 /* KeyboardResponsive.swift in Sources */,
 				08C9AC1024A74A83002AF525 /* TextFieldModifier.swift in Sources */,
 				08C9AC1524A74A83002AF525 /* IngangListView.swift in Sources */,
+				423B71F224B1932E0099CE3E /* Background.swift in Sources */,
 				083D74F924A77A9E00989B47 /* Tokens.swift in Sources */,
 				08B8494124A9082A000A9ACD /* HelperTextModifier.swift in Sources */,
 				08C9AC1624A74A83002AF525 /* MealListView.swift in Sources */,
@@ -401,6 +408,7 @@
 				0842D9E024A8ED6C00D0F330 /* TimetableItem.swift in Sources */,
 				08B8493F24A90487000A9ACD /* WeekTimetableView.swift in Sources */,
 				08C9ABEB24A74A53002AF525 /* SceneDelegate.swift in Sources */,
+				423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */,
 				086CC55124AF849D00456846 /* TextStyles.swift in Sources */,
 				08B8493D24A90432000A9ACD /* Timetable.swift in Sources */,
 				08C9AC1924A74A83002AF525 /* NoticeRow.swift in Sources */,
