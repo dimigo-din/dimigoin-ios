@@ -46,4 +46,13 @@ extension Text {
             .foregroundColor(Color.white)
             .cornerRadius(5.0)
     }
+    func SquareButtonRed(_ w:CGFloat, _ h:CGFloat) -> some View {
+        self
+            .font(Font.custom("NanumSquareB", size: 17))
+            .frame(width: w, height: h)
+            .padding()
+            .background(Color("Secondary"))
+            .foregroundColor(Color.white)
+            .cornerRadius(5.0)
+    }
 }

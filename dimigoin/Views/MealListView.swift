@@ -27,7 +27,6 @@ struct MealListView: View {
         ScrollView {
             VStack(spacing: 15.0) {
                 VStack(alignment: .leading, spacing: 10.0) {
-                    Text("식단").font(.headline)
                     MealItem(mealType: "아침", mealContent: dummyDimibob.breakfast)
                     MealItem(mealType: "점심", mealContent: dummyDimibob.lunch)
                     MealItem(mealType: "저녁", mealContent: dummyDimibob.dinner)

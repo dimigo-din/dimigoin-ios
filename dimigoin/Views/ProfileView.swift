@@ -14,31 +14,38 @@ struct ProfileView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 15.0) {
-                HStack {
-                    Text("이름").highlight().headline()
-                    Text("엄서훈")
-                }.modifier(RoundBoxModifier())
-                
-                HStack {
-                    Text("아이디").highlight().headline()
-                    Text("uhmtoto")
-                }.modifier(RoundBoxModifier())
-                
-                HStack {
-                    Text("학적").highlight().headline()
-                    Text("2학년 5반 19번 (해킹방어과)")
-                }.modifier(RoundBoxModifier())
-                
-                HStack {
-                    Text("금주 잔여 인강실 티켓").highlight().headline()
-                    Text("5개")
-                }.modifier(RoundBoxModifier())
-                
-                HStack {
-                    Text("금일 잔여 인강실 티켓").highlight().headline()
-                    Text("2개")
-                }.modifier(RoundBoxModifier())
-                
+                VStack(alignment: .leading, spacing: 15) {
+                    HStack {
+                        Text("이름").highlight().headline()
+                        Spacer()
+                        Text("엄서훈").foregroundColor(Color("DisabledButton"))
+                    }
+                    Divider().offset(x: 35)
+                    HStack {
+                        Text("아이디").highlight().headline()
+                        Spacer()
+                        Text("uhmtoto").foregroundColor(Color("DisabledButton"))
+                    }
+                    Divider().offset(x: 35)
+                    HStack {
+                        Text("학적").highlight().headline()
+                        Spacer()
+                        Text("2학년 5반 19번 (해킹방어과)").foregroundColor(Color("DisabledButton"))
+                    }
+                    Divider().offset(x: 35)
+                    HStack {
+                        Text("금주 잔여 인강실 티켓").highlight().headline()
+                        Spacer()
+                        Text("5개").foregroundColor(Color("DisabledButton"))
+                    }
+                    Divider().offset(x: 35)
+                    HStack {
+                        Text("금일 잔여 인강실 티켓").highlight().headline()
+                        Spacer()
+                        Text("2개").foregroundColor(Color("DisabledButton"))
+                    }
+                }.CustomBox()
+                VSpacer(10)
                 Button(action: {
                     if let url = URL(string: "https://student.dimigo.hs.kr/user/profile") {
                         UIApplication.shared.open(url)
@@ -49,7 +56,7 @@ struct ProfileView: View {
                 Button(action: {
                     // log out
                 }) {
-                    Text("로그아웃").SquareButton(312, 27)
+                    Text("로그아웃").SquareButtonRed(312, 27)
                 }
                 Spacer()
             }.padding()

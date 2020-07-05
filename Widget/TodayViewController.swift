@@ -10,6 +10,14 @@ import UIKit
 import NotificationCenter
 import SwiftUI
 
+
+
+extension TodayViewController: UIGestureRecognizerDelegate {
+    @objc func handleTap(_ gesture: UITapGestureRecognizer){
+        print("doubletapped")
+    }
+}
+
 class TodayViewController: UIViewController, NCWidgetProviding {
         
     override func viewDidLoad() {
@@ -26,6 +34,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         vc.view.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
         vc.view.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         vc.view.backgroundColor = UIColor.clear
+        
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(TodayViewController.handleTap(_:)))
+        tapGR.delegate = self
+        tapGR.numberOfTapsRequired = 2
+        view.addGestureRecognizer(tapGR)
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
@@ -39,3 +52,4 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
 }
+
