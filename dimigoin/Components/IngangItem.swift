@@ -16,7 +16,7 @@ struct IngangItem: View {
             VStack(alignment: .leading) {
                 HStack(alignment: .bottom) {
                     Text(self.ingang.title).highlight().headline()
-                    Text(ingangTime[self.ingang.time]).caption()
+                    Text(ingangTime[self.ingang.time]).caption2()
 
                 }
                 VSpacer(10)
@@ -35,8 +35,7 @@ struct IngangItem: View {
                     }
                 }
             }
-        }
-        .modifier(RoundBoxModifier())
+        }.CustomBox()
     }
 }
 

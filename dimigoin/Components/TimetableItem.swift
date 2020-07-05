@@ -56,8 +56,7 @@ struct TimetableItem: View {
                     }
                 }
             }
-        }
-        .modifier(RoundBoxModifier())
+        }.CustomBox()
     }
 }
 

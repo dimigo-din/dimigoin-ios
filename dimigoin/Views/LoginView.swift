@@ -24,11 +24,9 @@ struct LoginView: View {
                     Image("FullLogo").resizable().frame(width: 240, height: 64)
                 }
                 VSpacer(42)
-                TextField("아이디", text: $id)
-                    .modifier(TextFieldModifier())
+                TextField("아이디", text: $id).modifier(TextFieldModifier())
                 VSpacer(16)
-                SecureField("비밀번호", text: $password)
-                    .modifier(TextFieldModifier())
+                SecureField("비밀번호", text: $password).modifier(TextFieldModifier())
                 VSpacer(30)
                 Button(action: {
                     // login request

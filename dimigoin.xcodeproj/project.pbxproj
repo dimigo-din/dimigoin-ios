@@ -48,6 +48,7 @@
 		42364EAC24B14E02008427D5 /* KeyboardResponsive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42364EAB24B14E02008427D5 /* KeyboardResponsive.swift */; };
 		423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71EF24B191AF0099CE3E /* ClearButton.swift */; };
 		423B71F224B1932E0099CE3E /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F124B1932E0099CE3E /* Background.swift */; };
+		423B71F424B1B3F60099CE3E /* CustomBoxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */; };
 		EB941E85C20343F8AF98D7B6 /* Pods_dimigoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE121925BCA629E654C4D856 /* Pods_dimigoin.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,7 @@
 		42364EAB24B14E02008427D5 /* KeyboardResponsive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponsive.swift; sourceTree = "<group>"; };
 		423B71EF24B191AF0099CE3E /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
 		423B71F124B1932E0099CE3E /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBoxModifier.swift; sourceTree = "<group>"; };
 		6ACB4E700C00E21031932D7E /* Pods-dimigoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dimigoin.debug.xcconfig"; path = "Target Support Files/Pods-dimigoin/Pods-dimigoin.debug.xcconfig"; sourceTree = "<group>"; };
 		A6C5C6B80BABBA45181496A6 /* Pods-dimigoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dimigoin.release.xcconfig"; path = "Target Support Files/Pods-dimigoin/Pods-dimigoin.release.xcconfig"; sourceTree = "<group>"; };
 		EE121925BCA629E654C4D856 /* Pods_dimigoin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dimigoin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +177,7 @@
 				088E5D4C24A889CB0031342D /* RoundBoxModifier.swift */,
 				42364EAB24B14E02008427D5 /* KeyboardResponsive.swift */,
 				423B71EF24B191AF0099CE3E /* ClearButton.swift */,
+				423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				423B71F224B1932E0099CE3E /* Background.swift in Sources */,
 				083D74F924A77A9E00989B47 /* Tokens.swift in Sources */,
 				08B8494124A9082A000A9ACD /* HelperTextModifier.swift in Sources */,
+				423B71F424B1B3F60099CE3E /* CustomBoxModifier.swift in Sources */,
 				08C9AC1624A74A83002AF525 /* MealListView.swift in Sources */,
 				08C9AC0F24A74A83002AF525 /* PrimaryButtonModifier.swift in Sources */,
 				0842D9E024A8ED6C00D0F330 /* TimetableItem.swift in Sources */,

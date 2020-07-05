@@ -18,8 +18,7 @@ struct MealItem: View {
             VSpacer(10)
             Text(self.mealContent)
                 .foregroundColor(Color.black).body()
-        }
-        .modifier(RoundBoxModifier())
+        }.CustomBox()
     }
 }
 

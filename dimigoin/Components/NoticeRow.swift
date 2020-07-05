@@ -14,14 +14,20 @@ struct NoticeRow: View {
     var body: some View {
         VStack {
             HStack {
-                Text("공지사항").headline()
+                HStack(alignment:.top) {
+                    Text("공지사항").font(Font.custom("NanumSquareEB", size: 27))
+                    Circle()
+                        .foregroundColor(Color("Secondary"))
+                        .frame(width: 8, height: 8)
+                        .offset(x: -5)
+                }
                 Spacer()
                 NavigationLink(destination: NoticeListView()) {
-                    Text("더 보기")
+                    Text("더 보기").caption1()
                 }
             }
             
-            VSpacer(15)
+            VSpacer(14)
             
             VStack(spacing: 15.0) {
                 ForEach(0 ..< self.notices.count) { noticeIndex in

@@ -33,30 +33,30 @@ struct MainView: View {
     }
 
     var body: some View {
-//        NavigationView {
-//            ScrollView {
-//                if day != "토" && day != "일" {
-//                    TimetableRow(subjects: dummySubjects).padding()
-//                }
-//                NoticeRow(notices: [dummyNotice1, dummyNotice2]).padding()
-//
-//                MealRow(dimibob: dummyDimibob).padding()
-//
-//                IngangRow(ingangs: [dummyIngang1, dummyIngang2]).padding()
-//                Spacer()
-//            }
-//            .navigationBarTitle("\(date), \(day)요일")
-//            .navigationBarItems(
-//                trailing: Button(action: { self.showProfile.toggle() }) {
-//                    Image(systemName: "person.crop.circle")
-//                        .resizable()
-//                        .frame(width: 30, height: 30)
-//                }.sheet(isPresented: $showProfile) {
-//                    ProfileView()
-//                }
-//            )
-//        }
-        LoginView()
+        NavigationView {
+            ScrollView {
+                if day != "토" && day != "일" {
+                    TimetableRow(subjects: dummySubjects).padding()
+                }
+                NoticeRow(notices: [dummyNotice1, dummyNotice2]).padding()
+
+                MealRow(dimibob: dummyDimibob).padding()
+
+                IngangRow(ingangs: [dummyIngang1, dummyIngang2]).padding()
+                Spacer()
+            }
+            .navigationBarTitle(Text("\(date), \(day)요일").title())
+            .navigationBarItems(
+                trailing: Button(action: { self.showProfile.toggle() }) {
+                    Image(systemName: "person.crop.circle")
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                }.sheet(isPresented: $showProfile) {
+                    ProfileView()
+                }
+            )
+        }
+//        LoginView()
     }
 }
 

@@ -44,7 +44,11 @@ extension Text {
             .foregroundColor(Color.white)
             .cornerRadius(7.0)
     }
-    func caption() -> Text {
+    func caption1() -> Text {
+        self
+            .font(Font.custom("NanumSquareR", size: 15))
+    }
+    func caption2() -> Text {
         self
             .font(Font.custom("NanumSquareR", size: 13))
     }
