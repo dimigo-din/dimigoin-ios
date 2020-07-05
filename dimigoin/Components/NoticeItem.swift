@@ -17,9 +17,7 @@ struct NoticeItem: View {
                 Text(self.notice.registered).highlight().headline()
                 Text(self.notice.type).caption2().headline()
             }
-            
             VSpacer(10)
-            
             Text(self.notice.description).body().lineLimit(nil)
         }.CustomBox()
     }

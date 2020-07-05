@@ -47,9 +47,3 @@ extension Text {
             .cornerRadius(5.0)
     }
 }
-
-struct TextStyles_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-    }
-}
