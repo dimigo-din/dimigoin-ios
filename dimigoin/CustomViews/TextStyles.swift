@@ -13,36 +13,21 @@ extension Text {
         self
             .foregroundColor(Color("Highlight"))
     }
-    func title() -> Text {
+    func navigationBarTitle() -> Text {
         self
             .font(Font.custom("NanumSquare", size: 40))
+    }
+    func sectionHeader() -> Text {
+        self
+            .font(Font.custom("NanumSquareEB", size: 27))
+    }
+    func body() -> Text {
+        self
+            .font(Font.custom("NanumSquareR", size: 18))
     }
     func headline() -> Text {
         self
             .font(Font.custom("NanumSquare", size: 17))
-    }
-    func helperText() -> Text {
-        self
-            .font(Font.custom("NanumSquareR", size: 13))
-            .foregroundColor(Color("HelperMessage"))
-    }
-    func PrimaryButton(_ w:CGFloat, _ h:CGFloat) -> some View {
-        self
-            .font(Font.custom("NanumSquareB", size: 17))
-            .frame(width: w, height: h)
-            .padding()
-            .background(Color("Primary"))
-            .foregroundColor(Color.white)
-            .cornerRadius(5.0)
-    }
-    func RoundedButton() -> some View {
-        self
-            .font(Font.custom("NanumSquareEB", size: 17))
-            .frame(width: 312, height: 22)
-            .padding()
-            .background(Color("Primary"))
-            .foregroundColor(Color.white)
-            .cornerRadius(7.0)
     }
     func caption1() -> Text {
         self
@@ -52,9 +37,14 @@ extension Text {
         self
             .font(Font.custom("NanumSquareR", size: 13))
     }
-    func body() -> Text {
+    func SquareButton(_ w:CGFloat, _ h:CGFloat) -> some View {
         self
-            .font(Font.custom("NanumSquareR", size: 15))
+            .font(Font.custom("NanumSquareB", size: 17))
+            .frame(width: w, height: h)
+            .padding()
+            .background(Color("Primary"))
+            .foregroundColor(Color.white)
+            .cornerRadius(5.0)
     }
 }
 

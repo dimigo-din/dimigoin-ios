@@ -15,10 +15,6 @@ struct LoginView: View {
     var body: some View {
         ZStack {
             Background()
-            Image("school")
-                .resizable()
-                .frame(width: UIScreen.screenWidth, height: 363*UIScreen.screenWidth/1920)
-                .offset(y: UIScreen.screenHeight/2 - (363*UIScreen.screenWidth/1920)/2)
             VStack(alignment: .leading) {
                 HStack {
                     Image("FullLogo").resizable().frame(width: 240, height: 64)
@@ -31,7 +27,7 @@ struct LoginView: View {
                 Button(action: {
                     // login request
                 }) {
-                    Text("로그인").PrimaryButton(312, 27)
+                    Text("로그인").SquareButton(312, 27)
                 }
             }.padding(.horizontal)
             .keyboardResponsive()

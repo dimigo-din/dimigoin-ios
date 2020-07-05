@@ -36,7 +36,7 @@ struct MealListView: View {
                 VStack(alignment: .leading, spacing: 10.0) {
                     Text("정보").font(.headline)
                     Text("식단 정보는 학교 홈페이지 파싱을 통해 제공되는 정보이므로 급식실의 업로드 여부에 따라 식단이 간헐적으로 표시되지 않을 수 있습니다.")
-                        .helperText()
+                        .caption2()
                 }
                 Spacer()
             }.padding()

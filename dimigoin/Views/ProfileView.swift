@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import SPAlert
+//import SPAlert
 
 struct ProfileView: View {
     @Environment(\.presentationMode) private var presentationMode
@@ -44,12 +44,12 @@ struct ProfileView: View {
                         UIApplication.shared.open(url)
                     }
                 }) {
-                    Text("프로필 수정하기").RoundedButton()
+                    Text("프로필 수정하기").SquareButton(312, 27)
                 }
                 Button(action: {
                     // log out
                 }) {
-                    Text("로그아웃").RoundedButton()
+                    Text("로그아웃").SquareButton(312, 27)
                 }
                 Spacer()
             }.padding()

@@ -14,7 +14,7 @@ struct IngangRow: View {
     var body: some View {
         VStack {
             HStack {
-                Text("인강실 목록").headline()
+                Text("인강실 목록").sectionHeader()
                 Spacer()
                 NavigationLink(destination: IngangListView()) {
                     Text("자세히 보기")

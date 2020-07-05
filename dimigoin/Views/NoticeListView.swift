@@ -21,9 +21,8 @@ struct NoticeListView: View {
                 Divider()
                 VStack(alignment: .leading, spacing: 10.0) {
                     Text("정보").font(.headline)
-                    Text("학과 관련 공지사항은 교과 선생님들께서 관리하시고, 디미고인 관련 공지사항은 디미고인 팀에서 관리합니다.").highlight().headline()
+                    Text("학과 관련 공지사항은 교과 선생님들께서 관리하시고, 디미고인 관련 공지사항은 디미고인 팀에서 관리합니다.").caption2()
                 }
-                Spacer()
             }.padding()
         }
         .navigationBarTitle("전체 공지사항")

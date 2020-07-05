@@ -18,7 +18,7 @@ struct MealRow: View {
     var body: some View {
         VStack {
             HStack {
-                Text("급식").headline()
+                Text("급식").sectionHeader()
                 Spacer()
                 NavigationLink(destination: MealListView()) {
                     Text("전체 급식 보기")

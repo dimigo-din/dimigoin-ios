@@ -14,14 +14,13 @@ struct NoticeItem: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .bottom) {
-                Text(notice.registered).highlight().headline()
-                Text(notice.type).caption2().headline()
+                Text(self.notice.registered).highlight().headline()
+                Text(self.notice.type).caption2().headline()
             }
             
             VSpacer(10)
-
-            Text(self.notice.description)
-                .background(Color.white)
+            
+            Text(self.notice.description).body().lineLimit(nil)
         }.CustomBox()
     }
 }

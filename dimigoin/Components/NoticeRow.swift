@@ -15,7 +15,7 @@ struct NoticeRow: View {
         VStack {
             HStack {
                 HStack(alignment:.top) {
-                    Text("공지사항").font(Font.custom("NanumSquareEB", size: 27))
+                    Text("공지사항").sectionHeader()
                     Circle()
                         .foregroundColor(Color("Secondary"))
                         .frame(width: 8, height: 8)

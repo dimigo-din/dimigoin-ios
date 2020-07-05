@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SPAlert
 
 struct IngangItem: View {
     @State var ingang: Ingang
@@ -21,14 +22,22 @@ struct IngangItem: View {
                 }
                 VSpacer(10)
                 HStack {
-                    Text("현원 \(self.ingang.present)명 / 총원 \(self.ingang.max_user)명")
+                    Text("현원 \(self.ingang.present)명 / 총원 \(self.ingang.max_user)명").body()
                     Spacer()
                     if !self.ingang.status {
-                        Button(action: {}) {
+                        Button(action: {
+                            self.ingang.status.toggle()
+                            SPAlert.present(title: "신청 완료", preset: .done)
+                            // refresh api data
+                        }) {
                             Text("신청하기")
                         }
                     } else {
-                        Button(action: {}) {
+                        Button(action: {
+                            self.ingang.status.toggle()
+                            SPAlert.present(title: "신청 취소", preset: .error)
+                            // refresh api data
+                        }) {
                             Text("취소하기")
                                 .foregroundColor(Color("DisabledButton"))
                         }
