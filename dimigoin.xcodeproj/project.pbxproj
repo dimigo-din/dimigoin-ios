@@ -49,25 +49,8 @@
 		423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71EF24B191AF0099CE3E /* ClearButton.swift */; };
 		423B71F224B1932E0099CE3E /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F124B1932E0099CE3E /* Background.swift */; };
 		423B71F424B1B3F60099CE3E /* CustomBoxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */; };
-		429FD88024B202DA003A49AF /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429FD87F24B202DA003A49AF /* NotificationCenter.framework */; };
-		429FD88324B202DA003A49AF /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429FD88224B202DA003A49AF /* TodayViewController.swift */; };
-		429FD88A24B202DA003A49AF /* 오늘의 급식.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 429FD87E24B202DA003A49AF /* 오늘의 급식.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		429FD89024B20337003A49AF /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429FD88F24B20337003A49AF /* WidgetView.swift */; };
-		429FD89424B20454003A49AF /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 429FD89324B20454003A49AF /* MainInterface.storyboard */; };
-		429FD89524B20536003A49AF /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC55024AF849D00456846 /* TextStyles.swift */; };
-		429FD89A24B20670003A49AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08C9ABEE24A74A54002AF525 /* Assets.xcassets */; };
 		EB941E85C20343F8AF98D7B6 /* Pods_dimigoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE121925BCA629E654C4D856 /* Pods_dimigoin.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		429FD88824B202DA003A49AF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 08C9ABDD24A74A53002AF525 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 429FD87D24B202DA003A49AF;
-			remoteInfo = Widget;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		429FD88B24B202DA003A49AF /* Embed App Extensions */ = {
@@ -76,7 +59,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				429FD88A24B202DA003A49AF /* 오늘의 급식.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,12 +110,7 @@
 		423B71EF24B191AF0099CE3E /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
 		423B71F124B1932E0099CE3E /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBoxModifier.swift; sourceTree = "<group>"; };
-		429FD87E24B202DA003A49AF /* 오늘의 급식.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "오늘의 급식.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		429FD87F24B202DA003A49AF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		429FD88224B202DA003A49AF /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		429FD88724B202DA003A49AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		429FD88F24B20337003A49AF /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
-		429FD89324B20454003A49AF /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		6ACB4E700C00E21031932D7E /* Pods-dimigoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dimigoin.debug.xcconfig"; path = "Target Support Files/Pods-dimigoin/Pods-dimigoin.debug.xcconfig"; sourceTree = "<group>"; };
 		A6C5C6B80BABBA45181496A6 /* Pods-dimigoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dimigoin.release.xcconfig"; path = "Target Support Files/Pods-dimigoin/Pods-dimigoin.release.xcconfig"; sourceTree = "<group>"; };
 		EE121925BCA629E654C4D856 /* Pods_dimigoin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dimigoin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,14 +122,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB941E85C20343F8AF98D7B6 /* Pods_dimigoin.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		429FD87B24B202DA003A49AF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				429FD88024B202DA003A49AF /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				08C9ABE724A74A53002AF525 /* dimigoin */,
-				429FD88124B202DA003A49AF /* Widget */,
 				08C9ABE624A74A53002AF525 /* Products */,
 				E2595481E8D59B18C46619DF /* Pods */,
 				228AAA612779C507EC76E9D9 /* Frameworks */,
@@ -185,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				08C9ABE524A74A53002AF525 /* DimigoIN.app */,
-				429FD87E24B202DA003A49AF /* 오늘의 급식.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -302,17 +269,6 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		429FD88124B202DA003A49AF /* Widget */ = {
-			isa = PBXGroup;
-			children = (
-				429FD89324B20454003A49AF /* MainInterface.storyboard */,
-				429FD88224B202DA003A49AF /* TodayViewController.swift */,
-				429FD88724B202DA003A49AF /* Info.plist */,
-				429FD88F24B20337003A49AF /* WidgetView.swift */,
-			);
-			path = Widget;
-			sourceTree = "<group>";
-		};
 		E2595481E8D59B18C46619DF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,29 +295,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				429FD88924B202DA003A49AF /* PBXTargetDependency */,
 			);
 			name = dimigoin;
 			productName = dimigoin;
 			productReference = 08C9ABE524A74A53002AF525 /* DimigoIN.app */;
 			productType = "com.apple.product-type.application";
-		};
-		429FD87D24B202DA003A49AF /* Widget */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 429FD88E24B202DA003A49AF /* Build configuration list for PBXNativeTarget "Widget" */;
-			buildPhases = (
-				429FD87A24B202DA003A49AF /* Sources */,
-				429FD87B24B202DA003A49AF /* Frameworks */,
-				429FD87C24B202DA003A49AF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Widget;
-			productName = Widget;
-			productReference = 429FD87E24B202DA003A49AF /* 오늘의 급식.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -374,9 +312,6 @@
 				ORGANIZATIONNAME = seohun;
 				TargetAttributes = {
 					08C9ABE424A74A53002AF525 = {
-						CreatedOnToolsVersion = 11.5;
-					};
-					429FD87D24B202DA003A49AF = {
 						CreatedOnToolsVersion = 11.5;
 					};
 				};
@@ -395,7 +330,6 @@
 			projectRoot = "";
 			targets = (
 				08C9ABE424A74A53002AF525 /* dimigoin */,
-				429FD87D24B202DA003A49AF /* Widget */,
 			);
 		};
 /* End PBXProject section */
@@ -412,15 +346,6 @@
 				08C9ABF524A74A54002AF525 /* LaunchScreen.storyboard in Resources */,
 				08C9ABF224A74A54002AF525 /* Preview Assets.xcassets in Resources */,
 				08C9ABEF24A74A54002AF525 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		429FD87C24B202DA003A49AF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				429FD89A24B20670003A49AF /* Assets.xcassets in Resources */,
-				429FD89424B20454003A49AF /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,25 +436,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		429FD87A24B202DA003A49AF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				429FD89524B20536003A49AF /* TextStyles.swift in Sources */,
-				429FD89024B20337003A49AF /* WidgetView.swift in Sources */,
-				429FD88324B202DA003A49AF /* TodayViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		429FD88924B202DA003A49AF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 429FD87D24B202DA003A49AF /* Widget */;
-			targetProxy = 429FD88824B202DA003A49AF /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		08C9ABF324A74A54002AF525 /* LaunchScreen.storyboard */ = {
@@ -703,44 +610,6 @@
 			};
 			name = Release;
 		};
-		429FD88C24B202DA003A49AF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5F2KLXFAD3;
-				INFOPLIST_FILE = Widget/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = seohun.dimigoin.Widget;
-				PRODUCT_NAME = "오늘의 급식";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		429FD88D24B202DA003A49AF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5F2KLXFAD3;
-				INFOPLIST_FILE = Widget/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = seohun.dimigoin.Widget;
-				PRODUCT_NAME = "오늘의 급식";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -758,15 +627,6 @@
 			buildConfigurations = (
 				08C9ABFA24A74A54002AF525 /* Debug */,
 				08C9ABFB24A74A54002AF525 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		429FD88E24B202DA003A49AF /* Build configuration list for PBXNativeTarget "Widget" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				429FD88C24B202DA003A49AF /* Debug */,
-				429FD88D24B202DA003A49AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

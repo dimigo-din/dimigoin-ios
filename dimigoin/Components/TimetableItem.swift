@@ -44,18 +44,19 @@ struct TimetableItem: View {
 
     var body: some View {
         VStack(alignment: .center) {
-            HStack {
-                ForEach(0 ..< subjectsCount) { index in
-                    if index == self.currentTime {
-                        Text(self.subjects[index]).highlight().headline()
-                    } else {
-                        Text(self.subjects[index])
-                    }
-                    if index < self.subjectsCount - 1 {
-                        Spacer()
-                    }
-                }
-            }
+            Text("수정예정")
+//            HStack {
+//                ForEach(0 ..< subjectsCount) { index in
+//                    if index == self.currentTime {
+//                        Text(self.subjects[index]).highlight().headline()
+//                    } else {
+//                        Text(self.subjects[index])
+//                    }
+//                    if index < self.subjectsCount - 1 {
+//                        Spacer()
+//                    }
+//                }
+//            }
         }.CustomBox()
     }
 }
