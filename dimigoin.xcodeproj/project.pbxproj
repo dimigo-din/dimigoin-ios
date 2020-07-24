@@ -41,14 +41,6 @@
 		08C9AC1B24A74A83002AF525 /* IngangRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9AC0C24A74A83002AF525 /* IngangRow.swift */; };
 		08C9AC1C24A74A83002AF525 /* IngangItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9AC0D24A74A83002AF525 /* IngangItem.swift */; };
 		08C9AC1D24A74A83002AF525 /* MealItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9AC0E24A74A83002AF525 /* MealItem.swift */; };
-		420B338824B54F6B00AE433B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42124B4A70E00005663 /* WidgetKit.framework */; };
-		420B338924B54F6B00AE433B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42324B4A70E00005663 /* SwiftUI.framework */; };
-		420B338C24B54F6B00AE433B /* MealExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B338B24B54F6B00AE433B /* MealExtension.swift */; };
-		420B338F24B54F6D00AE433B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 420B338E24B54F6D00AE433B /* Assets.xcassets */; };
-		420B339124B54F6D00AE433B /* MealExtension.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 420B338D24B54F6B00AE433B /* MealExtension.intentdefinition */; };
-		420B339224B54F6D00AE433B /* MealExtension.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 420B338D24B54F6B00AE433B /* MealExtension.intentdefinition */; };
-		420B339524B54F6D00AE433B /* MealExtensionExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 420B338724B54F6B00AE433B /* MealExtensionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		420B339924B561CC00AE433B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08C9ABEE24A74A54002AF525 /* Assets.xcassets */; };
 		42364EA724B0CFEC008427D5 /* NanumSquareLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA324B0CFEC008427D5 /* NanumSquareLight.ttf */; };
 		42364EA824B0CFEC008427D5 /* NanumSquareBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA424B0CFEC008427D5 /* NanumSquareBold.ttf */; };
 		42364EA924B0CFEC008427D5 /* NanumSquareExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA524B0CFEC008427D5 /* NanumSquareExtraBold.ttf */; };
@@ -58,16 +50,33 @@
 		423B71F224B1932E0099CE3E /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F124B1932E0099CE3E /* Background.swift */; };
 		423B71F424B1B3F60099CE3E /* CustomBoxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */; };
 		42F632D224CACFC400F1F439 /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 42F632D124CACFC400F1F439 /* SPAlert */; };
+		42F632D824CB1CF900F1F439 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42124B4A70E00005663 /* WidgetKit.framework */; };
+		42F632D924CB1CF900F1F439 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42324B4A70E00005663 /* SwiftUI.framework */; };
+		42F632DC24CB1CF900F1F439 /* MealWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F632DB24CB1CF900F1F439 /* MealWidget.swift */; };
+		42F632DF24CB1CFA00F1F439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42F632DE24CB1CFA00F1F439 /* Assets.xcassets */; };
+		42F632E124CB1CFA00F1F439 /* MealWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 42F632DD24CB1CF900F1F439 /* MealWidget.intentdefinition */; };
+		42F632E224CB1CFA00F1F439 /* MealWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 42F632DD24CB1CF900F1F439 /* MealWidget.intentdefinition */; };
+		42F632E524CB1CFA00F1F439 /* MealWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 42F632D724CB1CF900F1F439 /* MealWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		42F632E924CB383F00F1F439 /* Dimibob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083D74F224A7783300989B47 /* Dimibob.swift */; };
+		42F632EA24CB3A2300F1F439 /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54C24AF816200456846 /* VSpacer.swift */; };
+		42F632EB24CB3A2600F1F439 /* HSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54E24AF819400456846 /* HSpacer.swift */; };
+		42F632EC24CB3A2B00F1F439 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC55024AF849D00456846 /* TextStyles.swift */; };
+		42F632ED24CB3A2E00F1F439 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F124B1932E0099CE3E /* Background.swift */; };
+		42F632EE24CB3B0600F1F439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08C9ABEE24A74A54002AF525 /* Assets.xcassets */; };
+		42F6330624CB3F4600F1F439 /* NanumSquareBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA424B0CFEC008427D5 /* NanumSquareBold.ttf */; };
+		42F6330724CB3F4800F1F439 /* NanumSquareExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA524B0CFEC008427D5 /* NanumSquareExtraBold.ttf */; };
+		42F6330824CB3F4B00F1F439 /* NanumSquareLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA324B0CFEC008427D5 /* NanumSquareLight.ttf */; };
+		42F6330924CB3F4E00F1F439 /* NanumSquareRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA624B0CFEC008427D5 /* NanumSquareRegular.ttf */; };
 		EB941E85C20343F8AF98D7B6 /* Pods_dimigoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE121925BCA629E654C4D856 /* Pods_dimigoin.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		420B339324B54F6D00AE433B /* PBXContainerItemProxy */ = {
+		42F632E324CB1CFA00F1F439 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08C9ABDD24A74A53002AF525 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 420B338624B54F6B00AE433B;
-			remoteInfo = MealExtensionExtension;
+			remoteGlobalIDString = 42F632D624CB1CF900F1F439;
+			remoteInfo = MealWidgetExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -78,7 +87,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				420B339524B54F6D00AE433B /* MealExtensionExtension.appex in Embed App Extensions */,
+				42F632E524CB1CFA00F1F439 /* MealWidgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,11 +131,6 @@
 		08C9AC0C24A74A83002AF525 /* IngangRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngangRow.swift; sourceTree = "<group>"; };
 		08C9AC0D24A74A83002AF525 /* IngangItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngangItem.swift; sourceTree = "<group>"; };
 		08C9AC0E24A74A83002AF525 /* MealItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealItem.swift; sourceTree = "<group>"; };
-		420B338724B54F6B00AE433B /* MealExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MealExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		420B338B24B54F6B00AE433B /* MealExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealExtension.swift; sourceTree = "<group>"; };
-		420B338D24B54F6B00AE433B /* MealExtension.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = MealExtension.intentdefinition; sourceTree = "<group>"; };
-		420B338E24B54F6D00AE433B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		420B339024B54F6D00AE433B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		420DE42124B4A70E00005663 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		420DE42324B4A70E00005663 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		42364EA324B0CFEC008427D5 /* NanumSquareLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareLight.ttf; sourceTree = "<group>"; };
@@ -138,6 +142,11 @@
 		423B71F124B1932E0099CE3E /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBoxModifier.swift; sourceTree = "<group>"; };
 		429FD87F24B202DA003A49AF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		42F632D724CB1CF900F1F439 /* MealWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MealWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		42F632DB24CB1CF900F1F439 /* MealWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealWidget.swift; sourceTree = "<group>"; };
+		42F632DD24CB1CF900F1F439 /* MealWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = MealWidget.intentdefinition; sourceTree = "<group>"; };
+		42F632DE24CB1CFA00F1F439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		42F632E024CB1CFA00F1F439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6ACB4E700C00E21031932D7E /* Pods-dimigoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dimigoin.debug.xcconfig"; path = "Target Support Files/Pods-dimigoin/Pods-dimigoin.debug.xcconfig"; sourceTree = "<group>"; };
 		A6C5C6B80BABBA45181496A6 /* Pods-dimigoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dimigoin.release.xcconfig"; path = "Target Support Files/Pods-dimigoin/Pods-dimigoin.release.xcconfig"; sourceTree = "<group>"; };
 		EE121925BCA629E654C4D856 /* Pods_dimigoin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dimigoin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,12 +162,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		420B338424B54F6B00AE433B /* Frameworks */ = {
+		42F632D424CB1CF900F1F439 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				420B338924B54F6B00AE433B /* SwiftUI.framework in Frameworks */,
-				420B338824B54F6B00AE433B /* WidgetKit.framework in Frameworks */,
+				42F632D924CB1CF900F1F439 /* SwiftUI.framework in Frameworks */,
+				42F632D824CB1CF900F1F439 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,7 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				08C9ABE724A74A53002AF525 /* dimigoin */,
-				420B338A24B54F6B00AE433B /* MealExtension */,
+				42F632DA24CB1CF900F1F439 /* MealWidget */,
 				08C9ABE624A74A53002AF525 /* Products */,
 				E2595481E8D59B18C46619DF /* Pods */,
 				228AAA612779C507EC76E9D9 /* Frameworks */,
@@ -191,7 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				08C9ABE524A74A53002AF525 /* DimigoIN.app */,
-				420B338724B54F6B00AE433B /* MealExtensionExtension.appex */,
+				42F632D724CB1CF900F1F439 /* MealWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -288,17 +297,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		420B338A24B54F6B00AE433B /* MealExtension */ = {
-			isa = PBXGroup;
-			children = (
-				420B338B24B54F6B00AE433B /* MealExtension.swift */,
-				420B338D24B54F6B00AE433B /* MealExtension.intentdefinition */,
-				420B338E24B54F6D00AE433B /* Assets.xcassets */,
-				420B339024B54F6D00AE433B /* Info.plist */,
-			);
-			path = MealExtension;
-			sourceTree = "<group>";
-		};
 		42364EA124AFF1B5008427D5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +317,17 @@
 				42364EA624B0CFEC008427D5 /* NanumSquareRegular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		42F632DA24CB1CF900F1F439 /* MealWidget */ = {
+			isa = PBXGroup;
+			children = (
+				42F632DB24CB1CF900F1F439 /* MealWidget.swift */,
+				42F632DD24CB1CF900F1F439 /* MealWidget.intentdefinition */,
+				42F632DE24CB1CFA00F1F439 /* Assets.xcassets */,
+				42F632E024CB1CFA00F1F439 /* Info.plist */,
+			);
+			path = MealWidget;
 			sourceTree = "<group>";
 		};
 		E2595481E8D59B18C46619DF /* Pods */ = {
@@ -347,7 +356,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				420B339424B54F6D00AE433B /* PBXTargetDependency */,
+				42F632E424CB1CFA00F1F439 /* PBXTargetDependency */,
 			);
 			name = dimigoin;
 			packageProductDependencies = (
@@ -357,21 +366,21 @@
 			productReference = 08C9ABE524A74A53002AF525 /* DimigoIN.app */;
 			productType = "com.apple.product-type.application";
 		};
-		420B338624B54F6B00AE433B /* MealExtensionExtension */ = {
+		42F632D624CB1CF900F1F439 /* MealWidgetExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 420B339824B54F6D00AE433B /* Build configuration list for PBXNativeTarget "MealExtensionExtension" */;
+			buildConfigurationList = 42F632E624CB1CFA00F1F439 /* Build configuration list for PBXNativeTarget "MealWidgetExtension" */;
 			buildPhases = (
-				420B338324B54F6B00AE433B /* Sources */,
-				420B338424B54F6B00AE433B /* Frameworks */,
-				420B338524B54F6B00AE433B /* Resources */,
+				42F632D324CB1CF900F1F439 /* Sources */,
+				42F632D424CB1CF900F1F439 /* Frameworks */,
+				42F632D524CB1CF900F1F439 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = MealExtensionExtension;
-			productName = MealExtensionExtension;
-			productReference = 420B338724B54F6B00AE433B /* MealExtensionExtension.appex */;
+			name = MealWidgetExtension;
+			productName = MealWidgetExtension;
+			productReference = 42F632D724CB1CF900F1F439 /* MealWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -387,7 +396,7 @@
 					08C9ABE424A74A53002AF525 = {
 						CreatedOnToolsVersion = 11.5;
 					};
-					420B338624B54F6B00AE433B = {
+					42F632D624CB1CF900F1F439 = {
 						CreatedOnToolsVersion = 12.0;
 					};
 				};
@@ -409,7 +418,7 @@
 			projectRoot = "";
 			targets = (
 				08C9ABE424A74A53002AF525 /* dimigoin */,
-				420B338624B54F6B00AE433B /* MealExtensionExtension */,
+				42F632D624CB1CF900F1F439 /* MealWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -429,12 +438,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		420B338524B54F6B00AE433B /* Resources */ = {
+		42F632D524CB1CF900F1F439 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				420B339924B561CC00AE433B /* Assets.xcassets in Resources */,
-				420B338F24B54F6D00AE433B /* Assets.xcassets in Resources */,
+				42F632EE24CB3B0600F1F439 /* Assets.xcassets in Resources */,
+				42F6330824CB3F4B00F1F439 /* NanumSquareLight.ttf in Resources */,
+				42F6330924CB3F4E00F1F439 /* NanumSquareRegular.ttf in Resources */,
+				42F6330724CB3F4800F1F439 /* NanumSquareExtraBold.ttf in Resources */,
+				42F6330624CB3F4600F1F439 /* NanumSquareBold.ttf in Resources */,
+				42F632DF24CB1CFA00F1F439 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +507,7 @@
 				088E5D4D24A889CB0031342D /* RoundBoxModifier.swift in Sources */,
 				08C9AC1A24A74A83002AF525 /* MealRow.swift in Sources */,
 				08C9AC1224A74A83002AF525 /* NoticeListView.swift in Sources */,
+				42F632E224CB1CFA00F1F439 /* MealWidget.intentdefinition in Sources */,
 				083D74F524A778AA00989B47 /* Notice.swift in Sources */,
 				08C9AC1824A74A83002AF525 /* NoticeItem.swift in Sources */,
 				08C9AC1B24A74A83002AF525 /* IngangRow.swift in Sources */,
@@ -522,26 +536,30 @@
 				08B8493D24A90432000A9ACD /* Timetable.swift in Sources */,
 				08C9AC1924A74A83002AF525 /* NoticeRow.swift in Sources */,
 				08C9ABED24A74A53002AF525 /* ContentView.swift in Sources */,
-				420B339224B54F6D00AE433B /* MealExtension.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		420B338324B54F6B00AE433B /* Sources */ = {
+		42F632D324CB1CF900F1F439 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				420B338C24B54F6B00AE433B /* MealExtension.swift in Sources */,
-				420B339124B54F6D00AE433B /* MealExtension.intentdefinition in Sources */,
+				42F632EC24CB3A2B00F1F439 /* TextStyles.swift in Sources */,
+				42F632ED24CB3A2E00F1F439 /* Background.swift in Sources */,
+				42F632EB24CB3A2600F1F439 /* HSpacer.swift in Sources */,
+				42F632EA24CB3A2300F1F439 /* VSpacer.swift in Sources */,
+				42F632DC24CB1CF900F1F439 /* MealWidget.swift in Sources */,
+				42F632E924CB383F00F1F439 /* Dimibob.swift in Sources */,
+				42F632E124CB1CFA00F1F439 /* MealWidget.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		420B339424B54F6D00AE433B /* PBXTargetDependency */ = {
+		42F632E424CB1CFA00F1F439 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 420B338624B54F6B00AE433B /* MealExtensionExtension */;
-			targetProxy = 420B339324B54F6D00AE433B /* PBXContainerItemProxy */;
+			target = 42F632D624CB1CF900F1F439 /* MealWidgetExtension */;
+			targetProxy = 42F632E324CB1CFA00F1F439 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -717,21 +735,21 @@
 			};
 			name = Release;
 		};
-		420B339624B54F6D00AE433B /* Debug */ = {
+		42F632E724CB1CFA00F1F439 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5F2KLXFAD3;
-				INFOPLIST_FILE = MealExtension/Info.plist;
+				INFOPLIST_FILE = MealWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = seohun.dimigoin.MealExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = seohun.dimigoin.MealWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -739,21 +757,21 @@
 			};
 			name = Debug;
 		};
-		420B339724B54F6D00AE433B /* Release */ = {
+		42F632E824CB1CFA00F1F439 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5F2KLXFAD3;
-				INFOPLIST_FILE = MealExtension/Info.plist;
+				INFOPLIST_FILE = MealWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = seohun.dimigoin.MealExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = seohun.dimigoin.MealWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -782,11 +800,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		420B339824B54F6D00AE433B /* Build configuration list for PBXNativeTarget "MealExtensionExtension" */ = {
+		42F632E624CB1CFA00F1F439 /* Build configuration list for PBXNativeTarget "MealWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				420B339624B54F6D00AE433B /* Debug */,
-				420B339724B54F6D00AE433B /* Release */,
+				42F632E724CB1CFA00F1F439 /* Debug */,
+				42F632E824CB1CFA00F1F439 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

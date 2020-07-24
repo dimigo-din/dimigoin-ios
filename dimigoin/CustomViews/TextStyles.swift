@@ -13,6 +13,10 @@ extension Text {
         self
             .foregroundColor(Color("Highlight"))
     }
+    func disabled() -> Text {
+        self
+            .foregroundColor(Color("Disabled"))
+    }
     func navigationBarTitle() -> Text {
         self
             .font(Font.custom("NanumSquare", size: 40))
