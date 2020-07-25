@@ -45,7 +45,7 @@ struct MainView: View {
                 IngangRow(ingangs: [dummyIngang1, dummyIngang2]).padding()
                 Spacer()
             }
-            .navigationBarTitle(Text("\(date), \(day)요일").navigationBarTitle())
+            .navigationBarTitle(Text("\(date), \(day)요일"))
             .navigationBarItems(
                 trailing: Button(action: { self.showProfile.toggle() }) {
                     Image(systemName: "person.crop.circle")

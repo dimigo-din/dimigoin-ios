@@ -41,6 +41,10 @@ extension Text {
         self
             .font(Font.custom("NanumSquareR", size: 13))
     }
+    func caption3() -> Text {
+        self
+            .font(Font.custom("NanumSquareR", size: 11))
+    }
     func SquareButton(_ w:CGFloat, _ h:CGFloat) -> some View {
         self
             .font(Font.custom("NanumSquareB", size: 17))
