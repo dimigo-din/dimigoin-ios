@@ -39,9 +39,9 @@ struct PlaceholderView : View {
     @ViewBuilder
     var body: some View {
         switch family {
-        case .systemSmall: NextMeal(entry: entry, meal: meal)
-        case .systemMedium: TodayMeal(entry: entry, meal: meal)
-        case .systemLarge: WeekMeal()
+            case .systemSmall: NextMeal(entry: entry, meal: meal)
+            case .systemMedium: TodayMeal(entry: entry, meal: meal)
+            case .systemLarge: WeekMeal()
         default: Text("meal view is not available")
         }
     }
@@ -70,9 +70,9 @@ struct MealWidgetView: View {
     @ViewBuilder
     var body: some View {
         switch family {
-        case .systemSmall: NextMeal(entry: entry, meal: meal)
-        case .systemMedium: TodayMeal(entry: entry, meal: meal)
-        case .systemLarge: WeekMeal()
+            case .systemSmall: NextMeal(entry: entry, meal: meal)
+            case .systemMedium: TodayMeal(entry: entry, meal: meal)
+            case .systemLarge: WeekMeal()
         default: Text("meal view is not available")
         }
     }

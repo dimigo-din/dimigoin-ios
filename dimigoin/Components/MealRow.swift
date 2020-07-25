@@ -27,12 +27,10 @@ struct MealRow: View {
             
             VSpacer(15)
             
-            if currentHour < 8 {
-                MealItem(mealType: "아침", mealContent: self.dimibob.breakfast)
-            } else if currentHour < 13 {
-                MealItem(mealType: "점심", mealContent: self.dimibob.lunch)
-            } else {
-                MealItem(mealType: "저녁", mealContent: self.dimibob.dinner)
+            switch getMealType() {
+                case .breakfast: MealItem(mealType: .breakfast, mealContent: self.dimibob.breakfast)
+                case .lunch: MealItem(mealType: .lunch, mealContent: self.dimibob.breakfast)
+                case .dinner: MealItem(mealType: .dinner, mealContent: self.dimibob.breakfast)
             }
         }
     }

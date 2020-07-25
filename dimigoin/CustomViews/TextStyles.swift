@@ -13,6 +13,10 @@ extension Text {
         self
             .foregroundColor(Color("Highlight"))
     }
+    func highlightRed() -> Text {
+        self
+            .foregroundColor(Color("Secondary"))
+    }
     func disabled() -> Text {
         self
             .foregroundColor(Color("Disabled"))

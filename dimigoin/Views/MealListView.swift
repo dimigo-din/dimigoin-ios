@@ -27,9 +27,9 @@ struct MealListView: View {
         ScrollView {
             VStack(spacing: 15.0) {
                 VStack(alignment: .leading, spacing: 10.0) {
-                    MealItem(mealType: "아침", mealContent: dummyDimibob.breakfast)
-                    MealItem(mealType: "점심", mealContent: dummyDimibob.lunch)
-                    MealItem(mealType: "저녁", mealContent: dummyDimibob.dinner)
+                    MealItem(mealType: .breakfast, mealContent: dummyDimibob.breakfast)
+                    MealItem(mealType: .lunch, mealContent: dummyDimibob.lunch)
+                    MealItem(mealType: .dinner, mealContent: dummyDimibob.dinner)
                 }
                 Divider()
                 VStack(alignment: .leading, spacing: 10.0) {

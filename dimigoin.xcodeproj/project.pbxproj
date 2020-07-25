@@ -41,6 +41,8 @@
 		08C9AC1B24A74A83002AF525 /* IngangRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9AC0C24A74A83002AF525 /* IngangRow.swift */; };
 		08C9AC1C24A74A83002AF525 /* IngangItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9AC0D24A74A83002AF525 /* IngangItem.swift */; };
 		08C9AC1D24A74A83002AF525 /* MealItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9AC0E24A74A83002AF525 /* MealItem.swift */; };
+		4212D98024CC124B00FF82D5 /* DateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212D97F24CC124B00FF82D5 /* DateTime.swift */; };
+		4212D98124CC124B00FF82D5 /* DateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212D97F24CC124B00FF82D5 /* DateTime.swift */; };
 		42364EA724B0CFEC008427D5 /* NanumSquareLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA324B0CFEC008427D5 /* NanumSquareLight.ttf */; };
 		42364EA824B0CFEC008427D5 /* NanumSquareBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA424B0CFEC008427D5 /* NanumSquareBold.ttf */; };
 		42364EA924B0CFEC008427D5 /* NanumSquareExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA524B0CFEC008427D5 /* NanumSquareExtraBold.ttf */; };
@@ -137,6 +139,7 @@
 		420DE42124B4A70E00005663 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		420DE42324B4A70E00005663 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		4212D96A24CBB24100FF82D5 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		4212D97F24CC124B00FF82D5 /* DateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTime.swift; sourceTree = "<group>"; };
 		42364EA324B0CFEC008427D5 /* NanumSquareLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareLight.ttf; sourceTree = "<group>"; };
 		42364EA424B0CFEC008427D5 /* NanumSquareBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareBold.ttf; sourceTree = "<group>"; };
 		42364EA524B0CFEC008427D5 /* NanumSquareExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareExtraBold.ttf; sourceTree = "<group>"; };
@@ -259,6 +262,7 @@
 				083D74F224A7783300989B47 /* Dimibob.swift */,
 				083D74F424A778AA00989B47 /* Notice.swift */,
 				083D74F824A77A9E00989B47 /* Tokens.swift */,
+				4212D97F24CC124B00FF82D5 /* DateTime.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -518,6 +522,7 @@
 				088E5D4D24A889CB0031342D /* RoundBoxModifier.swift in Sources */,
 				08C9AC1A24A74A83002AF525 /* MealRow.swift in Sources */,
 				08C9AC1224A74A83002AF525 /* NoticeListView.swift in Sources */,
+				4212D98024CC124B00FF82D5 /* DateTime.swift in Sources */,
 				42F632E224CB1CFA00F1F439 /* MealWidget.intentdefinition in Sources */,
 				083D74F524A778AA00989B47 /* Notice.swift in Sources */,
 				08C9AC1824A74A83002AF525 /* NoticeItem.swift in Sources */,
@@ -564,6 +569,7 @@
 				42F632E924CB383F00F1F439 /* Dimibob.swift in Sources */,
 				42F6330C24CBAB7C00F1F439 /* NextMealView.swift in Sources */,
 				42F632E124CB1CFA00F1F439 /* MealWidget.intentdefinition in Sources */,
+				4212D98124CC124B00FF82D5 /* DateTime.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
