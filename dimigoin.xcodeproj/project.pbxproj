@@ -43,6 +43,7 @@
 		08C9AC1D24A74A83002AF525 /* MealItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9AC0E24A74A83002AF525 /* MealItem.swift */; };
 		4212D98024CC124B00FF82D5 /* DateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212D97F24CC124B00FF82D5 /* DateTime.swift */; };
 		4212D98124CC124B00FF82D5 /* DateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212D97F24CC124B00FF82D5 /* DateTime.swift */; };
+		4212D98324CC6A0400FF82D5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212D98224CC6A0400FF82D5 /* User.swift */; };
 		42364EA724B0CFEC008427D5 /* NanumSquareLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA324B0CFEC008427D5 /* NanumSquareLight.ttf */; };
 		42364EA824B0CFEC008427D5 /* NanumSquareBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA424B0CFEC008427D5 /* NanumSquareBold.ttf */; };
 		42364EA924B0CFEC008427D5 /* NanumSquareExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA524B0CFEC008427D5 /* NanumSquareExtraBold.ttf */; };
@@ -140,6 +141,7 @@
 		420DE42324B4A70E00005663 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		4212D96A24CBB24100FF82D5 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		4212D97F24CC124B00FF82D5 /* DateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTime.swift; sourceTree = "<group>"; };
+		4212D98224CC6A0400FF82D5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		42364EA324B0CFEC008427D5 /* NanumSquareLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareLight.ttf; sourceTree = "<group>"; };
 		42364EA424B0CFEC008427D5 /* NanumSquareBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareBold.ttf; sourceTree = "<group>"; };
 		42364EA524B0CFEC008427D5 /* NanumSquareExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareExtraBold.ttf; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 		08C9ABFF24A74A83002AF525 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4212D98224CC6A0400FF82D5 /* User.swift */,
 				08C9AC0024A74A83002AF525 /* Ingang.swift */,
 				08B8493C24A90432000A9ACD /* Timetable.swift */,
 				083D74F224A7783300989B47 /* Dimibob.swift */,
@@ -533,6 +536,7 @@
 				08B8493B24A90403000A9ACD /* TimetableRow.swift in Sources */,
 				086CC54F24AF819400456846 /* HSpacer.swift in Sources */,
 				08C9AC1424A74A83002AF525 /* LoginView.swift in Sources */,
+				4212D98324CC6A0400FF82D5 /* User.swift in Sources */,
 				08C9AC1D24A74A83002AF525 /* MealItem.swift in Sources */,
 				08C9AC1124A74A83002AF525 /* Ingang.swift in Sources */,
 				42364EAC24B14E02008427D5 /* KeyboardResponsive.swift in Sources */,

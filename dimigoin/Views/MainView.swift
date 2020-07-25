@@ -28,11 +28,11 @@ struct MainView: View {
             .navigationBarTitle(Text(getDate()))
             .navigationBarItems(
                 trailing: Button(action: { self.showProfile.toggle() }) {
-                    Image(systemName: "person.crop.circle")
+                    dummyUser.photo
                         .resizable()
                         .frame(width: 30, height: 30)
                 }.sheet(isPresented: $showProfile) {
-                    ProfileView()
+                    ProfileView(user: dummyUser)
                 }
             )
         }

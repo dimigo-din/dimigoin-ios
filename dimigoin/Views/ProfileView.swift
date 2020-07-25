@@ -11,6 +11,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @Environment(\.presentationMode) private var presentationMode
+    var user: User
     var body: some View {
         NavigationView {
             VStack(spacing: 15.0) {
@@ -18,31 +19,31 @@ struct ProfileView: View {
                     HStack {
                         Text("이름").highlight().headline()
                         Spacer()
-                        Text("엄서훈").foregroundColor(Color("DisabledButton"))
+                        Text(user.name).foregroundColor(Color("DisabledButton"))
                     }
                     Divider().offset(x: 35)
                     HStack {
                         Text("아이디").highlight().headline()
                         Spacer()
-                        Text("uhmtoto").foregroundColor(Color("DisabledButton"))
+                        Text("\(user.id)").foregroundColor(Color("DisabledButton"))
                     }
                     Divider().offset(x: 35)
                     HStack {
                         Text("학적").highlight().headline()
                         Spacer()
-                        Text("2학년 5반 19번 (해킹방어과)").foregroundColor(Color("DisabledButton"))
+                        Text("\(user.grade)학년 \(user.klass)반 \(user.number)번 (\(getMajor(klass: Int(user.klass) ?? 0)))").foregroundColor(Color("DisabledButton"))
                     }
                     Divider().offset(x: 35)
                     HStack {
                         Text("금주 잔여 인강실 티켓").highlight().headline()
                         Spacer()
-                        Text("5개").foregroundColor(Color("DisabledButton"))
+                        Text("\(user.weekly_ticket_num)").foregroundColor(Color("DisabledButton"))
                     }
                     Divider().offset(x: 35)
                     HStack {
                         Text("금일 잔여 인강실 티켓").highlight().headline()
                         Spacer()
-                        Text("2개").foregroundColor(Color("DisabledButton"))
+                        Text("\(user.daily_ticket_num)").foregroundColor(Color("DisabledButton"))
                     }
                 }.CustomBox()
                 VSpacer(10)
@@ -74,6 +75,6 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        ProfileView(user: dummyUser)
     }
 }
