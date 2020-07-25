@@ -26,7 +26,7 @@ struct NextMeal: View {
                     Spacer()
                     Text(getDate()).disabled().caption3().padding(.trailing)
                 }
-                Text("\(getMealMenu(meal: meal, mealType: getMealType()))").caption3().padding(.leading).padding(.trailing)
+                Text("\(getMealMenu(meal: meal, mealType: getMealType()))").caption2().padding(.leading).padding(.trailing)
                 VStack(alignment: .trailing) {
                     Text("LastUpdate:").disabled().caption3()
                     +
