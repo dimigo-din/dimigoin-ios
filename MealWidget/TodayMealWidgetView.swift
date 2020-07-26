@@ -20,17 +20,17 @@ struct TodayMealWidgetView: View {
 //                    Text("7월 25일 토요일").highlight().headline().padding(.leading)
 //                }
                 HStack(alignment: .center, spacing: -5) {
-                    Text("아침").bold().padding(.leading)
+                    Text("아침").heavy().padding(.leading)
                         .foregroundColor(getMealType() == MealType.breakfast ? Color("Secondary") : Color("Primary"))
                     Text("\(meal.breakfast)").caption3().padding()
                 }
                 HStack(alignment: .center, spacing: -5) {
-                    Text("점심").bold().padding(.leading)
+                    Text("점심").heavy().padding(.leading)
                         .foregroundColor(getMealType() == MealType.lunch ? Color("Secondary") : Color("Primary"))
                     Text("\(meal.lunch)").caption3().padding()
                 }
                 HStack(alignment: .center, spacing: -5) {
-                    Text("저녁").bold().padding(.leading)
+                    Text("저녁").heavy().padding(.leading)
                         .foregroundColor(getMealType() == MealType.dinner ? Color("Secondary") : Color("Primary"))
                     Text("\(meal.dinner)").caption3().padding()
                 }

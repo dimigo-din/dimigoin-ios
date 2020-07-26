@@ -19,9 +19,9 @@ struct NextMealWidgetView: View {
             VStack(spacing: 3) {
                 HStack(alignment: .center) {
                     switch getMealType() {
-                        case .breakfast: Text("아침").highlight().bold().padding(.leading)
-                        case .lunch: Text("점심").highlight().bold().padding(.leading)
-                        case .dinner: Text("저녁").highlight().bold().padding(.leading)
+                        case .breakfast: Text("아침").highlight().heavy().padding(.leading)
+                        case .lunch: Text("점심").highlight().heavy().padding(.leading)
+                        case .dinner: Text("저녁").highlight().heavy().padding(.leading)
                     }
                     Spacer()
                     Text(getDate()).disabled().caption3().padding(.trailing)

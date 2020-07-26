@@ -37,6 +37,14 @@ extension Text {
         self
             .font(Font.custom("NanumSquare", size: 17))
     }
+    func heavy() -> Text {
+        self
+            .fontWeight(.heavy)
+    }
+    func black() -> Text {
+        self
+            .fontWeight(.black)
+    }
     func caption1() -> Text {
         self
             .font(Font.custom("NanumSquareR", size: 15))

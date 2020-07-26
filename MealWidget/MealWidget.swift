@@ -43,7 +43,7 @@ struct PlaceholderView : View {
         switch family {
             case .systemSmall: NextMealWidgetView(entry: entry, meal: meal)
             case .systemMedium: TodayMealWidgetView(entry: entry, meal: meal)
-            case .systemLarge: TimeTableWidgetView(entry:entry, timetable: timetable, user: user)
+            case .systemLarge: TimeTableWidgetView(entry:entry, meal: meal, timetable: timetable, user: user)
         default: Text("meal view is not available")
         }
     }
@@ -76,7 +76,7 @@ struct MealWidgetView: View {
         switch family {
             case .systemSmall: NextMealWidgetView(entry: entry, meal: meal)
             case .systemMedium: TodayMealWidgetView(entry: entry, meal: meal)
-            case .systemLarge: TimeTableWidgetView(entry:entry, timetable: timetable, user: user)
+            case .systemLarge: TimeTableWidgetView(entry:entry, meal: meal, timetable: timetable, user: user)
         default: Text("meal view is not available")
         }
     }

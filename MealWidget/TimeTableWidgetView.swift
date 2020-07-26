@@ -10,6 +10,7 @@ import SwiftUI
 
 struct TimeTableWidgetView: View {
     var entry: Entry
+    var meal: Dimibob
     var timetable: TimeTable
     var user: User
     
@@ -17,8 +18,8 @@ struct TimeTableWidgetView: View {
     var body: some View {
         ZStack{
             Image("Logo").opacity(0.3)
-            VStack {
-                Text("\(user.grade)학년 \(user.klass)반 시간표").highlight().bold().padding()
+            VStack() {
+                Text("\(user.grade)학년 \(user.klass)반 시간표").highlight().heavy().padding()
                 HStack(alignment: .top) {
                     VStack {
                         ForEach((1...7), id: \.self) {
@@ -34,6 +35,21 @@ struct TimeTableWidgetView: View {
                     }
                 }.multilineTextAlignment(.center)
                 
+                Divider()
+                
+                VStack(spacing: 3) {
+                    switch getMealType() {
+                        case .breakfast: Text("아침").highlight().heavy()
+                        case .lunch: Text("점심").highlight().heavy()
+                        case .dinner: Text("저녁").highlight().heavy()
+                    }
+                    HStack(alignment: .center) {
+                        
+//                        HSpacer(60)
+//                        Text(getDate()).disabled().caption3().padding(.trailing)
+                    }
+                    Text("\(getMealMenu(meal: dummyDimibob, mealType: getMealType()))").caption2().padding(.leading).padding(.trailing)
+                }
                 HStack() {
                     Spacer()
                     Text("LastUpdate : ").disabled().caption3()
