@@ -31,13 +31,13 @@ func getMealMenu(meal: Dimibob, mealType: MealType) -> String{
     
 func getMealType() -> MealType {
     let hour = Calendar.current.component(.hour, from: Date())
-    if Int(hour) <= 9 { // 자정 ~ 오전 9시 -> 아침
+    if Int(hour) <= 9 || Int(hour) >= 21 { // 오후 9시 ~ 오전 9시 -> 아침
         return .breakfast
     }
     else if Int(hour) <= 14 { // 오전 10시 ~ 오후 2시 -> 점심
         return .lunch
     }
-    else if Int(hour) <= 24 { // 오후 3시 ~ 자정 -> 저녁
+    else if Int(hour) <= 21 { // 오후 3시 ~ 오후 9시 -> 저녁
         return .dinner
     }
     else {

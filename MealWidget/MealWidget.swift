@@ -19,7 +19,7 @@ struct Provider: TimelineProvider {
     public func timeline(with context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         let date = Date()
         let entry = Entry(date: Date())
-        let nextUpdateDate = Calendar.current.date(byAdding: .hour, value: 3, to: date)!
+        let nextUpdateDate = Calendar.current.date(byAdding: .hour, value: 1, to: date)!
         let timeline = Timeline(
             entries: [entry],
             policy: .after(nextUpdateDate)
@@ -36,12 +36,14 @@ struct PlaceholderView : View {
     @Environment(\.widgetFamily) var family: WidgetFamily
     var entry: Provider.Entry = Entry(date: Date())
     var meal: Dimibob = dummyDimibob
+    var timetable: TimeTable = dummyTimeTable
+    var user: User = dummyUser
     @ViewBuilder
     var body: some View {
         switch family {
-            case .systemSmall: NextMeal(entry: entry, meal: meal)
-            case .systemMedium: TodayMeal(entry: entry, meal: meal)
-            case .systemLarge: WeekMeal()
+            case .systemSmall: NextMealWidgetView(entry: entry, meal: meal)
+            case .systemMedium: TodayMealWidgetView(entry: entry, meal: meal)
+            case .systemLarge: TimeTableWidgetView(entry:entry, timetable: timetable, user: user)
         default: Text("meal view is not available")
         }
     }
@@ -55,10 +57,10 @@ struct MealWidget: Widget {
             provider: Provider(),
             placeholder: PlaceholderView()
         ) { entry in
-            MealWidgetView(entry: entry, meal: dummyDimibob)
+            MealWidgetView(entry: entry, meal: dummyDimibob, timetable: dummyTimeTable, user: dummyUser)
         }
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
-        .configurationDisplayName("오늘의 급식")
+        .configurationDisplayName("디미고인 급식 위젯")
         .description("오늘의 급식을 알려드립니다")
     }
 }
@@ -67,12 +69,14 @@ struct MealWidgetView: View {
     @Environment(\.widgetFamily) var family: WidgetFamily
     var entry: Provider.Entry
     var meal: Dimibob
+    var timetable: TimeTable
+    var user: User
     @ViewBuilder
     var body: some View {
         switch family {
-            case .systemSmall: NextMeal(entry: entry, meal: meal)
-            case .systemMedium: TodayMeal(entry: entry, meal: meal)
-            case .systemLarge: WeekMeal()
+            case .systemSmall: NextMealWidgetView(entry: entry, meal: meal)
+            case .systemMedium: TodayMealWidgetView(entry: entry, meal: meal)
+            case .systemLarge: TimeTableWidgetView(entry:entry, timetable: timetable, user: user)
         default: Text("meal view is not available")
         }
     }

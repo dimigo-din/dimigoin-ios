@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct NextMeal: View {
+struct NextMealWidgetView: View {
     var entry: Provider.Entry
     var meal: Dimibob
     

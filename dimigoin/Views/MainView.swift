@@ -25,6 +25,7 @@ struct MainView: View {
                 IngangRow(ingangs: [dummyIngang1, dummyIngang2]).padding()
                 Spacer()
             }
+            .navigationViewStyle(StackNavigationViewStyle())
             .navigationBarTitle(Text(getDate()))
             .navigationBarItems(
                 trailing: Button(action: { self.showProfile.toggle() }) {
