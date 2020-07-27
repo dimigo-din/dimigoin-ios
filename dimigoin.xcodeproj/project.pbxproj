@@ -78,7 +78,6 @@
 		42F6330C24CBAB7C00F1F439 /* NextMealWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F6330B24CBAB7C00F1F439 /* NextMealWidgetView.swift */; };
 		42F6330E24CBABB300F1F439 /* TodayMealWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F6330D24CBABB300F1F439 /* TodayMealWidgetView.swift */; };
 		42F6331024CBABE200F1F439 /* TimeTableWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F6330F24CBABE200F1F439 /* TimeTableWidgetView.swift */; };
-		EB941E85C20343F8AF98D7B6 /* Pods_dimigoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE121925BCA629E654C4D856 /* Pods_dimigoin.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,9 +163,6 @@
 		42F6330B24CBAB7C00F1F439 /* NextMealWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextMealWidgetView.swift; sourceTree = "<group>"; };
 		42F6330D24CBABB300F1F439 /* TodayMealWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMealWidgetView.swift; sourceTree = "<group>"; };
 		42F6330F24CBABE200F1F439 /* TimeTableWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableWidgetView.swift; sourceTree = "<group>"; };
-		6ACB4E700C00E21031932D7E /* Pods-dimigoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dimigoin.debug.xcconfig"; path = "Target Support Files/Pods-dimigoin/Pods-dimigoin.debug.xcconfig"; sourceTree = "<group>"; };
-		A6C5C6B80BABBA45181496A6 /* Pods-dimigoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dimigoin.release.xcconfig"; path = "Target Support Files/Pods-dimigoin/Pods-dimigoin.release.xcconfig"; sourceTree = "<group>"; };
-		EE121925BCA629E654C4D856 /* Pods_dimigoin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dimigoin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,7 +172,6 @@
 			files = (
 				42C4E4D324CEA8E3004EC6AF /* Alamofire in Frameworks */,
 				42F632D224CACFC400F1F439 /* SPAlert in Frameworks */,
-				EB941E85C20343F8AF98D7B6 /* Pods_dimigoin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,7 +204,6 @@
 				08C9ABE724A74A53002AF525 /* dimigoin */,
 				42F632DA24CB1CF900F1F439 /* MealWidget */,
 				08C9ABE624A74A53002AF525 /* Products */,
-				E2595481E8D59B18C46619DF /* Pods */,
 				228AAA612779C507EC76E9D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -309,7 +303,6 @@
 		228AAA612779C507EC76E9D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EE121925BCA629E654C4D856 /* Pods_dimigoin.framework */,
 				429FD87F24B202DA003A49AF /* NotificationCenter.framework */,
 				420DE42124B4A70E00005663 /* WidgetKit.framework */,
 				420DE42324B4A70E00005663 /* SwiftUI.framework */,
@@ -354,15 +347,6 @@
 			path = MealWidget;
 			sourceTree = "<group>";
 		};
-		E2595481E8D59B18C46619DF /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6ACB4E700C00E21031932D7E /* Pods-dimigoin.debug.xcconfig */,
-				A6C5C6B80BABBA45181496A6 /* Pods-dimigoin.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -370,11 +354,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08C9ABF924A74A54002AF525 /* Build configuration list for PBXNativeTarget "dimigoin" */;
 			buildPhases = (
-				310A522650F3899541786CAD /* [CP] Check Pods Manifest.lock */,
 				08C9ABE124A74A53002AF525 /* Sources */,
 				08C9ABE224A74A53002AF525 /* Frameworks */,
 				08C9ABE324A74A53002AF525 /* Resources */,
-				D8692863AAA9343CA682EF48 /* [CP] Embed Pods Frameworks */,
 				429FD88B24B202DA003A49AF /* Embed App Extensions */,
 			);
 			buildRules = (
@@ -478,48 +460,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		310A522650F3899541786CAD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-dimigoin-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D8692863AAA9343CA682EF48 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-dimigoin/Pods-dimigoin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-dimigoin/Pods-dimigoin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dimigoin/Pods-dimigoin-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		08C9ABE124A74A53002AF525 /* Sources */ = {
@@ -729,7 +669,6 @@
 		};
 		08C9ABFA24A74A54002AF525 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6ACB4E700C00E21031932D7E /* Pods-dimigoin.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -752,7 +691,6 @@
 		};
 		08C9ABFB24A74A54002AF525 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A6C5C6B80BABBA45181496A6 /* Pods-dimigoin.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
