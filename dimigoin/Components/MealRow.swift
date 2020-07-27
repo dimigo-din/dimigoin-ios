@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MealRow: View {
-    @State var dimibob: Dimibob
+    @ObservedObject var mealAPI: MealAPI
 
     var currentHour: Int {
         return Calendar.current.component(.hour, from: Date())
@@ -20,7 +20,7 @@ struct MealRow: View {
             HStack {
                 Text("급식").sectionHeader()
                 Spacer()
-                NavigationLink(destination: MealListView()) {
+                NavigationLink(destination: MealListView(mealData: mealAPI)) {
                     Text("전체 급식 보기")
                 }
             }
@@ -28,17 +28,17 @@ struct MealRow: View {
             VSpacer(15)
             
             switch getMealType() {
-                case .breakfast: MealItem(mealType: .breakfast, mealContent: self.dimibob.breakfast)
-                case .lunch: MealItem(mealType: .lunch, mealContent: self.dimibob.breakfast)
-                case .dinner: MealItem(mealType: .dinner, mealContent: self.dimibob.breakfast)
+            case .breakfast: MealItem(mealType: .breakfast, mealData: mealAPI)
+            case .lunch: MealItem(mealType: .lunch, mealData: mealAPI)
+            case .dinner: MealItem(mealType: .dinner, mealData: mealAPI)
             }
         }
     }
 }
 
-struct MealRow_Previews: PreviewProvider {
-    static var previews: some View {
-        MealRow(dimibob: dummyDimibob)
-            .previewLayout(.sizeThatFits)
-    }
-}
+//struct MealRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MealRow(dimibob: dummyDimibob)
+//            .previewLayout(.sizeThatFits)
+//    }
+//}

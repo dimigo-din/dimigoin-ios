@@ -57,6 +57,7 @@
 		427A14F224CD4724005600FE /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8493C24A90432000A9ACD /* Timetable.swift */; };
 		427A14F324CD4BE4005600FE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212D98224CC6A0400FF82D5 /* User.swift */; };
 		42C4E4D324CEA8E3004EC6AF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 42C4E4D224CEA8E3004EC6AF /* Alamofire */; };
+		42C4E4D524CEAEEB004EC6AF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 42C4E4D424CEAEEB004EC6AF /* Alamofire */; };
 		42F632D224CACFC400F1F439 /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 42F632D124CACFC400F1F439 /* SPAlert */; };
 		42F632D824CB1CF900F1F439 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42124B4A70E00005663 /* WidgetKit.framework */; };
 		42F632D924CB1CF900F1F439 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42324B4A70E00005663 /* SwiftUI.framework */; };
@@ -179,6 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42C4E4D524CEAEEB004EC6AF /* Alamofire in Frameworks */,
 				42F632D924CB1CF900F1F439 /* SwiftUI.framework in Frameworks */,
 				42F632D824CB1CF900F1F439 /* WidgetKit.framework in Frameworks */,
 			);
@@ -386,6 +388,9 @@
 			dependencies = (
 			);
 			name = MealWidgetExtension;
+			packageProductDependencies = (
+				42C4E4D424CEAEEB004EC6AF /* Alamofire */,
+			);
 			productName = MealWidgetExtension;
 			productReference = 42F632D724CB1CF900F1F439 /* MealWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -808,6 +813,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		42C4E4D224CEA8E3004EC6AF /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42C4E4D124CEA8E3004EC6AF /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		42C4E4D424CEAEEB004EC6AF /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 42C4E4D124CEA8E3004EC6AF /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;

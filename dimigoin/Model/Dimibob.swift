@@ -7,7 +7,31 @@
 //
 
 import Foundation
+import Alamofire
 
+class MealAPI: ObservableObject {
+    @Published var meal = Dimibob(breakfast: "급식 정보가 없습니다.",
+                                  lunch: "급식 정보가 없습니다.",
+                                  dinner: "급식 정보가 없습니다.")
+    init() {
+        getMeals()
+    }
+    func getMeals(){
+        AF.request("https://api.dimigo.in/dimibobs/\(getAPIDate())", method: .get, encoding: JSONEncoding.default).responseData { response in
+            guard let data = response.data else { return }
+            let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+            self.meal.breakfast = json["breakfast"]! as! String
+            self.meal.lunch = json["lunch"]! as! String
+            self.meal.dinner = json["dinner"]! as! String
+            self.dubugMeal()
+        }
+    }
+    func dubugMeal() {
+        print(meal.breakfast)
+        print(meal.lunch)
+        print(meal.dinner)
+    }
+}
 
 enum MealType:Int {
     case breakfast = 0

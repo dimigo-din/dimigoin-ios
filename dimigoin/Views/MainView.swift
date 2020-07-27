@@ -9,9 +9,10 @@
 import SwiftUI
 
 struct MainView: View {
+    @ObservedObject var mealAPI = MealAPI()
+    
     @State var showProfile = false
     @State var meals: [Dimibob] = []
-
     var body: some View {
         NavigationView {
             ScrollView {
@@ -20,7 +21,7 @@ struct MainView: View {
                 }
                 NoticeRow(notices: [dummyNotice1, dummyNotice2]).padding()
 
-                MealRow(dimibob: dummyDimibob).padding()
+                MealRow(mealAPI: mealAPI).padding()
 
                 IngangRow(ingangs: [dummyIngang1, dummyIngang2]).padding()
                 Spacer()

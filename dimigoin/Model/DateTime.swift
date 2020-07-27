@@ -28,4 +28,11 @@ func getDate() -> String {
     return "\(date.string(from: now)) \(getDay())요일"
 }
 
-
+func getAPIDate() -> String {
+    let now = Date()
+    let date = DateFormatter()
+    date.locale = Locale(identifier: "ko_kr")
+    date.timeZone = TimeZone(abbreviation: "KST")
+    date.dateFormat = "yyyyMMdd"
+    return date.string(from: now)
+}
