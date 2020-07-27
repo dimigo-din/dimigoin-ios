@@ -6,7 +6,6 @@ target 'dimigoin' do
   use_frameworks!
 
   # Pods for dimigoin
-  pod 'Alamofire', '~> 5.2'
   pod 'SwiftyJSON', '~> 4.0'
 
 end

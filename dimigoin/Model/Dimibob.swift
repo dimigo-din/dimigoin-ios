@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 enum MealType:Int {
     case breakfast = 0
     case lunch = 1

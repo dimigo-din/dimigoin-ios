@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct User {
+struct User: Codable {
     var name: String
     var id: String
     var idx: Int
@@ -17,7 +17,7 @@ struct User {
     var klass: String
     var number: String
     var serial: String
-    var photo: Image
+    var photo: String
     var email: String
     var user_type: String
     var weekly_request_count: Int
@@ -45,7 +45,7 @@ let dummyUser: User = User(name: "변경민",
                           klass: "4",
                           number: "13",
                           serial: "2413",
-                          photo: Image(systemName: "person.crop.circle"),
+                          photo: "person.crop.circle",
                           email: "bkm.change.min@gmail.com",
                           user_type: "S",
                           weekly_request_count: 0,
