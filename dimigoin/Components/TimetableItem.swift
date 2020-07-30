@@ -10,7 +10,31 @@ import SwiftUI
 
 struct TimetableItem: View {
     @State var subjects: [String]
+    @State var timetable = dummyTimeTable
+    @State var user = dummyUser
     
+    var body: some View {
+        VStack(alignment: .center) {
+            VStack() {
+                Text("\(user.grade)학년 \(user.klass)반 시간표").highlight().heavy().padding()
+                HStack {
+                    ForEach((1...5), id: \.self) { day in
+                        Text("\(getDay(day))")
+                    }
+                }
+                Divider()
+                HStack(alignment: .top) {
+                    ForEach(timetable.data, id: \.self) { data in
+                        VStack {
+                            ForEach(data, id: \.self) { lecture in
+                                Text("\(lecture)").caption1().padding(.bottom, 5)
+                            }
+                        }
+                    }
+                }.multilineTextAlignment(.center)
+            }
+        }.CustomBox()
+    }
     var subjectsCount: Int {
         return subjects.count
     }
@@ -42,23 +66,6 @@ struct TimetableItem: View {
         return 7
     }
 
-    var body: some View {
-        VStack(alignment: .center) {
-            Text("수정예정")
-//            HStack {
-//                ForEach(0 ..< subjectsCount) { index in
-//                    if index == self.currentTime {
-//                        Text(self.subjects[index]).highlight().headline()
-//                    } else {
-//                        Text(self.subjects[index])
-//                    }
-//                    if index < self.subjectsCount - 1 {
-//                        Spacer()
-//                    }
-//                }
-//            }
-        }.CustomBox()
-    }
 }
 
 struct TimetableItem_Previews: PreviewProvider {

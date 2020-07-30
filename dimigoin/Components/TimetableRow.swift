@@ -14,7 +14,7 @@ struct TimetableRow: View {
     var body: some View {
         VStack {
             HStack {
-                Text("시간표").headline()
+                Text("시간표").sectionHeader()
                 Spacer()
                 NavigationLink(destination: WeekTimetableView()) {
                     Text("전체 시간표 보기")
