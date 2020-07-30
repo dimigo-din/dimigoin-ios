@@ -11,11 +11,13 @@ import SwiftUI
 struct TextFieldModifier: ViewModifier {
     func body(content: Content) -> some View {
         return content
+            .frame(width: 312)
             .padding()
             .overlay(
                 RoundedRectangle(cornerRadius: 0)
                     .stroke(Color("TextFieldBorder"), lineWidth: 1)
             )
+            .autocapitalization(.none)
     }
 }
 

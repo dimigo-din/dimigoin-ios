@@ -16,24 +16,23 @@ struct TodayMealWidgetView: View {
         ZStack{
             Image("Logo").opacity(0.3)
             VStack(alignment: .leading, spacing: -15) {
-//                HStack {
-//                    Text("7월 25일 토요일").highlight().headline().padding(.leading)
-//                }
                 HStack(alignment: .center, spacing: -5) {
-                    Text("아침").heavy().padding(.leading)
-                        .foregroundColor(getMealType() == MealType.breakfast ? Color("Secondary") : Color("Primary"))
+                    Text("아침").heavy().highlight().padding(.leading)
                     Text("\(meal.breakfast)").caption3().padding()
-                }
+                }.opacity(getMealType() != MealType.breakfast ? 0.3 : 1)
+                .background(Color("Primary").opacity(getMealType() == MealType.breakfast ? 0.2 : 0))
+                
                 HStack(alignment: .center, spacing: -5) {
-                    Text("점심").heavy().padding(.leading)
-                        .foregroundColor(getMealType() == MealType.lunch ? Color("Secondary") : Color("Primary"))
+                    Text("점심").highlight().heavy().padding(.leading)
                     Text("\(meal.lunch)").caption3().padding()
-                }
+                }.opacity(getMealType() != MealType.lunch ? 0.3 : 1)
+                .background(Color("Primary").opacity(getMealType() == MealType.lunch ? 0.2 : 0))
+                
                 HStack(alignment: .center, spacing: -5) {
-                    Text("저녁").heavy().padding(.leading)
-                        .foregroundColor(getMealType() == MealType.dinner ? Color("Secondary") : Color("Primary"))
+                    Text("저녁").highlight().heavy().padding(.leading)
                     Text("\(meal.dinner)").caption3().padding()
-                }
+                }.opacity(getMealType() != MealType.dinner ? 0.3 : 1)
+                .background(Color("Primary").opacity(getMealType() == MealType.dinner ? 0.2 : 0))
                 
                 VSpacer(15)
                 HStack() {

@@ -26,7 +26,7 @@ struct LoginView: View {
                 TextField("아이디", text: $id)
                     .modifier(TextFieldModifier())
                     .modifier(ClearButton(text: $id))
-                    .autocapitalization(.none)
+                    
                 VSpacer(16)
                 SecureField("비밀번호", text: $password)
                     .modifier(TextFieldModifier())
