@@ -9,13 +9,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var tokenAPI = TokenAPI()
     var body: some View {
-        Text("Hello, World!")
+        Group {
+            if(tokenAPI.tokenStatus == .exist) {
+                MainView()
+            }
+            else if(tokenAPI.tokenStatus == .none) {
+                LoginView(tokenAPI: tokenAPI)
+            }
+        }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}

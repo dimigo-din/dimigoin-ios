@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MealRow: View {
-    @ObservedObject var mealAPI: MealAPI
+    @ObservedObject var mealData: MealAPI
 
     var currentHour: Int {
         return Calendar.current.component(.hour, from: Date())
@@ -20,7 +20,7 @@ struct MealRow: View {
             HStack {
                 Text("급식").sectionHeader()
                 Spacer()
-                NavigationLink(destination: MealListView(mealData: mealAPI)) {
+                NavigationLink(destination: MealListView(mealData: mealData)) {
                     Text("전체 급식 보기")
                 }
             }
@@ -28,9 +28,9 @@ struct MealRow: View {
             VSpacer(15)
             
             switch getMealType() {
-            case .breakfast: MealItem(mealType: .breakfast, mealData: mealAPI)
-            case .lunch: MealItem(mealType: .lunch, mealData: mealAPI)
-            case .dinner: MealItem(mealType: .dinner, mealData: mealAPI)
+            case .breakfast: MealItem(mealType: .breakfast, mealData: mealData)
+            case .lunch: MealItem(mealType: .lunch, mealData: mealData)
+            case .dinner: MealItem(mealType: .dinner, mealData: mealData)
             }
         }
     }

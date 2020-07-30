@@ -26,7 +26,7 @@ struct ClearButton: ViewModifier
                 })
                 {
                     Image(systemName: "delete.left")
-                        .foregroundColor(Color("DailyDarkGray"))
+                        .foregroundColor(Color.black)
                         .font(.system(size: 23))
                         .zIndex(1)
                 }

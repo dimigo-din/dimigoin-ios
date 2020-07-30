@@ -7,25 +7,39 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct LoginView: View {
+    @State var tokenAPI: TokenAPI
     @State var id = ""
     @State var password = ""
+    @State var showErrorMessage:Bool = false
     
     var body: some View {
         ZStack {
             Background()
-            VStack(alignment: .leading) {
+            Image("school").resizable().scaledToFit().offset(y: UIScreen.screenHeight/2 - 40)
+            VStack(alignment: .center) {
                 HStack {
                     Image("FullLogo").resizable().frame(width: 240, height: 64)
                 }
-                VSpacer(42)
-                TextField("아이디", text: $id).modifier(TextFieldModifier())
-                VSpacer(16)
-                SecureField("비밀번호", text: $password).modifier(TextFieldModifier())
                 VSpacer(30)
+                TextField("아이디", text: $id).modifier(TextFieldModifier()).modifier(ClearButton(text: $id))
+                VSpacer(16)
+                SecureField("비밀번호", text: $password).modifier(TextFieldModifier()).modifier(ClearButton(text: $password))
+                VSpacer(13)
+                Text("아이디 혹은 비밀번호를 확인해 주세요").highlightRed().caption2().opacity(showErrorMessage ? 1:0)
+                VSpacer(13)
                 Button(action: {
-                    // login request
+                    tokenAPI.set(id: self.id, password: self.password)
+                    let tokenStatus: TokenStatus = tokenAPI.getTokens()
+                    if(tokenStatus == .exist) {
+                        // navigation to main
+                        navigateToMainView()
+                    }
+                    else if(tokenStatus == .fail) {
+                        self.showErrorMessage = true
+                    }
                 }) {
                     Text("로그인").SquareButton(312, 27)
                 }
@@ -33,10 +47,7 @@ struct LoginView: View {
             .keyboardResponsive()
         }
     }
-}
-
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
+    func navigateToMainView() {
+        
     }
 }

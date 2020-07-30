@@ -28,6 +28,6 @@ struct TextFieldModifier_Previews: PreviewProvider {
 //            .padding()
 //            .previewLayout(.sizeThatFits)
 //            .border(Color("TextFieldBorder"), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-        LoginView()
+        Text("place holder")
     }
 }

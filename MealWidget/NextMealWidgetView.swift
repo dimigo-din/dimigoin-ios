@@ -11,7 +11,6 @@ import SwiftUI
 struct NextMealWidgetView: View {
     var entry: Provider.Entry
     var meal: Dimibob
-    
     @ViewBuilder
     var body: some View {
         ZStack {
@@ -36,4 +35,3 @@ struct NextMealWidgetView: View {
         }
     }
 }
-

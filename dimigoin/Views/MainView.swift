@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var mealAPI = MealAPI()
+    @ObservedObject var mealData = MealAPI()
     
     @State var showProfile = false
     @State var meals: [Dimibob] = []
@@ -21,7 +21,7 @@ struct MainView: View {
                 }
                 NoticeRow(notices: [dummyNotice1, dummyNotice2]).padding()
 
-                MealRow(mealAPI: mealAPI).padding()
+                MealRow(mealData: mealData).padding()
 
                 IngangRow(ingangs: [dummyIngang1, dummyIngang2]).padding()
                 Spacer()

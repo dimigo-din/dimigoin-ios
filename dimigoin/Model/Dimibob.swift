@@ -17,14 +17,19 @@ class MealAPI: ObservableObject {
         getMeals()
     }
     func getMeals(){
-        AF.request("https://api.dimigo.in/dimibobs/\(getAPIDate())", method: .get, encoding: JSONEncoding.default).responseData { response in
+        let url = "https://api.dimigo.in/dimibobs/\(getAPIDate())"
+        AF.request(url, method: .get, encoding: JSONEncoding.default).responseData { response in
             guard let data = response.data else { return }
             let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
             self.meal.breakfast = json["breakfast"]! as! String
             self.meal.lunch = json["lunch"]! as! String
             self.meal.dinner = json["dinner"]! as! String
             self.dubugMeal()
+            self.saveMeal()
         }
+    }
+    func saveMeal() {
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(meal), forKey:"mealData")
     }
     func dubugMeal() {
         print(meal.breakfast)
