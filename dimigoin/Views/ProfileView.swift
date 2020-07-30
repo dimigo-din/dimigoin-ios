@@ -11,6 +11,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @Environment(\.presentationMode) private var presentationMode
+    @ObservedObject var tokenAPI: TokenAPI
     var user: User
     var body: some View {
         NavigationView {
@@ -55,7 +56,7 @@ struct ProfileView: View {
                     Text("프로필 수정하기").SquareButton(312, 27)
                 }
                 Button(action: {
-                    // log out
+                    tokenAPI.clearTokens()
                 }) {
                     Text("로그아웃").SquareButtonRed(312, 27)
                 }
@@ -73,8 +74,8 @@ struct ProfileView: View {
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView(user: dummyUser)
-    }
-}
+//struct ProfileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ProfileView(user: dummyUser)
+//    }
+//}

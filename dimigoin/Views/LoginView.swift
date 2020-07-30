@@ -7,10 +7,9 @@
 //
 
 import SwiftUI
-import UIKit
 
 struct LoginView: View {
-    @State var tokenAPI: TokenAPI
+    @ObservedObject var tokenAPI: TokenAPI
     @State var id = ""
     @State var password = ""
     @State var showErrorMessage:Bool = false
@@ -24,9 +23,14 @@ struct LoginView: View {
                     Image("FullLogo").resizable().frame(width: 240, height: 64)
                 }
                 VSpacer(30)
-                TextField("아이디", text: $id).modifier(TextFieldModifier()).modifier(ClearButton(text: $id))
+                TextField("아이디", text: $id)
+                    .modifier(TextFieldModifier())
+                    .modifier(ClearButton(text: $id))
+                    .autocapitalization(.none)
                 VSpacer(16)
-                SecureField("비밀번호", text: $password).modifier(TextFieldModifier()).modifier(ClearButton(text: $password))
+                SecureField("비밀번호", text: $password)
+                    .modifier(TextFieldModifier())
+                    .modifier(ClearButton(text: $password))
                 VSpacer(13)
                 Text("아이디 혹은 비밀번호를 확인해 주세요").highlightRed().caption2().opacity(showErrorMessage ? 1:0)
                 VSpacer(13)

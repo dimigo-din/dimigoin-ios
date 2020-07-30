@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MainView: View {
     @ObservedObject var mealData = MealAPI()
-    
+    @State var tokenAPI: TokenAPI
     @State var showProfile = false
     @State var meals: [Dimibob] = []
     var body: some View {
@@ -34,15 +34,15 @@ struct MainView: View {
                         .resizable()
                         .frame(width: 30, height: 30)
                 }.sheet(isPresented: $showProfile) {
-                    ProfileView(user: dummyUser)
+                    ProfileView(tokenAPI: tokenAPI, user: dummyUser)
                 }
             )
         }
     }
 }
 
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-    }
-}
+//struct MainView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainView()
+//    }
+//}

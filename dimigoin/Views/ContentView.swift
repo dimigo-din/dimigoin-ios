@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         Group {
             if(tokenAPI.tokenStatus == .exist) {
-                MainView()
+                MainView(tokenAPI: tokenAPI)
             }
             else if(tokenAPI.tokenStatus == .none) {
                 LoginView(tokenAPI: tokenAPI)

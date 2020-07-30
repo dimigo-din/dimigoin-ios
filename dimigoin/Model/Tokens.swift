@@ -15,11 +15,17 @@ enum TokenStatus {
     case fail
 }
 
+struct Tokens: Codable, Identifiable {
+    var id = UUID()
+    var token: String
+    var refresh_token: String
+}
+
 class TokenAPI: ObservableObject {
     @Published var tokens = Tokens(token: "", refresh_token: "")
+    @Published var tokenStatus: TokenStatus = .none
     private var id: String = ""
     private var password: String = ""
-    var tokenStatus: TokenStatus = .none
     
     init() {
         checkTokenStatus()
@@ -100,10 +106,4 @@ class TokenAPI: ObservableObject {
             }
         }
     }
-}
-
-struct Tokens: Codable, Identifiable {
-    var id = UUID()
-    var token: String
-    var refresh_token: String
 }
