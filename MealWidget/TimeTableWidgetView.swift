@@ -20,12 +20,13 @@ struct TimeTableWidgetView: View {
             Image("Logo").opacity(0.3)
             VStack() {
                 Text("\(user.grade)학년 \(user.klass)반 시간표").highlight().heavy().padding()
-                HStack(alignment: .top) {
-                    VStack {
-                        ForEach((1...7), id: \.self) {
-                            Text("\($0)교시").highlight().caption2().padding(.bottom, 7)
-                        }
+                HStack {
+                    ForEach((1...5), id: \.self) { day in
+                        Text("\(getDay(day))")
                     }
+                }
+                Divider()
+                HStack(alignment: .top) {
                     ForEach(timetable.data, id: \.self) { data in
                         VStack {
                             ForEach(data, id: \.self) { lecture in

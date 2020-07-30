@@ -73,10 +73,10 @@ class TokenAPI: ObservableObject {
     func checkTokenStatus(){
         if UserDefaults.standard.string(forKey: "token") != nil {
             self.tokenStatus = .exist
+            print("Existing tokens found")
         } else {
             tokenStatus = .none
         }
-        print("Existing tokens found")
     }
     func clearTokens() {
         UserDefaults.standard.removeObject(forKey: "token")
