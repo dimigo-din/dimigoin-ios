@@ -31,7 +31,7 @@ extension Text {
     }
     func body() -> Text {
         self
-            .font(Font.custom("NanumSquareR", size: 18))
+            .font(Font.custom("NanumSquareR", size: 15))
     }
     func headline() -> Text {
         self

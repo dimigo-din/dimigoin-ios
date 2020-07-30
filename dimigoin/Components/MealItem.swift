@@ -21,9 +21,9 @@ struct MealItem: View {
             }
             VSpacer(10)
             switch mealType {
-                case .breakfast: Text(self.mealData.meal.breakfast).body()
-                case .lunch: Text(self.mealData.meal.lunch).body()
-                case .dinner: Text(self.mealData.meal.dinner).body()
+                case .breakfast: Text(self.mealData.meal.breakfast).body().lineSpacing(5)
+                case .lunch: Text(self.mealData.meal.lunch).body().lineSpacing(5)
+                case .dinner: Text(self.mealData.meal.dinner).body().lineSpacing(5)
             }
             
         }.CustomBox()
