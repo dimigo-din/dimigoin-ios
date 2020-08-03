@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct TimetableRow: View {
-    @State var subjects: [String]
+    @State var timetable: TimeTable
     
     var body: some View {
         VStack {
@@ -21,14 +21,16 @@ struct TimetableRow: View {
                 }
             }
             VSpacer(15)
-            TimetableItem(subjects: subjects)
+            VStack {
+                TimetableItem(timetable: timetable)
+            }.CustomBox()
         }
     }
 }
 
 struct TimetableRow_Previews: PreviewProvider {
     static var previews: some View {
-        TimetableRow(subjects: dummySubjects)
+        TimetableRow(timetable: dummyTimeTable)
             .previewLayout(.sizeThatFits)
             .padding()
     }

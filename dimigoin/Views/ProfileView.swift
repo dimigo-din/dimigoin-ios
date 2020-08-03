@@ -7,12 +7,15 @@
 //
 
 import SwiftUI
-//import SPAlert
+import SPAlert
 
 struct ProfileView: View {
-    @Environment(\.presentationMode) private var presentationMode
+    @Binding var isPresented: Bool
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var tokenAPI: TokenAPI
     var user: User
+    
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 15.0) {
@@ -52,10 +55,15 @@ struct ProfileView: View {
                     if let url = URL(string: "https://student.dimigo.hs.kr/user/profile") {
                         UIApplication.shared.open(url)
                     }
+                    
                 }) {
                     Text("프로필 수정하기").SquareButton(312, 27)
                 }
                 Button(action: {
+                    SPAlert.present(title: "로그아웃", preset: SPAlertPreset.error)
+//                    dismiss()
+                    dismiss()
+                    self.isPresented = false
                     tokenAPI.clearTokens()
                 }) {
                     Text("로그아웃").SquareButtonRed(312, 27)
@@ -65,12 +73,16 @@ struct ProfileView: View {
             .navigationBarTitle("나의 프로필")
             .navigationBarItems(
                 trailing: Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
+                    dismiss()
                 }) {
                     Image(systemName: "xmark")
                 }
             )
         }.navigationViewStyle(StackNavigationViewStyle())
+    }
+    func dismiss() {
+        self.presentationMode.wrappedValue.dismiss()
+        print("dismiss")
     }
 }
 

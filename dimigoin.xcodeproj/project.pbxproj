@@ -55,7 +55,10 @@
 		427A14F024CD17C1005600FE /* MealItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9AC0E24A74A83002AF525 /* MealItem.swift */; };
 		427A14F124CD17D2005600FE /* CustomBoxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */; };
 		427A14F224CD4724005600FE /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8493C24A90432000A9ACD /* Timetable.swift */; };
-		427A14F324CD4BE4005600FE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212D98224CC6A0400FF82D5 /* User.swift */; };
+		429039E424D3984D005A25C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212D98224CC6A0400FF82D5 /* User.swift */; };
+		429039E524D39853005A25C0 /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083D74F824A77A9E00989B47 /* Tokens.swift */; };
+		429039E724D45027005A25C0 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429039E624D45027005A25C0 /* ActivityIndicator.swift */; };
+		42AEE7E624D828D70098B2B9 /* TimetableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0842D9DF24A8ED6C00D0F330 /* TimetableItem.swift */; };
 		42C4E4D324CEA8E3004EC6AF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 42C4E4D224CEA8E3004EC6AF /* Alamofire */; };
 		42C4E4D524CEAEEB004EC6AF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 42C4E4D424CEAEEB004EC6AF /* Alamofire */; };
 		42F632D224CACFC400F1F439 /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 42F632D124CACFC400F1F439 /* SPAlert */; };
@@ -155,6 +158,7 @@
 		423B71EF24B191AF0099CE3E /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
 		423B71F124B1932E0099CE3E /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBoxModifier.swift; sourceTree = "<group>"; };
+		429039E624D45027005A25C0 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		429FD87F24B202DA003A49AF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		42F632D724CB1CF900F1F439 /* MealWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MealWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		42F632DB24CB1CF900F1F439 /* MealWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealWidget.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 				086CC54E24AF819400456846 /* HSpacer.swift */,
 				086CC55024AF849D00456846 /* TextStyles.swift */,
 				423B71F124B1932E0099CE3E /* Background.swift */,
+				429039E624D45027005A25C0 /* ActivityIndicator.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -475,6 +480,7 @@
 				08C9AC1724A74A83002AF525 /* MainView.swift in Sources */,
 				086CC54D24AF816200456846 /* VSpacer.swift in Sources */,
 				08C9ABE924A74A53002AF525 /* AppDelegate.swift in Sources */,
+				429039E724D45027005A25C0 /* ActivityIndicator.swift in Sources */,
 				088E5D4D24A889CB0031342D /* RoundBoxModifier.swift in Sources */,
 				08C9AC1A24A74A83002AF525 /* MealRow.swift in Sources */,
 				08C9AC1224A74A83002AF525 /* NoticeListView.swift in Sources */,
@@ -524,9 +530,11 @@
 				42F632EB24CB3A2600F1F439 /* HSpacer.swift in Sources */,
 				42F632EA24CB3A2300F1F439 /* VSpacer.swift in Sources */,
 				42F632DC24CB1CF900F1F439 /* MealWidget.swift in Sources */,
-				427A14F324CD4BE4005600FE /* User.swift in Sources */,
+				429039E424D3984D005A25C0 /* User.swift in Sources */,
 				42F632E924CB383F00F1F439 /* Dimibob.swift in Sources */,
 				427A14F024CD17C1005600FE /* MealItem.swift in Sources */,
+				42AEE7E624D828D70098B2B9 /* TimetableItem.swift in Sources */,
+				429039E524D39853005A25C0 /* Tokens.swift in Sources */,
 				42F6330C24CBAB7C00F1F439 /* NextMealWidgetView.swift in Sources */,
 				42F632E124CB1CFA00F1F439 /* MealWidget.intentdefinition in Sources */,
 				4212D98124CC124B00FF82D5 /* DateTime.swift in Sources */,

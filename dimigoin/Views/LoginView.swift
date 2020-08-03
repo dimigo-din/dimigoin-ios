@@ -13,6 +13,7 @@ struct LoginView: View {
     @State var id = ""
     @State var password = ""
     @State var showErrorMessage:Bool = false
+    @State var isLoading: Bool = false
     
     var body: some View {
         ZStack {
@@ -28,7 +29,6 @@ struct LoginView: View {
                     TextField("아이디", text: $id)
                         .modifier(TextFieldModifier())
                         .modifier(ClearButton(text: $id))
-                        
                     VSpacer(16)
                     SecureField("비밀번호", text: $password)
                         .modifier(TextFieldModifier())
@@ -37,6 +37,7 @@ struct LoginView: View {
                     Text("아이디 혹은 비밀번호를 확인해 주세요").highlightRed().caption2().opacity(showErrorMessage ? 1:0)
                     VSpacer(13)
                     Button(action: {
+                        isLoading = true
                         tokenAPI.set(id: self.id, password: self.password)
                         let tokenStatus: TokenStatus = tokenAPI.getTokens()
                         if(tokenStatus == .exist) {
@@ -60,6 +61,15 @@ struct LoginView: View {
                 
             }.padding(.horizontal)
             .keyboardResponsive()
+            
+            if #available(iOS 14.0, *) {
+                if(isLoading) {
+                    ProgressView().progressViewStyle(CircularProgressViewStyle())
+                }
+            } else {
+                // Fallback on earlier versions
+            }
+            
         }
     }
     func navigateToMainView() {

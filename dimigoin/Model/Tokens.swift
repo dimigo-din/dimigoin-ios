@@ -26,6 +26,7 @@ class TokenAPI: ObservableObject {
     @Published var tokenStatus: TokenStatus = .none
     private var id: String = ""
     private var password: String = ""
+    var loginFailed: Bool = false
     
     init() {
         checkTokenStatus()
@@ -53,6 +54,7 @@ class TokenAPI: ObservableObject {
                     self.tokenStatus = .exist
                 default:
                     self.tokenStatus = .fail
+                    self.loginFailed = true
                 }
             }
         }

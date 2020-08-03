@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import SwiftUI
+import Alamofire
 
 struct User: Codable, Identifiable {
     var name: String
@@ -17,13 +17,51 @@ struct User: Codable, Identifiable {
     var klass: String
     var number: String
     var serial: String
-    var photo: String
+    var photo: String = "person.crop.circle"
     var email: String
-    var user_type: String
     var weekly_request_count: Int
     var daily_request_count: Int
     var weekly_ticket_num: Int
     var daily_ticket_num: Int
+}
+
+class UserDataAPI: ObservableObject {
+    @Published var user = User(name: "",
+                               id: "",
+                               idx: 0,
+                               grade: "",
+                               klass: "",
+                               number: "",
+                               serial: "",
+                               photo: "",
+                               email: "",
+                               weekly_request_count: 0,
+                               daily_request_count: 0,
+                               weekly_ticket_num: 0,
+                               daily_ticket_num: 0)
+    
+    init() {
+        getUserData()
+    }
+    func getUserData() {
+        let headers: HTTPHeaders = [
+            "Authorization": ""
+        ]
+        let url: String = "https://api.dimigo.in/auth/jwt/"
+        AF.request(url, method: .post, encoding: JSONEncoding.default, headers: headers).response { response in
+            if let status = response.response?.statusCode {
+                switch(status) {
+                case 200:
+                    guard let data = response.data else { return }
+                    let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+//                    self.tokens.token = json["token"] as! String
+//                default:
+//                    self.tokenStatus = .fail
+                default: return 
+                }
+            }
+        }
+    }
 }
 
 func getMajor(klass: Int) -> String {
@@ -47,7 +85,6 @@ let dummyUser: User = User(name: "변경민",
                           serial: "2413",
                           photo: "person.crop.circle",
                           email: "bkm.change.min@gmail.com",
-                          user_type: "S",
                           weekly_request_count: 0,
                           daily_request_count: 0,
                           weekly_ticket_num: 5,
