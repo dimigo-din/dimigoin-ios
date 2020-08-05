@@ -12,21 +12,19 @@ import Alamofire
 enum TokenStatus {
     case exist
     case none
-    case fail
 }
 
 struct Tokens: Codable, Identifiable {
     var id = UUID()
-    var token: String
-    var refresh_token: String
+    var token: String = ""
+    var refresh_token: String = ""
 }
 
 class TokenAPI: ObservableObject {
-    @Published var tokens = Tokens(token: "", refresh_token: "")
+    @Published var tokens = Tokens()
     @Published var tokenStatus: TokenStatus = .none
     private var id: String = ""
     private var password: String = ""
-    var loginFailed: Bool = false
     
     init() {
         checkTokenStatus()
@@ -46,15 +44,17 @@ class TokenAPI: ObservableObject {
                 switch(status) {
                 case 200:
                     guard let data = response.data else { return }
-                    let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                    let json = try! JSONSerialization.jsonObject(with: data) as! [String: Any]
+                    print(type(of: json))
                     self.tokens.token = json["token"] as! String
                     self.tokens.refresh_token = json["refresh_token"] as! String
                     self.debugToken()
                     self.saveTokens()
                     self.tokenStatus = .exist
                 default:
-                    self.tokenStatus = .fail
-                    self.loginFailed = true
+                    print("get token failed")
+                    debugPrint(response)
+                    self.tokenStatus = .none
                 }
             }
         }
@@ -103,7 +103,7 @@ class TokenAPI: ObservableObject {
                     self.saveTokens()
                     self.tokenStatus = .exist
                 default:
-                    self.tokenStatus = .fail
+                    self.tokenStatus = .none
                 }
             }
         }

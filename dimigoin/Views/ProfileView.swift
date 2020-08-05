@@ -14,7 +14,7 @@ struct ProfileView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var tokenAPI: TokenAPI
     var user: User
-    
+    @Binding var isLogout: Bool
     
     var body: some View {
         NavigationView {
@@ -60,10 +60,13 @@ struct ProfileView: View {
                     Text("프로필 수정하기").SquareButton(312, 27)
                 }
                 Button(action: {
-                    SPAlert.present(title: "로그아웃", preset: SPAlertPreset.error)
+                    
 //                    dismiss()
                     dismiss()
                     self.isPresented = false
+                    self.isLogout = true
+                    
+                    SPAlert.present(title: "로그아웃", preset: SPAlertPreset.error)
                     tokenAPI.clearTokens()
                 }) {
                     Text("로그아웃").SquareButtonRed(312, 27)

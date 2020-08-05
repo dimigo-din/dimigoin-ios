@@ -14,6 +14,7 @@ struct MainView: View {
     @State var showProfile = false
     @State var meals: [Dimibob] = []
     @State var isLogout: Bool = false
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -21,7 +22,6 @@ struct MainView: View {
                     TimetableRow(timetable: dummyTimeTable).padding()
                 }
                 NoticeRow(notices: [dummyNotice1, dummyNotice2]).padding()
-
                 MealRow(mealData: mealData).padding()
 
                 IngangRow(ingangs: [dummyIngang1, dummyIngang2]).padding()
@@ -35,7 +35,7 @@ struct MainView: View {
                         .resizable()
                         .frame(width: 30, height: 30)
                 }.sheet(isPresented: $showProfile) {
-                    ProfileView(isPresented: $showProfile, tokenAPI: tokenAPI, user: dummyUser)
+                    ProfileView(isPresented: $showProfile, tokenAPI: tokenAPI, user: dummyUser, isLogout: $isLogout)
                 }
             )
         }

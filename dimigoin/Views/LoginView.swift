@@ -39,12 +39,12 @@ struct LoginView: View {
                     Button(action: {
                         isLoading = true
                         tokenAPI.set(id: self.id, password: self.password)
-                        let tokenStatus: TokenStatus = tokenAPI.getTokens()
-                        if(tokenStatus == .exist) {
+                        tokenAPI.getTokens()
+                        if(tokenAPI.tokenStatus == .exist) {
                             // navigation to main
                             navigateToMainView()
                         }
-                        else if(tokenStatus == .fail) {
+                        else if(tokenAPI.tokenStatus == .none) {
                             self.showErrorMessage = true
                         }
                     }) {
@@ -57,18 +57,17 @@ struct LoginView: View {
                 Text("DIMIGOIN").caption2().bold()
                 +
                 Text(" Communications").caption2()
-//                Text("© 2020 DIMIGOIN Communicaions").caption2().bold()
                 
             }.padding(.horizontal)
             .keyboardResponsive()
             
-            if #available(iOS 14.0, *) {
-                if(isLoading) {
-                    ProgressView().progressViewStyle(CircularProgressViewStyle())
-                }
-            } else {
-                // Fallback on earlier versions
-            }
+//            if #available(iOS 14.0, *) {
+//                if(tokenAPI.isLoading) {
+//                    ProgressView().progressViewStyle(CircularProgressViewStyle())
+//                }
+//            } else {
+//                // Fallback on earlier versions
+//            }
             
         }
     }
