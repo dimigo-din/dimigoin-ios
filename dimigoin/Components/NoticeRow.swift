@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct NoticeRow: View {
-    @State var notices: [Notice]
+    @ObservedObject var noticeData: NoticeAPI
     
     var body: some View {
         VStack {
@@ -22,27 +22,19 @@ struct NoticeRow: View {
                         .offset(x: -5)
                 }
                 Spacer()
-                NavigationLink(destination: NoticeListView()) {
+                NavigationLink(destination: NoticeListView(noticeData: noticeData)) {
                     Text("더 보기").caption1()
                 }
             }
-            
             VSpacer(14)
-            
-            VStack(spacing: 15.0) {
-                ForEach(0 ..< self.notices.count) { noticeIndex in
-                    if noticeIndex < 3 {
-                        NoticeItem(notice: self.notices[noticeIndex])
-                    }
-                }
-            }
+            NoticeItem(noticeData: noticeData)
         }
     }
 }
-
-struct NoticeRow_Previews: PreviewProvider {
-    static var previews: some View {
-        NoticeRow(notices: [dummyNotice1, dummyNotice2])
-            .previewLayout(.sizeThatFits)
-    }
-}
+//
+//struct NoticeRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NoticeRow(notices: [dummyNotice1, dummyNotice2])
+//            .previewLayout(.sizeThatFits)
+//    }
+//}

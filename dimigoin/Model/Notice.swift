@@ -35,7 +35,12 @@ class NoticeAPI: ObservableObject {
                 switch(status) {
                 case 200:
                     let json = JSON(response.value!)
-                    print(json["notice"][0]["description"])
+                    self.notice.description = json["notice"][0]["description"].string!
+                    /// temp data until api update
+                    self.notice.type = "학과"
+                    self.notice.registered = "2020년 7월 10일"
+                    ///
+                    self.debugNotice()
                 default: debugPrint(response)
                 }
             }

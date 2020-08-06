@@ -9,13 +9,12 @@
 import SwiftUI
 
 struct NoticeListView: View {
+    @ObservedObject var noticeData: NoticeAPI
     var body: some View {
         ScrollView {
             VStack(spacing: 15.0) {
                 VStack(alignment: .leading, spacing: 10.0) {
-                    ForEach([dummyNotice1, dummyNotice2], id: \.self) { notice in
-                        NoticeItem(notice: notice)
-                    }
+                    NoticeItem(noticeData: noticeData)
                 }
                 Divider()
                 VStack(alignment: .leading, spacing: 10.0) {
@@ -27,8 +26,8 @@ struct NoticeListView: View {
     }
 }
 
-struct NoticeListView_Previews: PreviewProvider {
-    static var previews: some View {
-        NoticeListView()
-    }
-}
+//struct NoticeListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NoticeListView()
+//    }
+//}

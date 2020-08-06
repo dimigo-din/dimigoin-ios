@@ -22,7 +22,7 @@ struct MainView: View {
                 if getDay() != "토" && getDay() != "일" {
                     TimetableRow(timetable: dummyTimeTable).padding()
                 }
-                NoticeRow(notices: [noticeData.notice]).padding()
+                NoticeRow(noticeData: noticeData).padding()
                 MealRow(mealData: mealData).padding()
 
                 IngangRow(ingangs: [dummyIngang1, dummyIngang2]).padding()
