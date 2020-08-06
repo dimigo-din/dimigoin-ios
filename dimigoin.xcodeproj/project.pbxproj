@@ -52,6 +52,7 @@
 		423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71EF24B191AF0099CE3E /* ClearButton.swift */; };
 		423B71F224B1932E0099CE3E /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F124B1932E0099CE3E /* Background.swift */; };
 		423B71F424B1B3F60099CE3E /* CustomBoxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */; };
+		4277E5A124DC1A6A006F9032 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 4277E5A024DC1A6A006F9032 /* SwiftyJSON */; };
 		427A14F024CD17C1005600FE /* MealItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9AC0E24A74A83002AF525 /* MealItem.swift */; };
 		427A14F124CD17D2005600FE /* CustomBoxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */; };
 		427A14F224CD4724005600FE /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8493C24A90432000A9ACD /* Timetable.swift */; };
@@ -188,6 +189,7 @@
 			files = (
 				42C4E4D524CEAEEB004EC6AF /* Alamofire in Frameworks */,
 				42F632D924CB1CF900F1F439 /* SwiftUI.framework in Frameworks */,
+				4277E5A124DC1A6A006F9032 /* SwiftyJSON in Frameworks */,
 				42F632D824CB1CF900F1F439 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,6 +400,7 @@
 			name = MealWidgetExtension;
 			packageProductDependencies = (
 				42C4E4D424CEAEEB004EC6AF /* Alamofire */,
+				4277E5A024DC1A6A006F9032 /* SwiftyJSON */,
 			);
 			productName = MealWidgetExtension;
 			productReference = 42F632D724CB1CF900F1F439 /* MealWidgetExtension.appex */;
@@ -832,6 +835,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4277E5A024DC1A6A006F9032 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42B6DE9924DBE5E700B1E299 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
 		42B6DE9A24DBE5E700B1E299 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 42B6DE9924DBE5E700B1E299 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;

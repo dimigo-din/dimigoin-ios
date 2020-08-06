@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 enum TokenStatus {
     case exist
@@ -29,11 +30,11 @@ class TokenAPI: ObservableObject {
     init() {
         checkTokenStatus()
     }
-    func set(id: String, password: String) {
+    func set(id: String, password: String) -> Void{
         self.id = id
         self.password = password
     }
-    func getTokens() -> TokenStatus{
+    func getTokens() -> Void{
         let parameters: [String: String] = [
             "id": "\(self.id)",
             "password": "\(self.password)"
@@ -43,10 +44,9 @@ class TokenAPI: ObservableObject {
             if let status = response.response?.statusCode {
                 switch(status) {
                 case 200:
-                    guard let data = response.data else { return }
-                    let json = try! JSONSerialization.jsonObject(with: data) as! [String: Any]
-                    self.tokens.token = json["token"] as! String
-                    self.tokens.refresh_token = json["refresh_token"] as! String
+                    let json = JSON(response.value!!)
+                    self.tokens.token = json["token"].string!
+                    self.tokens.refresh_token = json["refresh_token"].string!
                     self.debugToken()
                     self.saveTokens()
                     self.tokenStatus = .exist
@@ -57,7 +57,6 @@ class TokenAPI: ObservableObject {
                 }
             }
         }
-        return tokenStatus
     }
     func debugToken() {
         print("token : \(tokens.token)")
@@ -94,10 +93,9 @@ class TokenAPI: ObservableObject {
             if let status = response.response?.statusCode {
                 switch(status) {
                 case 200:
-                    guard let data = response.data else { return }
-                    let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                    self.tokens.token = json["token"] as! String
-                    self.tokens.refresh_token = json["refresh_token"] as! String
+                    let json = JSON(response.value!!)
+                    self.tokens.token = json["token"].string!
+                    self.tokens.refresh_token = json["refresh_token"].string!
                     self.debugToken()
                     self.saveTokens()
                     self.tokenStatus = .exist

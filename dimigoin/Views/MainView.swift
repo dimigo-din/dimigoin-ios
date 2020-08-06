@@ -24,9 +24,7 @@ struct MainView: View {
                 }
                 NoticeRow(noticeData: noticeData).padding()
                 MealRow(mealData: mealData).padding()
-
                 IngangRow(ingangs: [dummyIngang1, dummyIngang2]).padding()
-                Spacer()
             }
             .navigationViewStyle(StackNavigationViewStyle())
             .navigationBarTitle(Text(getDate()))
@@ -36,7 +34,7 @@ struct MainView: View {
                         .resizable()
                         .frame(width: 30, height: 30)
                 }.sheet(isPresented: $showProfile) {
-                    ProfileView(isPresented: $showProfile, tokenAPI: tokenAPI, user: dummyUser, isLogout: $isLogout)
+                    ProfileView()
                 }
             )
         }

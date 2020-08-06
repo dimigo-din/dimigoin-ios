@@ -8,56 +8,52 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 struct User: Codable, Identifiable {
-    var name: String
-    var id: String
-    var idx: Int
-    var grade: String
-    var klass: String
-    var number: String
-    var serial: String
+    var name: String = ""
+    var id: String = ""
+    var idx: Int = 0
+    var grade: String = ""
+    var klass: String = ""
+    var number: String = ""
+    var serial: String = ""
     var photo: String = "person.crop.circle"
-    var email: String
-    var weekly_request_count: Int
-    var daily_request_count: Int
-    var weekly_ticket_num: Int
-    var daily_ticket_num: Int
+    var email: String = ""
+    var weekly_request_count: Int = 0
+    var daily_request_count: Int = 0
+    var weekly_ticket_num: Int = 0
+    var daily_ticket_num: Int = 0
 }
 
-class UserDataAPI: ObservableObject {
-    @Published var user = User(name: "",
-                               id: "",
-                               idx: 0,
-                               grade: "",
-                               klass: "",
-                               number: "",
-                               serial: "",
-                               photo: "",
-                               email: "",
-                               weekly_request_count: 0,
-                               daily_request_count: 0,
-                               weekly_ticket_num: 0,
-                               daily_ticket_num: 0)
-    
+class UserAPI: ObservableObject {
+    @Published var user = User()
+    var tokenAPI: TokenAPI = TokenAPI()
     init() {
+        tokenAPI.loadTokens()
         getUserData()
     }
     func getUserData() {
+        print("get User Data")
         let headers: HTTPHeaders = [
-            "Authorization": ""
+            "Authorization": "Bearer \(tokenAPI.tokens.token)"
         ]
-        let url: String = "https://api.dimigo.in/auth/jwt/"
-        AF.request(url, method: .post, encoding: JSONEncoding.default, headers: headers).response { response in
+        let url: String = "https://api.dimigo.in/user/jwt/"
+        AF.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).response { response in
             if let status = response.response?.statusCode {
                 switch(status) {
                 case 200:
-                    guard let data = response.data else { return }
-                    let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-//                    self.tokens.token = json["token"] as! String
-//                default:
-//                    self.tokenStatus = .fail
-                default: return 
+                    let json = JSON(response.value!!)
+                    self.user.idx = json["idx"].int!
+                    self.user.name = json["name"].string!
+                    self.user.grade = json["grade"].string!
+                    self.user.klass = json["klass"].string!
+                    self.user.number = json["number"].string!
+                    self.user.serial = json["serial"].string!
+                    self.user.email = json["email"].string!
+                default:
+                    self.tokenAPI.refreshTokens()
+                    self.getUserData()
                 }
             }
         }

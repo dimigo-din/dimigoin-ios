@@ -10,11 +10,14 @@ import SwiftUI
 import SPAlert
 
 struct ProfileView: View {
-    @Binding var isPresented: Bool
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @ObservedObject var tokenAPI: TokenAPI
-    var user: User
-    @Binding var isLogout: Bool
+    @ObservedObject var tokenAPI = TokenAPI()
+    @ObservedObject var userAPI = UserAPI()
+    
+    init() {
+        tokenAPI.loadTokens()
+        self.userAPI.getUserData()
+    }
     
     var body: some View {
         NavigationView {
@@ -23,31 +26,25 @@ struct ProfileView: View {
                     HStack {
                         Text("이름").highlight().headline()
                         Spacer()
-                        Text(user.name).foregroundColor(Color("DisabledButton"))
-                    }
-                    Divider().offset(x: 35)
-                    HStack {
-                        Text("아이디").highlight().headline()
-                        Spacer()
-                        Text("\(user.id)").foregroundColor(Color("DisabledButton"))
+                        Text(userAPI.user.name).foregroundColor(Color("DisabledButton"))
                     }
                     Divider().offset(x: 35)
                     HStack {
                         Text("학적").highlight().headline()
                         Spacer()
-                        Text("\(user.grade)학년 \(user.klass)반 \(user.number)번 (\(getMajor(klass: Int(user.klass) ?? 0)))").foregroundColor(Color("DisabledButton"))
+                        Text("\(userAPI.user.grade)학년 \(userAPI.user.klass)반 \(userAPI.user.number)번 (\(getMajor(klass: Int(userAPI.user.klass) ?? 0)))").foregroundColor(Color("DisabledButton"))
                     }
                     Divider().offset(x: 35)
                     HStack {
                         Text("금주 잔여 인강실 티켓").highlight().headline()
                         Spacer()
-                        Text("\(user.weekly_ticket_num)").foregroundColor(Color("DisabledButton"))
+                        Text("\(userAPI.user.weekly_ticket_num)").foregroundColor(Color("DisabledButton"))
                     }
                     Divider().offset(x: 35)
                     HStack {
                         Text("금일 잔여 인강실 티켓").highlight().headline()
                         Spacer()
-                        Text("\(user.daily_ticket_num)").foregroundColor(Color("DisabledButton"))
+                        Text("\(userAPI.user.daily_ticket_num)").foregroundColor(Color("DisabledButton"))
                     }
                 }.CustomBox()
                 VSpacer(10)
@@ -60,12 +57,7 @@ struct ProfileView: View {
                     Text("프로필 수정하기").SquareButton(312, 27)
                 }
                 Button(action: {
-                    
-//                    dismiss()
                     dismiss()
-                    self.isPresented = false
-                    self.isLogout = true
-                    
                     SPAlert.present(title: "로그아웃", preset: SPAlertPreset.error)
                     tokenAPI.clearTokens()
                 }) {
