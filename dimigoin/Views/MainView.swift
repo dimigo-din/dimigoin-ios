@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var mealData: MealAPI
-    @ObservedObject var noticeData = NoticeAPI()
+    @ObservedObject var mealAPI: MealAPI
+    @ObservedObject var noticeAPI = NoticeAPI()
     @ObservedObject var tokenAPI: TokenAPI
     @ObservedObject var ingangAPI = IngangAPI()
     @State var showProfile = false
@@ -19,7 +19,7 @@ struct MainView: View {
     
     init(tokenAPI: TokenAPI, mealAPI: MealAPI) {
         self.tokenAPI = tokenAPI
-        self.mealData = mealAPI
+        self.mealAPI = mealAPI
     }
     
     var body: some View {
@@ -28,9 +28,9 @@ struct MainView: View {
                 if getDay() != "토" && getDay() != "일" {
                     TimetableRow(timetable: dummyTimeTable).padding()
                 }
-                NoticeRow(noticeData: noticeData).padding()
-                MealRow(mealData: mealData).padding()
-                IngangRow(ingangData: ingangAPI).padding()
+                NoticeRow(noticeAPI: noticeAPI).padding()
+                MealRow(mealAPI: mealAPI).padding()
+                IngangRow(ingangAPI: ingangAPI).padding()
             }
             .navigationViewStyle(StackNavigationViewStyle())
             .navigationBarTitle(Text(getDate()))

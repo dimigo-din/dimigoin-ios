@@ -9,20 +9,20 @@
 import SwiftUI
 
 struct IngangRow: View {
-    @ObservedObject var ingangData: IngangAPI
+    @ObservedObject var ingangAPI: IngangAPI
     
     var body: some View {
         VStack {
             HStack {
                 Text("인강실 목록").sectionHeader()
                 Spacer()
-                NavigationLink(destination: IngangListView(ingangData: ingangData)) {
+                NavigationLink(destination: IngangListView(ingangAPI: ingangAPI)) {
                     Text("자세히 보기")
                 }
             }
             VSpacer(15)
             VStack(spacing: 15.0) {
-                ForEach(self.ingangData.ingangs, id: \.self) { ingang in
+                ForEach(self.ingangAPI.ingangs, id: \.self) { ingang in
                     IngangItem(ingang: ingang)
                 }
             }

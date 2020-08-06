@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		083D74F324A7783300989B47 /* Dimibob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083D74F224A7783300989B47 /* Dimibob.swift */; };
+		083D74F324A7783300989B47 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083D74F224A7783300989B47 /* Meal.swift */; };
 		083D74F524A778AA00989B47 /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083D74F424A778AA00989B47 /* Notice.swift */; };
 		083D74F924A77A9E00989B47 /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083D74F824A77A9E00989B47 /* Tokens.swift */; };
 		0842D9E024A8ED6C00D0F330 /* TimetableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0842D9DF24A8ED6C00D0F330 /* TimetableItem.swift */; };
@@ -71,7 +71,7 @@
 		42F632E124CB1CFA00F1F439 /* MealWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 42F632DD24CB1CF900F1F439 /* MealWidget.intentdefinition */; };
 		42F632E224CB1CFA00F1F439 /* MealWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 42F632DD24CB1CF900F1F439 /* MealWidget.intentdefinition */; };
 		42F632E524CB1CFA00F1F439 /* MealWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 42F632D724CB1CF900F1F439 /* MealWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		42F632E924CB383F00F1F439 /* Dimibob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083D74F224A7783300989B47 /* Dimibob.swift */; };
+		42F632E924CB383F00F1F439 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083D74F224A7783300989B47 /* Meal.swift */; };
 		42F632EA24CB3A2300F1F439 /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54C24AF816200456846 /* VSpacer.swift */; };
 		42F632EB24CB3A2600F1F439 /* HSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54E24AF819400456846 /* HSpacer.swift */; };
 		42F632EC24CB3A2B00F1F439 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC55024AF849D00456846 /* TextStyles.swift */; };
@@ -111,7 +111,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		083D74F224A7783300989B47 /* Dimibob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimibob.swift; sourceTree = "<group>"; };
+		083D74F224A7783300989B47 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		083D74F424A778AA00989B47 /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
 		083D74F824A77A9E00989B47 /* Tokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokens.swift; sourceTree = "<group>"; };
 		0842D9DF24A8ED6C00D0F330 /* TimetableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableItem.swift; sourceTree = "<group>"; };
@@ -273,7 +273,7 @@
 				4212D98224CC6A0400FF82D5 /* User.swift */,
 				08C9AC0024A74A83002AF525 /* Ingang.swift */,
 				08B8493C24A90432000A9ACD /* Timetable.swift */,
-				083D74F224A7783300989B47 /* Dimibob.swift */,
+				083D74F224A7783300989B47 /* Meal.swift */,
 				083D74F424A778AA00989B47 /* Notice.swift */,
 				083D74F824A77A9E00989B47 /* Tokens.swift */,
 				4212D97F24CC124B00FF82D5 /* DateTime.swift */,
@@ -497,7 +497,7 @@
 				08C9AC1824A74A83002AF525 /* NoticeItem.swift in Sources */,
 				08C9AC1B24A74A83002AF525 /* IngangRow.swift in Sources */,
 				088E5D4F24A88FD30031342D /* HeadlineModifier.swift in Sources */,
-				083D74F324A7783300989B47 /* Dimibob.swift in Sources */,
+				083D74F324A7783300989B47 /* Meal.swift in Sources */,
 				08C9AC1C24A74A83002AF525 /* IngangItem.swift in Sources */,
 				08B8493B24A90403000A9ACD /* TimetableRow.swift in Sources */,
 				086CC54F24AF819400456846 /* HSpacer.swift in Sources */,
@@ -538,7 +538,7 @@
 				42F632EA24CB3A2300F1F439 /* VSpacer.swift in Sources */,
 				42F632DC24CB1CF900F1F439 /* MealWidget.swift in Sources */,
 				429039E424D3984D005A25C0 /* User.swift in Sources */,
-				42F632E924CB383F00F1F439 /* Dimibob.swift in Sources */,
+				42F632E924CB383F00F1F439 /* Meal.swift in Sources */,
 				427A14F024CD17C1005600FE /* MealItem.swift in Sources */,
 				42AEE7E624D828D70098B2B9 /* TimetableItem.swift in Sources */,
 				429039E524D39853005A25C0 /* Tokens.swift in Sources */,

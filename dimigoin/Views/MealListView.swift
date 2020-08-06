@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MealListView: View {
-    @ObservedObject var mealData: MealAPI
+    @ObservedObject var mealAPI: MealAPI
     var days = [
         "월", "화", "수", "목", "금", "토", "일"
     ]
@@ -28,9 +28,9 @@ struct MealListView: View {
         ScrollView {
             VStack(spacing: 15.0) {
                 VStack(alignment: .leading, spacing: 10.0) {
-                    MealItem(mealType: .breakfast, mealData: mealData)
-                    MealItem(mealType: .lunch, mealData: mealData)
-                    MealItem(mealType: .dinner, mealData: mealData)
+                    MealItem(mealType: .breakfast, mealAPI: mealAPI)
+                    MealItem(mealType: .lunch, mealAPI: mealAPI)
+                    MealItem(mealType: .dinner, mealAPI: mealAPI)
                 }
                 Divider()
                 VStack(alignment: .leading, spacing: 10.0) {

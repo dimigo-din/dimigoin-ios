@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MealItem: View {
     @State var mealType: MealType
-    @ObservedObject var mealData: MealAPI
+    @ObservedObject var mealAPI: MealAPI
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -21,9 +21,9 @@ struct MealItem: View {
             }
             VSpacer(10)
             switch mealType {
-                case .breakfast: Text(self.mealData.meal.breakfast).body().lineSpacing(5)
-                case .lunch: Text(self.mealData.meal.lunch).body().lineSpacing(5)
-                case .dinner: Text(self.mealData.meal.dinner).body().lineSpacing(5)
+                case .breakfast: Text(self.mealAPI.meal.breakfast).body().lineSpacing(5)
+                case .lunch: Text(self.mealAPI.meal.lunch).body().lineSpacing(5)
+                case .dinner: Text(self.mealAPI.meal.dinner).body().lineSpacing(5)
             }
             
         }.CustomBox()

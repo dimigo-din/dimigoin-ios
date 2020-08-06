@@ -9,12 +9,12 @@
 import SwiftUI
 
 struct NoticeListView: View {
-    @ObservedObject var noticeData: NoticeAPI
+    @ObservedObject var noticeAPI: NoticeAPI
     var body: some View {
         ScrollView {
             VStack(spacing: 15.0) {
                 VStack(alignment: .leading, spacing: 10.0) {
-                    NoticeItem(noticeData: noticeData)
+                    NoticeItem(noticeAPI: noticeAPI)
                 }
                 Divider()
                 VStack(alignment: .leading, spacing: 10.0) {

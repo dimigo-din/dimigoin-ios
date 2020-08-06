@@ -9,16 +9,16 @@
 import SwiftUI
 
 struct NoticeItem: View {
-    @ObservedObject var noticeData: NoticeAPI
+    @ObservedObject var noticeAPI: NoticeAPI
 
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .bottom) {
-                Text(self.noticeData.notice.registered).highlight().headline()
-                Text(self.noticeData.notice.type).caption2().headline()
+                Text(self.noticeAPI.notice.registered).highlight().headline()
+                Text(self.noticeAPI.notice.type).caption2().headline()
             }
             VSpacer(10)
-            Text(self.noticeData.notice.description).body().lineLimit(nil)
+            Text(self.noticeAPI.notice.description).body().lineLimit(nil)
         }.CustomBox()
     }
 }

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct NoticeRow: View {
-    @ObservedObject var noticeData: NoticeAPI
+    @ObservedObject var noticeAPI: NoticeAPI
     
     var body: some View {
         VStack {
@@ -22,12 +22,12 @@ struct NoticeRow: View {
                         .offset(x: -5)
                 }
                 Spacer()
-                NavigationLink(destination: NoticeListView(noticeData: noticeData)) {
+                NavigationLink(destination: NoticeListView(noticeAPI: noticeAPI)) {
                     Text("더 보기").caption1()
                 }
             }
             VSpacer(14)
-            NoticeItem(noticeData: noticeData)
+            NoticeItem(noticeAPI: noticeAPI)
         }
     }
 }

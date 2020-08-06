@@ -10,12 +10,12 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var tokenAPI = TokenAPI()
-    @ObservedObject var mealData = MealAPI()
+    @ObservedObject var mealAPI = MealAPI()
     
     var body: some View {
         Group {
             if(tokenAPI.tokenStatus == .exist) {
-                MainView(tokenAPI: tokenAPI, mealAPI: mealData)
+                MainView(tokenAPI: tokenAPI, mealAPI: mealAPI)
             }
             else if(tokenAPI.tokenStatus == .none) {
                 LoginView(tokenAPI: tokenAPI)

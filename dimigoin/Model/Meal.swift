@@ -25,11 +25,7 @@ class MealAPI: ObservableObject {
             self.meal.lunch = json["lunch"].string!
             self.meal.dinner = json["dinner"].string!
             self.dubugMeal()
-            self.saveMeal()
         }
-    }
-    func saveMeal() {
-        UserDefaults.standard.set(try? PropertyListEncoder().encode(meal), forKey:"mealData")
     }
     func dubugMeal() {
         print(meal.breakfast)
