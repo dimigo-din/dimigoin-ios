@@ -10,6 +10,7 @@ import SwiftUI
 
 struct MainView: View {
     @ObservedObject var mealData = MealAPI()
+    @ObservedObject var noticeData = NoticeAPI()
     @State var tokenAPI: TokenAPI
     @State var showProfile = false
     @State var meals: [Dimibob] = []
@@ -21,7 +22,7 @@ struct MainView: View {
                 if getDay() != "토" && getDay() != "일" {
                     TimetableRow(timetable: dummyTimeTable).padding()
                 }
-                NoticeRow(notices: [dummyNotice1, dummyNotice2]).padding()
+                NoticeRow(notices: [noticeData.notice]).padding()
                 MealRow(mealData: mealData).padding()
 
                 IngangRow(ingangs: [dummyIngang1, dummyIngang2]).padding()

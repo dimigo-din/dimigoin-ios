@@ -19,8 +19,10 @@ class MealAPI: ObservableObject {
     func getMeals(){
         let url = "https://api.dimigo.in/dimibobs/\(getAPIDate())"
         AF.request(url, method: .get, encoding: JSONEncoding.default).responseData { response in
-            guard let data = response.data else { return }
-            let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+            guard let data = response.data else {
+                return
+            }
+            let json = try! JSONSerialization.jsonObject(with: data) as! [String: Any]
             self.meal.breakfast = json["breakfast"]! as! String
             self.meal.lunch = json["lunch"]! as! String
             self.meal.dinner = json["dinner"]! as! String

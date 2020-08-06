@@ -59,6 +59,7 @@
 		429039E524D39853005A25C0 /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083D74F824A77A9E00989B47 /* Tokens.swift */; };
 		429039E724D45027005A25C0 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429039E624D45027005A25C0 /* ActivityIndicator.swift */; };
 		42AEE7E624D828D70098B2B9 /* TimetableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0842D9DF24A8ED6C00D0F330 /* TimetableItem.swift */; };
+		42B6DE9B24DBE5E700B1E299 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 42B6DE9A24DBE5E700B1E299 /* SwiftyJSON */; };
 		42C4E4D324CEA8E3004EC6AF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 42C4E4D224CEA8E3004EC6AF /* Alamofire */; };
 		42C4E4D524CEAEEB004EC6AF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 42C4E4D424CEAEEB004EC6AF /* Alamofire */; };
 		42F632D224CACFC400F1F439 /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 42F632D124CACFC400F1F439 /* SPAlert */; };
@@ -175,6 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42B6DE9B24DBE5E700B1E299 /* SwiftyJSON in Frameworks */,
 				42C4E4D324CEA8E3004EC6AF /* Alamofire in Frameworks */,
 				42F632D224CACFC400F1F439 /* SPAlert in Frameworks */,
 			);
@@ -280,6 +282,7 @@
 		08C9AC0124A74A83002AF525 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				08C9AC0724A74A83002AF525 /* MainView.swift */,
 				08C9ABEC24A74A53002AF525 /* ContentView.swift */,
 				08C9AC0224A74A83002AF525 /* NoticeListView.swift */,
 				08C9AC0324A74A83002AF525 /* ProfileView.swift */,
@@ -287,7 +290,6 @@
 				08C9AC0524A74A83002AF525 /* IngangListView.swift */,
 				08C9AC0624A74A83002AF525 /* MealListView.swift */,
 				08B8493E24A90487000A9ACD /* WeekTimetableView.swift */,
-				08C9AC0724A74A83002AF525 /* MainView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -375,6 +377,7 @@
 			packageProductDependencies = (
 				42F632D124CACFC400F1F439 /* SPAlert */,
 				42C4E4D224CEA8E3004EC6AF /* Alamofire */,
+				42B6DE9A24DBE5E700B1E299 /* SwiftyJSON */,
 			);
 			productName = dimigoin;
 			productReference = 08C9ABE524A74A53002AF525 /* DimigoIN.app */;
@@ -430,6 +433,7 @@
 			packageReferences = (
 				42F632D024CACFC400F1F439 /* XCRemoteSwiftPackageReference "SPAlert" */,
 				42C4E4D124CEA8E3004EC6AF /* XCRemoteSwiftPackageReference "Alamofire" */,
+				42B6DE9924DBE5E700B1E299 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 08C9ABE624A74A53002AF525 /* Products */;
 			projectDirPath = "";
@@ -801,6 +805,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		42B6DE9924DBE5E700B1E299 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		42C4E4D124CEA8E3004EC6AF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -820,6 +832,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		42B6DE9A24DBE5E700B1E299 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42B6DE9924DBE5E700B1E299 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
 		42C4E4D224CEA8E3004EC6AF /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 42C4E4D124CEA8E3004EC6AF /* XCRemoteSwiftPackageReference "Alamofire" */;

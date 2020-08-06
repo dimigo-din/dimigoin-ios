@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 struct Notice: Hashable, Codable, Identifiable {
     var id = UUID()
@@ -18,24 +19,30 @@ struct Notice: Hashable, Codable, Identifiable {
 
 class NoticeAPI: ObservableObject {
     @Published var notice = Notice(type: "", registered: "", description: "")
+    var tokenAPI: TokenAPI = TokenAPI()
+    init() {
+        tokenAPI.loadTokens()
+        getNotice()
+    }
     func getNotice() {
+        print("get notice")
         let headers: HTTPHeaders = [
-            "Authorization":"Bearer token"
+            "Authorization":"Bearer \(tokenAPI.tokens.token)"
         ]
-        let url = "https://api.dimigo.in/notice/lastest"
-        AF.request(url, method: .post, encoding: JSONEncoding.default, headers: headers).response { response in
+        let url = "https://api.dimigo.in/notice/latest"
+        AF.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).response { response in
             if let status = response.response?.statusCode {
-//                switch(status) {
-//                case 200:
-//                    guard let data = response.data else { return }
-//                    let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-//                    self.tokens.token = json["token"] as! String
-//                    
-//                default:
-//                    self.tokenStatus = .fail
-//                }
+                switch(status) {
+                case 200:
+                    let json = JSON(response.value!)
+                    print(json["notice"][0]["description"])
+                default: debugPrint(response)
+                }
             }
         }
+    }
+    func debugNotice() {
+        print(notice.description)
     }
 }
 

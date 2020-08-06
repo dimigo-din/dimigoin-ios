@@ -45,7 +45,6 @@ class TokenAPI: ObservableObject {
                 case 200:
                     guard let data = response.data else { return }
                     let json = try! JSONSerialization.jsonObject(with: data) as! [String: Any]
-                    print(type(of: json))
                     self.tokens.token = json["token"] as! String
                     self.tokens.refresh_token = json["refresh_token"] as! String
                     self.debugToken()
