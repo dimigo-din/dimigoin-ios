@@ -9,20 +9,20 @@
 import SwiftUI
 
 struct IngangRow: View {
-    @State var ingangs: [Ingang]
+    @ObservedObject var ingangData: IngangAPI
     
     var body: some View {
         VStack {
             HStack {
                 Text("인강실 목록").sectionHeader()
                 Spacer()
-                NavigationLink(destination: IngangListView()) {
+                NavigationLink(destination: IngangListView(ingangData: ingangData)) {
                     Text("자세히 보기")
                 }
             }
             VSpacer(15)
             VStack(spacing: 15.0) {
-                ForEach(self.ingangs, id: \.self) { ingang in
+                ForEach(self.ingangData.ingangs, id: \.self) { ingang in
                     IngangItem(ingang: ingang)
                 }
             }
@@ -30,9 +30,9 @@ struct IngangRow: View {
     }
 }
 
-struct IngangRow_Previews: PreviewProvider {
-    static var previews: some View {
-        IngangRow(ingangs: [dummyIngang1, dummyIngang2])
-            .previewLayout(.sizeThatFits)
-    }
-}
+//struct IngangRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        IngangRow(ingangs: [dummyIngang1, dummyIngang2])
+//            .previewLayout(.sizeThatFits)
+//    }
+//}

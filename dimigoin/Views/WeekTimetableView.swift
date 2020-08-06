@@ -31,8 +31,6 @@ struct WeekTimetableView: View {
                 Divider()
                 Text("정보").headline()
             }
-            
-            
             .navigationBarTitle(Text("\(user.grade)학년 \(user.klass)반 시간표"))
         }.padding()
     }

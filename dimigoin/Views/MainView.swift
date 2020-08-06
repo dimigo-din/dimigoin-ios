@@ -9,12 +9,18 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var mealData = MealAPI()
+    @ObservedObject var mealData: MealAPI
     @ObservedObject var noticeData = NoticeAPI()
-    @State var tokenAPI: TokenAPI
+    @ObservedObject var tokenAPI: TokenAPI
+    @ObservedObject var ingangAPI = IngangAPI()
     @State var showProfile = false
     @State var meals: [Dimibob] = []
     @State var isLogout: Bool = false
+    
+    init(tokenAPI: TokenAPI, mealAPI: MealAPI) {
+        self.tokenAPI = tokenAPI
+        self.mealData = mealAPI
+    }
     
     var body: some View {
         NavigationView {
@@ -24,7 +30,7 @@ struct MainView: View {
                 }
                 NoticeRow(noticeData: noticeData).padding()
                 MealRow(mealData: mealData).padding()
-                IngangRow(ingangs: [dummyIngang1, dummyIngang2]).padding()
+                IngangRow(ingangData: ingangAPI).padding()
             }
             .navigationViewStyle(StackNavigationViewStyle())
             .navigationBarTitle(Text(getDate()))
@@ -34,7 +40,7 @@ struct MainView: View {
                         .resizable()
                         .frame(width: 30, height: 30)
                 }.sheet(isPresented: $showProfile) {
-                    ProfileView()
+                    ProfileView(tokenAPI: tokenAPI)
                 }
             )
         }

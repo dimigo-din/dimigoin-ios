@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct IngangListView: View {
+    @ObservedObject var ingangData: IngangAPI
     var body: some View {
         ScrollView {
             VStack(spacing: 15.0) {
@@ -29,7 +30,7 @@ struct IngangListView: View {
                 Divider()
                 VStack(alignment: .leading, spacing: 10.0) {
                     Text("인강실 목록").font(.headline)
-                    ForEach([dummyIngang1, dummyIngang2], id: \.self) { ingang in
+                    ForEach(ingangData.ingangs, id: \.self) { ingang in
                         IngangItem(ingang: ingang)
                     }
                 }
@@ -58,8 +59,8 @@ struct IngangListView: View {
     }
 }
 
-struct IngangListView_Previews: PreviewProvider {
-    static var previews: some View {
-        IngangListView()
-    }
-}
+//struct IngangListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        IngangListView()
+//    }
+//}

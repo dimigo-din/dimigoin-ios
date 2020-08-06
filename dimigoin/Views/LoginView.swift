@@ -15,6 +15,10 @@ struct LoginView: View {
     @State var showErrorMessage:Bool = false
     @State var isLoading: Bool = false
     
+    init(tokenAPI: TokenAPI) {
+        self.tokenAPI = tokenAPI
+    }
+    
     var body: some View {
         ZStack {
             Background()
@@ -26,11 +30,11 @@ struct LoginView: View {
                         Image("FullLogo").resizable().frame(width: 240, height: 64)
                     }
                     VSpacer(30)
-                    TextField("아이디", text: $id)
+                    TextField("아이디", text: $id).textContentType(.username)
                         .modifier(TextFieldModifier())
                         .modifier(ClearButton(text: $id))
                     VSpacer(16)
-                    SecureField("비밀번호", text: $password)
+                    SecureField("비밀번호", text: $password).textContentType(.password)
                         .modifier(TextFieldModifier())
                         .modifier(ClearButton(text: $password))
                     VSpacer(13)

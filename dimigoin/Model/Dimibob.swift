@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class MealAPI: ObservableObject {
     @Published var meal = Dimibob(breakfast: "급식 정보가 없습니다.",
@@ -19,13 +20,10 @@ class MealAPI: ObservableObject {
     func getMeals(){
         let url = "https://api.dimigo.in/dimibobs/\(getAPIDate())"
         AF.request(url, method: .get, encoding: JSONEncoding.default).responseData { response in
-            guard let data = response.data else {
-                return
-            }
-            let json = try! JSONSerialization.jsonObject(with: data) as! [String: Any]
-            self.meal.breakfast = json["breakfast"]! as! String
-            self.meal.lunch = json["lunch"]! as! String
-            self.meal.dinner = json["dinner"]! as! String
+            let json = JSON(response.value!)
+            self.meal.breakfast = json["breakfast"].string!
+            self.meal.lunch = json["lunch"].string!
+            self.meal.dinner = json["dinner"].string!
             self.dubugMeal()
             self.saveMeal()
         }

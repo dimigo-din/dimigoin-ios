@@ -99,6 +99,7 @@ class TokenAPI: ObservableObject {
                     self.debugToken()
                     self.saveTokens()
                     self.tokenStatus = .exist
+                    print("Token expired, refreshed")
                 default:
                     self.tokenStatus = .none
                 }
