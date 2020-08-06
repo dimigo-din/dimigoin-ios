@@ -41,7 +41,10 @@ class NoticeAPI: ObservableObject {
                     self.notice.registered = "2020년 7월 10일"
                     ///
                     self.debugNotice()
-                default: debugPrint(response)
+                default:
+                    debugPrint(response)
+                    self.tokenAPI.refreshTokens()
+                    self.getNotice()
                 }
             }
         }
