@@ -32,6 +32,15 @@ struct Applicant: Identifiable, Hashable, Codable {
     var serial: Int
 }
 
+enum IngangStatus: Int {
+    case success = 200
+    case usedAllTicket = 403
+    case noIngang = 404
+    case timeout = 405
+    case blacklisted = 406
+    case full = 409
+}
+
 class IngangAPI: ObservableObject {
     @Published var ingangs: [Ingang] = []
     @Published var applicants: [Applicant] = []
@@ -45,6 +54,66 @@ class IngangAPI: ObservableObject {
         self.tokenAPI.loadTokens()
         self.getIngangList()
         self.getAppliedStudents()
+    }
+    func applyIngang(idx: Int) -> IngangStatus{
+        let headers: HTTPHeaders = [
+            "Authorization":"Bearer \(tokenAPI.tokens.token)"
+        ]
+        let parameters: [String: String] = [
+            "ingang_idx": "\(String(idx))"
+        ]
+        let url = "https://api.dimigo.in/ingang"
+        var ingangStatus: IngangStatus = .noIngang
+        AF.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).response { response in
+            if let status = response.response?.statusCode {
+                switch(status) {
+                case 200: //success
+                    ingangStatus = IngangStatus.success
+                case 403: // 본인 학년&반 인강실이 아니거나 오늘(일주일)치 신청을 모두 했습니다.
+                    ingangStatus = IngangStatus.usedAllTicket
+                case 404: //인강실 신청이 없습니다.
+                    ingangStatus = IngangStatus.noIngang
+                case 405: // 신청 시간이 아닙니다
+                    ingangStatus = IngangStatus.timeout
+                case 406: // 인강실 블랙리스트이므로 신청할 수 없습니다.
+                    ingangStatus = IngangStatus.blacklisted
+                case 409: // 이미 신청을 했거나 신청인원이 꽉 찼습니다.
+                    ingangStatus = IngangStatus.full
+                default:
+                    self.tokenAPI.refreshTokens()
+                    ingangStatus = self.applyIngang(idx: idx)
+                }
+            }
+        }
+        return ingangStatus
+    }
+    func cancelIngang(idx: Int) -> IngangStatus{
+        let headers: HTTPHeaders = [
+            "Authorization":"Bearer \(tokenAPI.tokens.token)"
+        ]
+        let parameters: [String: String] = [
+            "ingang_idx": "\(String(idx))"
+        ]
+        let url = "https://api.dimigo.in/ingang"
+        var ingangStatus: IngangStatus = .noIngang
+        AF.request(url, method: .delete, encoding: JSONEncoding.default, headers: headers).response { response in
+            if let status = response.response?.statusCode {
+                switch(status) {
+                case 200: //success
+                    ingangStatus = IngangStatus.success
+                case 403: // 본인 학년&반 인강실이 아니거나 오늘(일주일)치 신청을 모두 했습니다.
+                    ingangStatus = IngangStatus.usedAllTicket
+                case 404: //인강실 신청이 없습니다.
+                    ingangStatus = IngangStatus.noIngang
+                case 405: // 신청 시간이 아닙니다
+                    ingangStatus = IngangStatus.timeout
+                default:
+                    self.tokenAPI.refreshTokens()
+                    ingangStatus = self.cancelIngang(idx: idx)
+                }
+            }
+        }
+        return ingangStatus
     }
     
     func getIngangList() {

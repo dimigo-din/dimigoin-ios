@@ -56,7 +56,6 @@ func getAPIDate() -> String {
     return date.string(from: now)
 }
 
-
 func tomorrow() -> Date {
     
     var dateComponents = DateComponents()
@@ -66,4 +65,14 @@ func tomorrow() -> Date {
     let tomorrow = Calendar.current.date(byAdding: dateComponents, to: now)  // Add the DateComponents
     
     return tomorrow!
+}
+
+func isWeekday() -> Bool {
+    let today = getDay()
+    if(today == "토" || today == "일") {
+        return false
+    }
+    else {
+       return true
+    }
 }

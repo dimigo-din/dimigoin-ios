@@ -18,7 +18,7 @@
 		088E5D4F24A88FD30031342D /* HeadlineModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088E5D4E24A88FD30031342D /* HeadlineModifier.swift */; };
 		08B8493B24A90403000A9ACD /* TimetableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8493A24A90403000A9ACD /* TimetableRow.swift */; };
 		08B8493D24A90432000A9ACD /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8493C24A90432000A9ACD /* Timetable.swift */; };
-		08B8493F24A90487000A9ACD /* WeekTimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8493E24A90487000A9ACD /* WeekTimetableView.swift */; };
+		08B8493F24A90487000A9ACD /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8493E24A90487000A9ACD /* TimetableView.swift */; };
 		08B8494124A9082A000A9ACD /* HelperTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8494024A9082A000A9ACD /* HelperTextModifier.swift */; };
 		08C9ABE924A74A53002AF525 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9ABE824A74A53002AF525 /* AppDelegate.swift */; };
 		08C9ABEB24A74A53002AF525 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9ABEA24A74A53002AF525 /* SceneDelegate.swift */; };
@@ -123,7 +123,7 @@
 		088E5D4E24A88FD30031342D /* HeadlineModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlineModifier.swift; sourceTree = "<group>"; };
 		08B8493A24A90403000A9ACD /* TimetableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableRow.swift; sourceTree = "<group>"; };
 		08B8493C24A90432000A9ACD /* Timetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
-		08B8493E24A90487000A9ACD /* WeekTimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekTimetableView.swift; sourceTree = "<group>"; };
+		08B8493E24A90487000A9ACD /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
 		08B8494024A9082A000A9ACD /* HelperTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperTextModifier.swift; sourceTree = "<group>"; };
 		08C9ABE524A74A53002AF525 /* DimigoIN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DimigoIN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08C9ABE824A74A53002AF525 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -292,7 +292,7 @@
 				08C9AC0424A74A83002AF525 /* LoginView.swift */,
 				08C9AC0524A74A83002AF525 /* IngangListView.swift */,
 				08C9AC0624A74A83002AF525 /* MealListView.swift */,
-				08B8493E24A90487000A9ACD /* WeekTimetableView.swift */,
+				08B8493E24A90487000A9ACD /* TimetableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -516,7 +516,7 @@
 				08C9AC1624A74A83002AF525 /* MealListView.swift in Sources */,
 				08C9AC0F24A74A83002AF525 /* PrimaryButtonModifier.swift in Sources */,
 				0842D9E024A8ED6C00D0F330 /* TimetableItem.swift in Sources */,
-				08B8493F24A90487000A9ACD /* WeekTimetableView.swift in Sources */,
+				08B8493F24A90487000A9ACD /* TimetableView.swift in Sources */,
 				08C9ABEB24A74A53002AF525 /* SceneDelegate.swift in Sources */,
 				423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */,
 				086CC55124AF849D00456846 /* TextStyles.swift in Sources */,

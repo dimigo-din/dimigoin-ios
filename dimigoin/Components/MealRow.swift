@@ -21,7 +21,7 @@ struct MealRow: View {
                 Text("급식").sectionHeader()
                 Spacer()
                 NavigationLink(destination: MealListView(mealAPI: mealAPI)) {
-                    Text("전체 급식 보기")
+                    Text("전체 급식 보기").caption1()
                 }
             }
             

@@ -18,13 +18,13 @@ struct IngangRow: View {
                 Text("인강실 목록").sectionHeader()
                 Spacer()
                 NavigationLink(destination: IngangListView(ingangAPI: ingangAPI, userAPI: userAPI)) {
-                    Text("자세히 보기")
+                    Text("자세히 보기").caption1()
                 }
             }
             VSpacer(15)
             VStack(spacing: 15.0) {
                 ForEach(self.ingangAPI.ingangs, id: \.self) { ingang in
-                    IngangItem(ingang: ingang)
+                    IngangItem(ingangAPI: ingangAPI, ingang: ingang)
                 }
             }
         }

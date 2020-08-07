@@ -32,7 +32,7 @@ struct IngangListView: View {
                 VStack(alignment: .leading, spacing: 10.0) {
                     Text("인강실 목록").font(.headline)
                     ForEach(ingangAPI.ingangs, id: \.self) { ingang in
-                        IngangItem(ingang: ingang)
+                        IngangItem(ingangAPI: ingangAPI, ingang: ingang)
                     }
                 }
                 Divider()

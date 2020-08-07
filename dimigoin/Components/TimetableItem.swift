@@ -17,7 +17,7 @@ struct TimetableItem: View {
 //                Text("\(user.grade)학년 \(user.klass)반 시간표").highlight().heavy().padding()
             HStack(alignment: .top) {
                 ForEach((1...5), id: \.self) { day in
-                    if(getDay() == getDay(day)) {
+                    if(getDay() == getDay(day) || !isWeekday()) {
                         VStack(alignment: .center){
                             Text("\(getDay(day))").highlight().heavy()
                             Divider().frame(height: 3).background(Color("Primary"))
