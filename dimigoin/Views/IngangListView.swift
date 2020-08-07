@@ -10,6 +10,7 @@ import SwiftUI
 
 struct IngangListView: View {
     @ObservedObject var ingangAPI: IngangAPI
+    @ObservedObject var userAPI: UserAPI
     var body: some View {
         ScrollView {
             VStack(spacing: 15.0) {
@@ -24,7 +25,7 @@ struct IngangListView: View {
                     Text("신청 정보").font(.headline)
                     HStack {
                         Text("잔여 티켓").highlight().headline()
-                        Text("2개 / 4개")
+                        Text("\(userAPI.user.daily_ticket_num)개 / \(userAPI.user.weekly_ticket_num)개")
                     }.CustomBox()
                 }
                 Divider()
@@ -40,15 +41,15 @@ struct IngangListView: View {
 
                     HStack {
                         Text("1타임").highlight().headline()
-                        ForEach(0 ..< 2) { _ in
-                            Text("엄서훈")
+                        ForEach(ingangAPI.applicants, id: \.self) { applicant in
+                            Text(applicant.name)
                         }
                     }.CustomBox()
                     
                     HStack {
                         Text("2타임").highlight().headline()
-                        ForEach(0 ..< 4) { _ in
-                            Text("여준호")
+                        ForEach(ingangAPI.applicants, id: \.self) { applicant in
+                            Text(applicant.name)
                         }
                     }.CustomBox()
                 }

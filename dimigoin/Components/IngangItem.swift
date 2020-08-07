@@ -48,10 +48,10 @@ struct IngangItem: View {
     }
 }
 
-struct IngangItem_Previews: PreviewProvider {
-    static var previews: some View {
-        IngangItem(ingang: dummyIngang1)
-            .padding()
-            .previewLayout(.sizeThatFits)
-    }
-}
+//struct IngangItem_Previews: PreviewProvider {
+//    static var previews: some View {
+//        IngangItem(ingang: dummyIngang1)
+//            .padding()
+//            .previewLayout(.sizeThatFits)
+//    }
+//}

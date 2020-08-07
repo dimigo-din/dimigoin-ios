@@ -34,7 +34,7 @@ class NoticeAPI: ObservableObject {
             if let status = response.response?.statusCode {
                 switch(status) {
                 case 200:
-                    let json = JSON(response.value!)
+                    let json = JSON(response.value!!)
                     self.notice.description = json["notice"][0]["description"].string!
                     /// temp data until api update
                     self.notice.type = "학과"

@@ -32,6 +32,7 @@ class UserAPI: ObservableObject {
     init() {
         tokenAPI.loadTokens()
         getUserData()
+        getUserTicket()
     }
     func getUserData() {
         print("get User Data")
@@ -57,6 +58,35 @@ class UserAPI: ObservableObject {
                 }
             }
         }
+    }
+    func getUserTicket() {
+        let headers: HTTPHeaders = [
+            "Authorization":"Bearer \(tokenAPI.tokens.token)"
+        ]
+        let url = "https://api.dimigo.in/ingang/"
+        AF.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).response { response in
+            if let status = response.response?.statusCode {
+                switch(status) {
+                case 200:
+                    let json = JSON(response.value!!)
+                    self.user.weekly_request_count = json["weekly_request_count"].int!
+                    self.user.daily_request_count = json["daily_request_count"].int!
+                    self.user.weekly_ticket_num = json["weekly_ticket_num"].int!
+                    self.user.daily_ticket_num = json["daily_ticket_num"].int!
+                default:
+                    debugPrint(response)
+                    self.tokenAPI.refreshTokens()
+                    self.getUserTicket()
+                }
+            }
+        }
+        
+    }
+    func debugTicket() {
+        print("weekly_ticket_num : \(user.weekly_ticket_num)")
+        print("weekly_request_count : \(user.weekly_request_count)")
+        print("daily_ticket_num : \(user.daily_ticket_num)")
+        print("daily_request_count : \(user.daily_request_count)")
     }
 }
 

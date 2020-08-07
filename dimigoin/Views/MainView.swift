@@ -13,6 +13,7 @@ struct MainView: View {
     @ObservedObject var noticeAPI = NoticeAPI()
     @ObservedObject var tokenAPI: TokenAPI
     @ObservedObject var ingangAPI = IngangAPI()
+    @ObservedObject var userAPI = UserAPI()
     @State var showProfile = false
     @State var meals: [Dimibob] = []
     @State var isLogout: Bool = false
@@ -30,7 +31,7 @@ struct MainView: View {
                 }
                 NoticeRow(noticeAPI: noticeAPI).padding()
                 MealRow(mealAPI: mealAPI).padding()
-                IngangRow(ingangAPI: ingangAPI).padding()
+                IngangRow(ingangAPI: ingangAPI, userAPI: userAPI).padding()
             }
             .navigationViewStyle(StackNavigationViewStyle())
             .navigationBarTitle(Text(getDate()))
@@ -40,7 +41,7 @@ struct MainView: View {
                         .resizable()
                         .frame(width: 30, height: 30)
                 }.sheet(isPresented: $showProfile) {
-                    ProfileView(tokenAPI: tokenAPI)
+                    ProfileView(tokenAPI: tokenAPI, userAPI: userAPI)
                 }
             )
         }

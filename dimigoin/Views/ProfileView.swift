@@ -12,10 +12,11 @@ import SPAlert
 struct ProfileView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var tokenAPI: TokenAPI
-    @ObservedObject var userAPI = UserAPI()
+    @ObservedObject var userAPI: UserAPI
     
-    init(tokenAPI: TokenAPI) {
+    init(tokenAPI: TokenAPI, userAPI: UserAPI) {
         self.tokenAPI = tokenAPI
+        self.userAPI = userAPI
     }
     
     var body: some View {

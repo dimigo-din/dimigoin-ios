@@ -22,12 +22,29 @@ struct Ingang: Hashable, Codable {
     var max_user: Int
 }
 
+struct Applicant: Identifiable, Hashable, Codable {
+    var id = UUID()
+    var idx: Int
+    var name: String
+    var grade: Int
+    var klass: Int
+    var number: Int
+    var serial: Int
+}
+
 class IngangAPI: ObservableObject {
     @Published var ingangs: [Ingang] = []
+    @Published var applicants: [Applicant] = []
     var tokenAPI = TokenAPI()
+    var weekly_request_count: Int = 0
+    var daily_request_count: Int = 0
+    var weekly_ticket_num: Int = 0
+    var daily_ticket_num: Int = 0
+    
     init() {
         self.tokenAPI.loadTokens()
         self.getIngangList()
+        self.getAppliedStudents()
     }
     
     func getIngangList() {
@@ -40,7 +57,7 @@ class IngangAPI: ObservableObject {
             if let status = response.response?.statusCode {
                 switch(status) {
                 case 200:
-                    let json = JSON(response.value!)
+                    let json = JSON(response.value!!)
                     let ingangCnt = json["ingangs"].count
                     print("\(ingangCnt)개의 인강이 있습니다")
                     for idx in 0..<ingangCnt {
@@ -64,11 +81,6 @@ class IngangAPI: ObservableObject {
             }
         }
     }
-    func debugIngangs() {
-        for ingang in self.ingangs {
-            print(ingang)
-        }
-    }
     func getTickets() {
         let headers: HTTPHeaders = [
             "Authorization":"Bearer \(tokenAPI.tokens.token)"
@@ -78,23 +90,53 @@ class IngangAPI: ObservableObject {
             if let status = response.response?.statusCode {
                 switch(status) {
                 case 200:
-                    let json = JSON(response.value!)
-                    let weekly_request_count = json["weekly_request_count"].int!
-                    let daily_request_count = json["daily_request_count"].int!
-                    let weekly_ticket_num = json["weekly_ticket_num"].int!
-                    let daily_ticket_num = json["daily_ticket_num"].int!
+                    let json = JSON(response.value!!)
+                    self.weekly_request_count = json["weekly_request_count"].int!
+                    self.daily_request_count = json["daily_request_count"].int!
+                    self.weekly_ticket_num = json["weekly_ticket_num"].int!
+                    self.daily_ticket_num = json["daily_ticket_num"].int!
                 default:
                     debugPrint(response)
                     self.tokenAPI.refreshTokens()
-                    self.getIngangList()
+                    self.getTickets()
                 }
             }
         }
     }
+    func getAppliedStudents() {
+        let headers: HTTPHeaders = [
+            "Authorization":"Bearer \(tokenAPI.tokens.token)"
+        ]
+        let url = "https://api.dimigo.in/ingang/users/myklass"
+        AF.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).response { response in
+            if let status = response.response?.statusCode {
+                switch(status) {
+                case 200:
+                    let json = JSON(response.value!!)
+                    let applicantCnt = json["users"].count
+                    for idx in 0..<applicantCnt {
+                        let newApplicant = Applicant(idx: json["users"][idx]["idx"].int!,
+                                                     name: json["users"][idx]["name"].string!,
+                                                     grade: json["users"][idx]["grade"].int!,
+                                                     klass: json["users"][idx]["klass"].int!,
+                                                     number: json["users"][idx]["number"].int!,
+                                                     serial: json["users"][idx]["serial"].int!)
+                        self.applicants.append(newApplicant)
+                    }
+                default:
+                    debugPrint(response)
+                    self.tokenAPI.refreshTokens()
+                    self.getAppliedStudents()
+                }
+            }
+        }
+    }
+    func debugIngangs() {
+        for ingang in self.ingangs {
+            print(ingang)
+        }
+    }
 }
-
-let dummyIngang1 = Ingang(idx: 0, day: "mon", title: "6월 27일 야간자율 학습 1타임", time: 1, request_start_date: 0, request_end_date: 1, status: false, present: 5, max_user: 9)
-let dummyIngang2 = Ingang(idx: 0, day: "mon", title: "6월 27일 야간자율 학습 2타임", time: 2, request_start_date: 0, request_end_date: 1, status: true, present: 3, max_user: 9)
 
 let ingangTime = [
     "",

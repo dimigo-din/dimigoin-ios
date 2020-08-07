@@ -12,6 +12,7 @@ struct WeekTimetableView: View {
     @State var timetable = dummyTimeTable
     @State var user = dummyUser
     var body: some View {
+        
         ScrollView {
             VStack(alignment: .leading) {
                 VStack {
