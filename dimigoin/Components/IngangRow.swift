@@ -10,14 +10,13 @@ import SwiftUI
 
 struct IngangRow: View {
     @ObservedObject var ingangAPI: IngangAPI
-    @ObservedObject var userAPI: UserAPI
     
     var body: some View {
         VStack {
             HStack {
                 Text("인강실 목록").sectionHeader()
                 Spacer()
-                NavigationLink(destination: IngangListView(ingangAPI: ingangAPI, userAPI: userAPI)) {
+                NavigationLink(destination: IngangListView(ingangAPI: ingangAPI)) {
                     Text("자세히 보기").caption1()
                 }
             }

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct IngangListView: View {
     @ObservedObject var ingangAPI: IngangAPI
-    @ObservedObject var userAPI: UserAPI
+    
     var body: some View {
         ScrollView {
             VStack(spacing: 15.0) {
@@ -25,7 +25,7 @@ struct IngangListView: View {
                     Text("신청 정보").font(.headline)
                     HStack {
                         Text("잔여 티켓").highlight().headline()
-                        Text("\(userAPI.user.daily_ticket_num)개 / \(userAPI.user.weekly_ticket_num)개")
+                        Text("\(ingangAPI.daily_ticket_num)개 / \(ingangAPI.weekly_ticket_num)개")
                     }.CustomBox()
                 }
                 Divider()

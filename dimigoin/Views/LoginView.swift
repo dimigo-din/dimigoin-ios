@@ -56,11 +56,7 @@ struct LoginView: View {
                     }
                 }
                 Spacer()
-                Text("© 2020 ").caption2()
-                +
-                Text("DIMIGOIN").caption2().bold()
-                +
-                Text(" Communications").caption2()
+                CopyrightText()
                 
             }.padding(.horizontal)
             .keyboardResponsive()

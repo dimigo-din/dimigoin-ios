@@ -51,36 +51,38 @@ class IngangAPI: ObservableObject {
     var daily_ticket_num: Int = 0
     
     init() {
-        self.tokenAPI.loadTokens()
         self.getIngangList()
-        self.getAppliedStudents()
+        self.getApplicantList()
+        self.getTickets()
     }
     func applyIngang(idx: Int) -> IngangStatus{
+        print("apply ingang : \(idx)")
         let headers: HTTPHeaders = [
             "Authorization":"Bearer \(tokenAPI.tokens.token)"
         ]
         let parameters: [String: String] = [
             "ingang_idx": "\(String(idx))"
         ]
-        let url = "https://api.dimigo.in/ingang"
-        var ingangStatus: IngangStatus = .noIngang
-        AF.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).response { response in
+        let url = "https://api.dimigo.in/ingang/"
+        var ingangStatus: IngangStatus = .success
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).response { response in
             if let status = response.response?.statusCode {
                 switch(status) {
                 case 200: //success
-                    ingangStatus = IngangStatus.success
+                    ingangStatus = .success
                 case 403: // 본인 학년&반 인강실이 아니거나 오늘(일주일)치 신청을 모두 했습니다.
-                    ingangStatus = IngangStatus.usedAllTicket
+                    ingangStatus = .usedAllTicket
                 case 404: //인강실 신청이 없습니다.
-                    ingangStatus = IngangStatus.noIngang
+                    ingangStatus = .noIngang
                 case 405: // 신청 시간이 아닙니다
-                    ingangStatus = IngangStatus.timeout
+                    ingangStatus = .timeout
                 case 406: // 인강실 블랙리스트이므로 신청할 수 없습니다.
-                    ingangStatus = IngangStatus.blacklisted
+                    ingangStatus = .blacklisted
                 case 409: // 이미 신청을 했거나 신청인원이 꽉 찼습니다.
-                    ingangStatus = IngangStatus.full
+                    ingangStatus = .full
                 default:
                     self.tokenAPI.refreshTokens()
+                    debugPrint(response)
                     ingangStatus = self.applyIngang(idx: idx)
                 }
             }
@@ -88,27 +90,29 @@ class IngangAPI: ObservableObject {
         return ingangStatus
     }
     func cancelIngang(idx: Int) -> IngangStatus{
+        print("cancel ingang : \(idx)")
         let headers: HTTPHeaders = [
             "Authorization":"Bearer \(tokenAPI.tokens.token)"
         ]
         let parameters: [String: String] = [
             "ingang_idx": "\(String(idx))"
         ]
-        let url = "https://api.dimigo.in/ingang"
-        var ingangStatus: IngangStatus = .noIngang
-        AF.request(url, method: .delete, encoding: JSONEncoding.default, headers: headers).response { response in
+        let url = "https://api.dimigo.in/ingang/\(String(idx))/"
+        var ingangStatus: IngangStatus = .success
+        AF.request(url, method: .delete, parameters: parameters, encoding: JSONEncoding.default, headers: headers).response { response in
             if let status = response.response?.statusCode {
                 switch(status) {
                 case 200: //success
-                    ingangStatus = IngangStatus.success
+                    ingangStatus = .success
                 case 403: // 본인 학년&반 인강실이 아니거나 오늘(일주일)치 신청을 모두 했습니다.
-                    ingangStatus = IngangStatus.usedAllTicket
+                    ingangStatus = .usedAllTicket
                 case 404: //인강실 신청이 없습니다.
-                    ingangStatus = IngangStatus.noIngang
+                    ingangStatus = .noIngang
                 case 405: // 신청 시간이 아닙니다
-                    ingangStatus = IngangStatus.timeout
+                    ingangStatus = .timeout
                 default:
                     self.tokenAPI.refreshTokens()
+                    debugPrint(response)
                     ingangStatus = self.cancelIngang(idx: idx)
                 }
             }
@@ -118,6 +122,7 @@ class IngangAPI: ObservableObject {
     
     func getIngangList() {
         print("get ingang list")
+        self.ingangs = []
         let headers: HTTPHeaders = [
             "Authorization":"Bearer \(tokenAPI.tokens.token)"
         ]
@@ -128,7 +133,7 @@ class IngangAPI: ObservableObject {
                 case 200:
                     let json = JSON(response.value!!)
                     let ingangCnt = json["ingangs"].count
-                    print("\(ingangCnt)개의 인강이 있습니다")
+//                    print("\(ingangCnt)개의 인강이 있습니다")
                     for idx in 0..<ingangCnt {
                         let newIngang = Ingang(idx: json["ingangs"][idx]["idx"].int!,
                                                day: json["ingangs"][idx]["day"].string!,
@@ -141,7 +146,7 @@ class IngangAPI: ObservableObject {
                                                max_user: json["ingangs"][idx]["max_user"].int!)
                         self.ingangs.append(newIngang)
                     }
-                    self.debugIngangs()
+//                    self.debugIngangs()
                 default:
                     debugPrint(response)
                     self.tokenAPI.refreshTokens()
@@ -151,6 +156,7 @@ class IngangAPI: ObservableObject {
         }
     }
     func getTickets() {
+        print("get ticket status")
         let headers: HTTPHeaders = [
             "Authorization":"Bearer \(tokenAPI.tokens.token)"
         ]
@@ -172,7 +178,9 @@ class IngangAPI: ObservableObject {
             }
         }
     }
-    func getAppliedStudents() {
+    func getApplicantList() {
+        print("get applicant list")
+        self.applicants = []
         let headers: HTTPHeaders = [
             "Authorization":"Bearer \(tokenAPI.tokens.token)"
         ]
@@ -195,7 +203,7 @@ class IngangAPI: ObservableObject {
                 default:
                     debugPrint(response)
                     self.tokenAPI.refreshTokens()
-                    self.getAppliedStudents()
+                    self.getApplicantList()
                 }
             }
         }

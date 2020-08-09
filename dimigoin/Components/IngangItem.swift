@@ -38,15 +38,19 @@ struct IngangItem: View {
                                 case .blacklisted: message = "인강실 블랙리스트이므로 신청할 수 없습니다"
                                 case .full: message = "이미 신청을 했거나 신청인원이 꽉 찼습니다"
                             }
+                            print(message)
                             if(ingangStatus != .success) {
-                                self.ingang.status.toggle()
                                 SPAlert.present(title: "신청 실패", message: message, preset: .privacy)
+                                self.ingang.status.toggle()
                             }
                             else {
                                 SPAlert.present(title: "신청 완료", preset: .done)
                             }
+                            ingangAPI.getIngangList()
+                            ingangAPI.getApplicantList()
+                            ingangAPI.getTickets()
                         }) {
-                            Text("신청하기")
+                            Text("신청하기").body()
                         }
                     } else {
                         Button(action: {
@@ -61,15 +65,17 @@ struct IngangItem: View {
                                 case .blacklisted: message = ""
                                 case .full: message = ""
                             }
+                            print(message)
                             if(ingangStatus != .success) {
-                                self.ingang.status.toggle()
                                 SPAlert.present(title: "인강 취소 실패", message: message, preset: .privacy)
+                                self.ingang.status.toggle()
                             }
                             else {
                                 SPAlert.present(title: "인강 취소 완료", preset: .done)
                             }
-                            // refresh api data
-                            // cancel ingang
+                            ingangAPI.getIngangList()
+                            ingangAPI.getApplicantList()
+                            ingangAPI.getTickets()
                         }) {
                             Text("취소하기")
                                 .foregroundColor(Color("DisabledButton"))

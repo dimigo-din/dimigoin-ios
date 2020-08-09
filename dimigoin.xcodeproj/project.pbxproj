@@ -62,6 +62,7 @@
 		429039E724D45027005A25C0 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429039E624D45027005A25C0 /* ActivityIndicator.swift */; };
 		42AEE7E624D828D70098B2B9 /* TimetableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0842D9DF24A8ED6C00D0F330 /* TimetableItem.swift */; };
 		42B6DE9B24DBE5E700B1E299 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 42B6DE9A24DBE5E700B1E299 /* SwiftyJSON */; };
+		42C487CA24DDB73000C594CB /* CopyrightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C487C924DDB73000C594CB /* CopyrightText.swift */; };
 		42C4E4D324CEA8E3004EC6AF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 42C4E4D224CEA8E3004EC6AF /* Alamofire */; };
 		42C4E4D524CEAEEB004EC6AF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 42C4E4D424CEAEEB004EC6AF /* Alamofire */; };
 		42F632D224CACFC400F1F439 /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 42F632D124CACFC400F1F439 /* SPAlert */; };
@@ -163,6 +164,7 @@
 		423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBoxModifier.swift; sourceTree = "<group>"; };
 		429039E624D45027005A25C0 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		429FD87F24B202DA003A49AF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		42C487C924DDB73000C594CB /* CopyrightText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyrightText.swift; sourceTree = "<group>"; };
 		42F632D724CB1CF900F1F439 /* MealWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MealWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		42F632DB24CB1CF900F1F439 /* MealWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealWidget.swift; sourceTree = "<group>"; };
 		42F632DD24CB1CF900F1F439 /* MealWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = MealWidget.intentdefinition; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				086CC55024AF849D00456846 /* TextStyles.swift */,
 				423B71F124B1932E0099CE3E /* Background.swift */,
 				429039E624D45027005A25C0 /* ActivityIndicator.swift */,
+				42C487C924DDB73000C594CB /* CopyrightText.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				08C9AC1724A74A83002AF525 /* MainView.swift in Sources */,
 				086CC54D24AF816200456846 /* VSpacer.swift in Sources */,
 				08C9ABE924A74A53002AF525 /* AppDelegate.swift in Sources */,
+				42C487CA24DDB73000C594CB /* CopyrightText.swift in Sources */,
 				429039E724D45027005A25C0 /* ActivityIndicator.swift in Sources */,
 				088E5D4D24A889CB0031342D /* RoundBoxModifier.swift in Sources */,
 				08C9AC1A24A74A83002AF525 /* MealRow.swift in Sources */,

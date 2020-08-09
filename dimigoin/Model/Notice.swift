@@ -18,10 +18,9 @@ struct Notice: Hashable, Codable, Identifiable {
 }
 
 class NoticeAPI: ObservableObject {
-    @Published var notice = Notice(type: "", registered: "", description: "")
+    @Published var notice = Notice(type: "-", registered: "-", description: "-")
     var tokenAPI: TokenAPI = TokenAPI()
     init() {
-        tokenAPI.loadTokens()
         getNotice()
     }
     func getNotice() {
@@ -39,8 +38,7 @@ class NoticeAPI: ObservableObject {
                     /// temp data until api update
                     self.notice.type = "학과"
                     self.notice.registered = "2020년 7월 10일"
-                    ///
-                    self.debugNotice()
+//                    self.debugNotice()
                 default:
                     debugPrint(response)
                     self.tokenAPI.refreshTokens()
@@ -53,6 +51,3 @@ class NoticeAPI: ObservableObject {
         print(notice.description)
     }
 }
-
-let dummyNotice1 = Notice(type: "디미고인", registered: "2020년 8월 10일", description: "디미고인 iOS앱이 출시됐습니다! 🎉")
-let dummyNotice2 = Notice(type: "학과", registered: "2020년 7월 10일", description: "2차 지필고사 기간은 7월 23일 ~ 7월 28입니다.")

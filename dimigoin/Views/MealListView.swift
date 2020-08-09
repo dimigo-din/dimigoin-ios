@@ -10,19 +10,6 @@ import SwiftUI
 
 struct MealListView: View {
     @ObservedObject var mealAPI: MealAPI
-    var days = [
-        "월", "화", "수", "목", "금", "토", "일"
-    ]
-    var day: String {
-        let now = Date()
-
-        let date = DateFormatter()
-        date.locale = Locale(identifier: "ko_kr")
-        date.timeZone = TimeZone(abbreviation: "KST")
-        date.dateFormat = "E"
-        
-        return date.string(from: now)
-    }
     
     var body: some View {
         ScrollView {
@@ -41,7 +28,7 @@ struct MealListView: View {
                 Spacer()
             }.padding()
         }
-        .navigationBarTitle("오늘의 급식")
+        .navigationBarTitle("이번주 급식")
     }
 }
 

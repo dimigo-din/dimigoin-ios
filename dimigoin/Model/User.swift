@@ -30,7 +30,6 @@ class UserAPI: ObservableObject {
     @Published var user = User()
     var tokenAPI: TokenAPI = TokenAPI()
     init() {
-        tokenAPI.loadTokens()
         getUserData()
         getUserTicket()
     }
@@ -60,6 +59,7 @@ class UserAPI: ObservableObject {
         }
     }
     func getUserTicket() {
+        print("get user ticket status")
         let headers: HTTPHeaders = [
             "Authorization":"Bearer \(tokenAPI.tokens.token)"
         ]

@@ -28,9 +28,10 @@ struct MainView: View {
                 TimetableRow(timetable: dummyTimeTable).padding()
                 NoticeRow(noticeAPI: noticeAPI).padding()
                 MealRow(mealAPI: mealAPI).padding()
-                if(isWeekday()) {
-                    IngangRow(ingangAPI: ingangAPI, userAPI: userAPI).padding()
+                if(ingangAPI.ingangs != []) {
+                    IngangRow(ingangAPI: ingangAPI).padding()
                 }
+                CopyrightText()
             }
             .navigationViewStyle(StackNavigationViewStyle())
             .navigationBarTitle(Text(getDate()))

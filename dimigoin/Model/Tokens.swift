@@ -35,6 +35,7 @@ class TokenAPI: ObservableObject {
         self.password = password
     }
     func getTokens() -> Void{
+        print("get token")
         let parameters: [String: String] = [
             "id": "\(self.id)",
             "password": "\(self.password)"
@@ -63,28 +64,31 @@ class TokenAPI: ObservableObject {
         print("refresh_token : \(tokens.refresh_token)")
     }
     func saveTokens() {
+        print("save tokens")
         UserDefaults.standard.setValue(self.tokens.token, forKey: "token")
         UserDefaults.standard.setValue(self.tokens.refresh_token, forKey: "refresh_token")
     }
     func loadTokens() {
+        print("load tokens")
         self.tokens.token = UserDefaults.standard.string(forKey: "token") ?? ""
         self.tokens.refresh_token = UserDefaults.standard.string(forKey: "refresh_token") ?? ""
     }
     func checkTokenStatus(){
         if UserDefaults.standard.string(forKey: "token") != nil {
             self.tokenStatus = .exist
-            print("Existing tokens found")
+            self.loadTokens()
         } else {
             tokenStatus = .none
         }
     }
     func clearTokens() {
+        print("Remove tokens")
         UserDefaults.standard.removeObject(forKey: "token")
         UserDefaults.standard.removeObject(forKey: "refresh_token")
         self.tokenStatus = .none
-        print("Remove tokens")
     }
     func refreshTokens() {
+        print("refresh tokens")
         let headers: HTTPHeaders = [
             "Authorization": "Bearer \(self.tokens.refresh_token)"
         ]
@@ -99,7 +103,6 @@ class TokenAPI: ObservableObject {
                     self.debugToken()
                     self.saveTokens()
                     self.tokenStatus = .exist
-                    print("Token expired, refreshed")
                 default:
                     self.tokenStatus = .none
                 }

@@ -65,19 +65,25 @@ struct ProfileView: View {
                 }
                 Spacer()
             }.padding()
-            .navigationBarTitle("나의 프로필")
+            .navigationBarTitle("\(userAPI.user.name)님의 프로필")
             .navigationBarItems(
+                leading: Button(action: {
+                    dismiss()
+                }) {
+                    Image(systemName: "gear").resizable().frame(width: 25, height: 25)
+                },
                 trailing: Button(action: {
                     dismiss()
                 }) {
-                    Image(systemName: "xmark")
+                    Image(systemName: "xmark").resizable().frame(width: 20, height: 20)
                 }
             )
+            
         }.navigationViewStyle(StackNavigationViewStyle())
     }
     func dismiss() {
         self.presentationMode.wrappedValue.dismiss()
-        print("dismiss")
+        print("dismiss profile view")
     }
 }
 
