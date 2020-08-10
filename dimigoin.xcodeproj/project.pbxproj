@@ -49,6 +49,7 @@
 		42364EA924B0CFEC008427D5 /* NanumSquareExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA524B0CFEC008427D5 /* NanumSquareExtraBold.ttf */; };
 		42364EAA24B0CFEC008427D5 /* NanumSquareRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA624B0CFEC008427D5 /* NanumSquareRegular.ttf */; };
 		42364EAC24B14E02008427D5 /* KeyboardResponsive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42364EAB24B14E02008427D5 /* KeyboardResponsive.swift */; };
+		423A9EEA24E026EC00E046BE /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423A9EE924E026EC00E046BE /* OptionView.swift */; };
 		423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71EF24B191AF0099CE3E /* ClearButton.swift */; };
 		423B71F224B1932E0099CE3E /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F124B1932E0099CE3E /* Background.swift */; };
 		423B71F424B1B3F60099CE3E /* CustomBoxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */; };
@@ -159,6 +160,7 @@
 		42364EA524B0CFEC008427D5 /* NanumSquareExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareExtraBold.ttf; sourceTree = "<group>"; };
 		42364EA624B0CFEC008427D5 /* NanumSquareRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRegular.ttf; sourceTree = "<group>"; };
 		42364EAB24B14E02008427D5 /* KeyboardResponsive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponsive.swift; sourceTree = "<group>"; };
+		423A9EE924E026EC00E046BE /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
 		423B71EF24B191AF0099CE3E /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
 		423B71F124B1932E0099CE3E /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBoxModifier.swift; sourceTree = "<group>"; };
@@ -288,11 +290,12 @@
 		08C9AC0124A74A83002AF525 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				08C9AC0424A74A83002AF525 /* LoginView.swift */,
 				08C9AC0724A74A83002AF525 /* MainView.swift */,
 				08C9ABEC24A74A53002AF525 /* ContentView.swift */,
 				08C9AC0224A74A83002AF525 /* NoticeListView.swift */,
 				08C9AC0324A74A83002AF525 /* ProfileView.swift */,
-				08C9AC0424A74A83002AF525 /* LoginView.swift */,
+				423A9EE924E026EC00E046BE /* OptionView.swift */,
 				08C9AC0524A74A83002AF525 /* IngangListView.swift */,
 				08C9AC0624A74A83002AF525 /* MealListView.swift */,
 				08B8493E24A90487000A9ACD /* TimetableView.swift */,
@@ -504,6 +507,7 @@
 				088E5D4F24A88FD30031342D /* HeadlineModifier.swift in Sources */,
 				083D74F324A7783300989B47 /* Meal.swift in Sources */,
 				08C9AC1C24A74A83002AF525 /* IngangItem.swift in Sources */,
+				423A9EEA24E026EC00E046BE /* OptionView.swift in Sources */,
 				08B8493B24A90403000A9ACD /* TimetableRow.swift in Sources */,
 				086CC54F24AF819400456846 /* HSpacer.swift in Sources */,
 				08C9AC1424A74A83002AF525 /* LoginView.swift in Sources */,

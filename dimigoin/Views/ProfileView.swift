@@ -13,6 +13,7 @@ struct ProfileView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var tokenAPI: TokenAPI
     @ObservedObject var userAPI: UserAPI
+    @State var showOption: Bool = false
     
     init(tokenAPI: TokenAPI, userAPI: UserAPI) {
         self.tokenAPI = tokenAPI
@@ -68,9 +69,12 @@ struct ProfileView: View {
             .navigationBarTitle("\(userAPI.user.name)님의 프로필")
             .navigationBarItems(
                 leading: Button(action: {
-                    dismiss()
+                    self.showOption.toggle()
                 }) {
                     Image(systemName: "gear").resizable().frame(width: 25, height: 25)
+                }
+                .sheet(isPresented: $showOption) {
+                    OptionView()
                 },
                 trailing: Button(action: {
                     dismiss()

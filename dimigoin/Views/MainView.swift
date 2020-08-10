@@ -28,7 +28,7 @@ struct MainView: View {
                 TimetableRow(timetable: dummyTimeTable).padding()
                 NoticeRow(noticeAPI: noticeAPI).padding()
                 MealRow(mealAPI: mealAPI).padding()
-                if(ingangAPI.ingangs != []) {
+                if(ingangAPI.ingangs.count == 0) {
                     IngangRow(ingangAPI: ingangAPI).padding()
                 }
                 CopyrightText()
@@ -42,7 +42,8 @@ struct MainView: View {
                     Image(systemName: userAPI.user.photo)
                         .resizable()
                         .frame(width: 30, height: 30)
-                }.sheet(isPresented: $showProfile) {
+                }
+                .sheet(isPresented: $showProfile) {
                     ProfileView(tokenAPI: tokenAPI, userAPI: userAPI)
                 }
             )

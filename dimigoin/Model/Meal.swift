@@ -22,11 +22,9 @@ class MealAPI: ObservableObject {
         let url = "https://api.dimigo.in/dimibobs/\(getAPIDate())"
         AF.request(url, method: .get, encoding: JSONEncoding.default).responseData { response in
             let json = JSON(response.value!)
-            if json["breakfast"].string! != nil {
-                self.meal.breakfast = json["breakfast"].string!
-                self.meal.lunch = json["lunch"].string!
-                self.meal.dinner = json["dinner"].string!
-            }
+            self.meal.breakfast = json["breakfast"].string!
+            self.meal.lunch = json["lunch"].string!
+            self.meal.dinner = json["dinner"].string!
 //            self.dubugMeal()
         }
     }
