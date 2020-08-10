@@ -22,9 +22,8 @@ struct OptionView: View {
         Item(name: "시간표"),
         Item(name: "공지사항"),
         Item(name: "급식"),
-        Item(name: "인강실")
+        Item(name: "인강실 신청")
     ]
-    @State private var unvisibleItems: [Item] = []
     @State var beneduAlert = true
     @State var coronaMealTime = false
     init() {
@@ -51,27 +50,17 @@ struct OptionView: View {
                         }
                     }
                 },
-                    footer: Text("메인 화면에 표시되는 요소들의 순서를 편집하세요.").caption3())
+                    footer: Button(action: {
+                        // reset items list
+                            resetItems()
+                        }) {
+                            Text("초기화 하기").highlight()
+                        })
                 {
                     ForEach(visibleItems) { item in
                         Text(item.name).body()
                     }
-                    .onDelete(perform: onDelete)
                     .onMove(perform: onMove)
-                }
-                if(unvisibleItems.count != 0) {
-                    Section(header: Text("숨긴 컨텐츠"),
-                            footer: Button(action: {
-                                // reset items list
-                                resetItems()
-                            }) {
-                                Text("초기화 하기").highlight()
-                            }) {
-                        ForEach(unvisibleItems) { item in
-                            Text(item.name).disabled().body()
-                        }
-                        
-                    }
                 }
                 Section(header: HStack {
                     Image(systemName: "eyedropper")
@@ -105,10 +94,6 @@ struct OptionView: View {
             .environment(\.editMode, $editMode)
         }
     }
-    private func onDelete(offsets: IndexSet) {
-        visibleItems.remove(atOffsets: offsets)
-        unvisibleItems.append(Item(name: "hello"))
-    }
     
     private func onMove(source: IndexSet, destination: Int) {
         visibleItems.move(fromOffsets: source, toOffset: destination)
@@ -123,7 +108,6 @@ struct OptionView: View {
             Item(name: "급식"),
             Item(name: "인강실 신청")
         ]
-        unvisibleItems = []
     }
     func saveOptions() {
         var itemOrder: String = ""

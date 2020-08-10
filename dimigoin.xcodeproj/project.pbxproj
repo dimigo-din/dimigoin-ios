@@ -50,6 +50,7 @@
 		42364EAA24B0CFEC008427D5 /* NanumSquareRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA624B0CFEC008427D5 /* NanumSquareRegular.ttf */; };
 		42364EAC24B14E02008427D5 /* KeyboardResponsive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42364EAB24B14E02008427D5 /* KeyboardResponsive.swift */; };
 		423A9EEA24E026EC00E046BE /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423A9EE924E026EC00E046BE /* OptionView.swift */; };
+		423A9F0824E16FE600E046BE /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = 423A9F0724E16FE600E046BE /* SwiftUIPager */; };
 		423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71EF24B191AF0099CE3E /* ClearButton.swift */; };
 		423B71F224B1932E0099CE3E /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F124B1932E0099CE3E /* Background.swift */; };
 		423B71F424B1B3F60099CE3E /* CustomBoxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */; };
@@ -184,6 +185,7 @@
 			files = (
 				42B6DE9B24DBE5E700B1E299 /* SwiftyJSON in Frameworks */,
 				42C4E4D324CEA8E3004EC6AF /* Alamofire in Frameworks */,
+				423A9F0824E16FE600E046BE /* SwiftUIPager in Frameworks */,
 				42F632D224CACFC400F1F439 /* SPAlert in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,6 +389,7 @@
 				42F632D124CACFC400F1F439 /* SPAlert */,
 				42C4E4D224CEA8E3004EC6AF /* Alamofire */,
 				42B6DE9A24DBE5E700B1E299 /* SwiftyJSON */,
+				423A9F0724E16FE600E046BE /* SwiftUIPager */,
 			);
 			productName = dimigoin;
 			productReference = 08C9ABE524A74A53002AF525 /* DimigoIN.app */;
@@ -444,6 +447,7 @@
 				42F632D024CACFC400F1F439 /* XCRemoteSwiftPackageReference "SPAlert" */,
 				42C4E4D124CEA8E3004EC6AF /* XCRemoteSwiftPackageReference "Alamofire" */,
 				42B6DE9924DBE5E700B1E299 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				423A9F0624E16FE600E046BE /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
 			);
 			productRefGroup = 08C9ABE624A74A53002AF525 /* Products */;
 			projectDirPath = "";
@@ -818,6 +822,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		423A9F0624E16FE600E046BE /* XCRemoteSwiftPackageReference "SwiftUIPager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fermoya/SwiftUIPager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.10.1;
+			};
+		};
 		42B6DE9924DBE5E700B1E299 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
@@ -845,6 +857,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		423A9F0724E16FE600E046BE /* SwiftUIPager */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 423A9F0624E16FE600E046BE /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
+			productName = SwiftUIPager;
+		};
 		4277E5A024DC1A6A006F9032 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 42B6DE9924DBE5E700B1E299 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
