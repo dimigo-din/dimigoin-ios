@@ -50,7 +50,6 @@ struct MainView: View {
                 }
             )
         }
-        
     }
 }
 

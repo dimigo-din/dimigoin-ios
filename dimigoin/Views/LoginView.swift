@@ -29,7 +29,7 @@ struct LoginView: View {
                     HStack(alignment: .bottom){
                         Image("Logo").resizable().frame(width: 60, height: 69)
                         HSpacer(30)
-                        Text("디미고인").openas()
+                        Text("디미고인").logoFont()
                     }
                     VSpacer(30)
                     TextField("아이디", text: $id).textContentType(.username)
@@ -61,7 +61,6 @@ struct LoginView: View {
                 CopyrightText()
                 
             }.padding(.horizontal)
-            .keyboardResponsive()
             
 //            if #available(iOS 14.0, *) {
 //                if(tokenAPI.isLoading) {

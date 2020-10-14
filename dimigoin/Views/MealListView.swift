@@ -12,16 +12,13 @@ struct MealListView: View {
     @ObservedObject var mealAPI: MealAPI
     
     var body: some View {
+        
         ScrollView {
             VStack(spacing: 15.0) {
-                ScrollView {
-                    
-                    VStack(alignment: .leading, spacing: 10.0) {
-                        MealItem(mealType: .breakfast, mealAPI: mealAPI)
-                        MealItem(mealType: .lunch, mealAPI: mealAPI)
-                        MealItem(mealType: .dinner, mealAPI: mealAPI)
-                    }
-                    
+                VStack(alignment: .leading, spacing: 10.0) {
+                    MealItem(mealType: .breakfast, mealAPI: mealAPI)
+                    MealItem(mealType: .lunch, mealAPI: mealAPI)
+                    MealItem(mealType: .dinner, mealAPI: mealAPI)
                 }
                 Divider()
                 VStack(alignment: .leading, spacing: 10.0) {

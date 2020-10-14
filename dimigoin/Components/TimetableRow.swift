@@ -17,7 +17,7 @@ struct TimetableRow: View {
                 Text("시간표").sectionHeader()
                 Spacer()
                 NavigationLink(destination: WeekTimetableView()) {
-                    Text("전체 시간표 보기")
+                    Text("전체 시간표 보기").caption1()
                 }
             }
             VSpacer(15)

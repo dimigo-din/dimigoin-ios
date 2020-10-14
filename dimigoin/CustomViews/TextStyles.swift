@@ -37,7 +37,7 @@ extension Text {
         self
             .font(Font.custom("NanumSquare", size: 17))
     }
-    func openas() -> Text {
+    func logoFont() -> Text {
         self
             .font(Font.custom("Openas", size: 57))
     }
