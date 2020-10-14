@@ -24,7 +24,8 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Fonts/NanumSquareBold.ttf</string>
+		<string>Openas.ttf</string>
+		<string>NanumSquareBold.ttf</string>
 		<string>NanumSquareExtraBold.ttf</string>
 		<string>NanumSquareLight.ttf</string>
 		<string>NanumSquareRegular.ttf</string>

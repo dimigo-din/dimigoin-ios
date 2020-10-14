@@ -42,7 +42,6 @@
 		08C9AC1C24A74A83002AF525 /* IngangItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9AC0D24A74A83002AF525 /* IngangItem.swift */; };
 		08C9AC1D24A74A83002AF525 /* MealItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9AC0E24A74A83002AF525 /* MealItem.swift */; };
 		4212D98024CC124B00FF82D5 /* DateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212D97F24CC124B00FF82D5 /* DateTime.swift */; };
-		4212D98124CC124B00FF82D5 /* DateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212D97F24CC124B00FF82D5 /* DateTime.swift */; };
 		4212D98324CC6A0400FF82D5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212D98224CC6A0400FF82D5 /* User.swift */; };
 		42364EA724B0CFEC008427D5 /* NanumSquareLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA324B0CFEC008427D5 /* NanumSquareLight.ttf */; };
 		42364EA824B0CFEC008427D5 /* NanumSquareBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA424B0CFEC008427D5 /* NanumSquareBold.ttf */; };
@@ -54,51 +53,13 @@
 		423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71EF24B191AF0099CE3E /* ClearButton.swift */; };
 		423B71F224B1932E0099CE3E /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F124B1932E0099CE3E /* Background.swift */; };
 		423B71F424B1B3F60099CE3E /* CustomBoxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */; };
-		424D65CC24DCFA1900957F72 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212D98224CC6A0400FF82D5 /* User.swift */; };
-		424D65CD24DCFA2300957F72 /* Ingang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9AC0024A74A83002AF525 /* Ingang.swift */; };
-		4277E5A124DC1A6A006F9032 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 4277E5A024DC1A6A006F9032 /* SwiftyJSON */; };
-		427A14F024CD17C1005600FE /* MealItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9AC0E24A74A83002AF525 /* MealItem.swift */; };
-		427A14F124CD17D2005600FE /* CustomBoxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */; };
-		427A14F224CD4724005600FE /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8493C24A90432000A9ACD /* Timetable.swift */; };
-		429039E524D39853005A25C0 /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083D74F824A77A9E00989B47 /* Tokens.swift */; };
 		429039E724D45027005A25C0 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429039E624D45027005A25C0 /* ActivityIndicator.swift */; };
-		42AEE7E624D828D70098B2B9 /* TimetableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0842D9DF24A8ED6C00D0F330 /* TimetableItem.swift */; };
 		42B6DE9B24DBE5E700B1E299 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 42B6DE9A24DBE5E700B1E299 /* SwiftyJSON */; };
 		42C487CA24DDB73000C594CB /* CopyrightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C487C924DDB73000C594CB /* CopyrightText.swift */; };
 		42C4E4D324CEA8E3004EC6AF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 42C4E4D224CEA8E3004EC6AF /* Alamofire */; };
-		42C4E4D524CEAEEB004EC6AF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 42C4E4D424CEAEEB004EC6AF /* Alamofire */; };
+		42DBE5A92536BABE00E5F4EA /* Openas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42DBE5A82536BABD00E5F4EA /* Openas.ttf */; };
 		42F632D224CACFC400F1F439 /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 42F632D124CACFC400F1F439 /* SPAlert */; };
-		42F632D824CB1CF900F1F439 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42124B4A70E00005663 /* WidgetKit.framework */; };
-		42F632D924CB1CF900F1F439 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42324B4A70E00005663 /* SwiftUI.framework */; };
-		42F632DC24CB1CF900F1F439 /* MealWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F632DB24CB1CF900F1F439 /* MealWidget.swift */; };
-		42F632DF24CB1CFA00F1F439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42F632DE24CB1CFA00F1F439 /* Assets.xcassets */; };
-		42F632E124CB1CFA00F1F439 /* MealWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 42F632DD24CB1CF900F1F439 /* MealWidget.intentdefinition */; };
-		42F632E224CB1CFA00F1F439 /* MealWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 42F632DD24CB1CF900F1F439 /* MealWidget.intentdefinition */; };
-		42F632E524CB1CFA00F1F439 /* MealWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 42F632D724CB1CF900F1F439 /* MealWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		42F632E924CB383F00F1F439 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083D74F224A7783300989B47 /* Meal.swift */; };
-		42F632EA24CB3A2300F1F439 /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54C24AF816200456846 /* VSpacer.swift */; };
-		42F632EB24CB3A2600F1F439 /* HSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54E24AF819400456846 /* HSpacer.swift */; };
-		42F632EC24CB3A2B00F1F439 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC55024AF849D00456846 /* TextStyles.swift */; };
-		42F632ED24CB3A2E00F1F439 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F124B1932E0099CE3E /* Background.swift */; };
-		42F632EE24CB3B0600F1F439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08C9ABEE24A74A54002AF525 /* Assets.xcassets */; };
-		42F6330624CB3F4600F1F439 /* NanumSquareBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA424B0CFEC008427D5 /* NanumSquareBold.ttf */; };
-		42F6330724CB3F4800F1F439 /* NanumSquareExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA524B0CFEC008427D5 /* NanumSquareExtraBold.ttf */; };
-		42F6330824CB3F4B00F1F439 /* NanumSquareLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA324B0CFEC008427D5 /* NanumSquareLight.ttf */; };
-		42F6330924CB3F4E00F1F439 /* NanumSquareRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA624B0CFEC008427D5 /* NanumSquareRegular.ttf */; };
-		42F6330C24CBAB7C00F1F439 /* NextMealWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F6330B24CBAB7C00F1F439 /* NextMealWidgetView.swift */; };
-		42F6330E24CBABB300F1F439 /* TodayMealWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F6330D24CBABB300F1F439 /* TodayMealWidgetView.swift */; };
-		42F6331024CBABE200F1F439 /* TimeTableWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F6330F24CBABE200F1F439 /* TimeTableWidgetView.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		42F632E324CB1CFA00F1F439 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 08C9ABDD24A74A53002AF525 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 42F632D624CB1CF900F1F439;
-			remoteInfo = MealWidgetExtension;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		429FD88B24B202DA003A49AF /* Embed App Extensions */ = {
@@ -107,7 +68,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				42F632E524CB1CFA00F1F439 /* MealWidgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,11 +128,7 @@
 		429039E624D45027005A25C0 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		429FD87F24B202DA003A49AF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		42C487C924DDB73000C594CB /* CopyrightText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyrightText.swift; sourceTree = "<group>"; };
-		42F632D724CB1CF900F1F439 /* MealWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MealWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		42F632DB24CB1CF900F1F439 /* MealWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealWidget.swift; sourceTree = "<group>"; };
-		42F632DD24CB1CF900F1F439 /* MealWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = MealWidget.intentdefinition; sourceTree = "<group>"; };
-		42F632DE24CB1CFA00F1F439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		42F632E024CB1CFA00F1F439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42DBE5A82536BABD00E5F4EA /* Openas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Openas.ttf; sourceTree = "<group>"; };
 		42F6330B24CBAB7C00F1F439 /* NextMealWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextMealWidgetView.swift; sourceTree = "<group>"; };
 		42F6330D24CBABB300F1F439 /* TodayMealWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMealWidgetView.swift; sourceTree = "<group>"; };
 		42F6330F24CBABE200F1F439 /* TimeTableWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableWidgetView.swift; sourceTree = "<group>"; };
@@ -187,17 +143,6 @@
 				42C4E4D324CEA8E3004EC6AF /* Alamofire in Frameworks */,
 				423A9F0824E16FE600E046BE /* SwiftUIPager in Frameworks */,
 				42F632D224CACFC400F1F439 /* SPAlert in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		42F632D424CB1CF900F1F439 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				42C4E4D524CEAEEB004EC6AF /* Alamofire in Frameworks */,
-				42F632D924CB1CF900F1F439 /* SwiftUI.framework in Frameworks */,
-				4277E5A124DC1A6A006F9032 /* SwiftyJSON in Frameworks */,
-				42F632D824CB1CF900F1F439 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				08C9ABE724A74A53002AF525 /* dimigoin */,
-				42F632DA24CB1CF900F1F439 /* MealWidget */,
 				08C9ABE624A74A53002AF525 /* Products */,
 				228AAA612779C507EC76E9D9 /* Frameworks */,
 			);
@@ -231,7 +175,6 @@
 			isa = PBXGroup;
 			children = (
 				08C9ABE524A74A53002AF525 /* DimigoIN.app */,
-				42F632D724CB1CF900F1F439 /* MealWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -239,6 +182,7 @@
 		08C9ABE724A74A53002AF525 /* dimigoin */ = {
 			isa = PBXGroup;
 			children = (
+				42DBE5972535CC3600E5F4EA /* Widgets */,
 				086CC54B24AF812C00456846 /* CustomViews */,
 				08C9AC0824A74A83002AF525 /* Components */,
 				08C9ABFF24A74A83002AF525 /* Model */,
@@ -345,6 +289,7 @@
 		42364EA224B0CFB9008427D5 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				42DBE5A82536BABD00E5F4EA /* Openas.ttf */,
 				42364EA424B0CFEC008427D5 /* NanumSquareBold.ttf */,
 				42364EA524B0CFEC008427D5 /* NanumSquareExtraBold.ttf */,
 				42364EA324B0CFEC008427D5 /* NanumSquareLight.ttf */,
@@ -353,18 +298,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		42F632DA24CB1CF900F1F439 /* MealWidget */ = {
+		42DBE5972535CC3600E5F4EA /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
-				42F632DB24CB1CF900F1F439 /* MealWidget.swift */,
 				42F6330B24CBAB7C00F1F439 /* NextMealWidgetView.swift */,
 				42F6330D24CBABB300F1F439 /* TodayMealWidgetView.swift */,
 				42F6330F24CBABE200F1F439 /* TimeTableWidgetView.swift */,
-				42F632DD24CB1CF900F1F439 /* MealWidget.intentdefinition */,
-				42F632DE24CB1CFA00F1F439 /* Assets.xcassets */,
-				42F632E024CB1CFA00F1F439 /* Info.plist */,
 			);
-			path = MealWidget;
+			path = Widgets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,7 +323,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				42F632E424CB1CFA00F1F439 /* PBXTargetDependency */,
 			);
 			name = dimigoin;
 			packageProductDependencies = (
@@ -394,27 +334,6 @@
 			productName = dimigoin;
 			productReference = 08C9ABE524A74A53002AF525 /* DimigoIN.app */;
 			productType = "com.apple.product-type.application";
-		};
-		42F632D624CB1CF900F1F439 /* MealWidgetExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 42F632E624CB1CFA00F1F439 /* Build configuration list for PBXNativeTarget "MealWidgetExtension" */;
-			buildPhases = (
-				42F632D324CB1CF900F1F439 /* Sources */,
-				42F632D424CB1CF900F1F439 /* Frameworks */,
-				42F632D524CB1CF900F1F439 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = MealWidgetExtension;
-			packageProductDependencies = (
-				42C4E4D424CEAEEB004EC6AF /* Alamofire */,
-				4277E5A024DC1A6A006F9032 /* SwiftyJSON */,
-			);
-			productName = MealWidgetExtension;
-			productReference = 42F632D724CB1CF900F1F439 /* MealWidgetExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -428,9 +347,6 @@
 				TargetAttributes = {
 					08C9ABE424A74A53002AF525 = {
 						CreatedOnToolsVersion = 11.5;
-					};
-					42F632D624CB1CF900F1F439 = {
-						CreatedOnToolsVersion = 12.0;
 					};
 				};
 			};
@@ -454,7 +370,6 @@
 			projectRoot = "";
 			targets = (
 				08C9ABE424A74A53002AF525 /* dimigoin */,
-				42F632D624CB1CF900F1F439 /* MealWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -468,22 +383,10 @@
 				42364EA924B0CFEC008427D5 /* NanumSquareExtraBold.ttf in Resources */,
 				42364EA724B0CFEC008427D5 /* NanumSquareLight.ttf in Resources */,
 				42364EAA24B0CFEC008427D5 /* NanumSquareRegular.ttf in Resources */,
+				42DBE5A92536BABE00E5F4EA /* Openas.ttf in Resources */,
 				08C9ABF524A74A54002AF525 /* LaunchScreen.storyboard in Resources */,
 				08C9ABF224A74A54002AF525 /* Preview Assets.xcassets in Resources */,
 				08C9ABEF24A74A54002AF525 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		42F632D524CB1CF900F1F439 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				42F632EE24CB3B0600F1F439 /* Assets.xcassets in Resources */,
-				42F6330824CB3F4B00F1F439 /* NanumSquareLight.ttf in Resources */,
-				42F6330924CB3F4E00F1F439 /* NanumSquareRegular.ttf in Resources */,
-				42F6330724CB3F4800F1F439 /* NanumSquareExtraBold.ttf in Resources */,
-				42F6330624CB3F4600F1F439 /* NanumSquareBold.ttf in Resources */,
-				42F632DF24CB1CFA00F1F439 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,7 +407,6 @@
 				08C9AC1A24A74A83002AF525 /* MealRow.swift in Sources */,
 				08C9AC1224A74A83002AF525 /* NoticeListView.swift in Sources */,
 				4212D98024CC124B00FF82D5 /* DateTime.swift in Sources */,
-				42F632E224CB1CFA00F1F439 /* MealWidget.intentdefinition in Sources */,
 				083D74F524A778AA00989B47 /* Notice.swift in Sources */,
 				08C9AC1824A74A83002AF525 /* NoticeItem.swift in Sources */,
 				08C9AC1B24A74A83002AF525 /* IngangRow.swift in Sources */,
@@ -538,40 +440,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		42F632D324CB1CF900F1F439 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				42F6331024CBABE200F1F439 /* TimeTableWidgetView.swift in Sources */,
-				42F632EC24CB3A2B00F1F439 /* TextStyles.swift in Sources */,
-				42F632ED24CB3A2E00F1F439 /* Background.swift in Sources */,
-				427A14F124CD17D2005600FE /* CustomBoxModifier.swift in Sources */,
-				42F6330E24CBABB300F1F439 /* TodayMealWidgetView.swift in Sources */,
-				42F632EB24CB3A2600F1F439 /* HSpacer.swift in Sources */,
-				42F632EA24CB3A2300F1F439 /* VSpacer.swift in Sources */,
-				424D65CC24DCFA1900957F72 /* User.swift in Sources */,
-				42F632DC24CB1CF900F1F439 /* MealWidget.swift in Sources */,
-				42F632E924CB383F00F1F439 /* Meal.swift in Sources */,
-				427A14F024CD17C1005600FE /* MealItem.swift in Sources */,
-				42AEE7E624D828D70098B2B9 /* TimetableItem.swift in Sources */,
-				429039E524D39853005A25C0 /* Tokens.swift in Sources */,
-				424D65CD24DCFA2300957F72 /* Ingang.swift in Sources */,
-				42F6330C24CBAB7C00F1F439 /* NextMealWidgetView.swift in Sources */,
-				42F632E124CB1CFA00F1F439 /* MealWidget.intentdefinition in Sources */,
-				4212D98124CC124B00FF82D5 /* DateTime.swift in Sources */,
-				427A14F224CD4724005600FE /* Timetable.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		42F632E424CB1CFA00F1F439 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 42F632D624CB1CF900F1F439 /* MealWidgetExtension */;
-			targetProxy = 42F632E324CB1CFA00F1F439 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		08C9ABF324A74A54002AF525 /* LaunchScreen.storyboard */ = {
@@ -708,7 +577,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
-				DEVELOPMENT_TEAM = 5F2KLXFAD3;
+				DEVELOPMENT_TEAM = HPU8XGH3GG;
 				ENABLE_PREVIEWS = YES;
 				IBSC_MODULE = "오늘의 급식";
 				INFOPLIST_FILE = dimigoin/Application/Info.plist;
@@ -716,7 +585,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = seohun.dimigoin;
+				PRODUCT_BUNDLE_IDENTIFIER = seohun.dimigoin.v2;
 				PRODUCT_NAME = DimigoIN;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -730,7 +599,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
-				DEVELOPMENT_TEAM = 5F2KLXFAD3;
+				DEVELOPMENT_TEAM = HPU8XGH3GG;
 				ENABLE_PREVIEWS = YES;
 				IBSC_MODULE = "오늘의 급식";
 				INFOPLIST_FILE = dimigoin/Application/Info.plist;
@@ -738,52 +607,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = seohun.dimigoin;
+				PRODUCT_BUNDLE_IDENTIFIER = seohun.dimigoin.v2;
 				PRODUCT_NAME = DimigoIN;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		42F632E724CB1CFA00F1F439 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5F2KLXFAD3;
-				INFOPLIST_FILE = MealWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = seohun.dimigoin.MealWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		42F632E824CB1CFA00F1F439 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5F2KLXFAD3;
-				INFOPLIST_FILE = MealWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = seohun.dimigoin.MealWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -806,15 +631,6 @@
 			buildConfigurations = (
 				08C9ABFA24A74A54002AF525 /* Debug */,
 				08C9ABFB24A74A54002AF525 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		42F632E624CB1CFA00F1F439 /* Build configuration list for PBXNativeTarget "MealWidgetExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				42F632E724CB1CFA00F1F439 /* Debug */,
-				42F632E824CB1CFA00F1F439 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -862,22 +678,12 @@
 			package = 423A9F0624E16FE600E046BE /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
 			productName = SwiftUIPager;
 		};
-		4277E5A024DC1A6A006F9032 /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 42B6DE9924DBE5E700B1E299 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
-		};
 		42B6DE9A24DBE5E700B1E299 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 42B6DE9924DBE5E700B1E299 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
 		};
 		42C4E4D224CEA8E3004EC6AF /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 42C4E4D124CEA8E3004EC6AF /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		42C4E4D424CEAEEB004EC6AF /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 42C4E4D124CEA8E3004EC6AF /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;

@@ -26,8 +26,10 @@ struct LoginView: View {
             VStack(alignment: .center) {
                 Spacer()
                 VStack {
-                    HStack {
-                        Image("FullLogo").resizable().frame(width: 240, height: 64)
+                    HStack(alignment: .bottom){
+                        Image("Logo").resizable().frame(width: 60, height: 69)
+                        HSpacer(30)
+                        Text("디미고인").openas()
                     }
                     VSpacer(30)
                     TextField("아이디", text: $id).textContentType(.username)

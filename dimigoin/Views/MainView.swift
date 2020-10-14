@@ -28,8 +28,10 @@ struct MainView: View {
                 TimetableRow(timetable: dummyTimeTable).padding()
                 NoticeRow(noticeAPI: noticeAPI).padding()
                 MealRow(mealAPI: mealAPI).padding()
-                if(ingangAPI.ingangs.count == 0) {
+                if(ingangAPI.ingangs.count != 0) {
                     IngangRow(ingangAPI: ingangAPI).padding()
+                } else {
+                    Text("오늘은 인강이 없습니다!").body().opacity(0.4).padding()
                 }
                 CopyrightText()
             }

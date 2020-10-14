@@ -37,6 +37,10 @@ extension Text {
         self
             .font(Font.custom("NanumSquare", size: 17))
     }
+    func openas() -> Text {
+        self
+            .font(Font.custom("Openas", size: 57))
+    }
     func heavy() -> Text {
         self
             .fontWeight(.heavy)
