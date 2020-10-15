@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct TodayMealWidgetView: View {
-    var entry: Entry
     var meal: Dimibob
     @ViewBuilder
     var body: some View {
@@ -19,28 +18,25 @@ struct TodayMealWidgetView: View {
                 HStack(alignment: .center, spacing: -5) {
                     Text("아침").heavy().highlight().padding(.leading)
                     Text("\(meal.breakfast)").caption3().padding()
-                }.opacity(getMealType() != MealType.breakfast ? 0.3 : 1)
-                .background(Color("Primary").opacity(getMealType() == MealType.breakfast ? 0.2 : 0))
-                
+                }
+//                .opacity(getMealType() != MealType.breakfast ? 0.3 : 1)
+//                .background(Color("Primary").opacity(getMealType() == MealType.breakfast ? 0.2 : 0))
+
                 HStack(alignment: .center, spacing: -5) {
                     Text("점심").highlight().heavy().padding(.leading)
                     Text("\(meal.lunch)").caption3().padding()
-                }.opacity(getMealType() != MealType.lunch ? 0.3 : 1)
-                .background(Color("Primary").opacity(getMealType() == MealType.lunch ? 0.2 : 0))
-                
+                }
+//                .opacity(getMealType() != MealType.lunch ? 0.3 : 1)
+//                .background(Color("Primary").opacity(getMealType() == MealType.lunch ? 0.2 : 0))
+
                 HStack(alignment: .center, spacing: -5) {
                     Text("저녁").highlight().heavy().padding(.leading)
                     Text("\(meal.dinner)").caption3().padding()
-                }.opacity(getMealType() != MealType.dinner ? 0.3 : 1)
-                .background(Color("Primary").opacity(getMealType() == MealType.dinner ? 0.2 : 0))
-                
+                }
+//                .opacity(getMealType() != MealType.dinner ? 0.3 : 1)
+//                .background(Color("Primary").opacity(getMealType() == MealType.dinner ? 0.2 : 0))
+
                 VSpacer(15)
-                HStack() {
-                    Spacer()
-                    Text("LastUpdate : ").disabled().caption3()
-                    +
-                    Text(entry.date, style: .time).disabled().caption3()
-                }.padding(.trailing, 17)
             }
         }
     }

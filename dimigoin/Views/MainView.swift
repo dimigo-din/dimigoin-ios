@@ -38,16 +38,12 @@ struct MainView: View {
             .navigationViewStyle(StackNavigationViewStyle())
             .navigationBarTitle(Text(getDate()))
             .navigationBarItems(
-                trailing: Button(action: {
-                        self.showProfile.toggle()
-                }) {
-                    Image(systemName: userAPI.user.photo)
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                }
-                .sheet(isPresented: $showProfile) {
-                    ProfileView(tokenAPI: tokenAPI, userAPI: userAPI)
-                }
+                trailing:
+                    NavigationLink(destination: ProfileView(tokenAPI: tokenAPI, userAPI: userAPI)) {
+                        Image(systemName: userAPI.user.photo)
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                    }
             )
         }
     }

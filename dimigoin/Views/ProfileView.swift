@@ -10,7 +10,6 @@ import SwiftUI
 import SPAlert
 
 struct ProfileView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var tokenAPI: TokenAPI
     @ObservedObject var userAPI: UserAPI
     @State var showOption: Bool = false
@@ -21,7 +20,7 @@ struct ProfileView: View {
     }
     
     var body: some View {
-        NavigationView {
+        ScrollView{
             VStack(spacing: 15.0) {
                 VStack(alignment: .leading, spacing: 15) {
                     HStack {
@@ -48,7 +47,6 @@ struct ProfileView: View {
                         Text("\(userAPI.user.daily_ticket_num)").foregroundColor(Color("DisabledButton"))
                     }
                 }.CustomBox()
-                VSpacer(10)
                 Button(action: {
                     if let url = URL(string: "https://student.dimigo.hs.kr/user/profile") {
                         UIApplication.shared.open(url)
@@ -58,36 +56,27 @@ struct ProfileView: View {
                     Text("프로필 수정하기").SquareButton(312, 27)
                 }
                 Button(action: {
-                    dismiss()
                     SPAlert.present(title: "로그아웃", preset: SPAlertPreset.error)
                     tokenAPI.clearTokens()
                 }) {
                     Text("로그아웃").SquareButtonRed(312, 27)
                 }
                 Spacer()
+                CopyrightText()
             }.padding()
             .navigationBarTitle("\(userAPI.user.name)님의 프로필")
             .navigationBarItems(
-                leading: Button(action: {
+                trailing: Button(action: {
                     self.showOption.toggle()
                 }) {
                     Image(systemName: "gear").resizable().frame(width: 25, height: 25)
                 }
                 .sheet(isPresented: $showOption) {
                     OptionView()
-                },
-                trailing: Button(action: {
-                    dismiss()
-                }) {
-                    Image(systemName: "xmark").resizable().frame(width: 20, height: 20)
                 }
             )
             
-        }.navigationViewStyle(StackNavigationViewStyle())
-    }
-    func dismiss() {
-        self.presentationMode.wrappedValue.dismiss()
-        print("dismiss profile view")
+        }
     }
 }
 

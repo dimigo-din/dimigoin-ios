@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct NextMealWidgetView: View {
-    var entry: Provider.Entry
+//    var entry: Provider.Entrys
     var meal: Dimibob
     @ViewBuilder
     var body: some View {
@@ -26,11 +26,7 @@ struct NextMealWidgetView: View {
                     Text(getDate()).disabled().caption3().padding(.trailing)
                 }
                 Text("\(getMealMenu(meal: meal, mealType: getMealType()))").caption2().padding(.leading).padding(.trailing)
-                VStack(alignment: .trailing) {
-                    Text("LastUpdate:").disabled().caption3()
-                    +
-                    Text(entry.date, style: .time).disabled().caption3()
-                }
+                
             }
         }
     }
