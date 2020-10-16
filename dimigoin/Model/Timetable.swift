@@ -12,8 +12,6 @@ struct TimeTable {
     var data: [[String]]
 }
 
-let dummySubjects = ["문학", "정보보호", "정통", "진로", "물리", "운동", "공수"]
-
 let dummyTimeTable = TimeTable(data: [["영어", "응개", "문학", "물리학1", "중국어", "성직", "공수"],
                                ["자료구조", "공수", "물리학", "체육", "중국어"],
                                ["공수", "수학1", "응프화", "응개", "정통", "성직"],
