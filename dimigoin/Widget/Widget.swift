@@ -46,13 +46,9 @@ struct WidgetEntryView : View {
     @ViewBuilder
     var body: some View {
         switch family {
-        case .systemSmall: NextMealWidgetView(meal: Dimibob(breakfast: "급식 정보가 없습니다.",
-                                                            lunch: "급식 정보가 없습니다.",
-                                                            dinner: "급식 정보가 없습니다."))
-        case .systemMedium:TodayMealWidgetView(meal: Dimibob(breakfast: "급식 정보가 없습니다.",
-                                                             lunch: "급식 정보가 없습니다.",
-                                                             dinner: "급식 정보가 없습니다."))
-        case .systemLarge: Text("large")
+        case .systemSmall: NextMealWidgetView(meal: dummyDimibob)
+        case .systemMedium:TodayMealWidgetView(meal: dummyDimibob)
+        case .systemLarge: TimeTableWidgetView(meal: dummyDimibob, timetable: dummyTimeTable, user: dummyUser)
         default: Text("small")
         }
     }

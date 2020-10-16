@@ -13,7 +13,7 @@ struct TodayMealWidgetView: View {
     @ViewBuilder
     var body: some View {
         ZStack{
-            Image("Logo").opacity(0.3)
+            Image("Logo").resizable().frame(width: 60, height: 69).opacity(0.25)
             VStack(alignment: .leading, spacing: -15) {
                 HStack(alignment: .center, spacing: -5) {
                     Text("아침").heavy().highlight().padding(.leading)

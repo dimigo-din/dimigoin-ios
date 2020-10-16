@@ -25,11 +25,11 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                TimetableRow(timetable: dummyTimeTable).padding()
-                NoticeRow(noticeAPI: noticeAPI).padding()
-                MealRow(mealAPI: mealAPI).padding()
+                TimetableRow(timetable: dummyTimeTable)
+                NoticeRow(noticeAPI: noticeAPI)
+                MealRow(mealAPI: mealAPI)
                 if(ingangAPI.ingangs.count != 0) {
-                    IngangRow(ingangAPI: ingangAPI).padding()
+                    IngangRow(ingangAPI: ingangAPI)
                 } else {
                     Text("오늘은 인강이 없습니다!").body().opacity(0.4).padding()
                 }

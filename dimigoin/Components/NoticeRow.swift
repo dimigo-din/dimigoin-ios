@@ -28,7 +28,7 @@ struct NoticeRow: View {
             }
             VSpacer(14)
             NoticeItem(noticeAPI: noticeAPI)
-        }
+        }.padding()
     }
 }
 //

@@ -24,7 +24,7 @@ struct TimetableRow: View {
             VStack {
                 TimetableItem(timetable: timetable)
             }.CustomBox()
-        }
+        }.padding()
     }
 }
 

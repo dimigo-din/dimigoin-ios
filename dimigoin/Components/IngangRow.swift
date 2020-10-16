@@ -26,7 +26,7 @@ struct IngangRow: View {
                     IngangItem(ingangAPI: ingangAPI, ingang: ingang)
                 }
             }
-        }
+        }.padding()
     }
 }
 

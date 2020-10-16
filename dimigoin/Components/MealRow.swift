@@ -32,7 +32,7 @@ struct MealRow: View {
             case .lunch: MealItem(mealType: .lunch, mealAPI: mealAPI)
             case .dinner: MealItem(mealType: .dinner, mealAPI: mealAPI)
             }
-        }
+        }.padding()
     }
 }
 
