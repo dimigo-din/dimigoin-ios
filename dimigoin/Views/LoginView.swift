@@ -48,10 +48,12 @@ struct LoginView: View {
                         tokenAPI.getTokens()
                         if(tokenAPI.tokenStatus == .exist) {
                             // navigation to main
+                            self.showErrorMessage = false
                             navigateToMainView()
                         }
                         else if(tokenAPI.tokenStatus == .none) {
                             self.showErrorMessage = true
+                            self.isLoading = false
                         }
                     }) {
                         Text("로그인").SquareButton(312, 27)
@@ -61,14 +63,18 @@ struct LoginView: View {
                 CopyrightText()
                 
             }.padding(.horizontal)
-            
-//            if #available(iOS 14.0, *) {
-//                if(tokenAPI.isLoading) {
-//                    ProgressView().progressViewStyle(CircularProgressViewStyle())
-//                }
-//            } else {
-//                // Fallback on earlier versions
-//            }
+            if #available(iOS 14.0, *) {
+                if(isLoading) {
+                    ProgressView() {
+                        HStack {
+                            Text("로딩중").highlight().caption1()
+                        }
+                    }.progressViewStyle(CircularProgressViewStyle(tint: Color("Primary")))
+                }
+
+            } else {
+                // Fallback on earlier versions
+            }
             
         }
     }

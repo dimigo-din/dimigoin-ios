@@ -24,7 +24,7 @@ struct ProfileView: View {
             VStack(spacing: 15.0) {
                 VStack(alignment: .leading, spacing: 15) {
                     HStack {
-                        Text("이름").highlight().headline()
+                        Text("이름").highlight().headline() 
                         Spacer()
                         Text(userAPI.user.name).foregroundColor(Color("DisabledButton"))
                     }
@@ -56,7 +56,7 @@ struct ProfileView: View {
                     Text("프로필 수정하기").SquareButton(312, 27)
                 }
                 Button(action: {
-                    SPAlert.present(title: "로그아웃", preset: SPAlertPreset.error)
+                    SPAlert.present(message: "성공적으로 로그아웃 되었습니다")
                     tokenAPI.clearTokens()
                 }) {
                     Text("로그아웃").SquareButtonRed(312, 27)
