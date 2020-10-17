@@ -58,6 +58,7 @@
 		42671D4125393E3A00082E9D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212D98224CC6A0400FF82D5 /* User.swift */; };
 		42671D4425393E5000082E9D /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083D74F824A77A9E00989B47 /* Tokens.swift */; };
 		429039E724D45027005A25C0 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429039E624D45027005A25C0 /* ActivityIndicator.swift */; };
+		429F8C79253B42A70068E3FD /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429F8C78253B42A70068E3FD /* Options.swift */; };
 		42B6DE9B24DBE5E700B1E299 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 42B6DE9A24DBE5E700B1E299 /* SwiftyJSON */; };
 		42C487CA24DDB73000C594CB /* CopyrightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C487C924DDB73000C594CB /* CopyrightText.swift */; };
 		42C4E4D324CEA8E3004EC6AF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 42C4E4D224CEA8E3004EC6AF /* Alamofire */; };
@@ -158,6 +159,7 @@
 		423B71F124B1932E0099CE3E /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBoxModifier.swift; sourceTree = "<group>"; };
 		429039E624D45027005A25C0 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		429F8C78253B42A70068E3FD /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		429FD87F24B202DA003A49AF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		42C487C924DDB73000C594CB /* CopyrightText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyrightText.swift; sourceTree = "<group>"; };
 		42DBE5A82536BABD00E5F4EA /* Openas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Openas.ttf; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				083D74F424A778AA00989B47 /* Notice.swift */,
 				083D74F824A77A9E00989B47 /* Tokens.swift */,
 				4212D97F24CC124B00FF82D5 /* DateTime.swift */,
+				429F8C78253B42A70068E3FD /* Options.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				08C9AC1224A74A83002AF525 /* NoticeListView.swift in Sources */,
 				4212D98024CC124B00FF82D5 /* DateTime.swift in Sources */,
 				083D74F524A778AA00989B47 /* Notice.swift in Sources */,
+				429F8C79253B42A70068E3FD /* Options.swift in Sources */,
 				08C9AC1824A74A83002AF525 /* NoticeItem.swift in Sources */,
 				08C9AC1B24A74A83002AF525 /* IngangRow.swift in Sources */,
 				088E5D4F24A88FD30031342D /* HeadlineModifier.swift in Sources */,

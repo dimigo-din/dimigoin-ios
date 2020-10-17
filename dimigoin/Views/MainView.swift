@@ -38,11 +38,19 @@ struct MainView: View {
             .navigationViewStyle(StackNavigationViewStyle())
             .navigationBarTitle(Text(getDate()))
             .navigationBarItems(
+                leading:
+                    Button(action: {
+                        mealAPI.getMeals()
+                        ingangAPI.getTickets()
+                        ingangAPI.getApplicantList()
+                        ingangAPI.getIngangList()
+                        noticeAPI.getNotice()
+                    }) {
+                        Image(systemName: "arrow.clockwise").font(Font.system(size: 21))
+                    },
                 trailing:
                     NavigationLink(destination: ProfileView(tokenAPI: tokenAPI, userAPI: userAPI)) {
-                        Image(systemName: userAPI.user.photo)
-                            .resizable()
-                            .frame(width: 30, height: 30)
+                        Image(systemName: userAPI.user.photo).font(Font.system(size: 30))
                     }
             )
         }

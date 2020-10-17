@@ -215,7 +215,6 @@ class IngangAPI: ObservableObject {
                     self.tokenAPI.refreshTokens()
                     self.getApplicantList()
                 }
-                print("@Apllicant : \(self.applicants)")
             }
         }
     }
