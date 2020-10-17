@@ -29,7 +29,7 @@ struct MealListView: View {
                 Spacer()
             }.padding()
         }
-        .navigationBarTitle("이번주 급식")
+        .navigationBarTitle("오늘의 급식")
     }
 }
 
