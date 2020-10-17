@@ -29,7 +29,7 @@ struct MainView: View {
                 NoticeRow(noticeAPI: noticeAPI)
                 MealRow(mealAPI: mealAPI)
                 if(ingangAPI.ingangs.count != 0) {
-                    IngangRow(ingangAPI: ingangAPI)
+                    IngangRow(ingangAPI: ingangAPI, tokenAPI: tokenAPI)
                 } else {
                     Text("오늘은 인강이 없습니다!").body().opacity(0.4).padding()
                 }

@@ -10,6 +10,7 @@ import SwiftUI
 
 struct IngangListView: View {
     @ObservedObject var ingangAPI: IngangAPI
+    @ObservedObject var tokenAPI: TokenAPI
     
     var body: some View {
         ScrollView {
@@ -24,21 +25,20 @@ struct IngangListView: View {
                 VStack(alignment: .leading, spacing: 10.0) {
                     Text("신청 정보").font(.headline)
                     HStack {
-                        Text("잔여 티켓").highlight().headline()
-                        Text("\(ingangAPI.daily_ticket_num)개 / \(ingangAPI.weekly_ticket_num)개")
+                        Text("이번 주 잔여 티켓").highlight().headline()
+                        Text("\(ingangAPI.daily_ticket_num - ingangAPI.weekly_request_count)개 / \(ingangAPI.weekly_ticket_num)개")
                     }.CustomBox()
                 }
                 Divider()
                 VStack(alignment: .leading, spacing: 10.0) {
                     Text("인강실 목록").font(.headline)
                     ForEach(ingangAPI.ingangs, id: \.self) { ingang in
-                        IngangItem(ingangAPI: ingangAPI, ingang: ingang)
+                        IngangItem(ingangAPI: ingangAPI, tokenAPI: tokenAPI, ingang: ingang)
                     }
                 }
                 Divider()
                 VStack(alignment: .leading, spacing: 10.0) {
                     Text("우리반 신청자").font(.headline)
-
                     HStack {
                         Text("1타임").highlight().headline()
                         ForEach(ingangAPI.applicants, id: \.self) { applicant in

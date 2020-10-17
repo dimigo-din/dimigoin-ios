@@ -16,6 +16,6 @@ struct CopyrightText: View {
             Text("DIMIGOIN").caption2().bold()
             +
             Text(" Communications").caption2()
-        }
+        }.padding(.bottom)
     }
 }

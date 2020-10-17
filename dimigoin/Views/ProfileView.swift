@@ -24,7 +24,7 @@ struct ProfileView: View {
             VStack(spacing: 15.0) {
                 VStack(alignment: .leading, spacing: 15) {
                     HStack {
-                        Text("이름").highlight().headline() 
+                        Text("이름").highlight().headline()
                         Spacer()
                         Text(userAPI.user.name).foregroundColor(Color("DisabledButton"))
                     }

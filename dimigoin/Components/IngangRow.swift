@@ -10,20 +10,21 @@ import SwiftUI
 
 struct IngangRow: View {
     @ObservedObject var ingangAPI: IngangAPI
+    @ObservedObject var tokenAPI: TokenAPI
     
     var body: some View {
         VStack {
             HStack {
                 Text("인강실 목록").sectionHeader()
                 Spacer()
-                NavigationLink(destination: IngangListView(ingangAPI: ingangAPI)) {
+                NavigationLink(destination: IngangListView(ingangAPI: ingangAPI, tokenAPI: tokenAPI)) {
                     Text("자세히 보기").caption1()
                 }
             }
             VSpacer(15)
             VStack(spacing: 15.0) {
                 ForEach(self.ingangAPI.ingangs, id: \.self) { ingang in
-                    IngangItem(ingangAPI: ingangAPI, ingang: ingang)
+                    IngangItem(ingangAPI: ingangAPI, tokenAPI: tokenAPI, ingang: ingang)
                 }
             }
         }.padding()

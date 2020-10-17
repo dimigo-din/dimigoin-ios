@@ -33,6 +33,7 @@ struct Applicant: Identifiable, Hashable, Codable {
 }
 
 enum IngangStatus: Int {
+    case none = 0
     case success = 200
     case usedAllTicket = 403
     case noIngang = 404
@@ -64,25 +65,34 @@ class IngangAPI: ObservableObject {
             "ingang_idx": "\(String(idx))"
         ]
         let url = "https://api.dimigo.in/ingang/"
-        var ingangStatus: IngangStatus = .success
+        var ingangStatus: IngangStatus = .none
         AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).response { response in
             if let status = response.response?.statusCode {
                 switch(status) {
                 case 200: //success
                     ingangStatus = .success
+                    print("인강 신청 성공 : 200")
                 case 403: // 본인 학년&반 인강실이 아니거나 오늘(일주일)치 신청을 모두 했습니다.
                     ingangStatus = .usedAllTicket
+                    print("인강 신청 실패 : 403")
                 case 404: //인강실 신청이 없습니다.
                     ingangStatus = .noIngang
+                    print("인강이 없음 : 404")
                 case 405: // 신청 시간이 아닙니다
                     ingangStatus = .timeout
+                    print("인강 신청 기간이 아님 : 405")
                 case 406: // 인강실 블랙리스트이므로 신청할 수 없습니다.
                     ingangStatus = .blacklisted
+                    print("인강 블랙리스트 : 406")
                 case 409: // 이미 신청을 했거나 신청인원이 꽉 찼습니다.
                     ingangStatus = .full
+                    print("인강 이미 신청: 409")
+                case 500:
+                    ingangStatus = .timeout
+                    print("500")
                 default:
                     self.tokenAPI.refreshTokens()
-                    debugPrint(response)
+//                    debugPrint(response)
                     ingangStatus = self.applyIngang(idx: idx)
                 }
             }
@@ -156,7 +166,6 @@ class IngangAPI: ObservableObject {
         }
     }
     func getTickets() {
-        print("get ticket status")
         let headers: HTTPHeaders = [
             "Authorization":"Bearer \(tokenAPI.tokens.token)"
         ]
@@ -170,6 +179,7 @@ class IngangAPI: ObservableObject {
                     self.daily_request_count = json["daily_request_count"].int!
                     self.weekly_ticket_num = json["weekly_ticket_num"].int!
                     self.daily_ticket_num = json["daily_ticket_num"].int!
+                    print("get ticket status \(self.weekly_request_count) \(self.weekly_ticket_num)")
                 default:
                     debugPrint(response)
                     self.tokenAPI.refreshTokens()
@@ -205,6 +215,7 @@ class IngangAPI: ObservableObject {
                     self.tokenAPI.refreshTokens()
                     self.getApplicantList()
                 }
+                print("@Apllicant : \(self.applicants)")
             }
         }
     }
