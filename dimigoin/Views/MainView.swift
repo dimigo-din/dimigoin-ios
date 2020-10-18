@@ -40,7 +40,7 @@ struct MainView: View {
             .navigationBarItems(
                 leading:
                     Button(action: {
-                        mealAPI.getMeals()
+                        mealAPI.getWeeklyMeals()
                         ingangAPI.getTickets()
                         ingangAPI.getApplicantList()
                         ingangAPI.getIngangList()

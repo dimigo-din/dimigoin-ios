@@ -10,15 +10,24 @@ import SwiftUI
 
 struct MealListView: View {
     @ObservedObject var mealAPI: MealAPI
-    
+    @State var day = getIntDay()
     var body: some View {
         
         ScrollView {
             VStack(spacing: 15.0) {
+                Picker(selection: $day, label: Text("요일을 선택하세요")) {
+                    Text("월").tag(1)
+                    Text("화").tag(2)
+                    Text("수").tag(3)
+                    Text("목").tag(4)
+                    Text("금").tag(5)
+                    Text("토").tag(6)
+                    Text("일").tag(7)
+                }.pickerStyle(SegmentedPickerStyle())
                 VStack(alignment: .leading, spacing: 10.0) {
-                    MealItem(mealType: .breakfast, mealAPI: mealAPI)
-                    MealItem(mealType: .lunch, mealAPI: mealAPI)
-                    MealItem(mealType: .dinner, mealAPI: mealAPI)
+                    MealItem(weekday: $day, mealType: .breakfast, mealAPI: mealAPI)
+                    MealItem(weekday: $day, mealType: .lunch, mealAPI: mealAPI)
+                    MealItem(weekday: $day, mealType: .dinner, mealAPI: mealAPI)
                 }
                 Divider()
                 VStack(alignment: .leading, spacing: 10.0) {
@@ -29,7 +38,9 @@ struct MealListView: View {
                 Spacer()
             }.padding()
         }
-        .navigationBarTitle("오늘의 급식")
+        .navigationBarTitle(getIntDay() == day ? "오늘의 급식" : "\(getDay(day))요일 급식")
+        
+        
     }
 }
 

@@ -10,6 +10,7 @@ import SwiftUI
 
 struct MealRow: View {
     @ObservedObject var mealAPI: MealAPI
+    @State var day: Int = getIntDay()
 
     var currentHour: Int {
         return Calendar.current.component(.hour, from: Date())
@@ -28,9 +29,9 @@ struct MealRow: View {
             VSpacer(15)
             
             switch getMealType() {
-            case .breakfast: MealItem(mealType: .breakfast, mealAPI: mealAPI)
-            case .lunch: MealItem(mealType: .lunch, mealAPI: mealAPI)
-            case .dinner: MealItem(mealType: .dinner, mealAPI: mealAPI)
+            case .breakfast: MealItem(weekday: $day, mealType: .breakfast, mealAPI: mealAPI)
+            case .lunch: MealItem(weekday: $day, mealType: .lunch, mealAPI: mealAPI)
+            case .dinner: MealItem(weekday: $day, mealType: .dinner,mealAPI: mealAPI)
             }
         }.padding()
     }

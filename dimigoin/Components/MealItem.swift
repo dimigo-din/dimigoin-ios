@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct MealItem: View {
+    @Binding var weekday: Int
     @State var mealType: MealType
     @ObservedObject var mealAPI: MealAPI
     
@@ -21,9 +22,9 @@ struct MealItem: View {
             }
             VSpacer(10)
             switch mealType {
-                case .breakfast: Text(self.mealAPI.meal.breakfast).body().lineSpacing(5)
-                case .lunch: Text(self.mealAPI.meal.lunch).body().lineSpacing(5)
-                case .dinner: Text(self.mealAPI.meal.dinner).body().lineSpacing(5)
+            case .breakfast: Text(self.mealAPI.meals[weekday-1].breakfast).body().lineSpacing(5)
+                case .lunch: Text(self.mealAPI.meals[weekday-1].lunch).body().lineSpacing(5)
+                case .dinner: Text(self.mealAPI.meals[weekday-1].dinner).body().lineSpacing(5)
             }
             
         }.CustomBox()

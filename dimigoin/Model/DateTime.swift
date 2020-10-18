@@ -8,13 +8,25 @@
 
 import Foundation
 
+
+/// 월요일 ~ 일요일을 1~7로 맵핑
+enum Weekday: Int {
+    case today = 0
+    case mon = 1
+    case tue = 2
+    case wed = 3
+    case thu = 4
+    case fri = 5
+    case sat = 6
+    case sun = 7
+}
+
 func getDay() -> String {
     let now = Date()
     let date = DateFormatter()
     date.locale = Locale(identifier: "ko_kr")
     date.timeZone = TimeZone(abbreviation: "KST")
     date.dateFormat = "E"
-    
     return date.string(from: now)
 }
 
@@ -31,6 +43,24 @@ func getDay(_ day: Int) -> String {
         default: return "error"
     }
     return dayString
+}
+
+func getDayFromString(_ day: String) -> Int {
+    var dayString: Int = 0
+    switch day {
+        case "월": dayString = 1
+        case "화": dayString = 2
+        case "수": dayString = 3
+        case "목": dayString = 4
+        case "금": dayString = 5
+        case "토": dayString = 6
+        case "일": dayString = 7
+        default: return 0
+    }
+    return dayString
+}
+func getIntDay() -> Int {
+    return getDayFromString(getDay())
 }
 
 func getDate() -> String {
@@ -55,7 +85,14 @@ func getAPIDate() -> String {
     date.dateFormat = "yyyyMMdd"
     return date.string(from: now)
 }
-
+func getFormattedDate(weekday: Weekday) -> String {
+    let amount = weekday.rawValue - getIntDay()
+    let calendar = Calendar.current
+    let date = calendar.date(byAdding: .day, value: amount, to: Date())
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyyMMdd"
+    return dateFormatter.string(from: date!)
+}
 func tomorrow() -> Date {
     
     var dateComponents = DateComponents()
@@ -74,5 +111,38 @@ func isWeekday() -> Bool {
     }
     else {
        return true
+    }
+}
+extension Date {
+    static var yesterday: Date { return Date().dayBefore }
+    static var tomorrow:  Date { return Date().dayAfter }
+    var dayBefore: Date {
+        return Calendar.current.date(byAdding: .day, value: -1, to: noon)!
+    }
+    var dayAfter: Date {
+        return Calendar.current.date(byAdding: .day, value: 1, to: noon)!
+    }
+    var noon: Date {
+        return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
+    }
+    var month: Int {
+        return Calendar.current.component(.month,  from: self)
+    }
+    var isLastDayOfMonth: Bool {
+        return dayAfter.month != month
+    }
+}
+
+func IntToWeekDay(day: Int) -> Weekday {
+    switch day {
+    case 1: return .mon
+    case 2: return .tue
+    case 3: return .wed
+    case 4: return .thu
+    case 5: return .fri
+    case 6: return .sat
+    case 7: return .sun
+    default:
+        return .today
     }
 }

@@ -11,27 +11,53 @@ import Alamofire
 import SwiftyJSON
 
 class MealAPI: ObservableObject {
-    @Published var meal = Dimibob(breakfast: "급식 정보가 없습니다.",
+    @Published var meals = [Dimibob(breakfast: "1급식 정보가 없습니다.",
                                   lunch: "급식 정보가 없습니다.",
-                                  dinner: "급식 정보가 없습니다.")
+                                  dinner: "급식 정보가 없습니다."),
+                            Dimibob(breakfast: "2급식 정보가 없습니다.",
+                                  lunch: "급식 정보가 없습니다.",
+                                  dinner: "급식 정보가 없습니다."),
+                            Dimibob(breakfast: "3급식 정보가 없습니다.",
+                                  lunch: "급식 정보가 없습니다.",
+                                  dinner: "급식 정보가 없습니다."),
+                            Dimibob(breakfast: "4급식 정보가 없습니다.",
+                                  lunch: "급식 정보가 없습니다.",
+                                  dinner: "급식 정보가 없습니다."),
+                            Dimibob(breakfast: "5급식 정보가 없습니다.",
+                                  lunch: "급식 정보가 없습니다.",
+                                  dinner: "급식 정보가 없습니다."),
+                            Dimibob(breakfast: "6급식 정보가 없습니다.",
+                                  lunch: "급식 정보가 없습니다.",
+                                  dinner: "급식 정보가 없습니다."),
+                            Dimibob(breakfast: "7급식 정보가 없습니다.",
+                                  lunch: "급식 정보가 없습니다.",
+                                  dinner: "급식 정보가 없습니다.")]
     init() {
-        getMeals()
+        getWeeklyMeals()
     }
-    func getMeals(){
-        print("get meals")
-        let url = "https://api.dimigo.in/dimibobs/\(getAPIDate())"
+    func getWeeklyMeals() {
+        getMeals(weekDay: .mon)
+        getMeals(weekDay: .tue)
+        getMeals(weekDay: .wed)
+        getMeals(weekDay: .thu)
+        getMeals(weekDay: .fri)
+        getMeals(weekDay: .sat)
+        getMeals(weekDay: .sun)
+        
+    }
+    func getMeals(weekDay: Weekday){
+        print("get meals from \(getFormattedDate(weekday: weekDay))")
+        let url = "https://api.dimigo.in/dimibobs/\(getFormattedDate(weekday: weekDay))"
         AF.request(url, method: .get, encoding: JSONEncoding.default).responseData { response in
             let json = JSON(response.value!)
-            self.meal.breakfast = json["breakfast"].string!
-            self.meal.lunch = json["lunch"].string!
-            self.meal.dinner = json["dinner"].string!
-//            self.dubugMeal()
+            self.meals[weekDay.rawValue-1].breakfast = json["breakfast"].string!
+            self.meals[weekDay.rawValue-1].lunch = json["lunch"].string!
+            self.meals[weekDay.rawValue-1].dinner = json["dinner"].string!
+            self.dubugMeal()
         }
     }
     func dubugMeal() {
-        print(meal.breakfast)
-        print(meal.lunch)
-        print(meal.dinner)
+        print(meals)
     }
 }
 

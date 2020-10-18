@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Option: ObservableObject {
+class OptionAPI: ObservableObject {
     func saveOptions() -> Void {
         
     }
