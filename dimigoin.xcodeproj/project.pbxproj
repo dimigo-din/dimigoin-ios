@@ -303,14 +303,14 @@
 		08C9AC0824A74A83002AF525 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				0842D9DF24A8ED6C00D0F330 /* TimetableItem.swift */,
+				08B8493A24A90403000A9ACD /* TimetableRow.swift */,
 				08C9AC0924A74A83002AF525 /* NoticeItem.swift */,
 				08C9AC0A24A74A83002AF525 /* NoticeRow.swift */,
 				08C9AC0E24A74A83002AF525 /* MealItem.swift */,
 				08C9AC0B24A74A83002AF525 /* MealRow.swift */,
 				08C9AC0D24A74A83002AF525 /* IngangItem.swift */,
 				08C9AC0C24A74A83002AF525 /* IngangRow.swift */,
-				0842D9DF24A8ED6C00D0F330 /* TimetableItem.swift */,
-				08B8493A24A90403000A9ACD /* TimetableRow.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";

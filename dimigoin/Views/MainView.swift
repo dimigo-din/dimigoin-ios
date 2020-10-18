@@ -14,8 +14,8 @@ struct MainView: View {
     @ObservedObject var tokenAPI: TokenAPI
     @ObservedObject var ingangAPI = IngangAPI()
     @ObservedObject var userAPI = UserAPI()
+    @ObservedObject var timetableAPI = TimeTableAPI()
     @State var showProfile = false
-    @State var meals: [Dimibob] = []
     
     init(tokenAPI: TokenAPI, mealAPI: MealAPI) {
         self.tokenAPI = tokenAPI
@@ -25,7 +25,7 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                TimetableRow(timetable: dummyTimeTable, userAPI: userAPI)
+                TimetableRow(timetableAPI: timetableAPI, userAPI: userAPI)
                 NoticeRow(noticeAPI: noticeAPI)
                 MealRow(mealAPI: mealAPI)
                 if(ingangAPI.ingangs.count != 0) {

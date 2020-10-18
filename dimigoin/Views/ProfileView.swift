@@ -32,7 +32,7 @@ struct ProfileView: View {
                     HStack {
                         Text("학적").highlight().headline()
                         Spacer()
-                        Text("\(userAPI.user.grade)학년 \(userAPI.user.klass)반 \(userAPI.user.number)번 (\(getMajor(klass: Int(userAPI.user.klass) ?? 0)))").foregroundColor(Color("DisabledButton"))
+                        Text("\(userAPI.user.grade)학년 \(userAPI.user.klass)반 \(userAPI.user.number)번 (\(getMajor(klass: userAPI.user.klass)))").foregroundColor(Color("DisabledButton"))
                     }
                     Divider().offset(x: 35)
                     HStack {

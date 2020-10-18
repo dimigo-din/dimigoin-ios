@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct TimetableRow: View {
-    @State var timetable: TimeTable
+    @ObservedObject var timetableAPI: TimeTableAPI
     @ObservedObject var userAPI: UserAPI
     var body: some View {
         VStack {
@@ -22,7 +22,7 @@ struct TimetableRow: View {
             }
             VSpacer(15)
             VStack {
-                TimetableItem(timetable: timetable)
+                TimetableItem(userAPI: userAPI)
             }.CustomBox()
         }.padding()
     }

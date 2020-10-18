@@ -9,25 +9,19 @@
 import SwiftUI
 
 struct TimetableItem: View {
-    @State var timetable: TimeTable
-    @State var user = dummyUser
+    @ObservedObject var timetableAPI = TimeTableAPI()
+    @ObservedObject var userAPI: UserAPI
     
     var body: some View {
         VStack(alignment: .center) {
-//                Text("\(user.grade)학년 \(user.klass)반 시간표").highlight().heavy().padding()
             HStack(alignment: .top) {
                 ForEach((1...5), id: \.self) { day in
                     if(getDay() == getDay(day) || !isWeekday()) {
                         VStack(alignment: .center){
                             Text("\(getDay(day))").highlight().heavy()
                             Divider().frame(height: 3).background(Color("Primary"))
-                            ForEach(timetable.data[day-1], id: \.self) { lecture in
-                                if(lecture.count >= 5) {
-                                    Text("\(lecture)").caption3().padding(.bottom, 5)
-                                }
-                                else {
-                                    Text("\(lecture)").body().padding(.bottom, 5)
-                                }
+                            ForEach(timetableAPI.getTimeTable(grade: userAPI.user.grade, klass: userAPI.user.klass).data[day-1], id: \.self) { lecture in
+                                Text("\(lecture)").body().padding(.bottom, 5)
                             }
                         }
                     }
@@ -35,7 +29,7 @@ struct TimetableItem: View {
                         VStack(alignment: .center){
                             Text("\(getDay(day))").disabled().heavy()
                             Divider()
-                            ForEach(timetable.data[day-1], id: \.self) { lecture in
+                            ForEach(timetableAPI.getTimeTable(grade: userAPI.user.grade, klass: userAPI.user.klass).data[day-1], id: \.self) { lecture in
                                 Text("\(lecture)").disabled().body().padding(.bottom, 5)
                             }
                         }
@@ -47,11 +41,3 @@ struct TimetableItem: View {
     }
 }
 
-struct TimetableItem_Previews: PreviewProvider {
-    static var previews: some View {
-        TimetableItem(timetable: dummyTimeTable)
-            .padding()
-            .frame(width: 450)
-            .previewLayout(.sizeThatFits)
-    }
-}

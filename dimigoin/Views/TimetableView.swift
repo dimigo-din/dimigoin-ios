@@ -9,21 +9,17 @@
 import SwiftUI
 
 struct TimetableView: View {
-    @State var timetable = dummyTimeTable
-    @ObservedObject var userAPI: UserAPI
     @State var timeTableAPI = TimeTableAPI()
-    @State var user = dummyUser
-    @State var grade = 2
-    @State var klass = 4
+    @ObservedObject var userAPI: UserAPI
     var body: some View {
         VStack {
-            Picker(selection: $grade, label: Text("학년을 선택하세요")) {
+            Picker(selection: $userAPI.user.grade, label: Text("학년을 선택하세요")) {
                 Text("1학년").tag(1)
                 Text("2학년").tag(2)
                 Text("3학년").tag(3)
             }.pickerStyle(SegmentedPickerStyle())
             .padding(.leading).padding(.trailing)
-            Picker(selection: $klass, label: Text("반을 선택하세요")) {
+            Picker(selection: $userAPI.user.klass, label: Text("반을 선택하세요")) {
                 Text("1반").tag(1)
                 Text("2반").tag(2)
                 Text("3반").tag(3)
@@ -38,7 +34,7 @@ struct TimetableView: View {
                         VStack(alignment: .center){
                             Text("\(getDay(day))").highlight().heavy()
                             Divider().frame(height: 2)
-                            ForEach(timeTableAPI.getTimeTable(grade: grade, klass: klass).data[day-1], id: \.self) { lecture in
+                            ForEach(timeTableAPI.getTimeTable(grade: userAPI.user.grade, klass: userAPI.user.klass).data[day-1], id: \.self) { lecture in
                                 Text("\(lecture)").body().padding(.bottom, 5)
                             }
                         }
@@ -46,8 +42,10 @@ struct TimetableView: View {
                 }
             }.CustomBox()
             .padding()
-            .navigationBarTitle(Text("\(grade)학년 \(klass)반 시간표"))
-        }
+            .navigationBarTitle(Text("\(userAPI.user.grade)학년 \(userAPI.user.klass)반 시간표"))
+        }.onDisappear(perform: {
+            userAPI.getUserData()
+        })
         Spacer()
     }
 }

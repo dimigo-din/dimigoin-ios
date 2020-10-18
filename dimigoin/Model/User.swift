@@ -14,8 +14,8 @@ struct User: Codable, Identifiable {
     var name: String = ""
     var id: String = ""
     var idx: Int = 0
-    var grade: String = ""
-    var klass: String = ""
+    var grade: Int = 1
+    var klass: Int = 1
     var number: String = ""
     var serial: String = ""
     var photo: String = "person.crop.circle"
@@ -46,8 +46,8 @@ class UserAPI: ObservableObject {
                     let json = JSON(response.value!!)
                     self.user.idx = json["idx"].int!
                     self.user.name = json["name"].string!
-                    self.user.grade = json["grade"].string!
-                    self.user.klass = json["klass"].string!
+                    self.user.grade = Int(json["grade"].string!)!
+                    self.user.klass = Int(json["klass"].string!)!
                     self.user.number = json["number"].string!
                     self.user.serial = json["serial"].string!
                     self.user.email = json["email"].string!
@@ -105,8 +105,8 @@ func getMajor(klass: Int) -> String {
 let dummyUser: User = User(name: "변경민",
                           id: "bkmchangemin",
                           idx: 2121,
-                          grade: "2",
-                          klass: "4",
+                          grade: 2,
+                          klass: 4,
                           number: "13",
                           serial: "2413",
                           photo: "person.crop.circle",
