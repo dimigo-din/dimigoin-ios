@@ -25,7 +25,7 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                TimetableRow(timetable: dummyTimeTable)
+                TimetableRow(timetable: dummyTimeTable, userAPI: userAPI)
                 NoticeRow(noticeAPI: noticeAPI)
                 MealRow(mealAPI: mealAPI)
                 if(ingangAPI.ingangs.count != 0) {

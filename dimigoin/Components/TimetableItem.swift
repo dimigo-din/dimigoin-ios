@@ -22,7 +22,12 @@ struct TimetableItem: View {
                             Text("\(getDay(day))").highlight().heavy()
                             Divider().frame(height: 3).background(Color("Primary"))
                             ForEach(timetable.data[day-1], id: \.self) { lecture in
-                                Text("\(lecture)").body().padding(.bottom, 5)
+                                if(lecture.count >= 5) {
+                                    Text("\(lecture)").caption3().padding(.bottom, 5)
+                                }
+                                else {
+                                    Text("\(lecture)").body().padding(.bottom, 5)
+                                }
                             }
                         }
                     }

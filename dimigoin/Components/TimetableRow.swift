@@ -10,13 +10,13 @@ import SwiftUI
 
 struct TimetableRow: View {
     @State var timetable: TimeTable
-    
+    @ObservedObject var userAPI: UserAPI
     var body: some View {
         VStack {
             HStack {
                 Text("시간표").sectionHeader()
                 Spacer()
-                NavigationLink(destination: WeekTimetableView()) {
+                NavigationLink(destination: TimetableView(userAPI: userAPI)) {
                     Text("전체 시간표 보기").caption1()
                 }
             }
@@ -28,10 +28,10 @@ struct TimetableRow: View {
     }
 }
 
-struct TimetableRow_Previews: PreviewProvider {
-    static var previews: some View {
-        TimetableRow(timetable: dummyTimeTable)
-            .previewLayout(.sizeThatFits)
-            .padding()
-    }
-}
+//struct TimetableRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TimetableRow(timetable: dummyTimeTable, userAPI: userAPI)
+//            .previewLayout(.sizeThatFits)
+//            .padding()
+//    }
+//}

@@ -11,25 +11,25 @@ import Alamofire
 import SwiftyJSON
 
 class MealAPI: ObservableObject {
-    @Published var meals = [Dimibob(breakfast: "1급식 정보가 없습니다.",
+    @Published var meals = [Dimibob(breakfast: "급식 정보가 없습니다.",
                                   lunch: "급식 정보가 없습니다.",
                                   dinner: "급식 정보가 없습니다."),
-                            Dimibob(breakfast: "2급식 정보가 없습니다.",
+                            Dimibob(breakfast: "급식 정보가 없습니다.",
                                   lunch: "급식 정보가 없습니다.",
                                   dinner: "급식 정보가 없습니다."),
-                            Dimibob(breakfast: "3급식 정보가 없습니다.",
+                            Dimibob(breakfast: "급식 정보가 없습니다.",
                                   lunch: "급식 정보가 없습니다.",
                                   dinner: "급식 정보가 없습니다."),
-                            Dimibob(breakfast: "4급식 정보가 없습니다.",
+                            Dimibob(breakfast: "급식 정보가 없습니다.",
                                   lunch: "급식 정보가 없습니다.",
                                   dinner: "급식 정보가 없습니다."),
-                            Dimibob(breakfast: "5급식 정보가 없습니다.",
+                            Dimibob(breakfast: "급식 정보가 없습니다.",
                                   lunch: "급식 정보가 없습니다.",
                                   dinner: "급식 정보가 없습니다."),
-                            Dimibob(breakfast: "6급식 정보가 없습니다.",
+                            Dimibob(breakfast: "급식 정보가 없습니다.",
                                   lunch: "급식 정보가 없습니다.",
                                   dinner: "급식 정보가 없습니다."),
-                            Dimibob(breakfast: "7급식 정보가 없습니다.",
+                            Dimibob(breakfast: "급식 정보가 없습니다.",
                                   lunch: "급식 정보가 없습니다.",
                                   dinner: "급식 정보가 없습니다.")]
     init() {
