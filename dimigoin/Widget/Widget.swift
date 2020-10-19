@@ -11,7 +11,7 @@ import SwiftUI
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date())
+        return SimpleEntry(date: Date())
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
@@ -25,11 +25,10 @@ struct Provider: TimelineProvider {
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate)
-            entries.append(entry)
-        }
+        let entryDate = Calendar.current.date(byAdding: .hour, value: 1, to: currentDate)!
+        let entry = SimpleEntry(date: entryDate)
+        entries.append(entry)
+        
 
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
@@ -42,35 +41,37 @@ struct SimpleEntry: TimelineEntry {
 
 struct WidgetEntryView : View {
     @Environment(\.widgetFamily) var family: WidgetFamily
-
+    @ObservedObject var userAPI: UserAPI
+    @ObservedObject var timetableAPI: TimeTableAPI
     @ViewBuilder
     var body: some View {
         switch family {
         case .systemSmall: NextMealWidgetView(meal: dummyDimibob)
         case .systemMedium:TodayMealWidgetView(meal: dummyDimibob)
-        case .systemLarge: TimeTableWidgetView(meal: dummyDimibob, timetable: dummyTimeTable, user: dummyUser)
-        default: Text("small")
+        case .systemLarge: TimeTableWidgetView(userAPI: userAPI, timetableAPI: timetableAPI)
+        default: Text("Error")
         }
     }
 }
 
 @main
 struct Widget: SwiftUI.Widget {
+    @ObservedObject var userAPI = UserAPI()
+    @ObservedObject var timetableAPI = TimeTableAPI()
     let kind: String = "디미고인 위젯"
-
+    
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            WidgetEntryView()
+            WidgetEntryView(userAPI: userAPI, timetableAPI: timetableAPI)
         }
         .configurationDisplayName("디미고인 위젯")
-        .description("This is an example widget.")
-        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
+        .description("디미고의 급식을 편리하게 조회하고 시간표를 확인하세요")
     }
 }
 
-struct Widget_Previews: PreviewProvider {
-    static var previews: some View {
-        WidgetEntryView()
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
-    }
-}
+//struct Widget_Previews: PreviewProvider {
+//    static var previews: some View {
+//        WidgetEntryView()
+//            .previewContext(WidgetPreviewContext(family: .systemSmall))
+//    }
+//}

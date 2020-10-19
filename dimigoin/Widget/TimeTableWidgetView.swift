@@ -10,14 +10,13 @@ import SwiftUI
 
 struct TimeTableWidgetView: View {
 //    var entry: Entry
-    var meal: Dimibob
-    var timetable: TimeTable
-    var user: User
+    @ObservedObject var userAPI: UserAPI
+    @ObservedObject var timetableAPI: TimeTableAPI
 
     @ViewBuilder
     var body: some View {
         ZStack{
-            Image("Logo").resizable().frame(width: 120, height: 138).opacity(0.25)
+            Image("Logo").resizable().frame(width: 120, height: 138).opacity(1)
             VStack {
                 VStack(alignment: .center) {
                     HStack(alignment: .top) {
@@ -25,13 +24,14 @@ struct TimeTableWidgetView: View {
                             VStack(alignment: .center){
                                 Text("\(getDay(day))").highlight().heavy()
                                 Divider().frame(height: 2)
-                                ForEach(timetable.data[day-1], id: \.self) { lecture in
+                                ForEach(timetableAPI.getTimeTable(grade: 2, klass: 2).data[day-1], id: \.self) { lecture in
                                     Text("\(lecture)").body().padding(.bottom, 5)
                                 }
                             }
                         }
                     }
                 }.padding()
+                Text("hello")
             }
         }
     }

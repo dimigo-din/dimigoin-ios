@@ -53,7 +53,7 @@ class MealAPI: ObservableObject {
             self.meals[weekDay.rawValue-1].breakfast = json["breakfast"].string!
             self.meals[weekDay.rawValue-1].lunch = json["lunch"].string!
             self.meals[weekDay.rawValue-1].dinner = json["dinner"].string!
-            self.dubugMeal()
+//            self.dubugMeal()
         }
     }
     func dubugMeal() {

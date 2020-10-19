@@ -49,7 +49,6 @@
 		42364EAA24B0CFEC008427D5 /* NanumSquareRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA624B0CFEC008427D5 /* NanumSquareRegular.ttf */; };
 		42364EAC24B14E02008427D5 /* KeyboardResponsive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42364EAB24B14E02008427D5 /* KeyboardResponsive.swift */; };
 		423A9EEA24E026EC00E046BE /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423A9EE924E026EC00E046BE /* OptionView.swift */; };
-		423A9F0824E16FE600E046BE /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = 423A9F0724E16FE600E046BE /* SwiftUIPager */; };
 		423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71EF24B191AF0099CE3E /* ClearButton.swift */; };
 		423B71F224B1932E0099CE3E /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F124B1932E0099CE3E /* Background.swift */; };
 		423B71F424B1B3F60099CE3E /* CustomBoxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */; };
@@ -57,11 +56,13 @@
 		42671D3E25393E3000082E9D /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8493C24A90432000A9ACD /* Timetable.swift */; };
 		42671D4125393E3A00082E9D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212D98224CC6A0400FF82D5 /* User.swift */; };
 		42671D4425393E5000082E9D /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083D74F824A77A9E00989B47 /* Tokens.swift */; };
+		4288B938253E57260022B11A /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4288B937253E57260022B11A /* Notification.swift */; };
 		429039E724D45027005A25C0 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429039E624D45027005A25C0 /* ActivityIndicator.swift */; };
 		429F8C79253B42A70068E3FD /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429F8C78253B42A70068E3FD /* Options.swift */; };
 		42B6DE9B24DBE5E700B1E299 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 42B6DE9A24DBE5E700B1E299 /* SwiftyJSON */; };
 		42C487CA24DDB73000C594CB /* CopyrightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C487C924DDB73000C594CB /* CopyrightText.swift */; };
 		42C4E4D324CEA8E3004EC6AF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 42C4E4D224CEA8E3004EC6AF /* Alamofire */; };
+		42D216EA253D1E6F00A6F3C5 /* NextMealWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F6330B24CBAB7C00F1F439 /* NextMealWidgetView.swift */; };
 		42DBE5A92536BABE00E5F4EA /* Openas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42DBE5A82536BABD00E5F4EA /* Openas.ttf */; };
 		42DBE5FE253884E300E5F4EA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42124B4A70E00005663 /* WidgetKit.framework */; };
 		42DBE5FF253884E300E5F4EA /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42324B4A70E00005663 /* SwiftUI.framework */; };
@@ -70,7 +71,6 @@
 		42DBE608253884E600E5F4EA /* WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 42DBE5FD253884E300E5F4EA /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		42DBE60E253884F900E5F4EA /* TodayMealWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F6330D24CBABB300F1F439 /* TodayMealWidgetView.swift */; };
 		42DBE60F253884F900E5F4EA /* TimeTableWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F6330F24CBABE200F1F439 /* TimeTableWidgetView.swift */; };
-		42DBE610253884F900E5F4EA /* NextMealWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F6330B24CBAB7C00F1F439 /* NextMealWidgetView.swift */; };
 		42DBE61725388C6D00E5F4EA /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54C24AF816200456846 /* VSpacer.swift */; };
 		42DBE61A25388C6F00E5F4EA /* HSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54E24AF819400456846 /* HSpacer.swift */; };
 		42DBE61D25388C7100E5F4EA /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC55024AF849D00456846 /* TextStyles.swift */; };
@@ -158,6 +158,7 @@
 		423B71EF24B191AF0099CE3E /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
 		423B71F124B1932E0099CE3E /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBoxModifier.swift; sourceTree = "<group>"; };
+		4288B937253E57260022B11A /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		429039E624D45027005A25C0 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		429F8C78253B42A70068E3FD /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		429FD87F24B202DA003A49AF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -179,7 +180,6 @@
 			files = (
 				42B6DE9B24DBE5E700B1E299 /* SwiftyJSON in Frameworks */,
 				42C4E4D324CEA8E3004EC6AF /* Alamofire in Frameworks */,
-				423A9F0824E16FE600E046BE /* SwiftUIPager in Frameworks */,
 				42F632D224CACFC400F1F439 /* SPAlert in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,15 +233,15 @@
 			isa = PBXGroup;
 			children = (
 				42DBE600253884E300E5F4EA /* Widget */,
+				08C9AC0124A74A83002AF525 /* Views */,
+				08C9ABFF24A74A83002AF525 /* Model */,
 				086CC54B24AF812C00456846 /* CustomViews */,
 				08C9AC0824A74A83002AF525 /* Components */,
-				08C9ABFF24A74A83002AF525 /* Model */,
-				08C9AC0124A74A83002AF525 /* Views */,
 				08C9ABFC24A74A83002AF525 /* Modifiers */,
 				42364EA124AFF1B5008427D5 /* Application */,
-				08C9ABEE24A74A54002AF525 /* Assets.xcassets */,
 				42364EA224B0CFB9008427D5 /* Fonts */,
 				08C9ABF024A74A54002AF525 /* Preview Content */,
+				08C9ABEE24A74A54002AF525 /* Assets.xcassets */,
 			);
 			path = dimigoin;
 			sourceTree = "<group>";
@@ -280,6 +280,7 @@
 				083D74F824A77A9E00989B47 /* Tokens.swift */,
 				4212D97F24CC124B00FF82D5 /* DateTime.swift */,
 				429F8C78253B42A70068E3FD /* Options.swift */,
+				4288B937253E57260022B11A /* Notification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -356,8 +357,8 @@
 				42F6330D24CBABB300F1F439 /* TodayMealWidgetView.swift */,
 				42F6330F24CBABE200F1F439 /* TimeTableWidgetView.swift */,
 				42DBE601253884E300E5F4EA /* Widget.swift */,
-				42DBE603253884E600E5F4EA /* Assets.xcassets */,
 				42DBE605253884E600E5F4EA /* Info.plist */,
+				42DBE603253884E600E5F4EA /* Assets.xcassets */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -384,7 +385,6 @@
 				42F632D124CACFC400F1F439 /* SPAlert */,
 				42C4E4D224CEA8E3004EC6AF /* Alamofire */,
 				42B6DE9A24DBE5E700B1E299 /* SwiftyJSON */,
-				423A9F0724E16FE600E046BE /* SwiftUIPager */,
 			);
 			productName = dimigoin;
 			productReference = 08C9ABE524A74A53002AF525 /* DimigoIN.app */;
@@ -524,6 +524,7 @@
 				08C9ABEB24A74A53002AF525 /* SceneDelegate.swift in Sources */,
 				423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */,
 				086CC55124AF849D00456846 /* TextStyles.swift in Sources */,
+				4288B938253E57260022B11A /* Notification.swift in Sources */,
 				08B8493D24A90432000A9ACD /* Timetable.swift in Sources */,
 				08C9AC1924A74A83002AF525 /* NoticeRow.swift in Sources */,
 				08C9ABED24A74A53002AF525 /* ContentView.swift in Sources */,
@@ -536,10 +537,10 @@
 			files = (
 				42671D4125393E3A00082E9D /* User.swift in Sources */,
 				42DBE61A25388C6F00E5F4EA /* HSpacer.swift in Sources */,
+				42D216EA253D1E6F00A6F3C5 /* NextMealWidgetView.swift in Sources */,
 				42671D3B25393E0B00082E9D /* TimetableItem.swift in Sources */,
 				42DBE61725388C6D00E5F4EA /* VSpacer.swift in Sources */,
 				42DBE62625390DE400E5F4EA /* DateTime.swift in Sources */,
-				42DBE610253884F900E5F4EA /* NextMealWidgetView.swift in Sources */,
 				42671D3E25393E3000082E9D /* Timetable.swift in Sources */,
 				42DBE61D25388C7100E5F4EA /* TextStyles.swift in Sources */,
 				42DBE62325388C8A00E5F4EA /* Meal.swift in Sources */,
@@ -695,7 +696,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = HPU8XGH3GG;
 				ENABLE_PREVIEWS = YES;
@@ -705,7 +706,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dimigoin.v2;
 				PRODUCT_NAME = DimigoIN;
 				SWIFT_VERSION = 5.0;
@@ -719,7 +720,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = HPU8XGH3GG;
 				ENABLE_PREVIEWS = YES;
@@ -729,7 +730,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dimigoin.v2;
 				PRODUCT_NAME = DimigoIN;
 				SWIFT_VERSION = 5.0;
@@ -743,7 +744,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = HPU8XGH3GG;
 				INFOPLIST_FILE = dimigoin/Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -752,7 +753,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dimigoin.v2.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -767,7 +768,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = HPU8XGH3GG;
 				INFOPLIST_FILE = dimigoin/Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -776,7 +777,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dimigoin.v2.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -853,11 +854,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		423A9F0724E16FE600E046BE /* SwiftUIPager */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 423A9F0624E16FE600E046BE /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
-			productName = SwiftUIPager;
-		};
 		42B6DE9A24DBE5E700B1E299 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 42B6DE9924DBE5E700B1E299 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;

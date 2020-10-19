@@ -20,6 +20,11 @@ struct MainView: View {
     init(tokenAPI: TokenAPI, mealAPI: MealAPI) {
         self.tokenAPI = tokenAPI
         self.mealAPI = mealAPI
+        
+        let notificationManager = NotificationManager()
+        notificationManager.requestPermission()
+//        notificationManager.addNotification(title: "hello")
+//        notificationManager.scheduleNotifications()
     }
     
     var body: some View {
