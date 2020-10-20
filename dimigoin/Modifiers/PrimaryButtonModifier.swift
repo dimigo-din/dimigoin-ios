@@ -13,7 +13,7 @@ struct PrimaryButtonModifier: ViewModifier {
         return content
             .font(Font.body.bold())
             .padding()
-            .background(Color("Primary"))
+            .background(Color("accent"))
             .foregroundColor(Color.white)
             .cornerRadius(7.0)
     }

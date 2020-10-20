@@ -18,7 +18,7 @@ struct TimetableView: View {
                 Text("2학년").tag(2)
                 Text("3학년").tag(3)
             }.pickerStyle(SegmentedPickerStyle())
-            .padding(.leading).padding(.trailing)
+            .padding(.horizontal)
             Picker(selection: $userAPI.user.klass, label: Text("반을 선택하세요")) {
                 Text("1반").tag(1)
                 Text("2반").tag(2)
@@ -27,7 +27,7 @@ struct TimetableView: View {
                 Text("5반").tag(5)
                 Text("6반").tag(6)
             }.pickerStyle(SegmentedPickerStyle())
-            .padding(.leading).padding(.trailing)
+            .padding(.horizontal)
             VStack(alignment: .center) {
                 HStack(alignment: .top) {
                     ForEach((1...5), id: \.self) { day in

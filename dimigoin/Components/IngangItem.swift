@@ -46,7 +46,7 @@ struct IngangItem: View {
                                 case 404: //인강실 신청이 없습니다.
                                     SPAlert.present(title: "인강 신청 실패", message: "인강실 신청이 없습니다.", preset: .privacy)
                                 case 405: // 신청 시간이 아닙니다
-                                    SPAlert.present(title: "인강 신청 실패", message: "신청 시간이 아닙니다.\n신청 시간 : 7:00~8:15", preset: .privacy)
+                                    SPAlert.present(title: "인강 신청 실패", message: "신청 시간이 아닙니다.", preset: .privacy)
                                 case 406: // 인강실 블랙리스트이므로 신청할 수 없습니다.
                                     SPAlert.present(title: "인강 신청 실패", message: "인강실 블랙리스트이므로\n신청할 수 없습니다.", preset: .privacy)
                                 case 409: // 이미 신청을 했거나 신청인원이 꽉 찼습니다.
@@ -86,7 +86,7 @@ struct IngangItem: View {
                                 case 404: //인강실 신청이 없습니다.
                                     SPAlert.present(title: "인강 취소 실패",message: "인강실 신청이 없습니다.", preset: .privacy)
                                 case 405: // 신청 시간이 아닙니다
-                                    SPAlert.present(title: "인강 취소 실패",message: "신청 시간이 아닙니다.\n신청 시간 : 7:00~8:15", preset: .privacy)
+                                    SPAlert.present(title: "인강 취소 실패",message: "신청 시간이 아닙니다.", preset: .privacy)
                                 case 500: // some error occured
                                     SPAlert.present(title: "Error(500)", message: "디미고인 시스템이 망가진거 같아요", preset: .exclamation)
                                 default:

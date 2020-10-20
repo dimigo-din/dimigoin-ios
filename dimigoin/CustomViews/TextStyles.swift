@@ -11,7 +11,7 @@ import SwiftUI
 extension Text {
     func highlight() -> Text {
         self
-            .foregroundColor(Color("Highlight"))
+            .foregroundColor(Color("accent"))
     }
     func highlightRed() -> Text {
         self
@@ -66,7 +66,7 @@ extension Text {
             .font(Font.custom("NanumSquareB", size: 17))
             .frame(width: w, height: h)
             .padding()
-            .background(Color("Primary"))
+            .background(Color("accent"))
             .foregroundColor(Color.white)
             .cornerRadius(5.0)
     }

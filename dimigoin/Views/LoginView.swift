@@ -47,9 +47,7 @@ struct LoginView: View {
                         tokenAPI.set(id: self.id, password: self.password)
                         tokenAPI.getTokens()
                         if(tokenAPI.tokenStatus == .exist) {
-                            // navigation to main
                             self.showErrorMessage = false
-                            navigateToMainView()
                         }
                         else if(tokenAPI.tokenStatus == .none) {
                             self.showErrorMessage = true
@@ -61,7 +59,6 @@ struct LoginView: View {
                 }
                 Spacer()
                 CopyrightText()
-                
             }.padding(.horizontal)
             if #available(iOS 14.0, *) {
                 if(isLoading) {
@@ -69,7 +66,7 @@ struct LoginView: View {
                         HStack {
                             Text("로딩중").highlight().caption1()
                         }
-                    }.progressViewStyle(CircularProgressViewStyle(tint: Color("Primary")))
+                    }.progressViewStyle(CircularProgressViewStyle(tint: Color("accent")))
                 }
 
             } else {
@@ -77,8 +74,5 @@ struct LoginView: View {
             }
             
         }
-    }
-    func navigateToMainView() {
-        
     }
 }
