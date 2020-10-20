@@ -15,8 +15,8 @@ struct Item: Identifiable {
 
 struct OptionView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    var modes = ["화이트모드", "시스템 설정에 맞게", "다크모드"]
-    @ObservedObject var optionAPI: OptionAPI = OptionAPI()
+    
+    @ObservedObject var optionAPI: OptionAPI
     @State var selectedMode = 0
     @State private var editMode = EditMode.inactive
     @State var visibleItems: [Item] = [
@@ -26,8 +26,8 @@ struct OptionView: View {
         Item(name: "인강실 신청")
     ]
     @State var beneduAlert = true
-    init() {
-//        loadOptions()
+    init(optionAPI: OptionAPI) {
+        self.optionAPI = optionAPI
     }
     var body: some View {
         NavigationView {
@@ -68,12 +68,12 @@ struct OptionView: View {
                 },
                     footer: Text("테스트중인 기능들로 완벽하지 않을 수 있습니다.").caption3())
                 {
-                    Toggle(isOn: $beneduAlert) {
+                    Toggle(isOn: $optionAPI.beneduAlert) {
                         Text("베네듀 알림").body()
                     }
-                    Picker(selection: $selectedMode, label: Text("화이트/다크모드").body()) {
-                        ForEach(0 ..< modes.count) {
-                            Text(self.modes[$0]).body()
+                    Picker(selection: $optionAPI.selectedMode, label: Text("화이트/다크모드").body()) {
+                        ForEach(0 ..< optionAPI.modes.count) {
+                            Text(optionAPI.modes[$0]).body()
                         }
                     }
                 }
@@ -82,13 +82,14 @@ struct OptionView: View {
             .navigationBarItems(trailing:
                 Button(action: {
                     self.dismiss()
-                    saveOptions()
-                    // save options
                 }){
                     Image(systemName: "xmark").resizable().frame(width: 20, height: 20)
                 }
             )
             .environment(\.editMode, $editMode)
+            .onDisappear(perform: {
+                optionAPI.saveOptions()
+            })
         }
     }
     
@@ -106,31 +107,11 @@ struct OptionView: View {
             Item(name: "인강실 신청")
         ]
     }
-    func saveOptions() {
-        var itemOrder: String = ""
-        for idx in 0..<visibleItems.count {
-            itemOrder += "\(visibleItems[idx].name),"
-        }
-        print("save : \(itemOrder)")
-        UserDefaults.standard.setValue(itemOrder, forKey: "visibleItems")
-    }
-    func loadOptions() {
-        if let itemOrder = UserDefaults.standard.string(forKey: "visibleItems") {
-            let items = itemOrder.components(separatedBy: ",")
-            print("load : \(items)")
-            for itemName in items {
-                print(itemName)
-                let newItem = Item(name: itemName)
-                print(newItem)
-                self.visibleItems.append(newItem)
-                print(self.visibleItems)
-            }
-        }
-    }
+    
 }
 
-struct OptionView_Previews: PreviewProvider {
-    static var previews: some View {
-        OptionView()
-    }
-}
+//struct OptionView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OptionView()
+//    }
+//}

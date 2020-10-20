@@ -15,7 +15,7 @@ struct MainView: View {
     @ObservedObject var ingangAPI = IngangAPI()
     @ObservedObject var userAPI = UserAPI()
     @ObservedObject var timetableAPI = TimeTableAPI()
-    @State var showProfile = false
+    @ObservedObject var optionAPI = OptionAPI()
     
     init(tokenAPI: TokenAPI, mealAPI: MealAPI) {
         self.tokenAPI = tokenAPI
@@ -33,11 +33,7 @@ struct MainView: View {
                 TimetableRow(timetableAPI: timetableAPI, userAPI: userAPI)
                 NoticeRow(noticeAPI: noticeAPI)
                 MealRow(mealAPI: mealAPI)
-                if(ingangAPI.ingangs.count != 0) {
-                    IngangRow(ingangAPI: ingangAPI, tokenAPI: tokenAPI)
-                } else {
-                    Text("오늘은 인강이 없습니다!").body().opacity(0.4).padding()
-                }
+                IngangRow(ingangAPI: ingangAPI, tokenAPI: tokenAPI)
                 CopyrightText()
             }
             .navigationViewStyle(StackNavigationViewStyle())
@@ -54,7 +50,7 @@ struct MainView: View {
                         Image(systemName: "arrow.clockwise").font(Font.system(size: 21))
                     },
                 trailing:
-                    NavigationLink(destination: ProfileView(tokenAPI: tokenAPI, userAPI: userAPI)) {
+                    NavigationLink(destination: ProfileView(tokenAPI: tokenAPI, userAPI: userAPI, optionAPI: optionAPI)) {
                         Image(systemName: userAPI.user.photo).font(Font.system(size: 30))
                     }
             )

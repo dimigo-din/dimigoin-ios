@@ -12,11 +12,13 @@ import SPAlert
 struct ProfileView: View {
     @ObservedObject var tokenAPI: TokenAPI
     @ObservedObject var userAPI: UserAPI
+    @ObservedObject var optionAPI: OptionAPI
     @State var showOption: Bool = false
     
-    init(tokenAPI: TokenAPI, userAPI: UserAPI) {
+    init(tokenAPI: TokenAPI, userAPI: UserAPI, optionAPI: OptionAPI) {
         self.tokenAPI = tokenAPI
         self.userAPI = userAPI
+        self.optionAPI = optionAPI
     }
     
     var body: some View {
@@ -72,7 +74,7 @@ struct ProfileView: View {
                     Image(systemName: "gear").resizable().frame(width: 25, height: 25)
                 }
                 .sheet(isPresented: $showOption) {
-                    OptionView()
+                    OptionView(optionAPI: optionAPI)
                 }
             )
             

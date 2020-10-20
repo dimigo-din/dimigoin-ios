@@ -442,7 +442,6 @@
 				42F632D024CACFC400F1F439 /* XCRemoteSwiftPackageReference "SPAlert" */,
 				42C4E4D124CEA8E3004EC6AF /* XCRemoteSwiftPackageReference "Alamofire" */,
 				42B6DE9924DBE5E700B1E299 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
-				423A9F0624E16FE600E046BE /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
 			);
 			productRefGroup = 08C9ABE624A74A53002AF525 /* Products */;
 			projectDirPath = "";
@@ -819,14 +818,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		423A9F0624E16FE600E046BE /* XCRemoteSwiftPackageReference "SwiftUIPager" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/fermoya/SwiftUIPager";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.10.1;
-			};
-		};
 		42B6DE9924DBE5E700B1E299 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";

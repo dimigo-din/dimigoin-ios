@@ -13,21 +13,26 @@ struct IngangRow: View {
     @ObservedObject var tokenAPI: TokenAPI
     
     var body: some View {
-        VStack {
-            HStack {
-                Text("인강실 목록").sectionHeader()
-                Spacer()
-                NavigationLink(destination: IngangListView(ingangAPI: ingangAPI, tokenAPI: tokenAPI)) {
-                    Text("자세히 보기").caption1()
+        if(ingangAPI.ingangs.count != 0) {
+            VStack {
+                HStack {
+                    Text("인강실 목록").sectionHeader()
+                    Spacer()
+                    NavigationLink(destination: IngangListView(ingangAPI: ingangAPI, tokenAPI: tokenAPI)) {
+                        Text("자세히 보기").caption1()
+                    }
                 }
-            }
-            VSpacer(15)
-            VStack(spacing: 15.0) {
-                ForEach(self.ingangAPI.ingangs, id: \.self) { ingang in
-                    IngangItem(ingangAPI: ingangAPI, tokenAPI: tokenAPI, ingang: ingang)
+                VSpacer(15)
+                VStack(spacing: 15.0) {
+                    ForEach(self.ingangAPI.ingangs, id: \.self) { ingang in
+                        IngangItem(ingangAPI: ingangAPI, tokenAPI: tokenAPI, ingang: ingang)
+                    }
                 }
-            }
-        }.padding()
+            }.padding()
+        } else {
+            Text("오늘은 인강이 없습니다!").body().opacity(0.4).padding()
+        }
+        
     }
 }
 

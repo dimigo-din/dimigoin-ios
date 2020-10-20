@@ -36,16 +36,16 @@ class MealAPI: ObservableObject {
         getWeeklyMeals()
     }
     func getWeeklyMeals() {
-        getMeals(weekDay: .mon)
-        getMeals(weekDay: .tue)
-        getMeals(weekDay: .wed)
-        getMeals(weekDay: .thu)
-        getMeals(weekDay: .fri)
-        getMeals(weekDay: .sat)
-        getMeals(weekDay: .sun)
+        getMeals(from: .mon)
+        getMeals(from: .tue)
+        getMeals(from: .wed)
+        getMeals(from: .thu)
+        getMeals(from: .fri)
+        getMeals(from: .sat)
+        getMeals(from: .sun)
         
     }
-    func getMeals(weekDay: Weekday){
+    func getMeals(from weekDay: Weekday){
         print("get meals from \(getFormattedDate(weekday: weekDay))")
         let url = "https://api.dimigo.in/dimibobs/\(getFormattedDate(weekday: weekDay))"
         AF.request(url, method: .get, encoding: JSONEncoding.default).responseData { response in

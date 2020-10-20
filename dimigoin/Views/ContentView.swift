@@ -11,7 +11,6 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var tokenAPI = TokenAPI()
     @ObservedObject var mealAPI = MealAPI()
-    @ObservedObject var optionAPI = OptionAPI()
     
     var body: some View {
         Group {
