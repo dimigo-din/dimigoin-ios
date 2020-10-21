@@ -14,7 +14,7 @@ struct MainView: View {
     @ObservedObject var tokenAPI: TokenAPI
     @ObservedObject var ingangAPI = IngangAPI()
     @ObservedObject var userAPI = UserAPI()
-    @ObservedObject var timetableAPI = TimeTableAPI()
+    @ObservedObject var timetableAPI = TimetableAPI()
     @ObservedObject var optionAPI = OptionAPI()
     
     init(tokenAPI: TokenAPI, mealAPI: MealAPI) {

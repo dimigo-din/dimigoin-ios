@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct TimetableRow: View {
-    @ObservedObject var timetableAPI: TimeTableAPI
+    @ObservedObject var timetableAPI: TimetableAPI
     @ObservedObject var userAPI: UserAPI
     var body: some View {
         VStack {

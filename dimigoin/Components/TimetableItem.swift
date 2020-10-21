@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct TimetableItem: View {
-    @ObservedObject var timetableAPI = TimeTableAPI()
+    @ObservedObject var timetableAPI = TimetableAPI()
     @ObservedObject var userAPI: UserAPI
     
     var body: some View {
@@ -20,7 +20,7 @@ struct TimetableItem: View {
                         VStack(alignment: .center){
                             Text("\(getDay(day))").highlight().heavy()
                             Divider().frame(height: 3).background(Color("accent"))
-                            ForEach(timetableAPI.getTimeTable(grade: userAPI.user.grade, klass: userAPI.user.klass).data[day-1], id: \.self) { lecture in
+                            ForEach(timetableAPI.getTimetable(grade: userAPI.user.grade, klass: userAPI.user.klass).data[day-1], id: \.self) { lecture in
                                 Text("\(lecture)").body().padding(.bottom, 5)
                             }
                         }
@@ -29,7 +29,7 @@ struct TimetableItem: View {
                         VStack(alignment: .center){
                             Text("\(getDay(day))").disabled().heavy()
                             Divider()
-                            ForEach(timetableAPI.getTimeTable(grade: userAPI.user.grade, klass: userAPI.user.klass).data[day-1], id: \.self) { lecture in
+                            ForEach(timetableAPI.getTimetable(grade: userAPI.user.grade, klass: userAPI.user.klass).data[day-1], id: \.self) { lecture in
                                 Text("\(lecture)").disabled().body().padding(.bottom, 5)
                             }
                         }

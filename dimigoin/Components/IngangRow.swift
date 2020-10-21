@@ -30,7 +30,7 @@ struct IngangRow: View {
                 }
             }.padding()
         } else {
-            Text("오늘은 인강이 없습니다!").body().opacity(0.4).padding()
+            Text("신청 가능한 인강이 없습니다!").body().opacity(0.4).padding()
         }
         
     }

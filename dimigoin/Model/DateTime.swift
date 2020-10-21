@@ -93,6 +93,12 @@ func getFormattedDate(weekday: Weekday) -> String {
     dateFormatter.dateFormat = "yyyyMMdd"
     return dateFormatter.string(from: date!)
 }
+func getFormattedDate() -> String {
+    let date = Date()
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyyMMdd"
+    return dateFormatter.string(from: date)
+}
 func tomorrow() -> Date {
     
     var dateComponents = DateComponents()

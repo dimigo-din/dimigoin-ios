@@ -8,56 +8,69 @@
 
 import WidgetKit
 import SwiftUI
+import Alamofire
+import SwiftyJSON
+
+struct WidgetEntry : TimelineEntry {
+    var date : Date
+    var meals : Dimibob
+}
 
 @main
-struct Widget: SwiftUI.Widget {
-    var body: some WidgetConfiguration {
+struct MainWidget : Widget {
+    var body: some WidgetConfiguration{
         StaticConfiguration(
             kind: "DimigoinWidget",
             provider: Provider()
-        ) { entry in
-            WidgetEntryView(entry: entry)
+        ) { data in
+            WidgetView(data: data)
         }
-        .configurationDisplayName("디미밥 위젯")
-        .description("간편하고 빠르게 급식과 시간표를 확인하세요.")
+        .configurationDisplayName("디미고인 급식 위젯")
+        .description("간편하고 빠르게 급식을 확인하세요.")
+        .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
 
-struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date())
+struct Provider : TimelineProvider {
+    func getSnapshot(in context: Context, completion: @escaping (WidgetEntry) -> Void) {
+        let loadingData = WidgetEntry(date: Date(),
+                                      meals: Dimibob(breakfast: "아침",
+                                                    lunch: "점심",
+                                                    dinner: "저녁"))
+        completion(loadingData)
     }
-
-    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date())
-        completion(entry)
-    }
-
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate)
-            entries.append(entry)
+    
+    func getTimeline(in context: Context, completion: @escaping (Timeline<WidgetEntry>) -> Void) {
+        let url = "https://api.dimigo.in/dimibobs/\(getFormattedDate())"
+        AF.request(url, method: .get, encoding: JSONEncoding.default).responseData { response in
+            let json = JSON(response.value!)
+            let date = Date()
+            let data = WidgetEntry(date: Date(),
+                                   meals: Dimibob(breakfast: json["breakfast"].string!,
+                                                 lunch: json["lunch"].string!,
+                                                 dinner: json["dinner"].string!))
+            let nextUpdate = Calendar.current.date(byAdding: .minute, value: 15, to: date)
+            let timeline = Timeline(entries: [data], policy: .after(nextUpdate!))
+            completion(timeline)
         }
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
+    }
+    
+    func placeholder(in context: Context) -> WidgetEntry {
+        let loadingData = WidgetEntry(date: Date(),
+                                      meals: dummyDimibob)
+        return loadingData
     }
 }
 
-struct SimpleEntry: TimelineEntry {
-    let date: Date
-}
-
-struct WidgetEntryView : View {
-    var entry: Provider.Entry
-
-    var body: some View {
-        Text(entry.date, style: .time)
+struct WidgetView : View {
+    @Environment(\.widgetFamily) var widgetFamily
+    var data : WidgetEntry
+    var body: some View{
+        switch widgetFamily {
+        case .systemSmall: NextMealWidget(data: data)
+        case .systemMedium: DailyMealWidget()
+        case .systemLarge: Text("Not supported yet")
+        default: Text("error")
+        }
     }
 }
-
