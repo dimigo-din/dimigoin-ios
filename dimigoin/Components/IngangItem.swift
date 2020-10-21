@@ -28,6 +28,7 @@ struct IngangItem: View {
                 if !self.ingang.status {
                     Button(action: {
                         print("apply ingang : \(ingang.idx)")
+                        tokenAPI.refreshTokens()
                         let headers: HTTPHeaders = [
                             "Authorization":"Bearer \(tokenAPI.tokens.token)"
                         ]
@@ -68,6 +69,7 @@ struct IngangItem: View {
                 } else {
                     Button(action: {
                         print("cancel ingang : \(ingang.idx)")
+                        tokenAPI.refreshTokens()
                         let headers: HTTPHeaders = [
                             "Authorization":"Bearer \(tokenAPI.tokens.token)"
                         ]
