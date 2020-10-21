@@ -21,7 +21,7 @@ struct NextMealWidget: View {
                     case .dinner : Text("저녁").highlight().heavy()
                     }
                     Spacer()
-                    Text(getDate()).foregroundColor(Color("HelperMessage")).caption3()
+                    Text(getDate()).foregroundColor(Color("HelperMessage")).font(Font.custom("NanumSquareR", size: 10))
                 }
                 Text(getMealMenu(meal: data.meals, mealType: getMealType())).caption2()
 

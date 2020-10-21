@@ -33,10 +33,7 @@ struct MainWidget : Widget {
 
 struct Provider : TimelineProvider {
     func getSnapshot(in context: Context, completion: @escaping (WidgetEntry) -> Void) {
-        let loadingData = WidgetEntry(date: Date(),
-                                      meals: Dimibob(breakfast: "아침",
-                                                    lunch: "점심",
-                                                    dinner: "저녁"))
+        let loadingData = WidgetEntry(date: Date(), meals: dummyDimibob)
         completion(loadingData)
     }
     
@@ -56,8 +53,7 @@ struct Provider : TimelineProvider {
     }
     
     func placeholder(in context: Context) -> WidgetEntry {
-        let loadingData = WidgetEntry(date: Date(),
-                                      meals: dummyDimibob)
+        let loadingData = WidgetEntry(date: Date(), meals: dummyDimibob)
         return loadingData
     }
 }
