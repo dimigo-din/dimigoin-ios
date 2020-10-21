@@ -62,8 +62,6 @@
 		42B79D42253ED243003A8A7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42B79D41253ED243003A8A7F /* Assets.xcassets */; };
 		42B79D46253ED243003A8A7F /* WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 42B79D3B253ED242003A8A7F /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		42B79D57253F28CB003A8A7F /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8493C24A90432000A9ACD /* Timetable.swift */; };
-		42B79D5B253F2A8D003A8A7F /* TimetableWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B79D5A253F2A8D003A8A7F /* TimetableWidget.swift */; };
-		42B79D5E253F2A97003A8A7F /* TimetableWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B79D5A253F2A8D003A8A7F /* TimetableWidget.swift */; };
 		42B79D63253F2B91003A8A7F /* DateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212D97F24CC124B00FF82D5 /* DateTime.swift */; };
 		42B79D66253F2B95003A8A7F /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC55024AF849D00456846 /* TextStyles.swift */; };
 		42B79D69253F2B97003A8A7F /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54C24AF816200456846 /* VSpacer.swift */; };
@@ -80,8 +78,12 @@
 		42C4E4D324CEA8E3004EC6AF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 42C4E4D224CEA8E3004EC6AF /* Alamofire */; };
 		42DBE5A92536BABE00E5F4EA /* Openas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42DBE5A82536BABD00E5F4EA /* Openas.ttf */; };
 		42F632D224CACFC400F1F439 /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 42F632D124CACFC400F1F439 /* SPAlert */; };
-		42F73BA7253FF4BF008E8B25 /* DailyMealWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F73BA6253FF4BF008E8B25 /* DailyMealWidget.swift */; };
 		42F73BA8253FF4BF008E8B25 /* DailyMealWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F73BA6253FF4BF008E8B25 /* DailyMealWidget.swift */; };
+		42F73BAD25400F5D008E8B25 /* Openas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42DBE5A82536BABD00E5F4EA /* Openas.ttf */; };
+		42F73BB025400F5F008E8B25 /* NanumSquareBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA424B0CFEC008427D5 /* NanumSquareBold.ttf */; };
+		42F73BB325400F60008E8B25 /* NanumSquareExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA524B0CFEC008427D5 /* NanumSquareExtraBold.ttf */; };
+		42F73BB625400F62008E8B25 /* NanumSquareRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA624B0CFEC008427D5 /* NanumSquareRegular.ttf */; };
+		42F73BB925400F64008E8B25 /* NanumSquareLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42364EA324B0CFEC008427D5 /* NanumSquareLight.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,7 +169,6 @@
 		42B79D3F253ED242003A8A7F /* Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
 		42B79D41253ED243003A8A7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42B79D43253ED243003A8A7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		42B79D5A253F2A8D003A8A7F /* TimetableWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableWidget.swift; sourceTree = "<group>"; };
 		42B79D8C253FD7D7003A8A7F /* NextMealWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextMealWidget.swift; sourceTree = "<group>"; };
 		42C487C924DDB73000C594CB /* CopyrightText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyrightText.swift; sourceTree = "<group>"; };
 		42DBE5A82536BABD00E5F4EA /* Openas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Openas.ttf; sourceTree = "<group>"; };
@@ -358,7 +359,6 @@
 				42B79D3F253ED242003A8A7F /* Widget.swift */,
 				42B79D8C253FD7D7003A8A7F /* NextMealWidget.swift */,
 				42F73BA6253FF4BF008E8B25 /* DailyMealWidget.swift */,
-				42B79D5A253F2A8D003A8A7F /* TimetableWidget.swift */,
 				42B79D41253ED243003A8A7F /* Assets.xcassets */,
 				42B79D43253ED243003A8A7F /* Info.plist */,
 			);
@@ -476,6 +476,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42F73BB325400F60008E8B25 /* NanumSquareExtraBold.ttf in Resources */,
+				42F73BB925400F64008E8B25 /* NanumSquareLight.ttf in Resources */,
+				42F73BB025400F5F008E8B25 /* NanumSquareBold.ttf in Resources */,
+				42F73BB625400F62008E8B25 /* NanumSquareRegular.ttf in Resources */,
+				42F73BAD25400F5D008E8B25 /* Openas.ttf in Resources */,
 				42B79D71253F2D5D003A8A7F /* Assets.xcassets in Resources */,
 				42B79D42253ED243003A8A7F /* Assets.xcassets in Resources */,
 			);
@@ -500,7 +505,6 @@
 				4212D98024CC124B00FF82D5 /* DateTime.swift in Sources */,
 				083D74F524A778AA00989B47 /* Notice.swift in Sources */,
 				429F8C79253B42A70068E3FD /* Options.swift in Sources */,
-				42B79D5E253F2A97003A8A7F /* TimetableWidget.swift in Sources */,
 				08C9AC1824A74A83002AF525 /* NoticeItem.swift in Sources */,
 				08C9AC1B24A74A83002AF525 /* IngangRow.swift in Sources */,
 				088E5D4F24A88FD30031342D /* HeadlineModifier.swift in Sources */,
@@ -514,7 +518,6 @@
 				08C9AC1D24A74A83002AF525 /* MealItem.swift in Sources */,
 				08C9AC1124A74A83002AF525 /* Ingang.swift in Sources */,
 				42364EAC24B14E02008427D5 /* KeyboardResponsive.swift in Sources */,
-				42F73BA7253FF4BF008E8B25 /* DailyMealWidget.swift in Sources */,
 				08C9AC1024A74A83002AF525 /* TextFieldModifier.swift in Sources */,
 				08C9AC1524A74A83002AF525 /* IngangListView.swift in Sources */,
 				423B71F224B1932E0099CE3E /* Background.swift in Sources */,
@@ -544,7 +547,6 @@
 				42F73BA8253FF4BF008E8B25 /* DailyMealWidget.swift in Sources */,
 				42B79D8D253FD7D7003A8A7F /* NextMealWidget.swift in Sources */,
 				42B79D6C253F2B99003A8A7F /* HSpacer.swift in Sources */,
-				42B79D5B253F2A8D003A8A7F /* TimetableWidget.swift in Sources */,
 				42B79D69253F2B97003A8A7F /* VSpacer.swift in Sources */,
 				42B79D78253FD5F4003A8A7F /* User.swift in Sources */,
 				42B79D66253F2B95003A8A7F /* TextStyles.swift in Sources */,

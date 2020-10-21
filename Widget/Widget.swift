@@ -68,7 +68,7 @@ struct WidgetView : View {
     var body: some View{
         switch widgetFamily {
         case .systemSmall: NextMealWidget(data: data)
-        case .systemMedium: DailyMealWidget()
+        case .systemMedium: DailyMealWidget(data: data)
         case .systemLarge: Text("Not supported yet")
         default: Text("error")
         }
