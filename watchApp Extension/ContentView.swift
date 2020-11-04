@@ -39,7 +39,6 @@ struct mealDetailView: View {
                     Text(getMealMenu(meal: mealAPI.meals[getDayFromString(getDay())], mealType: mealType)).bold().padding()
                 }
             }
-            
             .navigationTitle("디미고인")
         }
     

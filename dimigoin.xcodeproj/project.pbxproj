@@ -904,7 +904,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = HPU8XGH3GG;
 				ENABLE_PREVIEWS = YES;
@@ -914,7 +914,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dimigoin.v2;
 				PRODUCT_NAME = DimigoIN;
 				SWIFT_VERSION = 5.0;
@@ -928,7 +928,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = HPU8XGH3GG;
 				ENABLE_PREVIEWS = YES;
@@ -938,7 +938,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dimigoin.v2;
 				PRODUCT_NAME = DimigoIN;
 				SWIFT_VERSION = 5.0;
@@ -956,6 +956,7 @@
 				DEVELOPMENT_TEAM = HPU8XGH3GG;
 				IBSC_MODULE = watchApp_Extension;
 				INFOPLIST_FILE = watchApp/Info.plist;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dimigoin.v2.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -976,6 +977,7 @@
 				DEVELOPMENT_TEAM = HPU8XGH3GG;
 				IBSC_MODULE = watchApp_Extension;
 				INFOPLIST_FILE = watchApp/Info.plist;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dimigoin.v2.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -992,7 +994,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"watchApp Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = 5F2KLXFAD3;
+				DEVELOPMENT_TEAM = HPU8XGH3GG;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "watchApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1000,6 +1002,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dimigoin.v2.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -1016,7 +1019,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"watchApp Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = 5F2KLXFAD3;
+				DEVELOPMENT_TEAM = HPU8XGH3GG;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "watchApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1024,6 +1027,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dimigoin.v2.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -1040,7 +1044,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HPU8XGH3GG;
 				INFOPLIST_FILE = Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1049,7 +1053,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dimigoin.v2.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1064,7 +1068,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HPU8XGH3GG;
 				INFOPLIST_FILE = Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1073,7 +1077,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dimigoin.v2.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

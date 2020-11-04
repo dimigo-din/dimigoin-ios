@@ -14,7 +14,7 @@ struct User: Codable, Identifiable {
     var name: String = ""
     var id: String = ""
     var idx: Int = 0
-    var grade: Int = 1
+    var grade: Int = 4
     var klass: Int = 1
     var number: String = ""
     var serial: String = ""
