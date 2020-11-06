@@ -7,13 +7,13 @@
 //
 
 import SwiftUI
-import SPAlert
 
 struct ProfileView: View {
     @ObservedObject var tokenAPI: TokenAPI
     @ObservedObject var userAPI: UserAPI
     @ObservedObject var optionAPI: OptionAPI
     @State var showOption: Bool = false
+    @State var showingAlert: Bool = false
     
     init(tokenAPI: TokenAPI, userAPI: UserAPI, optionAPI: OptionAPI) {
         self.tokenAPI = tokenAPI
@@ -58,10 +58,17 @@ struct ProfileView: View {
                     Text("프로필 수정하기").SquareButton(312, 27)
                 }
                 Button(action: {
-                    SPAlert.present(message: "성공적으로 로그아웃 되었습니다")
-                    tokenAPI.clearTokens()
+                    self.showingAlert = true
                 }) {
                     Text("로그아웃").SquareButtonRed(312, 27)
+                }
+                .alert(isPresented:$showingAlert) {
+                    Alert(title: Text("정말 로그아웃 하시겠습니까?"),
+                          message: Text("모든 사용자의 정보를 지웁니다."),
+                          primaryButton: .destructive(Text("로그아웃")) {
+                            tokenAPI.clearTokens()
+                          },
+                          secondaryButton: .cancel())
                 }
                 Spacer()
                 CopyrightText()

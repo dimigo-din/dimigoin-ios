@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct MainView: View {
     @ObservedObject var mealAPI: MealAPI
@@ -16,6 +17,7 @@ struct MainView: View {
     @ObservedObject var userAPI = UserAPI()
     @ObservedObject var timetableAPI = TimetableAPI()
     @ObservedObject var optionAPI = OptionAPI()
+    var NotificationAPI = NotificationManager()
     
     init(tokenAPI: TokenAPI, mealAPI: MealAPI) {
         self.tokenAPI = tokenAPI
@@ -23,8 +25,11 @@ struct MainView: View {
         
         let notificationManager = NotificationManager()
         notificationManager.requestPermission()
-//        notificationManager.addNotification(title: "hello")
-//        notificationManager.scheduleNotifications()
+        if(optionAPI.beneduAlert) {
+            NotificationAPI.scheduleBeneduNotifications()
+        } else {
+            NotificationAPI.removeAllNotifications()
+        }
     }
     
     var body: some View {
@@ -47,7 +52,8 @@ struct MainView: View {
                         ingangAPI.getIngangList()
                         noticeAPI.getNotice()
                     }) {
-                        Image(systemName: "arrow.clockwise").font(Font.system(size: 21))
+                        Image(systemName: "arrow.clockwise").font(Font.system(size: 21, weight: .bold))
+        
                     },
                 trailing:
                     NavigationLink(destination: ProfileView(tokenAPI: tokenAPI, userAPI: userAPI, optionAPI: optionAPI)) {
@@ -64,3 +70,5 @@ struct MainView: View {
 //        MainView()
 //    }
 //}
+
+

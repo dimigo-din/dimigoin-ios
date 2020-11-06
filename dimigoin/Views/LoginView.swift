@@ -40,7 +40,8 @@ struct LoginView: View {
                         .modifier(TextFieldModifier())
                         .modifier(ClearButton(text: $password))
                     VSpacer(13)
-                    Text("아이디 혹은 비밀번호를 확인해 주세요").highlightRed().caption2().opacity(showErrorMessage ? 1:0)
+                    Text("아이디 혹은 비밀번호를 확인해 주세요").highlightRed().caption2()
+                        .opacity(showErrorMessage ? 1:0)
                     VSpacer(13)
                     Button(action: {
                         isLoading = true
