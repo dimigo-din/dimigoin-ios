@@ -63,8 +63,7 @@ struct ProfileView: View {
                     Text("로그아웃").SquareButtonRed(312, 27)
                 }
                 .alert(isPresented:$showingAlert) {
-                    Alert(title: Text("정말 로그아웃 하시겠습니까?"),
-                          message: Text("모든 사용자의 정보를 지웁니다."),
+                    Alert(title: Text("로그아웃 하시겠습니까?"),
                           primaryButton: .destructive(Text("로그아웃")) {
                             tokenAPI.clearTokens()
                           },
