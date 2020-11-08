@@ -22,7 +22,6 @@ struct LoginView: View {
     var body: some View {
         ZStack {
             Background()
-            Image("school").resizable().scaledToFit().offset(y: UIScreen.screenHeight/2 - 40)
             VStack(alignment: .center) {
                 Spacer()
                 VStack {

@@ -17,7 +17,7 @@ struct NoticeRow: View {
                 HStack(alignment:.top) {
                     Text("공지사항").sectionHeader()
                     Circle()
-                        .foregroundColor(Color("Secondary"))
+                        .foregroundColor(Color("Sub"))
                         .frame(width: 8, height: 8)
                         .offset(x: -5)
                 }

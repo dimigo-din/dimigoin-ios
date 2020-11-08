@@ -60,7 +60,7 @@ struct ProfileView: View {
                 Button(action: {
                     self.showingAlert = true
                 }) {
-                    Text("로그아웃").SquareButtonRed(312, 27)
+                    Text("로그아웃").DisabledSquareButton(312, 27)
                 }
                 .alert(isPresented:$showingAlert) {
                     Alert(title: Text("로그아웃 하시겠습니까?"),

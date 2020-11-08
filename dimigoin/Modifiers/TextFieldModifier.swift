@@ -14,7 +14,7 @@ struct TextFieldModifier: ViewModifier {
             .frame(width: 312)
             .padding()
             .overlay(
-                RoundedRectangle(cornerRadius: 0)
+                RoundedRectangle(cornerRadius: 5)
                     .stroke(Color("TextFieldBorder"), lineWidth: 1)
             )
             .autocapitalization(.none)

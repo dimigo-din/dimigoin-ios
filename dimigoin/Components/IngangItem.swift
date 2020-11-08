@@ -102,7 +102,7 @@ struct IngangItem: View {
                         }
                     }) {
                         Text("취소하기")
-                            .foregroundColor(Color("Secondary"))
+                            .foregroundColor(Color("Sub"))
                             .body()
                     }
                         

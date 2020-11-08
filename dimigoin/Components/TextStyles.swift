@@ -15,7 +15,7 @@ extension Text {
     }
     func highlightRed() -> Text {
         self
-            .foregroundColor(Color("Secondary"))
+            .foregroundColor(Color("Sub"))
     }
     func disabled() -> Text {
         self
@@ -63,19 +63,19 @@ extension Text {
     }
     func SquareButton(_ w:CGFloat, _ h:CGFloat) -> some View {
         self
-            .font(Font.custom("NanumSquareB", size: 17))
+            .font(Font.custom("NanumSquareB", size: 18))
             .frame(width: w, height: h)
             .padding()
-            .background(Color("accent"))
+            .background(Color("Accent"))
             .foregroundColor(Color.white)
             .cornerRadius(5.0)
     }
-    func SquareButtonRed(_ w:CGFloat, _ h:CGFloat) -> some View {
+    func DisabledSquareButton(_ w:CGFloat, _ h:CGFloat) -> some View {
         self
             .font(Font.custom("NanumSquareB", size: 17))
             .frame(width: w, height: h)
             .padding()
-            .background(Color("Secondary"))
+            .background(Color("Sub"))
             .foregroundColor(Color.white)
             .cornerRadius(5.0)
     }
