@@ -15,21 +15,9 @@ struct TextFieldModifier: ViewModifier {
             .padding()
             .overlay(
                 RoundedRectangle(cornerRadius: 5)
-                    .stroke(Color("TextFieldBorder"), lineWidth: 1)
+                    .stroke(Color("Gray8"), lineWidth: 1)
             )
+            .foregroundColor(Color("Gray8"))
             .autocapitalization(.none)
-    }
-}
-
-struct TextFieldModifier_Previews: PreviewProvider {
-    @State static var previewText = ""
-    
-    static var previews: some View {
-//        TextField("텍스트 필드", text: $previewText)
-//            .modifier(TextFieldModifier())
-//            .padding()
-//            .previewLayout(.sizeThatFits)
-//            .border(Color("TextFieldBorder"), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-        Text("place holder")
     }
 }

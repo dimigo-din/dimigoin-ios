@@ -25,9 +25,9 @@ struct LoginView: View {
             VStack(alignment: .center) {
                 Spacer()
                 VStack {
-                    HStack(alignment: .bottom){
-                        Image("Logo").resizable().frame(width: 60, height: 69)
-                        HSpacer(30)
+                    HStack(alignment: .center){
+                        Image("Logo").resizable().frame(width: 50.5, height: 47.76)
+                        HSpacer(24)
                         Text("디미고인").logoFont()
                     }
                     VSpacer(30)
@@ -35,7 +35,7 @@ struct LoginView: View {
                         .modifier(TextFieldModifier())
                         .modifier(ClearButton(text: $id))
                     VSpacer(16)
-                    SecureField("비밀번호", text: $password).textContentType(.password)
+                    SecureField("패스워드", text: $password).textContentType(.password)
                         .modifier(TextFieldModifier())
                         .modifier(ClearButton(text: $password))
                     VSpacer(13)
