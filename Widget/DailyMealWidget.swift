@@ -15,15 +15,15 @@ struct DailyMealWidget: View {
             Image("Logo").resizable().frame(width: 80, height: 92).opacity(0.25)
             VStack(alignment: .leading, spacing: 10) {
                 HStack{
-                    Text("아침").highlight().heavy()
+                    Text("아침").accent().heavy()
                     Text("\(data.meals.breakfast)").caption3()
                 }
                 HStack {
-                    Text("점심").highlight().heavy()
+                    Text("점심").accent().heavy()
                     Text("\(data.meals.lunch)").caption3()
                 }
                 HStack {
-                    Text("저녁").highlight().heavy()
+                    Text("저녁").accent().heavy()
                     Text("\(data.meals.dinner)").caption3()
                 }
             }.padding(.horizontal)

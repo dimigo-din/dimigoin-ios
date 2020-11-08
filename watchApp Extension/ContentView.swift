@@ -24,7 +24,7 @@ struct ContentView: View {
                 }
             }
         }
-        .navigationTitle(Text(getDate()).highlight().black())
+        .navigationTitle(Text(getDate()))
     }
 }
 struct mealDetailView: View {
@@ -35,7 +35,7 @@ struct mealDetailView: View {
             ZStack {
                 Image("Logo").resizable().frame(width: 80, height: 92).opacity(0.3)
                 VStack {
-                    Text(getDate()).highlight().bold()
+                    Text(getDate()).accent().bold()
                     Text(getMealMenu(meal: mealAPI.meals[getDayFromString(getDay())], mealType: mealType)).bold().padding()
                 }
             }

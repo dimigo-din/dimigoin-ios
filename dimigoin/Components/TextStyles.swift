@@ -9,11 +9,14 @@
 import SwiftUI
 
 extension Text {
-    func highlight() -> Text {
+    func accent() -> Text {
         self
-            .foregroundColor(Color("accent"))
+            .foregroundColor(Color("Accent"))
     }
-    func highlightRed() -> Text {
+    func warning() -> Text {
+        self.foregroundColor(Color("Red"))
+    }
+    func sub() -> Text {
         self
             .foregroundColor(Color("Sub"))
     }
@@ -78,5 +81,26 @@ extension Text {
             .background(Color("Sub"))
             .foregroundColor(Color.white)
             .cornerRadius(5.0)
+    }
+    func gray1() -> Text {
+        self.foregroundColor(Color("Gray1"))
+    }
+    func gray2() -> Text {
+        self.foregroundColor(Color("Gray2"))
+    }
+    func gray3() -> Text {
+        self.foregroundColor(Color("Gray3"))
+    }
+    func gray4() -> Text {
+        self.foregroundColor(Color("Gray4"))
+    }
+    func gray5() -> Text {
+        self.foregroundColor(Color("Gray5"))
+    }
+    func gray6() -> Text {
+        self.foregroundColor(Color("Gray6"))
+    }
+    func gray7() -> Text {
+        self.foregroundColor(Color("Gray7"))
     }
 }

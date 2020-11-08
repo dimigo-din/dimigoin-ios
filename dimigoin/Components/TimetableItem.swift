@@ -18,7 +18,7 @@ struct TimetableItem: View {
                 ForEach((1...5), id: \.self) { day in
                     if(getDay() == getDay(day) || !isWeekday()) {
                         VStack(alignment: .center){
-                            Text("\(getDay(day))").highlight().heavy()
+                            Text("\(getDay(day))").accent().heavy()
                             Divider().frame(height: 3).background(Color("accent"))
                             ForEach(timetableAPI.getTimetable(grade: userAPI.user.grade, klass: userAPI.user.klass).data[day-1], id: \.self) { lecture in
                                 Text("\(lecture)").body().padding(.bottom, 5)

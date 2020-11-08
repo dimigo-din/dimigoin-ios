@@ -39,7 +39,7 @@ struct LoginView: View {
                         .modifier(TextFieldModifier())
                         .modifier(ClearButton(text: $password))
                     VSpacer(13)
-                    Text("아이디 혹은 비밀번호를 확인해 주세요").highlightRed().caption2()
+                    Text("아이디 혹은 비밀번호를 확인해 주세요").warning().caption2()
                         .opacity(showErrorMessage ? 1:0)
                     VSpacer(13)
                     Button(action: {
@@ -64,7 +64,7 @@ struct LoginView: View {
                 if(isLoading) {
                     ProgressView() {
                         HStack {
-                            Text("로딩중").highlight().caption1()
+                            Text("로딩중").accent().caption1()
                         }
                     }.progressViewStyle(CircularProgressViewStyle(tint: Color("accent")))
                 }

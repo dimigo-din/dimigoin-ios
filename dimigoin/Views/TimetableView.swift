@@ -32,7 +32,7 @@ struct TimetableView: View {
                 HStack(alignment: .top) {
                     ForEach((1...5), id: \.self) { day in
                         VStack(alignment: .center){
-                            Text("\(getDay(day))").highlight().heavy()
+                            Text("\(getDay(day))").accent().heavy()
                             Divider().frame(height: 2)
                             ForEach(timetableAPI.getTimetable(grade: userAPI.user.grade, klass: userAPI.user.klass).data[day-1], id: \.self) { lecture in
                                 Text("\(lecture)").body().padding(.bottom, 5)

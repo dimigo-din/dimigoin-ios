@@ -14,7 +14,7 @@ struct NoticeItem: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .bottom) {
-                Text(self.noticeAPI.notice.registered).highlight().headline()
+                Text(self.noticeAPI.notice.registered).accent().headline()
                 Text(self.noticeAPI.notice.type).caption2().headline()
             }
             VSpacer(10)

@@ -16,9 +16,9 @@ struct MealItem: View {
     var body: some View {
         VStack(alignment: .leading) {
             switch mealType {
-                case .breakfast: Text("아침").highlight().headline()
-                case .lunch: Text("점심").highlight().headline()
-                case .dinner: Text("저녁").highlight().headline()
+                case .breakfast: Text("아침").accent().headline()
+                case .lunch: Text("점심").accent().headline()
+                case .dinner: Text("저녁").accent().headline()
             }
             VSpacer(10)
             switch mealType {

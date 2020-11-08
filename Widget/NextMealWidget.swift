@@ -16,9 +16,9 @@ struct NextMealWidget: View {
             VStack {
                 HStack {
                     switch getMealType(){
-                    case .breakfast : Text("아침").highlight().heavy()
-                    case .lunch : Text("점심").highlight().heavy()
-                    case .dinner : Text("저녁").highlight().heavy()
+                    case .breakfast : Text("아침").accent().heavy()
+                    case .lunch : Text("점심").accent().heavy()
+                    case .dinner : Text("저녁").accent().heavy()
                     }
                     Spacer()
                     Text(getDate()).foregroundColor(Color("HelperMessage")).font(Font.custom("NanumSquareR", size: 10))

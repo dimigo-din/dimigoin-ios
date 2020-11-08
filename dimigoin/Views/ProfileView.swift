@@ -26,25 +26,25 @@ struct ProfileView: View {
             VStack(spacing: 15.0) {
                 VStack(alignment: .leading, spacing: 15) {
                     HStack {
-                        Text("이름").highlight().headline()
+                        Text("이름").accent().headline()
                         Spacer()
                         Text(userAPI.user.name).foregroundColor(Color("DisabledButton"))
                     }
                     Divider().offset(x: 35)
                     HStack {
-                        Text("학적").highlight().headline()
+                        Text("학적").accent().headline()
                         Spacer()
                         Text("\(userAPI.user.grade)학년 \(userAPI.user.klass)반 \(userAPI.user.number)번 (\(getMajor(klass: userAPI.user.klass)))").foregroundColor(Color("DisabledButton"))
                     }
                     Divider().offset(x: 35)
                     HStack {
-                        Text("금주 잔여 인강실 티켓").highlight().headline()
+                        Text("금주 잔여 인강실 티켓").accent().headline()
                         Spacer()
                         Text("\(userAPI.user.weekly_ticket_num)").foregroundColor(Color("DisabledButton"))
                     }
                     Divider().offset(x: 35)
                     HStack {
-                        Text("금일 잔여 인강실 티켓").highlight().headline()
+                        Text("금일 잔여 인강실 티켓").accent().headline()
                         Spacer()
                         Text("\(userAPI.user.daily_ticket_num)").foregroundColor(Color("DisabledButton"))
                     }

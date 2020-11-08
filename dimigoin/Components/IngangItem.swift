@@ -20,7 +20,7 @@ struct IngangItem: View {
             
             HStack {
                 VStack(alignment: .leading){
-                    Text(self.ingang.title).highlight().headline()
+                    Text(self.ingang.title).accent().headline()
                     VSpacer(10)
                     Text("현원 \(self.ingang.present)명 / 총원 \(self.ingang.max_user)명").body()
                 }

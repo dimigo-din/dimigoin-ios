@@ -18,7 +18,7 @@ struct IngangListView: View {
                 VStack(alignment: .leading, spacing: 10.0) {
                     Text("신청 정보").sectionHeader()
                     HStack {
-                        Text("이번 주 잔여 티켓").highlight().headline()
+                        Text("이번 주 잔여 티켓").accent().headline()
                         Text("\(ingangAPI.weekly_ticket_num)개")
                     }.CustomBox()
                     ForEach(ingangAPI.ingangs, id: \.self) { ingang in
@@ -36,7 +36,7 @@ struct IngangListView: View {
                 VStack(alignment: .leading, spacing: 10.0) {
                     Text("우리반 신청자").sectionHeader()
                     HStack(alignment: .center) {
-                        Text("1타임").highlight().headline()
+                        Text("1타임").accent().headline()
                         ForEach(ingangAPI.applicants, id: \.self) { applicant in
                             Text(applicant.name).disabled().caption1()
                         }
