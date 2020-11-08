@@ -17,14 +17,8 @@ struct MealView: View {
     
     var body: some View {
         ScrollView {
-            HStack {
-                VStack(alignment: .leading, spacing: 0){
-                    Text("\(getDate())").subTitle()
-                    Text("급식").title()
-                }
-                Spacer()
-            }.padding(20)
-            Divider().horizonPadding()
+            ViewTitle("급식", sub: getDate())
+            HDivider().horizonPadding()
             MealBox("아침", "오전 7시 30분", mealAPI.getTodayMeal().breakfast)
             VSpacer(20)
             MealBox("점심", "오전 12시 50분", mealAPI.getTodayMeal().breakfast)

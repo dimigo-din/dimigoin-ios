@@ -24,19 +24,19 @@ struct MealBox: View {
                 .mealMenu()
                 .padding()
                 .padding(.trailing)
-                .background(RoundedCorners(color: .white, tl: 2, tr: 17, bl: 2, br: 17))
+                .background(CustomBox())
                 .horizonPadding()
         }
         
     }
 }
 
-struct RoundedCorners: View {
-    var color: Color = .blue
-    var tl: CGFloat = 0.0
-    var tr: CGFloat = 0.0
-    var bl: CGFloat = 0.0
-    var br: CGFloat = 0.0
+struct CustomBox: View {
+    var color: Color = .white
+    var tl: CGFloat = 2
+    var tr: CGFloat = 17
+    var bl: CGFloat = 2
+    var br: CGFloat = 17
 
     var body: some View {
         GeometryReader { geometry in

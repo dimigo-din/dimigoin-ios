@@ -227,6 +227,16 @@ class IngangAPI: ObservableObject {
 
 let ingangTime = [
     "",
-    "19:50 ~ 21:10",
-    "21:30 ~ 22:30"
+    "19:50 - 21:10",
+    "21:30 - 22:30"
 ]
+
+var dummyIngang:[Ingang] = [Ingang(idx: 1,
+                                   day: "sd",
+                                   title: "test",
+                                   time: 1,
+                                   request_start_date: 1,
+                                   request_end_date: 1,
+                                   status: true,
+                                   present: 2,
+                                   max_user: 3)]
