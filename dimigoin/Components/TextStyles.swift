@@ -107,6 +107,21 @@ extension Text {
             .foregroundColor(Color.white)
             .cornerRadius(5.0)
     }
+    func RSquareButton(_ w: CGFloat, _ h: CGFloat) -> some View {
+        self
+            .foregroundColor(Color.white)
+            .font(Font.custom("NotoSansKR-Medium", size: 15))
+            .frame(width: w, height: h)
+            .background(Color("Accent").cornerRadius(10))
+    }
+    
+    func DisabledRSquareButton(_ w: CGFloat, _ h: CGFloat) -> some View {
+        self
+            .foregroundColor(Color.white)
+            .font(Font.custom("NotoSansKR-Medium", size: 15))
+            .frame(width: w, height: h)
+            .background(Color("Gray4").cornerRadius(10))
+    }
     
     func gray1() -> Text {
         self.foregroundColor(Color("Gray1"))

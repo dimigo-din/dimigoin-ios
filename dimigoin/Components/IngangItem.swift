@@ -31,9 +31,7 @@ struct IngangItem: View {
                     Text("\(ingang.max_user)").font(Font.custom("NotoSansKR-Bold", size: 40))
                     Text("총원").font(Font.custom("NotoSansKR-Bold", size: 15))
                 }
-            }
-            .frame(width: UIScreen.screenWidth-40, height: 120)
-            .background(Color.white.cornerRadius(10).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0))
+            }.modifier(CardViewModifier(UIScreen.screenWidth-40, 120))
             VSpacer(10)
             if !ingang.status {
                 Button(action: {
@@ -74,11 +72,7 @@ struct IngangItem: View {
                         }
                     }
                 }) {
-                    Text("신청하기")
-                        .foregroundColor(Color.white)
-                        .font(Font.custom("NotoSansKR-Medium", size: 15))
-                        .frame(width: UIScreen.screenWidth-40, height: 47)
-                        .background(Color("Accent").cornerRadius(10))
+                    Text("신청하기").RSquareButton(UIScreen.screenWidth - 40, 47)
                 }
             } else {
                 Button(action: {
@@ -115,11 +109,7 @@ struct IngangItem: View {
                         }
                     }
                 }) {
-                    Text("취소하기")
-                        .foregroundColor(Color.white)
-                        .font(Font.custom("NotoSansKR-Medium", size: 15))
-                        .frame(width: UIScreen.screenWidth-40, height: 47)
-                        .background(Color("Gray4").cornerRadius(10))
+                    Text("취소하기").DisabledRSquareButton(UIScreen.screenWidth - 40, 47)
                 }
             }
         }

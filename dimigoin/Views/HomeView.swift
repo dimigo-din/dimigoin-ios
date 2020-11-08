@@ -33,6 +33,7 @@ struct HomeView: View {
                 }
                 VSpacer(15)
                 LocationSelectionView(currentLocation: $currentLocation)
+                Text("오늘의 급식").font(Font.custom("NotoSansKR-Bold", size: 20))
             }.offset(y: -20)
         }
     }
