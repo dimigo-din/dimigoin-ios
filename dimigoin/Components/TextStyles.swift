@@ -20,6 +20,9 @@ extension Text {
         self
             .foregroundColor(Color("Sub"))
     }
+    func tapBarItem() -> Text {
+        self.font(Font.custom("NanumSquareEB", size: 10))
+    }
     func disabled() -> Text {
         self
             .foregroundColor(Color("Disabled"))

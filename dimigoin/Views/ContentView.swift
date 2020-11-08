@@ -10,12 +10,11 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var tokenAPI = TokenAPI()
-    @ObservedObject var mealAPI = MealAPI()
     
-    var body: some View {
+    var body: some View { // check if token exist
         Group {
             if(tokenAPI.tokenStatus == .exist) {
-                MainView(tokenAPI: tokenAPI, mealAPI: mealAPI)
+                MainView(tokenAPI: tokenAPI)
             }
             else if(tokenAPI.tokenStatus == .none) {
                 LoginView(tokenAPI: tokenAPI)
@@ -24,8 +23,3 @@ struct ContentView: View {
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}

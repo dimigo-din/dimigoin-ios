@@ -10,7 +10,7 @@ import SwiftUI
 import UserNotifications
 
 struct MainView: View {
-    @ObservedObject var mealAPI: MealAPI
+    @ObservedObject var mealAPI = MealAPI()
     @ObservedObject var noticeAPI = NoticeAPI()
     @ObservedObject var tokenAPI: TokenAPI
     @ObservedObject var ingangAPI = IngangAPI()
@@ -19,10 +19,10 @@ struct MainView: View {
     @ObservedObject var optionAPI = OptionAPI()
     var NotificationAPI = NotificationManager()
     
-    init(tokenAPI: TokenAPI, mealAPI: MealAPI) {
+    @State var index = 2
+    
+    init(tokenAPI: TokenAPI) {
         self.tokenAPI = tokenAPI
-        self.mealAPI = mealAPI
-        
         let notificationManager = NotificationManager()
         notificationManager.requestPermission()
         if(optionAPI.beneduAlert) {
@@ -31,37 +31,38 @@ struct MainView: View {
             NotificationAPI.removeAllNotifications()
         }
     }
-    
     var body: some View {
-        NavigationView {
-            ScrollView {
-                TimetableRow(timetableAPI: timetableAPI, userAPI: userAPI)
-                NoticeRow(noticeAPI: noticeAPI)
-                MealRow(mealAPI: mealAPI)
-                IngangRow(ingangAPI: ingangAPI, tokenAPI: tokenAPI)
-                CopyrightText()
-            }
-            .navigationViewStyle(StackNavigationViewStyle())
-            .navigationBarTitle(Text(getDate()))
-            .navigationBarItems(
-                leading:
-                    Button(action: {
-                        mealAPI.getWeeklyMeals()
-                        ingangAPI.getTickets()
-                        ingangAPI.getApplicantList()
-                        ingangAPI.getIngangList()
-                        noticeAPI.getNotice()
-                    }) {
-                        Image(systemName: "arrow.clockwise").font(Font.system(size: 21, weight: .bold))
-        
-                    },
-                trailing:
-                    NavigationLink(destination: ProfileView(tokenAPI: tokenAPI, userAPI: userAPI, optionAPI: optionAPI)) {
-                        Image(systemName: userAPI.user.photo).font(Font.system(size: 30))
+        Group {
+            VStack(spacing: 0) {
+                ZStack {
+                    if self.index == 0 {
+                        AssignView()
                     }
-            )
+                    else if self.index == 1 {
+                        IngangListView(ingangAPI: ingangAPI, tokenAPI: tokenAPI)
+                    }
+                    else if self.index == 2 {
+                        ScrollView {
+                            Text("HomeView")
+                        }
+                    }
+                    else if self.index == 3 {
+                        MealListView(mealAPI: mealAPI)
+                    }
+                    else if self.index == 4 {
+                        ScrollView {
+                            Button(action: {
+                                self.tokenAPI.clearTokens()
+                            }) {
+                                Text("로그아웃")
+                            }
+                            
+                        }
+                    }
+                }
+                TapBar(index: self.$index)
+            }
         }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
