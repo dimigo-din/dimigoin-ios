@@ -51,7 +51,7 @@ extension Text {
     func mealMenu() -> some View {
         self
             .lineSpacing(12)
-            .foregroundColor(Color("Gray3"))
+            .foregroundColor(Color("Gray2"))
             .font(Font.custom("NotoSansKR-Regular", size: 12))
             
     }

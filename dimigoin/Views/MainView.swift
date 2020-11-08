@@ -19,7 +19,7 @@ struct MainView: View {
     @ObservedObject var optionAPI = OptionAPI()
     var NotificationAPI = NotificationManager()
     
-    @State var index = 1
+    @State var index = 2
     
     init(tokenAPI: TokenAPI) {
         self.tokenAPI = tokenAPI
@@ -38,7 +38,7 @@ struct MainView: View {
                     switch self.index {
                         case 0: AssignView()
                         case 1: IngangView(ingangAPI: ingangAPI, tokenAPI: tokenAPI)
-                        case 2: HomeView()
+                        case 2: HomeView(mealAPI: mealAPI)
                         case 3: MealView(mealAPI: mealAPI)
                         case 4: ScrollView {
                                     Button(action: {
