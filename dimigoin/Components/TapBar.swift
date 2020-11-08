@@ -12,7 +12,7 @@ struct TapBar: View {
     @Binding var index:Int
     var body: some View {
         VStack {
-            Divider().foregroundColor(Color("Gray8"))
+            HDivider()
             HStack(spacing: 50) {
                 Button(action: {
                     self.index = 0

@@ -19,7 +19,7 @@ struct MainView: View {
     @ObservedObject var optionAPI = OptionAPI()
     var NotificationAPI = NotificationManager()
     
-    @State var index = 3
+    @State var index = 2
     
     init(tokenAPI: TokenAPI) {
         self.tokenAPI = tokenAPI
@@ -50,16 +50,6 @@ struct MainView: View {
                                 }
                         default: Text("Error")
                     }
-//                    if self.index == 4 {
-//                        ScrollView {
-//                            Button(action: {
-//                                self.tokenAPI.clearTokens()
-//                            }) {
-//                                Text("로그아웃")
-//                            }
-//
-//                        }
-//                    }
                 }
                 TapBar(index: self.$index)
             }

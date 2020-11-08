@@ -9,9 +9,31 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State var currentLocation = 0
     var body: some View {
         ScrollView {
-            Text("HomeView")
+            VStack {
+                ZStack {
+                    VStack {
+                        VSpacer(70)
+                        Image("School").resizable().aspectRatio(contentMode: .fit).frame(width: UIScreen.screenWidth).opacity(0.3)
+                    }
+                    HStack {
+                        Image("Logo").resizable().aspectRatio(contentMode: .fit).frame(height: 38)
+                        Spacer()
+                        Button(action: {
+                            // Profile View
+                        }) {
+                            Circle().frame(width: 38, height: 38).foregroundColor(Color.white)
+                                .overlay(
+                                    Circle().stroke(Color("Accent"), lineWidth: 2)
+                                )
+                        }
+                    }.horizonPadding()
+                }
+                VSpacer(15)
+                LocationSelectionView(currentLocation: $currentLocation)
+            }.offset(y: -20)
         }
     }
 }

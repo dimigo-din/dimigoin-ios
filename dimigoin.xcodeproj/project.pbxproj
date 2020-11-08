@@ -127,6 +127,7 @@
 		42EFCDF025581D4E00F3DC5E /* MealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCDEF25581D4E00F3DC5E /* MealView.swift */; };
 		42EFCDFE255829B100F3DC5E /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCDFD255829B100F3DC5E /* SectionHeader.swift */; };
 		42EFCE042558340000F3DC5E /* MealBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCE032558340000F3DC5E /* MealBox.swift */; };
+		42EFCE16255848C300F3DC5E /* LocationSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCE15255848C300F3DC5E /* LocationSelection.swift */; };
 		42F632D224CACFC400F1F439 /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 42F632D124CACFC400F1F439 /* SPAlert */; };
 		42F73BA8253FF4BF008E8B25 /* DailyMealWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F73BA6253FF4BF008E8B25 /* DailyMealWidget.swift */; };
 		42F73BAD25400F5D008E8B25 /* Openas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42DBE5A82536BABD00E5F4EA /* Openas.ttf */; };
@@ -281,6 +282,7 @@
 		42EFCDEF25581D4E00F3DC5E /* MealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealView.swift; sourceTree = "<group>"; };
 		42EFCDFD255829B100F3DC5E /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		42EFCE032558340000F3DC5E /* MealBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealBox.swift; sourceTree = "<group>"; };
+		42EFCE15255848C300F3DC5E /* LocationSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelection.swift; sourceTree = "<group>"; };
 		42F73BA6253FF4BF008E8B25 /* DailyMealWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMealWidget.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -419,6 +421,7 @@
 			children = (
 				086CC55024AF849D00456846 /* TextStyles.swift */,
 				42EFCE032558340000F3DC5E /* MealBox.swift */,
+				42EFCE15255848C300F3DC5E /* LocationSelection.swift */,
 				42EFCDD72558188100F3DC5E /* TapBar.swift */,
 				086CC54C24AF816200456846 /* VSpacer.swift */,
 				086CC54E24AF819400456846 /* HSpacer.swift */,
@@ -774,6 +777,7 @@
 				42364EAC24B14E02008427D5 /* KeyboardResponsive.swift in Sources */,
 				08C9AC1024A74A83002AF525 /* TextFieldModifier.swift in Sources */,
 				08C9AC1524A74A83002AF525 /* IngangListView.swift in Sources */,
+				42EFCE16255848C300F3DC5E /* LocationSelection.swift in Sources */,
 				423B71F224B1932E0099CE3E /* Background.swift in Sources */,
 				083D74F924A77A9E00989B47 /* Tokens.swift in Sources */,
 				42EFCDD22558141000F3DC5E /* AssignView.swift in Sources */,

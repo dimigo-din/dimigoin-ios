@@ -26,8 +26,11 @@ struct MealView: View {
             }.padding(20)
             Divider().horizonPadding()
             MealBox("아침", "오전 7시 30분", mealAPI.getTodayMeal().breakfast)
+            VSpacer(20)
             MealBox("점심", "오전 12시 50분", mealAPI.getTodayMeal().breakfast)
+            VSpacer(20)
             MealBox("저녁", "오후 6시 35분", mealAPI.getTodayMeal().breakfast)
+            Spacer()
         }
     }
 }

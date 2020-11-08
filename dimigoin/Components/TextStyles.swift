@@ -41,7 +41,7 @@ extension Text {
     func subSectionHeader() -> Text {
         self
             .foregroundColor(Color("Accent"))
-            .font(Font.custom("NotoSansKR-Medium", size: 10))
+            .font(Font.custom("NotoSansKR-Bold", size: 10))
     }
     
     func sectionHeader() -> Text {
@@ -77,7 +77,7 @@ extension Text {
     }
     
     func caption1() -> Text {
-        self.font(Font.custom("NanumSquareR", size: 15))
+        self.font(Font.custom("NotoSansKR-Bold", size: 12))
     }
     
     func caption2() -> Text {
