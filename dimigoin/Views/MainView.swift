@@ -19,7 +19,7 @@ struct MainView: View {
     @ObservedObject var optionAPI = OptionAPI()
     var NotificationAPI = NotificationManager()
     
-    @State var index = 2
+    @State var index = 3
     
     init(tokenAPI: TokenAPI) {
         self.tokenAPI = tokenAPI
@@ -35,30 +35,31 @@ struct MainView: View {
         Group {
             VStack(spacing: 0) {
                 ZStack {
-                    if self.index == 0 {
-                        AssignView()
+                    switch self.index {
+                        case 0: AssignView()
+                        case 1: IngangListView(ingangAPI: ingangAPI, tokenAPI: tokenAPI)
+                        case 2: HomeView()
+                        case 3: MealView(mealAPI: mealAPI)
+                        case 4: ScrollView {
+                                    Button(action: {
+                                        self.tokenAPI.clearTokens()
+                                    }) {
+                                        Text("로그아웃").SquareButton(312, 54)
+                                    }
+        
+                                }
+                        default: Text("Error")
                     }
-                    else if self.index == 1 {
-                        IngangListView(ingangAPI: ingangAPI, tokenAPI: tokenAPI)
-                    }
-                    else if self.index == 2 {
-                        ScrollView {
-                            Text("HomeView")
-                        }
-                    }
-                    else if self.index == 3 {
-                        MealListView(mealAPI: mealAPI)
-                    }
-                    else if self.index == 4 {
-                        ScrollView {
-                            Button(action: {
-                                self.tokenAPI.clearTokens()
-                            }) {
-                                Text("로그아웃")
-                            }
-                            
-                        }
-                    }
+//                    if self.index == 4 {
+//                        ScrollView {
+//                            Button(action: {
+//                                self.tokenAPI.clearTokens()
+//                            }) {
+//                                Text("로그아웃")
+//                            }
+//
+//                        }
+//                    }
                 }
                 TapBar(index: self.$index)
             }

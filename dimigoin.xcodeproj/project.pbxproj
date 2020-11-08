@@ -123,6 +123,10 @@
 		42EFCDB02558073200F3DC5E /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 42EFCD982558073200F3DC5E /* NotoSansKR-Thin.otf */; };
 		42EFCDD22558141000F3DC5E /* AssignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCDD12558141000F3DC5E /* AssignView.swift */; };
 		42EFCDD82558188100F3DC5E /* TapBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCDD72558188100F3DC5E /* TapBar.swift */; };
+		42EFCDE625581C4500F3DC5E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCDE525581C4500F3DC5E /* HomeView.swift */; };
+		42EFCDF025581D4E00F3DC5E /* MealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCDEF25581D4E00F3DC5E /* MealView.swift */; };
+		42EFCDFE255829B100F3DC5E /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCDFD255829B100F3DC5E /* SectionHeader.swift */; };
+		42EFCE042558340000F3DC5E /* MealBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCE032558340000F3DC5E /* MealBox.swift */; };
 		42F632D224CACFC400F1F439 /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 42F632D124CACFC400F1F439 /* SPAlert */; };
 		42F73BA8253FF4BF008E8B25 /* DailyMealWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F73BA6253FF4BF008E8B25 /* DailyMealWidget.swift */; };
 		42F73BAD25400F5D008E8B25 /* Openas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42DBE5A82536BABD00E5F4EA /* Openas.ttf */; };
@@ -273,6 +277,10 @@
 		42EFCD982558073200F3DC5E /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
 		42EFCDD12558141000F3DC5E /* AssignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignView.swift; sourceTree = "<group>"; };
 		42EFCDD72558188100F3DC5E /* TapBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBar.swift; sourceTree = "<group>"; };
+		42EFCDE525581C4500F3DC5E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		42EFCDEF25581D4E00F3DC5E /* MealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealView.swift; sourceTree = "<group>"; };
+		42EFCDFD255829B100F3DC5E /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		42EFCE032558340000F3DC5E /* MealBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealBox.swift; sourceTree = "<group>"; };
 		42F73BA6253FF4BF008E8B25 /* DailyMealWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMealWidget.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -392,7 +400,9 @@
 			children = (
 				08C9AC0424A74A83002AF525 /* LoginView.swift */,
 				08C9ABEC24A74A53002AF525 /* ContentView.swift */,
+				42EFCDE525581C4500F3DC5E /* HomeView.swift */,
 				08C9AC0724A74A83002AF525 /* MainView.swift */,
+				42EFCDEF25581D4E00F3DC5E /* MealView.swift */,
 				08C9AC0324A74A83002AF525 /* ProfileView.swift */,
 				423A9EE924E026EC00E046BE /* OptionView.swift */,
 				08C9AC0524A74A83002AF525 /* IngangListView.swift */,
@@ -407,6 +417,8 @@
 		08C9AC0824A74A83002AF525 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				086CC55024AF849D00456846 /* TextStyles.swift */,
+				42EFCE032558340000F3DC5E /* MealBox.swift */,
 				42EFCDD72558188100F3DC5E /* TapBar.swift */,
 				086CC54C24AF816200456846 /* VSpacer.swift */,
 				086CC54E24AF819400456846 /* HSpacer.swift */,
@@ -418,10 +430,10 @@
 				08C9AC0B24A74A83002AF525 /* MealRow.swift */,
 				08C9AC0D24A74A83002AF525 /* IngangItem.swift */,
 				08C9AC0C24A74A83002AF525 /* IngangRow.swift */,
-				086CC55024AF849D00456846 /* TextStyles.swift */,
 				423B71F124B1932E0099CE3E /* Background.swift */,
 				429039E624D45027005A25C0 /* ActivityIndicator.swift */,
 				42C487C924DDB73000C594CB /* CopyrightText.swift */,
+				42EFCDFD255829B100F3DC5E /* SectionHeader.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -734,11 +746,13 @@
 			files = (
 				08C9AC1324A74A83002AF525 /* ProfileView.swift in Sources */,
 				08C9AC1724A74A83002AF525 /* MainView.swift in Sources */,
+				42EFCE042558340000F3DC5E /* MealBox.swift in Sources */,
 				086CC54D24AF816200456846 /* VSpacer.swift in Sources */,
 				08C9ABE924A74A53002AF525 /* AppDelegate.swift in Sources */,
 				42C487CA24DDB73000C594CB /* CopyrightText.swift in Sources */,
 				429039E724D45027005A25C0 /* ActivityIndicator.swift in Sources */,
 				088E5D4D24A889CB0031342D /* RoundBoxModifier.swift in Sources */,
+				42EFCDF025581D4E00F3DC5E /* MealView.swift in Sources */,
 				08C9AC1A24A74A83002AF525 /* MealRow.swift in Sources */,
 				08C9AC1224A74A83002AF525 /* NoticeListView.swift in Sources */,
 				42EFCDD82558188100F3DC5E /* TapBar.swift in Sources */,
@@ -748,6 +762,7 @@
 				08C9AC1824A74A83002AF525 /* NoticeItem.swift in Sources */,
 				08C9AC1B24A74A83002AF525 /* IngangRow.swift in Sources */,
 				083D74F324A7783300989B47 /* Meal.swift in Sources */,
+				42EFCDE625581C4500F3DC5E /* HomeView.swift in Sources */,
 				08C9AC1C24A74A83002AF525 /* IngangItem.swift in Sources */,
 				423A9EEA24E026EC00E046BE /* OptionView.swift in Sources */,
 				08B8493B24A90403000A9ACD /* TimetableRow.swift in Sources */,
@@ -762,6 +777,7 @@
 				423B71F224B1932E0099CE3E /* Background.swift in Sources */,
 				083D74F924A77A9E00989B47 /* Tokens.swift in Sources */,
 				42EFCDD22558141000F3DC5E /* AssignView.swift in Sources */,
+				42EFCDFE255829B100F3DC5E /* SectionHeader.swift in Sources */,
 				08B8494124A9082A000A9ACD /* HelperTextModifier.swift in Sources */,
 				423B71F424B1B3F60099CE3E /* CustomBoxModifier.swift in Sources */,
 				08C9AC1624A74A83002AF525 /* MealListView.swift in Sources */,

@@ -56,6 +56,9 @@ class MealAPI: ObservableObject {
 //            self.dubugMeal()
         }
     }
+    func getTodayMeal() -> Dimibob{
+        return meals[getIntDay()-1]
+    }
     func dubugMeal() {
         print(meals)
     }

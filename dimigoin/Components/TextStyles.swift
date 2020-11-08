@@ -10,63 +10,84 @@ import SwiftUI
 
 extension Text {
     func accent() -> Text {
-        self
-            .foregroundColor(Color("Accent"))
+        self.foregroundColor(Color("Accent"))
     }
+    
     func warning() -> Text {
         self.foregroundColor(Color("Red"))
     }
+    
     func sub() -> Text {
-        self
-            .foregroundColor(Color("Sub"))
+        self.foregroundColor(Color("Sub"))
     }
+    
     func tapBarItem() -> Text {
         self.font(Font.custom("NanumSquareEB", size: 10))
     }
+    
     func disabled() -> Text {
-        self
-            .foregroundColor(Color("Disabled"))
+        self.foregroundColor(Color("Disabled"))
     }
-    func navigationBarTitle() -> Text {
-        self
-            .font(Font.custom("NanumSquare", size: 40))
+    
+    func title() -> Text {
+        self.font(Font.custom("NotoSansKR-Black", size: 40))
     }
+    
+    func subTitle() -> Text {
+        self
+            .foregroundColor(Color("Gray4"))
+            .font(Font.custom("NotoSansKR-Bold", size: 13))
+    }
+    func subSectionHeader() -> Text {
+        self
+            .foregroundColor(Color("Accent"))
+            .font(Font.custom("NotoSansKR-Medium", size: 10))
+    }
+    
     func sectionHeader() -> Text {
-        self
-            .font(Font.custom("NanumSquareEB", size: 27))
+        self.font(Font.custom("NotoSansKR-Bold", size: 21))
     }
+    
+    func mealMenu() -> some View {
+        self
+            .lineSpacing(12)
+            .foregroundColor(Color("Gray3"))
+            .font(Font.custom("NotoSansKR-Regular", size: 12))
+            
+    }
+    
     func body() -> Text {
-        self
-            .font(Font.custom("NanumSquareR", size: 15))
+        self.font(Font.custom("NanumSquareR", size: 15))
     }
+    
     func headline() -> Text {
-        self
-            .font(Font.custom("NanumSquare", size: 17))
+        self.font(Font.custom("NanumSquare", size: 17))
     }
+    
     func logoFont() -> Text {
-        self
-            .font(Font.custom("Openas", size: 57))
+        self.font(Font.custom("Openas", size: 57))
     }
+    
     func heavy() -> Text {
-        self
-            .fontWeight(.heavy)
+        self.fontWeight(.heavy)
     }
+    
     func black() -> Text {
-        self
-            .fontWeight(.black)
+        self.fontWeight(.black)
     }
+    
     func caption1() -> Text {
-        self
-            .font(Font.custom("NanumSquareR", size: 15))
+        self.font(Font.custom("NanumSquareR", size: 15))
     }
+    
     func caption2() -> Text {
-        self
-            .font(Font.custom("NanumSquareR", size: 13))
+        self.font(Font.custom("NanumSquareR", size: 13))
     }
+    
     func caption3() -> Text {
-        self
-            .font(Font.custom("NanumSquareR", size: 11))
+        self.font(Font.custom("NanumSquareR", size: 11))
     }
+    
     func SquareButton(_ w:CGFloat, _ h:CGFloat) -> some View {
         self
             .font(Font.custom("NanumSquareB", size: 18))
@@ -76,6 +97,7 @@ extension Text {
             .foregroundColor(Color.white)
             .cornerRadius(5.0)
     }
+    
     func DisabledSquareButton(_ w:CGFloat, _ h:CGFloat) -> some View {
         self
             .font(Font.custom("NanumSquareB", size: 17))
@@ -85,24 +107,31 @@ extension Text {
             .foregroundColor(Color.white)
             .cornerRadius(5.0)
     }
+    
     func gray1() -> Text {
         self.foregroundColor(Color("Gray1"))
     }
+    
     func gray2() -> Text {
         self.foregroundColor(Color("Gray2"))
     }
+    
     func gray3() -> Text {
         self.foregroundColor(Color("Gray3"))
     }
+    
     func gray4() -> Text {
         self.foregroundColor(Color("Gray4"))
     }
+    
     func gray5() -> Text {
         self.foregroundColor(Color("Gray5"))
     }
+    
     func gray6() -> Text {
         self.foregroundColor(Color("Gray6"))
     }
+    
     func gray7() -> Text {
         self.foregroundColor(Color("Gray7"))
     }
