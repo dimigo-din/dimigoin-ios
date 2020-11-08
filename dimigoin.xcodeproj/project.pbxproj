@@ -96,6 +96,7 @@
 		42B79D8D253FD7D7003A8A7F /* NextMealWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B79D8C253FD7D7003A8A7F /* NextMealWidget.swift */; };
 		42C487CA24DDB73000C594CB /* CopyrightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C487C924DDB73000C594CB /* CopyrightText.swift */; };
 		42C4E4D324CEA8E3004EC6AF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 42C4E4D224CEA8E3004EC6AF /* Alamofire */; };
+		42D7B19925586B1800FEC96B /* SnapScrollModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D7B19825586B1800FEC96B /* SnapScrollModifier.swift */; };
 		42DBE5A92536BABE00E5F4EA /* Openas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42DBE5A82536BABD00E5F4EA /* Openas.ttf */; };
 		42EFCD992558073200F3DC5E /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 42EFCD932558073200F3DC5E /* NotoSansKR-Bold.otf */; };
 		42EFCD9A2558073200F3DC5E /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 42EFCD932558073200F3DC5E /* NotoSansKR-Bold.otf */; };
@@ -271,6 +272,7 @@
 		42B79D43253ED243003A8A7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42B79D8C253FD7D7003A8A7F /* NextMealWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextMealWidget.swift; sourceTree = "<group>"; };
 		42C487C924DDB73000C594CB /* CopyrightText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyrightText.swift; sourceTree = "<group>"; };
+		42D7B19825586B1800FEC96B /* SnapScrollModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapScrollModifier.swift; sourceTree = "<group>"; };
 		42DBE5A82536BABD00E5F4EA /* Openas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Openas.ttf; sourceTree = "<group>"; };
 		42EFCD932558073200F3DC5E /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		42EFCD942558073200F3DC5E /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 				42364EAB24B14E02008427D5 /* KeyboardResponsive.swift */,
 				423B71EF24B191AF0099CE3E /* ClearButton.swift */,
 				423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */,
+				42D7B19825586B1800FEC96B /* SnapScrollModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -788,6 +791,7 @@
 				423B71F224B1932E0099CE3E /* Background.swift in Sources */,
 				083D74F924A77A9E00989B47 /* Tokens.swift in Sources */,
 				42EFCDD22558141000F3DC5E /* AssignView.swift in Sources */,
+				42D7B19925586B1800FEC96B /* SnapScrollModifier.swift in Sources */,
 				42EFCE2E255852DD00F3DC5E /* ViewTitle.swift in Sources */,
 				42EFCDFE255829B100F3DC5E /* SectionHeader.swift in Sources */,
 				08B8494124A9082A000A9ACD /* HelperTextModifier.swift in Sources */,

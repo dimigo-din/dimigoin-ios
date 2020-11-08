@@ -10,6 +10,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State var currentLocation = 0
+    var colors: [Color] = [.blue, .green, .red, .orange]
     var body: some View {
         ScrollView {
             VStack {
@@ -34,6 +35,14 @@ struct HomeView: View {
                 VSpacer(15)
                 LocationSelectionView(currentLocation: $currentLocation)
                 Text("오늘의 급식").font(Font.custom("NotoSansKR-Bold", size: 20))
+                
+                HStack(alignment: .center, spacing: 30) {
+                    ForEach(0..<colors.count) { i in
+                         colors[i]
+                             .frame(width: 250, height: 400, alignment: .center)
+                             .cornerRadius(10)
+                    }
+                }.modifier(SnapScrollModifier(items: colors.count, itemWidth: 250, itemSpacing: 30))
             }.offset(y: -20)
         }
     }
