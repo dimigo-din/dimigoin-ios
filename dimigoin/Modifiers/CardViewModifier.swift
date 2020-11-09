@@ -18,7 +18,7 @@ struct CardViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         return content
             .frame(width: w, height: h)
-            .background(Color.white.cornerRadius(10).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0))
+            .background(Color.white.cornerRadius(10).shadow(color: Color.black.opacity(0.1), radius: 20, x: 0, y: 0))
     }
 }
 

@@ -18,11 +18,10 @@ struct TapBar: View {
                     self.index = 0
                 }) {
                     VStack {
-                        Image(systemName: "doc")
+                        Image(self.index == 0 ? "doc" : "disabled-doc")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(height: 24.2)
-                            .foregroundColor(self.index == 0 ? Color("Accent") : Color("Gray3"))
+                            .frame(height: 24)
                         VSpacer(7.8)
                         Text("신청")
                             .tapBarItem()
@@ -35,11 +34,10 @@ struct TapBar: View {
                     self.index = 1
                 }) {
                     VStack {
-                        Image(systemName: "headphones")
+                        Image(self.index == 1 ? "headphone" : "disabled-headphone")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(height: 24.2)
-                            .foregroundColor(self.index == 1 ? Color("Accent") : Color("Gray3"))
+                            .frame(height: 24)
                         VSpacer(7.8)
                         Text("인강실")
                             .tapBarItem()
@@ -52,11 +50,10 @@ struct TapBar: View {
                     self.index = 2
                 }) {
                     VStack {
-                        Image(systemName: "house.fill")
+                        Image(self.index == 2 ? "home" : "disabled-home")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 24.2)
-                            .foregroundColor(self.index == 2 ? Color("Accent") : Color("Gray3"))
                         VSpacer(7.8)
                         Text("메인")
                             .tapBarItem()

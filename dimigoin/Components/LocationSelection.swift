@@ -24,7 +24,7 @@ struct LocationSelectionView: View {
                                 .frame(width: 40, height: 40)
                                 .shadow(color: Color("Gray4").opacity(0.12), radius: 5, x: 0, y: 0)
                                 .overlay(
-                                    Image(systemName: "seal").foregroundColor(currentLocation == 0 ? Color.white : Color("Accent"))
+                                    Image(currentLocation == 0 ? "class-white" : "class")
                                 )
                         }
                         VSpacer(9)
@@ -39,7 +39,7 @@ struct LocationSelectionView: View {
                                 .frame(width: 40, height: 40)
                                 .shadow(color: Color("Gray4").opacity(0.12), radius: 5, x: 0, y: 0)
                                 .overlay(
-                                    Image(systemName: "seal").foregroundColor(currentLocation == 1 ? Color.white : Color("Accent"))
+                                    Image(currentLocation == 1 ? "crossmark-white" : "crossmark")
                                 )
                         }
                         VSpacer(9)
@@ -55,7 +55,7 @@ struct LocationSelectionView: View {
                                 .frame(width: 40, height: 40)
                                 .shadow(color: Color("Gray4").opacity(0.12), radius: 5, x: 0, y: 0)
                                 .overlay(
-                                    Image(systemName: "seal").foregroundColor(currentLocation == 2 ? Color.white : Color("Accent"))
+                                    Image(currentLocation == 2 ? "headphone-white" : "headphone")
                                 )
                         }
                         VSpacer(9)
@@ -70,7 +70,7 @@ struct LocationSelectionView: View {
                                 .frame(width: 40, height: 40)
                                 .shadow(color: Color("Gray4").opacity(0.12), radius: 5, x: 0, y: 0)
                                 .overlay(
-                                    Image(systemName: "seal").foregroundColor(currentLocation == 3 ? Color.white : Color("Accent"))
+                                    Image(currentLocation == 3 ? "laundry-white" : "laundry")
                                 )
                         }
                         VSpacer(9)
@@ -85,7 +85,7 @@ struct LocationSelectionView: View {
                                 .frame(width: 40, height: 40)
                                 .shadow(color: Color("Gray4").opacity(0.12), radius: 4, x: 0, y: 0)
                                 .overlay(
-                                    Image(systemName: "seal").foregroundColor(currentLocation == 4 ? Color.white : Color("Accent"))
+                                    Image(currentLocation == 4 ? "club-white" : "club")
                                 )
                         }
                         VSpacer(9)
@@ -100,7 +100,7 @@ struct LocationSelectionView: View {
                                 .frame(width: 40, height: 40)
                                 .shadow(color: Color("Gray4").opacity(0.12), radius: 5, x: 0, y: 0)
                                 .overlay(
-                                    Image(systemName: "seal").foregroundColor(currentLocation == 5 ? Color.white : Color("Accent"))
+                                    Image(currentLocation == 5 ? "etc-white" : "etc")
                                 )
                         }
                         VSpacer(9)
