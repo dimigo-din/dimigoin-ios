@@ -17,7 +17,7 @@ struct MealView: View {
     
     var body: some View {
         ScrollView {
-            ViewTitle("급식", sub: getDate(), img: "")
+            ViewTitle("급식", sub: getDate(), img: "etc")
             HDivider().horizonPadding()
             MealBox("아침", "오전 7시 30분", mealAPI.getTodayMeal().breakfast)
             VSpacer(20)

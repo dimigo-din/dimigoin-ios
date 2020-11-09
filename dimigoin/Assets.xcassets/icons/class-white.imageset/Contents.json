@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "class-white.png",
+      "filename" : "class-white.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "class-white@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "class-white@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

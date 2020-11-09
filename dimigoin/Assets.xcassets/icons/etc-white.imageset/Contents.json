@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "etc-white.png",
+      "filename" : "etc-white.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "etc-white@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "etc-white@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
