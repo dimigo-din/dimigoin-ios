@@ -58,6 +58,8 @@
 		423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71EF24B191AF0099CE3E /* ClearButton.swift */; };
 		423B71F224B1932E0099CE3E /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F124B1932E0099CE3E /* Background.swift */; };
 		423B71F424B1B3F60099CE3E /* CustomBoxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */; };
+		4250011C25595C2900C593CF /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250011B25595C2900C593CF /* AlertView.swift */; };
+		4250012625595F9E00C593CF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250012525595F9E00C593CF /* Alert.swift */; };
 		4269748625464532006417F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4269748525464532006417F1 /* Assets.xcassets */; };
 		4269748D25464532006417F1 /* watchApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4269748C25464532006417F1 /* watchApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4269749225464532006417F1 /* dimigoinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4269749125464532006417F1 /* dimigoinApp.swift */; };
@@ -249,6 +251,8 @@
 		423B71EF24B191AF0099CE3E /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
 		423B71F124B1932E0099CE3E /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBoxModifier.swift; sourceTree = "<group>"; };
+		4250011B25595C2900C593CF /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		4250012525595F9E00C593CF /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		4269748325464530006417F1 /* watchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4269748525464532006417F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4269748725464532006417F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -400,6 +404,7 @@
 				4212D97F24CC124B00FF82D5 /* DateTime.swift */,
 				429F8C78253B42A70068E3FD /* Options.swift */,
 				4288B937253E57260022B11A /* Notification.swift */,
+				4250012525595F9E00C593CF /* Alert.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -427,6 +432,7 @@
 		08C9AC0824A74A83002AF525 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				4250011B25595C2900C593CF /* AlertView.swift */,
 				086CC55024AF849D00456846 /* TextStyles.swift */,
 				42EFCE032558340000F3DC5E /* MealBox.swift */,
 				42EFCE15255848C300F3DC5E /* LocationSelection.swift */,
@@ -774,6 +780,7 @@
 				429F8C79253B42A70068E3FD /* Options.swift in Sources */,
 				08C9AC1824A74A83002AF525 /* NoticeItem.swift in Sources */,
 				08C9AC1B24A74A83002AF525 /* IngangRow.swift in Sources */,
+				4250012625595F9E00C593CF /* Alert.swift in Sources */,
 				083D74F324A7783300989B47 /* Meal.swift in Sources */,
 				42EFCDE625581C4500F3DC5E /* HomeView.swift in Sources */,
 				08C9AC1C24A74A83002AF525 /* IngangItem.swift in Sources */,
@@ -806,6 +813,7 @@
 				08B8493D24A90432000A9ACD /* Timetable.swift in Sources */,
 				08C9AC1924A74A83002AF525 /* NoticeRow.swift in Sources */,
 				08C9ABED24A74A53002AF525 /* ContentView.swift in Sources */,
+				4250011C25595C2900C593CF /* AlertView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -55,7 +55,21 @@ extension Text {
             .font(Font.custom("NotoSansKR-Regular", size: 12))
             
     }
-    
+    func alertTitle(_ color: Color) -> some View {
+        self
+            .foregroundColor(color)
+            .font(Font.custom("NotoSansKR-Medium", size: 19))
+    }
+    func alertSubTitle() -> some View {
+        self
+            .foregroundColor(Color("Gray2"))
+            .font(Font.custom("NotoSansKR-Regular", size: 13))
+    }
+    func alertButton() -> some View {
+        self
+            .foregroundColor(Color("Gray4"))
+            .font(Font.custom("NotoSansKR-Bold", size: 17))
+    }
     func body() -> Text {
         self.font(Font.custom("NanumSquareR", size: 15))
     }

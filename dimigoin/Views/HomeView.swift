@@ -25,7 +25,7 @@ struct HomeView: View {
                     }
                     HStack {
                         Image("Logo").resizable().aspectRatio(contentMode: .fit).frame(height: 38)
-                        HSpacer(256)
+                        Spacer()
                         Button(action: {
                             // Profile View
                         }) {
@@ -43,24 +43,24 @@ struct HomeView: View {
                 Text("오늘의 급식").font(Font.custom("NotoSansKR-Bold", size: 20)).horizonPadding()
             }  // MARK: Chage x offset with formula
             VSpacer(20)
-            HStack(spacing: 15) {
-                VStack(alignment: .leading){
-                    Text("아침").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("Accent")).horizonPadding()
-                    VSpacer(10)
-                    Text("\(mealAPI.getTodayMeal().breakfast)").mealMenu().horizonPadding()
-                }.modifier(CardViewModifier(305,147))
-                VStack(alignment: .leading) {
-                    Text("점심").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("Accent")).horizonPadding()
-                    VSpacer(10)
-                    Text("\(mealAPI.getTodayMeal().lunch)").mealMenu().horizonPadding()
-                }.modifier(CardViewModifier(305,147))
-                VStack(alignment: .leading) {
-                    Text("저녁").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("Accent")).horizonPadding()
-                    VSpacer(10)
-                    Text("\(mealAPI.getTodayMeal().dinner)").mealMenu().horizonPadding()
-                }.modifier(CardViewModifier(305,147))
-            }
-            .modifier(SnapScrollModifier(items: 3, itemWidth: 305, itemSpacing: 15))
+//            HStack(spacing: 15) {
+//                VStack(alignment: .leading){
+//                    Text("아침").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("Accent")).horizonPadding()
+//                    VSpacer(10)
+//                    Text("\(mealAPI.getTodayMeal().breakfast)").mealMenu().horizonPadding()
+//                }.modifier(CardViewModifier(305,147))
+//                VStack(alignment: .leading) {
+//                    Text("점심").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("Accent")).horizonPadding()
+//                    VSpacer(10)
+//                    Text("\(mealAPI.getTodayMeal().lunch)").mealMenu().horizonPadding()
+//                }.modifier(CardViewModifier(305,147))
+//                VStack(alignment: .leading) {
+//                    Text("저녁").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("Accent")).horizonPadding()
+//                    VSpacer(10)
+//                    Text("\(mealAPI.getTodayMeal().dinner)").mealMenu().horizonPadding()
+//                }.modifier(CardViewModifier(305,147))
+//            }
+//            .modifier(SnapScrollModifier(items: 3, itemWidth: 305, itemSpacing: 15))
         }
     }
 }

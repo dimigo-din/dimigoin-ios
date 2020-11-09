@@ -14,7 +14,7 @@ struct LocationSelectionView: View {
         VStack {
             SectionHeader("자습 현황", sub: "야간자율학습 1타임")
             ScrollView(.horizontal, showsIndicators: false){
-                HStack(spacing: 19) {
+                HStack(spacing: 20) {
                     VStack {
                         Button(action: {
                             self.currentLocation = 0
@@ -56,6 +56,9 @@ struct LocationSelectionView: View {
                                 .shadow(color: Color("Gray4").opacity(0.12), radius: 5, x: 0, y: 0)
                                 .overlay(
                                     Image(currentLocation == 2 ? "headphone-white" : "headphone")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 20)
                                 )
                         }
                         VSpacer(9)

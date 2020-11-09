@@ -15,6 +15,7 @@ struct IngangView: View {
     @ObservedObject var ingangAPI: IngangAPI
     @ObservedObject var tokenAPI: TokenAPI
   
+    @State private var showingCustomWindow = false
     var body: some View {
         ScrollView {
             ViewTitle("인강실", sub: "", img: "headphone")

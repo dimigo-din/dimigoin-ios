@@ -17,8 +17,8 @@ struct MainView: View {
     @ObservedObject var userAPI = UserAPI()
     @ObservedObject var timetableAPI = TimetableAPI()
     @ObservedObject var optionAPI = OptionAPI()
+    @ObservedObject var alertManager = AlertManager()
     var NotificationAPI = NotificationManager()
-    
     @State var index = 2
     
     init(tokenAPI: TokenAPI) {
@@ -35,6 +35,7 @@ struct MainView: View {
         Group {
             VStack(spacing: 0) {
                 ZStack {
+                    
                     switch self.index {
                         case 0: AssignView()
                         case 1: IngangView(ingangAPI: ingangAPI, tokenAPI: tokenAPI)
@@ -46,11 +47,20 @@ struct MainView: View {
                                     }) {
                                         Text("로그아웃").SquareButton(312, 54)
                                     }
+                                    Button(action: {
+                                        alertManager.present("취소되었습니다", sub: "내정보 탭에서 신청 목록을 확인하실 수 있습니다", .cancel)
+                                    }) {
+                                        Text("alert").SquareButton(312, 54)
+                                    }
         
                                 }
                         default: Text("Error")
                     }
+                    if(alertManager.isShowing) {
+                        alertManager.alertView
+                    }
                 }
+                
                 TapBar(index: self.$index)
             }
         }

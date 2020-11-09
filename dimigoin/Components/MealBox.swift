@@ -32,7 +32,9 @@ struct MealBox: View {
 }
 
 struct CustomBox: View {
-    var color: Color = .white
+    var edgeInsets: Edge.Set = [.leading]
+    var accentColor: Color = Color("Accent")
+    var width: CGFloat = 5
     var tl: CGFloat = 2
     var tr: CGFloat = 17
     var bl: CGFloat = 2
@@ -62,11 +64,11 @@ struct CustomBox: View {
                 path.addArc(center: CGPoint(x: tl, y: tl), radius: tl, startAngle: Angle(degrees: 180), endAngle: Angle(degrees: 270), clockwise: false)
             }
             .overlay(
-                RoundSquare(tl: 0, tr: 15, bl: 0, br: 15)
-                    .fill(self.color)
-                    .padding([.leading], 4)
+                RoundSquare(tl: tl-2, tr: tr-2, bl: bl-2, br: br-2)
+                    .fill(Color.white)
+                    .padding(edgeInsets, width)
             )
-            .foregroundColor(Color("Accent"))
+            .foregroundColor(accentColor)
             .shadow(color: Color.black.opacity(0.03), radius: 10, x: 0, y: 0)
         }
     }
