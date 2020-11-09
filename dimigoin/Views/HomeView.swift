@@ -14,10 +14,10 @@ struct HomeView: View {
     init(mealAPI: MealAPI) {
         self.mealAPI = mealAPI
     }
-    var colors: [Color] = [.blue, .green, .orange]
+    
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading){
+            VStack{
                 ZStack {
                     VStack {
                         VSpacer(70)
@@ -25,11 +25,13 @@ struct HomeView: View {
                     }
                     HStack {
                         Image("Logo").resizable().aspectRatio(contentMode: .fit).frame(height: 38)
-                        Spacer()
+                        HSpacer(256)
                         Button(action: {
                             // Profile View
                         }) {
-                            Circle().frame(width: 38, height: 38).foregroundColor(Color.white)
+                            Circle()
+                                .frame(width: 38, height: 38)
+                                .foregroundColor(Color.white)
                                 .overlay(
                                     Circle().stroke(Color("Accent"), lineWidth: 2)
                                 )
@@ -39,28 +41,26 @@ struct HomeView: View {
                 VSpacer(15)
                 LocationSelectionView(currentLocation: $currentLocation)
                 Text("오늘의 급식").font(Font.custom("NotoSansKR-Bold", size: 20)).horizonPadding()
-            }.offset(x:300, y: -20)  // MARK: Chage x offset with formula
-            HStack(alignment: .center, spacing: 30) {
+            }  // MARK: Chage x offset with formula
+            VSpacer(20)
+            HStack(spacing: 15) {
                 VStack(alignment: .leading){
                     Text("아침").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("Accent")).horizonPadding()
                     VSpacer(10)
                     Text("\(mealAPI.getTodayMeal().breakfast)").mealMenu().horizonPadding()
-                }
-                .modifier(CardViewModifier(305,147))
-                
+                }.modifier(CardViewModifier(305,147))
                 VStack(alignment: .leading) {
                     Text("점심").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("Accent")).horizonPadding()
                     VSpacer(10)
                     Text("\(mealAPI.getTodayMeal().lunch)").mealMenu().horizonPadding()
-                }
-                .modifier(CardViewModifier(305,147))
+                }.modifier(CardViewModifier(305,147))
                 VStack(alignment: .leading) {
                     Text("저녁").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("Accent")).horizonPadding()
                     VSpacer(10)
                     Text("\(mealAPI.getTodayMeal().dinner)").mealMenu().horizonPadding()
-                }
-                .modifier(CardViewModifier(305,147))
-            }.modifier(SnapScrollModifier(items: colors.count, itemWidth: 305, itemSpacing: 15))
+                }.modifier(CardViewModifier(305,147))
+            }
+            .modifier(SnapScrollModifier(items: 3, itemWidth: 305, itemSpacing: 15))
         }
     }
 }

@@ -17,7 +17,7 @@ struct IngangView: View {
   
     var body: some View {
         ScrollView {
-            ViewTitle("인강실", sub: "")
+            ViewTitle("인강실", sub: "", img: "headphone")
             ForEach(ingangAPI.ingangs, id: \.self) { ingang in
                 IngangItem(ingangAPI: ingangAPI, tokenAPI: tokenAPI, ingang: ingang)
             }

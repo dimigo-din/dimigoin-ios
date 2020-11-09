@@ -24,7 +24,7 @@ struct SnapScrollModifier: ViewModifier {
         
         // Calculate Total Content Width
         let contentWidth: CGFloat = CGFloat(items) * itemWidth + CGFloat(items - 1) * itemSpacing
-        let screenWidth = UIScreen.main.bounds.width
+        let screenWidth = UIScreen.screenWidth
         
         // Set Initial Offset to first Item
         let initialOffset = (contentWidth/2.0) - (screenWidth/2.0) + ((screenWidth - itemWidth) / 2.0)
