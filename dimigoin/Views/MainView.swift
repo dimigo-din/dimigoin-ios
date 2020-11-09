@@ -33,44 +33,23 @@ struct MainView: View {
     }
     var body: some View {
         Group {
-            VStack(spacing: 0) {
+            VStack {
                 ZStack {
-                    
                     switch self.index {
                         case 0: AssignView()
                         case 1: IngangView(ingangAPI: ingangAPI, tokenAPI: tokenAPI)
                         case 2: HomeView(mealAPI: mealAPI)
                         case 3: MealView(mealAPI: mealAPI)
-                        case 4: ScrollView {
-                                    Button(action: {
-                                        self.tokenAPI.clearTokens()
-                                    }) {
-                                        Text("로그아웃").SquareButton(312, 54)
-                                    }
-                                    Button(action: {
-                                        alertManager.present("취소되었습니다", sub: "내정보 탭에서 신청 목록을 확인하실 수 있습니다", .cancel)
-                                    }) {
-                                        Text("alert").SquareButton(312, 54)
-                                    }
-        
-                                }
+                        case 4: StudentIdCardView(alertManager: alertManager)
                         default: Text("Error")
                     }
                     if(alertManager.isShowing) {
                         alertManager.alertView
                     }
                 }
-                
                 TapBar(index: self.$index)
             }
         }
     }
 }
-
-//struct MainView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MainView()
-//    }
-//}
-
 
