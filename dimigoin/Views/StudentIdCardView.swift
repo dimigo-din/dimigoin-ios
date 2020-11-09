@@ -20,12 +20,22 @@ struct StudentIdCardView: View {
             Button(action: {
                 alertManager.present("취소되었습니다", sub: "내정보 탭에서 신청 목록을 확인하실 수 있습니다", .cancel)
             }) {
-                Text("alert").SquareButton(312, 54)
+                Text("cancel").SquareButton(312, 54)
             }
             Button(action: {
-                alertManager.present("danger", sub: "danger", .danger)
+                alertManager.present("권한이 부족합니다", sub: "계속하시려면 권한을 보유한 계정으로 로그인하세요", .danger)
             }) {
-                Text("alert").SquareButton(312, 54)
+                Text("danger").SquareButton(312, 54)
+            }
+            Button(action: {
+                alertManager.present("신청이 완료되었습니다", sub: "해당 탭에서 신청 목록을 확인하실 수 있습니다", .success)
+            }) {
+                Text("success").SquareButton(312, 54)
+            }
+            Button(action: {
+                alertManager.present("오류가 발생했습니다", sub: "이 화면이 계속 나타난다면 관리자에게 문의하세요", .warning)
+            }) {
+                Text("error").SquareButton(312, 54)
             }
         }
     }

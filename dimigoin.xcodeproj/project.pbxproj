@@ -420,6 +420,7 @@
 				08C9AC0724A74A83002AF525 /* MainView.swift */,
 				42EFCDEF25581D4E00F3DC5E /* MealView.swift */,
 				42EFCE1F255851B500F3DC5E /* IngangView.swift */,
+				42C72C042559FED900E3294E /* StudentIdCardView.swift */,
 				08C9AC0324A74A83002AF525 /* ProfileView.swift */,
 				423A9EE924E026EC00E046BE /* OptionView.swift */,
 				08C9AC0524A74A83002AF525 /* IngangListView.swift */,
@@ -427,7 +428,6 @@
 				08C9AC0224A74A83002AF525 /* NoticeListView.swift */,
 				08B8493E24A90487000A9ACD /* TimetableView.swift */,
 				42EFCDD12558141000F3DC5E /* AssignView.swift */,
-				42C72C042559FED900E3294E /* StudentIdCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

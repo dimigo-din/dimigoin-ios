@@ -21,9 +21,9 @@ class AlertManager: ObservableObject {
     @Published var alertType: AlertType = .warning
     @Published var content: String = "content"
     @Published var sub: String = "sub"
-    
-    func present(_ content: String, sub: String, _ type: AlertType) {
-        self.alertType = type
+
+    func present(_ content: String, sub: String, _ alertType: AlertType) {
+        self.alertType = alertType
         self.content = content
         self.sub = sub
         withAnimation(.spring()) {
@@ -34,11 +34,9 @@ class AlertManager: ObservableObject {
         self.isShowing = false
     }
     var alertView: some View {
-        AlertView(alertType: .cancel, content: content, sub: sub)
+        AlertView(alertType: alertType, content: content, sub: sub)
             .onTapGesture {
-                withAnimation() {
-                    self.isShowing = false
-                }
+                self.isShowing = false
             }
     }
 }
@@ -47,33 +45,37 @@ struct AlertView: View {
     @State var alertType: AlertType
     @State var content: String
     @State var sub: String
+    func getAccentColor(_ alertType: AlertType) -> Color {
+        var colorName: String = "purple"
+        switch alertType {
+            case .cancel: colorName = "Gray4"
+            case .success: colorName = "Accent"
+            case .warning: colorName = "Yellow"
+            case .danger: colorName = "Red"
+        }
+        return Color(colorName)
+    }
+    func getIconName(_ alertType: AlertType) -> String {
+        var iconName: String = ""
+        switch alertType {
+            case .cancel: iconName = "disabled-checkmark"
+            case .success: iconName = "checkmark"
+            case .warning: iconName = "warningmark"
+            case .danger: iconName = "dangermark"
+        }
+        return iconName
+    }
     var body: some View {
         ZStack {
             Rectangle()
                 .fill(Color.gray)
                 .opacity(0.2)
-                
+                .edgesIgnoringSafeArea(.all)
             VStack {
                 VSpacer(10)
-                switch alertType {
-                case .cancel:
-                    Image("checkmark").resizable().aspectRatio(contentMode: .fit).frame(width: 38).padding(.top)
-                    VSpacer(20)
-                    Text(content).alertTitle(Color("Gray4"))
-                case .success:
-                    Image("checkmark").resizable().aspectRatio(contentMode: .fit).frame(width: 38).padding(.top)
-                    VSpacer(20)
-                    Text(content).alertTitle(Color("Accent"))
-                case .warning:
-                    Image("warningmark").resizable().aspectRatio(contentMode: .fit).frame(width: 38).padding(.top)
-                    VSpacer(20)
-                    Text(content).alertTitle(Color("Yellow"))
-                case .danger:
-                    Image("dangermark").resizable().aspectRatio(contentMode: .fit).frame(width: 38).padding(.top)
-                    VSpacer(20)
-                    Text(content).alertTitle(Color("Red"))
-                }
-                
+                Image(getIconName(alertType)).resizable().aspectRatio(contentMode: .fit).frame(width: 38).padding(.top)
+                VSpacer(20)
+                Text(content).alertTitle(getAccentColor(alertType))
                 VSpacer(10)
                 Text(sub).alertSubTitle().horizonPadding()
                 VSpacer(20)
@@ -85,14 +87,7 @@ struct AlertView: View {
                 }
             }.frame(width: 300, height: 200)
             .background(
-                CustomBox(edgeInsets: .top, accentColor: Color("Gray4"), width: 5, tl: 2, tr: 2, bl: 2, br: 2)
-//                case .success:
-//                    CustomBox(edgeInsets: .top, accentColor: Color("Accent"), width: 5, tl: 2, tr: 2, bl: 2, br: 2)
-//                case .warning:
-//                    CustomBox(edgeInsets: .top, accentColor: Color("Yellow"), width: 5, tl: 2, tr: 2, bl: 2, br: 2)
-//                case .danger:
-//                    CustomBox(edgeInsets: .top, accentColor: Color("Red"), width: 5, tl: 2, tr: 2, bl: 2, br: 2)
-//                }
+                CustomBox(edgeInsets: .top, accentColor: getAccentColor(alertType), width: 5, tl: 2, tr: 2, bl: 2, br: 2)
             )
         }
     }

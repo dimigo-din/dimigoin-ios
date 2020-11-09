@@ -89,7 +89,7 @@ struct TapBar: View {
                             .frame(height: 24.2)
                             .foregroundColor(self.index == 4 ? Color("Accent") : Color("Gray3"))
                         VSpacer(7.8)
-                        Text("???")
+                        Text("학생증")
                             .tapBarItem()
                             .foregroundColor(self.index == 4 ? Color("Accent") : Color("Gray3"))
                         
