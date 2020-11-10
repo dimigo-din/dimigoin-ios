@@ -97,8 +97,7 @@ struct TapBar: View {
 
                 }
                 
-            }.padding(.top, 10)
-            .background(Color.white)
+            }
             .animation(.spring())
         }
     }

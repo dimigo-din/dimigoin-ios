@@ -9,11 +9,11 @@
 import Foundation
 import SwiftUI
 
-enum AlertType: Int {
-    case success = 0
-    case warning = 1
-    case danger = 2
-    case cancel = 3
+enum AlertType {
+    case success
+    case warning
+    case danger
+    case cancel
 }
 
 class AlertManager: ObservableObject {
@@ -45,6 +45,7 @@ struct AlertView: View {
     @State var alertType: AlertType
     @State var content: String
     @State var sub: String
+    
     func getAccentColor(_ alertType: AlertType) -> Color {
         var colorName: String = "purple"
         switch alertType {
@@ -55,6 +56,7 @@ struct AlertView: View {
         }
         return Color(colorName)
     }
+    
     func getIconName(_ alertType: AlertType) -> String {
         var iconName: String = ""
         switch alertType {
@@ -65,12 +67,14 @@ struct AlertView: View {
         }
         return iconName
     }
+    
     var body: some View {
         ZStack {
             Rectangle()
                 .fill(Color.gray)
                 .opacity(0.2)
                 .edgesIgnoringSafeArea(.all)
+                
             VStack {
                 VSpacer(10)
                 Image(getIconName(alertType)).resizable().aspectRatio(contentMode: .fit).frame(width: 38).padding(.top)
@@ -80,11 +84,7 @@ struct AlertView: View {
                 Text(sub).alertSubTitle().horizonPadding()
                 VSpacer(20)
                 Divider()
-                Button(action: {
-                }) {
-                    Text("확인").alertButton().padding(.bottom)
-                        
-                }
+                Text("확인").alertButton().padding(.bottom)
             }.frame(width: 300, height: 200)
             .background(
                 CustomBox(edgeInsets: .top, accentColor: getAccentColor(alertType), width: 5, tl: 2, tr: 2, bl: 2, br: 2)

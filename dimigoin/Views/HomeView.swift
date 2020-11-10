@@ -16,7 +16,7 @@ struct HomeView: View {
     }
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false){
             VStack{
                 ZStack {
                     VStack {

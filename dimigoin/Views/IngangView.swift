@@ -17,7 +17,7 @@ struct IngangView: View {
   
     @State private var showingCustomWindow = false
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             ViewTitle("인강실", sub: "", img: "headphone")
             ForEach(ingangAPI.ingangs, id: \.self) { ingang in
                 IngangItem(ingangAPI: ingangAPI, tokenAPI: tokenAPI, ingang: ingang)
