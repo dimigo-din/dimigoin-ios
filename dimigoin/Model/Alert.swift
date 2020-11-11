@@ -18,9 +18,9 @@ enum AlertType {
 
 class AlertManager: ObservableObject {
     @Published var isShowing: Bool = false
-    @Published var alertType: AlertType = .warning
-    @Published var content: String = "content"
-    @Published var sub: String = "sub"
+    var alertType: AlertType = .warning
+    var content: String = "content"
+    var sub: String = "sub"
 
     func present(_ content: String, sub: String, _ alertType: AlertType) {
         self.alertType = alertType
@@ -29,6 +29,7 @@ class AlertManager: ObservableObject {
         withAnimation(.spring()) {
             self.isShowing = true
         }
+        print("Alert presented \(content) : \(sub)")
     }
     func dismiss() {
         self.isShowing = false

@@ -21,7 +21,6 @@ struct LoginView: View {
     
     var body: some View {
         ZStack {
-            Background()
             VStack(alignment: .center) {
                 Spacer()
                 VStack {

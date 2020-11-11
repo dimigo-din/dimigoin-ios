@@ -37,6 +37,7 @@ struct StudentIdCardView: View {
             }) {
                 Text("error").SquareButton(312, 54)
             }
+            
         }
     }
 }

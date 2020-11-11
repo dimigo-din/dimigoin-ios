@@ -14,13 +14,14 @@ import SPAlert
 struct IngangView: View {
     @ObservedObject var ingangAPI: IngangAPI
     @ObservedObject var tokenAPI: TokenAPI
-  
+    @ObservedObject var alertManager: AlertManager
     @State private var showingCustomWindow = false
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
             ViewTitle("인강실", sub: "", img: "headphone")
             ForEach(ingangAPI.ingangs, id: \.self) { ingang in
-                IngangItem(ingangAPI: ingangAPI, tokenAPI: tokenAPI, ingang: ingang)
+                IngangItem(ingangAPI: ingangAPI, tokenAPI: tokenAPI, ingang: ingang, alertManager: alertManager)
             }
         }
     }

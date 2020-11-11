@@ -45,6 +45,7 @@ enum IngangStatus: Int {
 class IngangAPI: ObservableObject {
     @Published var ingangs: [Ingang] = []
     @Published var applicants: [Applicant] = []
+    
     var tokenAPI = TokenAPI()
     var weekly_request_count: Int = 0
     var daily_request_count: Int = 0

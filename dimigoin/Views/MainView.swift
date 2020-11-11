@@ -18,6 +18,7 @@ struct MainView: View {
     @ObservedObject var timetableAPI = TimetableAPI()
     @ObservedObject var optionAPI = OptionAPI()
     @ObservedObject var alertManager = AlertManager()
+    
     var NotificationAPI = NotificationManager()
     @State var index = 2
     
@@ -32,25 +33,20 @@ struct MainView: View {
         }
     }
     var body: some View {
-        Group {
-            ZStack {
-                VStack {
-                    ZStack {
-                        switch self.index {
-                            case 0: AssignView()
-                            case 1: IngangView(ingangAPI: ingangAPI, tokenAPI: tokenAPI)
-                            case 2: HomeView(mealAPI: mealAPI)
-                            case 3: MealView(mealAPI: mealAPI)
-                            case 4: StudentIdCardView(alertManager: alertManager)
-                            default: Text("Error")
-                        }
-                        
-                    }
-                    TapBar(index: self.$index)
+        ZStack {
+            VStack {
+                switch self.index {
+                    case 0: AssignView()
+                    case 1: IngangView(ingangAPI: ingangAPI, tokenAPI: tokenAPI, alertManager: alertManager)
+                    case 2: HomeView(mealAPI: mealAPI)
+                    case 3: MealView(mealAPI: mealAPI)
+                    case 4: StudentIdCardView(alertManager: alertManager)
+                    default: Text("Error")
                 }
-                if(alertManager.isShowing) {
-                    alertManager.alertView
-                }
+                TapBar(index: self.$index)
+            }
+            if(alertManager.isShowing) {
+                alertManager.alertView
             }
         }
     }
