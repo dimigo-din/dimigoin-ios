@@ -23,13 +23,6 @@ struct IngangItem: View {
             SectionHeader(ingang.title, sub: ingangTime[ingang.time])
             VSpacer(10)
             HStack {
-                Button(action: {
-                    
-                    alertManager.present("test", sub: "TEST", .cancel)
-                })
-                {
-                    Text("hel;o").logoFont()
-                }
                 VStack {
                     Text("\(ingang.present)").font(Font.custom("NotoSansKR-Bold", size: 40))
                     Text("현원").font(Font.custom("NotoSansKR-Bold", size: 15))
@@ -68,7 +61,7 @@ struct IngangItem: View {
                             case 405: // 신청 시간이 아닙니다
                                 print("alert requested")
 //                                alertManager.present("인강 신청 실패", sub: "인강 신청 시간이 아닙니다.", .danger)
-//                                SPAlert.present(title: "인강 신청 실패", message: "신청 시간이 아닙니다.", preset: .privacy)
+                                SPAlert.present(title: "인강 신청 실패", message: "신청 시간이 아닙니다.", preset: .privacy)
                             case 406: // 인강실 블랙리스트이므로 신청할 수 없습니다.
                                 alertManager.present("권한이 부족합니다", sub: "계속하시려면 권한을 보유한 계정으로 로그인하세요", .danger)
 //                                SPAlert.present(title: "인강 신청 실패", message: "인강실 블랙리스트이므로\n신청할 수 없습니다.", preset: .privacy)
@@ -86,7 +79,7 @@ struct IngangItem: View {
                             ingangAPI.getIngangList()
                             ingangAPI.getApplicantList()
                         }
-                        alertManager.present("test", sub: "TEST", .cancel)
+//                        alertManager.present("test", sub: "TEST", .cancel)
                     }
                 }) {
                     Text("신청하기").RSquareButton(UIScreen.screenWidth - 40, 47)
