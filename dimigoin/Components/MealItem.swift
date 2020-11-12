@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct MealBox: View {
+struct MealItem: View {
     var content: String
     var mealType: String
     var sub: String
@@ -26,8 +26,8 @@ struct MealBox: View {
                 .padding(.trailing)
                 .background(CustomBox())
                 .horizonPadding()
+                .fixedSize(horizontal: false, vertical: true)
         }
-        
     }
 }
 

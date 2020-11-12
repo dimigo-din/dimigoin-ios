@@ -113,7 +113,7 @@
 		42EFCDE625581C4500F3DC5E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCDE525581C4500F3DC5E /* HomeView.swift */; };
 		42EFCDF025581D4E00F3DC5E /* MealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCDEF25581D4E00F3DC5E /* MealView.swift */; };
 		42EFCDFE255829B100F3DC5E /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCDFD255829B100F3DC5E /* SectionHeader.swift */; };
-		42EFCE042558340000F3DC5E /* MealBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCE032558340000F3DC5E /* MealBox.swift */; };
+		42EFCE042558340000F3DC5E /* MealItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCE032558340000F3DC5E /* MealItem.swift */; };
 		42EFCE16255848C300F3DC5E /* LocationSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCE15255848C300F3DC5E /* LocationSelection.swift */; };
 		42EFCE20255851B500F3DC5E /* IngangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCE1F255851B500F3DC5E /* IngangView.swift */; };
 		42EFCE2E255852DD00F3DC5E /* ViewTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCE2D255852DD00F3DC5E /* ViewTitle.swift */; };
@@ -252,7 +252,7 @@
 		42EFCDE525581C4500F3DC5E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		42EFCDEF25581D4E00F3DC5E /* MealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealView.swift; sourceTree = "<group>"; };
 		42EFCDFD255829B100F3DC5E /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
-		42EFCE032558340000F3DC5E /* MealBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealBox.swift; sourceTree = "<group>"; };
+		42EFCE032558340000F3DC5E /* MealItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealItem.swift; sourceTree = "<group>"; };
 		42EFCE15255848C300F3DC5E /* LocationSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelection.swift; sourceTree = "<group>"; };
 		42EFCE1F255851B500F3DC5E /* IngangView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngangView.swift; sourceTree = "<group>"; };
 		42EFCE2D255852DD00F3DC5E /* ViewTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTitle.swift; sourceTree = "<group>"; };
@@ -394,7 +394,7 @@
 				42C72C14255B614800E3294E /* Carousel.swift */,
 				4250011B25595C2900C593CF /* AlertView.swift */,
 				086CC55024AF849D00456846 /* TextStyles.swift */,
-				42EFCE032558340000F3DC5E /* MealBox.swift */,
+				42EFCE032558340000F3DC5E /* MealItem.swift */,
 				42EFCE15255848C300F3DC5E /* LocationSelection.swift */,
 				42EFCDD72558188100F3DC5E /* TapBar.swift */,
 				086CC54C24AF816200456846 /* VSpacer.swift */,
@@ -704,7 +704,7 @@
 			files = (
 				08C9AC1724A74A83002AF525 /* MainView.swift in Sources */,
 				42C72C052559FED900E3294E /* StudentIdCardView.swift in Sources */,
-				42EFCE042558340000F3DC5E /* MealBox.swift in Sources */,
+				42EFCE042558340000F3DC5E /* MealItem.swift in Sources */,
 				086CC54D24AF816200456846 /* VSpacer.swift in Sources */,
 				08C9ABE924A74A53002AF525 /* AppDelegate.swift in Sources */,
 				42C487CA24DDB73000C594CB /* CopyrightText.swift in Sources */,

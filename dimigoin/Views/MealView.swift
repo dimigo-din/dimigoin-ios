@@ -19,11 +19,11 @@ struct MealView: View {
         ScrollView(showsIndicators: false) {
             ViewTitle("급식", sub: getDate(), img: "etc")
             HDivider().horizonPadding()
-            MealBox("아침", "오전 7시 30분", mealAPI.getTodayMeal().breakfast)
+            MealItem("아침", "오전 7시 30분", mealAPI.getTodayMeal().breakfast)
             VSpacer(20)
-            MealBox("점심", "오전 12시 50분", mealAPI.getTodayMeal().breakfast)
+            MealItem("점심", "오전 12시 50분", mealAPI.getTodayMeal().lunch)
             VSpacer(20)
-            MealBox("저녁", "오후 6시 35분", mealAPI.getTodayMeal().breakfast)
+            MealItem("저녁", "오후 6시 35분", mealAPI.getTodayMeal().dinner)
             Spacer()
         }
     }
