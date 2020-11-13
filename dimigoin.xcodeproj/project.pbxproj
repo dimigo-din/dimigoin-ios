@@ -39,6 +39,7 @@
 		4250011C25595C2900C593CF /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250011B25595C2900C593CF /* AlertView.swift */; };
 		4250012625595F9E00C593CF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250012525595F9E00C593CF /* Alert.swift */; };
 		4288B938253E57260022B11A /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4288B937253E57260022B11A /* Notification.swift */; };
+		428DC35E255EC40F00A4A7B5 /* WeeklyMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */; };
 		4299F4F72555865600D5E081 /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = 4299F4F62555865600D5E081 /* JWTDecode */; };
 		429F8C79253B42A70068E3FD /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429F8C78253B42A70068E3FD /* Options.swift */; };
 		42B6DE9B24DBE5E700B1E299 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 42B6DE9A24DBE5E700B1E299 /* SwiftyJSON */; };
@@ -165,6 +166,7 @@
 		428DC358255EB4F400A4A7B5 /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.otf"; sourceTree = "<group>"; };
 		428DC359255EB4F400A4A7B5 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		428DC35A255EB4F400A4A7B5 /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
+		428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyMealView.swift; sourceTree = "<group>"; };
 		429F8C78253B42A70068E3FD /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		429FD87F24B202DA003A49AF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		42B79D3B253ED242003A8A7F /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -303,6 +305,7 @@
 				42EFCDE525581C4500F3DC5E /* HomeView.swift */,
 				08C9AC0724A74A83002AF525 /* MainView.swift */,
 				42EFCDEF25581D4E00F3DC5E /* MealView.swift */,
+				428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */,
 				42EFCE1F255851B500F3DC5E /* IngangView.swift */,
 				42C72C042559FED900E3294E /* StudentIdCardView.swift */,
 				423A9EE924E026EC00E046BE /* OptionView.swift */,
@@ -539,6 +542,7 @@
 				42EFCDF025581D4E00F3DC5E /* MealView.swift in Sources */,
 				42EFCE20255851B500F3DC5E /* IngangView.swift in Sources */,
 				42EFCDD82558188100F3DC5E /* TapBar.swift in Sources */,
+				428DC35E255EC40F00A4A7B5 /* WeeklyMealView.swift in Sources */,
 				4212D98024CC124B00FF82D5 /* DateTime.swift in Sources */,
 				083D74F524A778AA00989B47 /* Notice.swift in Sources */,
 				429F8C79253B42A70068E3FD /* Options.swift in Sources */,

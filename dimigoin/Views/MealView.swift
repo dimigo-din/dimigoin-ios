@@ -16,15 +16,25 @@ struct MealView: View {
     }
     
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            ViewTitle("급식", sub: getDate(), img: "etc")
-            HDivider().horizonPadding()
-            MealItem("아침", "오전 7시 30분", mealAPI.getTodayMeal().breakfast)
-            VSpacer(20)
-            MealItem("점심", "오전 12시 50분", mealAPI.getTodayMeal().lunch)
-            VSpacer(20)
-            MealItem("저녁", "오후 6시 35분", mealAPI.getTodayMeal().dinner)
-            Spacer()
+        NavigationView {
+            ScrollView(showsIndicators: false) {
+                HStack {
+                    ViewTitle("급식", sub: getDate())
+                    Spacer()
+                    NavigationLink(destination: WeeklyMealView()) {
+                        Image("calender").resizable().aspectRatio(contentMode: .fit).frame(height: 40)
+                    }
+                }.horizonPadding()
+                .padding(.top, 40)
+                HDivider().horizonPadding()
+                MealItem("아침", "오전 7시 30분", mealAPI.getTodayMeal().breakfast)
+                VSpacer(20)
+                MealItem("점심", "오전 12시 50분", mealAPI.getTodayMeal().lunch)
+                VSpacer(20)
+                MealItem("저녁", "오후 6시 35분", mealAPI.getTodayMeal().dinner)
+                Spacer()
+            }
+            .navigationBarHidden(true)
         }
     }
 }

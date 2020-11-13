@@ -20,7 +20,12 @@ struct IngangView: View {
     var body: some View {
         if(ingangAPI.ingangs.count == 0) {
             VStack {
-                ViewTitle("인강실", sub: "", img: "headphone")
+                HStack {
+                    ViewTitle("인강실", sub: "")
+                    Spacer()
+                    Image("headphone").resizable().aspectRatio(contentMode: .fit).frame(height: 40)
+                }.horizonPadding()
+                .padding(.top, 40)
                 HDivider().horizonPadding()
                 Spacer()
                 ZStack {
@@ -32,7 +37,10 @@ struct IngangView: View {
         }
         else {
             ScrollView(showsIndicators: false) {
-                ViewTitle("인강실", sub: "", img: "headphone")
+                HStack {
+                    ViewTitle("인강실", sub: "")
+                    Spacer()
+                }
                 ForEach(ingangAPI.ingangs, id: \.self) { ingang in
                     IngangItem(ingangAPI: ingangAPI, tokenAPI: tokenAPI, ingang: ingang, alertManager: alertManager)
                 }
