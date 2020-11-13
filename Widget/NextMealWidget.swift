@@ -16,14 +16,14 @@ struct NextMealWidget: View {
             VStack {
                 HStack {
                     switch getMealType(){
-                    case .breakfast : Text("아침").accent().heavy()
-                    case .lunch : Text("점심").accent().heavy()
-                    case .dinner : Text("저녁").accent().heavy()
+                    case .breakfast : Text("아침").accent().font(Font.custom("NotoSansKR-Bold", size: 16))
+                    case .lunch : Text("점심").accent().font(Font.custom("NotoSansKR-Bold", size: 16))
+                    case .dinner : Text("저녁").accent().font(Font.custom("NotoSansKR-Bold", size: 16))
                     }
                     Spacer()
-                    Text(getDate()).foregroundColor(Color("HelperMessage")).font(Font.custom("NanumSquareR", size: 10))
+                    Text(getDate()).font(Font.custom("NotoSansKR-Medium", size: 10)).gray4()
                 }
-                Text(getMealMenu(meal: data.meals, mealType: getMealType())).caption2()
+                Text(getMealMenu(meal: data.meals, mealType: getMealType())).font(Font.custom("NotoSansKR-Regular", size: 10))
 
             }.padding(.horizontal)
         }

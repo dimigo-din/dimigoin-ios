@@ -15,16 +15,16 @@ struct DailyMealWidget: View {
             Image("Logo").resizable().frame(width: 80, height: 92).opacity(0.25)
             VStack(alignment: .leading, spacing: 10) {
                 HStack{
-                    Text("아침").accent().heavy()
-                    Text("\(data.meals.breakfast)").caption3()
+                    Text("아침").accent().font(Font.custom("NotoSansKR-Bold", size: 16))
+                    Text("\(data.meals.breakfast)").font(Font.custom("NotoSansKR-Regular", size: 10))
                 }
                 HStack {
-                    Text("점심").accent().heavy()
-                    Text("\(data.meals.lunch)").caption3()
+                    Text("점심").accent().font(Font.custom("NotoSansKR-Bold", size: 16))
+                    Text("\(data.meals.lunch)").font(Font.custom("NotoSansKR-Regular", size: 10))
                 }
                 HStack {
-                    Text("저녁").accent().heavy()
-                    Text("\(data.meals.dinner)").caption3()
+                    Text("저녁").accent().font(Font.custom("NotoSansKR-Bold", size: 16))
+                    Text("\(data.meals.dinner)").font(Font.custom("NotoSansKR-Regular", size: 10))
                 }
             }.padding(.horizontal)
         }
