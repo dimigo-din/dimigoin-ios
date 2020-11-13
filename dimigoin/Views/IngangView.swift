@@ -40,7 +40,9 @@ struct IngangView: View {
                 HStack {
                     ViewTitle("인강실", sub: "")
                     Spacer()
-                }
+                    Image("headphone").resizable().aspectRatio(contentMode: .fit).frame(height: 40)
+                }.horizonPadding()
+                .padding(.top, 40)
                 ForEach(ingangAPI.ingangs, id: \.self) { ingang in
                     IngangItem(ingangAPI: ingangAPI, tokenAPI: tokenAPI, ingang: ingang, alertManager: alertManager)
                 }
