@@ -74,10 +74,6 @@ extension Text {
         self.font(Font.custom("NotoSansKR-Regular", size: 15))
     }
     
-    func headline() -> Text {
-        self.font(Font.custom("NanumSquare", size: 17))
-    }
-    
     func logoFont() -> Text {
         self.font(Font.custom("Openas", size: 57))
     }
@@ -95,16 +91,16 @@ extension Text {
     }
     
     func caption2() -> Text {
-        self.font(Font.custom("NanumSquareR", size: 13))
+        self.font(Font.custom("NotoSansKR-Regular", size: 13))
     }
     
     func caption3() -> Text {
-        self.font(Font.custom("NanumSquareR", size: 11))
+        self.font(Font.custom("NotoSansKR-Regular", size: 11))
     }
     
     func SquareButton(_ w:CGFloat, _ h:CGFloat) -> some View {
         self
-            .font(Font.custom("NanumSquareB", size: 18))
+            .font(Font.custom("NotoSansKR-Bold", size: 18))
             .frame(width: w, height: h)
             .padding()
             .background(Color("Accent"))
@@ -114,7 +110,7 @@ extension Text {
     
     func DisabledSquareButton(_ w:CGFloat, _ h:CGFloat) -> some View {
         self
-            .font(Font.custom("NanumSquareB", size: 17))
+            .font(Font.custom("NotoSansKR-Bold", size: 17))
             .frame(width: w, height: h)
             .padding()
             .background(Color("Sub"))

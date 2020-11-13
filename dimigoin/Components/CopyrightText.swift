@@ -13,7 +13,7 @@ struct CopyrightText: View {
         VStack {
             Text("© 2020 ").caption2()
             +
-            Text("DIMIGOIN").caption2().bold()
+            Text("DIMIGOIN").font(Font.custom("NotoSansKR-Bold", size: 13))
             +
             Text(" Communications").caption2()
         }.padding(.bottom)
