@@ -46,6 +46,7 @@
 		42ABA0A4255F6247001925BE /* MealCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0A3255F6247001925BE /* MealCardView.swift */; };
 		42ABA0AE255FA58B001925BE /* StudentIdCardModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0AD255FA58B001925BE /* StudentIdCardModalView.swift */; };
 		42ABA0B2255FA725001925BE /* CustomBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0B1255FA725001925BE /* CustomBox.swift */; };
+		42ABA0B9255FB88C001925BE /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 42ABA0B8255FB88C001925BE /* KingfisherSwiftUI */; };
 		42B6DE9B24DBE5E700B1E299 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 42B6DE9A24DBE5E700B1E299 /* SwiftyJSON */; };
 		42B79D3C253ED242003A8A7F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42124B4A70E00005663 /* WidgetKit.framework */; };
 		42B79D3D253ED242003A8A7F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42324B4A70E00005663 /* SwiftUI.framework */; };
@@ -210,6 +211,7 @@
 			files = (
 				42B6DE9B24DBE5E700B1E299 /* SwiftyJSON in Frameworks */,
 				42C4E4D324CEA8E3004EC6AF /* Alamofire in Frameworks */,
+				42ABA0B9255FB88C001925BE /* KingfisherSwiftUI in Frameworks */,
 				4299F4F72555865600D5E081 /* JWTDecode in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,6 +429,7 @@
 				42C4E4D224CEA8E3004EC6AF /* Alamofire */,
 				42B6DE9A24DBE5E700B1E299 /* SwiftyJSON */,
 				4299F4F62555865600D5E081 /* JWTDecode */,
+				42ABA0B8255FB88C001925BE /* KingfisherSwiftUI */,
 			);
 			productName = dimigoin;
 			productReference = 08C9ABE524A74A53002AF525 /* DimigoIN.app */;
@@ -486,6 +489,7 @@
 				42C4E4D124CEA8E3004EC6AF /* XCRemoteSwiftPackageReference "Alamofire" */,
 				42B6DE9924DBE5E700B1E299 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				4299F4F52555865600D5E081 /* XCRemoteSwiftPackageReference "JWTDecode.swift" */,
+				42ABA0B7255FB88C001925BE /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 08C9ABE624A74A53002AF525 /* Products */;
 			projectDirPath = "";
@@ -883,6 +887,14 @@
 				minimumVersion = 2.5.0;
 			};
 		};
+		42ABA0B7255FB88C001925BE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.15.7;
+			};
+		};
 		42B6DE9924DBE5E700B1E299 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
@@ -914,6 +926,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4299F4F52555865600D5E081 /* XCRemoteSwiftPackageReference "JWTDecode.swift" */;
 			productName = JWTDecode;
+		};
+		42ABA0B8255FB88C001925BE /* KingfisherSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42ABA0B7255FB88C001925BE /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = KingfisherSwiftUI;
 		};
 		42B6DE9A24DBE5E700B1E299 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
