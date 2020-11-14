@@ -39,7 +39,7 @@ struct MainView: View {
                 switch self.index {
                 case 0: ProfileView(userAPI: userAPI, tokenAPI: tokenAPI, alertManager: alertManager)
                     case 1: IngangView(ingangAPI: ingangAPI, tokenAPI: tokenAPI, alertManager: alertManager)
-                    case 2: HomeView(mealAPI: mealAPI, alertManager: alertManager, tokenAPI: tokenAPI, showIdCard: $showIdCard)
+                    case 2: HomeView(mealAPI: mealAPI, alertManager: alertManager, tokenAPI: tokenAPI, userAPI: userAPI, showIdCard: $showIdCard)
                     case 3: MealView(mealAPI: mealAPI)
                     case 4: TimetableView(timetableAPI: timetableAPI, userAPI: userAPI)
                     default: Text("Error")

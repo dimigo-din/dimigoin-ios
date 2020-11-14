@@ -47,6 +47,7 @@
 		42ABA0AE255FA58B001925BE /* StudentIdCardModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0AD255FA58B001925BE /* StudentIdCardModalView.swift */; };
 		42ABA0B2255FA725001925BE /* CustomBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0B1255FA725001925BE /* CustomBox.swift */; };
 		42ABA0B9255FB88C001925BE /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 42ABA0B8255FB88C001925BE /* KingfisherSwiftUI */; };
+		42ABA0BD255FBCA0001925BE /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 42ABA0BC255FBCA0001925BE /* KingfisherSwiftUI */; };
 		42B6DE9B24DBE5E700B1E299 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 42B6DE9A24DBE5E700B1E299 /* SwiftyJSON */; };
 		42B79D3C253ED242003A8A7F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42124B4A70E00005663 /* WidgetKit.framework */; };
 		42B79D3D253ED242003A8A7F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42324B4A70E00005663 /* SwiftUI.framework */; };
@@ -220,6 +221,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42ABA0BD255FBCA0001925BE /* KingfisherSwiftUI in Frameworks */,
 				42B79D7C253FD5FE003A8A7F /* Alamofire in Frameworks */,
 				42C72C0F255B5A0900E3294E /* JWTDecode in Frameworks */,
 				42B79D3D253ED242003A8A7F /* SwiftUI.framework in Frameworks */,
@@ -452,6 +454,7 @@
 				42B79D7B253FD5FE003A8A7F /* Alamofire */,
 				42B79D7D253FD601003A8A7F /* SwiftyJSON */,
 				42C72C0E255B5A0900E3294E /* JWTDecode */,
+				42ABA0BC255FBCA0001925BE /* KingfisherSwiftUI */,
 			);
 			productName = WidgetExtension;
 			productReference = 42B79D3B253ED242003A8A7F /* WidgetExtension.appex */;
@@ -928,6 +931,11 @@
 			productName = JWTDecode;
 		};
 		42ABA0B8255FB88C001925BE /* KingfisherSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42ABA0B7255FB88C001925BE /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = KingfisherSwiftUI;
+		};
+		42ABA0BC255FBCA0001925BE /* KingfisherSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 42ABA0B7255FB88C001925BE /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = KingfisherSwiftUI;

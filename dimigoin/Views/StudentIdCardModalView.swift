@@ -23,6 +23,7 @@ struct StudentIdCardModalView: View {
                 }
             }
             Image("userPhoto-sample").resizable().aspectRatio(contentMode: .fit).frame(width: 131)
+            // MARK: replace userPhoto-sample to userImage when backend ready
             Text(userAPI.user.name).font(Font.custom("NotoSansKR-Bold", size: 25))
             VSpacer(14)
             HStack {
@@ -37,6 +38,7 @@ struct StudentIdCardModalView: View {
                     Text("030418-3******").font(Font.custom("NotoSansKR-Medium", size: 16))
                 }
             }
+            VSpacer(15)
             Text("위 사람은 본교 학생임을 증명함.").font(Font.custom("NotoSansKR-Bold", size: 14))
             Image("dimigo-logo").resizable().aspectRatio(contentMode: .fit).frame(width: 263)
             Image("qr-sample").resizable().aspectRatio(contentMode: .fit).frame(width: 239)

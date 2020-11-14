@@ -10,6 +10,8 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import JWTDecode
+import KingfisherSwiftUI
+import SwiftUI
 
 struct User: Codable, Identifiable {
     var name: String = ""
@@ -19,8 +21,8 @@ struct User: Codable, Identifiable {
     var klass: Int = 1
     var number: String = ""
     var serial: String = ""
-    var photo: String = "person.crop.circle"
     var email: String = ""
+    var photo: String = ""
     var weekly_request_count: Int = 0
     var daily_request_count: Int = 0
     var weekly_ticket_num: Int = 0
@@ -29,6 +31,7 @@ struct User: Codable, Identifiable {
 
 class UserAPI: ObservableObject {
     @Published var user = User()
+    @Published var photo = KFImage(URL(string: "https://api.dimigo.hs.kr/user_photo/")!)
     var tokenAPI: TokenAPI = TokenAPI()
     init() {
         getUserData()
@@ -110,8 +113,8 @@ let dummyUser: User = User(name: "변경민",
                           klass: 4,
                           number: "13",
                           serial: "2413",
-                          photo: "person.crop.circle",
                           email: "bkm.change.min@gmail.com",
+                          photo: "",
                           weekly_request_count: 0,
                           daily_request_count: 0,
                           weekly_ticket_num: 5,

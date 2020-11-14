@@ -7,11 +7,13 @@
 //
 
 import SwiftUI
+import KingfisherSwiftUI
 
 struct HomeView: View {
     @ObservedObject var mealAPI: MealAPI
     @ObservedObject var alertManager: AlertManager
     @ObservedObject var tokenAPI : TokenAPI
+    @ObservedObject var userAPI: UserAPI
     @Binding var showIdCard: Bool
     @State var currentLocation = 0
     @State var currentCardIdx = 0
@@ -30,9 +32,12 @@ struct HomeView: View {
                         Button(action: {
                             showIdCard.toggle()
                         }) {
-                            Circle()
-                                .frame(width: 38, height: 38)
-                                .foregroundColor(Color.white)
+                            // MARK: replace userPhoto-sample to userImage when backend ready
+                            Image("userPhoto-sample")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 38)
+                                .clipShape(Circle())
                                 .overlay(
                                     Circle().stroke(Color("Accent"), lineWidth: 2)
                                 )
