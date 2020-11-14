@@ -24,10 +24,10 @@ struct PagerView<Content: View>: View {
     var body: some View {
         GeometryReader { geometry in
             HStack(spacing: 0) {
-                self.content.frame(width: geometry.size.width)
+                self.content.frame(width: geometry.size.width*0.85)
             }
-            .frame(width: geometry.size.width, alignment: .leading)
-            .offset(x: -CGFloat(self.currentIndex) * geometry.size.width)
+            .frame(width: geometry.size.width*0.85, alignment: .leading)
+            .offset(x: -CGFloat(self.currentIndex) * (geometry.size.width*0.85))
             .offset(x: self.translation)
             .animation(.interactiveSpring())
             .gesture(
@@ -39,6 +39,7 @@ struct PagerView<Content: View>: View {
                     self.currentIndex = min(max(Int(newIndex), 0), self.pageCount - 1)
                 }
             )
+            .padding(.leading, geometry.size.width*0.075)
         }
     }
 }
