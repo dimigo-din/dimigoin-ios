@@ -50,27 +50,19 @@ struct IngangItem: View {
                             switch(status) {
                             case 200: //success
                                 alertManager.createAlert("인강 신청 성공", sub: "인강이 성공적으로 신청되었습니다.", .success)
-//                                SPAlert.present(title: "인강 신청 성공",message: "인강이 성공적으로\n신청되었습니다.", preset: .done)
                                 ingang.status.toggle()
                             case 403: // 본인 학년&반 인강실이 아니거나 오늘(일주일)치 신청을 모두 했습니다.
-                                alertManager.createAlert("권한이 부족합니다", sub: "계속하시려면 권한을 보유한 계정으로 로그인하세요", .danger)
-//                                SPAlert.present(title: "인강 신청 실패", message: "본인 학년&반 인강실이 아니거나\n오늘(일주일)치 신청을 모두 했습니다.", preset: .privacy)
+                                alertManager.createAlert("인강 신청 실패", sub: "오늘(일주일)치 신청을 모두 했습니다.", .warning)
                             case 404: //인강실 신청이 없습니다.
-                                alertManager.createAlert("권한이 부족합니다", sub: "계속하시려면 권한을 보유한 계정으로 로그인하세요", .danger)
-//                                SPAlert.present(title: "인강 신청 실패", message: "인강실 신청이 없습니다.", preset: .privacy)
+                                alertManager.createAlert("인강 신청 실패", sub: "인강실 신청이 없습니다.", .danger)
                             case 405: // 신청 시간이 아닙니다
-                                print("alert requested")
-//                                alertManager.present("인강 신청 실패", sub: "인강 신청 시간이 아닙니다.", .danger)
-                                SPAlert.present(title: "인강 신청 실패", message: "신청 시간이 아닙니다.", preset: .privacy)
+                                alertManager.createAlert("인강 신청 실패", sub: "인강 신청 시간이 아닙니다.", .danger)
                             case 406: // 인강실 블랙리스트이므로 신청할 수 없습니다.
-                                alertManager.createAlert("권한이 부족합니다", sub: "계속하시려면 권한을 보유한 계정으로 로그인하세요", .danger)
-//                                SPAlert.present(title: "인강 신청 실패", message: "인강실 블랙리스트이므로\n신청할 수 없습니다.", preset: .privacy)
+                                alertManager.createAlert("인강 신청 실패", sub: "인강실 블랙리스트이므로 신청할 수 없습니다.", .danger)
                             case 409: // 이미 신청을 했거나 신청인원이 꽉 찼습니다.
-                                alertManager.createAlert("권한이 부족합니다", sub: "계속하시려면 권한을 보유한 계정으로 로그인하세요", .danger)
-//                                SPAlert.present(title: "인강 신청 실패", message: "이미 신청을 했거나\n신청인원이 꽉 찼습니다.", preset: .privacy)
+                                alertManager.createAlert("인강 신청 실패", sub: "이미 신청을 했거나 신청인원이 꽉 찼습니다.", .danger)
                             case 500: // some error occured
-                                alertManager.createAlert("권한이 부족합니다", sub: "계속하시려면 권한을 보유한 계정으로 로그인하세요", .danger)
-//                                SPAlert.present(title: "Error(500)", message: "디미고인 시스템이\n망가진거 같아요", preset: .exclamation)
+                                alertManager.createAlert("인강 신청 실패", sub: "디미고인 시스템이 망가진거 같아요", .warning)
                             default:
                                 self.tokenAPI.refreshTokens()
                                 debugPrint(response)
@@ -99,16 +91,16 @@ struct IngangItem: View {
                         if let status = response.response?.statusCode {
                             switch(status) {
                             case 200: //success
-                                SPAlert.present(title: "인강 취소 성공",message: "인강이 성공적으로\n취소되었습니다.", preset: .error)
+                                alertManager.createAlert("인강 취소 성공", sub: "인강이 성공적으로 취소되었습니다.", .cancel)
                                 ingang.status.toggle()
                             case 403: // 본인 학년&반 인강실이 아니거나 오늘(일주일)치 신청을 모두 했습니다.
-                                SPAlert.present(title: "인강 취소 실패",message: "본인 학년&반 인강실이 아니거나 오늘(일주일)치 신청을 모두 했습니다.", preset: .privacy)
+                                alertManager.createAlert("인강 취소 실패", sub: "오늘(일주일)치 신청을 모두 했습니다.", .danger)
                             case 404: //인강실 신청이 없습니다.
-                                SPAlert.present(title: "인강 취소 실패",message: "인강실 신청이 없습니다.", preset: .privacy)
+                                alertManager.createAlert("인강 취소 실패", sub: "디미고인 시스템이 망가진거 같아요", .warning)
                             case 405: // 신청 시간이 아닙니다
-                                SPAlert.present(title: "인강 취소 실패",message: "신청 시간이 아닙니다.", preset: .privacy)
+                                alertManager.createAlert("인강 취소 실패", sub: "인강 신청(취소) 시간이 아닙니다.", .danger)
                             case 500: // some error occured
-                                SPAlert.present(title: "Error(500)", message: "디미고인 시스템이 망가진거 같아요", preset: .exclamation)
+                                alertManager.createAlert("인강 취소 실패", sub: "디미고인 시스템이 망가진거 같아요", .danger)
                             default:
                                 self.tokenAPI.refreshTokens()
                                 debugPrint(response)

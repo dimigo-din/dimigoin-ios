@@ -18,7 +18,41 @@ struct IngangView: View {
     @State private var showingCustomWindow = false
     
     var body: some View {
-        if(ingangAPI.ingangs.count == 0) {
+        if(!isWeekday()) {
+            if(ingangAPI.ingangs.count == 0) {
+                if #available(iOS 14.0, *) {
+                    ScrollView(showsIndicators: false) {
+                        HStack {
+                            ViewTitle("인강실", sub: "")
+                            Spacer()
+                            Image("headphone").resizable().aspectRatio(contentMode: .fit).frame(height: 40)
+                        }.horizonPadding()
+                        .padding(.top, 40)
+                        Spacer()
+                        ProgressView()
+                        Spacer()
+                    }
+                    
+                } else {
+                    // Fallback on earlier versions
+                }
+            }
+            else {
+                ScrollView(showsIndicators: false) {
+                    HStack {
+                        ViewTitle("인강실", sub: "")
+                        Spacer()
+                        Image("headphone").resizable().aspectRatio(contentMode: .fit).frame(height: 40)
+                    }.horizonPadding()
+                    .padding(.top, 40)
+                    ForEach(ingangAPI.ingangs, id: \.self) { ingang in
+                        IngangItem(ingangAPI: ingangAPI, tokenAPI: tokenAPI, ingang: ingang, alertManager: alertManager)
+                    }
+                }
+            }
+            
+        }
+        else {
             VStack {
                 HStack {
                     ViewTitle("인강실", sub: "")
@@ -33,19 +67,6 @@ struct IngangView: View {
                     Text("오늘은 인강이 없습니다!").body().gray4()
                 }
                 Spacer()
-            }
-        }
-        else {
-            ScrollView(showsIndicators: false) {
-                HStack {
-                    ViewTitle("인강실", sub: "")
-                    Spacer()
-                    Image("headphone").resizable().aspectRatio(contentMode: .fit).frame(height: 40)
-                }.horizonPadding()
-                .padding(.top, 40)
-                ForEach(ingangAPI.ingangs, id: \.self) { ingang in
-                    IngangItem(ingangAPI: ingangAPI, tokenAPI: tokenAPI, ingang: ingang, alertManager: alertManager)
-                }
             }
         }
     }

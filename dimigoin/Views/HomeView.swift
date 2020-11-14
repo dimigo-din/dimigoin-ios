@@ -33,7 +33,7 @@ struct HomeView: View {
                         Spacer()
                         Button(action: {
                             // Profile View
-                            alertManager.createAlert("", sub: "", .warning)
+//                            alertManager.createAlert("", sub: "", .warning)
                         }) {
                             Circle()
                                 .frame(width: 38, height: 38)
@@ -48,7 +48,7 @@ struct HomeView: View {
                 LocationSelectionView(currentLocation: $currentLocation)
                 Spacer()
                 Text("오늘의 급식").font(Font.custom("NotoSansKR-Bold", size: 20)).horizonPadding()
-                MealCardView(mealAPI: mealAPI, currentCardIdx: $currentCardIdx)
+                MealPagerView(mealAPI: mealAPI, currentCardIdx: $currentCardIdx)
             }
         }
     }
