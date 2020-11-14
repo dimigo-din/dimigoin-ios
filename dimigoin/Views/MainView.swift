@@ -17,13 +17,13 @@ struct MainView: View {
     @ObservedObject var userAPI = UserAPI()
     @ObservedObject var timetableAPI = TimetableAPI()
     @ObservedObject var optionAPI = OptionAPI()
-    @ObservedObject var alertManager = AlertManager()
-    
+    @ObservedObject var alertManager: AlertManager
     var NotificationAPI = NotificationManager()
     @State var index = 2
     
-    init(tokenAPI: TokenAPI) {
+    init(tokenAPI: TokenAPI, alertManager: AlertManager) {
         self.tokenAPI = tokenAPI
+        self.alertManager = alertManager
         let notificationManager = NotificationManager()
         notificationManager.requestPermission()
         if(optionAPI.beneduAlert) {
@@ -38,7 +38,7 @@ struct MainView: View {
                 switch self.index {
                     case 0: ProfileView(userAPI: userAPI)
                     case 1: IngangView(ingangAPI: ingangAPI, tokenAPI: tokenAPI, alertManager: alertManager)
-                    case 2: HomeView(mealAPI: mealAPI)
+                    case 2: HomeView(mealAPI: mealAPI, alertManager: alertManager, tokenAPI: tokenAPI)
                     case 3: MealView(mealAPI: mealAPI)
                     case 4: TimetableView(timetableAPI: timetableAPI, userAPI: userAPI)
                     default: Text("Error")
@@ -46,7 +46,7 @@ struct MainView: View {
                 TapBar(index: self.$index)
             }
             if(alertManager.isShowing) {
-                alertManager.alertView
+                AlertView(alertType: alertManager.alertType, content: alertManager.content, sub: alertManager.sub, isShowing: $alertManager.isShowing)
             }
         }
     }

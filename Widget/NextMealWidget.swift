@@ -23,7 +23,7 @@ struct NextMealWidget: View {
                     Spacer()
                     Text(getDate()).font(Font.custom("NotoSansKR-Medium", size: 10)).gray4()
                 }
-                Text(getMealMenu(meal: data.meals, mealType: getMealType())).font(Font.custom("NotoSansKR-Regular", size: 10))
+                Text(getMealMenu(meal: data.meals, mealType: getMealType())).font(Font.custom("NotoSansKR-Regular", size: 12))
 
             }.padding(.horizontal)
         }

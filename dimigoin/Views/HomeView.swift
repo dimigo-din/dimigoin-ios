@@ -9,11 +9,15 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State var currentLocation = 0
     @ObservedObject var mealAPI: MealAPI
+    @ObservedObject var alertManager: AlertManager
+    @ObservedObject var tokenAPI : TokenAPI
+    @State var currentLocation = 0
     @State var currentCardIdx = 0
-    init(mealAPI: MealAPI) {
+    init(mealAPI: MealAPI, alertManager: AlertManager, tokenAPI : TokenAPI) {
         self.mealAPI = mealAPI
+        self.alertManager = alertManager
+        self.tokenAPI = tokenAPI
     }
     
     var body: some View {

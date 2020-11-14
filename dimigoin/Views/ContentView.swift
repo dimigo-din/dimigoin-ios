@@ -10,14 +10,15 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var tokenAPI = TokenAPI()
+    @ObservedObject var alertManager = AlertManager()
     
     var body: some View { // check if token exist
         Group {
             if(tokenAPI.tokenStatus == .exist) {
-                MainView(tokenAPI: tokenAPI)
+                MainView(tokenAPI: tokenAPI, alertManager: alertManager)
             }
             else if(tokenAPI.tokenStatus == .none) {
-                LoginView(tokenAPI: tokenAPI)
+                LoginView(tokenAPI: tokenAPI, alertManager: alertManager)
             }
         }
     }
