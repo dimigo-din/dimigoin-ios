@@ -49,7 +49,7 @@ class MealAPI: ObservableObject {
         print("get meals from \(getFormattedDate(weekday: weekDay))")
         let url = "https://api.dimigo.in/dimibobs/\(getFormattedDate(weekday: weekDay))"
         AF.request(url, method: .get, encoding: JSONEncoding.default).responseData { response in
-            let json = JSON(response.value!)
+            let json = JSON(response.value ?? "")
             self.meals[weekDay.rawValue-1].breakfast = json["breakfast"].string ?? "급식 정보가 없습니다."
             self.meals[weekDay.rawValue-1].lunch = json["lunch"].string ?? "급식 정보가 없습니다."
             self.meals[weekDay.rawValue-1].dinner = json["dinner"].string ?? "급식 정보가 없습니다."

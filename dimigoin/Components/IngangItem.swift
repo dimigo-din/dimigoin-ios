@@ -48,20 +48,20 @@ struct IngangItem: View {
                         if let status = response.response?.statusCode {
                             switch(status) {
                             case 200: //success
-                                alertManager.createAlert("인강 신청 성공", sub: "인강이 성공적으로 신청되었습니다.", .success)
+                                alertManager.createAlert("신청이 완료되었습니다", sub: "해당 탭에서 신청 목록을 확인하실 수 있습니다", .success)
                                 ingang.status.toggle()
                             case 403: // 본인 학년&반 인강실이 아니거나 오늘(일주일)치 신청을 모두 했습니다.
-                                alertManager.createAlert("인강 신청 실패", sub: "오늘(일주일)치 신청을 모두 했습니다.", .warning)
+                                alertManager.createAlert("신청에 실패했습니다", sub: "오늘(일주일)치 신청을 모두 했습니다.", .warning)
                             case 404: //인강실 신청이 없습니다.
-                                alertManager.createAlert("인강 신청 실패", sub: "인강실 신청이 없습니다.", .danger)
+                                alertManager.createAlert("신청에 실패했습니다", sub: "인강실 신청이 없습니다.", .danger)
                             case 405: // 신청 시간이 아닙니다
-                                alertManager.createAlert("인강 신청 실패", sub: "인강 신청 시간이 아닙니다.", .danger)
+                                alertManager.createAlert("신청에 실패했습니다", sub: "인강 신청 시간이 아닙니다.", .danger)
                             case 406: // 인강실 블랙리스트이므로 신청할 수 없습니다.
-                                alertManager.createAlert("인강 신청 실패", sub: "인강실 블랙리스트이므로 신청할 수 없습니다.", .danger)
+                                alertManager.createAlert("신청에 실패했습니다", sub: "인강실 블랙리스트이므로 신청할 수 없습니다.", .danger)
                             case 409: // 이미 신청을 했거나 신청인원이 꽉 찼습니다.
-                                alertManager.createAlert("인강 신청 실패", sub: "이미 신청을 했거나 신청인원이 꽉 찼습니다.", .danger)
+                                alertManager.createAlert("신청에 실패했습니다", sub: "이미 신청을 했거나 신청인원이 꽉 찼습니다.", .danger)
                             case 500: // some error occured
-                                alertManager.createAlert("인강 신청 실패", sub: "디미고인 시스템이 망가진거 같아요", .warning)
+                                alertManager.createAlert("신청에 실패했습니다", sub: "디미고인 시스템이 망가진거 같아요", .warning)
                             default:
                                 self.tokenAPI.refreshTokens()
                                 debugPrint(response)
@@ -90,16 +90,16 @@ struct IngangItem: View {
                         if let status = response.response?.statusCode {
                             switch(status) {
                             case 200: //success
-                                alertManager.createAlert("인강 취소 성공", sub: "인강이 성공적으로 취소되었습니다.", .cancel)
+                                alertManager.createAlert("취소가 완료되었습니다", sub: "해당 탭에서 신청 목록을 확인하실 수 있습니다", .cancel)
                                 ingang.status.toggle()
                             case 403: // 본인 학년&반 인강실이 아니거나 오늘(일주일)치 신청을 모두 했습니다.
-                                alertManager.createAlert("인강 취소 실패", sub: "오늘(일주일)치 신청을 모두 했습니다.", .danger)
+                                alertManager.createAlert("취소에 실패했습니다", sub: "오늘(일주일)치 신청을 모두 했습니다.", .danger)
                             case 404: //인강실 신청이 없습니다.
-                                alertManager.createAlert("인강 취소 실패", sub: "디미고인 시스템이 망가진거 같아요", .warning)
+                                alertManager.createAlert("취소에 실패했습니다", sub: "디미고인 시스템이 망가진거 같아요", .warning)
                             case 405: // 신청 시간이 아닙니다
-                                alertManager.createAlert("인강 취소 실패", sub: "인강 신청(취소) 시간이 아닙니다.", .danger)
+                                alertManager.createAlert("취소에 실패했습니다", sub: "인강 신청(취소) 시간이 아닙니다.", .danger)
                             case 500: // some error occured
-                                alertManager.createAlert("인강 취소 실패", sub: "디미고인 시스템이 망가진거 같아요", .danger)
+                                alertManager.createAlert("취소에 실패했습니다", sub: "디미고인 시스템이 망가진거 같아요", .danger)
                             default:
                                 self.tokenAPI.refreshTokens()
                                 debugPrint(response)

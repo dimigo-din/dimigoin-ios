@@ -39,11 +39,3 @@ struct MealView: View {
     }
 }
 
-extension View {
-    func horizonPadding() -> some View {
-        self.padding(.leading, 20).padding(.trailing, 20)
-    }
-    func verticalPadding() -> some View {
-        self.padding(.top, 20).padding(.bottom, 20)
-    }
-}

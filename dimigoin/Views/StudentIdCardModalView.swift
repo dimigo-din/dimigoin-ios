@@ -33,8 +33,8 @@ struct StudentIdCardModalView: View {
                     Text("주민번호").infoText().gray6()
                 }
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("웹프로그래밍과").infoText()
-                    Text("10366").infoText()
+                    Text(getMajor(klass: userAPI.user.klass)).infoText()
+                    Text(userAPI.user.serial).infoText()
                     Text("030418-3******").infoText()
                 }
             }
