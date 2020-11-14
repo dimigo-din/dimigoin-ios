@@ -12,10 +12,10 @@ struct StudentIdCardModalView: View {
     @Binding var isShowing: Bool
     @ObservedObject var userAPI: UserAPI
     @State var dragOffset = CGSize.zero
+    @State var startPos = CGPoint(x: 0, y:0)
     var body: some View {
         ZStack{
-            Rectangle().fill(Color("Gray1")).edgesIgnoringSafeArea(.all).opacity(isShowing ? 1 : 0).animation(.spring())
-            
+            Rectangle().fill(Color("Gray2")).edgesIgnoringSafeArea(.all).opacity(isShowing ? 0.7 : 0).animation(.spring())
             VStack {
                 HStack {
                     Spacer()
@@ -52,22 +52,32 @@ struct StudentIdCardModalView: View {
             .background(
                 CustomBox(edgeInsets: .bottom, accentColor: Color("Accent"), width: 13, tl: 10, tr: 10, bl: 10, br: 10)
             )
+            
             .offset(y: (isShowing ? 0 : UIScreen.screenHeight) + dragOffset.height)
             .animation(.spring())
             .gesture(
                 DragGesture()
                     .onChanged { gesture in
                         self.dragOffset = gesture.translation
+                        self.startPos = gesture.location
                     }
-                    .onEnded { _ in
-                        if abs(self.dragOffset.height) > 100 {
-                            self.isShowing.toggle()
-                            self.dragOffset = .zero
+                    .onEnded { gesture in
+                        let xDist =  abs(gesture.location.x - self.startPos.x)
+                        let yDist =  abs(gesture.location.y - self.startPos.y)
+                        if self.startPos.y <  gesture.location.y && yDist > xDist {
+                            if abs(self.dragOffset.height) > 100 {
+                                self.isShowing.toggle()
+                                self.dragOffset = .zero
+                            } else {
+                                self.dragOffset = .zero
+                            }
                         } else {
                             self.dragOffset = .zero
                         }
+                        
                     }
             )
+            
         }
     }
 }
