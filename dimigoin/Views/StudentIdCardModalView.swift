@@ -11,6 +11,7 @@ import SwiftUI
 struct StudentIdCardModalView: View {
     @Binding var isShowing: Bool
     @ObservedObject var userAPI: UserAPI
+    @State var dragOffset = CGSize.zero
     var body: some View {
         VStack {
             HStack {
@@ -48,7 +49,21 @@ struct StudentIdCardModalView: View {
         .background(
             CustomBox(edgeInsets: .bottom, accentColor: Color("Accent"), width: 13, tl: 10, tr: 10, bl: 10, br: 10)
         )
-        .offset(y: isShowing ? 0 : 800)
+        .offset(y: (isShowing ? 0 : 800) + dragOffset.height)
         .animation(.spring())
+        .gesture(
+            DragGesture()
+                .onChanged { gesture in
+                    self.dragOffset = gesture.translation
+                }
+                .onEnded { _ in
+                    if abs(self.dragOffset.height) > 100 {
+                        self.isShowing.toggle()
+                        self.dragOffset = .zero
+                    } else {
+                        self.dragOffset = .zero
+                    }
+                }
+        )
     }
 }
