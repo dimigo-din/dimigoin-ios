@@ -28,14 +28,14 @@ struct StudentIdCardModalView: View {
             VSpacer(14)
             HStack {
                 VStack(alignment: .leading, spacing: 8){
-                    Text("학과").font(Font.custom("NotoSansKR-Medium", size: 16)).gray6()
-                    Text("학번").font(Font.custom("NotoSansKR-Medium", size: 16)).gray6()
-                    Text("주민번호").font(Font.custom("NotoSansKR-Medium", size: 16)).gray6()
+                    Text("학과").infoText().gray6()
+                    Text("학번").infoText().gray6()
+                    Text("주민번호").infoText().gray6()
                 }
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("웹프로그래밍과").font(Font.custom("NotoSansKR-Medium", size: 16))
-                    Text("10366").font(Font.custom("NotoSansKR-Medium", size: 16))
-                    Text("030418-3******").font(Font.custom("NotoSansKR-Medium", size: 16))
+                    Text("웹프로그래밍과").infoText()
+                    Text("10366").infoText()
+                    Text("030418-3******").infoText()
                 }
             }
             VSpacer(15)

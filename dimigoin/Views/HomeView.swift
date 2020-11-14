@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import KingfisherSwiftUI
 
 struct HomeView: View {
     @ObservedObject var mealAPI: MealAPI

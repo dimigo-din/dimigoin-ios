@@ -35,7 +35,7 @@ struct MealView: View {
                 Spacer()
             }
             .navigationBarHidden(true)
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

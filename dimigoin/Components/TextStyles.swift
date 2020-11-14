@@ -73,7 +73,9 @@ extension Text {
     func body() -> Text {
         self.font(Font.custom("NotoSansKR-Regular", size: 15))
     }
-    
+    func infoText() -> Text {
+        self.font(Font.custom("NotoSansKR-Medium", size: 16))
+    }
     func logoFont() -> Text {
         self.font(Font.custom("Openas", size: 57))
     }

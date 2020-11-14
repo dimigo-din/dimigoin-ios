@@ -9,7 +9,6 @@
 import SwiftUI
 import Alamofire
 import SwiftyJSON
-import SPAlert
 
 struct IngangView: View {
     @ObservedObject var ingangAPI: IngangAPI
@@ -18,7 +17,7 @@ struct IngangView: View {
     @State private var showingCustomWindow = false
     
     var body: some View {
-        if(!isWeekday()) {
+        if(isWeekday()) {
             if(ingangAPI.ingangs.count == 0) {
                 if #available(iOS 14.0, *) {
                     ScrollView(showsIndicators: false) {
