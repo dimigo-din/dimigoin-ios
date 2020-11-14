@@ -55,7 +55,6 @@
 		42B79D57253F28CB003A8A7F /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B8493C24A90432000A9ACD /* Timetable.swift */; };
 		42B79D63253F2B91003A8A7F /* DateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212D97F24CC124B00FF82D5 /* DateTime.swift */; };
 		42B79D71253F2D5D003A8A7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08C9ABEE24A74A54002AF525 /* Assets.xcassets */; };
-		42B79D75253FD56D003A8A7F /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 42B79D74253FD56D003A8A7F /* SPAlert */; };
 		42B79D78253FD5F4003A8A7F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212D98224CC6A0400FF82D5 /* User.swift */; };
 		42B79D7C253FD5FE003A8A7F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 42B79D7B253FD5FE003A8A7F /* Alamofire */; };
 		42B79D7E253FD601003A8A7F /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 42B79D7D253FD601003A8A7F /* SwiftyJSON */; };
@@ -90,7 +89,6 @@
 		42EFCE16255848C300F3DC5E /* LocationSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCE15255848C300F3DC5E /* LocationSelection.swift */; };
 		42EFCE20255851B500F3DC5E /* IngangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCE1F255851B500F3DC5E /* IngangView.swift */; };
 		42EFCE2E255852DD00F3DC5E /* ViewTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCE2D255852DD00F3DC5E /* ViewTitle.swift */; };
-		42F632D224CACFC400F1F439 /* SPAlert in Frameworks */ = {isa = PBXBuildFile; productRef = 42F632D124CACFC400F1F439 /* SPAlert */; };
 		42F73BA8253FF4BF008E8B25 /* DailyMealWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F73BA6253FF4BF008E8B25 /* DailyMealWidget.swift */; };
 		42F73BAD25400F5D008E8B25 /* Openas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42DBE5A82536BABD00E5F4EA /* Openas.ttf */; };
 /* End PBXBuildFile section */
@@ -213,7 +211,6 @@
 				42B6DE9B24DBE5E700B1E299 /* SwiftyJSON in Frameworks */,
 				42C4E4D324CEA8E3004EC6AF /* Alamofire in Frameworks */,
 				4299F4F72555865600D5E081 /* JWTDecode in Frameworks */,
-				42F632D224CACFC400F1F439 /* SPAlert in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +218,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42B79D75253FD56D003A8A7F /* SPAlert in Frameworks */,
 				42B79D7C253FD5FE003A8A7F /* Alamofire in Frameworks */,
 				42C72C0F255B5A0900E3294E /* JWTDecode in Frameworks */,
 				42B79D3D253ED242003A8A7F /* SwiftUI.framework in Frameworks */,
@@ -428,7 +424,6 @@
 			);
 			name = dimigoin;
 			packageProductDependencies = (
-				42F632D124CACFC400F1F439 /* SPAlert */,
 				42C4E4D224CEA8E3004EC6AF /* Alamofire */,
 				42B6DE9A24DBE5E700B1E299 /* SwiftyJSON */,
 				4299F4F62555865600D5E081 /* JWTDecode */,
@@ -451,7 +446,6 @@
 			);
 			name = WidgetExtension;
 			packageProductDependencies = (
-				42B79D74253FD56D003A8A7F /* SPAlert */,
 				42B79D7B253FD5FE003A8A7F /* Alamofire */,
 				42B79D7D253FD601003A8A7F /* SwiftyJSON */,
 				42C72C0E255B5A0900E3294E /* JWTDecode */,
@@ -926,11 +920,6 @@
 			package = 42B6DE9924DBE5E700B1E299 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
 		};
-		42B79D74253FD56D003A8A7F /* SPAlert */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 42F632D024CACFC400F1F439 /* XCRemoteSwiftPackageReference "SPAlert" */;
-			productName = SPAlert;
-		};
 		42B79D7B253FD5FE003A8A7F /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 42C4E4D124CEA8E3004EC6AF /* XCRemoteSwiftPackageReference "Alamofire" */;
@@ -950,11 +939,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4299F4F52555865600D5E081 /* XCRemoteSwiftPackageReference "JWTDecode.swift" */;
 			productName = JWTDecode;
-		};
-		42F632D124CACFC400F1F439 /* SPAlert */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 42F632D024CACFC400F1F439 /* XCRemoteSwiftPackageReference "SPAlert" */;
-			productName = SPAlert;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
