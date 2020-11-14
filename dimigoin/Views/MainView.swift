@@ -36,11 +36,11 @@ struct MainView: View {
         ZStack {
             VStack {
                 switch self.index {
-                    case 0: AssignView()
+                    case 0: ProfileView(userAPI: userAPI)
                     case 1: IngangView(ingangAPI: ingangAPI, tokenAPI: tokenAPI, alertManager: alertManager)
                     case 2: HomeView(mealAPI: mealAPI)
                     case 3: MealView(mealAPI: mealAPI)
-                    case 4: StudentIdCardView(alertManager: alertManager)
+                    case 4: TimetableView(timetableAPI: timetableAPI, userAPI: userAPI)
                     default: Text("Error")
                 }
                 TapBar(index: self.$index)

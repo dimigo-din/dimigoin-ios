@@ -23,7 +23,7 @@ struct TapBar: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 24)
                         VSpacer(7.8)
-                        Text("신청")
+                        Text("내정보")
                             .tapBarItem()
                             .foregroundColor(self.index == 0 ? Color("Accent") : Color("Gray3"))
                         
@@ -89,7 +89,7 @@ struct TapBar: View {
                             .frame(height: 24.2)
                             .foregroundColor(self.index == 4 ? Color("Accent") : Color("Gray3"))
                         VSpacer(7.8)
-                        Text("학생증")
+                        Text("시간표")
                             .tapBarItem()
                             .foregroundColor(self.index == 4 ? Color("Accent") : Color("Gray3"))
                         

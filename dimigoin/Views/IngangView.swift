@@ -26,7 +26,7 @@ struct IngangView: View {
                     Image("headphone").resizable().aspectRatio(contentMode: .fit).frame(height: 40)
                 }.horizonPadding()
                 .padding(.top, 40)
-                HDivider().horizonPadding()
+                HDivider().horizonPadding().offset(y: -15)
                 Spacer()
                 ZStack {
                     Image("Logo").resizable().aspectRatio(contentMode: .fit).frame(width: 100).opacity(0.3)
