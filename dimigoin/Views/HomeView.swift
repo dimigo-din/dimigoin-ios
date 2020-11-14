@@ -12,13 +12,9 @@ struct HomeView: View {
     @ObservedObject var mealAPI: MealAPI
     @ObservedObject var alertManager: AlertManager
     @ObservedObject var tokenAPI : TokenAPI
+    @Binding var showIdCard: Bool
     @State var currentLocation = 0
     @State var currentCardIdx = 0
-    init(mealAPI: MealAPI, alertManager: AlertManager, tokenAPI : TokenAPI) {
-        self.mealAPI = mealAPI
-        self.alertManager = alertManager
-        self.tokenAPI = tokenAPI
-    }
     
     var body: some View {
         ScrollView(showsIndicators: false){
@@ -32,8 +28,7 @@ struct HomeView: View {
                         Image("Logo").resizable().aspectRatio(contentMode: .fit).frame(height: 38)
                         Spacer()
                         Button(action: {
-                            // Profile View
-//                            alertManager.createAlert("", sub: "", .warning)
+                            showIdCard.toggle()
                         }) {
                             Circle()
                                 .frame(width: 38, height: 38)

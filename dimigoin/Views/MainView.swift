@@ -20,6 +20,7 @@ struct MainView: View {
     @ObservedObject var alertManager: AlertManager
     var NotificationAPI = NotificationManager()
     @State var index = 2
+    @State var showIdCard = false
     
     init(tokenAPI: TokenAPI, alertManager: AlertManager) {
         self.tokenAPI = tokenAPI
@@ -38,13 +39,14 @@ struct MainView: View {
                 switch self.index {
                 case 0: ProfileView(userAPI: userAPI, tokenAPI: tokenAPI, alertManager: alertManager)
                     case 1: IngangView(ingangAPI: ingangAPI, tokenAPI: tokenAPI, alertManager: alertManager)
-                    case 2: HomeView(mealAPI: mealAPI, alertManager: alertManager, tokenAPI: tokenAPI)
+                    case 2: HomeView(mealAPI: mealAPI, alertManager: alertManager, tokenAPI: tokenAPI, showIdCard: $showIdCard)
                     case 3: MealView(mealAPI: mealAPI)
                     case 4: TimetableView(timetableAPI: timetableAPI, userAPI: userAPI)
                     default: Text("Error")
                 }
                 TapBar(index: self.$index)
             }
+            StudentIdCardModalView(isShowing: $showIdCard, userAPI: userAPI)
             if(alertManager.isShowing) {
                 AlertView(alertType: alertManager.alertType, content: alertManager.content, sub: alertManager.sub, isShowing: $alertManager.isShowing)
             }

@@ -28,9 +28,8 @@ struct IngangView: View {
                             Image("headphone").resizable().aspectRatio(contentMode: .fit).frame(height: 40)
                         }.horizonPadding()
                         .padding(.top, 40)
-                        Spacer()
+                        HDivider().horizonPadding()
                         ProgressView()
-                        Spacer()
                     }
                     
                 } else {

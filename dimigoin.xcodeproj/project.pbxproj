@@ -44,6 +44,8 @@
 		42ABA08A255F5690001925BE /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA089255F5690001925BE /* TimetableView.swift */; };
 		42ABA090255F57E7001925BE /* HDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA08F255F57E7001925BE /* HDivider.swift */; };
 		42ABA0A4255F6247001925BE /* MealCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0A3255F6247001925BE /* MealCardView.swift */; };
+		42ABA0AE255FA58B001925BE /* StudentIdCardModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0AD255FA58B001925BE /* StudentIdCardModalView.swift */; };
+		42ABA0B2255FA725001925BE /* CustomBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0B1255FA725001925BE /* CustomBox.swift */; };
 		42B6DE9B24DBE5E700B1E299 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 42B6DE9A24DBE5E700B1E299 /* SwiftyJSON */; };
 		42B79D3C253ED242003A8A7F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42124B4A70E00005663 /* WidgetKit.framework */; };
 		42B79D3D253ED242003A8A7F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42324B4A70E00005663 /* SwiftUI.framework */; };
@@ -173,6 +175,8 @@
 		42ABA089255F5690001925BE /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
 		42ABA08F255F57E7001925BE /* HDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDivider.swift; sourceTree = "<group>"; };
 		42ABA0A3255F6247001925BE /* MealCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCardView.swift; sourceTree = "<group>"; };
+		42ABA0AD255FA58B001925BE /* StudentIdCardModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIdCardModalView.swift; sourceTree = "<group>"; };
+		42ABA0B1255FA725001925BE /* CustomBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBox.swift; sourceTree = "<group>"; };
 		42B79D3B253ED242003A8A7F /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B79D3F253ED242003A8A7F /* Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
 		42B79D41253ED243003A8A7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -314,6 +318,7 @@
 				42EFCE1F255851B500F3DC5E /* IngangView.swift */,
 				42C72C042559FED900E3294E /* StudentIdCardView.swift */,
 				42ABA089255F5690001925BE /* TimetableView.swift */,
+				42ABA0AD255FA58B001925BE /* StudentIdCardModalView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -335,6 +340,7 @@
 				42EFCE2D255852DD00F3DC5E /* ViewTitle.swift */,
 				42ABA08F255F57E7001925BE /* HDivider.swift */,
 				42ABA0A3255F6247001925BE /* MealCardView.swift */,
+				42ABA0B1255FA725001925BE /* CustomBox.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -552,6 +558,7 @@
 				4212D98024CC124B00FF82D5 /* DateTime.swift in Sources */,
 				083D74F524A778AA00989B47 /* Notice.swift in Sources */,
 				429F8C79253B42A70068E3FD /* Options.swift in Sources */,
+				42ABA0B2255FA725001925BE /* CustomBox.swift in Sources */,
 				4250012625595F9E00C593CF /* Alert.swift in Sources */,
 				42ABA08A255F5690001925BE /* TimetableView.swift in Sources */,
 				42ABA090255F57E7001925BE /* HDivider.swift in Sources */,
@@ -560,6 +567,7 @@
 				08C9AC1C24A74A83002AF525 /* IngangItem.swift in Sources */,
 				086CC54F24AF819400456846 /* HSpacer.swift in Sources */,
 				08C9AC1424A74A83002AF525 /* LoginView.swift in Sources */,
+				42ABA0AE255FA58B001925BE /* StudentIdCardModalView.swift in Sources */,
 				4212D98324CC6A0400FF82D5 /* User.swift in Sources */,
 				08C9AC1124A74A83002AF525 /* Ingang.swift in Sources */,
 				42364EAC24B14E02008427D5 /* KeyboardResponsive.swift in Sources */,
