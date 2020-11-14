@@ -49,6 +49,8 @@
 		42ABA0B9255FB88C001925BE /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 42ABA0B8255FB88C001925BE /* KingfisherSwiftUI */; };
 		42ABA0BD255FBCA0001925BE /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 42ABA0BC255FBCA0001925BE /* KingfisherSwiftUI */; };
 		42ABA0C5255FC4E2001925BE /* HorizonPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0C4255FC4E2001925BE /* HorizonPadding.swift */; };
+		42ABA0F725609CC3001925BE /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42ABA0F625609CC3001925BE /* DimigoinKit */; };
+		42ABA0F925609CD4001925BE /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42ABA0F825609CD4001925BE /* DimigoinKit */; };
 		42B6DE9B24DBE5E700B1E299 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 42B6DE9A24DBE5E700B1E299 /* SwiftyJSON */; };
 		42B79D3C253ED242003A8A7F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42124B4A70E00005663 /* WidgetKit.framework */; };
 		42B79D3D253ED242003A8A7F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42324B4A70E00005663 /* SwiftUI.framework */; };
@@ -179,6 +181,7 @@
 		42ABA0AD255FA58B001925BE /* StudentIdCardModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIdCardModalView.swift; sourceTree = "<group>"; };
 		42ABA0B1255FA725001925BE /* CustomBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBox.swift; sourceTree = "<group>"; };
 		42ABA0C4255FC4E2001925BE /* HorizonPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizonPadding.swift; sourceTree = "<group>"; };
+		42ABA0F325609A8E001925BE /* DimigoinKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DimigoinKit; path = ../DimigoinKit; sourceTree = "<group>"; };
 		42B79D3B253ED242003A8A7F /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B79D3F253ED242003A8A7F /* Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
 		42B79D41253ED243003A8A7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -215,6 +218,7 @@
 				42B6DE9B24DBE5E700B1E299 /* SwiftyJSON in Frameworks */,
 				42C4E4D324CEA8E3004EC6AF /* Alamofire in Frameworks */,
 				42ABA0B9255FB88C001925BE /* KingfisherSwiftUI in Frameworks */,
+				42ABA0F725609CC3001925BE /* DimigoinKit in Frameworks */,
 				4299F4F72555865600D5E081 /* JWTDecode in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,6 +232,7 @@
 				42C72C0F255B5A0900E3294E /* JWTDecode in Frameworks */,
 				42B79D3D253ED242003A8A7F /* SwiftUI.framework in Frameworks */,
 				42B79D7E253FD601003A8A7F /* SwiftyJSON in Frameworks */,
+				42ABA0F925609CD4001925BE /* DimigoinKit in Frameworks */,
 				42B79D3C253ED242003A8A7F /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,6 +243,7 @@
 		08C9ABDC24A74A53002AF525 = {
 			isa = PBXGroup;
 			children = (
+				42ABA0F325609A8E001925BE /* DimigoinKit */,
 				08C9ABE724A74A53002AF525 /* dimigoin */,
 				42B79D3E253ED242003A8A7F /* Widget */,
 				08C9ABE624A74A53002AF525 /* Products */,
@@ -435,6 +441,7 @@
 				42B6DE9A24DBE5E700B1E299 /* SwiftyJSON */,
 				4299F4F62555865600D5E081 /* JWTDecode */,
 				42ABA0B8255FB88C001925BE /* KingfisherSwiftUI */,
+				42ABA0F625609CC3001925BE /* DimigoinKit */,
 			);
 			productName = dimigoin;
 			productReference = 08C9ABE524A74A53002AF525 /* DimigoIN.app */;
@@ -458,6 +465,7 @@
 				42B79D7D253FD601003A8A7F /* SwiftyJSON */,
 				42C72C0E255B5A0900E3294E /* JWTDecode */,
 				42ABA0BC255FBCA0001925BE /* KingfisherSwiftUI */,
+				42ABA0F825609CD4001925BE /* DimigoinKit */,
 			);
 			productName = WidgetExtension;
 			productReference = 42B79D3B253ED242003A8A7F /* WidgetExtension.appex */;
@@ -760,7 +768,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				ENABLE_PREVIEWS = YES;
@@ -786,7 +794,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				ENABLE_PREVIEWS = YES;
@@ -811,7 +819,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				INFOPLIST_FILE = Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -835,7 +843,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				INFOPLIST_FILE = Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -943,6 +951,14 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 42ABA0B7255FB88C001925BE /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = KingfisherSwiftUI;
+		};
+		42ABA0F625609CC3001925BE /* DimigoinKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DimigoinKit;
+		};
+		42ABA0F825609CD4001925BE /* DimigoinKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DimigoinKit;
 		};
 		42B6DE9A24DBE5E700B1E299 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;

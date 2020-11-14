@@ -54,7 +54,7 @@ struct CustomBox: View {
         var bottomLeft: CGFloat = 0
         
         if(edgeInsets == [.leading]) {
-            topRight = tl-2
+            topRight = tr-2
             topLeft = 0
             bottomRight = br-2
             bottomLeft = 0
