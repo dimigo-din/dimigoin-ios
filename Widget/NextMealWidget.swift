@@ -12,7 +12,7 @@ struct NextMealWidget: View {
     var data: WidgetEntry
     var body: some View {
         ZStack {
-            Image("Logo").resizable().frame(width: 60, height: 69).opacity(0.25)
+            Image("Logo").resizable().aspectRatio(contentMode: .fit).frame(width: 60).opacity(0.25)
             VStack {
                 HStack {
                     switch getMealType(){

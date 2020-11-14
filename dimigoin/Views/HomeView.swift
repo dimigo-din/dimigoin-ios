@@ -11,6 +11,7 @@ import SwiftUI
 struct HomeView: View {
     @State var currentLocation = 0
     @ObservedObject var mealAPI: MealAPI
+    @State var currentCardIdx = 0
     init(mealAPI: MealAPI) {
         self.mealAPI = mealAPI
     }
@@ -40,27 +41,12 @@ struct HomeView: View {
                 }
                 VSpacer(15)
                 LocationSelectionView(currentLocation: $currentLocation)
+                Spacer()
                 Text("오늘의 급식").font(Font.custom("NotoSansKR-Bold", size: 20)).horizonPadding()
-            }  // MARK: Chage x offset with formula
-            VSpacer(20)
-//            HStack(spacing: 15) {
-//                VStack(alignment: .leading){
-//                    Text("아침").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("Accent")).horizonPadding()
-//                    VSpacer(10)
-//                    Text("\(mealAPI.getTodayMeal().breakfast)").mealMenu().horizonPadding()
-//                }.modifier(CardViewModifier(305,147))
-//                VStack(alignment: .leading) {
-//                    Text("점심").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("Accent")).horizonPadding()
-//                    VSpacer(10)
-//                    Text("\(mealAPI.getTodayMeal().lunch)").mealMenu().horizonPadding()
-//                }.modifier(CardViewModifier(305,147))
-//                VStack(alignment: .leading) {
-//                    Text("저녁").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("Accent")).horizonPadding()
-//                    VSpacer(10)
-//                    Text("\(mealAPI.getTodayMeal().dinner)").mealMenu().horizonPadding()
-//                }.modifier(CardViewModifier(305,147))
-//            }
-//            .modifier(SnapScrollModifier(items: 3, itemWidth: 305, itemSpacing: 15))
+                MealCardView(mealAPI: mealAPI, currentCardIdx: $currentCardIdx)
+            }
         }
     }
 }
+
+
