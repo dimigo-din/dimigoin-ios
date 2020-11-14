@@ -36,7 +36,7 @@ struct MainView: View {
         ZStack {
             VStack {
                 switch self.index {
-                    case 0: ProfileView(userAPI: userAPI)
+                case 0: ProfileView(userAPI: userAPI, tokenAPI: tokenAPI, alertManager: alertManager)
                     case 1: IngangView(ingangAPI: ingangAPI, tokenAPI: tokenAPI, alertManager: alertManager)
                     case 2: HomeView(mealAPI: mealAPI, alertManager: alertManager, tokenAPI: tokenAPI)
                     case 3: MealView(mealAPI: mealAPI)

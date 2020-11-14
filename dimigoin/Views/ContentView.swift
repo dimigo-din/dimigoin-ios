@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var tokenAPI = TokenAPI()
-    @ObservedObject var alertManager = AlertManager()
+    @State var alertManager = AlertManager()
     
     var body: some View { // check if token exist
         Group {

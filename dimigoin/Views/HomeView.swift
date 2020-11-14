@@ -33,6 +33,7 @@ struct HomeView: View {
                         Spacer()
                         Button(action: {
                             // Profile View
+                            alertManager.createAlert("", sub: "", .warning)
                         }) {
                             Circle()
                                 .frame(width: 38, height: 38)
