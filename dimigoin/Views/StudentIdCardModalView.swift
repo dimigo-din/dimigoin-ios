@@ -13,57 +13,61 @@ struct StudentIdCardModalView: View {
     @ObservedObject var userAPI: UserAPI
     @State var dragOffset = CGSize.zero
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                Button(action: {
-                    self.isShowing.toggle()
-                }) {
-                    Image(systemName: "xmark").resizable().aspectRatio(contentMode: .fit).frame(width: 16)
-                        .foregroundColor(Color("Gray1")).padding()
-                }
-            }
-            Image("userPhoto-sample").resizable().aspectRatio(contentMode: .fit).frame(width: 131)
-            // MARK: replace userPhoto-sample to userImage when backend ready
-            Text(userAPI.user.name).font(Font.custom("NotoSansKR-Bold", size: 25))
-            VSpacer(14)
-            HStack {
-                VStack(alignment: .leading, spacing: 8){
-                    Text("학과").infoText().gray6()
-                    Text("학번").infoText().gray6()
-                    Text("주민번호").infoText().gray6()
-                }
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(getMajor(klass: userAPI.user.klass)).infoText()
-                    Text(userAPI.user.serial).infoText()
-                    Text("030418-3******").infoText()
-                }
-            }
-            VSpacer(15)
-            Text("위 사람은 본교 학생임을 증명함.").font(Font.custom("NotoSansKR-Bold", size: 14))
-            Image("dimigo-logo").resizable().aspectRatio(contentMode: .fit).frame(width: 263)
-            Image("qr-sample").resizable().aspectRatio(contentMode: .fit).frame(width: 239)
-            Spacer()
-        }
-        .frame(width: 300,height: 560)
-        .background(
-            CustomBox(edgeInsets: .bottom, accentColor: Color("Accent"), width: 13, tl: 10, tr: 10, bl: 10, br: 10)
-        )
-        .offset(y: (isShowing ? 0 : 800) + dragOffset.height)
-        .animation(.spring())
-        .gesture(
-            DragGesture()
-                .onChanged { gesture in
-                    self.dragOffset = gesture.translation
-                }
-                .onEnded { _ in
-                    if abs(self.dragOffset.height) > 100 {
+        ZStack{
+            Rectangle().fill(Color("Gray1")).edgesIgnoringSafeArea(.all).opacity(isShowing ? 1 : 0).animation(.spring())
+            
+            VStack {
+                HStack {
+                    Spacer()
+                    Button(action: {
                         self.isShowing.toggle()
-                        self.dragOffset = .zero
-                    } else {
-                        self.dragOffset = .zero
+                    }) {
+                        Image(systemName: "xmark").resizable().aspectRatio(contentMode: .fit).frame(width: 16)
+                            .foregroundColor(Color("Gray1")).padding()
                     }
                 }
-        )
+                Image("userPhoto-sample").resizable().aspectRatio(contentMode: .fit).frame(width: 131)
+                // MARK: replace userPhoto-sample to userImage when backend ready
+                Text(userAPI.user.name).font(Font.custom("NotoSansKR-Bold", size: 25))
+                VSpacer(14)
+                HStack {
+                    VStack(alignment: .leading, spacing: 8){
+                        Text("학과").infoText().gray6()
+                        Text("학번").infoText().gray6()
+                        Text("주민번호").infoText().gray6()
+                    }
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text(getMajor(klass: userAPI.user.klass)).infoText()
+                        Text(userAPI.user.serial).infoText()
+                        Text("030418-3******").infoText()
+                    }
+                }
+                VSpacer(15)
+                Text("위 사람은 본교 학생임을 증명함.").font(Font.custom("NotoSansKR-Bold", size: 14))
+                Image("dimigo-logo").resizable().aspectRatio(contentMode: .fit).frame(width: 263)
+                Image("qr-sample").resizable().aspectRatio(contentMode: .fit).frame(width: 239)
+                Spacer()
+            }
+            .frame(width: 300,height: 560)
+            .background(
+                CustomBox(edgeInsets: .bottom, accentColor: Color("Accent"), width: 13, tl: 10, tr: 10, bl: 10, br: 10)
+            )
+            .offset(y: (isShowing ? 0 : UIScreen.screenHeight) + dragOffset.height)
+            .animation(.spring())
+            .gesture(
+                DragGesture()
+                    .onChanged { gesture in
+                        self.dragOffset = gesture.translation
+                    }
+                    .onEnded { _ in
+                        if abs(self.dragOffset.height) > 100 {
+                            self.isShowing.toggle()
+                            self.dragOffset = .zero
+                        } else {
+                            self.dragOffset = .zero
+                        }
+                    }
+            )
+        }
     }
 }

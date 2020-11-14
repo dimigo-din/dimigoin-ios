@@ -63,7 +63,7 @@ struct IngangView: View {
                 ZStack {
                     Image("Logo").resizable().aspectRatio(contentMode: .fit).frame(width: 100).opacity(0.3)
                     Text("오늘은 인강이 없습니다!").body().gray4()
-                }
+                }.offset(y: -30)
                 Spacer()
             }
         }
