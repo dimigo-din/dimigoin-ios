@@ -7,6 +7,8 @@
 //
 
 import SwiftUI
+import Alamofire
+import SwiftyJSON
 
 struct LoginView: View {
     @ObservedObject var tokenAPI: TokenAPI
@@ -40,19 +42,33 @@ struct LoginView: View {
                         .modifier(TextFieldModifier())
                         .modifier(ClearButton(text: $password))
                     VSpacer(13)
-                    Text("아이디 혹은 비밀번호를 확인해 주세요").warning().caption2()
-                        .opacity(showErrorMessage ? 1:0)
-                    VSpacer(13)
                     Button(action: {
+                        print("get token")
                         isLoading = true
-                        tokenAPI.set(id: self.id, password: self.password)
-                        tokenAPI.getTokens()
-                        if(tokenAPI.tokenStatus == .exist) {
-                            self.showErrorMessage = false
-                        }
-                        else if(tokenAPI.tokenStatus == .none) {
-                            self.showErrorMessage = true
-                            self.isLoading = false
+                        let parameters: [String: String] = [
+                            "id": "\(self.id)",
+                            "password": "\(self.password)"
+                        ]
+                        let url: String = "https://api.dimigo.in/auth/"
+                        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { response in
+                            if let status = response.response?.statusCode {
+                                switch(status) {
+                                case 200:
+                                    let json = JSON(response.value!!)
+                                    self.tokenAPI.tokens.token = json["token"].string!
+                                    self.tokenAPI.tokens.refresh_token = json["refresh_token"].string!
+                                    self.tokenAPI.debugToken()
+                                    self.tokenAPI.saveTokens()
+                                    self.tokenAPI.tokenStatus = .exist
+                                    isLoading = false
+                                default:
+                                    print("get token failed")
+                                    alertManager.createAlert("로그인에 실패했습니다.", sub: "아이디 혹은 패스워드를 확인해주세요", .danger)
+                                    debugPrint(response)
+                                    self.tokenAPI.tokenStatus = .none
+                                    isLoading = false
+                                }
+                            }
                         }
                     }) {
                         Text("로그인").SquareButton(312, 27)
@@ -63,15 +79,12 @@ struct LoginView: View {
             }.padding(.horizontal)
             if #available(iOS 14.0, *) {
                 if(isLoading) {
-                    ProgressView() {
-                        HStack {
-                            Text("로딩중").accent().caption1()
-                        }
-                    }.progressViewStyle(CircularProgressViewStyle(tint: Color("accent")))
+                    Rectangle().fill(Color("Gray3")).opacity(0.3).edgesIgnoringSafeArea(.all)
+                    ProgressView()
                 }
-
-            } else {
-                // Fallback on earlier versions
+            }
+            if(alertManager.isShowing) {
+                AlertView(alertType: alertManager.alertType, content: alertManager.content, sub: alertManager.sub, isShowing: $alertManager.isShowing)
             }
             
         }
