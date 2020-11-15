@@ -9,38 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
-
-struct Ingang: Hashable, Codable {
-    var idx: Int
-    var day: String
-    var title: String
-    var time: Int
-    var request_start_date: Int
-    var request_end_date: Int
-    var status: Bool
-    var present: Int
-    var max_user: Int
-}
-
-struct Applicant: Identifiable, Hashable, Codable {
-    var id = UUID()
-    var idx: Int
-    var name: String
-    var grade: Int
-    var klass: Int
-    var number: Int
-    var serial: Int
-}
-
-enum IngangStatus: Int {
-    case none = 0
-    case success = 200
-    case usedAllTicket = 403
-    case noIngang = 404
-    case timeout = 405
-    case blacklisted = 406
-    case full = 409
-}
+import DimigoinKit
 
 class IngangAPI: ObservableObject {
     @Published var ingangs: [Ingang] = []

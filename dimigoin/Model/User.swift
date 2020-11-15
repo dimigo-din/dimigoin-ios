@@ -12,22 +12,7 @@ import SwiftyJSON
 import JWTDecode
 import KingfisherSwiftUI
 import SwiftUI
-
-struct User: Codable, Identifiable {
-    var name: String = ""
-    var id: String = ""
-    var idx: Int = 0
-    var grade: Int = 4
-    var klass: Int = 1
-    var number: String = ""
-    var serial: String = ""
-    var email: String = ""
-    var photo: String = ""
-    var weekly_request_count: Int = 0
-    var daily_request_count: Int = 0
-    var weekly_ticket_num: Int = 0
-    var daily_ticket_num: Int = 0
-}
+import DimigoinKit
 
 class UserAPI: ObservableObject {
     @Published var user = User()
@@ -106,16 +91,17 @@ func getMajor(klass: Int) -> String {
     }
 }
 
-let dummyUser: User = User(name: "변경민",
-                          id: "bkmchangemin",
-                          idx: 2121,
-                          grade: 2,
-                          klass: 4,
-                          number: "13",
-                          serial: "2413",
-                          email: "bkm.change.min@gmail.com",
-                          photo: "",
-                          weekly_request_count: 0,
-                          daily_request_count: 0,
-                          weekly_ticket_num: 5,
-                          daily_ticket_num: 2)
+let dummyUser: User = User()
+//                    User(name: "변경민",
+//                          id: "bkmchangemin",
+//                          idx: 2121,
+//                          grade: 2,
+//                          klass: 4,
+//                          number: "13",
+//                          serial: "2413",
+//                          email: "bkm.change.min@gmail.com",
+//                          photo: "",
+//                          weekly_request_count: 0,
+//                          daily_request_count: 0,
+//                          weekly_ticket_num: 5,
+//                          daily_ticket_num: 2)

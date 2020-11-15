@@ -8,6 +8,7 @@
 
 import SwiftUI
 import UserNotifications
+import DimigoinKit
 
 struct MainView: View {
     @ObservedObject var mealAPI = MealAPI()
