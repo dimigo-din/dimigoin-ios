@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import DimigoinKit
 
 struct NextMealWidget: View {
     var data: WidgetEntry

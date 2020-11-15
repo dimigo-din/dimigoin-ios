@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import DimigoinKit
 
 struct MealView: View {
     @ObservedObject var mealAPI: MealAPI

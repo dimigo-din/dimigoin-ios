@@ -10,6 +10,7 @@ import WidgetKit
 import SwiftUI
 import Alamofire
 import SwiftyJSON
+import DimigoinKit
 
 struct WidgetEntry : TimelineEntry {
     var date : Date

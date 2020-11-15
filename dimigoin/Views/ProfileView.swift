@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import DimigoinKit
 
 struct ProfileView: View {
     @ObservedObject var userAPI: UserAPI

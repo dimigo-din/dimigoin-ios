@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import DimigoinKit
 
 struct StudentIdCardModalView: View {
     @Binding var isShowing: Bool

@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import DimigoinKit
 
 struct ContentView: View {
     @ObservedObject var tokenAPI = TokenAPI()

@@ -9,6 +9,7 @@
 import SwiftUI
 import Alamofire
 import SwiftyJSON
+import DimigoinKit
 
 struct IngangView: View {
     @ObservedObject var ingangAPI: IngangAPI

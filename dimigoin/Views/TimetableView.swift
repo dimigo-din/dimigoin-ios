@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import DimigoinKit
 
 struct TimetableView: View {
     @ObservedObject var timetableAPI: TimetableAPI
