@@ -25,6 +25,8 @@
 		420D92712557F79F00CDF76A /* HSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54E24AF819400456846 /* HSpacer.swift */; };
 		420D927B2557F7A200CDF76A /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54C24AF816200456846 /* VSpacer.swift */; };
 		420D9285255800C700CDF76A /* CopyrightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C487C924DDB73000C594CB /* CopyrightText.swift */; };
+		421911672561408A009D8A39 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 421911662561408A009D8A39 /* DimigoinKit */; };
+		4219116B25614093009D8A39 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4219116A25614093009D8A39 /* DimigoinKit */; };
 		42364EAC24B14E02008427D5 /* KeyboardResponsive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42364EAB24B14E02008427D5 /* KeyboardResponsive.swift */; };
 		423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71EF24B191AF0099CE3E /* ClearButton.swift */; };
 		423B71F424B1B3F60099CE3E /* CustomBoxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */; };
@@ -40,8 +42,6 @@
 		42ABA0B9255FB88C001925BE /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 42ABA0B8255FB88C001925BE /* KingfisherSwiftUI */; };
 		42ABA0BD255FBCA0001925BE /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 42ABA0BC255FBCA0001925BE /* KingfisherSwiftUI */; };
 		42ABA0C5255FC4E2001925BE /* HorizonPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0C4255FC4E2001925BE /* HorizonPadding.swift */; };
-		42ABA0F725609CC3001925BE /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42ABA0F625609CC3001925BE /* DimigoinKit */; };
-		42ABA0F925609CD4001925BE /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42ABA0F825609CD4001925BE /* DimigoinKit */; };
 		42B79D3C253ED242003A8A7F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42124B4A70E00005663 /* WidgetKit.framework */; };
 		42B79D3D253ED242003A8A7F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42324B4A70E00005663 /* SwiftUI.framework */; };
 		42B79D40253ED242003A8A7F /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B79D3F253ED242003A8A7F /* Widget.swift */; };
@@ -154,7 +154,6 @@
 		42ABA0AD255FA58B001925BE /* StudentIdCardModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIdCardModalView.swift; sourceTree = "<group>"; };
 		42ABA0B1255FA725001925BE /* CustomBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBox.swift; sourceTree = "<group>"; };
 		42ABA0C4255FC4E2001925BE /* HorizonPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizonPadding.swift; sourceTree = "<group>"; };
-		42ABA0F325609A8E001925BE /* DimigoinKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DimigoinKit; path = ../DimigoinKit; sourceTree = "<group>"; };
 		42B79D3B253ED242003A8A7F /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B79D3F253ED242003A8A7F /* Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
 		42B79D41253ED243003A8A7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -189,7 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42ABA0B9255FB88C001925BE /* KingfisherSwiftUI in Frameworks */,
-				42ABA0F725609CC3001925BE /* DimigoinKit in Frameworks */,
+				421911672561408A009D8A39 /* DimigoinKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,8 +198,8 @@
 			files = (
 				42ABA0BD255FBCA0001925BE /* KingfisherSwiftUI in Frameworks */,
 				42B79D3D253ED242003A8A7F /* SwiftUI.framework in Frameworks */,
-				42ABA0F925609CD4001925BE /* DimigoinKit in Frameworks */,
 				42B79D3C253ED242003A8A7F /* WidgetKit.framework in Frameworks */,
+				4219116B25614093009D8A39 /* DimigoinKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +209,6 @@
 		08C9ABDC24A74A53002AF525 = {
 			isa = PBXGroup;
 			children = (
-				42ABA0F325609A8E001925BE /* DimigoinKit */,
 				08C9ABE724A74A53002AF525 /* dimigoin */,
 				42B79D3E253ED242003A8A7F /* Widget */,
 				08C9ABE624A74A53002AF525 /* Products */,
@@ -397,7 +395,7 @@
 			name = dimigoin;
 			packageProductDependencies = (
 				42ABA0B8255FB88C001925BE /* KingfisherSwiftUI */,
-				42ABA0F625609CC3001925BE /* DimigoinKit */,
+				421911662561408A009D8A39 /* DimigoinKit */,
 			);
 			productName = dimigoin;
 			productReference = 08C9ABE524A74A53002AF525 /* DimigoIN.app */;
@@ -418,7 +416,7 @@
 			name = WidgetExtension;
 			packageProductDependencies = (
 				42ABA0BC255FBCA0001925BE /* KingfisherSwiftUI */,
-				42ABA0F825609CD4001925BE /* DimigoinKit */,
+				4219116A25614093009D8A39 /* DimigoinKit */,
 			);
 			productName = WidgetExtension;
 			productReference = 42B79D3B253ED242003A8A7F /* WidgetExtension.appex */;
@@ -453,6 +451,7 @@
 			mainGroup = 08C9ABDC24A74A53002AF525;
 			packageReferences = (
 				42ABA0B7255FB88C001925BE /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				421911652561408A009D8A39 /* XCRemoteSwiftPackageReference "DimigoinKit" */,
 			);
 			productRefGroup = 08C9ABE624A74A53002AF525 /* Products */;
 			projectDirPath = "";
@@ -830,6 +829,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		421911652561408A009D8A39 /* XCRemoteSwiftPackageReference "DimigoinKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Changemin/DimigoinKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
 		42ABA0B7255FB88C001925BE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -841,6 +848,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		421911662561408A009D8A39 /* DimigoinKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 421911652561408A009D8A39 /* XCRemoteSwiftPackageReference "DimigoinKit" */;
+			productName = DimigoinKit;
+		};
+		4219116A25614093009D8A39 /* DimigoinKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 421911652561408A009D8A39 /* XCRemoteSwiftPackageReference "DimigoinKit" */;
+			productName = DimigoinKit;
+		};
 		42ABA0B8255FB88C001925BE /* KingfisherSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 42ABA0B7255FB88C001925BE /* XCRemoteSwiftPackageReference "Kingfisher" */;
@@ -850,14 +867,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 42ABA0B7255FB88C001925BE /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = KingfisherSwiftUI;
-		};
-		42ABA0F625609CC3001925BE /* DimigoinKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = DimigoinKit;
-		};
-		42ABA0F825609CD4001925BE /* DimigoinKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = DimigoinKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
