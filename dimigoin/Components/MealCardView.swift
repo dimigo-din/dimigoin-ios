@@ -70,6 +70,8 @@ struct PagerView<Content: View>: View {
     @GestureState private var translation: CGFloat = 0
     let pageCount: Int
     let content: Content
+    @State var dragOffset = CGSize.zero
+    @State var startPos = CGPoint(x: 0, y:0)
 
 
     init(pageCount: Int, currentIndex: Binding<Int>, @ViewBuilder content: () -> Content) {
@@ -86,15 +88,48 @@ struct PagerView<Content: View>: View {
             .frame(width: geometry.size.width*0.85, alignment: .leading)
             .offset(x: -CGFloat(self.currentIndex) * (geometry.size.width*0.85))
             .offset(x: self.translation)
-            .animation(.interactiveSpring())
+            .animation(.spring())
+//            .gesture(
+//                DragGesture().updating(self.$translation) { value, state, _ in
+//                    state = value.translation.width
+//                }.onEnded { value in
+//
+//                    let offset = value.translation.width / (geometry.size.width*0.85)
+//                    let newIndex = (CGFloat(self.currentIndex) - offset).rounded()
+//                    self.currentIndex = min(max(Int(newIndex), 0), self.pageCount - 1)
+//                }
+//            )
             .gesture(
                 DragGesture().updating(self.$translation) { value, state, _ in
-                    state = value.translation.width
-                }.onEnded { value in
-                    let offset = value.translation.width / (geometry.size.width*0.85)
-                    let newIndex = (CGFloat(self.currentIndex) - offset).rounded()
-                    self.currentIndex = min(max(Int(newIndex), 0), self.pageCount - 1)
-                }
+                            state = value.translation.width
+                    }.onChanged { gesture in
+                        self.dragOffset = gesture.translation
+                        self.startPos = gesture.location
+                    }
+                    .onEnded { gesture in
+                        let xDist =  abs(gesture.location.x - self.startPos.x)
+                        let yDist =  abs(gesture.location.y - self.startPos.y)
+                        
+                        if self.startPos.x > gesture.location.x && yDist < xDist {
+                            // left
+                            if abs(self.dragOffset.width) > 40 {
+                                self.currentIndex += 1
+                                self.dragOffset = .zero
+                            } else {
+                                self.dragOffset = .zero
+                            }
+                        }
+                        else if self.startPos.x < gesture.location.x && yDist < xDist {
+                            // right
+                            if abs(self.dragOffset.width) > 40 {
+                                self.currentIndex -= 1
+                                self.dragOffset = .zero
+                            } else {
+                                self.dragOffset = .zero
+                            }
+                        }
+                        
+                    }
             )
             .padding(.leading, geometry.size.width*0.075)
         }
