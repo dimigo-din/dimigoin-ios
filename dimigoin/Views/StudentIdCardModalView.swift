@@ -51,7 +51,7 @@ struct StudentIdCardModalView: View {
             }
             .frame(width: 300,height: 560)
             .background(
-                CustomBox(edgeInsets: .bottom, accentColor: Color("Accent"), width: 13, tl: 10, tr: 10, bl: 10, br: 10)
+                CustomBox(edgeInsets: .bottom, accentColor: Color("accent"), width: 13, tl: 10, tr: 10, bl: 10, br: 10)
             )
             
             .offset(y: (isShowing ? 0 : UIScreen.screenHeight) + dragOffset.height)
