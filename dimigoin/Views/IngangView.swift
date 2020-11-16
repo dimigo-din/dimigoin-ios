@@ -20,20 +20,19 @@ struct IngangView: View {
     var body: some View {
         if(isWeekday()) {
             if(ingangAPI.ingangs.count == 0) {
-                if #available(iOS 14.0, *) {
-                    ScrollView(showsIndicators: false) {
-                        HStack {
-                            ViewTitle("인강실", sub: "")
-                            Spacer()
-                            Image("headphone").resizable().aspectRatio(contentMode: .fit).frame(height: 40)
-                        }.horizonPadding()
-                        .padding(.top, 40)
-                        HDivider().horizonPadding()
-                        ProgressView()
-                    }
-                    
-                } else {
-                    // Fallback on earlier versions
+                VStack {
+                    HStack {
+                        ViewTitle("인강실", sub: "")
+                        Spacer()
+                        Image("headphone").resizable().aspectRatio(contentMode: .fit).frame(height: 40)
+                    }.horizonPadding()
+                    .padding(.top, 40)
+                    HDivider().horizonPadding().offset(y: -15)
+                    Spacer()
+                    ZStack {
+                        Image("Logo").resizable().aspectRatio(contentMode: .fit).frame(width: 100).opacity(0.3)
+                    }.offset(y: -30)
+                    Spacer()
                 }
             }
             else {

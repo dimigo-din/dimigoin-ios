@@ -24,9 +24,7 @@ struct MealItem: View {
                 .mealMenu()
                 .padding()
                 .frame(width: UIScreen.screenWidth-40)
-                .padding(.trailing)
                 .background(CustomBox())
-                .horizonPadding()
                 .fixedSize(horizontal: false, vertical: true)
                 
         }

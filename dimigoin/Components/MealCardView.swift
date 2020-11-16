@@ -16,20 +16,44 @@ struct MealPagerView: View {
         VStack {
             PagerView(pageCount: 3, currentIndex: $currentCardIdx) {
                 VStack(alignment: .leading){
-                    Text("아침").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("Accent")).horizonPadding()
+                    HStack {
+                        Text("아침").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("Accent")).horizonPadding()
+                        Spacer()
+                    }
                     VSpacer(10)
-                    Text("\(mealAPI.getTodayMeal().breakfast)").mealMenu().horizonPadding()
-                }.modifier(CardViewModifier(305,147))
-                VStack(alignment: .leading) {
-                    Text("점심").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("Accent")).horizonPadding()
+                    HStack {
+                        Text("\(dummyDimibob.breakfast)").mealMenu().horizonPadding()
+                        Spacer()
+                    }
+                    Spacer()
+                }.padding(.top)
+                .modifier(CardViewModifier(305,147))
+                VStack(alignment: .leading){
+                    HStack {
+                        Text("점심").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("Accent")).horizonPadding()
+                        Spacer()
+                    }
                     VSpacer(10)
-                    Text("\(mealAPI.getTodayMeal().lunch)").mealMenu().horizonPadding()
-                }.modifier(CardViewModifier(305,147))
-                VStack(alignment: .leading) {
-                    Text("저녁").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("Accent")).horizonPadding()
+                    HStack {
+                        Text("\(dummyDimibob.lunch)").mealMenu().horizonPadding()
+                        Spacer()
+                    }
+                    Spacer()
+                }.padding(.top)
+                .modifier(CardViewModifier(305,147))
+                VStack(alignment: .leading){
+                    HStack {
+                        Text("저녁").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("Accent")).horizonPadding()
+                        Spacer()
+                    }
                     VSpacer(10)
-                    Text("\(mealAPI.getTodayMeal().dinner)").mealMenu().horizonPadding()
-                }.modifier(CardViewModifier(305,147))
+                    HStack {
+                        Text("\(dummyDimibob.dinner)").mealMenu().horizonPadding()
+                        Spacer()
+                    }
+                    Spacer()
+                }.padding(.top)
+                .modifier(CardViewModifier(305,147))
             }
             VSpacer(145)
             HStack(spacing: 5){
