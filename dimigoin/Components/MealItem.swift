@@ -27,6 +27,7 @@ struct MealItem: View {
                 .background(CustomBox())
                 .horizonPadding()
                 .fixedSize(horizontal: false, vertical: true)
+                .frame(width: UIScreen.screenWidth-40)
         }
     }
 }

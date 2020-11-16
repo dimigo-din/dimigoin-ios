@@ -8,6 +8,7 @@
 
 import SwiftUI
 import UserNotifications
+import DimigoinKit
 
 struct MainView: View {
     @ObservedObject var mealAPI = MealAPI()
@@ -16,7 +17,6 @@ struct MainView: View {
     @ObservedObject var ingangAPI = IngangAPI()
     @ObservedObject var userAPI = UserAPI()
     @ObservedObject var timetableAPI = TimetableAPI()
-    @ObservedObject var optionAPI = OptionAPI()
     @ObservedObject var alertManager: AlertManager
     var NotificationAPI = NotificationManager()
     @State var index = 2
@@ -27,11 +27,6 @@ struct MainView: View {
         self.alertManager = alertManager
         let notificationManager = NotificationManager()
         notificationManager.requestPermission()
-        if(optionAPI.beneduAlert) {
-            NotificationAPI.scheduleBeneduNotifications()
-        } else {
-            NotificationAPI.removeAllNotifications()
-        }
     }
     var body: some View {
         ZStack {

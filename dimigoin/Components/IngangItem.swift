@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Alamofire
+import DimigoinKit
 
 struct IngangItem: View {
     @ObservedObject var ingangAPI: IngangAPI
@@ -19,29 +20,29 @@ struct IngangItem: View {
         VStack {
             HDivider().horizonPadding()
             VSpacer(20)
-            SectionHeader(ingang.title, sub: ingangTime[ingang.time])
+            SectionHeader(ingang.title!, sub: ingangTime[ingang.time!])
             VSpacer(10)
             HStack {
                 VStack {
-                    Text("\(ingang.present)").font(Font.custom("NotoSansKR-Bold", size: 40))
+                    Text("\(ingang.present!)").font(Font.custom("NotoSansKR-Bold", size: 40))
                     Text("현원").font(Font.custom("NotoSansKR-Bold", size: 15))
-                }.foregroundColor(ingang.present == ingang.max_user ? (ingang.status ? Color("Gray4") : Color("Accent")) : Color.black)
+                }.foregroundColor(ingang.present == ingang.max_user ? (ingang.status! ? Color("Gray4") : Color("Accent")) : Color.black)
                 HSpacer(130)
                 VStack {
-                    Text("\(ingang.max_user)").font(Font.custom("NotoSansKR-Bold", size: 40))
+                    Text("\(ingang.max_user!)").font(Font.custom("NotoSansKR-Bold", size: 40))
                     Text("총원").font(Font.custom("NotoSansKR-Bold", size: 15))
                 }
             }.modifier(CardViewModifier(UIScreen.screenWidth-40, 120))
             VSpacer(10)
-            if !ingang.status {
+            if !ingang.status! {
                 Button(action: {
-                    print("apply ingang : \(ingang.idx)")
+                    print("apply ingang : \(ingang.idx!)")
                     tokenAPI.refreshTokens()
                     let headers: HTTPHeaders = [
                         "Authorization":"Bearer \(tokenAPI.tokens.token)"
                     ]
                     let parameters: [String: String] = [
-                        "ingang_idx": "\(String(ingang.idx))"
+                        "ingang_idx": "\(String(ingang.idx!))"
                     ]
                     let url = "https://api.dimigo.in/ingang/"
                     AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).response { response in
@@ -49,7 +50,7 @@ struct IngangItem: View {
                             switch(status) {
                             case 200: //success
                                 alertManager.createAlert("신청이 완료되었습니다", sub: "해당 탭에서 신청 목록을 확인하실 수 있습니다", .success)
-                                ingang.status.toggle()
+                                self.ingang.status!.toggle()
                             case 403: // 본인 학년&반 인강실이 아니거나 오늘(일주일)치 신청을 모두 했습니다.
                                 alertManager.createAlert("신청에 실패했습니다", sub: "오늘(일주일)치 신청을 모두 했습니다.", .warning)
                             case 404: //인강실 신청이 없습니다.
@@ -77,21 +78,21 @@ struct IngangItem: View {
                 }
             } else {
                 Button(action: {
-                    print("cancel ingang : \(ingang.idx)")
+                    print("cancel ingang : \(ingang.idx!)")
                     tokenAPI.refreshTokens()
                     let headers: HTTPHeaders = [
                         "Authorization":"Bearer \(tokenAPI.tokens.token)"
                     ]
                     let parameters: [String: String] = [
-                        "ingang_idx": "\(String(ingang.idx))"
+                        "ingang_idx": "\(String(ingang.idx!))"
                     ]
-                    let url = "https://api.dimigo.in/ingang/\(String(ingang.idx))/"
+                    let url = "https://api.dimigo.in/ingang/\(String(ingang.idx!))/"
                     AF.request(url, method: .delete, parameters: parameters, encoding: JSONEncoding.default, headers: headers).response { response in
                         if let status = response.response?.statusCode {
                             switch(status) {
                             case 200: //success
                                 alertManager.createAlert("취소가 완료되었습니다", sub: "해당 탭에서 신청 목록을 확인하실 수 있습니다", .cancel)
-                                ingang.status.toggle()
+                                ingang.status!.toggle()
                             case 403: // 본인 학년&반 인강실이 아니거나 오늘(일주일)치 신청을 모두 했습니다.
                                 alertManager.createAlert("취소에 실패했습니다", sub: "오늘(일주일)치 신청을 모두 했습니다.", .danger)
                             case 404: //인강실 신청이 없습니다.
