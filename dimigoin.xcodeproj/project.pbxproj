@@ -25,7 +25,6 @@
 		420D9285255800C700CDF76A /* CopyrightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C487C924DDB73000C594CB /* CopyrightText.swift */; };
 		42364EAC24B14E02008427D5 /* KeyboardResponsive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42364EAB24B14E02008427D5 /* KeyboardResponsive.swift */; };
 		423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71EF24B191AF0099CE3E /* ClearButton.swift */; };
-		423B71F424B1B3F60099CE3E /* CustomBoxModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */; };
 		423EDF4F256221B0009921AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 423EDF4E256221B0009921AE /* GoogleService-Info.plist */; };
 		4250011C25595C2900C593CF /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250011B25595C2900C593CF /* AlertView.swift */; };
 		4250012625595F9E00C593CF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250012525595F9E00C593CF /* Alert.swift */; };
@@ -52,8 +51,6 @@
 		42B79D8D253FD7D7003A8A7F /* NextMealWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B79D8C253FD7D7003A8A7F /* NextMealWidget.swift */; };
 		42C487CA24DDB73000C594CB /* CopyrightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C487C924DDB73000C594CB /* CopyrightText.swift */; };
 		42C72C052559FED900E3294E /* StudentIdCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C72C042559FED900E3294E /* StudentIdCardView.swift */; };
-		42C72C15255B614800E3294E /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C72C14255B614800E3294E /* Carousel.swift */; };
-		42D7B19925586B1800FEC96B /* SnapScrollModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D7B19825586B1800FEC96B /* SnapScrollModifier.swift */; };
 		42DBE5A92536BABE00E5F4EA /* Openas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42DBE5A82536BABD00E5F4EA /* Openas.ttf */; };
 		42EFCD992558073200F3DC5E /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 42EFCD932558073200F3DC5E /* NotoSansKR-Bold.otf */; };
 		42EFCD9A2558073200F3DC5E /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 42EFCD932558073200F3DC5E /* NotoSansKR-Bold.otf */; };
@@ -139,7 +136,6 @@
 		4212D96A24CBB24100FF82D5 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		42364EAB24B14E02008427D5 /* KeyboardResponsive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponsive.swift; sourceTree = "<group>"; };
 		423B71EF24B191AF0099CE3E /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
-		423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBoxModifier.swift; sourceTree = "<group>"; };
 		423EDF4E256221B0009921AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		423EDF7325623835009921AE /* DimigoIN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DimigoIN.entitlements; sourceTree = "<group>"; };
 		4250011B25595C2900C593CF /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
@@ -168,8 +164,6 @@
 		42B79D8C253FD7D7003A8A7F /* NextMealWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextMealWidget.swift; sourceTree = "<group>"; };
 		42C487C924DDB73000C594CB /* CopyrightText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyrightText.swift; sourceTree = "<group>"; };
 		42C72C042559FED900E3294E /* StudentIdCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIdCardView.swift; sourceTree = "<group>"; };
-		42C72C14255B614800E3294E /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
-		42D7B19825586B1800FEC96B /* SnapScrollModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapScrollModifier.swift; sourceTree = "<group>"; };
 		42DBE5A82536BABD00E5F4EA /* Openas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Openas.ttf; sourceTree = "<group>"; };
 		42EFCD932558073200F3DC5E /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		42EFCD942558073200F3DC5E /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
@@ -271,8 +265,6 @@
 				088E5D4C24A889CB0031342D /* CardViewModifier.swift */,
 				42364EAB24B14E02008427D5 /* KeyboardResponsive.swift */,
 				423B71EF24B191AF0099CE3E /* ClearButton.swift */,
-				423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */,
-				42D7B19825586B1800FEC96B /* SnapScrollModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -307,7 +299,6 @@
 		08C9AC0824A74A83002AF525 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				42C72C14255B614800E3294E /* Carousel.swift */,
 				4250011B25595C2900C593CF /* AlertView.swift */,
 				086CC55024AF849D00456846 /* TextStyles.swift */,
 				42EFCE032558340000F3DC5E /* MealItem.swift */,
@@ -627,15 +618,12 @@
 				42ABA0A4255F6247001925BE /* MealCardView.swift in Sources */,
 				42ABA0C5255FC4E2001925BE /* HorizonPadding.swift in Sources */,
 				42EFCDD22558141000F3DC5E /* ProfileView.swift in Sources */,
-				42D7B19925586B1800FEC96B /* SnapScrollModifier.swift in Sources */,
 				42EFCE2E255852DD00F3DC5E /* ViewTitle.swift in Sources */,
 				42EFCDFE255829B100F3DC5E /* SectionHeader.swift in Sources */,
-				423B71F424B1B3F60099CE3E /* CustomBoxModifier.swift in Sources */,
 				08C9ABEB24A74A53002AF525 /* SceneDelegate.swift in Sources */,
 				423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */,
 				086CC55124AF849D00456846 /* TextStyles.swift in Sources */,
 				4288B938253E57260022B11A /* Notification.swift in Sources */,
-				42C72C15255B614800E3294E /* Carousel.swift in Sources */,
 				08C9ABED24A74A53002AF525 /* ContentView.swift in Sources */,
 				4250011C25595C2900C593CF /* AlertView.swift in Sources */,
 			);

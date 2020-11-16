@@ -30,7 +30,7 @@ struct IngangView: View {
                     HDivider().horizonPadding().offset(y: -15)
                     Spacer()
                     ZStack {
-                        Image("Logo").resizable().aspectRatio(contentMode: .fit).frame(width: 100).opacity(0.3)
+                        Image("logo").resizable().aspectRatio(contentMode: .fit).frame(width: 100).opacity(0.3)
                     }.offset(y: -30)
                     Spacer()
                 }
@@ -61,7 +61,7 @@ struct IngangView: View {
                 HDivider().horizonPadding().offset(y: -15)
                 Spacer()
                 ZStack {
-                    Image("Logo").resizable().aspectRatio(contentMode: .fit).frame(width: 100).opacity(0.3)
+                    Image("logo").resizable().aspectRatio(contentMode: .fit).frame(width: 100).opacity(0.3)
                     Text("오늘은 인강이 없습니다!").body().gray4()
                 }.offset(y: -30)
                 Spacer()

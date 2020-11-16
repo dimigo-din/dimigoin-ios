@@ -26,7 +26,7 @@ struct IngangItem: View {
                 VStack {
                     Text("\(ingang.present!)").font(Font.custom("NotoSansKR-Bold", size: 40))
                     Text("현원").font(Font.custom("NotoSansKR-Bold", size: 15))
-                }.foregroundColor(ingang.present == ingang.max_user ? (ingang.status! ? Color("Gray4") : Color("Accent")) : Color.black)
+                }.foregroundColor(ingang.present == ingang.max_user ? (ingang.status! ? Color("gray4") : Color("accent")) : Color.black)
                 HSpacer(130)
                 VStack {
                     Text("\(ingang.max_user!)").font(Font.custom("NotoSansKR-Bold", size: 40))

@@ -30,7 +30,7 @@ struct LoginView: View {
                 Spacer()
                 VStack {
                     HStack(alignment: .center){
-                        Image("Logo").resizable().frame(width: 50.5, height: 47.76)
+                        Image("logo").resizable().frame(width: 50.5, height: 47.76)
                         HSpacer(24)
                         Text("디미고인").logoFont()
                     }
@@ -80,7 +80,7 @@ struct LoginView: View {
             }.padding(.horizontal)
             if #available(iOS 14.0, *) {
                 if(isLoading) {
-                    Rectangle().fill(Color("Gray3")).opacity(0.3).edgesIgnoringSafeArea(.all)
+                    Rectangle().fill(Color("gray3")).opacity(0.3).edgesIgnoringSafeArea(.all)
                     ProgressView()
                 }
             }

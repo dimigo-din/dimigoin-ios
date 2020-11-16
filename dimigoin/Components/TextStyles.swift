@@ -10,15 +10,15 @@ import SwiftUI
 
 extension Text {
     func accent() -> Text {
-        self.foregroundColor(Color("Accent"))
+        self.foregroundColor(Color("accent"))
     }
     
     func warning() -> Text {
-        self.foregroundColor(Color("Red"))
+        self.foregroundColor(Color("red"))
     }
     
     func sub() -> Text {
-        self.foregroundColor(Color("Sub"))
+        self.foregroundColor(Color("sub"))
     }
     
     func tapBarItem() -> Text {
@@ -26,7 +26,7 @@ extension Text {
     }
     
     func disabled() -> Text {
-        self.foregroundColor(Color("Disabled"))
+        self.foregroundColor(Color("disabled"))
     }
     
     func title() -> Text {
@@ -35,12 +35,12 @@ extension Text {
     
     func subTitle() -> Text {
         self
-            .foregroundColor(Color("Gray4"))
+            .foregroundColor(Color("gray4"))
             .font(Font.custom("NotoSansKR-Bold", size: 13))
     }
     func subSectionHeader() -> Text {
         self
-            .foregroundColor(Color("Accent"))
+            .foregroundColor(Color("accent"))
             .font(Font.custom("NotoSansKR-Bold", size: 10))
     }
     
@@ -51,7 +51,7 @@ extension Text {
     func mealMenu() -> some View {
         self
             .lineSpacing(12)
-            .foregroundColor(Color("Gray2"))
+            .foregroundColor(Color("gray2"))
             .font(Font.custom("NotoSansKR-Regular", size: 12))
             
     }
@@ -62,12 +62,12 @@ extension Text {
     }
     func alertSubTitle() -> some View {
         self
-            .foregroundColor(Color("Gray2"))
+            .foregroundColor(Color("gray2"))
             .font(Font.custom("NotoSansKR-Regular", size: 13))
     }
     func alertButton() -> some View {
         self
-            .foregroundColor(Color("Gray4"))
+            .foregroundColor(Color("gray4"))
             .font(Font.custom("NotoSansKR-Bold", size: 17))
     }
     func body() -> Text {
@@ -105,7 +105,7 @@ extension Text {
             .font(Font.custom("NotoSansKR-Bold", size: 18))
             .frame(width: w, height: h)
             .padding()
-            .background(Color("Accent"))
+            .background(Color("accent"))
             .foregroundColor(Color.white)
             .cornerRadius(5.0)
     }
@@ -115,7 +115,7 @@ extension Text {
             .font(Font.custom("NotoSansKR-Bold", size: 17))
             .frame(width: w, height: h)
             .padding()
-            .background(Color("Sub"))
+            .background(Color("sub"))
             .foregroundColor(Color.white)
             .cornerRadius(5.0)
     }
@@ -124,7 +124,7 @@ extension Text {
             .foregroundColor(Color.white)
             .font(Font.custom("NotoSansKR-Medium", size: 15))
             .frame(width: w, height: h)
-            .background(Color("Accent").cornerRadius(10))
+            .background(Color("accent").cornerRadius(10))
     }
     
     func DisabledRSquareButton(_ w: CGFloat, _ h: CGFloat) -> some View {
@@ -132,34 +132,34 @@ extension Text {
             .foregroundColor(Color.white)
             .font(Font.custom("NotoSansKR-Medium", size: 15))
             .frame(width: w, height: h)
-            .background(Color("Gray4").cornerRadius(10))
+            .background(Color("gray4").cornerRadius(10))
     }
     
     func gray1() -> Text {
-        self.foregroundColor(Color("Gray1"))
+        self.foregroundColor(Color("gray1"))
     }
     
     func gray2() -> Text {
-        self.foregroundColor(Color("Gray2"))
+        self.foregroundColor(Color("gray2"))
     }
     
     func gray3() -> Text {
-        self.foregroundColor(Color("Gray3"))
+        self.foregroundColor(Color("gray3"))
     }
     
     func gray4() -> Text {
-        self.foregroundColor(Color("Gray4"))
+        self.foregroundColor(Color("gray4"))
     }
     
     func gray5() -> Text {
-        self.foregroundColor(Color("Gray5"))
+        self.foregroundColor(Color("gray5"))
     }
     
     func gray6() -> Text {
-        self.foregroundColor(Color("Gray6"))
+        self.foregroundColor(Color("gray6"))
     }
     
     func gray7() -> Text {
-        self.foregroundColor(Color("Gray7"))
+        self.foregroundColor(Color("gray7"))
     }
 }

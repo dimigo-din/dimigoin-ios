@@ -19,9 +19,9 @@ struct LocationSelectionView: View {
                         self.currentLocation = 0
                     }) {
                         Circle()
-                            .fill(currentLocation == 0 ? Color("Accent") : Color.white)
+                            .fill(currentLocation == 0 ? Color("accent") : Color.white)
                             .frame(width: 40, height: 40)
-                            .shadow(color: Color("Gray4").opacity(0.12), radius: 5, x: 0, y: 0)
+                            .shadow(color: Color("gray4").opacity(0.12), radius: 5, x: 0, y: 0)
                             .overlay(
                                 Image(currentLocation == 0 ? "class-white" : "class")
                             )
@@ -34,9 +34,9 @@ struct LocationSelectionView: View {
                         self.currentLocation = 1
                     }) {
                         Circle()
-                            .fill(currentLocation == 1 ? Color("Accent") : Color.white)
+                            .fill(currentLocation == 1 ? Color("accent") : Color.white)
                             .frame(width: 40, height: 40)
-                            .shadow(color: Color("Gray4").opacity(0.12), radius: 5, x: 0, y: 0)
+                            .shadow(color: Color("gray4").opacity(0.12), radius: 5, x: 0, y: 0)
                             .overlay(
                                 Image(currentLocation == 1 ? "crossmark-white" : "crossmark")
                             )
@@ -50,9 +50,9 @@ struct LocationSelectionView: View {
                         self.currentLocation = 2
                     }) {
                         Circle()
-                            .fill(currentLocation == 2 ? Color("Accent") : Color.white)
+                            .fill(currentLocation == 2 ? Color("accent") : Color.white)
                             .frame(width: 40, height: 40)
-                            .shadow(color: Color("Gray4").opacity(0.12), radius: 5, x: 0, y: 0)
+                            .shadow(color: Color("gray4").opacity(0.12), radius: 5, x: 0, y: 0)
                             .overlay(
                                 Image(currentLocation == 2 ? "headphone-white" : "headphone")
                                     .resizable()
@@ -68,9 +68,9 @@ struct LocationSelectionView: View {
                         self.currentLocation = 3
                     }) {
                         Circle()
-                            .fill(currentLocation == 3 ? Color("Accent") : Color.white)
+                            .fill(currentLocation == 3 ? Color("accent") : Color.white)
                             .frame(width: 40, height: 40)
-                            .shadow(color: Color("Gray4").opacity(0.12), radius: 5, x: 0, y: 0)
+                            .shadow(color: Color("gray4").opacity(0.12), radius: 5, x: 0, y: 0)
                             .overlay(
                                 Image(currentLocation == 3 ? "laundry-white" : "laundry")
                             )
@@ -83,9 +83,9 @@ struct LocationSelectionView: View {
                         self.currentLocation = 4
                     }) {
                         Circle()
-                            .fill(currentLocation == 4 ? Color("Accent") : Color.white)
+                            .fill(currentLocation == 4 ? Color("accent") : Color.white)
                             .frame(width: 40, height: 40)
-                            .shadow(color: Color("Gray4").opacity(0.12), radius: 4, x: 0, y: 0)
+                            .shadow(color: Color("gray4").opacity(0.12), radius: 4, x: 0, y: 0)
                             .overlay(
                                 Image(currentLocation == 4 ? "club-white" : "club")
                             )
@@ -98,9 +98,9 @@ struct LocationSelectionView: View {
                         self.currentLocation = 5
                     }) {
                         Circle()
-                            .fill(currentLocation == 5 ? Color("Accent") : Color.white)
+                            .fill(currentLocation == 5 ? Color("accent") : Color.white)
                             .frame(width: 40, height: 40)
-                            .shadow(color: Color("Gray4").opacity(0.12), radius: 5, x: 0, y: 0)
+                            .shadow(color: Color("gray4").opacity(0.12), radius: 5, x: 0, y: 0)
                             .overlay(
                                 Image(currentLocation == 5 ? "etc-white" : "etc")
                             )

@@ -25,7 +25,7 @@ struct TapBar: View {
                         VSpacer(7.8)
                         Text("내정보")
                             .tapBarItem()
-                            .foregroundColor(self.index == 0 ? Color("Accent") : Color("Gray3"))
+                            .foregroundColor(self.index == 0 ? Color("accent") : Color("gray3"))
                         
                     }
 
@@ -41,7 +41,7 @@ struct TapBar: View {
                         VSpacer(7.8)
                         Text("인강실")
                             .tapBarItem()
-                            .foregroundColor(self.index == 1 ? Color("Accent") : Color("Gray3"))
+                            .foregroundColor(self.index == 1 ? Color("accent") : Color("gray3"))
                         
                     }
 
@@ -57,7 +57,7 @@ struct TapBar: View {
                         VSpacer(7.8)
                         Text("메인")
                             .tapBarItem()
-                            .foregroundColor(self.index == 2 ? Color("Accent") : Color("Gray3"))
+                            .foregroundColor(self.index == 2 ? Color("accent") : Color("gray3"))
                         
                     }
 
@@ -70,11 +70,11 @@ struct TapBar: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 24.2)
-                            .foregroundColor(self.index == 3 ? Color("Accent") : Color("Gray3"))
+                            .foregroundColor(self.index == 3 ? Color("accent") : Color("gray3"))
                         VSpacer(7.8)
                         Text("급식")
                             .tapBarItem()
-                            .foregroundColor(self.index == 3 ? Color("Accent") : Color("Gray3"))
+                            .foregroundColor(self.index == 3 ? Color("accent") : Color("gray3"))
                         
                     }
 
@@ -87,11 +87,11 @@ struct TapBar: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 24.2)
-                            .foregroundColor(self.index == 4 ? Color("Accent") : Color("Gray3"))
+                            .foregroundColor(self.index == 4 ? Color("accent") : Color("gray3"))
                         VSpacer(7.8)
                         Text("시간표")
                             .tapBarItem()
-                            .foregroundColor(self.index == 4 ? Color("Accent") : Color("Gray3"))
+                            .foregroundColor(self.index == 4 ? Color("accent") : Color("gray3"))
                         
                     }
 

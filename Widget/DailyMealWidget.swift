@@ -12,7 +12,7 @@ struct DailyMealWidget: View {
     var data: WidgetEntry
     var body: some View {
         ZStack {
-            Image("Logo").resizable().aspectRatio(contentMode: .fit).frame(width: 80).opacity(0.25)
+            Image("logo").resizable().aspectRatio(contentMode: .fit).frame(width: 80).opacity(0.25)
             VStack(alignment: .leading, spacing: 10) {
                 HStack{
                     Text("아침").accent().font(Font.custom("NotoSansKR-Bold", size: 16))

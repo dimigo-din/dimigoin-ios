@@ -31,7 +31,7 @@ struct HomeView: View {
                         Image("School").resizable().aspectRatio(contentMode: .fit).frame(width: UIScreen.screenWidth).opacity(0.3)
                     }
                     HStack {
-                        Image("Logo").resizable().aspectRatio(contentMode: .fit).frame(height: 38)
+                        Image("logo").resizable().aspectRatio(contentMode: .fit).frame(height: 38)
                         Spacer()
                         Button(action: {
                             showIdCard.toggle()
@@ -43,7 +43,7 @@ struct HomeView: View {
                                 .frame(width: 38)
                                 .clipShape(Circle())
                                 .overlay(
-                                    Circle().stroke(Color("Accent"), lineWidth: 2)
+                                    Circle().stroke(Color("accent"), lineWidth: 2)
                                 )
                         }
                     }.horizonPadding()

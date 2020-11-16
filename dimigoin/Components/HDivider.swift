@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct HDivider: View {
-    let color: Color = Color("Gray8")
+    let color: Color = Color("gray8")
     let width: CGFloat = 2
     var body: some View {
         Rectangle()

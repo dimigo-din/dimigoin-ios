@@ -17,10 +17,10 @@ struct AlertView: View {
     func getAccentColor(_ alertType: AlertType) -> Color {
         var colorName: String = "purple"
         switch alertType {
-            case .cancel: colorName = "Gray4"
-            case .success: colorName = "Accent"
-            case .warning: colorName = "Yellow"
-            case .danger: colorName = "Red"
+            case .cancel: colorName = "gray4"
+            case .success: colorName = "accent"
+            case .warning: colorName = "yellow"
+            case .danger: colorName = "red"
         }
         return Color(colorName)
     }

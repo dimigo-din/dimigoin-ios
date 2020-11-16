@@ -16,7 +16,7 @@ struct StudentIdCardModalView: View {
     @State var startPos = CGPoint(x: 0, y:0)
     var body: some View {
         ZStack{
-            Rectangle().fill(Color("Gray2")).edgesIgnoringSafeArea(.all).opacity(isShowing ? 0.7 : 0).animation(.spring())
+            Rectangle().fill(Color("gray2")).edgesIgnoringSafeArea(.all).opacity(isShowing ? 0.7 : 0).animation(.spring())
             VStack {
                 HStack {
                     Spacer()
@@ -24,7 +24,7 @@ struct StudentIdCardModalView: View {
                         self.isShowing.toggle()
                     }) {
                         Image(systemName: "xmark").resizable().aspectRatio(contentMode: .fit).frame(width: 16)
-                            .foregroundColor(Color("Gray1")).padding()
+                            .foregroundColor(Color("gray1")).padding()
                     }
                 }
                 Image("userPhoto-sample").resizable().aspectRatio(contentMode: .fit).frame(width: 131)
