@@ -2,7 +2,7 @@
 //  VSpacer.swift
 //  dimigoin
 //
-//  Created by 엄서훈 on 2020/07/04.
+//  Created by 변경민 on 2020/11/16.
 //  Copyright © 2020 seohun. All rights reserved.
 //
 

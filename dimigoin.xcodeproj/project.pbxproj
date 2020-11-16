@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		086CC54D24AF816200456846 /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54C24AF816200456846 /* VSpacer.swift */; };
 		086CC54F24AF819400456846 /* HSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54E24AF819400456846 /* HSpacer.swift */; };
 		086CC55124AF849D00456846 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC55024AF849D00456846 /* TextStyles.swift */; };
 		088E5D4D24A889CB0031342D /* CardViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088E5D4C24A889CB0031342D /* CardViewModifier.swift */; };
@@ -23,7 +22,6 @@
 		08C9AC1C24A74A83002AF525 /* IngangItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9AC0D24A74A83002AF525 /* IngangItem.swift */; };
 		420D92672557F79300CDF76A /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC55024AF849D00456846 /* TextStyles.swift */; };
 		420D92712557F79F00CDF76A /* HSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54E24AF819400456846 /* HSpacer.swift */; };
-		420D927B2557F7A200CDF76A /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54C24AF816200456846 /* VSpacer.swift */; };
 		420D9285255800C700CDF76A /* CopyrightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C487C924DDB73000C594CB /* CopyrightText.swift */; };
 		42364EAC24B14E02008427D5 /* KeyboardResponsive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42364EAB24B14E02008427D5 /* KeyboardResponsive.swift */; };
 		423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71EF24B191AF0099CE3E /* ClearButton.swift */; };
@@ -32,6 +30,8 @@
 		4250012625595F9E00C593CF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250012525595F9E00C593CF /* Alert.swift */; };
 		42524E22256217040021F48B /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42524E21256217040021F48B /* DimigoinKit */; };
 		42524E262562175B0021F48B /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42524E252562175B0021F48B /* DimigoinKit */; };
+		42524E2C25621BF30021F48B /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524E2B25621BF30021F48B /* VSpacer.swift */; };
+		42524E2D25621BF30021F48B /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524E2B25621BF30021F48B /* VSpacer.swift */; };
 		4288B938253E57260022B11A /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4288B937253E57260022B11A /* Notification.swift */; };
 		428DC35E255EC40F00A4A7B5 /* WeeklyMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */; };
 		42ABA08A255F5690001925BE /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA089255F5690001925BE /* TimetableView.swift */; };
@@ -114,7 +114,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		086CC54C24AF816200456846 /* VSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSpacer.swift; sourceTree = "<group>"; };
 		086CC54E24AF819400456846 /* HSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSpacer.swift; sourceTree = "<group>"; };
 		086CC55024AF849D00456846 /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
 		088E5D4C24A889CB0031342D /* CardViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModifier.swift; sourceTree = "<group>"; };
@@ -138,6 +137,7 @@
 		423B71F324B1B3F60099CE3E /* CustomBoxModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBoxModifier.swift; sourceTree = "<group>"; };
 		4250011B25595C2900C593CF /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		4250012525595F9E00C593CF /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		42524E2B25621BF30021F48B /* VSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSpacer.swift; sourceTree = "<group>"; };
 		4288B937253E57260022B11A /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		428DC354255EB4F300A4A7B5 /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
 		428DC355255EB4F400A4A7B5 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
@@ -297,8 +297,8 @@
 				42EFCE032558340000F3DC5E /* MealItem.swift */,
 				42EFCE15255848C300F3DC5E /* LocationSelection.swift */,
 				42EFCDD72558188100F3DC5E /* TapBar.swift */,
-				086CC54C24AF816200456846 /* VSpacer.swift */,
 				086CC54E24AF819400456846 /* HSpacer.swift */,
+				42524E2B25621BF30021F48B /* VSpacer.swift */,
 				08C9AC0D24A74A83002AF525 /* IngangItem.swift */,
 				42C487C924DDB73000C594CB /* CopyrightText.swift */,
 				42EFCDFD255829B100F3DC5E /* SectionHeader.swift */,
@@ -504,10 +504,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42524E2C25621BF30021F48B /* VSpacer.swift in Sources */,
 				08C9AC1724A74A83002AF525 /* MainView.swift in Sources */,
 				42C72C052559FED900E3294E /* StudentIdCardView.swift in Sources */,
 				42EFCE042558340000F3DC5E /* MealItem.swift in Sources */,
-				086CC54D24AF816200456846 /* VSpacer.swift in Sources */,
 				08C9ABE924A74A53002AF525 /* AppDelegate.swift in Sources */,
 				42C487CA24DDB73000C594CB /* CopyrightText.swift in Sources */,
 				088E5D4D24A889CB0031342D /* CardViewModifier.swift in Sources */,
@@ -554,7 +554,7 @@
 				420D9285255800C700CDF76A /* CopyrightText.swift in Sources */,
 				420D92672557F79300CDF76A /* TextStyles.swift in Sources */,
 				42B79D8D253FD7D7003A8A7F /* NextMealWidget.swift in Sources */,
-				420D927B2557F7A200CDF76A /* VSpacer.swift in Sources */,
+				42524E2D25621BF30021F48B /* VSpacer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
