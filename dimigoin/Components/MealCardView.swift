@@ -22,7 +22,7 @@ struct MealPagerView: View {
                     }
                     VSpacer(10)
                     HStack {
-                        Text("\(dummyDimibob.breakfast)").mealMenu().horizonPadding()
+                        Text("\(mealAPI.getTodayMeal().breakfast)").mealMenu().horizonPadding()
                         Spacer()
                     }
                     Spacer()
@@ -35,7 +35,7 @@ struct MealPagerView: View {
                     }
                     VSpacer(10)
                     HStack {
-                        Text("\(dummyDimibob.lunch)").mealMenu().horizonPadding()
+                        Text("\(mealAPI.getTodayMeal().lunch)").mealMenu().horizonPadding()
                         Spacer()
                     }
                     Spacer()
@@ -48,7 +48,7 @@ struct MealPagerView: View {
                     }
                     VSpacer(10)
                     HStack {
-                        Text("\(dummyDimibob.dinner)").mealMenu().horizonPadding()
+                        Text("\(mealAPI.getTodayMeal().dinner)").mealMenu().horizonPadding()
                         Spacer()
                     }
                     Spacer()
