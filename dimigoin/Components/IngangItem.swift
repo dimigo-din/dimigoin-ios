@@ -64,6 +64,7 @@ struct IngangItem: View {
                             case 500: // some error occured
                                 alertManager.createAlert("신청에 실패했습니다", sub: "디미고인 시스템이 망가진거 같아요", .warning)
                             default:
+                                alertManager.createAlert("오류가 발생했습니다.", sub: "다시시도해주세요", .warning)
                                 self.tokenAPI.refreshTokens()
                                 debugPrint(response)
                             }
@@ -102,6 +103,7 @@ struct IngangItem: View {
                             case 500: // some error occured
                                 alertManager.createAlert("취소에 실패했습니다", sub: "디미고인 시스템이 망가진거 같아요", .danger)
                             default:
+                                alertManager.createAlert("오류가 발생했습니다.", sub: "다시시도해주세요", .warning)
                                 self.tokenAPI.refreshTokens()
                                 debugPrint(response)
                             }
