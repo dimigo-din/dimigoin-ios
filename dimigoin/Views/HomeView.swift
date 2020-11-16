@@ -28,7 +28,7 @@ struct HomeView: View {
                         } else {
                             VSpacer(20)
                         }
-                        Image("School").resizable().aspectRatio(contentMode: .fit).frame(width: UIScreen.screenWidth).opacity(0.3)
+                        Image("school").resizable().aspectRatio(contentMode: .fit).frame(width: UIScreen.screenWidth).opacity(0.3)
                     }
                     HStack {
                         Image("logo").resizable().aspectRatio(contentMode: .fit).frame(height: 38)

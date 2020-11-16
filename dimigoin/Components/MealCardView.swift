@@ -66,11 +66,11 @@ struct MealPagerView: View {
 }
 
 struct PagerView<Content: View>: View {
-    let pageCount: Int
     @Binding var currentIndex: Int
+    @GestureState private var translation: CGFloat = 0
+    let pageCount: Int
     let content: Content
 
-    @GestureState private var translation: CGFloat = 0
 
     init(pageCount: Int, currentIndex: Binding<Int>, @ViewBuilder content: () -> Content) {
         self.pageCount = pageCount

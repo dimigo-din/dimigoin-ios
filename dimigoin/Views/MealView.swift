@@ -30,7 +30,7 @@ struct MealView: View {
                 HDivider().horizonPadding().offset(y: -15)
                 MealItem("아침", "오전 7시 30분", mealAPI.getTodayMeal().breakfast)
                 VSpacer(20)
-                MealItem("점심", "오전 12시 50분", mealAPI.getTodayMeal().lunch)
+                MealItem("점심", "오후 12시 50분", mealAPI.getTodayMeal().lunch)
                 VSpacer(20)
                 MealItem("저녁", "오후 6시 35분", mealAPI.getTodayMeal().dinner)
                 Spacer()
