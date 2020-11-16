@@ -23,11 +23,12 @@ struct MealItem: View {
             Text(self.content)
                 .mealMenu()
                 .padding()
+                .frame(width: UIScreen.screenWidth-40)
                 .padding(.trailing)
                 .background(CustomBox())
                 .horizonPadding()
                 .fixedSize(horizontal: false, vertical: true)
-                .frame(width: UIScreen.screenWidth-40)
+                
         }
     }
 }
