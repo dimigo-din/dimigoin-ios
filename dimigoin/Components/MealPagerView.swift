@@ -29,6 +29,7 @@ struct MealPagerView: View {
                     Spacer()
                 }.padding(.top)
                 .modifier(CardViewModifier(305,147))
+                HSpacer(15)
                 VStack(alignment: .leading){
                     HStack {
                         Text("점심").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("accent")).horizonPadding()
@@ -42,6 +43,7 @@ struct MealPagerView: View {
                     Spacer()
                 }.padding(.top)
                 .modifier(CardViewModifier(305,147))
+                HSpacer(15)
                 VStack(alignment: .leading){
                     HStack {
                         Text("저녁").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("accent")).horizonPadding()
@@ -83,11 +85,10 @@ struct PagerView<Content: View>: View {
     var body: some View {
         GeometryReader { geometry in
             HStack {
-                self.content.frame(width: geometry.size.width*0.80)
+                self.content
             }
-            .frame(width: geometry.size.width*0.80, alignment: .leading)
-            .offset(x: -CGFloat(self.currentIndex) * (geometry.size.width*0.80))
-            .offset(x: self.translation)
+            .offset(x: -CGFloat(self.currentIndex) * 305 + self.translation)
+            .offset(x: -CGFloat((currentIndex*15)) + (UIScreen.screenWidth-305)/2)
             .animation(.spring())
             .gesture(
                 DragGesture().updating(self.$translation) { value, state, _ in
@@ -97,12 +98,12 @@ struct PagerView<Content: View>: View {
                         self.startPos = gesture.location
                     }
                     .onEnded { gesture in
-                        let xDist =  abs(gesture.location.x - self.startPos.x)
-                        let yDist =  abs(gesture.location.y - self.startPos.y)
+                        let xDist = abs(gesture.location.x - self.startPos.x)
+                        let yDist = abs(gesture.location.y - self.startPos.y)
                         
                         if self.startPos.x > gesture.location.x && yDist < xDist {
                             // left
-                            if abs(self.dragOffset.width) > 30 {
+                            if abs(self.dragOffset.width) > 10 {
                                 if currentIndex != 2 {
                                     self.currentIndex += 1
                                 }
@@ -113,7 +114,7 @@ struct PagerView<Content: View>: View {
                         }
                         else if self.startPos.x < gesture.location.x && yDist < xDist {
                             // right
-                            if abs(self.dragOffset.width) > 30 {
+                            if abs(self.dragOffset.width) > 10 {
                                 if currentIndex != 0 {
                                     self.currentIndex -= 1
                                 }
@@ -125,7 +126,6 @@ struct PagerView<Content: View>: View {
                         
                     }
             )
-            .padding(.leading, geometry.size.width*0.1)
         }
     }
 }

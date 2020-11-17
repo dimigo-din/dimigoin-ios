@@ -123,10 +123,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     static var orientationLock = UIInterfaceOrientationMask.portrait
 
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return AppDelegate.orientationLock
-        }
-        return UIInterfaceOrientationMask.all
+//        if UIDevice.current.userInterfaceIdiom == .phone {
+//            return AppDelegate.orientationLock
+//        }
+//        return UIInterfaceOrientationMask.all
+        return AppDelegate.orientationLock
     }
 }
 
