@@ -12,17 +12,12 @@ import SwiftyJSON
 import DimigoinKit
 
 struct LoginView: View {
-    @ObservedObject var tokenAPI: TokenAPI
-    @ObservedObject var alertManager: AlertManager
+    @EnvironmentObject var tokenAPI: TokenAPI
+    @EnvironmentObject var alertManager: AlertManager
     @State var id = ""
     @State var password = ""
     @State var showErrorMessage:Bool = false
     @State var isLoading: Bool = false
-    
-    init(tokenAPI: TokenAPI, alertManager: AlertManager) {
-        self.tokenAPI = tokenAPI
-        self.alertManager = alertManager
-    }
     
     var body: some View {
         ZStack {

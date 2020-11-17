@@ -11,7 +11,7 @@ import DimigoinKit
 
 struct StudentIdCardModalView: View {
     @Binding var isShowing: Bool
-    @ObservedObject var userAPI: UserAPI
+    @EnvironmentObject var userAPI: UserAPI
     @State var dragOffset = CGSize.zero
     @State var startPos = CGPoint(x: 0, y:0)
     var body: some View {

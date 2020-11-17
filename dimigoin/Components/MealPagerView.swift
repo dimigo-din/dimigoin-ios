@@ -10,8 +10,9 @@ import SwiftUI
 import DimigoinKit
 
 struct MealPagerView: View {
-    @ObservedObject var mealAPI: MealAPI
-    @Binding var currentCardIdx: Int
+    @EnvironmentObject var mealAPI: MealAPI
+    @State var currentCardIdx: Int = 0
+    
     var body: some View {
         VStack {
             PagerView(pageCount: 3, currentIndex: $currentCardIdx) {

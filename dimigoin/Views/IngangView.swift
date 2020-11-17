@@ -12,10 +12,9 @@ import SwiftyJSON
 import DimigoinKit
 
 struct IngangView: View {
-    @ObservedObject var ingangAPI: IngangAPI
-    @ObservedObject var tokenAPI: TokenAPI
-    @ObservedObject var alertManager: AlertManager
-    @State private var showingCustomWindow = false
+    @EnvironmentObject var ingangAPI: IngangAPI
+    @EnvironmentObject var tokenAPI: TokenAPI
+    @EnvironmentObject var alertManager: AlertManager
     
     var body: some View {
         if(isWeekday()) {
@@ -44,7 +43,10 @@ struct IngangView: View {
                     }.horizonPadding()
                     .padding(.top, 40)
                     ForEach(ingangAPI.ingangs, id: \.self) { ingang in
-                        IngangItem(ingangAPI: ingangAPI, tokenAPI: tokenAPI, ingang: ingang, alertManager: alertManager)
+                        IngangItem(ingang: ingang)
+                            .environmentObject(ingangAPI)
+                            .environmentObject(tokenAPI)
+                            .environmentObject(alertManager)
                     }
                 }
             }

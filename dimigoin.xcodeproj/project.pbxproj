@@ -31,11 +31,10 @@
 		42524E262562175B0021F48B /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42524E252562175B0021F48B /* DimigoinKit */; };
 		42524E2C25621BF30021F48B /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524E2B25621BF30021F48B /* VSpacer.swift */; };
 		42524E2D25621BF30021F48B /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524E2B25621BF30021F48B /* VSpacer.swift */; };
-		4288B938253E57260022B11A /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4288B937253E57260022B11A /* Notification.swift */; };
 		428DC35E255EC40F00A4A7B5 /* WeeklyMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */; };
 		42ABA08A255F5690001925BE /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA089255F5690001925BE /* TimetableView.swift */; };
 		42ABA090255F57E7001925BE /* HDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA08F255F57E7001925BE /* HDivider.swift */; };
-		42ABA0A4255F6247001925BE /* MealCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0A3255F6247001925BE /* MealCardView.swift */; };
+		42ABA0A4255F6247001925BE /* MealPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0A3255F6247001925BE /* MealPagerView.swift */; };
 		42ABA0AE255FA58B001925BE /* StudentIdCardModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0AD255FA58B001925BE /* StudentIdCardModalView.swift */; };
 		42ABA0B2255FA725001925BE /* CustomBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0B1255FA725001925BE /* CustomBox.swift */; };
 		42ABA0B9255FB88C001925BE /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 42ABA0B8255FB88C001925BE /* KingfisherSwiftUI */; };
@@ -139,7 +138,6 @@
 		4250011B25595C2900C593CF /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		4250012525595F9E00C593CF /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		42524E2B25621BF30021F48B /* VSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSpacer.swift; sourceTree = "<group>"; };
-		4288B937253E57260022B11A /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		428DC354255EB4F300A4A7B5 /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
 		428DC355255EB4F400A4A7B5 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		428DC356255EB4F400A4A7B5 /* Openas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Openas.ttf; sourceTree = "<group>"; };
@@ -151,7 +149,7 @@
 		429FD87F24B202DA003A49AF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		42ABA089255F5690001925BE /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
 		42ABA08F255F57E7001925BE /* HDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDivider.swift; sourceTree = "<group>"; };
-		42ABA0A3255F6247001925BE /* MealCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCardView.swift; sourceTree = "<group>"; };
+		42ABA0A3255F6247001925BE /* MealPagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPagerView.swift; sourceTree = "<group>"; };
 		42ABA0AD255FA58B001925BE /* StudentIdCardModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIdCardModalView.swift; sourceTree = "<group>"; };
 		42ABA0B1255FA725001925BE /* CustomBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBox.swift; sourceTree = "<group>"; };
 		42ABA0C4255FC4E2001925BE /* HorizonPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizonPadding.swift; sourceTree = "<group>"; };
@@ -269,7 +267,6 @@
 		08C9ABFF24A74A83002AF525 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4288B937253E57260022B11A /* Notification.swift */,
 				4250012525595F9E00C593CF /* Alert.swift */,
 			);
 			path = Model;
@@ -308,7 +305,7 @@
 				42EFCDFD255829B100F3DC5E /* SectionHeader.swift */,
 				42EFCE2D255852DD00F3DC5E /* ViewTitle.swift */,
 				42ABA08F255F57E7001925BE /* HDivider.swift */,
-				42ABA0A3255F6247001925BE /* MealCardView.swift */,
+				42ABA0A3255F6247001925BE /* MealPagerView.swift */,
 				42ABA0B1255FA725001925BE /* CustomBox.swift */,
 				42ABA0C4255FC4E2001925BE /* HorizonPadding.swift */,
 			);
@@ -611,7 +608,7 @@
 				42ABA0AE255FA58B001925BE /* StudentIdCardModalView.swift in Sources */,
 				08C9AC1024A74A83002AF525 /* TextFieldModifier.swift in Sources */,
 				42EFCE16255848C300F3DC5E /* LocationSelection.swift in Sources */,
-				42ABA0A4255F6247001925BE /* MealCardView.swift in Sources */,
+				42ABA0A4255F6247001925BE /* MealPagerView.swift in Sources */,
 				42ABA0C5255FC4E2001925BE /* HorizonPadding.swift in Sources */,
 				42EFCDD22558141000F3DC5E /* ProfileView.swift in Sources */,
 				42EFCE2E255852DD00F3DC5E /* ViewTitle.swift in Sources */,
@@ -619,7 +616,6 @@
 				08C9ABEB24A74A53002AF525 /* SceneDelegate.swift in Sources */,
 				423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */,
 				086CC55124AF849D00456846 /* TextStyles.swift in Sources */,
-				4288B938253E57260022B11A /* Notification.swift in Sources */,
 				08C9ABED24A74A53002AF525 /* ContentView.swift in Sources */,
 				4250011C25595C2900C593CF /* AlertView.swift in Sources */,
 			);

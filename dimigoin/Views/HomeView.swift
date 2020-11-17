@@ -10,13 +10,13 @@ import SwiftUI
 import DimigoinKit
 
 struct HomeView: View {
-    @ObservedObject var mealAPI: MealAPI
-    @ObservedObject var alertManager: AlertManager
-    @ObservedObject var tokenAPI : TokenAPI
-    @ObservedObject var userAPI: UserAPI
+    @EnvironmentObject var mealAPI: MealAPI
+    @EnvironmentObject var alertManager: AlertManager
+    @EnvironmentObject var tokenAPI : TokenAPI
+    @EnvironmentObject var userAPI: UserAPI
     @Binding var showIdCard: Bool
     @State var currentLocation = 0
-    @State var currentCardIdx = 0
+//    @State var currentCardIdx = 0
     
     var body: some View {
         ScrollView(showsIndicators: false){
@@ -52,7 +52,8 @@ struct HomeView: View {
                 LocationSelectionView(currentLocation: $currentLocation)
                 Spacer()
                 Text("오늘의 급식").font(Font.custom("NotoSansKR-Bold", size: 20)).horizonPadding()
-                MealPagerView(mealAPI: mealAPI, currentCardIdx: $currentCardIdx)
+                MealPagerView()
+                    .environmentObject(mealAPI)
             }
         }
     }

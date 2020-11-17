@@ -11,10 +11,10 @@ import Alamofire
 import DimigoinKit
 
 struct IngangItem: View {
-    @ObservedObject var ingangAPI: IngangAPI
-    @ObservedObject var tokenAPI: TokenAPI
+    @EnvironmentObject var ingangAPI: IngangAPI
+    @EnvironmentObject var tokenAPI: TokenAPI
+    @EnvironmentObject var alertManager: AlertManager
     @State var ingang: Ingang
-    @ObservedObject var alertManager: AlertManager
     
     var body: some View {
         VStack {

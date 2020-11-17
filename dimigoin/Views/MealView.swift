@@ -10,11 +10,7 @@ import SwiftUI
 import DimigoinKit
 
 struct MealView: View {
-    @ObservedObject var mealAPI: MealAPI
-    
-    init(mealAPI: MealAPI) {
-        self.mealAPI = mealAPI
-    }
+    @EnvironmentObject var mealAPI: MealAPI
     
     var body: some View {
         NavigationView {

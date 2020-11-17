@@ -13,9 +13,3 @@ struct WeeklyMealView: View {
         Text("WeeklyMealVIew")
     }
 }
-
-struct WeeklyMealView_Previews: PreviewProvider {
-    static var previews: some View {
-        WeeklyMealView()
-    }
-}

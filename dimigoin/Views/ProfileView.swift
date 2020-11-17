@@ -10,9 +10,10 @@ import SwiftUI
 import DimigoinKit
 
 struct ProfileView: View {
-    @ObservedObject var userAPI: UserAPI
-    @ObservedObject var tokenAPI: TokenAPI
-    @ObservedObject var alertManager: AlertManager
+    @EnvironmentObject var userAPI: UserAPI
+    @EnvironmentObject var tokenAPI: TokenAPI
+    @EnvironmentObject var alertManager: AlertManager
+    
     var body: some View {
         ScrollView {
             HStack {

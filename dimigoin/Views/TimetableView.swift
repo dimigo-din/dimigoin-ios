@@ -10,8 +10,9 @@ import SwiftUI
 import DimigoinKit
 
 struct TimetableView: View {
-    @ObservedObject var timetableAPI: TimetableAPI
-    @ObservedObject var userAPI: UserAPI
+    @EnvironmentObject var timetableAPI: TimetableAPI
+    @EnvironmentObject var userAPI: UserAPI
+    
     var body: some View {
         ScrollView {
             HStack {

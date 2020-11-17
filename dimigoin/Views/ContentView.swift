@@ -11,17 +11,20 @@ import DimigoinKit
 
 struct ContentView: View {
     @ObservedObject var tokenAPI = TokenAPI()
-    @State var alertManager = AlertManager()
+    @ObservedObject var alertManager = AlertManager()
     
     var body: some View { // check if token exist
         Group {
             if(tokenAPI.tokenStatus == .exist) {
-                MainView(tokenAPI: tokenAPI, alertManager: alertManager)
+                MainView()
+                    .environmentObject(tokenAPI)
+                    .environmentObject(alertManager)
             }
             else if(tokenAPI.tokenStatus == .none) {
-                LoginView(tokenAPI: tokenAPI, alertManager: alertManager)
+                LoginView()
+                    .environmentObject(tokenAPI)
+                    .environmentObject(alertManager)
             }
         }
     }
 }
-
