@@ -120,6 +120,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
       completionHandler(UIBackgroundFetchResult.newData)
     }
     
+    static var orientationLock = UIInterfaceOrientationMask.portrait
+
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return AppDelegate.orientationLock
+        }
+        return UIInterfaceOrientationMask.all
+    }
 }
 
 extension UIScreen{

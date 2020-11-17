@@ -18,13 +18,13 @@ struct MainView: View {
     @ObservedObject var ingangAPI = IngangAPI()
     @ObservedObject var userAPI = UserAPI()
     @ObservedObject var timetableAPI = TimetableAPI()
-    @State var index = 2
+    @State var tapbarIndex = 2
     @State var showIdCard = false
     
     var body: some View {
         ZStack {
             VStack {
-                switch self.index {
+                switch self.tapbarIndex {
                     case 0: ProfileView()
                         .environmentObject(alertManager)
                         .environmentObject(tokenAPI)
@@ -45,7 +45,7 @@ struct MainView: View {
                         .environmentObject(userAPI)
                     default: Text("Error")
                 }
-                TapBar(index: self.$index)
+                TapBar(index: self.$tapbarIndex)
             }
             StudentIdCardModalView(isShowing: $showIdCard)
                 .environmentObject(userAPI)

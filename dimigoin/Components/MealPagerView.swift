@@ -69,11 +69,10 @@ struct MealPagerView: View {
 struct PagerView<Content: View>: View {
     @Binding var currentIndex: Int
     @GestureState private var translation: CGFloat = 0
-    let pageCount: Int
-    let content: Content
     @State var dragOffset = CGSize.zero
     @State var startPos = CGPoint(x: 0, y:0)
-
+    let pageCount: Int
+    let content: Content
 
     init(pageCount: Int, currentIndex: Binding<Int>, @ViewBuilder content: () -> Content) {
         self.pageCount = pageCount
@@ -83,23 +82,13 @@ struct PagerView<Content: View>: View {
 
     var body: some View {
         GeometryReader { geometry in
-            HStack(spacing: 0) {
-                self.content.frame(width: geometry.size.width*0.85)
+            HStack {
+                self.content.frame(width: geometry.size.width*0.80)
             }
-            .frame(width: geometry.size.width*0.85, alignment: .leading)
-            .offset(x: -CGFloat(self.currentIndex) * (geometry.size.width*0.85))
+            .frame(width: geometry.size.width*0.80, alignment: .leading)
+            .offset(x: -CGFloat(self.currentIndex) * (geometry.size.width*0.80))
             .offset(x: self.translation)
             .animation(.spring())
-//            .gesture(
-//                DragGesture().updating(self.$translation) { value, state, _ in
-//                    state = value.translation.width
-//                }.onEnded { value in
-//
-//                    let offset = value.translation.width / (geometry.size.width*0.85)
-//                    let newIndex = (CGFloat(self.currentIndex) - offset).rounded()
-//                    self.currentIndex = min(max(Int(newIndex), 0), self.pageCount - 1)
-//                }
-//            )
             .gesture(
                 DragGesture().updating(self.$translation) { value, state, _ in
                             state = value.translation.width
@@ -113,8 +102,10 @@ struct PagerView<Content: View>: View {
                         
                         if self.startPos.x > gesture.location.x && yDist < xDist {
                             // left
-                            if abs(self.dragOffset.width) > 40 {
-                                self.currentIndex += 1
+                            if abs(self.dragOffset.width) > 30 {
+                                if currentIndex != 2 {
+                                    self.currentIndex += 1
+                                }
                                 self.dragOffset = .zero
                             } else {
                                 self.dragOffset = .zero
@@ -122,8 +113,10 @@ struct PagerView<Content: View>: View {
                         }
                         else if self.startPos.x < gesture.location.x && yDist < xDist {
                             // right
-                            if abs(self.dragOffset.width) > 40 {
-                                self.currentIndex -= 1
+                            if abs(self.dragOffset.width) > 30 {
+                                if currentIndex != 0 {
+                                    self.currentIndex -= 1
+                                }
                                 self.dragOffset = .zero
                             } else {
                                 self.dragOffset = .zero
@@ -132,7 +125,7 @@ struct PagerView<Content: View>: View {
                         
                     }
             )
-            .padding(.leading, geometry.size.width*0.075)
+            .padding(.leading, geometry.size.width*0.1)
         }
     }
 }
