@@ -41,12 +41,12 @@ struct Provider : TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<WidgetEntry>) -> Void) {
         let url = "https://api.dimigo.in/dimibobs/\(getFormattedDate())"
         AF.request(url, method: .get, encoding: JSONEncoding.default).responseData { response in
-            let json = JSON(response.value!)
+            let json = JSON(response.value ?? [])
             let date = Date()
             let data = WidgetEntry(date: Date(),
-                                   meals: Dimibob(breakfast: json["breakfast"].string!,
-                                                 lunch: json["lunch"].string!,
-                                                 dinner: json["dinner"].string!))
+                                   meals: Dimibob(breakfast: json["breakfast"].string ?? "급식 정보가 없습니다",
+                                                 lunch: json["lunch"].string ?? "급식 정보가 없습니다",
+                                                 dinner: json["dinner"].string ?? "급식 정보가 없습니다"))
             let nextUpdate = Calendar.current.date(byAdding: .minute, value: 15, to: date)
             let timeline = Timeline(entries: [data], policy: .after(nextUpdate!))
             completion(timeline)
