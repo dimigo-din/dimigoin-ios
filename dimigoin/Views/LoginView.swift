@@ -80,7 +80,8 @@ struct LoginView: View {
                 }
             }
             if(alertManager.isShowing) {
-                AlertView(alertType: alertManager.alertType, content: alertManager.content, sub: alertManager.sub, isShowing: $alertManager.isShowing)
+                AlertView(isShowing: $alertManager.isShowing)
+                    .environmentObject(alertManager)
             }
             
         }

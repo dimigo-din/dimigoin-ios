@@ -79,7 +79,6 @@ extension Text {
     func logoFont() -> Text {
         self.font(Font.custom("Openas", size: 57))
     }
-    
     func heavy() -> Text {
         self.fontWeight(.heavy)
     }

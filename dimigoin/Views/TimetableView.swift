@@ -26,6 +26,87 @@ struct TimetableView: View {
             }.horizonPadding()
             .padding(.top, 40)
             HDivider().horizonPadding().offset(y: -15)
+            TimetableItem(grade: userAPI.user.grade, klass: userAPI.user.klass)
+                .environmentObject(timetableAPI)
+        }
+    }
+}
+
+struct TimetableItem: View{
+    @EnvironmentObject var timetableAPI: TimetableAPI
+    @State var grade: Int
+    @State var klass: Int
+    var dayIndicatorXOffset: CGFloat = CGFloat(getIntDay()-1)*(UIScreen.screenWidth-40)/5
+    
+    var body: some View {
+        VStack {
+            if #available(iOS 14.0, *) {
+                HStack {
+                    Picker(selection: $grade, label: Text("\(grade)학년").accent().sectionHeader()) {
+                        Text("1학년").tag(1)
+                        Text("2학년").tag(2)
+                        Text("3학년").tag(3)
+                    }.pickerStyle(MenuPickerStyle())
+                    Picker(selection: $klass, label: Text("\(klass)반").accent().sectionHeader()) {
+                        Text("1반").tag(1)
+                        Text("2반").tag(2)
+                        Text("3반").tag(3)
+                        Text("4반").tag(4)
+                        Text("5반").tag(5)
+                        Text("6반").tag(6)
+                    }.pickerStyle(MenuPickerStyle())
+                }.horizonPadding()
+            }
+            
+            VSpacer(10)
+            if(isWeekday()) {
+                ZStack(alignment: .topLeading){
+                    HStack(alignment: .top, spacing: 0) {
+                        ForEach(1...5, id: \.self) { day in
+                            VStack {
+                                Text("\(getDay(day))").font(Font.custom("NotoSansKR-Bold", size: 20))
+                                    .foregroundColor(Color(getIntDay() == day ? "accent" : "gray4"))
+                                VSpacer(20)
+                                ForEach(timetableAPI.getTimetable(grade: grade, klass: klass).data[day-1], id: \.self) { lecture in
+                                    Text("\(lecture)")
+                                        .frame(width: (UIScreen.screenWidth-40)/5, height: 20)
+                                        .padding(.vertical, 4)
+                                        .font(Font.custom("NotoSansKR-Regular", size: 14))
+                                        .foregroundColor(Color(getIntDay() == day ? "accent" : "gray4"))
+                                }
+                            }.padding(.vertical, 5)
+                            .background(Color("accent").opacity(getIntDay() == day ? 0.09 : 0).cornerRadius(5))
+                        }
+                    }
+                    Divider().offset(y: 45)
+                    Rectangle()
+                        .fill(Color("accent"))
+                        .frame(width: (UIScreen.screenWidth-40)/5, height: 3)
+                        .cornerRadius(2)
+                        .offset(x: dayIndicatorXOffset, y: 44)
+                }.horizonPadding()
+            } else {
+                ZStack(alignment: .topLeading){
+                    HStack(alignment: .top, spacing: 0) {
+                        ForEach(1...5, id: \.self) { day in
+                            VStack {
+                                Text("\(getDay(day))").font(Font.custom("NotoSansKR-Bold", size: 20))
+                                    .foregroundColor(Color("gray4"))
+                                VSpacer(20)
+                                ForEach(timetableAPI.getTimetable(grade: grade, klass: klass).data[day-1], id: \.self) { lecture in
+                                    Text("\(lecture)")
+                                        .frame(width: (UIScreen.screenWidth-40)/5, height: 20)
+                                        .padding(.vertical, 4)
+                                        .font(Font.custom("NotoSansKR-Regular", size: 14))
+                                        .foregroundColor(Color("gray4"))
+                                }
+                            }.padding(.vertical, 5)
+                        }
+                    }
+                    Divider().offset(y: 45)
+                }.horizonPadding()
+            }
+            
         }
     }
 }

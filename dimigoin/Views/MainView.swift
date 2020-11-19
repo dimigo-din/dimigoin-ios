@@ -10,6 +10,8 @@ import SwiftUI
 import UserNotifications
 import DimigoinKit
 
+
+
 struct MainView: View {
     @EnvironmentObject var alertManager: AlertManager
     @EnvironmentObject var tokenAPI: TokenAPI
@@ -26,17 +28,17 @@ struct MainView: View {
             VStack {
                 switch self.tapbarIndex {
                     case 0: ProfileView()
-                        .environmentObject(alertManager)
                         .environmentObject(tokenAPI)
+                        .environmentObject(alertManager)
                         .environmentObject(userAPI)
                     case 1: IngangView()
-                        .environmentObject(alertManager)
                         .environmentObject(tokenAPI)
+                        .environmentObject(alertManager)
                         .environmentObject(ingangAPI)
                     case 2: HomeView(showIdCard: $showIdCard)
+                        .environmentObject(tokenAPI)
                         .environmentObject(mealAPI)
                         .environmentObject(alertManager)
-                        .environmentObject(tokenAPI)
                         .environmentObject(userAPI)
                     case 3: MealView()
                         .environmentObject(mealAPI)
@@ -50,13 +52,9 @@ struct MainView: View {
             StudentIdCardModalView(isShowing: $showIdCard)
                 .environmentObject(userAPI)
             if(alertManager.isShowing) {
-                AlertView(alertType: alertManager.alertType,
-                          content: alertManager.content,
-                          sub: alertManager.sub,
-                          isShowing: $alertManager.isShowing)
+                AlertView(isShowing: $alertManager.isShowing)
+                    .environmentObject(alertManager)
             }
         }
     }
 }
-
-

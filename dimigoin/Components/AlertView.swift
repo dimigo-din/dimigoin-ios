@@ -9,9 +9,7 @@
 import SwiftUI
 
 struct AlertView: View {
-    @State var alertType: AlertType
-    @State var content: String
-    @State var sub: String
+    @EnvironmentObject var alertManager: AlertManager
     @Binding var isShowing: Bool
     
     func getAccentColor(_ alertType: AlertType) -> Color {
@@ -51,11 +49,11 @@ struct AlertView: View {
                 }
             VStack {
                 VSpacer(10)
-                Image(getIconName(alertType)).resizable().aspectRatio(contentMode: .fit).frame(width: 38).padding(.top)
+                Image(getIconName(alertManager.alertType)).resizable().aspectRatio(contentMode: .fit).frame(width: 38).padding(.top)
                 VSpacer(20)
-                Text(content).alertTitle(getAccentColor(alertType))
+                Text(alertManager.content).alertTitle(getAccentColor(alertManager.alertType))
                 VSpacer(10)
-                Text(sub).alertSubTitle().horizonPadding()
+                Text(alertManager.sub).alertSubTitle().horizonPadding()
                 VSpacer(20)
                 Divider()
                 Button(action: {
@@ -65,7 +63,7 @@ struct AlertView: View {
                 }
             }.frame(width: 300, height: 200)
             .background(
-                CustomBox(edgeInsets: .top, accentColor: getAccentColor(alertType), width: 5, tl: 2, tr: 2, bl: 2, br: 2)
+                CustomBox(edgeInsets: .top, accentColor: getAccentColor(alertManager.alertType), width: 5, tl: 2, tr: 2, bl: 2, br: 2)
             )
         }
     }
