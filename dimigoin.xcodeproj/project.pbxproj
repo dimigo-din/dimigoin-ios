@@ -27,8 +27,6 @@
 		423EDF4F256221B0009921AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 423EDF4E256221B0009921AE /* GoogleService-Info.plist */; };
 		4250011C25595C2900C593CF /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250011B25595C2900C593CF /* AlertView.swift */; };
 		4250012625595F9E00C593CF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250012525595F9E00C593CF /* Alert.swift */; };
-		42524E22256217040021F48B /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42524E21256217040021F48B /* DimigoinKit */; };
-		42524E262562175B0021F48B /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42524E252562175B0021F48B /* DimigoinKit */; };
 		42524E2C25621BF30021F48B /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524E2B25621BF30021F48B /* VSpacer.swift */; };
 		42524E2D25621BF30021F48B /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524E2B25621BF30021F48B /* VSpacer.swift */; };
 		428DC35E255EC40F00A4A7B5 /* WeeklyMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */; };
@@ -40,6 +38,8 @@
 		42ABA0B9255FB88C001925BE /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 42ABA0B8255FB88C001925BE /* KingfisherSwiftUI */; };
 		42ABA0BD255FBCA0001925BE /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 42ABA0BC255FBCA0001925BE /* KingfisherSwiftUI */; };
 		42ABA0C5255FC4E2001925BE /* HorizonPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0C4255FC4E2001925BE /* HorizonPadding.swift */; };
+		42B5B89A2566C286008EF7E0 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42B5B8992566C286008EF7E0 /* DimigoinKit */; };
+		42B5B89C2566C28B008EF7E0 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42B5B89B2566C28B008EF7E0 /* DimigoinKit */; };
 		42B79D3C253ED242003A8A7F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42124B4A70E00005663 /* WidgetKit.framework */; };
 		42B79D3D253ED242003A8A7F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42324B4A70E00005663 /* SwiftUI.framework */; };
 		42B79D40253ED242003A8A7F /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B79D3F253ED242003A8A7F /* Widget.swift */; };
@@ -153,6 +153,7 @@
 		42ABA0AD255FA58B001925BE /* StudentIdCardModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIdCardModalView.swift; sourceTree = "<group>"; };
 		42ABA0B1255FA725001925BE /* CustomBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBox.swift; sourceTree = "<group>"; };
 		42ABA0C4255FC4E2001925BE /* HorizonPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizonPadding.swift; sourceTree = "<group>"; };
+		42B5B8962566C277008EF7E0 /* DimigoinKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DimigoinKit; path = ../DimigoinKit; sourceTree = "<group>"; };
 		42B79D3B253ED242003A8A7F /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B79D3F253ED242003A8A7F /* Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
 		42B79D41253ED243003A8A7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -189,7 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42ABA0B9255FB88C001925BE /* KingfisherSwiftUI in Frameworks */,
-				42524E22256217040021F48B /* DimigoinKit in Frameworks */,
+				42B5B89A2566C286008EF7E0 /* DimigoinKit in Frameworks */,
 				8BD3C0481C4C1DDB0D5FBC3D /* Pods_dimigoin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,7 +202,7 @@
 				42ABA0BD255FBCA0001925BE /* KingfisherSwiftUI in Frameworks */,
 				42B79D3D253ED242003A8A7F /* SwiftUI.framework in Frameworks */,
 				42B79D3C253ED242003A8A7F /* WidgetKit.framework in Frameworks */,
-				42524E262562175B0021F48B /* DimigoinKit in Frameworks */,
+				42B5B89C2566C28B008EF7E0 /* DimigoinKit in Frameworks */,
 				7F957C994456696929F8B918 /* Pods_WidgetExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,6 +213,7 @@
 		08C9ABDC24A74A53002AF525 = {
 			isa = PBXGroup;
 			children = (
+				42B5B8962566C277008EF7E0 /* DimigoinKit */,
 				08C9ABE724A74A53002AF525 /* dimigoin */,
 				42B79D3E253ED242003A8A7F /* Widget */,
 				08C9ABE624A74A53002AF525 /* Products */,
@@ -411,7 +413,7 @@
 			name = dimigoin;
 			packageProductDependencies = (
 				42ABA0B8255FB88C001925BE /* KingfisherSwiftUI */,
-				42524E21256217040021F48B /* DimigoinKit */,
+				42B5B8992566C286008EF7E0 /* DimigoinKit */,
 			);
 			productName = dimigoin;
 			productReference = 08C9ABE524A74A53002AF525 /* DimigoIN.app */;
@@ -433,7 +435,7 @@
 			name = WidgetExtension;
 			packageProductDependencies = (
 				42ABA0BC255FBCA0001925BE /* KingfisherSwiftUI */,
-				42524E252562175B0021F48B /* DimigoinKit */,
+				42B5B89B2566C28B008EF7E0 /* DimigoinKit */,
 			);
 			productName = WidgetExtension;
 			productReference = 42B79D3B253ED242003A8A7F /* WidgetExtension.appex */;
@@ -468,7 +470,6 @@
 			mainGroup = 08C9ABDC24A74A53002AF525;
 			packageReferences = (
 				42ABA0B7255FB88C001925BE /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				42524E20256217040021F48B /* XCRemoteSwiftPackageReference "DimigoinKit" */,
 			);
 			productRefGroup = 08C9ABE624A74A53002AF525 /* Products */;
 			projectDirPath = "";
@@ -782,7 +783,7 @@
 				CODE_SIGN_ENTITLEMENTS = dimigoin/DimigoIN.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				ENABLE_PREVIEWS = YES;
@@ -810,7 +811,7 @@
 				CODE_SIGN_ENTITLEMENTS = dimigoin/DimigoIN.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				ENABLE_PREVIEWS = YES;
@@ -836,7 +837,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				INFOPLIST_FILE = Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -861,7 +862,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				INFOPLIST_FILE = Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -912,14 +913,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		42524E20256217040021F48B /* XCRemoteSwiftPackageReference "DimigoinKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Changemin/DimigoinKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.0;
-			};
-		};
 		42ABA0B7255FB88C001925BE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -931,16 +924,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		42524E21256217040021F48B /* DimigoinKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 42524E20256217040021F48B /* XCRemoteSwiftPackageReference "DimigoinKit" */;
-			productName = DimigoinKit;
-		};
-		42524E252562175B0021F48B /* DimigoinKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 42524E20256217040021F48B /* XCRemoteSwiftPackageReference "DimigoinKit" */;
-			productName = DimigoinKit;
-		};
 		42ABA0B8255FB88C001925BE /* KingfisherSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 42ABA0B7255FB88C001925BE /* XCRemoteSwiftPackageReference "Kingfisher" */;
@@ -950,6 +933,14 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 42ABA0B7255FB88C001925BE /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = KingfisherSwiftUI;
+		};
+		42B5B8992566C286008EF7E0 /* DimigoinKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DimigoinKit;
+		};
+		42B5B89B2566C28B008EF7E0 /* DimigoinKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DimigoinKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

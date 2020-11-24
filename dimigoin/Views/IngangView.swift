@@ -13,7 +13,6 @@ import DimigoinKit
 
 struct IngangView: View {
     @EnvironmentObject var ingangAPI: IngangAPI
-    @EnvironmentObject var tokenAPI: TokenAPI
     @EnvironmentObject var alertManager: AlertManager
     
     var body: some View {
@@ -45,7 +44,7 @@ struct IngangView: View {
                     ForEach(ingangAPI.ingangs, id: \.self) { ingang in
                         IngangItem(ingang: ingang)
                             .environmentObject(ingangAPI)
-                            .environmentObject(tokenAPI)
+                            .environmentObject(ingangAPI.tokenAPI)
                             .environmentObject(alertManager)
                     }
                 }

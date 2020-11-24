@@ -34,12 +34,12 @@ struct MainWidget : Widget {
 
 struct Provider : TimelineProvider {
     func getSnapshot(in context: Context, completion: @escaping (WidgetEntry) -> Void) {
-        let loadingData = WidgetEntry(date: Date(), meals: dummyDimibob)
+        let loadingData = WidgetEntry(date: Date(), meals: dummyMeal)
         completion(loadingData)
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<WidgetEntry>) -> Void) {
-        let url = "https://api.dimigo.in/dimibobs/\(getFormattedDate())"
+        let url = "https://api.dimigo.in/dimibobs/\(getToday8DigitDateString())"
         AF.request(url, method: .get, encoding: JSONEncoding.default).responseData { response in
             let json = JSON(response.value ?? [])
             let date = Date()
@@ -54,7 +54,7 @@ struct Provider : TimelineProvider {
     }
     
     func placeholder(in context: Context) -> WidgetEntry {
-        let loadingData = WidgetEntry(date: Date(), meals: dummyDimibob)
+        let loadingData = WidgetEntry(date: Date(), meals: dummyMeal)
         return loadingData
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import DimigoinKit
 import SwiftUI
 
 enum AlertType {
@@ -29,7 +30,7 @@ class AlertManager: ObservableObject {
         withAnimation(.spring()) {
             self.isShowing = true
         }
-        print("Alert presented \(content) : \(sub)")
+        LOG("Alert presented \(content) : \(sub)")
     }
     func dismiss() {
         self.isShowing = false

@@ -16,7 +16,7 @@ struct MealView: View {
         NavigationView {
             ScrollView(showsIndicators: false) {
                 HStack {
-                    ViewTitle("급식", sub: getDate())
+                    ViewTitle("급식", sub: getDateString())
                     Spacer()
                     NavigationLink(destination: WeeklyMealView()) {
                         Image("calender").resizable().aspectRatio(contentMode: .fit).frame(height: 40)

@@ -39,7 +39,7 @@ struct LoginView: View {
                         .modifier(ClearButton(text: $password))
                     VSpacer(13)
                     Button(action: {
-                        print("get token")
+                        LOG("get token")
                         isLoading = true
                         let parameters: [String: String] = [
                             "id": "\(self.id)",
@@ -51,14 +51,14 @@ struct LoginView: View {
                                 switch(status) {
                                 case 200:
                                     let json = JSON(response.value!!)
-                                    self.tokenAPI.tokens.token = json["token"].string!
-                                    self.tokenAPI.tokens.refresh_token = json["refresh_token"].string!
+                                    self.tokenAPI.token = json["token"].string!
+                                    self.tokenAPI.refreshToken = json["refresh_token"].string!
                                     self.tokenAPI.debugToken()
                                     self.tokenAPI.saveTokens()
                                     self.tokenAPI.tokenStatus = .exist
                                     isLoading = false
                                 default:
-                                    print("get token failed")
+                                    LOG("get token failed")
                                     alertManager.createAlert("로그인에 실패했습니다.", sub: "아이디 혹은 패스워드를 확인해주세요", .danger)
                                     debugPrint(response)
                                     self.tokenAPI.tokenStatus = .none

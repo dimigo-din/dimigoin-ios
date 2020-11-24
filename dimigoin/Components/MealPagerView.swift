@@ -89,42 +89,41 @@ struct PagerView<Content: View>: View {
             }
             .offset(x: -CGFloat(self.currentIndex) * 305 + self.translation)
             .offset(x: -CGFloat((currentIndex*15)) + (UIScreen.screenWidth-305)/2)
-            .animation(.spring())
+            .animation(.interactiveSpring())
             .gesture(
                 DragGesture().updating(self.$translation) { value, state, _ in
-                            state = value.translation.width
-                    }.onChanged { gesture in
-                        self.dragOffset = gesture.translation
-                        self.startPos = gesture.location
-                    }
-                    .onEnded { gesture in
-                        let xDist = abs(gesture.location.x - self.startPos.x)
-                        let yDist = abs(gesture.location.y - self.startPos.y)
-                        
-                        if self.startPos.x > gesture.location.x && yDist < xDist {
-                            // left
-                            if abs(self.dragOffset.width) > 10 {
-                                if currentIndex != 2 {
-                                    self.currentIndex += 1
-                                }
-                                self.dragOffset = .zero
-                            } else {
-                                self.dragOffset = .zero
+                    state = value.translation.width
+                }.onChanged { gesture in
+                    self.dragOffset = gesture.translation
+                    self.startPos = gesture.location
+                }
+                .onEnded { gesture in
+                    let xDist = abs(gesture.location.x - self.startPos.x)
+                    let yDist = abs(gesture.location.y - self.startPos.y)
+                    
+                    if self.startPos.x > gesture.location.x && yDist < xDist {
+                        // left
+                        if abs(self.dragOffset.width) > 10 {
+                            if currentIndex != 2 {
+                                self.currentIndex += 1
                             }
+                            self.dragOffset = .zero
+                        } else {
+                            self.dragOffset = .zero
                         }
-                        else if self.startPos.x < gesture.location.x && yDist < xDist {
-                            // right
-                            if abs(self.dragOffset.width) > 10 {
-                                if currentIndex != 0 {
-                                    self.currentIndex -= 1
-                                }
-                                self.dragOffset = .zero
-                            } else {
-                                self.dragOffset = .zero
-                            }
-                        }
-                        
                     }
+                    else if self.startPos.x < gesture.location.x && yDist < xDist {
+                        // right
+                        if abs(self.dragOffset.width) > 10 {
+                            if currentIndex != 0 {
+                                self.currentIndex -= 1
+                            }
+                            self.dragOffset = .zero
+                        } else {
+                            self.dragOffset = .zero
+                        }
+                    }
+                }
             )
         }
     }

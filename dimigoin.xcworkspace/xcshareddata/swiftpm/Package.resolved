@@ -11,15 +11,6 @@
         }
       },
       {
-        "package": "DimigoinKit",
-        "repositoryURL": "https://github.com/Changemin/DimigoinKit",
-        "state": {
-          "branch": null,
-          "revision": "c8fcf485c840e867c6a6cc917e1ccee19a815e61",
-          "version": "1.1.0"
-        }
-      },
-      {
         "package": "Kingfisher",
         "repositoryURL": "https://github.com/onevcat/Kingfisher.git",
         "state": {

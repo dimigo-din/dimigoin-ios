@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseMessaging
 import UserNotifications
+import DimigoinKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
@@ -23,9 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-      
-      FirebaseApp.configure()
-      if #available(iOS 10.0, *) {
+        FirebaseConfiguration.shared.setLoggerLevel(FirebaseLoggerLevel.min)
+        FirebaseApp.configure()
+        if #available(iOS 10.0, *) {
         // For iOS 10 display notification (sent via APNS)
           UNUserNotificationCenter.current().delegate = self
 
@@ -33,22 +34,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
           UNUserNotificationCenter.current().requestAuthorization(
               options: authOptions,
               completionHandler: {_, _ in })
-      } else {
+        } else {
           let settings: UIUserNotificationSettings =
           UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
           application.registerUserNotificationSettings(settings)
-      }
+        }
 
-      application.registerForRemoteNotifications()
-        
-      Messaging.messaging().delegate = self
-      UNUserNotificationCenter.current().delegate = self
-      let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-        
-      UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { _, _ in }
-      application.registerForRemoteNotifications()
-     
-      return true
+        application.registerForRemoteNotifications()
+
+        Messaging.messaging().delegate = self
+        UNUserNotificationCenter.current().delegate = self
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+
+        UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { _, _ in }
+        application.registerForRemoteNotifications()
+
+        return true
     }
 
     // MARK: UISceneSession Lifecycle
@@ -66,13 +67,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
       let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
-      print("[Log] deviceToken :", deviceTokenString)
+      LOG("[Log] deviceToken :", deviceTokenString)
 
       Messaging.messaging().apnsToken = deviceToken
     }
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-      print("Firebase registration token: \(String(describing: fcmToken))")
+      LOG("Firebase registration token: \(String(describing: fcmToken))")
 
       let dataDict:[String: String] = ["token": fcmToken ?? ""]
       NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
@@ -93,11 +94,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
       // Print message ID.
       if let messageID = userInfo[gcmMessageIDKey] {
-        print("Message ID: \(messageID)")
+        LOG("Message ID: \(messageID)")
       }
 
       // Print full message.
-      print(userInfo)
+        LOG(userInfo)
     }
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
@@ -111,23 +112,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
       // Print message ID.
       if let messageID = userInfo[gcmMessageIDKey] {
-        print("Message ID: \(messageID)")
+        LOG("Message ID: \(messageID)")
       }
 
       // Print full message.
-      print(userInfo)
+        LOG(userInfo)
 
       completionHandler(UIBackgroundFetchResult.newData)
     }
     
-    static var orientationLock = UIInterfaceOrientationMask.portrait
+    static var portraitLock = UIInterfaceOrientationMask.portrait
+    static var landscapeLock = UIInterfaceOrientationMask.landscape
 
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-//        if UIDevice.current.userInterfaceIdiom == .phone {
-//            return AppDelegate.orientationLock
-//        }
-//        return UIInterfaceOrientationMask.all
-        return AppDelegate.orientationLock
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return AppDelegate.portraitLock
+        }
+        else if UIDevice.current.userInterfaceIdiom == .pad {
+            return AppDelegate.landscapeLock
+        }
+        return UIInterfaceOrientationMask.all
+//        return AppDelegate.orientationLock
     }
 }
 

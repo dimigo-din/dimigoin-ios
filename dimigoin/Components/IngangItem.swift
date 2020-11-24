@@ -36,10 +36,10 @@ struct IngangItem: View {
             VSpacer(10)
             if !ingang.status! {
                 Button(action: {
-                    print("apply ingang : \(ingang.idx!)")
+                    LOG("apply ingang : \(ingang.idx!)")
                     tokenAPI.refreshTokens()
                     let headers: HTTPHeaders = [
-                        "Authorization":"Bearer \(tokenAPI.tokens.token)"
+                        "Authorization":"Bearer \(tokenAPI.token)"
                     ]
                     let parameters: [String: String] = [
                         "ingang_idx": "\(String(ingang.idx!))"
@@ -79,10 +79,10 @@ struct IngangItem: View {
                 }
             } else {
                 Button(action: {
-                    print("cancel ingang : \(ingang.idx!)")
+                    LOG("cancel ingang : \(ingang.idx!)")
                     tokenAPI.refreshTokens()
                     let headers: HTTPHeaders = [
-                        "Authorization":"Bearer \(tokenAPI.tokens.token)"
+                        "Authorization":"Bearer \(tokenAPI.token)"
                     ]
                     let parameters: [String: String] = [
                         "ingang_idx": "\(String(ingang.idx!))"

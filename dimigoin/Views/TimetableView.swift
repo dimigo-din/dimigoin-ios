@@ -16,7 +16,7 @@ struct TimetableView: View {
     var body: some View {
         ScrollView {
             HStack {
-                ViewTitle("시간표", sub: getDate())
+                ViewTitle("시간표", sub: getDateString())
                 Spacer()
                 Button(action: {
                     
@@ -36,18 +36,26 @@ struct TimetableItem: View{
     @EnvironmentObject var timetableAPI: TimetableAPI
     @State var grade: Int
     @State var klass: Int
-    var dayIndicatorXOffset: CGFloat = CGFloat(getIntDay()-1)*(UIScreen.screenWidth-40)/5
-    
+    var dayIndicatorXOffset: CGFloat = CGFloat(getTodayDayOfWeekInt()-1)*(UIScreen.screenWidth-40)/5
+    func pickerButton(type:String, _ value: Int) -> some View{
+        return Text("\(value)\(type)")
+            .foregroundColor(Color.white)
+            .sectionHeader()
+            .padding(.horizontal, 10)
+            .background(Color("accent"))
+            .cornerRadius(5)
+        
+    }
     var body: some View {
         VStack {
             if #available(iOS 14.0, *) {
                 HStack {
-                    Picker(selection: $grade, label: Text("\(grade)학년").accent().sectionHeader()) {
+                    Picker(selection: $grade, label: pickerButton(type:"학년", grade)) {
                         Text("1학년").tag(1)
                         Text("2학년").tag(2)
                         Text("3학년").tag(3)
                     }.pickerStyle(MenuPickerStyle())
-                    Picker(selection: $klass, label: Text("\(klass)반").accent().sectionHeader()) {
+                    Picker(selection: $klass, label: pickerButton(type:"반", klass)) {
                         Text("1반").tag(1)
                         Text("2반").tag(2)
                         Text("3반").tag(3)
@@ -55,7 +63,10 @@ struct TimetableItem: View{
                         Text("5반").tag(5)
                         Text("6반").tag(6)
                     }.pickerStyle(MenuPickerStyle())
+                    
+                    Spacer()
                 }.horizonPadding()
+                
             }
             
             VSpacer(10)
@@ -64,18 +75,18 @@ struct TimetableItem: View{
                     HStack(alignment: .top, spacing: 0) {
                         ForEach(1...5, id: \.self) { day in
                             VStack {
-                                Text("\(getDay(day))").font(Font.custom("NotoSansKR-Bold", size: 20))
-                                    .foregroundColor(Color(getIntDay() == day ? "accent" : "gray4"))
+                                Text("\(dayOfWeek[day])").font(Font.custom("NotoSansKR-Bold", size: 20))
+                                    .foregroundColor(Color(getTodayDayOfWeekInt() == day ? "accent" : "gray4"))
                                 VSpacer(20)
                                 ForEach(timetableAPI.getTimetable(grade: grade, klass: klass).data[day-1], id: \.self) { lecture in
                                     Text("\(lecture)")
                                         .frame(width: (UIScreen.screenWidth-40)/5, height: 20)
                                         .padding(.vertical, 4)
                                         .font(Font.custom("NotoSansKR-Regular", size: 14))
-                                        .foregroundColor(Color(getIntDay() == day ? "accent" : "gray4"))
+                                        .foregroundColor(Color(getTodayDayOfWeekInt() == day ? "accent" : "gray4"))
                                 }
                             }.padding(.vertical, 5)
-                            .background(Color("accent").opacity(getIntDay() == day ? 0.09 : 0).cornerRadius(5))
+                            .background(Color("accent").opacity(getTodayDayOfWeekInt() == day ? 0.09 : 0).cornerRadius(5))
                         }
                     }
                     Divider().offset(y: 45)
@@ -90,7 +101,7 @@ struct TimetableItem: View{
                     HStack(alignment: .top, spacing: 0) {
                         ForEach(1...5, id: \.self) { day in
                             VStack {
-                                Text("\(getDay(day))").font(Font.custom("NotoSansKR-Bold", size: 20))
+                                Text("\(dayOfWeek[day])").font(Font.custom("NotoSansKR-Bold", size: 20))
                                     .foregroundColor(Color("gray4"))
                                 VSpacer(20)
                                 ForEach(timetableAPI.getTimetable(grade: grade, klass: klass).data[day-1], id: \.self) { lecture in
