@@ -10,8 +10,6 @@ import SwiftUI
 import UserNotifications
 import DimigoinKit
 
-
-
 struct MainView: View {
     @EnvironmentObject var alertManager: AlertManager
     @EnvironmentObject var tokenAPI: TokenAPI
@@ -56,4 +54,5 @@ struct MainView: View {
             }
         }
     }
+    
 }
