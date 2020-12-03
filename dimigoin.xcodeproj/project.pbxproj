@@ -23,6 +23,7 @@
 		420D92672557F79300CDF76A /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC55024AF849D00456846 /* TextStyles.swift */; };
 		420D92712557F79F00CDF76A /* HSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54E24AF819400456846 /* HSpacer.swift */; };
 		420D9285255800C700CDF76A /* CopyrightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C487C924DDB73000C594CB /* CopyrightText.swift */; };
+		42374F1425796996003E1C3E /* CMLoadingButton in Frameworks */ = {isa = PBXBuildFile; productRef = 42374F1325796996003E1C3E /* CMLoadingButton */; };
 		423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71EF24B191AF0099CE3E /* ClearButton.swift */; };
 		423EDF4F256221B0009921AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 423EDF4E256221B0009921AE /* GoogleService-Info.plist */; };
 		4250011C25595C2900C593CF /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250011B25595C2900C593CF /* AlertView.swift */; };
@@ -35,8 +36,6 @@
 		42ABA0A4255F6247001925BE /* MealPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0A3255F6247001925BE /* MealPagerView.swift */; };
 		42ABA0AE255FA58B001925BE /* StudentIdCardModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0AD255FA58B001925BE /* StudentIdCardModalView.swift */; };
 		42ABA0B2255FA725001925BE /* CustomBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0B1255FA725001925BE /* CustomBox.swift */; };
-		42ABA0B9255FB88C001925BE /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 42ABA0B8255FB88C001925BE /* KingfisherSwiftUI */; };
-		42ABA0BD255FBCA0001925BE /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 42ABA0BC255FBCA0001925BE /* KingfisherSwiftUI */; };
 		42ABA0C5255FC4E2001925BE /* HorizonPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0C4255FC4E2001925BE /* HorizonPadding.swift */; };
 		42B5B89A2566C286008EF7E0 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42B5B8992566C286008EF7E0 /* DimigoinKit */; };
 		42B5B89C2566C28B008EF7E0 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42B5B89B2566C28B008EF7E0 /* DimigoinKit */; };
@@ -189,7 +188,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42ABA0B9255FB88C001925BE /* KingfisherSwiftUI in Frameworks */,
+				42374F1425796996003E1C3E /* CMLoadingButton in Frameworks */,
 				42B5B89A2566C286008EF7E0 /* DimigoinKit in Frameworks */,
 				8BD3C0481C4C1DDB0D5FBC3D /* Pods_dimigoin.framework in Frameworks */,
 			);
@@ -199,7 +198,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42ABA0BD255FBCA0001925BE /* KingfisherSwiftUI in Frameworks */,
 				42B79D3D253ED242003A8A7F /* SwiftUI.framework in Frameworks */,
 				42B79D3C253ED242003A8A7F /* WidgetKit.framework in Frameworks */,
 				42B5B89C2566C28B008EF7E0 /* DimigoinKit in Frameworks */,
@@ -412,8 +410,8 @@
 			);
 			name = dimigoin;
 			packageProductDependencies = (
-				42ABA0B8255FB88C001925BE /* KingfisherSwiftUI */,
 				42B5B8992566C286008EF7E0 /* DimigoinKit */,
+				42374F1325796996003E1C3E /* CMLoadingButton */,
 			);
 			productName = dimigoin;
 			productReference = 08C9ABE524A74A53002AF525 /* DimigoIN.app */;
@@ -434,7 +432,6 @@
 			);
 			name = WidgetExtension;
 			packageProductDependencies = (
-				42ABA0BC255FBCA0001925BE /* KingfisherSwiftUI */,
 				42B5B89B2566C28B008EF7E0 /* DimigoinKit */,
 			);
 			productName = WidgetExtension;
@@ -469,7 +466,7 @@
 			);
 			mainGroup = 08C9ABDC24A74A53002AF525;
 			packageReferences = (
-				42ABA0B7255FB88C001925BE /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				42374F1225796996003E1C3E /* XCRemoteSwiftPackageReference "CMLoadingButton" */,
 			);
 			productRefGroup = 08C9ABE624A74A53002AF525 /* Products */;
 			projectDirPath = "";
@@ -913,26 +910,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		42ABA0B7255FB88C001925BE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		42374F1225796996003E1C3E /* XCRemoteSwiftPackageReference "CMLoadingButton" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			repositoryURL = "https://github.com/Changemin/CMLoadingButton";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.15.7;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		42ABA0B8255FB88C001925BE /* KingfisherSwiftUI */ = {
+		42374F1325796996003E1C3E /* CMLoadingButton */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 42ABA0B7255FB88C001925BE /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = KingfisherSwiftUI;
-		};
-		42ABA0BC255FBCA0001925BE /* KingfisherSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 42ABA0B7255FB88C001925BE /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = KingfisherSwiftUI;
+			package = 42374F1225796996003E1C3E /* XCRemoteSwiftPackageReference "CMLoadingButton" */;
+			productName = CMLoadingButton;
 		};
 		42B5B8992566C286008EF7E0 /* DimigoinKit */ = {
 			isa = XCSwiftPackageProductDependency;

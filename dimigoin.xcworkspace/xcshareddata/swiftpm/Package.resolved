@@ -11,6 +11,24 @@
         }
       },
       {
+        "package": "CMLoadingButton",
+        "repositoryURL": "https://github.com/Changemin/CMLoadingButton",
+        "state": {
+          "branch": null,
+          "revision": "8ff6d59f2efcf4f831514d6f524fb242d0e8b2dc",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "Kingfisher",
+        "repositoryURL": "https://github.com/onevcat/Kingfisher",
+        "state": {
+          "branch": null,
+          "revision": "2a10bf41da75599a9f8e872dbd44fe0155a2e00c",
+          "version": "5.15.8"
+        }
+      },
+      {
         "package": "SwiftyJSON",
         "repositoryURL": "https://github.com/SwiftyJSON/SwiftyJSON",
         "state": {

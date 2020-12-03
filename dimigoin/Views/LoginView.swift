@@ -10,6 +10,7 @@ import SwiftUI
 import Alamofire
 import SwiftyJSON
 import DimigoinKit
+import CMLoadingButton
 
 struct LoginView: View {
     @EnvironmentObject var tokenAPI: TokenAPI
@@ -18,7 +19,7 @@ struct LoginView: View {
     @State var password = ""
     @State var showErrorMessage:Bool = false
     @State var isLoading: Bool = false
-    
+    var buttonStyle = CMButtonStyle(width:345, height: 60, cornerRadius: 5, backgroundColor: Color("accent"))
     var body: some View {
         ZStack {
             VStack(alignment: .center) {
@@ -38,7 +39,7 @@ struct LoginView: View {
                         .modifier(TextFieldModifier())
                         .modifier(ClearButton(text: $password))
                     VSpacer(13)
-                    Button(action: {
+                    CMLoadingButton(action: {
                         LOG("get token")
                         isLoading = true
                         let parameters: [String: String] = [
@@ -66,19 +67,15 @@ struct LoginView: View {
                                 }
                             }
                         }
-                    }) {
-                        Text("로그인").SquareButton(312, 27)
+                    }, isLoading: $isLoading, style: buttonStyle) {
+                        Text("로그인")
+                            .font(Font.custom("NotoSansKR-Bold", size: 18))
+                            .foregroundColor(Color.white)
                     }
                 }
                 Spacer()
                 CopyrightText()
             }.padding(.horizontal)
-            if #available(iOS 14.0, *) {
-                if(isLoading) {
-                    Rectangle().fill(Color("gray3")).opacity(0.3).edgesIgnoringSafeArea(.all)
-                    ProgressView()
-                }
-            }
             if(alertManager.isShowing) {
                 AlertView(isShowing: $alertManager.isShowing)
                     .environmentObject(alertManager)
