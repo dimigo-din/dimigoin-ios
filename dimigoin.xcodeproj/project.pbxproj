@@ -30,6 +30,10 @@
 		4250012625595F9E00C593CF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250012525595F9E00C593CF /* Alert.swift */; };
 		42524E2C25621BF30021F48B /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524E2B25621BF30021F48B /* VSpacer.swift */; };
 		42524E2D25621BF30021F48B /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524E2B25621BF30021F48B /* VSpacer.swift */; };
+		4274147D259B0B0800235302 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4274147C259B0B0800235302 /* AuthenticationServices.framework */; };
+		4274149F259C1CBF00235302 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4274147C259B0B0800235302 /* AuthenticationServices.framework */; };
+		427414A2259C1CBF00235302 /* CredentialProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427414A1259C1CBF00235302 /* CredentialProviderViewController.swift */; };
+		427414A5259C1CBF00235302 /* CredentialProviderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 427414A3259C1CBF00235302 /* CredentialProviderViewController.xib */; };
 		428DC35E255EC40F00A4A7B5 /* WeeklyMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */; };
 		42ABA08A255F5690001925BE /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA089255F5690001925BE /* TimetableView.swift */; };
 		42ABA090255F57E7001925BE /* HDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA08F255F57E7001925BE /* HDivider.swift */; };
@@ -137,6 +141,12 @@
 		4250011B25595C2900C593CF /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		4250012525595F9E00C593CF /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		42524E2B25621BF30021F48B /* VSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSpacer.swift; sourceTree = "<group>"; };
+		4274147C259B0B0800235302 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		4274149E259C1CBF00235302 /* AutofillCredential.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AutofillCredential.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		427414A1259C1CBF00235302 /* CredentialProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialProviderViewController.swift; sourceTree = "<group>"; };
+		427414A4259C1CBF00235302 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CredentialProviderViewController.xib; sourceTree = "<group>"; };
+		427414A6259C1CBF00235302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		427414A7259C1CBF00235302 /* AutofillCredential.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AutofillCredential.entitlements; sourceTree = "<group>"; };
 		428DC354255EB4F300A4A7B5 /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
 		428DC355255EB4F400A4A7B5 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		428DC356255EB4F400A4A7B5 /* Openas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Openas.ttf; sourceTree = "<group>"; };
@@ -188,9 +198,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4274147D259B0B0800235302 /* AuthenticationServices.framework in Frameworks */,
 				42374F1425796996003E1C3E /* CMLoadingButton in Frameworks */,
 				42B5B89A2566C286008EF7E0 /* DimigoinKit in Frameworks */,
 				8BD3C0481C4C1DDB0D5FBC3D /* Pods_dimigoin.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4274149B259C1CBF00235302 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4274149F259C1CBF00235302 /* AuthenticationServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +233,7 @@
 				42B5B8962566C277008EF7E0 /* DimigoinKit */,
 				08C9ABE724A74A53002AF525 /* dimigoin */,
 				42B79D3E253ED242003A8A7F /* Widget */,
+				427414A0259C1CBF00235302 /* AutofillCredential */,
 				08C9ABE624A74A53002AF525 /* Products */,
 				228AAA612779C507EC76E9D9 /* Frameworks */,
 				3C3B9790B2DCA6EFCEBBC8B4 /* Pods */,
@@ -225,6 +245,7 @@
 			children = (
 				08C9ABE524A74A53002AF525 /* DimigoIN.app */,
 				42B79D3B253ED242003A8A7F /* WidgetExtension.appex */,
+				4274149E259C1CBF00235302 /* AutofillCredential.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -315,6 +336,7 @@
 		228AAA612779C507EC76E9D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4274147C259B0B0800235302 /* AuthenticationServices.framework */,
 				429FD87F24B202DA003A49AF /* NotificationCenter.framework */,
 				420DE42124B4A70E00005663 /* WidgetKit.framework */,
 				420DE42324B4A70E00005663 /* SwiftUI.framework */,
@@ -359,6 +381,17 @@
 				42EFCD982558073200F3DC5E /* NotoSansKR-Thin.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		427414A0259C1CBF00235302 /* AutofillCredential */ = {
+			isa = PBXGroup;
+			children = (
+				427414A1259C1CBF00235302 /* CredentialProviderViewController.swift */,
+				427414A3259C1CBF00235302 /* CredentialProviderViewController.xib */,
+				427414A6259C1CBF00235302 /* Info.plist */,
+				427414A7259C1CBF00235302 /* AutofillCredential.entitlements */,
+			);
+			path = AutofillCredential;
 			sourceTree = "<group>";
 		};
 		428DC353255EB4F300A4A7B5 /* Fonts */ = {
@@ -417,6 +450,23 @@
 			productReference = 08C9ABE524A74A53002AF525 /* DimigoIN.app */;
 			productType = "com.apple.product-type.application";
 		};
+		4274149D259C1CBF00235302 /* AutofillCredential */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 427414A8259C1CBF00235302 /* Build configuration list for PBXNativeTarget "AutofillCredential" */;
+			buildPhases = (
+				4274149A259C1CBF00235302 /* Sources */,
+				4274149B259C1CBF00235302 /* Frameworks */,
+				4274149C259C1CBF00235302 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AutofillCredential;
+			productName = AutofillCredential;
+			productReference = 4274149E259C1CBF00235302 /* AutofillCredential.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		42B79D3A253ED242003A8A7F /* WidgetExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42B79D47253ED243003A8A7F /* Build configuration list for PBXNativeTarget "WidgetExtension" */;
@@ -444,12 +494,15 @@
 		08C9ABDD24A74A53002AF525 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1210;
+				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = seohun;
 				TargetAttributes = {
 					08C9ABE424A74A53002AF525 = {
 						CreatedOnToolsVersion = 11.5;
+					};
+					4274149D259C1CBF00235302 = {
+						CreatedOnToolsVersion = 12.3;
 					};
 					42B79D3A253ED242003A8A7F = {
 						CreatedOnToolsVersion = 12.0.1;
@@ -474,6 +527,7 @@
 			targets = (
 				08C9ABE424A74A53002AF525 /* dimigoin */,
 				42B79D3A253ED242003A8A7F /* WidgetExtension */,
+				4274149D259C1CBF00235302 /* AutofillCredential */,
 			);
 		};
 /* End PBXProject section */
@@ -494,6 +548,14 @@
 				08C9ABF524A74A54002AF525 /* LaunchScreen.storyboard in Resources */,
 				08C9ABF224A74A54002AF525 /* Preview Assets.xcassets in Resources */,
 				08C9ABEF24A74A54002AF525 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4274149C259C1CBF00235302 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				427414A5259C1CBF00235302 /* CredentialProviderViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,6 +681,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4274149A259C1CBF00235302 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				427414A2259C1CBF00235302 /* CredentialProviderViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		42B79D37253ED242003A8A7F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -650,6 +720,14 @@
 				08C9ABF424A74A54002AF525 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		427414A3259C1CBF00235302 /* CredentialProviderViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				427414A4259C1CBF00235302 /* Base */,
+			);
+			name = CredentialProviderViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -827,6 +905,50 @@
 			};
 			name = Release;
 		};
+		427414A9259C1CBF00235302 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = AutofillCredential/AutofillCredential.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9MGM27T9ZC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = AutofillCredential/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dimigoin.v3.AutofillCredential;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		427414AA259C1CBF00235302 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = AutofillCredential/AutofillCredential.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9MGM27T9ZC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = AutofillCredential/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dimigoin.v3.AutofillCredential;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		42B79D48253ED243003A8A7F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4E6B9BEA1FBCB03ED4F8E00A /* Pods-WidgetExtension.debug.xcconfig */;
@@ -894,6 +1016,15 @@
 			buildConfigurations = (
 				08C9ABFA24A74A54002AF525 /* Debug */,
 				08C9ABFB24A74A54002AF525 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		427414A8259C1CBF00235302 /* Build configuration list for PBXNativeTarget "AutofillCredential" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				427414A9259C1CBF00235302 /* Debug */,
+				427414AA259C1CBF00235302 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

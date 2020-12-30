@@ -17,6 +17,7 @@ struct TextFieldModifier: ViewModifier {
                 RoundedRectangle(cornerRadius: 5)
                     .stroke(Color("gray8"), lineWidth: 1)
             )
+            .disableAutocorrection(true)
             .autocapitalization(.none)
     }
 }
