@@ -66,7 +66,6 @@ struct TimetableItem: View{
                     
                     Spacer()
                 }.horizonPadding()
-                
             }
             
             VSpacer(10)
@@ -85,7 +84,8 @@ struct TimetableItem: View{
                                         .font(Font.custom("NotoSansKR-Regular", size: 14))
                                         .foregroundColor(Color(getTodayDayOfWeekInt() == day ? "accent" : "gray4"))
                                 }
-                            }.padding(.vertical, 5)
+                            }
+                            .padding(.vertical, 5)
                             .background(Color("accent").opacity(getTodayDayOfWeekInt() == day ? 0.09 : 0).cornerRadius(5))
                         }
                     }

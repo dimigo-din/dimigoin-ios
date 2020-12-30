@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Combine
 import DimigoinKit
 
 struct MealPagerView: View {
@@ -75,6 +76,7 @@ struct PagerView<Content: View>: View {
     @State var startPos = CGPoint(x: 0, y:0)
     let pageCount: Int
     let content: Content
+    private let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
 
     init(pageCount: Int, currentIndex: Binding<Int>, @ViewBuilder content: () -> Content) {
         self.pageCount = pageCount
@@ -87,9 +89,22 @@ struct PagerView<Content: View>: View {
             HStack {
                 self.content
             }
+            .onReceive(self.timer) { _ in
+                if(currentIndex == 2) {
+                    withAnimation(.spring()) {
+                        currentIndex = 0
+                    }
+                } else {
+                    withAnimation(.spring()) {
+                        self.currentIndex = self.currentIndex + 1
+                    }
+                }
+                
+            }
             .offset(x: -CGFloat(self.currentIndex) * 305 + self.translation)
-            .offset(x: -CGFloat((currentIndex*15)) + (UIScreen.screenWidth-305)/2)
-            .animation(.interactiveSpring())
+            .offset(x: -CGFloat((currentIndex*15)) + (geometry.size.width-305)/2)
+            .animation(.spring())
+            
             .gesture(
                 DragGesture().updating(self.$translation) { value, state, _ in
                     state = value.translation.width
@@ -128,3 +143,4 @@ struct PagerView<Content: View>: View {
         }
     }
 }
+

@@ -54,5 +54,4 @@ struct MainView: View {
             }
         }
     }
-    
 }

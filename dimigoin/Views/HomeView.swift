@@ -59,6 +59,7 @@ struct HomeView: View {
             }
         }
     }
+    
     func localAuthentication() -> Void {
 
             let laContext = LAContext()
