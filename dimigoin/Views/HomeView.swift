@@ -60,18 +60,21 @@ struct HomeView: View {
             }
         }
     }
-    func showIdCard() {
+    func showIdCardAfterAuthentication() {
         let scanner = LAContext()
         scanner.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "학생증 보기") { (status, err) in
             if err != nil {
                 print(err!.localizedDescription)
                 return
             } else {
-               
+               showIdCard()
             }
-            withAnimation(.spring()) {
-                self.isShowIdCard = true
-            }
+            
+        }
+    }
+    func showIdCard() {
+        withAnimation(.spring()) {
+            self.isShowIdCard = true
         }
     }
     func dismissIdCard() {
