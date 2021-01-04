@@ -18,8 +18,8 @@ struct ViewTitle: View {
     }
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
-            Text(self.subTitle).subTitle()
-            Text(self.title).title()
+            Text(NSLocalizedString(self.subTitle, comment: "")).subTitle()
+            Text(NSLocalizedString(self.title, comment: "")).title()
         }
     }
 }

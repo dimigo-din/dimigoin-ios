@@ -60,7 +60,8 @@ struct LocationItem: View {
                     )
             }
             VSpacer(9)
-            Text("\(title)").caption1()
+            Text(NSLocalizedString(title, comment: "")).caption1()
+            
         }
     }
 }

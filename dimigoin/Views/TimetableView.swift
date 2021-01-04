@@ -74,7 +74,7 @@ struct TimetableItem: View{
                     HStack(alignment: .top, spacing: 0) {
                         ForEach(1...5, id: \.self) { day in
                             VStack {
-                                Text("\(dayOfWeek[day])").font(Font.custom("NotoSansKR-Bold", size: 20))
+                                Text(NSLocalizedString(dayOfWeek[day], comment: "")).font(Font.custom("NotoSansKR-Bold", size: 20))
                                     .foregroundColor(Color(getTodayDayOfWeekInt() == day ? "accent" : "gray4"))
                                 VSpacer(20)
                                 ForEach(timetableAPI.getTimetable(grade: grade, klass: klass).data[day-1], id: \.self) { lecture in

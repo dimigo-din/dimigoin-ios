@@ -8,3 +8,32 @@
 
 // English
 
+"내정보" = "Profile";
+"인강실" = "Ingang";
+"메인" = "Main";
+"급식" = "Meal";
+"시간표" = "TimeTable";
+"교실" = "Class";
+"안정실" = "Relaxation";
+"세탁" = "Laundry";
+"동아리" = "Club";
+"기타" = "Etc";
+"방과후 1타임" = "After School 1st";
+"방과후 2타임" = "After School 2nd";
+"야간자율학습 1타임" = "Night Self Study 1st";
+"야간자율학습 2타임" = "Night Self Study 2nd";
+"자습 현황" = "Location";
+"오전" = "Am";
+"신청하기" = "Apply";
+"취소하기" = "Cancel";
+"월" = "Mon";
+"화" = "Tue";
+"수" = "Wed";
+"목" = "Thu";
+"금" = "Fri";
+"오늘의 급식" = "Today's Meal";
+"아침" = "Breakfast";
+"점심" = "Lunch";
+"저녁" = "Dinner";
+
+

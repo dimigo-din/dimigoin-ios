@@ -21,8 +21,8 @@ struct SectionHeader: View {
         VStack {
             HStack {
                 VStack(alignment: .leading, spacing: 0){
-                    Text(self.subSectionHeader).subSectionHeader()
-                    Text(self.sectionHeader).sectionHeader()
+                    Text(NSLocalizedString(self.subSectionHeader, comment: "")).subSectionHeader()
+                    Text(NSLocalizedString(self.sectionHeader, comment: "")).sectionHeader()
                 }
                 Spacer()
             }.horizonPadding()
