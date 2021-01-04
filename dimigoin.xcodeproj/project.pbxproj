@@ -260,7 +260,6 @@
 		08C9ABE724A74A53002AF525 /* dimigoin */ = {
 			isa = PBXGroup;
 			children = (
-				429BA5DA25A30FBB000749AC /* Localizable.strings */,
 				08C9AC0124A74A83002AF525 /* Views */,
 				08C9ABFF24A74A83002AF525 /* Model */,
 				08C9AC0824A74A83002AF525 /* Components */,
@@ -370,6 +369,7 @@
 		42364EA124AFF1B5008427D5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				429BA5DA25A30FBB000749AC /* Localizable.strings */,
 				08C9ABE824A74A53002AF525 /* AppDelegate.swift */,
 				08C9ABEA24A74A53002AF525 /* SceneDelegate.swift */,
 				08C9ABF324A74A54002AF525 /* LaunchScreen.storyboard */,
