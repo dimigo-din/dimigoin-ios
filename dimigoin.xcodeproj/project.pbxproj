@@ -34,8 +34,8 @@
 		4274149F259C1CBF00235302 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4274147C259B0B0800235302 /* AuthenticationServices.framework */; };
 		427414A2259C1CBF00235302 /* CredentialProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427414A1259C1CBF00235302 /* CredentialProviderViewController.swift */; };
 		427414A5259C1CBF00235302 /* CredentialProviderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 427414A3259C1CBF00235302 /* CredentialProviderViewController.xib */; };
-		427414AF259C1EF200235302 /* MealCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427414AE259C1EF200235302 /* MealCarouselView.swift */; };
 		428DC35E255EC40F00A4A7B5 /* WeeklyMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */; };
+		429BA5B025A0A63D000749AC /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429BA5AF25A0A63D000749AC /* LocalAuthentication.framework */; };
 		42ABA08A255F5690001925BE /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA089255F5690001925BE /* TimetableView.swift */; };
 		42ABA090255F57E7001925BE /* HDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA08F255F57E7001925BE /* HDivider.swift */; };
 		42ABA0A4255F6247001925BE /* MealPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0A3255F6247001925BE /* MealPagerView.swift */; };
@@ -148,7 +148,6 @@
 		427414A4259C1CBF00235302 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CredentialProviderViewController.xib; sourceTree = "<group>"; };
 		427414A6259C1CBF00235302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		427414A7259C1CBF00235302 /* AutofillCredential.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AutofillCredential.entitlements; sourceTree = "<group>"; };
-		427414AE259C1EF200235302 /* MealCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCarouselView.swift; sourceTree = "<group>"; };
 		428DC354255EB4F300A4A7B5 /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
 		428DC355255EB4F400A4A7B5 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		428DC356255EB4F400A4A7B5 /* Openas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Openas.ttf; sourceTree = "<group>"; };
@@ -157,6 +156,7 @@
 		428DC359255EB4F400A4A7B5 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		428DC35A255EB4F400A4A7B5 /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
 		428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyMealView.swift; sourceTree = "<group>"; };
+		429BA5AF25A0A63D000749AC /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		429FD87F24B202DA003A49AF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		42ABA089255F5690001925BE /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
 		42ABA08F255F57E7001925BE /* HDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDivider.swift; sourceTree = "<group>"; };
@@ -203,6 +203,7 @@
 				4274147D259B0B0800235302 /* AuthenticationServices.framework in Frameworks */,
 				42374F1425796996003E1C3E /* CMLoadingButton in Frameworks */,
 				42B5B89A2566C286008EF7E0 /* DimigoinKit in Frameworks */,
+				429BA5B025A0A63D000749AC /* LocalAuthentication.framework in Frameworks */,
 				8BD3C0481C4C1DDB0D5FBC3D /* Pods_dimigoin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,7 +332,6 @@
 				42ABA0A3255F6247001925BE /* MealPagerView.swift */,
 				42ABA0B1255FA725001925BE /* CustomBox.swift */,
 				42ABA0C4255FC4E2001925BE /* HorizonPadding.swift */,
-				427414AE259C1EF200235302 /* MealCarouselView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -339,6 +339,7 @@
 		228AAA612779C507EC76E9D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				429BA5AF25A0A63D000749AC /* LocalAuthentication.framework */,
 				4274147C259B0B0800235302 /* AuthenticationServices.framework */,
 				429FD87F24B202DA003A49AF /* NotificationCenter.framework */,
 				420DE42124B4A70E00005663 /* WidgetKit.framework */,
@@ -664,7 +665,6 @@
 				4250012625595F9E00C593CF /* Alert.swift in Sources */,
 				42ABA08A255F5690001925BE /* TimetableView.swift in Sources */,
 				42ABA090255F57E7001925BE /* HDivider.swift in Sources */,
-				427414AF259C1EF200235302 /* MealCarouselView.swift in Sources */,
 				42EFCDE625581C4500F3DC5E /* HomeView.swift in Sources */,
 				08C9AC1C24A74A83002AF525 /* IngangItem.swift in Sources */,
 				086CC54F24AF819400456846 /* HSpacer.swift in Sources */,

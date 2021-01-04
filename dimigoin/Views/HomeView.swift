@@ -11,14 +11,12 @@ import DimigoinKit
 import LocalAuthentication
 
 struct HomeView: View {
-    
     @EnvironmentObject var mealAPI: MealAPI
     @EnvironmentObject var alertManager: AlertManager
     @EnvironmentObject var tokenAPI : TokenAPI
     @EnvironmentObject var userAPI: UserAPI
-    @Binding var showIdCard: Bool
+    @Binding var isShowIdCard: Bool
     @State var currentLocation = 0
-//    @State var currentCardIdx = 0
     
     var body: some View {
         ScrollView(showsIndicators: false){
@@ -37,6 +35,7 @@ struct HomeView: View {
                         Spacer()
                         Button(action: {
                             localAuthentication()
+//                            showIdCard()
                         }) {
                             // MARK: replace userPhoto-sample to userImage when backend ready
                             Image("userPhoto-sample")
@@ -59,56 +58,80 @@ struct HomeView: View {
             }
         }
     }
-    
-    func localAuthentication() -> Void {
-
-            let laContext = LAContext()
-            var error: NSError?
-            let biometricsPolicy = LAPolicy.deviceOwnerAuthenticationWithBiometrics
-
-            if (laContext.canEvaluatePolicy(biometricsPolicy, error: &error)) {
-
-                if let laError = error {
-                    print("laError - \(laError)")
-                    return
-                }
-
-                var localizedReason = "Unlock device"
-                if #available(iOS 11.0, *) {
-                    if (laContext.biometryType == LABiometryType.faceID) {
-                        localizedReason = "Unlock using Face ID"
-                        print("FaceId support")
-                    } else if (laContext.biometryType == LABiometryType.touchID) {
-                        localizedReason = "Unlock using Touch ID"
-                        print("TouchId support")
-                    } else {
-                        print("No Biometric support")
-                    }
-                } else {
-                    // Fallback on earlier versions
-                }
-
-
-                laContext.evaluatePolicy(biometricsPolicy, localizedReason: localizedReason, reply: { (isSuccess, error) in
-
-                    DispatchQueue.main.async(execute: {
-
-                        if let laError = error {
-                            print("laError - \(laError)")
-                        } else {
-                            if isSuccess {
-                                print("sucess")
-                            } else {
-                                print("failure")
-                            }
-                        }
-
-                    })
-                })
-            }
-
-
+    func showIdCard() {
+        withAnimation(.spring()) {
+            self.isShowIdCard = true
         }
+    }
+    func dismissIdCard() {
+        withAnimation(.spring()) {
+            self.isShowIdCard = false
+        }
+    }
+    func localAuthentication() -> Void {
+        let authContext = LAContext()
+        
+        var error: NSError?
+        
+        var description: String!
+        
+        if authContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            
+            switch authContext.biometryType {
+            case .faceID:
+                description = "계정 정보를 열람하기 위해서 Face ID로 인증 합니다."
+                break
+            case .touchID:
+                description = "계정 정보를 열람하기 위해서 Touch ID로 인증 사용합니다."
+                break
+            case .none:
+                description = "계정 정보를 열람하기 위해서는 로그인하십시오."
+                break
+            }
+            
+            authContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: description) { (success, error) in
+                
+                if success {
+                    print("인증 성공")
+                } else {
+                    print("인증 실패")
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                }
+                
+            }
+            
+        }  else {
+            // Touch ID・Face ID를 사용할 수없는 경우
+            let errorDescription = error?.userInfo["NSLocalizedDescription"] ?? ""
+            print(errorDescription)
+            description = "계정 정보를 열람하기 위해서는 로그인하십시오."
+            
+            let alertController = UIAlertController(title: "Authentication Required", message: description, preferredStyle: .alert)
+            weak var usernameTextField: UITextField!
+            alertController.addTextField(configurationHandler: { textField in
+                textField.placeholder = "User ID"
+                usernameTextField = textField
+            })
+            weak var passwordTextField: UITextField!
+            alertController.addTextField(configurationHandler: { textField in
+                textField.placeholder = "Password"
+                textField.isSecureTextEntry = true
+                passwordTextField = textField
+            })
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alertController.addAction(UIAlertAction(title: "Log In", style: .destructive, handler: { action in
+                // 를
+                print(usernameTextField.text! + "\n" + passwordTextField.text!)
+            }))
+//            self.present(alertController, animated: true, completion: nil)
+        }
+        
+        
+
+
+    }
 }
 
 

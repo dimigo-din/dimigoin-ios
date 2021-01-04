@@ -19,7 +19,7 @@ struct MainView: View {
     @ObservedObject var userAPI = UserAPI()
     @ObservedObject var timetableAPI = TimetableAPI()
     @State var tapbarIndex = 2
-    @State var showIdCard = false
+    @State var isShowIdCard = false
     
     var body: some View {
         ZStack {
@@ -32,7 +32,7 @@ struct MainView: View {
                     case 1: IngangView()
                         .environmentObject(alertManager)
                         .environmentObject(ingangAPI)
-                    case 2: HomeView(showIdCard: $showIdCard)
+                    case 2: HomeView(isShowIdCard: $isShowIdCard)
                         .environmentObject(tokenAPI)
                         .environmentObject(mealAPI)
                         .environmentObject(alertManager)
@@ -46,7 +46,7 @@ struct MainView: View {
                 }
                 TapBar(index: self.$tapbarIndex)
             }
-            StudentIdCardModalView(isShowing: $showIdCard)
+            StudentIdCardModalView(isShowing: $isShowIdCard)
                 .environmentObject(userAPI)
             if(alertManager.isShowing) {
                 AlertView(isShowing: $alertManager.isShowing)

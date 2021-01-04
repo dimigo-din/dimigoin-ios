@@ -53,7 +53,6 @@ struct StudentIdCardModalView: View {
             .background(
                 CustomBox(edgeInsets: .bottom, accentColor: Color("accent"), width: 13, tl: 10, tr: 10, bl: 10, br: 10)
             )
-            
             .offset(y: (isShowing ? 0 : UIScreen.screenHeight) + dragOffset.height)
             .animation(.spring())
             .gesture(
@@ -75,10 +74,8 @@ struct StudentIdCardModalView: View {
                         } else {
                             self.dragOffset = .zero
                         }
-                        
                     }
             )
-            
         }
     }
 }
