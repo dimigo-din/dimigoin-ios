@@ -19,6 +19,11 @@ struct StudentIdCardModalView: View {
         GeometryReader { geometry in
             ZStack{
                 Rectangle().fill(Color("gray2")).edgesIgnoringSafeArea(.all).opacity(isShowing ? 0.7 : 0).animation(.spring())
+                    .onTapGesture {
+                        withAnimation(.spring()) {
+                            self.isShowing = false
+                        }
+                    }
                 VStack {
                     HStack {
                         Spacer()
