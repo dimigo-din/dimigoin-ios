@@ -30,6 +30,7 @@ struct MainView: View {
                         .environmentObject(alertManager)
                         .environmentObject(userAPI)
                     case 1: IngangView()
+                        .environmentObject(tokenAPI)
                         .environmentObject(alertManager)
                         .environmentObject(ingangAPI)
                     case 2: HomeView(isShowIdCard: $isShowIdCard)
