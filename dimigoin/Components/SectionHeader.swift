@@ -20,10 +20,11 @@ struct SectionHeader: View {
     var body: some View {
         VStack {
             HStack {
-                VStack(alignment: .leading, spacing: 0){
-                    Text(NSLocalizedString(self.subSectionHeader, comment: "")).subSectionHeader()
-                    Text(NSLocalizedString(self.sectionHeader, comment: "")).sectionHeader()
-                }
+                Text(NSLocalizedString(self.subSectionHeader, comment: "")).subSectionHeader()
+                Spacer()
+            }.horizonPadding()
+            HStack {
+                Text(NSLocalizedString(self.sectionHeader, comment: "")).sectionHeader()
                 Spacer()
             }.horizonPadding()
         }
