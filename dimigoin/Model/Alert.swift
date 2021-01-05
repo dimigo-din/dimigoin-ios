@@ -32,7 +32,9 @@ class AlertManager: ObservableObject {
         }
         LOG("Alert presented \(content) : \(sub)")
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.dismiss()
+            if(self.isShowing == true) {
+                self.dismiss()
+            }
         }
     }
     func dismiss() {
