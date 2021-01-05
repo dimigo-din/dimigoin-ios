@@ -9,6 +9,7 @@
 import SwiftUI
 import DimigoinKit
 import LocalAuthentication
+import KingfisherSwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var mealAPI: MealAPI
