@@ -41,7 +41,7 @@ struct IngangItem: View {
                         LOG("apply ingang : \(ingang.idx!)")
                         tokenAPI.refreshTokens()
                         let headers: HTTPHeaders = [
-                            "Authorization":"Bearer \(tokenAPI.token)"
+                            "Authorization":"Bearer \(tokenAPI.accessToken)"
                         ]
                         let parameters: [String: String] = [
                             "ingang_idx": "\(String(ingang.idx!))"
@@ -84,7 +84,7 @@ struct IngangItem: View {
                         LOG("cancel ingang : \(ingang.idx!)")
                         tokenAPI.refreshTokens()
                         let headers: HTTPHeaders = [
-                            "Authorization":"Bearer \(tokenAPI.token)"
+                            "Authorization":"Bearer \(tokenAPI.accessToken)"
                         ]
                         let parameters: [String: String] = [
                             "ingang_idx": "\(String(ingang.idx!))"

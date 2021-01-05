@@ -34,12 +34,10 @@
 		4274149F259C1CBF00235302 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4274147C259B0B0800235302 /* AuthenticationServices.framework */; };
 		427414A2259C1CBF00235302 /* CredentialProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427414A1259C1CBF00235302 /* CredentialProviderViewController.swift */; };
 		427414A5259C1CBF00235302 /* CredentialProviderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 427414A3259C1CBF00235302 /* CredentialProviderViewController.xib */; };
-		428464C625A428B100D68E03 /* dimigoin_ui_test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428464C525A428B100D68E03 /* dimigoin_ui_test.swift */; };
 		428DC35E255EC40F00A4A7B5 /* WeeklyMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */; };
 		429BA5B025A0A63D000749AC /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429BA5AF25A0A63D000749AC /* LocalAuthentication.framework */; };
 		429BA5D725A30FBB000749AC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 429BA5DA25A30FBB000749AC /* Localizable.strings */; };
 		429BA5D825A30FBB000749AC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 429BA5DA25A30FBB000749AC /* Localizable.strings */; };
-		42A564E625A42D6500E7A827 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A564E525A42D6500E7A827 /* SnapshotHelper.swift */; };
 		42ABA08A255F5690001925BE /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA089255F5690001925BE /* TimetableView.swift */; };
 		42ABA090255F57E7001925BE /* HDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA08F255F57E7001925BE /* HDivider.swift */; };
 		42ABA0A4255F6247001925BE /* MealPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0A3255F6247001925BE /* MealPagerView.swift */; };
@@ -162,8 +160,6 @@
 		427414A7259C1CBF00235302 /* AutofillCredential.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AutofillCredential.entitlements; sourceTree = "<group>"; };
 		428464B825A35BAB00D68E03 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		428464C325A428B100D68E03 /* dimigoin-ui-test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dimigoin-ui-test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		428464C525A428B100D68E03 /* dimigoin_ui_test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dimigoin_ui_test.swift; sourceTree = "<group>"; };
-		428464C725A428B100D68E03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		428DC354255EB4F300A4A7B5 /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
 		428DC355255EB4F400A4A7B5 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		428DC356255EB4F400A4A7B5 /* Openas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Openas.ttf; sourceTree = "<group>"; };
@@ -175,7 +171,6 @@
 		429BA5AF25A0A63D000749AC /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		429BA5D925A30FBB000749AC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		429FD87F24B202DA003A49AF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		42A564E525A42D6500E7A827 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		42ABA089255F5690001925BE /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
 		42ABA08F255F57E7001925BE /* HDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDivider.swift; sourceTree = "<group>"; };
 		42ABA0A3255F6247001925BE /* MealPagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPagerView.swift; sourceTree = "<group>"; };
@@ -263,7 +258,6 @@
 				08C9ABE724A74A53002AF525 /* dimigoin */,
 				42B79D3E253ED242003A8A7F /* Widget */,
 				427414A0259C1CBF00235302 /* AutofillCredential */,
-				428464C425A428B100D68E03 /* dimigoin-ui-test */,
 				08C9ABE624A74A53002AF525 /* Products */,
 				228AAA612779C507EC76E9D9 /* Frameworks */,
 				3C3B9790B2DCA6EFCEBBC8B4 /* Pods */,
@@ -425,16 +419,6 @@
 				427414A7259C1CBF00235302 /* AutofillCredential.entitlements */,
 			);
 			path = AutofillCredential;
-			sourceTree = "<group>";
-		};
-		428464C425A428B100D68E03 /* dimigoin-ui-test */ = {
-			isa = PBXGroup;
-			children = (
-				428464C525A428B100D68E03 /* dimigoin_ui_test.swift */,
-				42A564E525A42D6500E7A827 /* SnapshotHelper.swift */,
-				428464C725A428B100D68E03 /* Info.plist */,
-			);
-			path = "dimigoin-ui-test";
 			sourceTree = "<group>";
 		};
 		428DC353255EB4F300A4A7B5 /* Fonts */ = {
@@ -775,8 +759,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				428464C625A428B100D68E03 /* dimigoin_ui_test.swift in Sources */,
-				42A564E625A42D6500E7A827 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

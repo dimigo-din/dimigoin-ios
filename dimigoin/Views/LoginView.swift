@@ -15,7 +15,7 @@ import CMLoadingButton
 struct LoginView: View {
     @EnvironmentObject var tokenAPI: TokenAPI
     @EnvironmentObject var alertManager: AlertManager
-    @State var id = ""
+    @State var username = ""
     @State var password = ""
     @State var showErrorMessage:Bool = false
     @State var isLoading: Bool = false
@@ -31,9 +31,9 @@ struct LoginView: View {
                         Text("디미고인").logoFont()
                     }
                     VSpacer(30)
-                    TextField("아이디", text: $id).textContentType(.username)
+                    TextField("아이디", text: $username).textContentType(.username)
                         .modifier(TextFieldModifier())
-                        .modifier(ClearButton(text: $id))
+                        .modifier(ClearButton(text: $username))
                     VSpacer(16)
                     SecureField("패스워드", text: $password).textContentType(.password)
                         .modifier(TextFieldModifier())
@@ -43,17 +43,17 @@ struct LoginView: View {
                         LOG("get token")
                         isLoading = true
                         let parameters: [String: String] = [
-                            "id": "\(self.id)",
+                            "username": "\(self.username)",
                             "password": "\(self.password)"
                         ]
-                        let url: String = "https://api.dimigo.in/auth/"
+                        let url: String = "http://edison.dimigo.hs.kr/auth"
                         AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { response in
                             if let status = response.response?.statusCode {
                                 switch(status) {
                                 case 200:
                                     let json = JSON(response.value!!)
-                                    self.tokenAPI.token = json["token"].string!
-                                    self.tokenAPI.refreshToken = json["refresh_token"].string!
+                                    self.tokenAPI.accessToken = json["accessToken"].string!
+                                    self.tokenAPI.refreshToken = json["refreshToken"].string!
                                     self.tokenAPI.debugToken()
                                     self.tokenAPI.saveTokens()
                                     self.tokenAPI.tokenStatus = .exist
@@ -67,6 +67,7 @@ struct LoginView: View {
                                 }
                             }
                         }
+                        
                     }, isLoading: $isLoading, style: buttonStyle) {
                         Text("로그인")
                             .font(Font.custom("NotoSansKR-Bold", size: 18))

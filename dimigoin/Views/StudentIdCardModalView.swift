@@ -40,7 +40,7 @@ struct StudentIdCardModalView: View {
                         }
                         VStack(alignment: .leading, spacing: 8) {
                             Text(getMajor(klass: userAPI.user.klass)).infoText()
-                            Text(userAPI.user.serial).infoText()
+                            Text("\(userAPI.user.serial)").infoText()
                             Text("030418-3******").infoText()
                         }
                     }
