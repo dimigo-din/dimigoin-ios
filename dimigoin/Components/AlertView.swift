@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct AlertView: View {
     @EnvironmentObject var alertManager: AlertManager
@@ -35,36 +36,36 @@ struct AlertView: View {
     }
     
     func dismiss() {
-        self.isShowing = false
+        withAnimation(.spring()) {
+            self.isShowing = false
+        }
     }
     
     var body: some View {
         ZStack {
-            Rectangle()
-                .fill(Color.gray)
-                .opacity(0.2)
-                .edgesIgnoringSafeArea(.all)
-                .onTapGesture {
-                    dismiss()
-                }
-            VStack {
-                VSpacer(10)
-                Image(getIconName(alertManager.alertType)).resizable().aspectRatio(contentMode: .fit).frame(width: 38).padding(.top)
-                VSpacer(20)
-                Text(alertManager.content).alertTitle(getAccentColor(alertManager.alertType))
-                VSpacer(10)
-                Text(alertManager.sub).alertSubTitle().horizonPadding()
-                VSpacer(20)
-                Divider()
-                Button(action: {
-                    dismiss()
-                }) {
-                    Text("확인").alertButton().padding(.bottom).frame(width: 300,height: 40)
-                }
-            }.frame(width: 300, height: 200)
-            .background(
-                CustomBox(edgeInsets: .top, accentColor: getAccentColor(alertManager.alertType), width: 5, tl: 2, tr: 2, bl: 2, br: 2)
-            )
+            GeometryReader { geometry in
+                HStack(spacing: 0){
+                    Spacer()
+                    Image(getIconName(alertManager.alertType)).resizable().aspectRatio(contentMode: .fit).frame(width: 32).padding(.leading)
+                    Spacer()
+                    VStack(alignment: .leading) {
+                        Text(alertManager.content).alertTitle(getAccentColor(alertManager.alertType))
+                        Text(alertManager.sub).alertSubTitle()
+                    }
+                    Spacer()
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image(systemName: "xmark").font(Font.system(size: 12, weight: .bold, design: .rounded)).padding(.trailing).foregroundColor(Color.gray)
+                    }
+                }.frame(width: UIDevice.current.userInterfaceIdiom == .phone ? geometry.size.width - 40 : 380, height: 80)
+                .background(
+                    CustomBox(edgeInsets: .leading, accentColor: getAccentColor(alertManager.alertType), width: 8, tl: 12, tr: 12, bl: 12, br: 12)
+                        .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)
+                )
+                .padding(.horizontal, UIDevice.current.userInterfaceIdiom == .phone ? 20 : (geometry.size.width - 380)/2)
+                .offset(y: isShowing ? 0 : -geometry.size.height/4)
+            }
         }
     }
 }

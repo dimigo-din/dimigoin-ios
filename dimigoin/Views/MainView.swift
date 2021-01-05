@@ -48,10 +48,9 @@ struct MainView: View {
             }
             StudentIdCardModalView(isShowing: $isShowIdCard)
                 .environmentObject(userAPI)
-            if(alertManager.isShowing) {
-                AlertView(isShowing: $alertManager.isShowing)
-                    .environmentObject(alertManager)
-            }
+            AlertView(isShowing: $alertManager.isShowing)
+                .environmentObject(alertManager)
+            
         }
     }
 }

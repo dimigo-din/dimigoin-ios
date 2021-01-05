@@ -77,10 +77,10 @@ struct LoginView: View {
                 Spacer()
                 CopyrightText()
             }.padding(.horizontal)
-            if(alertManager.isShowing) {
-                AlertView(isShowing: $alertManager.isShowing)
-                    .environmentObject(alertManager)
-            }
+            
+            AlertView(isShowing: $alertManager.isShowing)
+                .environmentObject(alertManager)
+            
             
         }
     }

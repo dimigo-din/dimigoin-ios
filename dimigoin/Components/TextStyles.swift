@@ -58,12 +58,12 @@ extension Text {
     func alertTitle(_ color: Color) -> some View {
         self
             .foregroundColor(color)
-            .font(Font.custom("NotoSansKR-Medium", size: 19))
+            .font(Font.custom("NotoSansKR-Bold", size: 15))
     }
     func alertSubTitle() -> some View {
         self
             .foregroundColor(Color("gray2"))
-            .font(Font.custom("NotoSansKR-Regular", size: 13))
+            .font(Font.custom("NotoSansKR-Regular", size: 11))
     }
     func alertButton() -> some View {
         self
