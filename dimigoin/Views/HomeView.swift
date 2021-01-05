@@ -9,7 +9,7 @@
 import SwiftUI
 import DimigoinKit
 import LocalAuthentication
-import KingfisherSwiftUI
+import SDWebImageSwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var mealAPI: MealAPI
@@ -40,14 +40,18 @@ struct HomeView: View {
                                 
                             }) {
                                 // MARK: replace userPhoto-sample to userImage when backend ready
-                                Image("userPhoto-sample")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 38)
-                                    .clipShape(Circle())
-                                    .overlay(
-                                        Circle().stroke(Color("accent"), lineWidth: 2)
-                                    )
+                                withAnimation() {
+                                    userAPI.userPhoto
+                                        .resizable()
+                                        .placeholder(Image(systemName: "person.crop.circle"))
+                                        .foregroundColor(Color("accent"))
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 38)
+                                        .clipShape(Circle())
+                                        .overlay(
+                                            Circle().stroke(Color("accent"), lineWidth: 2)
+                                        )
+                                }
                             }
                         }.horizonPadding()
                     }

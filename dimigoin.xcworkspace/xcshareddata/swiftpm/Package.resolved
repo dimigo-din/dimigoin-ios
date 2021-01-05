@@ -20,12 +20,21 @@
         }
       },
       {
-        "package": "Kingfisher",
-        "repositoryURL": "https://github.com/onevcat/Kingfisher",
+        "package": "SDWebImage",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
         "state": {
           "branch": null,
-          "revision": "5840cfe0d4a942be41c1cb8a325cc27dd50be1e4",
-          "version": "6.0.0"
+          "revision": "564d238f8814c4a82502336fd80b28a9d321ff47",
+          "version": "5.10.2"
+        }
+      },
+      {
+        "package": "SDWebImageSwiftUI",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImageSwiftUI",
+        "state": {
+          "branch": null,
+          "revision": "4c7f169e39bc35d6b80d42b8eb8301bee9cd0907",
+          "version": "1.5.0"
         }
       },
       {
