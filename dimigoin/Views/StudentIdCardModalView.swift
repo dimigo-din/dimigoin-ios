@@ -8,6 +8,7 @@
 
 import SwiftUI
 import DimigoinKit
+import SDWebImageSwiftUI
 
 struct StudentIdCardModalView: View {
     @Binding var isShowing: Bool
@@ -28,8 +29,8 @@ struct StudentIdCardModalView: View {
                                 .foregroundColor(Color("gray1")).padding()
                         }
                     }
-                    Image("userPhoto-sample").resizable().aspectRatio(contentMode: .fit).frame(width: 131)
-                    // MARK: replace userPhoto-sample to userImage when backend ready
+                    userAPI.userPhoto.resizable().placeholder(Image(systemName: "person.crop.circle")).aspectRatio(contentMode: .fit).frame(width: 131)
+                        .overlay(Rectangle().stroke(Color.gray.opacity(0.15), lineWidth: 3))
                     Text(userAPI.user.name).font(Font.custom("NotoSansKR-Bold", size: 25))
                     VSpacer(14)
                     HStack {
