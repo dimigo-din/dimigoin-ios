@@ -29,8 +29,9 @@ struct MainView: View {
                 switch self.tapbarIndex {
                     case 0: ProfileView()
                         .environmentObject(tokenAPI)
-                        .environmentObject(alertManager)
                         .environmentObject(userAPI)
+                        .environmentObject(noticeAPI)
+                        .environmentObject(alertManager)
                     case 1: IngangView()
                         .environmentObject(tokenAPI)
                         .environmentObject(alertManager)

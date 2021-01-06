@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct FullTimatableView: View {
+struct FullTimetableView: View {
     var body: some View {
         
         Text("FillTimeTable")

@@ -30,7 +30,8 @@
 		4250012625595F9E00C593CF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250012525595F9E00C593CF /* Alert.swift */; };
 		42524E2C25621BF30021F48B /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524E2B25621BF30021F48B /* VSpacer.swift */; };
 		42524E2D25621BF30021F48B /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524E2B25621BF30021F48B /* VSpacer.swift */; };
-		426CBFE025A61D0C00B60BB3 /* FullTimatableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426CBFDF25A61D0C00B60BB3 /* FullTimatableView.swift */; };
+		426CBFE025A61D0C00B60BB3 /* FullTimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426CBFDF25A61D0C00B60BB3 /* FullTimetableView.swift */; };
+		426CBFEE25A6821F00B60BB3 /* FullNoticeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426CBFED25A6821F00B60BB3 /* FullNoticeListView.swift */; };
 		4274147D259B0B0800235302 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4274147C259B0B0800235302 /* AuthenticationServices.framework */; };
 		428DC35E255EC40F00A4A7B5 /* WeeklyMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */; };
 		429BA5B025A0A63D000749AC /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429BA5AF25A0A63D000749AC /* LocalAuthentication.framework */; };
@@ -149,7 +150,8 @@
 		4250011B25595C2900C593CF /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		4250012525595F9E00C593CF /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		42524E2B25621BF30021F48B /* VSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSpacer.swift; sourceTree = "<group>"; };
-		426CBFDF25A61D0C00B60BB3 /* FullTimatableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullTimatableView.swift; sourceTree = "<group>"; };
+		426CBFDF25A61D0C00B60BB3 /* FullTimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullTimetableView.swift; sourceTree = "<group>"; };
+		426CBFED25A6821F00B60BB3 /* FullNoticeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullNoticeListView.swift; sourceTree = "<group>"; };
 		4274147C259B0B0800235302 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		428464B825A35BAB00D68E03 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		428464C325A428B100D68E03 /* dimigoin-ui-test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dimigoin-ui-test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -308,12 +310,13 @@
 				08C9AC0724A74A83002AF525 /* MainView.swift */,
 				42EFCDE525581C4500F3DC5E /* HomeView.swift */,
 				42EFCDD12558141000F3DC5E /* ProfileView.swift */,
+				426CBFED25A6821F00B60BB3 /* FullNoticeListView.swift */,
 				42EFCDEF25581D4E00F3DC5E /* MealView.swift */,
 				428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */,
 				42EFCE1F255851B500F3DC5E /* IngangView.swift */,
 				42C72C042559FED900E3294E /* StudentIdCardView.swift */,
 				42ABA089255F5690001925BE /* TimetableView.swift */,
-				426CBFDF25A61D0C00B60BB3 /* FullTimatableView.swift */,
+				426CBFDF25A61D0C00B60BB3 /* FullTimetableView.swift */,
 				42ABA0AD255FA58B001925BE /* StudentIdCardModalView.swift */,
 			);
 			path = Views;
@@ -664,6 +667,7 @@
 				42EFCDD82558188100F3DC5E /* TapBar.swift in Sources */,
 				428DC35E255EC40F00A4A7B5 /* WeeklyMealView.swift in Sources */,
 				42ABA0B2255FA725001925BE /* CustomBox.swift in Sources */,
+				426CBFEE25A6821F00B60BB3 /* FullNoticeListView.swift in Sources */,
 				4250012625595F9E00C593CF /* Alert.swift in Sources */,
 				42ABA08A255F5690001925BE /* TimetableView.swift in Sources */,
 				42ABA090255F57E7001925BE /* HDivider.swift in Sources */,
@@ -672,7 +676,7 @@
 				086CC54F24AF819400456846 /* HSpacer.swift in Sources */,
 				08C9AC1424A74A83002AF525 /* LoginView.swift in Sources */,
 				42ABA0AE255FA58B001925BE /* StudentIdCardModalView.swift in Sources */,
-				426CBFE025A61D0C00B60BB3 /* FullTimatableView.swift in Sources */,
+				426CBFE025A61D0C00B60BB3 /* FullTimetableView.swift in Sources */,
 				08C9AC1024A74A83002AF525 /* TextFieldModifier.swift in Sources */,
 				42EFCE16255848C300F3DC5E /* LocationSelection.swift in Sources */,
 				42ABA0A4255F6247001925BE /* MealPagerView.swift in Sources */,

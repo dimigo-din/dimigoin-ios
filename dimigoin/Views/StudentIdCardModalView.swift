@@ -36,7 +36,7 @@ struct StudentIdCardModalView: View {
                                         .foregroundColor(Color("gray1")).padding()
                                 }
                             }
-                            userAPI.userPhoto.resizable().placeholder(Image(systemName: "person.crop.circle")).aspectRatio(contentMode: .fit).frame(width: 131)
+                            userAPI.userPhoto.resizable().placeholder(Image("user.photo.sample")).aspectRatio(contentMode: .fit).frame(width: 131)
                                 .overlay(Rectangle().stroke(Color.gray.opacity(0.15), lineWidth: 3))
                             Text(userAPI.user.name).font(Font.custom("NotoSansKR-Bold", size: 25))
                             VSpacer(14)

@@ -12,44 +12,42 @@ import DimigoinKit
 struct ProfileView: View {
     @EnvironmentObject var userAPI: UserAPI
     @EnvironmentObject var tokenAPI: TokenAPI
+    @EnvironmentObject var noticeAPI: NoticeAPI
     @EnvironmentObject var alertManager: AlertManager
     
     var body: some View {
-        ScrollView {
-            HStack {
-                ViewTitle("내정보", sub: "")
-                Spacer()
-            }.horizonPadding()
-            .padding(.top, 40)
-            HDivider().horizonPadding().offset(y: -15)
-            ScrollView {
-                Button(action: {
-                    self.tokenAPI.clearTokens()
-                }) {
-                    Text("로그아웃").SquareButton(312, 54)
+        NavigationView {
+            GeometryReader { geometry in
+                ScrollView {
+                    HStack {
+                        ViewTitle("내정보", sub: "")
+                        Spacer()
+                    }.horizonPadding()
+                    .padding(.top, 40)
+                    HDivider().horizonPadding().offset(y: -15)
+                    HStack(alignment: .bottom) {
+                        ZStack {
+                            Text(NSLocalizedString("공지사항", comment: "")).sectionHeader()
+                            Circle().fill(Color("accent")).frame(width: 8, height: 8).offset(x: 45, y: -7)
+                        }
+                        NavigationLink(destination: FullNoticeListView().environmentObject(noticeAPI).environmentObject(userAPI)) {
+                            Text("더보기").accent().mealMenu().padding([.bottom, .leading], 4)
+                        }
+                        Spacer()
+                    }.horizonPadding()
+                    Text("\(noticeAPI.notices[0].content)")
+                        .mealMenu()
+                        .padding()
+                        .frame(width: abs(geometry.size.width-40))
+                        .background(CustomBox())
+                        .fixedSize(horizontal: false, vertical: true)
+                    Spacer()
                 }
-                Button(action: {
-                    alertManager.createAlert("취소되었습니다", sub: "내정보 탭에서 신청 목록을 확인하실 수 있습니다", .cancel)
-                }) {
-                    Text("cancel").SquareButton(312, 54)
-                }
-                Button(action: {
-                    alertManager.createAlert("권한이 부족합니다", sub: "계속하시려면 권한을 보유한 계정으로 로그인하세요", .danger)
-                }) {
-                    Text("danger").SquareButton(312, 54)
-                }
-                Button(action: {
-                    alertManager.createAlert("신청이 완료되었습니다", sub: "해당 탭에서 신청 목록을 확인하실 수 있습니다", .success)
-                }) {
-                    Text("success").SquareButton(312, 54)
-                }
-                Button(action: {
-                    alertManager.createAlert("오류가 발생했습니다", sub: "이 화면이 계속 나타난다면 관리자에게 문의하세요", .warning)
-                }) {
-                    Text("error").SquareButton(312, 54)
-                }
-                
+            
             }
+            .navigationBarTitle("내정보")
+            .navigationBarHidden(true)
         }
+        
     }
 }
