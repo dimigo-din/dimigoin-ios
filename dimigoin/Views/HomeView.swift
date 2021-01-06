@@ -34,7 +34,8 @@ struct HomeView: View {
                             Image("logo").resizable().aspectRatio(contentMode: .fit).frame(height: 38)
                             Spacer()
                             Button(action: {
-                                showIdCardAfterAuthentication()
+//                                showIdCardAfterAuthentication()
+                                showIdCard()
                                 
                             }) {
                                 // MARK: replace userPhoto-sample to userImage when backend ready

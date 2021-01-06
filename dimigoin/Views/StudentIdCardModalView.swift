@@ -25,38 +25,43 @@ struct StudentIdCardModalView: View {
                         }
                     }
                 VStack {
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            self.isShowing.toggle()
-                        }) {
-                            Image(systemName: "xmark").resizable().aspectRatio(contentMode: .fit).frame(width: 16)
-                                .foregroundColor(Color("gray1")).padding()
+                    ZStack {
+                        VStack {
+                            HStack {
+                                Spacer()
+                                Button(action: {
+                                    self.isShowing.toggle()
+                                }) {
+                                    Image(systemName: "xmark").resizable().aspectRatio(contentMode: .fit).frame(width: 16)
+                                        .foregroundColor(Color("gray1")).padding()
+                                }
+                            }
+                            userAPI.userPhoto.resizable().placeholder(Image(systemName: "person.crop.circle")).aspectRatio(contentMode: .fit).frame(width: 131)
+                                .overlay(Rectangle().stroke(Color.gray.opacity(0.15), lineWidth: 3))
+                            Text(userAPI.user.name).font(Font.custom("NotoSansKR-Bold", size: 25))
+                            VSpacer(14)
+                            HStack {
+                                VStack(alignment: .leading, spacing: 8){
+                                    Text("학과").infoText().gray6()
+                                    Text("학번").infoText().gray6()
+        //                            Text("주민번호").infoText().gray6()
+                                }
+                                VStack(alignment: .leading, spacing: 8) {
+                                    Text(getMajor(klass: userAPI.user.klass)).infoText()
+                                    Text(String(userAPI.user.serial)).infoText()
+        //                            Text("030418-3******").infoText()
+                                }
+                            }
+                            VSpacer(15)
+                            Text("위 사람은 본교 학생임을 증명함.").font(Font.custom("NotoSansKR-Bold", size: 14))
+                            Image("dimigo-logo").resizable().aspectRatio(contentMode: .fit).frame(width: 263)
+        //                    Image("qr-sample").resizable().aspectRatio(contentMode: .fit).frame(width: 239)
+                            Spacer()
                         }
                     }
-                    userAPI.userPhoto.resizable().placeholder(Image(systemName: "person.crop.circle")).aspectRatio(contentMode: .fit).frame(width: 131)
-                        .overlay(Rectangle().stroke(Color.gray.opacity(0.15), lineWidth: 3))
-                    Text(userAPI.user.name).font(Font.custom("NotoSansKR-Bold", size: 25))
-                    VSpacer(14)
-                    HStack {
-                        VStack(alignment: .leading, spacing: 8){
-                            Text("학과").infoText().gray6()
-                            Text("학번").infoText().gray6()
-                            Text("주민번호").infoText().gray6()
-                        }
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text(getMajor(klass: userAPI.user.klass)).infoText()
-                            Text(String(userAPI.user.serial)).infoText()
-                            Text("030418-3******").infoText()
-                        }
-                    }
-                    VSpacer(15)
-                    Text("위 사람은 본교 학생임을 증명함.").font(Font.custom("NotoSansKR-Bold", size: 14))
-                    Image("dimigo-logo").resizable().aspectRatio(contentMode: .fit).frame(width: 263)
-                    Image("qr-sample").resizable().aspectRatio(contentMode: .fit).frame(width: 239)
-                    Spacer()
+                    
                 }
-                .frame(width: 300,height: 560)
+                .frame(width: 300, height: 480)
                 .background(
                     CustomBox(edgeInsets: .bottom, accentColor: Color("accent"), width: 13, tl: 10, tr: 10, bl: 10, br: 10)
                 )
