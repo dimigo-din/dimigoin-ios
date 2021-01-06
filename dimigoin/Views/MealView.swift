@@ -14,14 +14,13 @@ struct MealView: View {
     
     var body: some View {
         NavigationView {
-            
             ScrollView(showsIndicators: false) {
                 GeometryReader { geometry in
                      VStack{
                         HStack {
                             ViewTitle("급식", sub: getDateString())
                             Spacer()
-                            NavigationLink(destination: WeeklyMealView()) {
+                            NavigationLink(destination: WeeklyMealView().environmentObject(mealAPI)) {
                                 Image("calender").resizable().aspectRatio(contentMode: .fit).frame(height: 40)
                             }
                         }.horizonPadding()
@@ -63,6 +62,7 @@ struct MealView: View {
                     }
                 }
             }
+            .navigationBarTitle("오늘의 급식")
             .navigationBarHidden(true)
         }.navigationViewStyle(StackNavigationViewStyle())
     }

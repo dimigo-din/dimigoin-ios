@@ -9,6 +9,7 @@
 import Foundation
 import DimigoinKit
 import SwiftUI
+import Combine
 
 enum AlertType {
     case success
@@ -22,6 +23,8 @@ class AlertManager: ObservableObject {
     var alertType: AlertType = .warning
     var content: String = "content"
     var sub: String = "sub"
+    
+    
 
     func createAlert(_ content: String, sub: String, _ alertType: AlertType) {
         self.alertType = alertType
@@ -35,6 +38,7 @@ class AlertManager: ObservableObject {
             if(self.isShowing == true) {
                 self.dismiss()
             }
+            
         }
     }
     func dismiss() {

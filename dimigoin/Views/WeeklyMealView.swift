@@ -7,9 +7,64 @@
 //
 
 import SwiftUI
+import DimigoinKit
 
 struct WeeklyMealView: View {
+    @EnvironmentObject var mealAPI: MealAPI
+    @State var selection: Int = getTodayDayOfWeekInt()-1
+    private let days: [String] = ["월", "화", "수", "목", "금", "토", "일"]
+    
+    init() {
+        _ = UINavigationBarAppearance()
+        if #available(iOS 14.0, *) {
+            UINavigationBar.appearance().tintColor = UIColor(Color("accent"))
+        }
+    }
     var body: some View {
-        Text("WeeklyMealVIew")
+        GeometryReader { geometry in
+            ScrollView(showsIndicators: false) {
+                Picker("요일", selection: $selection) {
+                    ForEach(0 ..< days.count) { index in
+                        Text(self.days[index]).tag(index)
+                    }
+                }.pickerStyle(SegmentedPickerStyle())
+                .padding(20)
+                 VStack{
+                    VStack {
+                        SectionHeader("아침", sub: "오전 7시 30분")
+                        Text(mealAPI.meals[selection].breakfast)
+                            .mealMenu()
+                            .padding()
+                            .frame(width: abs(geometry.size.width-40))
+                            .background(CustomBox())
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    VSpacer(20)
+                    VStack {
+                        SectionHeader("점심", sub: "오후 12시 50분")
+                        Text(mealAPI.meals[selection].lunch)
+                            .mealMenu()
+                            .padding()
+                            .frame(width: abs(geometry.size.width-40))
+                            .background(CustomBox())
+                            .fixedSize(horizontal: false, vertical: true)
+                            
+                    }
+                    VSpacer(20)
+                    VStack {
+                        SectionHeader("저녁", sub: "오후 6시 35분")
+                        Text(mealAPI.meals[selection].dinner)
+                            .mealMenu()
+                            .padding()
+                            .frame(width: abs(geometry.size.width-40))
+                            .background(CustomBox())
+                            .fixedSize(horizontal: false, vertical: true)
+                            
+                    }
+                 }
+            }
+            .navigationBarTitle("이번주 급식")
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
+
