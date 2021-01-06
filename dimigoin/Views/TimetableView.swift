@@ -31,20 +31,10 @@ struct TimetableView: View {
                 }.horizonPadding()
                 .padding(.top, 40)
                 HDivider().horizonPadding().offset(y: -15)
-                TimetableItem(grade: userAPI.user.grade, klass: userAPI.user.klass, isMagicRevealed: $isMagicRevealed)
+                TimetableItem(grade: userAPI.user.grade, klass: userAPI.user.klass, isMagicRevealed: $isMagicRevealed, geometry: geometry)
                     .environmentObject(timetableAPI)
             }
         }
-    }
-    var dayIndicatorXOffset: CGFloat = CGFloat(getTodayDayOfWeekInt()-1)*(UIScreen.screenWidth-40)/5
-    func pickerButton(type:String, _ value: Int) -> some View{
-        return Text("\(value)\(type)")
-            .foregroundColor(Color.white)
-            .sectionHeader()
-            .padding(.horizontal, 10)
-            .background(Color("accent"))
-            .cornerRadius(5)
-        
     }
     
     private func revealSecret() {
@@ -62,7 +52,15 @@ struct TimetableItem: View{
     @State var grade: Int
     @State var klass: Int
     @Binding var isMagicRevealed: Bool
-    var dayIndicatorXOffset: CGFloat = CGFloat(getTodayDayOfWeekInt()-1)*(UIScreen.screenWidth-40)/5
+    @State var geometry: GeometryProxy
+    var dayIndicatorXOffset: CGFloat = 0
+    init(grade: Int, klass: Int, isMagicRevealed: Binding<Bool>, geometry: GeometryProxy) {
+        self._grade = .init(initialValue: grade)
+        self._klass = .init(initialValue: klass)
+        self._isMagicRevealed = isMagicRevealed
+        self._geometry = .init(initialValue: geometry)
+        self.dayIndicatorXOffset = CGFloat(getTodayDayOfWeekInt()-1)*(geometry.size.width-40)/5
+    }
     func pickerButton(type:String, _ value: Int) -> some View{
         return Text("\(value)\(type)")
             .foregroundColor(Color.white)
@@ -106,7 +104,7 @@ struct TimetableItem: View{
                                 VSpacer(20)
                                 ForEach(timetableAPI.getTimetable(grade: grade, klass: klass).data[day-1], id: \.self) { lecture in
                                     Text("\(lecture)")
-                                        .frame(width: (UIScreen.screenWidth-40)/5, height: 20)
+                                        .frame(width: (geometry.size.width-40)/5, height: 20)
                                         .padding(.vertical, 4)
                                         .font(Font.custom("NotoSansKR-Regular", size: 14))
                                         .foregroundColor(Color(getTodayDayOfWeekInt() == day ? "accent" : "gray4"))
@@ -119,7 +117,7 @@ struct TimetableItem: View{
                     Divider().offset(y: 45)
                     Rectangle()
                         .fill(Color("accent"))
-                        .frame(width: (UIScreen.screenWidth-40)/5, height: 3)
+                        .frame(width: (geometry.size.width-40)/5, height: 3)
                         .cornerRadius(2)
                         .offset(x: dayIndicatorXOffset, y: 44)
                 }.horizonPadding()
@@ -133,7 +131,7 @@ struct TimetableItem: View{
                                 VSpacer(20)
                                 ForEach(timetableAPI.getTimetable(grade: grade, klass: klass).data[day-1], id: \.self) { lecture in
                                     Text("\(lecture)")
-                                        .frame(width: (UIScreen.screenWidth-40)/5, height: 20)
+                                        .frame(width: (geometry.size.width-40)/5, height: 20)
                                         .padding(.vertical, 4)
                                         .font(Font.custom("NotoSansKR-Regular", size: 14))
                                         .foregroundColor(Color("gray4"))
