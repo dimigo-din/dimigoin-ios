@@ -18,7 +18,7 @@ struct MainView: View {
     @ObservedObject var ingangAPI = IngangAPI()
     @ObservedObject var userAPI = UserAPI()
     @ObservedObject var timetableAPI = TimetableAPI()
-    @State var tapbarIndex = 2
+    @State var tapbarIndex = 1
     @State var isShowIdCard = false
     
     var body: some View {

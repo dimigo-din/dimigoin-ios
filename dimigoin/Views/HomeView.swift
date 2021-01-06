@@ -25,12 +25,13 @@ struct HomeView: View {
                 VStack{
                     ZStack {
                         VStack {
-                            if UIDevice.current.userInterfaceIdiom == .phone {
-                                VSpacer(70)
-                            } else {
-                                VSpacer(20)
-                            }
-                            Image("school").resizable().aspectRatio(contentMode: .fit).frame(width: geometry.size.width).opacity(0.3)
+                            VSpacer(50)
+//                            if UIDevice.current.userInterfaceIdiom == .phone {
+//                                VSpacer(70)
+//                            } else {
+//                                VSpacer(20)
+//                            }
+                            Image("school").resizable().aspectRatio(contentMode: .fit).frame(width: geometry.frame(in: .global).width).opacity(0.3)
                         }
                         HStack {
                             Image("logo").resizable().aspectRatio(contentMode: .fit).frame(height: 38)

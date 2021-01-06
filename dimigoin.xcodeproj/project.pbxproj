@@ -32,8 +32,6 @@
 		42524E2D25621BF30021F48B /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524E2B25621BF30021F48B /* VSpacer.swift */; };
 		4274147D259B0B0800235302 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4274147C259B0B0800235302 /* AuthenticationServices.framework */; };
 		4274149F259C1CBF00235302 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4274147C259B0B0800235302 /* AuthenticationServices.framework */; };
-		427414A2259C1CBF00235302 /* CredentialProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427414A1259C1CBF00235302 /* CredentialProviderViewController.swift */; };
-		427414A5259C1CBF00235302 /* CredentialProviderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 427414A3259C1CBF00235302 /* CredentialProviderViewController.xib */; };
 		428DC35E255EC40F00A4A7B5 /* WeeklyMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */; };
 		429BA5B025A0A63D000749AC /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429BA5AF25A0A63D000749AC /* LocalAuthentication.framework */; };
 		429BA5D725A30FBB000749AC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 429BA5DA25A30FBB000749AC /* Localizable.strings */; };
@@ -47,6 +45,7 @@
 		42B5B89A2566C286008EF7E0 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42B5B8992566C286008EF7E0 /* DimigoinKit */; };
 		42B5B89C2566C28B008EF7E0 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42B5B89B2566C28B008EF7E0 /* DimigoinKit */; };
 		42B6C85B25A4ADFC00331373 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 42B6C85A25A4ADFC00331373 /* SDWebImageSwiftUI */; };
+		42B6C86925A4E08F00331373 /* IngangAttendanceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B6C86825A4E08F00331373 /* IngangAttendanceListView.swift */; };
 		42B79D3C253ED242003A8A7F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42124B4A70E00005663 /* WidgetKit.framework */; };
 		42B79D3D253ED242003A8A7F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42324B4A70E00005663 /* SwiftUI.framework */; };
 		42B79D40253ED242003A8A7F /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B79D3F253ED242003A8A7F /* Widget.swift */; };
@@ -153,10 +152,6 @@
 		42524E2B25621BF30021F48B /* VSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSpacer.swift; sourceTree = "<group>"; };
 		4274147C259B0B0800235302 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		4274149E259C1CBF00235302 /* AutofillCredential.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AutofillCredential.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		427414A1259C1CBF00235302 /* CredentialProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialProviderViewController.swift; sourceTree = "<group>"; };
-		427414A4259C1CBF00235302 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CredentialProviderViewController.xib; sourceTree = "<group>"; };
-		427414A6259C1CBF00235302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		427414A7259C1CBF00235302 /* AutofillCredential.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AutofillCredential.entitlements; sourceTree = "<group>"; };
 		428464B825A35BAB00D68E03 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		428464C325A428B100D68E03 /* dimigoin-ui-test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dimigoin-ui-test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		428DC354255EB4F300A4A7B5 /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
@@ -177,6 +172,7 @@
 		42ABA0B1255FA725001925BE /* CustomBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBox.swift; sourceTree = "<group>"; };
 		42ABA0C4255FC4E2001925BE /* HorizonPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizonPadding.swift; sourceTree = "<group>"; };
 		42B5B8962566C277008EF7E0 /* DimigoinKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DimigoinKit; path = ../DimigoinKit; sourceTree = "<group>"; };
+		42B6C86825A4E08F00331373 /* IngangAttendanceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngangAttendanceListView.swift; sourceTree = "<group>"; };
 		42B79D3B253ED242003A8A7F /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B79D3F253ED242003A8A7F /* Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
 		42B79D41253ED243003A8A7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -255,7 +251,6 @@
 				42B5B8962566C277008EF7E0 /* DimigoinKit */,
 				08C9ABE724A74A53002AF525 /* dimigoin */,
 				42B79D3E253ED242003A8A7F /* Widget */,
-				427414A0259C1CBF00235302 /* AutofillCredential */,
 				08C9ABE624A74A53002AF525 /* Products */,
 				228AAA612779C507EC76E9D9 /* Frameworks */,
 				3C3B9790B2DCA6EFCEBBC8B4 /* Pods */,
@@ -327,6 +322,7 @@
 				42EFCDEF25581D4E00F3DC5E /* MealView.swift */,
 				428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */,
 				42EFCE1F255851B500F3DC5E /* IngangView.swift */,
+				42B6C86825A4E08F00331373 /* IngangAttendanceListView.swift */,
 				42C72C042559FED900E3294E /* StudentIdCardView.swift */,
 				42ABA089255F5690001925BE /* TimetableView.swift */,
 				42ABA0AD255FA58B001925BE /* StudentIdCardModalView.swift */,
@@ -405,17 +401,6 @@
 				42EFCD982558073200F3DC5E /* NotoSansKR-Thin.otf */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		427414A0259C1CBF00235302 /* AutofillCredential */ = {
-			isa = PBXGroup;
-			children = (
-				427414A1259C1CBF00235302 /* CredentialProviderViewController.swift */,
-				427414A3259C1CBF00235302 /* CredentialProviderViewController.xib */,
-				427414A6259C1CBF00235302 /* Info.plist */,
-				427414A7259C1CBF00235302 /* AutofillCredential.entitlements */,
-			);
-			path = AutofillCredential;
 			sourceTree = "<group>";
 		};
 		428DC353255EB4F300A4A7B5 /* Fonts */ = {
@@ -610,7 +595,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				427414A5259C1CBF00235302 /* CredentialProviderViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,6 +720,7 @@
 				42EFCE2E255852DD00F3DC5E /* ViewTitle.swift in Sources */,
 				42EFCDFE255829B100F3DC5E /* SectionHeader.swift in Sources */,
 				08C9ABEB24A74A53002AF525 /* SceneDelegate.swift in Sources */,
+				42B6C86925A4E08F00331373 /* IngangAttendanceListView.swift in Sources */,
 				423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */,
 				086CC55124AF849D00456846 /* TextStyles.swift in Sources */,
 				08C9ABED24A74A53002AF525 /* ContentView.swift in Sources */,
@@ -747,7 +732,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				427414A2259C1CBF00235302 /* CredentialProviderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -794,14 +778,6 @@
 				08C9ABF424A74A54002AF525 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		427414A3259C1CBF00235302 /* CredentialProviderViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				427414A4259C1CBF00235302 /* Base */,
-			);
-			name = CredentialProviderViewController.xib;
 			sourceTree = "<group>";
 		};
 		429BA5DA25A30FBB000749AC /* Localizable.strings */ = {
