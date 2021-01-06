@@ -16,6 +16,8 @@ struct HomeView: View {
     @EnvironmentObject var alertManager: AlertManager
     @EnvironmentObject var tokenAPI : TokenAPI
     @EnvironmentObject var userAPI: UserAPI
+    @EnvironmentObject var attendanceLogAPI: AttendanceLogAPI
+    @EnvironmentObject var placeAPI: PlaceAPI
     @Binding var isShowIdCard: Bool
     @State var currentLocation = 0
     
@@ -26,18 +28,13 @@ struct HomeView: View {
                     ZStack {
                         VStack {
                             VSpacer(50)
-//                            if UIDevice.current.userInterfaceIdiom == .phone {
-//                                VSpacer(70)
-//                            } else {
-//                                VSpacer(20)
-//                            }
                             Image("school").resizable().aspectRatio(contentMode: .fit).frame(width: geometry.frame(in: .global).width).opacity(0.3)
                         }
                         HStack {
                             Image("logo").resizable().aspectRatio(contentMode: .fit).frame(height: 38)
                             Spacer()
                             Button(action: {
-                                showIdCard()
+                                showIdCardAfterAuthentication()
                                 
                             }) {
                                 // MARK: replace userPhoto-sample to userImage when backend ready
@@ -58,6 +55,9 @@ struct HomeView: View {
                     }
                     VSpacer(15)
                     LocationSelectionView(currentLocation: $currentLocation)
+                        .environmentObject(attendanceLogAPI)
+                        .environmentObject(placeAPI)
+                        .environmentObject(alertManager)
                     Spacer()
                     Text("오늘의 급식").font(Font.custom("NotoSansKR-Bold", size: 20)).horizonPadding()
                     MealPagerView()
@@ -67,15 +67,27 @@ struct HomeView: View {
         }
     }
     func showIdCardAfterAuthentication() {
-        let scanner = LAContext()
-        scanner.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "학생증 보기") { (status, err) in
-            if err != nil {
-                print(err!.localizedDescription)
-                return
-            } else {
-               showIdCard()
-            }
-            
+        let context = LAContext()
+        var error: NSError?
+
+        guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) else {
+            return
+        }
+
+        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
+            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "학생증을 보려면 인증을 완료해주세요", reply: { (success, error) in
+                if success {
+                    DispatchQueue.main.async {
+                        showIdCard()
+                    }
+                }else {
+                    DispatchQueue.main.async {
+                        print("Authentication was error")
+                    }
+                }
+            })
+        }else {
+            alertManager.createAlert("인증에 실패했습니다.", sub: "학생증을 보시려면 생체인증을 진행하거나, 비밀번호를 입력해야 합니다.", .danger)
         }
     }
     func showIdCard() {

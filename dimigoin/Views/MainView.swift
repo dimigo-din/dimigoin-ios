@@ -18,7 +18,9 @@ struct MainView: View {
     @ObservedObject var ingangAPI = IngangAPI()
     @ObservedObject var userAPI = UserAPI()
     @ObservedObject var timetableAPI = TimetableAPI()
-    @State var tapbarIndex = 1
+    @ObservedObject var attendanceLogAPI = AttendanceLogAPI()
+    @ObservedObject var placeAPI = PlaceAPI()
+    @State var tapbarIndex = 2
     @State var isShowIdCard = false
     
     var body: some View {
@@ -38,6 +40,8 @@ struct MainView: View {
                         .environmentObject(mealAPI)
                         .environmentObject(alertManager)
                         .environmentObject(userAPI)
+                        .environmentObject(attendanceLogAPI)
+                        .environmentObject(placeAPI)
                     case 3: MealView()
                         .environmentObject(mealAPI)
                     case 4: TimetableView()
