@@ -46,9 +46,9 @@ struct AlertView: View {
         ZStack {
             GeometryReader { geometry in
                 HStack(spacing: 0){
-                    Spacer()
+                    HSpacer(20)
                     Image(getIconName(alertManager.alertType)).resizable().aspectRatio(contentMode: .fit).frame(width: 32).padding(.leading)
-                    Spacer()
+                    HSpacer(20)
                     VStack(alignment: .leading) {
                         Text(alertManager.content).alertTitle(getAccentColor(alertManager.alertType))
                         Text(alertManager.sub).alertSubTitle()
