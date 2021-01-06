@@ -20,7 +20,7 @@ struct MainView: View {
     @ObservedObject var timetableAPI = TimetableAPI()
     @ObservedObject var attendanceLogAPI = AttendanceLogAPI()
     @ObservedObject var placeAPI = PlaceAPI()
-    @State var tapbarIndex = 2
+    @State var tapbarIndex = 4
     @State var isShowIdCard = false
     
     var body: some View {
@@ -47,6 +47,7 @@ struct MainView: View {
                     case 4: TimetableView()
                         .environmentObject(timetableAPI)
                         .environmentObject(userAPI)
+                        .environmentObject(alertManager)
                     default: Text("Error")
                 }
                 TapBar(index: self.$tapbarIndex)

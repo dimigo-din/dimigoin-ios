@@ -9,45 +9,56 @@
 import SwiftUI
 
 extension Text {
+    
+    /// 마젠타색으로 강조
     func accent() -> Text {
         self.foregroundColor(Color("accent"))
     }
     
+    /// 빨간색 린팅
     func warning() -> Text {
         self.foregroundColor(Color("red"))
     }
-    
+    /// Sub 색 린팅
     func sub() -> Text {
         self.foregroundColor(Color("sub"))
     }
     
+    /// NanumSquareEB, 10
     func tapBarItem() -> Text {
         self.font(Font.custom("NanumSquareEB", size: 10))
     }
     
+    /// "disabled"
     func disabled() -> Text {
         self.foregroundColor(Color("disabled"))
     }
     
+    ///NotoSansKR-Black, 40
     func title() -> Text {
         self.font(Font.custom("NotoSansKR-Black", size: 40))
     }
     
+    /// "gray4", NotoSansKR-Bold, 13
     func subTitle() -> Text {
         self
             .foregroundColor(Color("gray4"))
             .font(Font.custom("NotoSansKR-Bold", size: 13))
     }
+    
+    /// accent, NotoSansKR-Bold, 10
     func subSectionHeader() -> Text {
         self
             .foregroundColor(Color("accent"))
             .font(Font.custom("NotoSansKR-Bold", size: 10))
     }
     
+    /// NotoSansKR-Bold, 21
     func sectionHeader() -> Text {
         self.font(Font.custom("NotoSansKR-Bold", size: 21))
     }
     
+    /// lineSpacing(12), gray2, NotoSansKR-Regular, 12
     func mealMenu() -> some View {
         self
             .lineSpacing(12)
@@ -55,46 +66,64 @@ extension Text {
             .font(Font.custom("NotoSansKR-Regular", size: 12))
             
     }
+    
+    /// color, NotoSansKR-Bold, 15
     func alertTitle(_ color: Color) -> some View {
         self
             .foregroundColor(color)
             .font(Font.custom("NotoSansKR-Bold", size: 15))
     }
+    
+    /// gray2, NotoSansKR-Regular, 11
     func alertSubTitle() -> some View {
         self
             .foregroundColor(Color("gray2"))
             .font(Font.custom("NotoSansKR-Regular", size: 11))
     }
+    
+    /// gray4, NotoSansKR-Bold, 17
     func alertButton() -> some View {
         self
             .foregroundColor(Color("gray4"))
             .font(Font.custom("NotoSansKR-Bold", size: 17))
     }
+    
+    /// NotoSansKR-Regular, 15
     func body() -> Text {
         self.font(Font.custom("NotoSansKR-Regular", size: 15))
     }
+    
+    /// NotoSansKR-Medium, 16
     func infoText() -> Text {
         self.font(Font.custom("NotoSansKR-Medium", size: 16))
     }
+    
+    /// Openas, 57
     func logoFont() -> Text {
         self.font(Font.custom("Openas", size: 57))
     }
+    
+    /// .heavy
     func heavy() -> Text {
         self.fontWeight(.heavy)
     }
     
+    /// .black
     func black() -> Text {
         self.fontWeight(.black)
     }
     
+    /// NotoSansKR-Bold, 12
     func caption1() -> Text {
         self.font(Font.custom("NotoSansKR-Bold", size: 12))
     }
     
+    /// NotoSansKR-Regular, 13
     func caption2() -> Text {
         self.font(Font.custom("NotoSansKR-Regular", size: 13))
     }
     
+    /// NotoSansKR-Regular, 11
     func caption3() -> Text {
         self.font(Font.custom("NotoSansKR-Regular", size: 11))
     }
