@@ -29,8 +29,8 @@ struct MainWidget : Widget {
         ) { data in
             WidgetView(data: data)
         }
-        .configurationDisplayName("디미고인 급식 위젯")
-        .description("간편하고 빠르게 급식을 확인하세요.")
+        .configurationDisplayName("디미고인 위젯")
+        .description("누구보다 빠르게 급식과 시간표를 확인해보세요")
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
     }
 }
@@ -47,19 +47,19 @@ struct Provider : TimelineProvider {
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<WidgetEntry>) -> Void) {
         let accessToken: String = UserDefaults(suiteName: "group.com.dimigoin.v3")?.string(forKey: "accessToken") ?? ""
-//        if(accessToken == "") { // 토큰이 없을 때 API호출 자체를 안하고 그냥 없다고 넘겨버리고 1분마다 새로고침하게 스케쥴
-//            let date = Date()
-//            let data = WidgetEntry(date: Date(),
-//                                   breakfast: "",
-//                                   lunch: "",
-//                                   dinner: "",
-//                                   tokenExist: false)
-//            let nextUpdate = Calendar.current.date(byAdding: .minute, value: 1, to: date)
-//            let timeline = Timeline(entries: [data], policy: .after(nextUpdate!))
-//            completion(timeline)
-//        }
+        if(accessToken == "") { // 토큰이 없을 때 API호출 자체를 안하고 그냥 없다고 넘겨버리고 1분마다 새로고침하게 스케쥴
+            let date = Date()
+            let data = WidgetEntry(date: Date(),
+                                   breakfast: "",
+                                   lunch: "",
+                                   dinner: "",
+                                   tokenExist: false)
+            let nextUpdate = Calendar.current.date(byAdding: .minute, value: 15, to: date)
+            let timeline = Timeline(entries: [data], policy: .after(nextUpdate!))
+            completion(timeline)
+        }
         
-//        있으면 API호출하고 다음 15분후에 새로고침 하도록 스케쥴
+//      있으면 API호출하고 다음 15분후에 새로고침 하도록 스케쥴
         let headers: HTTPHeaders = ["Authorization":"Bearer \(accessToken)"]
         let endPoint = "/meal/\(getToday8DigitDateString())"
         let method: HTTPMethod = .get

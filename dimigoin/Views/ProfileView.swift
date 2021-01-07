@@ -83,7 +83,10 @@ struct ProfileView: View {
                     Button(action: {
                         tokenAPI.clearTokens()
                     }) {
-                        Text("로그아웃").RSquareButton(geometry.size.width-40, 50).padding(.vertical)
+                        Text("로그아웃").foregroundColor(Color.white)
+                            .font(Font.custom("NotoSansKR-Medium", size: 15))
+                            .frame(width: abs(geometry.size.width-40), height: 50)
+                            .background(Color("accent").cornerRadius(10)).padding(.vertical)
                     }
                     Spacer()
                 }
