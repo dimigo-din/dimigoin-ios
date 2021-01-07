@@ -12,141 +12,103 @@ import DimigoinKit
 
 struct MealPagerView: View {
     @EnvironmentObject var mealAPI: MealAPI
+    private let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
+    @State var dragOffset = CGSize.zero
+    @State var startPos = CGPoint(x: 0, y:0)
+    @GestureState private var translation: CGFloat = 0
     @State var currentCardIdx: Int = 0
     
     var body: some View {
         VStack {
-            PagerView(pageCount: 3, currentIndex: $currentCardIdx) {
-                VStack(alignment: .leading){
-                    HStack {
+            GeometryReader { geometry in
+                HStack {
+                    VStack(alignment: .leading){
                         Text("아침").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("accent")).horizonPadding()
-                        Spacer()
-                    }
-                    VSpacer(10)
-                    HStack {
+                        VSpacer(10)
                         Text("\(mealAPI.getTodayMeal().breakfast)").mealMenu().horizonPadding()
-                        Spacer()
-                    }
-                    Spacer()
-                }.padding(.top)
-                .modifier(CardViewModifier(305,147))
-                HSpacer(15)
-                VStack(alignment: .leading){
-                    HStack {
+                    }.padding(.top).modifier(CardViewModifier(305,147))
+                    HSpacer(15)
+                    VStack(alignment: .leading){
                         Text("점심").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("accent")).horizonPadding()
-                        Spacer()
-                    }
-                    VSpacer(10)
-                    HStack {
+                        VSpacer(10)
                         Text("\(mealAPI.getTodayMeal().lunch)").mealMenu().horizonPadding()
-                        Spacer()
-                    }
-                    Spacer()
-                }.padding(.top)
-                .modifier(CardViewModifier(305,147))
-                HSpacer(15)
-                VStack(alignment: .leading){
-                    HStack {
+                    }.padding(.top).modifier(CardViewModifier(305,147))
+                    HSpacer(15)
+                    VStack(alignment: .leading){
                         Text("저녁").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("accent")).horizonPadding()
-                        Spacer()
-                    }
-                    VSpacer(10)
-                    HStack {
+                        VSpacer(10)
                         Text("\(mealAPI.getTodayMeal().dinner)").mealMenu().horizonPadding()
-                        Spacer()
+                    }.padding(.top).modifier(CardViewModifier(305,147))
+                }
+                .offset(x: -CGFloat(self.currentCardIdx) * 305 + self.translation)
+                .offset(x: -CGFloat((self.currentCardIdx*15)) + (geometry.size.width-305)/2)
+                .animation(.spring())
+                .onReceive(self.timer) { _ in
+                    nextCard()
+                }
+                .gesture(
+                    DragGesture().updating(self.$translation) { value, state, _ in
+                        state = value.translation.width
+                    }.onChanged { gesture in
+                        self.dragOffset = gesture.translation
+                        self.startPos = gesture.location
                     }
-                    Spacer()
-                }.padding(.top)
-                .modifier(CardViewModifier(305,147))
+                    .onEnded { gesture in
+                        let xDist = abs(gesture.location.x - self.startPos.x)
+                        let yDist = abs(gesture.location.y - self.startPos.y)
+
+                        if self.startPos.x > gesture.location.x && yDist < xDist {
+                            // left
+                            if abs(self.dragOffset.width) > 10 {
+                                self.nextCard()
+                                self.dragOffset = .zero
+                            } else {
+                                self.dragOffset = .zero
+                            }
+                        }
+                        else if self.startPos.x < gesture.location.x && yDist < xDist {
+                            // right
+                            if abs(self.dragOffset.width) > 10 {
+                                self.previousCard()
+                                self.dragOffset = .zero
+                            } else {
+                                self.dragOffset = .zero
+                            }
+                        }
+                    }
+                )
+                
             }
             VSpacer(145)
             HStack(spacing: 5){
-                Circle().frame(width: 8, height: 8).foregroundColor(Color(currentCardIdx == 0 ? "accent" : "divider")).onTapGesture {
-                    self.currentCardIdx = 0
-                }
-                Circle().frame(width: 8, height: 8).foregroundColor(Color(currentCardIdx == 1 ? "accent" : "divider")).onTapGesture {
-                    self.currentCardIdx = 1
-                }
-                Circle().frame(width: 8, height: 8).foregroundColor(Color(currentCardIdx == 2 ? "accent" : "divider")).onTapGesture {
-                    self.currentCardIdx = 2
+                ForEach(0...2, id: \.self) { idx in
+                    Circle().frame(width: 8, height: 8).foregroundColor(Color(currentCardIdx == idx ? "accent" : "divider"))
+                        .onTapGesture {
+                            self.currentCardIdx = idx
+                        }
                 }
             }
         }
     }
-}
-
-struct PagerView<Content: View>: View {
-    @Binding var currentIndex: Int
-    @GestureState private var translation: CGFloat = 0
-    @State var dragOffset = CGSize.zero
-    @State var startPos = CGPoint(x: 0, y:0)
-    let pageCount: Int
-    let content: Content
-    private let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
-
-    init(pageCount: Int, currentIndex: Binding<Int>, @ViewBuilder content: () -> Content) {
-        self.pageCount = pageCount
-        self._currentIndex = currentIndex
-        self.content = content()
+    
+    func nextCard() {
+        if(currentCardIdx == 2) {
+            withAnimation(.spring()) {
+                currentCardIdx = 0
+            }
+        } else {
+            withAnimation(.spring()) {
+                self.currentCardIdx = self.currentCardIdx + 1
+            }
+        }
     }
-
-    var body: some View {
-        GeometryReader { geometry in
-            HStack {
-                self.content
-            }
-            .onReceive(self.timer) { _ in
-                if(currentIndex == 2) {
-                    withAnimation(.spring()) {
-                        currentIndex = 0
-                    }
-                } else {
-                    withAnimation(.spring()) {
-                        self.currentIndex = self.currentIndex + 1
-                    }
-                }
-                
-            }
-            .offset(x: -CGFloat(self.currentIndex) * 305 + self.translation)
-            .offset(x: -CGFloat((currentIndex*15)) + (geometry.size.width-305)/2)
-            .animation(.spring())
-            
-            .gesture(
-                DragGesture().updating(self.$translation) { value, state, _ in
-                    state = value.translation.width
-                }.onChanged { gesture in
-                    self.dragOffset = gesture.translation
-                    self.startPos = gesture.location
-                }
-                .onEnded { gesture in
-                    let xDist = abs(gesture.location.x - self.startPos.x)
-                    let yDist = abs(gesture.location.y - self.startPos.y)
-                    
-                    if self.startPos.x > gesture.location.x && yDist < xDist {
-                        // left
-                        if abs(self.dragOffset.width) > 10 {
-                            if currentIndex != 2 {
-                                self.currentIndex += 1
-                            }
-                            self.dragOffset = .zero
-                        } else {
-                            self.dragOffset = .zero
-                        }
-                    }
-                    else if self.startPos.x < gesture.location.x && yDist < xDist {
-                        // right
-                        if abs(self.dragOffset.width) > 10 {
-                            if currentIndex != 0 {
-                                self.currentIndex -= 1
-                            }
-                            self.dragOffset = .zero
-                        } else {
-                            self.dragOffset = .zero
-                        }
-                    }
-                }
-            )
+    
+    func previousCard() {
+        if currentCardIdx != 0 {
+            self.currentCardIdx -= 1
         }
     }
 }
+
+
 

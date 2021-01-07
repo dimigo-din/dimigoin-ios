@@ -102,6 +102,7 @@ struct HomeView: View {
         var error: NSError?
 
         guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) else {
+            alertManager.createAlert("학생증 열기 실패", sub: "학생증을 보시려면 핸드폰의 잠금을 설정시거나 앱의 접근 권한을 허용해주세요.", .danger)
             return
         }
 

@@ -17,7 +17,7 @@ struct CardViewModifier: ViewModifier {
     }
     func body(content: Content) -> some View {
         return content
-            .frame(width: w, height: h)
+            .frame(width: w, height: h, alignment: .topLeading)
             .background(Color(UIColor.secondarySystemGroupedBackground).cornerRadius(10).shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 0))
     }
 }
