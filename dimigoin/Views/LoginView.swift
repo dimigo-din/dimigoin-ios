@@ -46,8 +46,9 @@ struct LoginView: View {
                             "username": "\(self.username)",
                             "password": "\(self.password)"
                         ]
-                        let url: String = "http://edison.dimigo.hs.kr/auth"
-                        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { response in
+                        let endPoint = "/auth"
+                        let method:HTTPMethod = .post
+                        AF.request(rootURL+endPoint, method: method, parameters: parameters, encoding: JSONEncoding.default).response { response in
                             if let status = response.response?.statusCode {
                                 switch(status) {
                                 case 200:

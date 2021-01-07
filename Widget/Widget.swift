@@ -44,7 +44,9 @@ struct Provider : TimelineProvider {
 //            "Authorization":"Bearer \(tokenAPI.accessToken)"
 //        ]
 //        let url = "http://edison.dimigo.hs.kr/meal/\(getToday8DigitDateString())"
-//        AF.request(url, method: .get, encoding: JSONEncoding.default, headers: headers).responseData { response in
+//        let endPoint = "/meal/\(getToday8DigitDateString())"
+//        let method: HTTPMethod = .get
+//        AF.request(rootURL+endPoint, method: method, encoding: JSONEncoding.default, headers: headers).responseData { response in
 //            let json = JSON(response.value ?? [])
 //            print(json)
 //

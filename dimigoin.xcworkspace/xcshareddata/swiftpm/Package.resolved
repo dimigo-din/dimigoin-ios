@@ -20,6 +20,15 @@
         }
       },
       {
+        "package": "DimigoinKit",
+        "repositoryURL": "https://github.com/Changemin/DimigoinKit",
+        "state": {
+          "branch": null,
+          "revision": "4ddb220b438f4abeb0116d9fe38c51c38eaafef2",
+          "version": "1.2.1"
+        }
+      },
+      {
         "package": "SDWebImage",
         "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
         "state": {

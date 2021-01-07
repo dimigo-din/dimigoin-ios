@@ -76,8 +76,9 @@ struct LocationItem: View {
                     "place": placeAPI.getMatchedPlace(name: name).id,
                     "remark": "remark"
                 ]
-                let url = "http://edison.dimigo.hs.kr/attendance-log"
-                AF.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).response { response in
+                let endPoint = "/attendance-log"
+                let method: HTTPMethod = .post
+                AF.request(rootURL+endPoint, method: method, parameters: parameters, encoding: URLEncoding.default, headers: headers).response { response in
                     if let status = response.response?.statusCode {
                         switch(status) {
                         case 200:

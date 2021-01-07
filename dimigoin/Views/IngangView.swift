@@ -56,8 +56,10 @@ struct IngangView: View {
                                 let parameters: [String: String] = [
                                     "time": "\(ingang.time.rawValue)"
                                 ]
-                                let url = "http://edison.dimigo.hs.kr/ingang-application"
-                                AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).response { response in
+                                let endPoint = "/ingang-application"
+                                let method: HTTPMethod = .post
+                                
+                                AF.request(rootURL+endPoint, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: headers).response { response in
                                     if let status = response.response?.statusCode {
                                         switch(status) {
                                         case 200: //success
@@ -96,8 +98,9 @@ struct IngangView: View {
                                 let parameters: [String: String] = [
                                     "time": "\(ingang.time.rawValue)"
                                 ]
-                                let url = "http://edison.dimigo.hs.kr/ingang-application"
-                                AF.request(url, method: .delete, parameters: parameters, encoding: JSONEncoding.default, headers: headers).response { response in
+                                let endPoint = "/ingang-application"
+                                let method: HTTPMethod = .delete
+                                AF.request(rootURL+endPoint, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: headers).response { response in
                                     if let status = response.response?.statusCode {
                                         switch(status) {
                                         case 200: //success
