@@ -26,6 +26,7 @@ class AlertManager: ObservableObject {
     var count: Int = 0
     
     func createAlert(_ content: String, sub: String, _ alertType: AlertType) {
+        UIImpactFeedbackGenerator(style: .soft).impactOccurred()
         self.alertType = alertType
         self.content = content
         self.sub = sub
