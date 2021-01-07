@@ -121,3 +121,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
       completionHandler(UIBackgroundFetchResult.newData)
     }
 }
+
+/// App group id for widget
+public var appGroupID = "group.com.dimigoin.v3"
+
+extension UserDefaults {
+    /// Shared app group(group.com.dimigoin.v3)
+    static var shared: UserDefaults {
+        let appGroupId = "group.com.dimigoin.v3"
+        return UserDefaults(suiteName: appGroupId)!
+    }
+}

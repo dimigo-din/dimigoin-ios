@@ -12,7 +12,9 @@ import DimigoinKit
 struct ContentView: View {
     @ObservedObject var tokenAPI = TokenAPI()
     @ObservedObject var alertManager = AlertManager()
-    
+    init() {
+        tokenAPI.saveTokens()
+    }
     var body: some View { // check if token exist
         Group {
             if(tokenAPI.tokenStatus == .exist) {

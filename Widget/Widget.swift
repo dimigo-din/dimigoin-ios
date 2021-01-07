@@ -39,26 +39,33 @@ struct Provider : TimelineProvider {
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<WidgetEntry>) -> Void) {
-//        let tokenAPI = TokenAPI()
-//        let headers: HTTPHeaders = [
-//            "Authorization":"Bearer \(tokenAPI.accessToken)"
-//        ]
-//        let url = "http://edison.dimigo.hs.kr/meal/\(getToday8DigitDateString())"
-//        let endPoint = "/meal/\(getToday8DigitDateString())"
-//        let method: HTTPMethod = .get
-//        AF.request(rootURL+endPoint, method: method, encoding: JSONEncoding.default, headers: headers).responseData { response in
-//            let json = JSON(response.value ?? [])
-//            print(json)
-//
-//            let date = Date()
-//            let data = WidgetEntry(date: Date(),
-//                                   meals: Dimibob(breakfast: bindingMenus(menu: json["meal"]["breakfast"]),
-//                                                 lunch: bindingMenus(menu: json["meal"]["lunch"]),
-//                                                 dinner: bindingMenus(menu: json["meal"]["dinner"])))
-//            let nextUpdate = Calendar.current.date(byAdding: .minute, value: 15, to: date)
-//            let timeline = Timeline(entries: [data], policy: .after(nextUpdate!))
-//            completion(timeline)
-//        }
+        let accessToken: String = UserDefaults(suiteName: "group.com.dimigoin.v3")?.string(forKey: "accessToken") ?? ""
+        if(accessToken == "") {
+            let date = Date()
+            let data = WidgetEntry(date: Date(),
+                                   meals: Dimibob(breakfast: "위젯을 사용하시려면 앱을 먼저 실행해주세요.",
+                                                 lunch: "위젯을 사용하시려면 앱을 먼저 실행해주세요.",
+                                                 dinner: "위젯을 사용하시려면 앱을 먼저 실행해주세요."))
+            let nextUpdate = Calendar.current.date(byAdding: .minute, value: 15, to: date)
+            let timeline = Timeline(entries: [data], policy: .after(nextUpdate!))
+            completion(timeline)
+        }
+        let headers: HTTPHeaders = [
+            "Authorization":"Bearer \(accessToken)"
+        ]
+        let endPoint = "/meal/\(getToday8DigitDateString())"
+        let method: HTTPMethod = .get
+        AF.request(rootURL+endPoint, method: method, encoding: JSONEncoding.default, headers: headers).responseData { response in
+            let json = JSON(response.value ?? [])
+            let date = Date()
+            let data = WidgetEntry(date: Date(),
+                                   meals: Dimibob(breakfast: bindingMenus(menu: json["meal"]["breakfast"]),
+                                                 lunch: bindingMenus(menu: json["meal"]["lunch"]),
+                                                 dinner: bindingMenus(menu: json["meal"]["dinner"])))
+            let nextUpdate = Calendar.current.date(byAdding: .minute, value: 15, to: date)
+            let timeline = Timeline(entries: [data], policy: .after(nextUpdate!))
+            completion(timeline)
+        }
     }
     
     func placeholder(in context: Context) -> WidgetEntry {
@@ -69,7 +76,6 @@ struct Provider : TimelineProvider {
 
 struct WidgetView : View {
     @Environment(\.widgetFamily) var widgetFamily
-//    @ObservedObject var tokenAPI = TokenAPI()
     var data : WidgetEntry
     var body: some View{
         switch widgetFamily {
@@ -78,5 +84,13 @@ struct WidgetView : View {
         case .systemLarge: Text("Not supported yet")
         default: Text("error")
         }
+    }
+}
+
+extension UserDefaults {
+    /// Shared app group(group.com.dimigoin.v3)
+    static var shared: UserDefaults {
+        let appGroupId = "group.com.dimigoin.v3"
+        return UserDefaults(suiteName: appGroupId)!
     }
 }

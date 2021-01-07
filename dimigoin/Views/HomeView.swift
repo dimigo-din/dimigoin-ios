@@ -23,15 +23,6 @@ struct HomeView: View {
     @Binding var isShowIdCard: Bool
     @State var currentLocation = 0
     
-    func isAppliedAnyIngang() -> Bool {
-        for i in 0..<ingangAPI.ingangs.count {
-            if(ingangAPI.ingangs[i].isApplied == true){
-                return true
-            }
-        }
-        return false
-    }
-    
     var body: some View {
         GeometryReader { geometry in
             ScrollView(showsIndicators: false){
@@ -78,7 +69,8 @@ struct HomeView: View {
                     Text("오늘의 급식").font(Font.custom("NotoSansKR-Bold", size: 20)).horizonPadding()
                     MealPagerView()
                         .environmentObject(mealAPI)
-                    if(isAppliedAnyIngang()) {
+                    
+                    if(ingangAPI.isAppliedAnyIngang()) {
                         SectionHeader("나의 신청현황", sub: "")
                     }
                     ForEach(0..<ingangAPI.ingangs.count, id: \.self) { i in
