@@ -117,7 +117,7 @@ extension Text {
     
     /// Openas, 57
     func logoFont() -> Text {
-        self.font(Font.custom("Openas", size: 57))
+        self.font(Font.custom("Openas", size: 57)).foregroundColor(Color("text.logo"))
     }
     
     /// .heavy
