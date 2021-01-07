@@ -83,7 +83,8 @@ struct TapBar: View {
                     self.index = 4
                 }) {
                     VStack {
-                        Image(systemName: "calendar")
+                        Image("calendar")
+                            .renderingMode(.template)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 24.2)

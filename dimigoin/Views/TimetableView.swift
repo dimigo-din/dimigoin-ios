@@ -21,7 +21,7 @@ struct TimetableView: View {
                 HStack {
                     ViewTitle("시간표", sub: getDateString())
                     Spacer()
-                    Image("calender").resizable().aspectRatio(contentMode: .fit).frame(height: 40)
+                    Image("calendar").resizable().aspectRatio(contentMode: .fit).frame(height: 40)
                     .onTapGesture {
                         self.magicNum -= 1
                         if(magicNum == 0) {

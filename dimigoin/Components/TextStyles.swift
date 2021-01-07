@@ -66,6 +66,23 @@ extension Text {
             .font(Font.custom("NotoSansKR-Regular", size: 12))
             
     }
+    /// lineSpacing(12), black, NotoSansKR-Medium, 14
+    func noticeTitle() -> some View {
+        self
+            .lineSpacing(12)
+            .foregroundColor(Color.black)
+            .font(Font.custom("NotoSansKR-Medium", size: 14))
+            
+    }
+    /// lineSpacing(12), gray2, NotoSansKR-Regular, 12
+    func noticeContent() -> some View {
+        self
+            .lineSpacing(12)
+            .foregroundColor(Color("gray2"))
+            .font(Font.custom("NotoSansKR-Regular", size: 12))
+            
+    }
+    
     
     /// color, NotoSansKR-Bold, 15
     func alertTitle(_ color: Color) -> some View {

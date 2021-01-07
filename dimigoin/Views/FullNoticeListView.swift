@@ -21,10 +21,33 @@ struct FullNoticeListView: View {
     var body: some View {
         GeometryReader { geometry in
             ScrollView {
-                Text("hl")
-                
+                ForEach(0..<noticeAPI.notices.count, id: \.self) { i in
+                    VStack {
+                        HStack {
+                            Text(noticeAPI.notices[i].title).sectionHeader()
+                            
+                            Spacer()
+                        }.horizonPadding()
+                    }
+                    VStack(alignment: .leading){
+                        HStack {
+                            ForEach(noticeAPI.notices[i].targetGrade, id: \.self) { grade in
+                                Text("#\(grade)학년").font(Font.custom("NotoSansKR-Bold", size: 12)).foregroundColor(Color("accent"))
+                            }
+                        }
+                        Text("\(noticeAPI.notices[i].content)")
+                                .mealMenu()
+                                
+                    }.padding()
+                    .frame(width: abs(geometry.size.width-40))
+                    .background(CustomBox())
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(.horizontal, 20)
+                    
+                }
+    
             }
         }
-        .navigationBarTitle("공지사항")
+        .navigationBarTitle("전체 공지사항")
     }
 }

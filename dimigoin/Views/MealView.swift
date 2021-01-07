@@ -21,7 +21,7 @@ struct MealView: View {
                             ViewTitle("급식", sub: getDateString())
                             Spacer()
                             NavigationLink(destination: WeeklyMealView().environmentObject(mealAPI)) {
-                                Image("calender").resizable().aspectRatio(contentMode: .fit).frame(height: 40)
+                                Image("calendar").resizable().aspectRatio(contentMode: .fit).frame(height: 40)
                             }
                         }.horizonPadding()
                         .padding(.top, 40)

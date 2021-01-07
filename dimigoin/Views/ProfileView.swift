@@ -35,19 +35,69 @@ struct ProfileView: View {
                         }
                         Spacer()
                     }.horizonPadding()
+                    
                     Text("\(noticeAPI.notices[0].content)")
-                        .mealMenu()
-                        .padding()
-                        .frame(width: abs(geometry.size.width-40))
-                        .background(CustomBox())
-                        .fixedSize(horizontal: false, vertical: true)
+                            .noticeContent()
+                            .padding()
+                            .frame(width: abs(geometry.size.width-40))
+                            .background(CustomBox())
+                            .fixedSize(horizontal: false, vertical: true)
+                    SectionHeader("신청 안내", sub: "")
+                    HStack(alignment: .top){
+                        VStack(alignment: .leading) {
+                            Text("\(userAPI.user.grade)학년 신청시간").infoText()
+                            HStack {
+                                Image("clock")
+                                Text("07:00 - 08:15").gray4().caption3()
+                            }
+                            HStack {
+                                Image("person.2")
+                                Text("한 학급당 최대 ").gray4().caption3()
+                                +
+                                Text("6명").bold().gray4().caption1()
+                            }
+                            HStack {
+                                Image("calendar.empty")
+                                Text("일주일 최대 ").gray4().caption3()
+                                +
+                                    Text("4회").bold().gray4().caption1()
+                            }
+                        }
+                        Divider()
+                        VStack(alignment: .leading) {
+                            Text("내 티켓").infoText()
+                            HStack {
+                                Image("ticket")
+                                Text("남은 티켓 ").accent().caption3()
+                                +
+                                Text("\(userAPI.user.weeklyRemainTicket)/\(userAPI.user.weeklyTicketCount)").accent().caption1()
+                            }
+                            Text("티켓을 모두 소진하면 신청할 수 없습니다.").gray4().caption3()
+                            Text("인강실 사용이 꼭 ").gray4().caption3()
+                            +
+                            Text("필요할 때만 신청").gray4().caption1()
+                            +
+                            Text("하시기 바랍니다.").gray4().caption3()
+                        }
+                        
+                        
+                    }.padding()
+                    .frame(width: abs(geometry.size.width-40))
+                    .background(CustomBox())
+                    .fixedSize(horizontal: false, vertical: true)
+                            
+                    Button(action: {
+                        tokenAPI.clearTokens()
+                    }) {
+                        Text("로그아웃").RSquareButton(geometry.size.width-40, 50).padding(.vertical)
+                    }
                     Spacer()
                 }
             
             }
-            .navigationBarTitle("내정보")
             .navigationBarHidden(true)
         }
-        
+        .navigationBarTitle("내정보")
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
