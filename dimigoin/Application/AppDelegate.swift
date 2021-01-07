@@ -120,20 +120,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
       completionHandler(UIBackgroundFetchResult.newData)
     }
-    
-    static var portraitLock = UIInterfaceOrientationMask.portrait
-    static var landscapeLock = UIInterfaceOrientationMask.landscape
-
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return AppDelegate.portraitLock
-        }
-        else if UIDevice.current.userInterfaceIdiom == .pad {
-            return AppDelegate.landscapeLock
-        }
-        return UIInterfaceOrientationMask.all
-//        return AppDelegate.orientationLock
-    }
 }
 
 extension UIScreen{
