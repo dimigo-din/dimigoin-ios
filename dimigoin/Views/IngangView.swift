@@ -35,7 +35,7 @@ struct IngangView: View {
                             Text("\(ingang.applicants.count)").font(Font.custom("NotoSansKR-Bold", size: 40))
                             Text("현원").font(Font.custom("NotoSansKR-Bold", size: 15))
                         }
-                        .foregroundColor(ingang.applicants.count == ingangAPI.ingangMaxApplier ? (ingang.isApplied ? Color("gray4") : Color("accent")) : Color.black)
+                        .foregroundColor(ingang.applicants.count == ingangAPI.ingangMaxApplier ? (ingang.isApplied ? Color("gray4") : Color("accent")) : Color("text"))
                         HSpacer(130)
                         VStack {
                             Text("\(ingangAPI.ingangMaxApplier)").font(Font.custom("NotoSansKR-Bold", size: 40))

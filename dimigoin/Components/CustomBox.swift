@@ -78,7 +78,7 @@ struct CustomBox: View {
             bottomLeft = 0
         }
         
-        return RoundSquare(tl: topLeft, tr: topRight, bl: bottomLeft, br: bottomRight).fill(Color.white).padding(edgeInsets, width)
+        return RoundSquare(tl: topLeft, tr: topRight, bl: bottomLeft, br: bottomRight).fill(Color(UIColor.secondarySystemGroupedBackground)).padding(edgeInsets, width)
     }
 }
 

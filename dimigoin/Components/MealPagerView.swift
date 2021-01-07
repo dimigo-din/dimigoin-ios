@@ -61,13 +61,13 @@ struct MealPagerView: View {
             }
             VSpacer(145)
             HStack(spacing: 5){
-                Circle().frame(width: 8, height: 8).foregroundColor(Color(currentCardIdx == 0 ? "accent" : "gray8")).onTapGesture {
+                Circle().frame(width: 8, height: 8).foregroundColor(Color(currentCardIdx == 0 ? "accent" : "divider")).onTapGesture {
                     self.currentCardIdx = 0
                 }
-                Circle().frame(width: 8, height: 8).foregroundColor(Color(currentCardIdx == 1 ? "accent" : "gray8")).onTapGesture {
+                Circle().frame(width: 8, height: 8).foregroundColor(Color(currentCardIdx == 1 ? "accent" : "divider")).onTapGesture {
                     self.currentCardIdx = 1
                 }
-                Circle().frame(width: 8, height: 8).foregroundColor(Color(currentCardIdx == 2 ? "accent" : "gray8")).onTapGesture {
+                Circle().frame(width: 8, height: 8).foregroundColor(Color(currentCardIdx == 2 ? "accent" : "divider")).onTapGesture {
                     self.currentCardIdx = 2
                 }
             }

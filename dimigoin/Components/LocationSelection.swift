@@ -100,7 +100,7 @@ struct LocationItem: View {
                 }
             }) {
                 Circle()
-                    .fill(currentLocation == idx ? Color("accent") : Color.white)
+                    .fill(currentLocation == idx ? Color("accent") : Color(UIColor.secondarySystemGroupedBackground))
                     .frame(width: 40, height: 40)
                     .shadow(color: Color("gray4").opacity(0.12), radius: 4, x: 0, y: 0)
                     .overlay(
