@@ -86,6 +86,9 @@ struct LocationItem: View {
                         case 423:
                             alertManager.createAlert("자습 현황 변경 실패", sub: "출입인증을 할 수 있는 시간이 아닙니다.", .danger)
                             LOG("출입인증을 할 수 있는 시간이 아님")
+                            withAnimation() {
+                                self.currentLocation = 0
+                            }
                         default:
                             if debugMode {
                                 debugPrint(response)
