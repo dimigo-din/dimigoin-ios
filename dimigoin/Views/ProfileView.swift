@@ -75,8 +75,6 @@ struct ProfileView: View {
                             Text("티켓을 모두 소진하면 신청할 수 없습니다.").gray4().caption3()
                             Text("인강실 사용이 꼭 필요할 때만 신청하시기 바랍니다.").gray4().caption3()
                         }
-                        
-                        
                     }.padding()
                     .frame(width: abs(geometry.size.width-40), alignment: .leading)
                     .background(CustomBox())

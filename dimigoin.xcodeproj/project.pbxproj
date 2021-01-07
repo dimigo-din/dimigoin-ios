@@ -101,16 +101,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		426974A525464533006417F1 /* Embed Watch Content */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			name = "Embed Watch Content";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		429FD88B24B202DA003A49AF /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -439,7 +429,6 @@
 				08C9ABE224A74A53002AF525 /* Frameworks */,
 				08C9ABE324A74A53002AF525 /* Resources */,
 				429FD88B24B202DA003A49AF /* Embed App Extensions */,
-				426974A525464533006417F1 /* Embed Watch Content */,
 				0C82EC2E7D50698B7600B784 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (

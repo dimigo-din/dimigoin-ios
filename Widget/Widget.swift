@@ -14,7 +14,10 @@ import DimigoinKit
 
 struct WidgetEntry : TimelineEntry {
     var date : Date
-    var meals : Dimibob
+    var breakfast: String
+    var lunch: String
+    var dinner: String
+    var tokenExist: Bool
 }
 
 @main
@@ -34,34 +37,40 @@ struct MainWidget : Widget {
 
 struct Provider : TimelineProvider {
     func getSnapshot(in context: Context, completion: @escaping (WidgetEntry) -> Void) {
-        let loadingData = WidgetEntry(date: Date(), meals: dummyMeal)
-        completion(loadingData)
+        let placeholderEntry = WidgetEntry(date: Date(),
+                                      breakfast: dummyMeal.breakfast,
+                                      lunch: dummyMeal.lunch,
+                                      dinner: dummyMeal.dinner,
+                                      tokenExist: true)
+        completion(placeholderEntry)
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<WidgetEntry>) -> Void) {
         let accessToken: String = UserDefaults(suiteName: "group.com.dimigoin.v3")?.string(forKey: "accessToken") ?? ""
-        if(accessToken == "") {
-            let date = Date()
-            let data = WidgetEntry(date: Date(),
-                                   meals: Dimibob(breakfast: "위젯을 사용하시려면 앱을 먼저 실행해주세요.",
-                                                 lunch: "위젯을 사용하시려면 앱을 먼저 실행해주세요.",
-                                                 dinner: "위젯을 사용하시려면 앱을 먼저 실행해주세요."))
-            let nextUpdate = Calendar.current.date(byAdding: .minute, value: 15, to: date)
-            let timeline = Timeline(entries: [data], policy: .after(nextUpdate!))
-            completion(timeline)
-        }
-        let headers: HTTPHeaders = [
-            "Authorization":"Bearer \(accessToken)"
-        ]
+//        if(accessToken == "") { // 토큰이 없을 때 API호출 자체를 안하고 그냥 없다고 넘겨버리고 1분마다 새로고침하게 스케쥴
+//            let date = Date()
+//            let data = WidgetEntry(date: Date(),
+//                                   breakfast: "",
+//                                   lunch: "",
+//                                   dinner: "",
+//                                   tokenExist: false)
+//            let nextUpdate = Calendar.current.date(byAdding: .minute, value: 1, to: date)
+//            let timeline = Timeline(entries: [data], policy: .after(nextUpdate!))
+//            completion(timeline)
+//        }
+        
+//        있으면 API호출하고 다음 15분후에 새로고침 하도록 스케쥴
+        let headers: HTTPHeaders = ["Authorization":"Bearer \(accessToken)"]
         let endPoint = "/meal/\(getToday8DigitDateString())"
         let method: HTTPMethod = .get
         AF.request(rootURL+endPoint, method: method, encoding: JSONEncoding.default, headers: headers).responseData { response in
             let json = JSON(response.value ?? [])
             let date = Date()
             let data = WidgetEntry(date: Date(),
-                                   meals: Dimibob(breakfast: bindingMenus(menu: json["meal"]["breakfast"]),
-                                                 lunch: bindingMenus(menu: json["meal"]["lunch"]),
-                                                 dinner: bindingMenus(menu: json["meal"]["dinner"])))
+                                   breakfast: bindingMenus(menu: json["meal"]["breakfast"]),
+                                   lunch: bindingMenus(menu: json["meal"]["lunch"]),
+                                   dinner: bindingMenus(menu: json["meal"]["dinner"]),
+                                   tokenExist: true)
             let nextUpdate = Calendar.current.date(byAdding: .minute, value: 15, to: date)
             let timeline = Timeline(entries: [data], policy: .after(nextUpdate!))
             completion(timeline)
@@ -69,8 +78,12 @@ struct Provider : TimelineProvider {
     }
     
     func placeholder(in context: Context) -> WidgetEntry {
-        let loadingData = WidgetEntry(date: Date(), meals: dummyMeal)
-        return loadingData
+        let placeholderData = WidgetEntry(date: Date(),
+                                      breakfast: dummyMeal.breakfast,
+                                      lunch: dummyMeal.lunch,
+                                      dinner: dummyMeal.dinner,
+                                      tokenExist: true)
+        return placeholderData
     }
 }
 
