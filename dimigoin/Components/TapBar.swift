@@ -29,7 +29,7 @@ struct TapBar: View {
                         
                     }
 
-                }
+                }.accessibility(identifier: "tapbar.0")
                 Button(action: {
                     self.index = 1
                 }) {
@@ -45,7 +45,7 @@ struct TapBar: View {
                         
                     }
 
-                }
+                }.accessibility(identifier: "tapbar.1")
                 Button(action: {
                     self.index = 2
                 }) {
@@ -61,7 +61,7 @@ struct TapBar: View {
                         
                     }
 
-                }
+                }.accessibility(identifier: "tapbar.2")
                 Button(action: {
                     self.index = 3
                 }) {
@@ -78,7 +78,7 @@ struct TapBar: View {
                         
                     }
 
-                }
+                }.accessibility(identifier: "tapbar.3")
                 Button(action: {
                     self.index = 4
                 }) {
@@ -96,7 +96,7 @@ struct TapBar: View {
                         
                     }
 
-                }
+                }.accessibility(identifier: "tapbar.4")
                 
             }
             .animation(.spring())

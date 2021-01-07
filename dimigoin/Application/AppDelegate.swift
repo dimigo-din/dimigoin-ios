@@ -48,7 +48,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { _, _ in }
         application.registerForRemoteNotifications()
-
+        
+        if ProcessInfo.processInfo.arguments.contains("UITesting") { // UI테스트 시 자동 로그아웃
+            UserDefaults.standard.removeObject(forKey: "accessToken")
+            UserDefaults.standard.removeObject(forKey: "refreshToken")
+        }
+        
         return true
     }
 

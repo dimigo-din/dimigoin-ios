@@ -25,6 +25,7 @@
 		420D92672557F79300CDF76A /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC55024AF849D00456846 /* TextStyles.swift */; };
 		420D92712557F79F00CDF76A /* HSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54E24AF819400456846 /* HSpacer.swift */; };
 		420D9285255800C700CDF76A /* CopyrightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C487C924DDB73000C594CB /* CopyrightText.swift */; };
+		422CE5D325A75462001072CD /* DimigoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422CE5D225A75462001072CD /* DimigoinUITests.swift */; };
 		42374F1425796996003E1C3E /* CMLoadingButton in Frameworks */ = {isa = PBXBuildFile; productRef = 42374F1325796996003E1C3E /* CMLoadingButton */; };
 		423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71EF24B191AF0099CE3E /* ClearButton.swift */; };
 		423EDF4F256221B0009921AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 423EDF4E256221B0009921AE /* GoogleService-Info.plist */; };
@@ -84,7 +85,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		428464C825A428B100D68E03 /* PBXContainerItemProxy */ = {
+		422CE5D525A75462001072CD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08C9ABDD24A74A53002AF525 /* Project object */;
 			proxyType = 1;
@@ -137,6 +138,9 @@
 		420DE42124B4A70E00005663 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		420DE42324B4A70E00005663 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		4212D96A24CBB24100FF82D5 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		422CE5D025A75462001072CD /* DimigoinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DimigoinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		422CE5D225A75462001072CD /* DimigoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimigoinUITests.swift; sourceTree = "<group>"; };
+		422CE5D425A75462001072CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		423B71EF24B191AF0099CE3E /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
 		423EDF4E256221B0009921AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		423EDF7325623835009921AE /* DimigoIN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DimigoIN.entitlements; sourceTree = "<group>"; };
@@ -146,7 +150,6 @@
 		426CBFED25A6821F00B60BB3 /* FullNoticeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullNoticeListView.swift; sourceTree = "<group>"; };
 		4274147C259B0B0800235302 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		428464B825A35BAB00D68E03 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
-		428464C325A428B100D68E03 /* dimigoin-ui-test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "dimigoin-ui-test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		428DC354255EB4F300A4A7B5 /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
 		428DC355255EB4F400A4A7B5 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		428DC356255EB4F400A4A7B5 /* Openas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Openas.ttf; sourceTree = "<group>"; };
@@ -208,7 +211,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		428464C025A428B100D68E03 /* Frameworks */ = {
+		422CE5CD25A75462001072CD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -235,6 +238,7 @@
 			children = (
 				08C9ABE724A74A53002AF525 /* dimigoin */,
 				42B79D3E253ED242003A8A7F /* Widget */,
+				422CE5D125A75462001072CD /* DimigoinUITests */,
 				08C9ABE624A74A53002AF525 /* Products */,
 				228AAA612779C507EC76E9D9 /* Frameworks */,
 				3C3B9790B2DCA6EFCEBBC8B4 /* Pods */,
@@ -246,7 +250,7 @@
 			children = (
 				08C9ABE524A74A53002AF525 /* DimigoIN.app */,
 				42B79D3B253ED242003A8A7F /* WidgetExtension.appex */,
-				428464C325A428B100D68E03 /* dimigoin-ui-test.xctest */,
+				422CE5D025A75462001072CD /* DimigoinUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -359,6 +363,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		422CE5D125A75462001072CD /* DimigoinUITests */ = {
+			isa = PBXGroup;
+			children = (
+				422CE5D225A75462001072CD /* DimigoinUITests.swift */,
+				422CE5D425A75462001072CD /* Info.plist */,
+			);
+			path = DimigoinUITests;
+			sourceTree = "<group>";
+		};
 		42364EA124AFF1B5008427D5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,22 +457,22 @@
 			productReference = 08C9ABE524A74A53002AF525 /* DimigoIN.app */;
 			productType = "com.apple.product-type.application";
 		};
-		428464C225A428B100D68E03 /* dimigoin-ui-test */ = {
+		422CE5CF25A75462001072CD /* DimigoinUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 428464CA25A428B100D68E03 /* Build configuration list for PBXNativeTarget "dimigoin-ui-test" */;
+			buildConfigurationList = 422CE5D925A75462001072CD /* Build configuration list for PBXNativeTarget "DimigoinUITests" */;
 			buildPhases = (
-				428464BF25A428B100D68E03 /* Sources */,
-				428464C025A428B100D68E03 /* Frameworks */,
-				428464C125A428B100D68E03 /* Resources */,
+				422CE5CC25A75462001072CD /* Sources */,
+				422CE5CD25A75462001072CD /* Frameworks */,
+				422CE5CE25A75462001072CD /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				428464C925A428B100D68E03 /* PBXTargetDependency */,
+				422CE5D625A75462001072CD /* PBXTargetDependency */,
 			);
-			name = "dimigoin-ui-test";
-			productName = "dimigoin-ui-test";
-			productReference = 428464C325A428B100D68E03 /* dimigoin-ui-test.xctest */;
+			name = DimigoinUITests;
+			productName = DimigoinUITests;
+			productReference = 422CE5D025A75462001072CD /* DimigoinUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		42B79D3A253ED242003A8A7F /* WidgetExtension */ = {
@@ -498,9 +511,8 @@
 						CreatedOnToolsVersion = 11.5;
 						DevelopmentTeam = 9MGM27T9ZC;
 					};
-					428464C225A428B100D68E03 = {
+					422CE5CF25A75462001072CD = {
 						CreatedOnToolsVersion = 12.3;
-						DevelopmentTeam = 9MGM27T9ZC;
 						TestTargetID = 08C9ABE424A74A53002AF525;
 					};
 					42B79D3A253ED242003A8A7F = {
@@ -530,7 +542,7 @@
 			targets = (
 				08C9ABE424A74A53002AF525 /* dimigoin */,
 				42B79D3A253ED242003A8A7F /* WidgetExtension */,
-				428464C225A428B100D68E03 /* dimigoin-ui-test */,
+				422CE5CF25A75462001072CD /* DimigoinUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -556,7 +568,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		428464C125A428B100D68E03 /* Resources */ = {
+		422CE5CE25A75462001072CD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -685,10 +697,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		428464BF25A428B100D68E03 /* Sources */ = {
+		422CE5CC25A75462001072CD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				422CE5D325A75462001072CD /* DimigoinUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,10 +723,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		428464C925A428B100D68E03 /* PBXTargetDependency */ = {
+		422CE5D625A75462001072CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 08C9ABE424A74A53002AF525 /* dimigoin */;
-			targetProxy = 428464C825A428B100D68E03 /* PBXContainerItemProxy */;
+			targetProxy = 422CE5D525A75462001072CD /* PBXContainerItemProxy */;
 		};
 		42B79D45253ED243003A8A7F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -879,7 +892,7 @@
 				CODE_SIGN_ENTITLEMENTS = dimigoin/DimigoIN.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -907,7 +920,7 @@
 				CODE_SIGN_ENTITLEMENTS = dimigoin/DimigoIN.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -926,48 +939,40 @@
 			};
 			name = Release;
 		};
-		428464CB25A428B100D68E03 /* Debug */ = {
+		422CE5D725A75462001072CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "dimigoin-ui-test/Info.plist";
+				DEVELOPMENT_TEAM = 5F2KLXFAD3;
+				INFOPLIST_FILE = DimigoinUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dimigoin.v3.dimigoin-ui-test";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dimigoin.v3.DimigoinUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = dimigoin;
 			};
 			name = Debug;
 		};
-		428464CC25A428B100D68E03 /* Release */ = {
+		422CE5D825A75462001072CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "dimigoin-ui-test/Info.plist";
+				DEVELOPMENT_TEAM = 5F2KLXFAD3;
+				INFOPLIST_FILE = DimigoinUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dimigoin.v3.dimigoin-ui-test";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dimigoin.v3.DimigoinUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = dimigoin;
@@ -983,7 +988,7 @@
 				CODE_SIGN_ENTITLEMENTS = Widget/WidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1011,7 +1016,7 @@
 				CODE_SIGN_ENTITLEMENTS = Widget/WidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1051,11 +1056,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		428464CA25A428B100D68E03 /* Build configuration list for PBXNativeTarget "dimigoin-ui-test" */ = {
+		422CE5D925A75462001072CD /* Build configuration list for PBXNativeTarget "DimigoinUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				428464CB25A428B100D68E03 /* Debug */,
-				428464CC25A428B100D68E03 /* Release */,
+				422CE5D725A75462001072CD /* Debug */,
+				422CE5D825A75462001072CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

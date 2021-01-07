@@ -81,12 +81,14 @@ struct ProfileView: View {
                     .fixedSize(horizontal: false, vertical: true)
                             
                     Button(action: {
+                        alertManager.createAlert("로그아웃 성공", sub: "성공적으로 로그아웃 되었습니다.", .cancel)
                         tokenAPI.clearTokens()
                     }) {
                         Text("로그아웃").foregroundColor(Color.white)
                             .font(Font.custom("NotoSansKR-Medium", size: 15))
                             .frame(width: abs(geometry.size.width-40), height: 50)
                             .background(Color("accent").cornerRadius(10)).padding(.vertical)
+                            .accessibility(identifier: "button.logout")
                     }
                     Spacer()
                 }

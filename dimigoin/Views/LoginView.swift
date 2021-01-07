@@ -33,12 +33,15 @@ struct LoginView: View {
                     }
                     VSpacer(30)
                     TextField("아이디", text: $username).textContentType(.username)
+                        .accessibility(identifier: "textfield.username")
                         .modifier(TextFieldModifier())
                         .modifier(ClearButton(text: $username))
+                        
                     VSpacer(16)
                     SecureField("패스워드", text: $password, onCommit: {
                         dismissKeyboard()
-                    }).textContentType(.password)
+                    }).accessibility(identifier: "textfield.password")
+                        .textContentType(.password)
                         .modifier(TextFieldModifier())
                         .modifier(ClearButton(text: $password))
                     VSpacer(13)
@@ -77,7 +80,7 @@ struct LoginView: View {
                         Text("로그인")
                             .font(Font.custom("NotoSansKR-Bold", size: 18))
                             .foregroundColor(Color.white)
-                    }
+                    }.accessibility(identifier: "button.login")
                 }
                 Spacer()
                 CopyrightText()

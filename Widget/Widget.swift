@@ -47,7 +47,7 @@ struct Provider : TimelineProvider {
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<WidgetEntry>) -> Void) {
         let accessToken: String = UserDefaults(suiteName: "group.com.dimigoin.v3")?.string(forKey: "accessToken") ?? ""
-        if(accessToken == "") { // 토큰이 없을 때 API호출 자체를 안하고 그냥 없다고 넘겨버리고 1분마다 새로고침하게 스케쥴
+        if(accessToken == "") { // 토큰이 없을 때 API호출 자체를 안하고 그냥 없다고 넘겨버리고 15분마다 새로고침하게 스케쥴
             let date = Date()
             let data = WidgetEntry(date: Date(),
                                    breakfast: "",

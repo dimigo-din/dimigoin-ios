@@ -56,6 +56,7 @@ struct HomeView: View {
                                         .overlay(
                                             Circle().stroke(Color("accent"), lineWidth: 2)
                                         )
+                                        .accessibility(identifier: "profile")
                                 }
                             }
                         }.horizonPadding()

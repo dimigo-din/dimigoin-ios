@@ -53,6 +53,26 @@
                ReferencedContainer = "container:dimigoin.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "422CE59125A75023001072CD"
+               BuildableName = "DimigoinUITests.xctest"
+               BlueprintName = "DimigoinUITests"
+               ReferencedContainer = "container:dimigoin.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "422CE5A225A753AA001072CD"
+               BuildableName = "dimigoinUITests.xctest"
+               BlueprintName = "dimigoinUITests"
+               ReferencedContainer = "container:dimigoin.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

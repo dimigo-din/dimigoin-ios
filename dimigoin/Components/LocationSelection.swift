@@ -41,6 +41,7 @@ struct LocationSelectionView: View {
                         .environmentObject(attendanceLogAPI)
                         .environmentObject(placeAPI)
                         .environmentObject(alertManager)
+                        .accessibility(identifier: "locationSelection.\(location.icon)")
                     if(locationButtons.count-1 != location.idx) {
                         Spacer()
                     }
