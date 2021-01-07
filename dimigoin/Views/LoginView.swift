@@ -39,7 +39,7 @@ struct LoginView: View {
                         .modifier(TextFieldModifier())
                         .modifier(ClearButton(text: $password))
                     VSpacer(13)
-                    CMLoadingButton(action: {
+                    LoadingButton(action: {
                         LOG("get token")
                         isLoading = true
                         let parameters: [String: String] = [
