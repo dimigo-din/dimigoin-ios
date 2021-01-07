@@ -33,10 +33,9 @@ struct NextMealWidget: View {
                     case .lunch : Text(data.lunch).caption3()
                     case .dinner : Text(data.dinner).caption3()
                     }
-
                 }.padding(.horizontal)
             } else {
-                Text("사용자 토큰이 동기화 되지 않았습니다. 앱을 실행하여 로그인 하거나 이미 로그인을 완료했다면 잠시만 기다려주세요.").caption3().padding(.horizontal)
+                Text("사용자 정보가 동기화 되지 않았습니다. 앱을 실행하여 로그인 하거나 이미 로그인을 완료했다면 잠시만 기다려주세요.😉").caption3().padding(.horizontal)
             }
         }
     }

@@ -31,7 +31,7 @@ struct MainWidget : Widget {
         }
         .configurationDisplayName("디미고인 급식 위젯")
         .description("간편하고 빠르게 급식을 확인하세요.")
-        .supportedFamilies([.systemSmall, .systemMedium])
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
     }
 }
 
@@ -94,7 +94,7 @@ struct WidgetView : View {
         switch widgetFamily {
         case .systemSmall: NextMealWidget(data: data)
         case .systemMedium: DailyMealWidget(data: data)
-        case .systemLarge: Text("Not supported yet")
+        case .systemLarge: TimetableWidget(data: data)
         default: Text("error")
         }
     }

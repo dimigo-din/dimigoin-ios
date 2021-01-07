@@ -16,14 +16,9 @@ struct DailyMealWidget: View {
             Image(data.tokenExist == false ? "dangermark" : "logo").resizable().aspectRatio(contentMode: .fit).frame(width: 60)
                 .opacity(data.tokenExist == false ? 0.4 : 0.25)
             GeometryReader { geometry in
-                ZStack(alignment: .leading){
-                    Rectangle().fill(Color(data.tokenExist == false ? "red" : "accent").opacity(0.1))
-                        .frame(width: geometry.size.width, height: geometry.size.height/3)
-                        .offset(y: getMealType() == .lunch ? geometry.size.height/3 : (getMealType() == .dinner ? geometry.size.height*2/3 : 0))
-                    Rectangle().fill(Color(data.tokenExist == false ? "red" : "accent"))
-                        .frame(width: 4, height: geometry.size.height/3)
-                        .offset(y: getMealType() == .lunch ? geometry.size.height/3 : (getMealType() == .dinner ? geometry.size.height*2/3 : 0))
-                }
+                Rectangle().fill(Color(data.tokenExist == false ? "red" : "accent"))
+                    .frame(width: 4, height: data.tokenExist == false ? geometry.size.height : geometry.size.height/3)
+                    .offset(y: getMealType() == .lunch ? geometry.size.height/3 : (getMealType() == .dinner ? geometry.size.height*2/3 : 0))
             }
             if(data.tokenExist == true) {
                 VStack(alignment: .leading, spacing: 10) {
@@ -41,7 +36,7 @@ struct DailyMealWidget: View {
                     }
                 }.padding(.horizontal)
             } else {
-                Text("사용자 토큰이 동기화 되지 않았습니다. 앱을 실행하여 로그인 하거나 이미 로그인을 완료했다면 잠시만 기다려주세요.").caption3().padding(.horizontal)
+                Text("사용자 정보가 동기화 되지 않았습니다. 앱을 실행하여 로그인 하거나 이미 로그인을 완료했다면 잠시만 기다려주세요.😉").caption3().padding(.horizontal)
             }
         }
     }
