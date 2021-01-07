@@ -22,21 +22,15 @@ struct FullNoticeListView: View {
         GeometryReader { geometry in
             ScrollView {
                 ForEach(0..<noticeAPI.notices.count, id: \.self) { i in
-                    VStack {
-                        HStack {
-                            Text(noticeAPI.notices[i].title).sectionHeader()
-                            
-                            Spacer()
-                        }.horizonPadding()
-                    }
                     VStack(alignment: .leading){
+                        Text(noticeAPI.notices[i].title).font(Font.custom("NotoSansKR-Bold", size: 17))
                         HStack {
                             ForEach(noticeAPI.notices[i].targetGrade, id: \.self) { grade in
                                 Text("#\(grade)학년").font(Font.custom("NotoSansKR-Bold", size: 12)).foregroundColor(Color("accent"))
                             }
                         }
-                        Text("\(noticeAPI.notices[i].content)")
-                                .mealMenu()
+                        HDivider()
+                        Text("\(noticeAPI.notices[i].content)").mealMenu()
                                 
                     }.padding()
                     .frame(width: abs(geometry.size.width-40), alignment: .leading)

@@ -76,12 +76,19 @@ struct AlertView: View {
                             if self.startPos.y > gesture.location.y {
                                 if abs(self.dragOffset.height) > 5 {
                                     self.isShowing.toggle()
-                                    self.dragOffset = .zero
+                                    withAnimation() {
+                                        self.dragOffset = .zero
+                                    }
+                                    
                                 } else {
-                                    self.dragOffset = .zero
+                                    withAnimation() {
+                                        self.dragOffset = .zero
+                                    }
                                 }
                             } else {
-                                self.dragOffset = .zero
+                                withAnimation() {
+                                    self.dragOffset = .zero
+                                }
                             }
                         }
                 )

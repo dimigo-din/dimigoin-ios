@@ -43,6 +43,7 @@ struct MainView: View {
                         .environmentObject(userAPI)
                         .environmentObject(attendanceLogAPI)
                         .environmentObject(placeAPI)
+                        .environmentObject(ingangAPI)
                     case 3: MealView()
                         .environmentObject(mealAPI)
                     case 4: TimetableView()

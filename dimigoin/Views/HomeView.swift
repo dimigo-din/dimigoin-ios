@@ -18,8 +18,18 @@ struct HomeView: View {
     @EnvironmentObject var userAPI: UserAPI
     @EnvironmentObject var attendanceLogAPI: AttendanceLogAPI
     @EnvironmentObject var placeAPI: PlaceAPI
+    @EnvironmentObject var ingangAPI: IngangAPI
     @Binding var isShowIdCard: Bool
     @State var currentLocation = 0
+    
+    func isAppliedAnyIngang() -> Bool {
+        for i in 0..<ingangAPI.ingangs.count {
+            if(ingangAPI.ingangs[i].isApplied == true){
+                return true
+            }
+        }
+        return false
+    }
     
     var body: some View {
         GeometryReader { geometry in
@@ -63,6 +73,29 @@ struct HomeView: View {
                     Text("오늘의 급식").font(Font.custom("NotoSansKR-Bold", size: 20)).horizonPadding()
                     MealPagerView()
                         .environmentObject(mealAPI)
+                    if(isAppliedAnyIngang()) {
+                        SectionHeader("나의 신청현황", sub: "")
+                    }
+                    ForEach(0..<ingangAPI.ingangs.count, id: \.self) { i in
+                        if(ingangAPI.ingangs[i].isApplied == true) {
+                            HStack {
+                                VStack(alignment: .leading, spacing: 5){
+                                    Text("오늘의 인강실").font(Font.custom("NotoSansKR-Bold", size: 17))
+                                    HStack {
+                                        Image("clock").frame(width: 20)
+                                        Text("\(ingangAPI.ingangs[i].title)").gray4().caption3()
+                                    }
+                                    HStack {
+                                        Image("map.pin").frame(width: 20)
+                                        Text("\(userAPI.user.grade)학년 인강실").gray4().caption3()
+                                    }
+                                }
+                            }.padding()
+                            .frame(width: abs(geometry.size.width-40), alignment: .leading)
+                            .background(CustomBox())
+                            .fixedSize(horizontal: false, vertical: true)
+                        }
+                    }
                 }
             }
         }
