@@ -39,8 +39,8 @@ struct FullNoticeListView: View {
                                 .mealMenu()
                                 
                     }.padding()
-                    .frame(width: abs(geometry.size.width-40))
-                    .background(CustomBox())
+                    .frame(width: abs(geometry.size.width-40), alignment: .leading)
+                    .background(CustomBox(), alignment: .leading)
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(.horizontal, 20)
                     

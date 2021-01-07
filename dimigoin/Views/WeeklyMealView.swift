@@ -35,7 +35,7 @@ struct WeeklyMealView: View {
                         Text(mealAPI.meals[selection].breakfast)
                             .mealMenu()
                             .padding()
-                            .frame(width: abs(geometry.size.width-40))
+                            .frame(width: abs(geometry.size.width-40), alignment: .leading)
                             .background(CustomBox())
                             .fixedSize(horizontal: false, vertical: true)
                     }
@@ -45,7 +45,7 @@ struct WeeklyMealView: View {
                         Text(mealAPI.meals[selection].lunch)
                             .mealMenu()
                             .padding()
-                            .frame(width: abs(geometry.size.width-40))
+                            .frame(width: abs(geometry.size.width-40), alignment: .leading)
                             .background(CustomBox())
                             .fixedSize(horizontal: false, vertical: true)
                             
@@ -56,7 +56,7 @@ struct WeeklyMealView: View {
                         Text(mealAPI.meals[selection].dinner)
                             .mealMenu()
                             .padding()
-                            .frame(width: abs(geometry.size.width-40))
+                            .frame(width: abs(geometry.size.width-40), alignment: .leading)
                             .background(CustomBox())
                             .fixedSize(horizontal: false, vertical: true)
                             

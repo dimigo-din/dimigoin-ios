@@ -59,7 +59,7 @@ struct AlertView: View {
                     }) {
                         Image(systemName: "xmark").font(Font.system(size: 12, weight: .bold, design: .rounded)).padding(.trailing).foregroundColor(Color.gray)
                     }
-                }.frame(width: UIDevice.current.userInterfaceIdiom == .phone ? geometry.size.width - 20 : 380, height: 80)
+                }.frame(width: UIDevice.current.userInterfaceIdiom == .phone ? geometry.size.width - 20 : 380, height: 80, alignment: .leading)
                 .background(
                     CustomBox(edgeInsets: .leading, accentColor: getAccentColor(alertManager.alertType), width: 8, tl: 12, tr: 12, bl: 12, br: 12)
                         .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 0)

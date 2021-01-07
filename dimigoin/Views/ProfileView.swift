@@ -39,7 +39,7 @@ struct ProfileView: View {
                     Text("\(noticeAPI.notices[0].content)")
                             .noticeContent()
                             .padding()
-                            .frame(width: abs(geometry.size.width-40))
+                            .frame(width: abs(geometry.size.width-40), alignment: .leading)
                             .background(CustomBox())
                             .fixedSize(horizontal: false, vertical: true)
                     SectionHeader("신청 안내", sub: "")
@@ -83,7 +83,7 @@ struct ProfileView: View {
                         
                     }.padding()
                     .frame(width: abs(geometry.size.width-40))
-                    .background(CustomBox())
+                    .background(CustomBox(), alignment: .leading)
                     .fixedSize(horizontal: false, vertical: true)
                             
                     Button(action: {

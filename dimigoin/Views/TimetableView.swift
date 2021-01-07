@@ -38,13 +38,14 @@ struct TimetableView: View {
     }
     
     private func revealSecret() {
-        alertManager.createAlert("이스터에그를 발견하셨네요!", sub: "축하드립니다🥳 이제 모든 교실의 시간표를 조회할 수 있습니다.", .success)
-        UserDefaults.standard.setValue(true, forKey: "Magic")
-        withAnimation() {
-            self.isMagicRevealed = true
+        if(!isMagicRevealed) {
+            alertManager.createAlert("이스터에그를 발견하셨네요!", sub: "축하드립니다🥳 이제 모든 교실의 시간표를 조회할 수 있습니다.", .success)
+            UserDefaults.standard.setValue(true, forKey: "Magic")
+            withAnimation() {
+                self.isMagicRevealed = true
+            }
         }
     }
-    
 }
 
 struct TimetableItem: View{
