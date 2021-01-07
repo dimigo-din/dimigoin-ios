@@ -20,6 +20,7 @@ struct LoginView: View {
     @State var showErrorMessage:Bool = false
     @State var isLoading: Bool = false
     var buttonStyle = CMButtonStyle(width:345, height: 60, cornerRadius: 5, backgroundColor: Color("accent"))
+    
     var body: some View {
         ZStack {
             VStack(alignment: .center) {
@@ -35,7 +36,9 @@ struct LoginView: View {
                         .modifier(TextFieldModifier())
                         .modifier(ClearButton(text: $username))
                     VSpacer(16)
-                    SecureField("패스워드", text: $password).textContentType(.password)
+                    SecureField("패스워드", text: $password, onCommit: {
+                        dismissKeyboard()
+                    }).textContentType(.password)
                         .modifier(TextFieldModifier())
                         .modifier(ClearButton(text: $password))
                     VSpacer(13)
@@ -55,6 +58,7 @@ struct LoginView: View {
                                     let json = JSON(response.value!!)
                                     self.tokenAPI.accessToken = json["accessToken"].string!
                                     self.tokenAPI.refreshToken = json["refreshToken"].string!
+                                    self.dismissKeyboard()
                                     self.tokenAPI.debugToken()
                                     self.tokenAPI.saveTokens()
                                     self.tokenAPI.tokenStatus = .exist
@@ -81,8 +85,9 @@ struct LoginView: View {
             
             AlertView(isShowing: $alertManager.isShowing)
                 .environmentObject(alertManager)
-            
-            
         }
+    }
+    func dismissKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
