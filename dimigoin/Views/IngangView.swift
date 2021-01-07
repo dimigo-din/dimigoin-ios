@@ -43,7 +43,7 @@ struct IngangView: View {
                         }
                     }.modifier(CardViewModifier(geometry.size.width - 40, 120))
                     VSpacer(10)
-                    if ingang.applicants.count == ingangAPI.ingangMaxApplier {
+                    if (ingang.applicants.count == ingangAPI.ingangMaxApplier && ingang.isApplied == false) {
                         Text("신청불가").DisabledRSquareButton(geometry.size.width - 40, 47)
                     }
                     else {
