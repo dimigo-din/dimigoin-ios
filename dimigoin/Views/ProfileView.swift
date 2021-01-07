@@ -35,14 +35,13 @@ struct ProfileView: View {
                         }
                         Spacer()
                     }.horizonPadding()
-                    if(noticeAPI.notices.count != 0) {
-                        Text("\(noticeAPI.notices[0].content)")
-                                .noticeContent()
-                                .padding()
-                                .frame(width: abs(geometry.size.width-40), alignment: .leading)
-                                .background(CustomBox())
-                                .fixedSize(horizontal: false, vertical: true)
-                    }
+                    Text("\(noticeAPI.notices.count != 0 ? noticeAPI.notices[0].content : "공지사항이 없습니다.")")
+                            .noticeContent()
+                            .padding()
+                            .frame(width: abs(geometry.size.width-40), alignment: .leading)
+                            .background(CustomBox())
+                            .fixedSize(horizontal: false, vertical: true)
+                   
                     SectionHeader("신청 안내", sub: "")
                     HStack(alignment: .top){
                         VStack(alignment: .leading) {

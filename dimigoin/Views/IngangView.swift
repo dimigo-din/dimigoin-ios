@@ -30,17 +30,21 @@ struct IngangView: View {
                 ForEach(ingangAPI.ingangs, id: \.self) { ingang in
                     SectionHeader(ingang.title, sub: ingang.timeString)
                     VSpacer(10)
-                    HStack {
-                        VStack {
-                            Text("\(ingang.applicants.count)").font(Font.custom("NotoSansKR-Bold", size: 40))
-                            Text("현원").font(Font.custom("NotoSansKR-Bold", size: 15))
-                        }
-                        .foregroundColor(ingang.applicants.count == ingangAPI.ingangMaxApplier ? (ingang.isApplied ? Color("gray4") : Color("accent")) : Color("text"))
-                        HSpacer(130)
-                        VStack {
-                            Text("\(ingangAPI.ingangMaxApplier)").font(Font.custom("NotoSansKR-Bold", size: 40))
-                            Text("총원").font(Font.custom("NotoSansKR-Bold", size: 15))
-                        }
+                    VStack {
+                        HStack {
+                            Spacer()
+                            VStack {
+                                Text("\(ingang.applicants.count)").font(Font.custom("NotoSansKR-Bold", size: 40))
+                                Text("현원").font(Font.custom("NotoSansKR-Bold", size: 15))
+                            }
+                            .foregroundColor(ingang.applicants.count == ingangAPI.ingangMaxApplier ? (ingang.isApplied ? Color("gray4") : Color("accent")) : Color("text"))
+                            HSpacer(130)
+                            VStack {
+                                Text("\(ingangAPI.ingangMaxApplier)").font(Font.custom("NotoSansKR-Bold", size: 40))
+                                Text("총원").font(Font.custom("NotoSansKR-Bold", size: 15))
+                            }
+                            Spacer()
+                        }.frame(width: geometry.size.width - 40, height: 120)
                     }.modifier(CardViewModifier(geometry.size.width - 40, 120))
                     VSpacer(10)
                     if (ingang.applicants.count == ingangAPI.ingangMaxApplier && ingang.isApplied == false) {

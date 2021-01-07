@@ -12,7 +12,7 @@ import DimigoinKit
 
 struct MealPagerView: View {
     @EnvironmentObject var mealAPI: MealAPI
-    private let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
+    private let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
     @State var dragOffset = CGSize.zero
     @State var startPos = CGPoint(x: 0, y:0)
     @GestureState private var translation: CGFloat = 0
