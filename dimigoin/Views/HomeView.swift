@@ -12,6 +12,7 @@ import LocalAuthentication
 import SDWebImageSwiftUI
 
 struct HomeView: View {
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @EnvironmentObject var mealAPI: MealAPI
     @EnvironmentObject var alertManager: AlertManager
     @EnvironmentObject var tokenAPI : TokenAPI
@@ -38,13 +39,14 @@ struct HomeView: View {
                     ZStack {
                         VStack {
                             VSpacer(50)
-                            if(UIDevice.current.userInterfaceIdiom == .phone) {
+                            if(horizontalSizeClass == .compact) {
                                 Image("school").resizable().aspectRatio(contentMode: .fit).frame(maxWidth: .infinity).opacity(0.3)
                             }
-                            else if(UIDevice.current.userInterfaceIdiom == .pad) {
+                            else {
                                 Image("school").resizable().frame(maxWidth: .infinity).opacity(0.3)
                             }
                         }
+                        
                         HStack {
                             Image("logo").resizable().aspectRatio(contentMode: .fit).frame(height: 38)
                             Spacer()
