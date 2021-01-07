@@ -14,8 +14,8 @@ struct MealView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView(showsIndicators: false) {
-                GeometryReader { geometry in
+            GeometryReader { geometry in
+                ScrollView {
                      VStack{
                         HStack {
                             ViewTitle("급식", sub: getDateString())
@@ -58,8 +58,8 @@ struct MealView: View {
                                 .fixedSize(horizontal: false, vertical: true)
                                 
                         }
-                        Spacer()
                     }
+                    VSpacer(20)
                 }
             }
             .navigationBarTitle("오늘의 급식")

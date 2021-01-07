@@ -60,7 +60,7 @@ struct ProfileView: View {
                                 Image("calendar.empty")
                                 Text("일주일 최대 ").gray4().caption3()
                                 +
-                                    Text("4회").bold().gray4().caption1()
+                                Text("4회").bold().gray4().caption1()
                             }
                         }
                         Divider()
@@ -73,17 +73,13 @@ struct ProfileView: View {
                                 Text("\(userAPI.user.weeklyRemainTicket)/\(userAPI.user.weeklyTicketCount)").accent().caption1()
                             }
                             Text("티켓을 모두 소진하면 신청할 수 없습니다.").gray4().caption3()
-                            Text("인강실 사용이 꼭 ").gray4().caption3()
-                            +
-                            Text("필요할 때만 신청").gray4().caption1()
-                            +
-                            Text("하시기 바랍니다.").gray4().caption3()
+                            Text("인강실 사용이 꼭 필요할 때만 신청하시기 바랍니다.").gray4().caption3()
                         }
                         
                         
                     }.padding()
-                    .frame(width: abs(geometry.size.width-40))
-                    .background(CustomBox(), alignment: .leading)
+                    .frame(width: abs(geometry.size.width-40), alignment: .leading)
+                    .background(CustomBox())
                     .fixedSize(horizontal: false, vertical: true)
                             
                     Button(action: {
@@ -95,9 +91,9 @@ struct ProfileView: View {
                 }
             
             }
+            .navigationBarTitle("내정보")
             .navigationBarHidden(true)
         }
-        .navigationBarTitle("내정보")
         .navigationViewStyle(StackNavigationViewStyle())
     }
 }
