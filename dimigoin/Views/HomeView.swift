@@ -38,7 +38,12 @@ struct HomeView: View {
                     ZStack {
                         VStack {
                             VSpacer(50)
-                            Image("school").resizable().aspectRatio(contentMode: .fit).frame(width: geometry.frame(in: .global).width).opacity(0.3)
+                            if(UIDevice.current.userInterfaceIdiom == .phone) {
+                                Image("school").resizable().aspectRatio(contentMode: .fit).frame(maxWidth: .infinity).opacity(0.3)
+                            }
+                            else if(UIDevice.current.userInterfaceIdiom == .pad) {
+                                Image("school").resizable().frame(maxWidth: .infinity).opacity(0.3)
+                            }
                         }
                         HStack {
                             Image("logo").resizable().aspectRatio(contentMode: .fit).frame(height: 38)
@@ -46,9 +51,7 @@ struct HomeView: View {
                             Button(action: {
                                 showIdCardAfterAuthentication()
 //                                showIdCard()
-                                
                             }) {
-                                // MARK: replace userPhoto-sample to userImage when backend ready
                                 withAnimation() {
                                     userAPI.userPhoto
                                         .resizable()
