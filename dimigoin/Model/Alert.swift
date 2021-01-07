@@ -23,9 +23,8 @@ class AlertManager: ObservableObject {
     var alertType: AlertType = .warning
     var content: String = "content"
     var sub: String = "sub"
+    var count: Int = 0
     
-    
-
     func createAlert(_ content: String, sub: String, _ alertType: AlertType) {
         self.alertType = alertType
         self.content = content
@@ -33,12 +32,13 @@ class AlertManager: ObservableObject {
         withAnimation(.spring()) {
             self.isShowing = true
         }
+        self.count += 1
         LOG("Alert presented \(content) : \(sub)")
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            if(self.isShowing == true) {
+            self.count -= 1
+            if(self.count == 0) {
                 self.dismiss()
             }
-            
         }
     }
     func dismiss() {
