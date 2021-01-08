@@ -21,7 +21,6 @@
 		08C9AC1724A74A83002AF525 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9AC0724A74A83002AF525 /* MainView.swift */; };
 		4206192825A6AF7E00A5E5B8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4206192B25A6AF7E00A5E5B8 /* InfoPlist.strings */; };
 		4206192925A6AF7E00A5E5B8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4206192B25A6AF7E00A5E5B8 /* InfoPlist.strings */; };
-		4206197D25A6C5AF00A5E5B8 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4206197C25A6C5AF00A5E5B8 /* SDWebImageSwiftUI */; };
 		420D92672557F79300CDF76A /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC55024AF849D00456846 /* TextStyles.swift */; };
 		420D92712557F79F00CDF76A /* HSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54E24AF819400456846 /* HSpacer.swift */; };
 		420D9285255800C700CDF76A /* CopyrightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C487C924DDB73000C594CB /* CopyrightText.swift */; };
@@ -135,7 +134,6 @@
 		25D1958C54B4C63F0C895030 /* Pods-WidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-WidgetExtension/Pods-WidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
 		4206192A25A6AF7E00A5E5B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4206193D25A6B58200A5E5B8 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4206198925A6EE9D00A5E5B8 /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = "<group>"; };
 		420DE42124B4A70E00005663 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		420DE42324B4A70E00005663 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		4212D96A24CBB24100FF82D5 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
@@ -145,7 +143,6 @@
 		422CE5DD25A75CE4001072CD /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		423B71EF24B191AF0099CE3E /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
 		423EDF4E256221B0009921AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		423EDF7325623835009921AE /* DimigoIN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DimigoIN.entitlements; sourceTree = "<group>"; };
 		42445B8D25A884CB00294D09 /* DimigoinKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DimigoinKit; path = ../../DimigoinKit; sourceTree = "<group>"; };
 		4250011B25595C2900C593CF /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		4250012525595F9E00C593CF /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -225,7 +222,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4206197D25A6C5AF00A5E5B8 /* SDWebImageSwiftUI in Frameworks */,
 				42B79D3D253ED242003A8A7F /* SwiftUI.framework in Frameworks */,
 				42B79D3C253ED242003A8A7F /* WidgetKit.framework in Frameworks */,
 				42445B9425A8870400294D09 /* DimigoinKit in Frameworks */,
@@ -271,7 +267,6 @@
 				08C9ABF024A74A54002AF525 /* Preview Content */,
 				08C9ABEE24A74A54002AF525 /* Assets.xcassets */,
 				423EDF4E256221B0009921AE /* GoogleService-Info.plist */,
-				423EDF7325623835009921AE /* DimigoIN.entitlements */,
 			);
 			path = dimigoin;
 			sourceTree = "<group>";
@@ -421,7 +416,6 @@
 		42B79D3E253ED242003A8A7F /* Widget */ = {
 			isa = PBXGroup;
 			children = (
-				4206198925A6EE9D00A5E5B8 /* WidgetExtension.entitlements */,
 				42364EA224B0CFB9008427D5 /* Fonts */,
 				42B79D3F253ED242003A8A7F /* Widget.swift */,
 				42B79D8C253FD7D7003A8A7F /* NextMealWidget.swift */,
@@ -495,7 +489,6 @@
 			);
 			name = WidgetExtension;
 			packageProductDependencies = (
-				4206197C25A6C5AF00A5E5B8 /* SDWebImageSwiftUI */,
 				42445B9325A8870400294D09 /* DimigoinKit */,
 			);
 			productName = WidgetExtension;
@@ -522,7 +515,6 @@
 					};
 					42B79D3A253ED242003A8A7F = {
 						CreatedOnToolsVersion = 12.0.1;
-						DevelopmentTeam = 9MGM27T9ZC;
 					};
 				};
 			};
@@ -899,7 +891,7 @@
 				CODE_SIGN_ENTITLEMENTS = dimigoin/DimigoIN.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -909,8 +901,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dimigoin.v3;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dimigo.in.ios;
 				PRODUCT_NAME = DimigoIN;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -927,7 +919,7 @@
 				CODE_SIGN_ENTITLEMENTS = dimigoin/DimigoIN.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -937,8 +929,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dimigoin.v3;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dimigo.in.ios;
 				PRODUCT_NAME = DimigoIN;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -950,7 +942,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5F2KLXFAD3;
+				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				INFOPLIST_FILE = UITest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -970,7 +962,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5F2KLXFAD3;
+				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				INFOPLIST_FILE = UITest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -995,8 +987,8 @@
 				CODE_SIGN_ENTITLEMENTS = Widget/WidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				INFOPLIST_FILE = Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1004,8 +996,8 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dimigoin.v3.Widget;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dimigo.in.ios.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -1023,8 +1015,8 @@
 				CODE_SIGN_ENTITLEMENTS = Widget/WidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				INFOPLIST_FILE = Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1032,8 +1024,8 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dimigoin.v3.Widget;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dimigo.in.ios.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -1103,11 +1095,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4206197C25A6C5AF00A5E5B8 /* SDWebImageSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 42B6C85925A4ADFC00331373 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
-			productName = SDWebImageSwiftUI;
-		};
 		42374F1325796996003E1C3E /* CMLoadingButton */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 42374F1225796996003E1C3E /* XCRemoteSwiftPackageReference "CMLoadingButton" */;

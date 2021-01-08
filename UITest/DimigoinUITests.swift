@@ -19,12 +19,15 @@ class UI_tests_for_screenshots: XCTestCase {
 //        let screenshot = XCUIScreen.main.screenshot()
     }
 
-
     func test_ui_for_snapshot_without_widget() throws {
         let app = XCUIApplication()
-        app.launchArguments.append("UITesting")
+        app.launchArguments.append(contentsOf: ["UITesting", "Lightmode"])
         setupSnapshot(app)
         app.launch()
+        
+//        if UIDevice.current.userInterfaceIdiom == .pad {
+//            XCUIDevice.shared.orientation = UIDeviceOrientation.portrait;
+//        }
         
         let usernameTextField = app.textFields["textfield.username"]
         usernameTextField.tap()

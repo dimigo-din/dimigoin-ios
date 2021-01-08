@@ -31,6 +31,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             if ProcessInfo.processInfo.arguments.contains("Darkmode") {
                 window.overrideUserInterfaceStyle = .dark
             }
+            
+            // MARK: UI테스트 - 화이트모드
+            if ProcessInfo.processInfo.arguments.contains("Lightmode") {
+                window.overrideUserInterfaceStyle = .light
+            }
         }
     }
 

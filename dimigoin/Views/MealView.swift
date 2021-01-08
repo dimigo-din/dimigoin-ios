@@ -34,7 +34,6 @@ struct MealView: View {
                                 .frame(width: abs(geometry.size.width-40), alignment: .leading)
                                 .background(CustomBox())
                                 .fixedSize(horizontal: false, vertical: true)
-                                
                         }
                         VSpacer(20)
                         VStack {
@@ -45,7 +44,6 @@ struct MealView: View {
                                 .frame(width: abs(geometry.size.width-40), alignment: .leading)
                                 .background(CustomBox())
                                 .fixedSize(horizontal: false, vertical: true)
-                                
                         }
                         VSpacer(20)
                         VStack {
@@ -56,7 +54,6 @@ struct MealView: View {
                                 .frame(width: abs(geometry.size.width-40), alignment: .leading)
                                 .background(CustomBox())
                                 .fixedSize(horizontal: false, vertical: true)
-                                
                         }
                     }
                     VSpacer(20)

@@ -20,6 +20,11 @@ or alternatively using `brew install fastlane`
 fastlane beta
 ```
 
+### beta2
+```
+fastlane beta2
+```
+
 
 ----
 

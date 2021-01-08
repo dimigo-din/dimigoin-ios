@@ -47,7 +47,6 @@ struct HomeView: View {
                                 }
                                 else {
                                     showIdCardAfterAuthentication()
-
                                 }
                             }) {
                                 withAnimation() {

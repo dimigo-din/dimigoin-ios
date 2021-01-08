@@ -1,2 +1,0 @@
-app_identifier("com.dimigoin.v3") # The bundle identifier of your app
-apple_id("iosdev.dimigo.in@gmail.com") # Your Apple email address

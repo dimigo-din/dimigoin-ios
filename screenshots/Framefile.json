@@ -12,7 +12,7 @@
         "color": "#000000"
       },
       "background": "./background.jpg",
-      "padding": 100,
+      "padding": 70,
       "show_complete_frame": false,
       "stack_title" : false,
       "title_below_image": false,

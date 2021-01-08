@@ -36,7 +36,6 @@ struct LoginView: View {
                         .accessibility(identifier: "textfield.username")
                         .modifier(TextFieldModifier())
                         .modifier(ClearButton(text: $username))
-                        
                     VSpacer(16)
                     SecureField("패스워드", text: $password, onCommit: {
                         dismissKeyboard()
@@ -45,7 +44,7 @@ struct LoginView: View {
                         .modifier(TextFieldModifier())
                         .modifier(ClearButton(text: $password))
                     VSpacer(13)
-                    CMLoadingButton(action: {
+                    LoadingButton(action: {
                         LOG("get token")
                         isLoading = true
                         let parameters: [String: String] = [
@@ -75,7 +74,6 @@ struct LoginView: View {
                                 }
                             }
                         }
-                        
                     }, isLoading: $isLoading, style: buttonStyle) {
                         Text("로그인")
                             .font(Font.custom("NotoSansKR-Bold", size: 18))
