@@ -26,6 +26,7 @@
 		420D92712557F79F00CDF76A /* HSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54E24AF819400456846 /* HSpacer.swift */; };
 		420D9285255800C700CDF76A /* CopyrightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C487C924DDB73000C594CB /* CopyrightText.swift */; };
 		422CE5D325A75462001072CD /* DimigoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422CE5D225A75462001072CD /* DimigoinUITests.swift */; };
+		422CE5DE25A75CE4001072CD /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422CE5DD25A75CE4001072CD /* SnapshotHelper.swift */; };
 		42374F1425796996003E1C3E /* CMLoadingButton in Frameworks */ = {isa = PBXBuildFile; productRef = 42374F1325796996003E1C3E /* CMLoadingButton */; };
 		423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71EF24B191AF0099CE3E /* ClearButton.swift */; };
 		423EDF4F256221B0009921AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 423EDF4E256221B0009921AE /* GoogleService-Info.plist */; };
@@ -141,6 +142,7 @@
 		422CE5D025A75462001072CD /* DimigoinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DimigoinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		422CE5D225A75462001072CD /* DimigoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimigoinUITests.swift; sourceTree = "<group>"; };
 		422CE5D425A75462001072CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		422CE5DD25A75CE4001072CD /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		423B71EF24B191AF0099CE3E /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
 		423EDF4E256221B0009921AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		423EDF7325623835009921AE /* DimigoIN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DimigoIN.entitlements; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 		422CE5D125A75462001072CD /* DimigoinUITests */ = {
 			isa = PBXGroup;
 			children = (
+				422CE5DD25A75CE4001072CD /* SnapshotHelper.swift */,
 				422CE5D225A75462001072CD /* DimigoinUITests.swift */,
 				422CE5D425A75462001072CD /* Info.plist */,
 			);
@@ -702,6 +705,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				422CE5D325A75462001072CD /* DimigoinUITests.swift in Sources */,
+				422CE5DE25A75CE4001072CD /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

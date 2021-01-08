@@ -26,6 +26,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.rootViewController = UIHostingController(rootView: ContentView())
             self.window = window
             window.makeKeyAndVisible()
+            
+            // MARK: UI테스트 - 다크모드
+            if ProcessInfo.processInfo.arguments.contains("Darkmode") {
+                window.overrideUserInterfaceStyle = .dark
+            }
         }
     }
 

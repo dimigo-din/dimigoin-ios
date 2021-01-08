@@ -1,0 +1,29 @@
+{
+    "device_frame_version": "latest",
+    "default": {
+      "keyword": {
+        "font": "./fonts/NanumSquareEB.ttf"
+      },
+      "title": {
+        "font": "./fonts/NanumSquareEB.ttf",
+        "font_size": 128,
+        "color": "#ffffff"
+      },
+      "background": "./background.jpg",
+      "padding": 50,
+      "show_complete_frame": false,
+      "stack_title" : false,
+      "title_below_image": false,
+      "frame": "WHITE",
+      "use_platform": "IOS"
+    },
+  
+    "data": [
+      {
+        "filter": "24",
+        "keyword": {
+          "color": "#ff0000"
+        }
+      }
+    ]
+  }
