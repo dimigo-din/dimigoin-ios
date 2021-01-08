@@ -42,7 +42,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "422CE59125A75023001072CD"
+               BlueprintIdentifier = "422CE5CF25A75462001072CD"
                BuildableName = "DimigoinUITests.xctest"
                BlueprintName = "DimigoinUITests"
                ReferencedContainer = "container:dimigoin.xcodeproj">

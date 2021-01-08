@@ -30,6 +30,8 @@
 		42374F1425796996003E1C3E /* CMLoadingButton in Frameworks */ = {isa = PBXBuildFile; productRef = 42374F1325796996003E1C3E /* CMLoadingButton */; };
 		423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71EF24B191AF0099CE3E /* ClearButton.swift */; };
 		423EDF4F256221B0009921AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 423EDF4E256221B0009921AE /* GoogleService-Info.plist */; };
+		42445B9225A886FE00294D09 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42445B9125A886FE00294D09 /* DimigoinKit */; };
+		42445B9425A8870400294D09 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42445B9325A8870400294D09 /* DimigoinKit */; };
 		4250011C25595C2900C593CF /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250011B25595C2900C593CF /* AlertView.swift */; };
 		4250012625595F9E00C593CF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250012525595F9E00C593CF /* Alert.swift */; };
 		42524E2C25621BF30021F48B /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524E2B25621BF30021F48B /* VSpacer.swift */; };
@@ -57,8 +59,6 @@
 		42C72C052559FED900E3294E /* StudentIdCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C72C042559FED900E3294E /* StudentIdCardView.swift */; };
 		42DBE5A92536BABE00E5F4EA /* Openas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42DBE5A82536BABD00E5F4EA /* Openas.ttf */; };
 		42EF39BB25A727AE00BE6DEA /* TimetableWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF39BA25A727AE00BE6DEA /* TimetableWidget.swift */; };
-		42EF39D025A73F1400BE6DEA /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42EF39CF25A73F1400BE6DEA /* DimigoinKit */; };
-		42EF39D525A73F2300BE6DEA /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42EF39D425A73F2300BE6DEA /* DimigoinKit */; };
 		42EFCD992558073200F3DC5E /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 42EFCD932558073200F3DC5E /* NotoSansKR-Bold.otf */; };
 		42EFCD9A2558073200F3DC5E /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 42EFCD932558073200F3DC5E /* NotoSansKR-Bold.otf */; };
 		42EFCD9D2558073200F3DC5E /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 42EFCD942558073200F3DC5E /* NotoSansKR-Light.otf */; };
@@ -146,6 +146,7 @@
 		423B71EF24B191AF0099CE3E /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
 		423EDF4E256221B0009921AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		423EDF7325623835009921AE /* DimigoIN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DimigoIN.entitlements; sourceTree = "<group>"; };
+		42445B8D25A884CB00294D09 /* DimigoinKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DimigoinKit; path = ../../DimigoinKit; sourceTree = "<group>"; };
 		4250011B25595C2900C593CF /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		4250012525595F9E00C593CF /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		42524E2B25621BF30021F48B /* VSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSpacer.swift; sourceTree = "<group>"; };
@@ -205,7 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42B6C85B25A4ADFC00331373 /* SDWebImageSwiftUI in Frameworks */,
-				42EF39D025A73F1400BE6DEA /* DimigoinKit in Frameworks */,
+				42445B9225A886FE00294D09 /* DimigoinKit in Frameworks */,
 				4274147D259B0B0800235302 /* AuthenticationServices.framework in Frameworks */,
 				42374F1425796996003E1C3E /* CMLoadingButton in Frameworks */,
 				429BA5B025A0A63D000749AC /* LocalAuthentication.framework in Frameworks */,
@@ -227,7 +228,7 @@
 				4206197D25A6C5AF00A5E5B8 /* SDWebImageSwiftUI in Frameworks */,
 				42B79D3D253ED242003A8A7F /* SwiftUI.framework in Frameworks */,
 				42B79D3C253ED242003A8A7F /* WidgetKit.framework in Frameworks */,
-				42EF39D525A73F2300BE6DEA /* DimigoinKit in Frameworks */,
+				42445B9425A8870400294D09 /* DimigoinKit in Frameworks */,
 				7F957C994456696929F8B918 /* Pods_WidgetExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,7 +241,7 @@
 			children = (
 				08C9ABE724A74A53002AF525 /* dimigoin */,
 				42B79D3E253ED242003A8A7F /* Widget */,
-				422CE5D125A75462001072CD /* DimigoinUITests */,
+				422CE5D125A75462001072CD /* UITest */,
 				08C9ABE624A74A53002AF525 /* Products */,
 				228AAA612779C507EC76E9D9 /* Frameworks */,
 				3C3B9790B2DCA6EFCEBBC8B4 /* Pods */,
@@ -260,6 +261,7 @@
 		08C9ABE724A74A53002AF525 /* dimigoin */ = {
 			isa = PBXGroup;
 			children = (
+				42445B8D25A884CB00294D09 /* DimigoinKit */,
 				08C9AC0124A74A83002AF525 /* Views */,
 				08C9ABFF24A74A83002AF525 /* Model */,
 				08C9AC0824A74A83002AF525 /* Components */,
@@ -365,14 +367,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		422CE5D125A75462001072CD /* DimigoinUITests */ = {
+		422CE5D125A75462001072CD /* UITest */ = {
 			isa = PBXGroup;
 			children = (
 				422CE5DD25A75CE4001072CD /* SnapshotHelper.swift */,
 				422CE5D225A75462001072CD /* DimigoinUITests.swift */,
 				422CE5D425A75462001072CD /* Info.plist */,
 			);
-			path = DimigoinUITests;
+			path = UITest;
 			sourceTree = "<group>";
 		};
 		42364EA124AFF1B5008427D5 /* Application */ = {
@@ -454,7 +456,7 @@
 			packageProductDependencies = (
 				42374F1325796996003E1C3E /* CMLoadingButton */,
 				42B6C85A25A4ADFC00331373 /* SDWebImageSwiftUI */,
-				42EF39CF25A73F1400BE6DEA /* DimigoinKit */,
+				42445B9125A886FE00294D09 /* DimigoinKit */,
 			);
 			productName = dimigoin;
 			productReference = 08C9ABE524A74A53002AF525 /* DimigoIN.app */;
@@ -494,7 +496,7 @@
 			name = WidgetExtension;
 			packageProductDependencies = (
 				4206197C25A6C5AF00A5E5B8 /* SDWebImageSwiftUI */,
-				42EF39D425A73F2300BE6DEA /* DimigoinKit */,
+				42445B9325A8870400294D09 /* DimigoinKit */,
 			);
 			productName = WidgetExtension;
 			productReference = 42B79D3B253ED242003A8A7F /* WidgetExtension.appex */;
@@ -537,7 +539,6 @@
 			packageReferences = (
 				42374F1225796996003E1C3E /* XCRemoteSwiftPackageReference "CMLoadingButton" */,
 				42B6C85925A4ADFC00331373 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
-				42EF39CE25A73F1400BE6DEA /* XCRemoteSwiftPackageReference "DimigoinKit" */,
 			);
 			productRefGroup = 08C9ABE624A74A53002AF525 /* Products */;
 			projectDirPath = "";
@@ -950,7 +951,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5F2KLXFAD3;
-				INFOPLIST_FILE = DimigoinUITests/Info.plist;
+				INFOPLIST_FILE = UITest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -970,7 +971,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5F2KLXFAD3;
-				INFOPLIST_FILE = DimigoinUITests/Info.plist;
+				INFOPLIST_FILE = UITest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1099,14 +1100,6 @@
 				minimumVersion = 1.5.0;
 			};
 		};
-		42EF39CE25A73F1400BE6DEA /* XCRemoteSwiftPackageReference "DimigoinKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Changemin/DimigoinKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.2;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1120,20 +1113,18 @@
 			package = 42374F1225796996003E1C3E /* XCRemoteSwiftPackageReference "CMLoadingButton" */;
 			productName = CMLoadingButton;
 		};
+		42445B9125A886FE00294D09 /* DimigoinKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DimigoinKit;
+		};
+		42445B9325A8870400294D09 /* DimigoinKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DimigoinKit;
+		};
 		42B6C85A25A4ADFC00331373 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 42B6C85925A4ADFC00331373 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
-		};
-		42EF39CF25A73F1400BE6DEA /* DimigoinKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 42EF39CE25A73F1400BE6DEA /* XCRemoteSwiftPackageReference "DimigoinKit" */;
-			productName = DimigoinKit;
-		};
-		42EF39D425A73F2300BE6DEA /* DimigoinKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 42EF39CE25A73F1400BE6DEA /* XCRemoteSwiftPackageReference "DimigoinKit" */;
-			productName = DimigoinKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
