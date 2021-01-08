@@ -25,8 +25,8 @@ platform :ios do
 end
 
 lane :beta do
-  ensure_git_status_clean
-  increment_build_number(xcodeproj: "Example.xcodeproj")
+  # ensure_git_status_clean
+  increment_build_number(xcodeproj: "dimigoin.xcodeproj")
   sync_code_signing(type: "appstore")
   build_app(scheme: "dimigoin")
   upload_to_testflight
