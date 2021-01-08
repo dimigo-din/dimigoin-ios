@@ -8,98 +8,47 @@
 
 import SwiftUI
 
+struct tapBarItem: Hashable {
+    var idx: Int
+    var icon: String
+    var label: String
+    var identifier: String
+}
+
 struct TapBar: View {
-    @Binding var index:Int
+    @Binding var index: Int
+    var tapBarItems: [tapBarItem] = [
+        tapBarItem(idx: 0, icon: "doc", label: "내정보", identifier: "tapbar.mypage"),
+        tapBarItem(idx: 1, icon: "headphone", label: "인강실", identifier: "tapbar.ingang"),
+        tapBarItem(idx: 2, icon: "home", label: "메인", identifier: "tapbar.home"),
+        tapBarItem(idx: 3, icon: "etc", label: "급식", identifier: "tapbar.meal"),
+        tapBarItem(idx: 4, icon: "calendar", label: "시간표", identifier: "tapbar.timetable")
+    ]
+    
     var body: some View {
         VStack {
             HDivider()
             HStack(spacing: 50) {
-                Button(action: {
-                    self.index = 0
-                }) {
-                    VStack {
-                        Image(self.index == 0 ? "doc" : "disabled-doc")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 24)
-                        VSpacer(7.8)
-                        Text("내정보")
-                            .tapBarItem()
-                            .foregroundColor(self.index == 0 ? Color("accent") : Color("gray3"))
-                        
-                    }
-
-                }.accessibility(identifier: "tapbar.mypage")
-                Button(action: {
-                    self.index = 1
-                }) {
-                    VStack {
-                        Image(self.index == 1 ? "headphone" : "disabled-headphone")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 24)
-                        VSpacer(7.8)
-                        Text("인강실")
-                            .tapBarItem()
-                            .foregroundColor(self.index == 1 ? Color("accent") : Color("gray3"))
-                        
-                    }
-
-                }.accessibility(identifier: "tapbar.ingang")
-                Button(action: {
-                    self.index = 2
-                }) {
-                    VStack {
-                        Image(self.index == 2 ? "home" : "disabled-home")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 24.2)
-                        VSpacer(7.8)
-                        Text("메인")
-                            .tapBarItem()
-                            .foregroundColor(self.index == 2 ? Color("accent") : Color("gray3"))
-                        
-                    }
-
-                }.accessibility(identifier: "tapbar.home")
-                Button(action: {
-                    self.index = 3
-                }) {
-                    VStack {
-                        Image(systemName: "seal")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 24.2)
-                            .foregroundColor(self.index == 3 ? Color("accent") : Color("gray3"))
-                        VSpacer(7.8)
-                        Text("급식")
-                            .tapBarItem()
-                            .foregroundColor(self.index == 3 ? Color("accent") : Color("gray3"))
-                        
-                    }
-
-                }.accessibility(identifier: "tapbar.meal")
-                Button(action: {
-                    self.index = 4
-                }) {
-                    VStack {
-                        Image("calendar")
-                            .renderingMode(.template)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 24.2)
-                            .foregroundColor(self.index == 4 ? Color("accent") : Color("gray3"))
-                        VSpacer(7.8)
-                        Text("시간표")
-                            .tapBarItem()
-                            .foregroundColor(self.index == 4 ? Color("accent") : Color("gray3"))
-                        
-                    }
-
-                }.accessibility(identifier: "tapbar.timetable")
-                
+                ForEach(tapBarItems, id: \.self) { item in
+                    Button(action: {
+                        self.index = item.idx
+                    }) {
+                        VStack {
+                            Image(item.icon)
+                                .renderingMode(.template)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 24)
+                                .foregroundColor(self.index == item.idx ? Color("accent") : Color("gray3"))
+                            VSpacer(7.8)
+                            Text(item.label)
+                                .tapBarItem()
+                                .foregroundColor(self.index == item.idx ? Color("accent") : Color("gray3"))
+                        }
+                    }.accessibility(identifier: item.identifier)
+                }
             }
             .animation(.spring())
-        }
+        }.edgesIgnoringSafeArea(.all)
     }
 }
