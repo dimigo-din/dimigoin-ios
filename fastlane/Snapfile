@@ -6,7 +6,8 @@ devices([
 #   "iPhone 8",
 #   "iPhone 8 Plus",
 #    "iPhone SE (2nd generation)",
-    "iPhone 11 Pro",
+#    "iPhone 11 Pro",
+    "iPhone 11 Pro Max",
 #   "iPhone X",
 #   "iPad Pro (11-inch) (2nd generation)",
 #   "iPad Pro (9.7-inch)",
@@ -14,8 +15,8 @@ devices([
 ])
 
 languages([
-  "en-US",
-  "ko"
+#  "en-US",
+  "ko",
 ])
 
 # The name of the scheme which contains the UI Tests
@@ -28,7 +29,7 @@ output_directory("./screenshots")
 clear_previous_screenshots(true)
 
 # Remove the '#' to set the status bar to 9:41 AM, and show full battery and reception.
-# override_status_bar(true)
+override_status_bar(true)
 
 # Arguments to pass to the app on launch. See https://docs.fastlane.tools/actions/snapshot/#launch-arguments
 # launch_arguments(["-favColor red"])

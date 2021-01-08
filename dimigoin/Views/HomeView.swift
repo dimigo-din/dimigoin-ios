@@ -42,8 +42,13 @@ struct HomeView: View {
                             Image("logo").resizable().aspectRatio(contentMode: .fit).frame(height: 38)
                             Spacer()
                             Button(action: {
-                                showIdCardAfterAuthentication()
-//                                showIdCard()
+                                if ProcessInfo.processInfo.arguments.contains("UITesting") {
+                                    showIdCard()
+                                }
+                                else {
+                                    showIdCardAfterAuthentication()
+
+                                }
                             }) {
                                 withAnimation() {
                                     userAPI.userPhoto
@@ -58,7 +63,7 @@ struct HomeView: View {
                                         )
                                         .accessibility(identifier: "profile")
                                 }
-                            }
+                            }.accessibility(identifier: "button.showIdCard")
                         }.horizonPadding()
                     }
                     VSpacer(15)

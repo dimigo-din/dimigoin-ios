@@ -20,5 +20,14 @@ platform :ios do
   lane :screenshots do
     capture_screenshots
     frame_screenshots
+    
   end
+end
+
+lane :beta do
+  ensure_git_status_clean
+  increment_build_number(xcodeproj: "Example.xcodeproj")
+  sync_code_signing(type: "appstore")
+  build_app(scheme: "dimigoin")
+  upload_to_testflight
 end

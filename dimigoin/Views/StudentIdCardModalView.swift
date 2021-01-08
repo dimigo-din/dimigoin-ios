@@ -34,7 +34,7 @@ struct StudentIdCardModalView: View {
                                 }) {
                                     Image(systemName: "xmark").resizable().aspectRatio(contentMode: .fit).frame(width: 16)
                                         .foregroundColor(Color("gray1")).padding()
-                                }
+                                }.accessibility(identifier: "button.dismissIdCard")
                             }
                             userAPI.userPhoto.resizable().placeholder(Image("user.photo.sample")).aspectRatio(contentMode: .fit).frame(width: 131)
                                 .overlay(Rectangle().stroke(Color.gray.opacity(0.15), lineWidth: 3))

@@ -20,7 +20,7 @@ class UI_tests_for_screenshots: XCTestCase {
     }
 
 
-    func test_login() throws {
+    func test_ui_for_snapshot_without_widget() throws {
         let app = XCUIApplication()
         app.launchArguments.append("UITesting")
         setupSnapshot(app)
@@ -29,17 +29,36 @@ class UI_tests_for_screenshots: XCTestCase {
         let usernameTextField = app.textFields["textfield.username"]
         usernameTextField.tap()
         usernameTextField.typeText("dimigofrontdev")
-        
+
         let passwordTextField = app.secureTextFields["textfield.password"]
         passwordTextField.tap()
         passwordTextField.typeText("dimigofrontdev")
-        
+
         let loginButton = app.buttons["button.login"]
         loginButton.tap()
-        
-        snapshot("HomeView")
-        
-//        let tabBarButton0 = app.buttons["tapBar.0"]
+
+        let showIdCardButton = app.buttons["button.showIdCard"]
+        showIdCardButton.tap()
+
+        snapshot("4-MobileIDCard")
+
+        let dismissIdCardButton = app.buttons["button.dismissIdCard"]
+        dismissIdCardButton.tap()
+
+        let tabBarButtonIngang = app.buttons["tapbar.ingang"]
+        tabBarButtonIngang.tap()
+
+        snapshot("3-Ingang")
+
+        let tabBarButtonMeal = app.buttons["tapbar.meal"]
+        tabBarButtonMeal.tap()
+
+        snapshot("1-Meal")
+
+        let tabBarButtonTimetable = app.buttons["tapbar.timetable"]
+        tabBarButtonTimetable.tap()
+
+        snapshot("2-Timetable")
     }
     
     func test_darkmode() throws {
@@ -59,6 +78,6 @@ class UI_tests_for_screenshots: XCTestCase {
         let loginButton = app.buttons["button.login"]
         loginButton.tap()
         
-        snapshot("1-Darkmode")
+        snapshot("6-Darkmode")
     }
 }

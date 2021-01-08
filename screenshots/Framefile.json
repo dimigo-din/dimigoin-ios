@@ -2,27 +2,60 @@
     "device_frame_version": "latest",
     "default": {
       "keyword": {
-        "font": "./fonts/NanumSquareEB.ttf"
+        "font": "./fonts/NanumSquareR.ttf",
+        "font_size": 160,
+        "color": "#000000"
       },
       "title": {
         "font": "./fonts/NanumSquareEB.ttf",
-        "font_size": 128,
-        "color": "#ffffff"
+        "font_size": 220,
+        "color": "#000000"
       },
       "background": "./background.jpg",
-      "padding": 50,
+      "padding": 100,
       "show_complete_frame": false,
       "stack_title" : false,
       "title_below_image": false,
+      "interline_spacing": 20,
       "frame": "WHITE",
       "use_platform": "IOS"
     },
   
     "data": [
       {
-        "filter": "24",
+        "filter": "Meal",
         "keyword": {
-          "color": "#ff0000"
+          "color": "#000000"
+        }
+      },
+      {
+        "filter": "Timetable",
+        "keyword": {
+          "color": "#000000"
+        }
+      },
+      {
+        "filter": "Ingang",
+        "keyword": {
+          "color": "#000000"
+        }
+      },
+      {
+        "filter": "MobileIDCard",
+        "keyword": {
+          "color": "#000000"
+        }
+      },
+      {
+        "filter": "Widget",
+        "keyword": {
+          "color": "#000000"
+        }
+      },
+      {
+        "filter": "Darkmode",
+        "keyword": {
+          "color": "#000000"
         }
       }
     ]
