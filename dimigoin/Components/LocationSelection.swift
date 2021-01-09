@@ -96,17 +96,19 @@ struct LocationItem: View {
                                 debugPrint(response)
                             }
                             self.placeAPI.tokenAPI.refreshTokens()
-                            attendanceLogAPI.setMyLocation(place: placeAPI.getMatchedPlace(name: name))
+//                            attendanceLogAPI.setMyLocation(place: placeAPI.getMatchedPlace(name: name))
                         }
                     }
                 }
             }) {
                 Circle()
-                    .fill(currentLocation == idx ? Color("accent") : Color(UIColor.secondarySystemGroupedBackground))
+                    .fill(currentLocation == idx ? Color.accent : Color(UIColor.secondarySystemGroupedBackground))
                     .frame(width: 40, height: 40)
-                    .shadow(color: Color("gray4").opacity(0.12), radius: 4, x: 0, y: 0)
+                    .shadow(color: Color.gray4.opacity(0.12), radius: 4, x: 0, y: 0)
                     .overlay(
-                        Image(currentLocation == idx ? "\(icon)-white" : "\(icon)")
+                        Image(icon)
+                            .renderingMode(.template)
+                            .foregroundColor(currentLocation == idx ? Color.white : Color.accent)
                     )
             }
             VSpacer(9)

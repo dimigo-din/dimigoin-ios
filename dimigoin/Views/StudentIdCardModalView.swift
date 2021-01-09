@@ -54,16 +54,14 @@ struct StudentIdCardModalView: View {
                             }
                             VSpacer(15)
                             Text("위 사람은 본교 학생임을 증명함.").font(Font.custom("NotoSansKR-Bold", size: 14))
-                            Image("dimigo-logo").resizable().aspectRatio(contentMode: .fit).frame(width: 263)
-        //                    Image("qr-sample").resizable().aspectRatio(contentMode: .fit).frame(width: 239)
+                            Image("dimigo-logo").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 263).foregroundColor(Color.text)
                             Spacer()
                         }
                     }
-                    
                 }
                 .frame(width: 300, height: 480)
                 .background(
-                    CustomBox(edgeInsets: .bottom, accentColor: Color("accent"), width: 13, tl: 10, tr: 10, bl: 10, br: 10)
+                    CustomBox(edgeInsets: .bottom, accentColor: Color.accent, width: 13, tl: 10, tr: 10, bl: 10, br: 10)
                 )
                 .offset(y: (isShowing ? 0 : geometry.size.height) + dragOffset.height)
                 .animation(.spring())

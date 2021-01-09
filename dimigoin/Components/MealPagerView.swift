@@ -23,19 +23,19 @@ struct MealPagerView: View {
             GeometryReader { geometry in
                 HStack {
                     VStack(alignment: .leading){
-                        Text("아침").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("accent")).horizonPadding()
+                        Text("아침").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color.accent).horizonPadding()
                         VSpacer(10)
                         Text("\(mealAPI.getTodayMeal().breakfast)").mealMenu().horizonPadding()
                     }.padding(.top).modifier(CardViewModifier(305,147))
                     HSpacer(15)
                     VStack(alignment: .leading){
-                        Text("점심").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("accent")).horizonPadding()
+                        Text("점심").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color.accent).horizonPadding()
                         VSpacer(10)
                         Text("\(mealAPI.getTodayMeal().lunch)").mealMenu().horizonPadding()
                     }.padding(.top).modifier(CardViewModifier(305,147))
                     HSpacer(15)
                     VStack(alignment: .leading){
-                        Text("저녁").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color("accent")).horizonPadding()
+                        Text("저녁").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color.accent).horizonPadding()
                         VSpacer(10)
                         Text("\(mealAPI.getTodayMeal().dinner)").mealMenu().horizonPadding()
                     }.padding(.top).modifier(CardViewModifier(305,147))
@@ -82,7 +82,7 @@ struct MealPagerView: View {
             VSpacer(145)
             HStack(spacing: 5){
                 ForEach(0...2, id: \.self) { idx in
-                    Circle().frame(width: 8, height: 8).foregroundColor(Color(currentCardIdx == idx ? "accent" : "divider"))
+                    Circle().frame(width: 8, height: 8).foregroundColor(currentCardIdx == idx ? Color.accent : Color.divider)
                         .onTapGesture {
                             self.currentCardIdx = idx
                         }

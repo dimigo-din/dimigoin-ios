@@ -28,7 +28,7 @@ struct ProfileView: View {
                     HStack(alignment: .bottom) {
                         ZStack {
                             Text(NSLocalizedString("공지사항", comment: "")).sectionHeader()
-                            Circle().fill(Color("accent")).frame(width: 8, height: 8).offset(x: 45, y: -7)
+                            Circle().fill(Color.accent).frame(width: 8, height: 8).offset(x: 45, y: -7)
                         }
                         NavigationLink(destination: FullNoticeListView().environmentObject(noticeAPI).environmentObject(userAPI)) {
                             Text("더보기").accent().mealMenu().padding([.bottom, .leading], 4)
@@ -67,7 +67,7 @@ struct ProfileView: View {
                         VStack(alignment: .leading) {
                             Text("내 티켓").infoText()
                             HStack {
-                                Image("ticket")
+                                Image("ticket").renderingMode(.template).foregroundColor(Color.accent)
                                 Text("남은 티켓 ").accent().caption3()
                                 +
                                 Text("\(userAPI.user.weeklyRemainTicket)/\(userAPI.user.weeklyTicketCount)").accent().caption1()
@@ -87,7 +87,7 @@ struct ProfileView: View {
                         Text("로그아웃").foregroundColor(Color.white)
                             .font(Font.custom("NotoSansKR-Medium", size: 15))
                             .frame(width: abs(geometry.size.width-40), height: 50)
-                            .background(Color("accent").cornerRadius(10)).padding(.vertical)
+                            .background(Color.accent.cornerRadius(10)).padding(.vertical)
                             .accessibility(identifier: "button.logout")
                     }
                     Spacer()

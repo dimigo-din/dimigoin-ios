@@ -15,7 +15,7 @@ struct FullNoticeListView: View {
     init() {
         _ = UINavigationBarAppearance()
         if #available(iOS 14.0, *) {
-            UINavigationBar.appearance().tintColor = UIColor(Color("accent"))
+            UINavigationBar.appearance().tintColor = UIColor(Color.accent)
         }
     }
     var body: some View {
@@ -26,7 +26,7 @@ struct FullNoticeListView: View {
                         Text(noticeAPI.notices[i].title).font(Font.custom("NotoSansKR-Bold", size: 17))
                         HStack {
                             ForEach(noticeAPI.notices[i].targetGrade, id: \.self) { grade in
-                                Text("#\(grade)학년").font(Font.custom("NotoSansKR-Bold", size: 12)).foregroundColor(Color("accent"))
+                                Text("#\(grade)학년").font(Font.custom("NotoSansKR-Bold", size: 12)).foregroundColor(Color.accent)
                             }
                         }
                         HDivider()

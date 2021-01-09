@@ -22,7 +22,7 @@ struct IngangView: View {
                 HStack {
                     ViewTitle("인강실", sub: "")
                     Spacer()
-                    Image("headphone").resizable().aspectRatio(contentMode: .fit).frame(height: 40)
+                    Image("headphone").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 40).foregroundColor(Color.accent)
                 }.horizonPadding()
                 .padding(.top, 40)
                 HDivider().horizonPadding().offset(y: -15)
@@ -37,7 +37,7 @@ struct IngangView: View {
                                 Text("\(ingang.applicants.count)").font(Font.custom("NotoSansKR-Bold", size: 40))
                                 Text("현원").font(Font.custom("NotoSansKR-Bold", size: 15))
                             }
-                            .foregroundColor(ingang.applicants.count == ingangAPI.ingangMaxApplier ? (ingang.isApplied ? Color("gray4") : Color("accent")) : Color("text"))
+                            .foregroundColor(ingang.applicants.count == ingangAPI.ingangMaxApplier ? (ingang.isApplied ? Color.gray4 : Color.accent) : Color.text)
                             HSpacer(130)
                             VStack {
                                 Text("\(ingangAPI.ingangMaxApplier)").font(Font.custom("NotoSansKR-Bold", size: 40))

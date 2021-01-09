@@ -21,7 +21,7 @@ struct TimetableView: View {
                 HStack {
                     ViewTitle("시간표", sub: getDateString())
                     Spacer()
-                    Image("calendar").resizable().aspectRatio(contentMode: .fit).frame(height: 40)
+                    Image("calendar").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 40).foregroundColor(Color.accent)
                     .onTapGesture {
                         self.magicNum -= 1
                         if(magicNum == 0) {
@@ -67,7 +67,7 @@ struct TimetableItem: View{
             .foregroundColor(Color.white)
             .sectionHeader()
             .padding(.horizontal, 7)
-            .background(Color("accent"))
+            .background(Color.accent)
             .cornerRadius(3)
         
     }
@@ -95,54 +95,32 @@ struct TimetableItem: View{
                 }
             }
             VSpacer(10)
-            if(isWeekday()) {
-                ZStack(alignment: .topLeading){
-                    HStack(alignment: .top, spacing: 0) {
-                        ForEach(1...5, id: \.self) { day in
-                            VStack {
-                                Text(NSLocalizedString(dayOfWeek[day], comment: "")).font(Font.custom("NotoSansKR-Bold", size: 20))
-                                    .foregroundColor(Color(getTodayDayOfWeekInt() == day ? "accent" : "gray4"))
-                                VSpacer(20)
-                                ForEach(timetableAPI.getTimetable(grade: grade, klass: klass).data[day-1], id: \.self) { lecture in
-                                    Text("\(lecture)")
-                                        .frame(width: (geometry.size.width-40)/5, height: 20)
-                                        .padding(.vertical, 4)
-                                        .font(Font.custom("NotoSansKR-Regular", size: 14))
-                                        .foregroundColor(Color(getTodayDayOfWeekInt() == day ? "accent" : "gray4"))
-                                }
+            ZStack(alignment: .topLeading){
+                HStack(alignment: .top, spacing: 0) {
+                    ForEach(1...5, id: \.self) { day in
+                        VStack {
+                            Text(NSLocalizedString(dayOfWeek[day], comment: "")).font(Font.custom("NotoSansKR-Bold", size: 20))
+                                .foregroundColor(getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
+                            VSpacer(20)
+                            ForEach(timetableAPI.getTimetable(grade: grade, klass: klass).data[day-1], id: \.self) { lecture in
+                                Text("\(lecture)")
+                                    .frame(width: (geometry.size.width-40)/5, height: 20)
+                                    .padding(.vertical, 4)
+                                    .font(Font.custom("NotoSansKR-Regular", size: 14))
+                                    .foregroundColor(getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
                             }
-                            .padding(.vertical, 5)
-                            .background(Color("accent").opacity(getTodayDayOfWeekInt() == day ? 0.09 : 0).cornerRadius(5))
                         }
+                        .padding(.vertical, 5)
+                        .background(Color.accent.opacity(getTodayDayOfWeekInt() == day ? 0.09 : 0).cornerRadius(5))
                     }
-                    Divider().offset(y: 45)
-                    Rectangle()
-                        .fill(Color("accent"))
-                        .frame(width: (geometry.size.width-40)/5, height: 3)
-                        .cornerRadius(2)
-                        .offset(x: dayIndicatorXOffset, y: 44)
-                }.horizonPadding()
-            } else {
-                ZStack(alignment: .topLeading){
-                    HStack(alignment: .top, spacing: 0) {
-                        ForEach(1...5, id: \.self) { day in
-                            VStack {
-                                Text("\(dayOfWeek[day])").font(Font.custom("NotoSansKR-Bold", size: 20))
-                                    .foregroundColor(Color("gray4"))
-                                VSpacer(20)
-                                ForEach(timetableAPI.getTimetable(grade: grade, klass: klass).data[day-1], id: \.self) { lecture in
-                                    Text("\(lecture)")
-                                        .frame(width: (geometry.size.width-40)/5, height: 20)
-                                        .padding(.vertical, 4)
-                                        .font(Font.custom("NotoSansKR-Regular", size: 14))
-                                        .foregroundColor(Color("gray4"))
-                                }
-                            }.padding(.vertical, 5)
-                        }
-                    }
-                    Divider().offset(y: 45)
-                }.horizonPadding()
-            }
+                }
+                Divider().offset(y: 45)
+                Rectangle()
+                    .fill(Color.accent)
+                    .frame(width: (geometry.size.width-40)/5, height: 3)
+                    .cornerRadius(2)
+                    .offset(x: dayIndicatorXOffset, y: 44)
+            }.horizonPadding()
         }
     }
 }

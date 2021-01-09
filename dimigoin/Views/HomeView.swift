@@ -39,7 +39,7 @@ struct HomeView: View {
                         }
                         
                         HStack {
-                            Image("logo").resizable().aspectRatio(contentMode: .fit).frame(height: 38)
+                            Image("logo").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 38).foregroundColor(Color.accent)
                             Spacer()
                             Button(action: {
                                 if ProcessInfo.processInfo.arguments.contains("UITesting") {
@@ -53,12 +53,12 @@ struct HomeView: View {
                                     userAPI.userPhoto
                                         .resizable()
                                         .placeholder(Image(systemName: "person.crop.circle"))
-                                        .foregroundColor(Color("accent"))
+                                        .foregroundColor(Color.accent)
                                         .aspectRatio(contentMode: .fit)
                                         .frame(width: 38)
                                         .clipShape(Circle())
                                         .overlay(
-                                            Circle().stroke(Color("accent"), lineWidth: 2)
+                                            Circle().stroke(Color.accent, lineWidth: 2)
                                         )
                                         .accessibility(identifier: "profile")
                                 }

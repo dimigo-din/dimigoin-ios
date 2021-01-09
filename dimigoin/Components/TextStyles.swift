@@ -12,7 +12,7 @@ extension Text {
     
     /// 마젠타색으로 강조
     func accent() -> Text {
-        self.foregroundColor(Color("accent"))
+        self.foregroundColor(Color.accent)
     }
     
     /// 빨간색 린팅
@@ -42,14 +42,14 @@ extension Text {
     /// "gray4", NotoSansKR-Bold, 13
     func subTitle() -> Text {
         self
-            .foregroundColor(Color("gray4"))
+            .foregroundColor(Color.gray4)
             .font(Font.custom("NotoSansKR-Bold", size: 13))
     }
     
     /// accent, NotoSansKR-Bold, 10
     func subSectionHeader() -> Text {
         self
-            .foregroundColor(Color("accent"))
+            .foregroundColor(Color.accent)
             .font(Font.custom("NotoSansKR-Bold", size: 10))
     }
     
@@ -101,7 +101,7 @@ extension Text {
     /// gray4, NotoSansKR-Bold, 17
     func alertButton() -> some View {
         self
-            .foregroundColor(Color("gray4"))
+            .foregroundColor(Color.gray4)
             .font(Font.custom("NotoSansKR-Bold", size: 17))
     }
     
@@ -150,7 +150,7 @@ extension Text {
             .font(Font.custom("NotoSansKR-Bold", size: 18))
             .frame(width: w, height: h)
             .padding()
-            .background(Color("accent"))
+            .background(Color.accent)
             .foregroundColor(Color.white)
             .cornerRadius(5.0)
     }
@@ -169,7 +169,7 @@ extension Text {
             .foregroundColor(Color.white)
             .font(Font.custom("NotoSansKR-Medium", size: 15))
             .frame(width: w, height: h)
-            .background(Color("accent").cornerRadius(10))
+            .background(Color.accent.cornerRadius(10))
     }
     
     func DisabledRSquareButton(_ w: CGFloat, _ h: CGFloat) -> some View {
@@ -177,7 +177,7 @@ extension Text {
             .foregroundColor(Color.white)
             .font(Font.custom("NotoSansKR-Medium", size: 15))
             .frame(width: w, height: h)
-            .background(Color("gray4").cornerRadius(10))
+            .background(Color.gray4.cornerRadius(10))
     }
     
     func gray1() -> Text {
@@ -193,7 +193,7 @@ extension Text {
     }
     
     func gray4() -> Text {
-        self.foregroundColor(Color("gray4"))
+        self.foregroundColor(Color.gray4)
     }
     
     func gray5() -> Text {

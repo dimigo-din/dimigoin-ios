@@ -39,11 +39,11 @@ struct TapBar: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(height: 24)
-                                .foregroundColor(self.index == item.idx ? Color("accent") : Color("gray3"))
+                                .foregroundColor(self.index == item.idx ? Color.accent : Color("gray3"))
                             VSpacer(7.8)
                             Text(item.label)
                                 .tapBarItem()
-                                .foregroundColor(self.index == item.idx ? Color("accent") : Color("gray3"))
+                                .foregroundColor(self.index == item.idx ? Color.accent : Color("gray3"))
                         }
                     }.accessibility(identifier: item.identifier)
                 }
