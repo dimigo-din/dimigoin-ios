@@ -26,6 +26,16 @@ Push a new beta build to TestFlight
 fastlane ios screenshots
 ```
 Generate new localized screenshots
+### ios release
+```
+fastlane ios release
+```
+release - only build
+### ios deploy
+```
+fastlane ios deploy
+```
+Deploy new build to AppStore
 
 ----
 

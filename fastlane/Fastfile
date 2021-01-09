@@ -31,3 +31,25 @@ platform :ios do
     frame_screenshots
   end
 end
+
+platform :ios do
+  desc "release - only build"
+  lane :release do 
+    sync_code_signing(type: "appstore")  # see code signing guide for more information
+    build_app(scheme: "dimigoin")
+    upload_to_app_store                  # upload your app to App Store Connect
+  end
+end
+
+
+platform :ios do
+  desc "Deploy new build to AppStore"
+  lane :deploy do 
+    capture_screenshots
+    frame_screenshots
+    sync_code_signing(type: "appstore")  # see code signing guide for more information
+    build_app(scheme: "dimigoin")
+    upload_to_app_store                  # upload your app to App Store Connect
+  end
+end
+

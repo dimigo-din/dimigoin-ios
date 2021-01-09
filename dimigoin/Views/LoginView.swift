@@ -10,7 +10,6 @@ import SwiftUI
 import Alamofire
 import SwiftyJSON
 import DimigoinKit
-import CMLoadingButton
 
 struct LoginView: View {
     @EnvironmentObject var tokenAPI: TokenAPI

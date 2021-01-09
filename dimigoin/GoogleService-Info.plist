@@ -3,9 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>628410690020-r5td8vk4l6vqtnfr0p0iuqe3ucfkrgvk.apps.googleusercontent.com</string>
+	<string>628410690020-rv45cnkd4e4lf1kl83qc8tdik1vbp2rf.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.628410690020-r5td8vk4l6vqtnfr0p0iuqe3ucfkrgvk</string>
+	<string>com.googleusercontent.apps.628410690020-rv45cnkd4e4lf1kl83qc8tdik1vbp2rf</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>628410690020-ii91jahhb4bel4lnlar1nkbqlnpqkark.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBYH2OIN0q2svTctHfL1iG7yDsCI0g_RfE</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.dimigoin.v3</string>
+	<string>in.dimigo.ios</string>
 	<key>PROJECT_ID</key>
 	<string>dimigoin-firebase</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +31,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:628410690020:ios:2cbb5aa0e071250d317ff1</string>
+	<string>1:628410690020:ios:c6d929944c5a684f317ff1</string>
 	<key>DATABASE_URL</key>
 	<string>https://dimigoin-firebase.firebaseio.com</string>
 </dict>
