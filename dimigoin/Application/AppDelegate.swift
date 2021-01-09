@@ -129,12 +129,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 }
 
 /// App group id for widget
-public var appGroupID = "group.com.dimigoin.v3"
+public var appGroupID = "group.in.dimigo.ios"
 
 extension UserDefaults {
-    /// Shared app group(group.com.dimigoin.v3)
+    /// Shared app group(group.in.dimigo.ios)
     static var shared: UserDefaults {
-        let appGroupId = "group.com.dimigoin.v3"
+        let appGroupId = appGroupID
         return UserDefaults(suiteName: appGroupId)!
     }
 }

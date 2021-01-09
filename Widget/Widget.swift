@@ -46,7 +46,7 @@ struct Provider : TimelineProvider {
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<WidgetEntry>) -> Void) {
-        let accessToken: String = UserDefaults(suiteName: "group.com.dimigoin.v3")?.string(forKey: "accessToken") ?? ""
+        let accessToken: String = UserDefaults(suiteName: "group.in.dimigo.ios")?.string(forKey: "accessToken") ?? ""
         // 토큰이 없을 때 API호출 자체를 안하고 그냥 없다고 넘겨버리고 15분마다 새로고침하게 스케쥴 (또는 UITest일때)
         if(accessToken == "" || ProcessInfo.processInfo.arguments.contains("UITesting")) {
             let date = Date()
@@ -102,9 +102,9 @@ struct WidgetView : View {
 }
 
 extension UserDefaults {
-    /// Shared app group(group.com.dimigoin.v3)
+    /// Shared app group(group.in.dimigo.ios)
     static var shared: UserDefaults {
-        let appGroupId = "group.com.dimigoin.v3"
+        let appGroupId = "group.in.dimigo.ios"
         return UserDefaults(suiteName: appGroupId)!
     }
 }

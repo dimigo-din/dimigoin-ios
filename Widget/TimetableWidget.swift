@@ -11,8 +11,8 @@ import DimigoinKit
 
 struct TimetableWidget: View {
     @State var timetableAPI: TimetableAPI = TimetableAPI()
-    var grade: Int =  UserDefaults(suiteName: "group.com.dimigoin.v3")?.integer(forKey: "user.grade") ?? 2
-    var klass: Int = UserDefaults(suiteName: "group.com.dimigoin.v3")?.integer(forKey: "user.klass") ?? 4
+    var grade: Int =  UserDefaults(suiteName: "group.in.dimigo.ios")?.integer(forKey: "user.grade") ?? 2
+    var klass: Int = UserDefaults(suiteName: "group.in.dimigo.ios")?.integer(forKey: "user.klass") ?? 4
     var data: WidgetEntry
     
     var body: some View {
