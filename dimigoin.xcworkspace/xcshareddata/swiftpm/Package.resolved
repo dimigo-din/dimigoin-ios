@@ -11,15 +11,6 @@
         }
       },
       {
-        "package": "CMLoadingButton",
-        "repositoryURL": "https://github.com/Changemin/CMLoadingButton",
-        "state": {
-          "branch": null,
-          "revision": "de8076e6142919cedd79172b28bdad07ba75268d",
-          "version": "1.1.0"
-        }
-      },
-      {
         "package": "SDWebImage",
         "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
         "state": {

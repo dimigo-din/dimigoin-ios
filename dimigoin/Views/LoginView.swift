@@ -19,7 +19,6 @@ struct LoginView: View {
     @State var password = ""
     @State var showErrorMessage:Bool = false
     @State var isLoading: Bool = false
-    var buttonStyle = CMButtonStyle(width:345, height: 60, cornerRadius: 5, backgroundColor: Color("accent"))
     
     var body: some View {
         ZStack {
@@ -44,7 +43,7 @@ struct LoginView: View {
                         .modifier(TextFieldModifier())
                         .modifier(ClearButton(text: $password))
                     VSpacer(13)
-                    LoadingButton(action: {
+                    Button(action : {
                         LOG("get token")
                         isLoading = true
                         let parameters: [String: String] = [
@@ -74,10 +73,21 @@ struct LoginView: View {
                                 }
                             }
                         }
-                    }, isLoading: $isLoading, style: buttonStyle) {
-                        Text("로그인")
-                            .font(Font.custom("NotoSansKR-Bold", size: 18))
-                            .foregroundColor(Color.white)
+                    }) {
+                        HStack {
+                            if(isLoading) {
+                                if #available(iOS 14.0, *) {
+                                    ProgressView()
+                                }
+                            }
+                            HSpacer(10)
+                            Text("로그인")
+                                .font(Font.custom("NotoSansKR-Bold", size: 18))
+                                .foregroundColor(Color.white)
+                        }
+                        .frame(width: 345, height: 60)
+                        .cornerRadius(5)
+                        .background(Color(isLoading ? "disabled-button": "accent"))
                     }.accessibility(identifier: "button.login")
                 }
                 Spacer()

@@ -26,7 +26,6 @@
 		420D9285255800C700CDF76A /* CopyrightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C487C924DDB73000C594CB /* CopyrightText.swift */; };
 		422CE5D325A75462001072CD /* DimigoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422CE5D225A75462001072CD /* DimigoinUITests.swift */; };
 		422CE5DE25A75CE4001072CD /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422CE5DD25A75CE4001072CD /* SnapshotHelper.swift */; };
-		42374F1425796996003E1C3E /* CMLoadingButton in Frameworks */ = {isa = PBXBuildFile; productRef = 42374F1325796996003E1C3E /* CMLoadingButton */; };
 		423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71EF24B191AF0099CE3E /* ClearButton.swift */; };
 		423EDF4F256221B0009921AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 423EDF4E256221B0009921AE /* GoogleService-Info.plist */; };
 		42445B9225A886FE00294D09 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42445B9125A886FE00294D09 /* DimigoinKit */; };
@@ -172,6 +171,7 @@
 		42B79D41253ED243003A8A7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42B79D43253ED243003A8A7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42B79D8C253FD7D7003A8A7F /* NextMealWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextMealWidget.swift; sourceTree = "<group>"; };
+		42BDCF6A25A94521000927F9 /* DimigoinKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DimigoinKit; path = ../DimigoinKit; sourceTree = "<group>"; };
 		42C487C924DDB73000C594CB /* CopyrightText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyrightText.swift; sourceTree = "<group>"; };
 		42C72C042559FED900E3294E /* StudentIdCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIdCardView.swift; sourceTree = "<group>"; };
 		42DBE5A82536BABD00E5F4EA /* Openas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Openas.ttf; sourceTree = "<group>"; };
@@ -205,7 +205,6 @@
 				42B6C85B25A4ADFC00331373 /* SDWebImageSwiftUI in Frameworks */,
 				42445B9225A886FE00294D09 /* DimigoinKit in Frameworks */,
 				4274147D259B0B0800235302 /* AuthenticationServices.framework in Frameworks */,
-				42374F1425796996003E1C3E /* CMLoadingButton in Frameworks */,
 				429BA5B025A0A63D000749AC /* LocalAuthentication.framework in Frameworks */,
 				8BD3C0481C4C1DDB0D5FBC3D /* Pods_dimigoin.framework in Frameworks */,
 			);
@@ -235,6 +234,7 @@
 		08C9ABDC24A74A53002AF525 = {
 			isa = PBXGroup;
 			children = (
+				42BDCF6A25A94521000927F9 /* DimigoinKit */,
 				08C9ABE724A74A53002AF525 /* dimigoin */,
 				42B79D3E253ED242003A8A7F /* Widget */,
 				422CE5D125A75462001072CD /* UITest */,
@@ -448,7 +448,6 @@
 			);
 			name = dimigoin;
 			packageProductDependencies = (
-				42374F1325796996003E1C3E /* CMLoadingButton */,
 				42B6C85A25A4ADFC00331373 /* SDWebImageSwiftUI */,
 				42445B9125A886FE00294D09 /* DimigoinKit */,
 			);
@@ -529,7 +528,6 @@
 			);
 			mainGroup = 08C9ABDC24A74A53002AF525;
 			packageReferences = (
-				42374F1225796996003E1C3E /* XCRemoteSwiftPackageReference "CMLoadingButton" */,
 				42B6C85925A4ADFC00331373 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 08C9ABE624A74A53002AF525 /* Products */;
@@ -891,7 +889,7 @@
 				CODE_SIGN_ENTITLEMENTS = dimigoin/DimigoIN.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -919,7 +917,7 @@
 				CODE_SIGN_ENTITLEMENTS = dimigoin/DimigoIN.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -987,7 +985,7 @@
 				CODE_SIGN_ENTITLEMENTS = Widget/WidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				INFOPLIST_FILE = Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1015,7 +1013,7 @@
 				CODE_SIGN_ENTITLEMENTS = Widget/WidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				INFOPLIST_FILE = Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1076,14 +1074,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		42374F1225796996003E1C3E /* XCRemoteSwiftPackageReference "CMLoadingButton" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Changemin/CMLoadingButton";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		42B6C85925A4ADFC00331373 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
@@ -1095,11 +1085,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		42374F1325796996003E1C3E /* CMLoadingButton */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 42374F1225796996003E1C3E /* XCRemoteSwiftPackageReference "CMLoadingButton" */;
-			productName = CMLoadingButton;
-		};
 		42445B9125A886FE00294D09 /* DimigoinKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DimigoinKit;

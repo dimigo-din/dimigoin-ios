@@ -16,24 +16,18 @@
 default_platform(:ios)
 
 platform :ios do
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
+    increment_build_number(xcodeproj: "dimigoin.xcodeproj")
+    build_app(workspace: "dimigoin.xcworkspace", scheme: "dimigoin")
+    upload_to_testflight
+  end
+end
+
+platform :ios do
   desc "Generate new localized screenshots"
   lane :screenshots do
     capture_screenshots
     frame_screenshots
   end
 end
-
-lane :beta do
-  # ensure_git_status_clean
-  increment_build_number(xcodeproj: "dimigoin.xcodeproj")
-  # sync_code_signing(type: "appstore")
-  build_app(workspace: "dimigoin.xcworkspace",scheme: "dimigoin")
-  upload_to_testflight
-end
-
-lane :beta2 do
-  get_certificates           # invokes cert
-  get_provisioning_profile
-  build_app
-end
-

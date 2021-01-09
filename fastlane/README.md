@@ -15,20 +15,12 @@ Install _fastlane_ using
 or alternatively using `brew install fastlane`
 
 # Available Actions
-### beta
-```
-fastlane beta
-```
-
-### beta2
-```
-fastlane beta2
-```
-
-
-----
-
 ## iOS
+### ios beta
+```
+fastlane ios beta
+```
+Push a new beta build to TestFlight
 ### ios screenshots
 ```
 fastlane ios screenshots
