@@ -22,6 +22,7 @@ struct HomeView: View {
     @EnvironmentObject var ingangAPI: IngangAPI
     @Binding var isShowIdCard: Bool
     @State var currentLocation = 0
+    @State var isShowGift: Bool = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -49,19 +50,22 @@ struct HomeView: View {
                                     showIdCardAfterAuthentication()
                                 }
                             }) {
-                                withAnimation() {
-                                    userAPI.userPhoto
-                                        .resizable()
-                                        .placeholder(Image(systemName: "person.crop.circle"))
-                                        .foregroundColor(Color.accent)
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 38)
-                                        .clipShape(Circle())
-                                        .overlay(
-                                            Circle().stroke(Color.accent, lineWidth: 2)
-                                        )
-                                        .accessibility(identifier: "profile")
+                                ZStack {
+                                    Image("profile").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 50).foregroundColor(Color.accent)
+                                    withAnimation() {
+                                        userAPI.userPhoto
+                                            .resizable()
+                                            .foregroundColor(Color.accent)
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 38)
+                                            .clipShape(Circle())
+                                            .overlay(
+                                                Circle().stroke(Color.accent, lineWidth: 2)
+                                            )
+                                            .accessibility(identifier: "profile")
+                                    }
                                 }
+                                
                             }.accessibility(identifier: "button.showIdCard")
                         }.horizonPadding()
                     }

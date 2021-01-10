@@ -7,9 +7,10 @@
 //
 
 import SwiftUI
+import DimigoinKit
 
 extension Color {
-    static let accent = Color("accent")
+    static let accent = Color(getAccentColor())
     static let divider = Color("divider")
     static let gray4 = Color("gray4")
     static let text = Color("text")

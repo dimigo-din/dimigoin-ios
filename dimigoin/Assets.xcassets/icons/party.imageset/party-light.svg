@@ -1,0 +1,10 @@
+<svg id="_24x24_On_Light_Party" data-name="24x24/On Light/Party" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <rect id="view-box" width="24" height="24" fill="none"/>
+  <path id="Shape" d="M1.14,14.362A3.876,3.876,0,0,1,.592,9.546L6.338.353A.75.75,0,0,1,7.5.22L15.282,8a.749.749,0,0,1-.132,1.166L5.956,14.91a3.895,3.895,0,0,1-4.816-.548Zm.724-4.021a2.393,2.393,0,0,0,3.3,3.3l.892-.557L2.421,9.45Zm5.494,1.924,2.387-1.492L4.728,5.758,3.237,8.144Zm3.692-2.308,2.505-1.566L7.11,1.947,5.544,4.452Z" transform="translate(3.233 5.265)" fill="#141124"/>
+  <path id="Shape-2" data-name="Shape" d="M1.5,4.15V.75A.75.75,0,0,0,0,.75v3.4a.75.75,0,0,0,1.5,0Z" transform="translate(14.971 1.45)" fill="#03a5d1"/>
+  <path id="Shape-3" data-name="Shape" d="M1.16,3.114,3.82,1.378A.75.75,0,0,0,3,.122L.34,1.857a.75.75,0,1,0,.82,1.256Z" transform="translate(17.312 6.75)" fill="#00bba2"/>
+  <path id="Shape-4" data-name="Shape" d="M1.28,2.107l.827-.827A.75.75,0,0,0,1.047.22L.22,1.047A.75.75,0,0,0,1.28,2.107Z" transform="translate(17.971 3.798)" fill="#ff6783"/>
+  <path id="Shape-5" data-name="Shape" d="M.75,1.5H.967a.75.75,0,0,0,0-1.5H.75a.75.75,0,0,0,0,1.5Z" transform="translate(18.971 10.625)" fill="#ffa458"/>
+  <path id="Shape-6" data-name="Shape" d="M.75,1.5H.967a.75.75,0,0,0,0-1.5H.75a.75.75,0,0,0,0,1.5Z" transform="translate(14.971 7.625)" fill="#c75fff"/>
+  <path id="Shape-7" data-name="Shape" d="M1.881,1.478,1.439.453a.75.75,0,1,0-1.377.594L.5,2.073a.75.75,0,1,0,1.377-.594Z" transform="translate(11.528 2.599)" fill="#ffa458"/>
+</svg>

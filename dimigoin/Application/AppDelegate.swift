@@ -53,6 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if ProcessInfo.processInfo.arguments.contains("UITesting") {
             UserDefaults.standard.removeObject(forKey: "accessToken")
             UserDefaults.standard.removeObject(forKey: "refreshToken")
+            UserDefaults.standard.removeObject(forKey: "accentColor")
         }
         
         return true
