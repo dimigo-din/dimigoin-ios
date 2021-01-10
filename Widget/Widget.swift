@@ -108,3 +108,7 @@ extension UserDefaults {
         return UserDefaults(suiteName: appGroupId)!
     }
 }
+
+public func getAccentColor() -> String {
+    return UserDefaults.standard.string(forKey: "accentColor") ?? "accent"
+}
