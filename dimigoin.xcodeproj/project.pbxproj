@@ -24,6 +24,8 @@
 		42050CC225AA19E900C61D14 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42050CC025AA19E900C61D14 /* ColorExtension.swift */; };
 		42050CDF25AAD50D00C61D14 /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42050CDE25AAD50D00C61D14 /* CreditView.swift */; };
 		42050CE025AAD50D00C61D14 /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42050CDE25AAD50D00C61D14 /* CreditView.swift */; };
+		42050D0825ABBFD700C61D14 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42050D0725ABBFD700C61D14 /* DimigoinKit */; };
+		42050D0D25ABC01A00C61D14 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42050D0C25ABC01A00C61D14 /* DimigoinKit */; };
 		4206192825A6AF7E00A5E5B8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4206192B25A6AF7E00A5E5B8 /* InfoPlist.strings */; };
 		4206192925A6AF7E00A5E5B8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4206192B25A6AF7E00A5E5B8 /* InfoPlist.strings */; };
 		420D92672557F79300CDF76A /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC55024AF849D00456846 /* TextStyles.swift */; };
@@ -32,8 +34,6 @@
 		422CE5D325A75462001072CD /* DimigoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422CE5D225A75462001072CD /* DimigoinUITests.swift */; };
 		422CE5DE25A75CE4001072CD /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422CE5DD25A75CE4001072CD /* SnapshotHelper.swift */; };
 		423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71EF24B191AF0099CE3E /* ClearButton.swift */; };
-		42445B9225A886FE00294D09 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42445B9125A886FE00294D09 /* DimigoinKit */; };
-		42445B9425A8870400294D09 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42445B9325A8870400294D09 /* DimigoinKit */; };
 		4250011C25595C2900C593CF /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250011B25595C2900C593CF /* AlertView.swift */; };
 		4250012625595F9E00C593CF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250012525595F9E00C593CF /* Alert.swift */; };
 		42524E2C25621BF30021F48B /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524E2B25621BF30021F48B /* VSpacer.swift */; };
@@ -122,7 +122,7 @@
 		086CC54E24AF819400456846 /* HSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSpacer.swift; sourceTree = "<group>"; };
 		086CC55024AF849D00456846 /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
 		088E5D4C24A889CB0031342D /* CardViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModifier.swift; sourceTree = "<group>"; };
-		08C9ABE524A74A53002AF525 /* DimigoIN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DimigoIN.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		08C9ABE524A74A53002AF525 /* Dimigoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dimigoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08C9ABE824A74A53002AF525 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08C9ABEA24A74A53002AF525 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		08C9ABEC24A74A53002AF525 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -176,7 +176,6 @@
 		42B79D41253ED243003A8A7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42B79D43253ED243003A8A7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42B79D8C253FD7D7003A8A7F /* NextMealWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextMealWidget.swift; sourceTree = "<group>"; };
-		42BDCF6A25A94521000927F9 /* DimigoinKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DimigoinKit; path = ../DimigoinKit; sourceTree = "<group>"; };
 		42C487C924DDB73000C594CB /* CopyrightText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyrightText.swift; sourceTree = "<group>"; };
 		42C72C042559FED900E3294E /* StudentIdCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIdCardView.swift; sourceTree = "<group>"; };
 		42DBE5A82536BABD00E5F4EA /* Openas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Openas.ttf; sourceTree = "<group>"; };
@@ -207,10 +206,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42445B9225A886FE00294D09 /* DimigoinKit in Frameworks */,
 				4274147D259B0B0800235302 /* AuthenticationServices.framework in Frameworks */,
 				429BA5B025A0A63D000749AC /* LocalAuthentication.framework in Frameworks */,
 				8BD3C0481C4C1DDB0D5FBC3D /* Pods_dimigoin.framework in Frameworks */,
+				42050D0D25ABC01A00C61D14 /* DimigoinKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,8 +226,8 @@
 			files = (
 				42B79D3D253ED242003A8A7F /* SwiftUI.framework in Frameworks */,
 				42B79D3C253ED242003A8A7F /* WidgetKit.framework in Frameworks */,
-				42445B9425A8870400294D09 /* DimigoinKit in Frameworks */,
 				7F957C994456696929F8B918 /* Pods_WidgetExtension.framework in Frameworks */,
+				42050D0825ABBFD700C61D14 /* DimigoinKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +237,6 @@
 		08C9ABDC24A74A53002AF525 = {
 			isa = PBXGroup;
 			children = (
-				42BDCF6A25A94521000927F9 /* DimigoinKit */,
 				08C9ABE724A74A53002AF525 /* dimigoin */,
 				42B79D3E253ED242003A8A7F /* Widget */,
 				422CE5D125A75462001072CD /* UITest */,
@@ -251,7 +249,7 @@
 		08C9ABE624A74A53002AF525 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				08C9ABE524A74A53002AF525 /* DimigoIN.app */,
+				08C9ABE524A74A53002AF525 /* Dimigoin.app */,
 				42B79D3B253ED242003A8A7F /* WidgetExtension.appex */,
 				422CE5D025A75462001072CD /* DimigoinUITests.xctest */,
 			);
@@ -454,10 +452,10 @@
 			);
 			name = dimigoin;
 			packageProductDependencies = (
-				42445B9125A886FE00294D09 /* DimigoinKit */,
+				42050D0C25ABC01A00C61D14 /* DimigoinKit */,
 			);
 			productName = dimigoin;
-			productReference = 08C9ABE524A74A53002AF525 /* DimigoIN.app */;
+			productReference = 08C9ABE524A74A53002AF525 /* Dimigoin.app */;
 			productType = "com.apple.product-type.application";
 		};
 		422CE5CF25A75462001072CD /* DimigoinUITests */ = {
@@ -493,7 +491,7 @@
 			);
 			name = WidgetExtension;
 			packageProductDependencies = (
-				42445B9325A8870400294D09 /* DimigoinKit */,
+				42050D0725ABBFD700C61D14 /* DimigoinKit */,
 			);
 			productName = WidgetExtension;
 			productReference = 42B79D3B253ED242003A8A7F /* WidgetExtension.appex */;
@@ -909,7 +907,7 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = in.dimigo.ios;
-				PRODUCT_NAME = DimigoIN;
+				PRODUCT_NAME = Dimigoin;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
@@ -938,7 +936,7 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = in.dimigo.ios;
-				PRODUCT_NAME = DimigoIN;
+				PRODUCT_NAME = Dimigoin;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
@@ -1086,11 +1084,11 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		42445B9125A886FE00294D09 /* DimigoinKit */ = {
+		42050D0725ABBFD700C61D14 /* DimigoinKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DimigoinKit;
 		};
-		42445B9325A8870400294D09 /* DimigoinKit */ = {
+		42050D0C25ABC01A00C61D14 /* DimigoinKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DimigoinKit;
 		};

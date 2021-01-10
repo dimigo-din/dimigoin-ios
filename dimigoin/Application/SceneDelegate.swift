@@ -36,6 +36,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             if ProcessInfo.processInfo.arguments.contains("Lightmode") {
                 window.overrideUserInterfaceStyle = .light
             }
+            
+            // Mac OS Catalyst 타이틀 바 
+            #if targetEnvironment(macCatalyst)
+            if let titlebar = windowScene.titlebar {
+                titlebar.titleVisibility = .hidden
+                titlebar.toolbar = nil
+            }
+            #endif
         }
     }
 

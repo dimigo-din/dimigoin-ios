@@ -48,7 +48,6 @@ struct TapBar: View {
                     }.accessibility(identifier: item.identifier)
                 }
             }
-            .animation(.spring())
         }.edgesIgnoringSafeArea(.all)
     }
 }

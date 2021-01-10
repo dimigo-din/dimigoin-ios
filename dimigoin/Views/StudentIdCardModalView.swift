@@ -30,7 +30,9 @@ struct StudentIdCardModalView: View {
                             HStack {
                                 Spacer()
                                 Button(action: {
-                                    self.isShowing.toggle()
+                                    withAnimation(.spring()) {
+                                        self.isShowing.toggle()
+                                    }
                                 }) {
                                     Image(systemName: "xmark").resizable().aspectRatio(contentMode: .fit).frame(width: 16)
                                         .foregroundColor(Color("gray1")).padding()
@@ -64,7 +66,6 @@ struct StudentIdCardModalView: View {
                     CustomBox(edgeInsets: .bottom, accentColor: Color.accent, width: 13, tl: 10, tr: 10, bl: 10, br: 10)
                 )
                 .offset(y: (isShowing ? 0 : geometry.size.height) + dragOffset.height)
-                .animation(.spring())
                 .gesture(
                     DragGesture()
                         .onChanged { gesture in
