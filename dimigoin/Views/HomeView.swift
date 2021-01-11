@@ -116,7 +116,7 @@ struct HomeView: View {
         }
 
         if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
-            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "학생증을 보려면 인증을 완료해주세요", reply: { (success, error) in
+            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "모바일 학생증보기", reply: { (success, error) in
                 if success {
                     DispatchQueue.main.async {
                         showIdCard()

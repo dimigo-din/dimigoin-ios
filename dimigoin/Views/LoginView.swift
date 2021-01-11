@@ -37,8 +37,8 @@ struct LoginView: View {
                     VSpacer(16)
                     SecureField("패스워드", text: $password, onCommit: {
                         dismissKeyboard()
-                    }).accessibility(identifier: "textfield.password")
-                        .textContentType(.password)
+                    }).textContentType(.password)
+                        .accessibility(identifier: "textfield.password")
                         .modifier(TextFieldModifier())
                         .modifier(ClearButton(text: $password))
                     VSpacer(13)

@@ -947,6 +947,8 @@
 		422CE5D725A75462001072CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Miyoung  Ha (Z7ZN4T7AY5)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				INFOPLIST_FILE = UITest/Info.plist;
@@ -967,6 +969,8 @@
 		422CE5D825A75462001072CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Miyoung  Ha (Z7ZN4T7AY5)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				INFOPLIST_FILE = UITest/Info.plist;
