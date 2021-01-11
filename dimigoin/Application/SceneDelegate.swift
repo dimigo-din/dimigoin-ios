@@ -37,7 +37,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 window.overrideUserInterfaceStyle = .light
             }
             
-            // Mac OS Catalyst 타이틀 바 
+            // Mac OS Catalyst 타이틀 바
             #if targetEnvironment(macCatalyst)
             if let titlebar = windowScene.titlebar {
                 titlebar.titleVisibility = .hidden
