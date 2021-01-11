@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "08C9ABE424A74A53002AF525"
-               BuildableName = "DimigoIN.app"
+               BuildableName = "Dimigoin.app"
                BlueprintName = "dimigoin"
                ReferencedContainer = "container:dimigoin.xcodeproj">
             </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "08C9ABE424A74A53002AF525"
-            BuildableName = "DimigoIN.app"
+            BuildableName = "Dimigoin.app"
             BlueprintName = "dimigoin"
             ReferencedContainer = "container:dimigoin.xcodeproj">
          </BuildableReference>
@@ -92,7 +92,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "08C9ABE424A74A53002AF525"
-            BuildableName = "DimigoIN.app"
+            BuildableName = "Dimigoin.app"
             BlueprintName = "dimigoin"
             ReferencedContainer = "container:dimigoin.xcodeproj">
          </BuildableReference>
