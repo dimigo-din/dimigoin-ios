@@ -25,10 +25,6 @@ class UI_tests_for_screenshots: XCTestCase {
         setupSnapshot(app)
         app.launch()
         
-//        if UIDevice.current.userInterfaceIdiom == .pad {
-//            XCUIDevice.shared.orientation = UIDeviceOrientation.portrait;
-//        }
-        
         let usernameTextField = app.textFields["textfield.username"]
         usernameTextField.tap()
         usernameTextField.typeText("dimigofrontdev")
