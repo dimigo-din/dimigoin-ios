@@ -66,26 +66,19 @@ struct StudentIdCardModalView: View {
                     CustomBox(edgeInsets: .bottom, accentColor: Color.accent, width: 13, tl: 10, tr: 10, bl: 10, br: 10)
                 )
                 .offset(y: (isShowing ? 0 : geometry.size.height) + dragOffset.height)
-                .gesture(
-                    DragGesture()
-                        .onChanged { gesture in
-                            self.dragOffset = gesture.translation
-                            self.startPos = gesture.location
-                        }
-                        .onEnded { gesture in
-                            let xDist =  abs(gesture.location.x - self.startPos.x)
-                            let yDist =  abs(gesture.location.y - self.startPos.y)
-                            if self.startPos.y <  gesture.location.y && yDist > xDist {
-                                if abs(self.dragOffset.height) > 100 {
-                                    self.isShowing.toggle()
-                                    self.dragOffset = .zero
-                                } else {
-                                    self.dragOffset = .zero
-                                }
-                            } else {
-                                self.dragOffset = .zero
+                .gesture(DragGesture(minimumDistance: 3.0, coordinateSpace: .local)
+                    .onChanged { value in
+                        self.dragOffset = value.translation
+                    }
+                    .onEnded { value in
+                        self.dragOffset = .zero
+                        if value.translation.height < 0 && value.translation.width > -30 && value.translation.width < 30 {
+                            withAnimation(.spring()) {
+                                self.isShowing.toggle()
                             }
+                           
                         }
+                    }
                 )
             }
         }

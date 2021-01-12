@@ -21,6 +21,11 @@ or alternatively using `brew install fastlane`
 fastlane ios beta
 ```
 Push a new beta build to TestFlight
+### ios github
+```
+fastlane ios github
+```
+Push a new beta build to TestFlight
 ### ios screenshots
 ```
 fastlane ios screenshots

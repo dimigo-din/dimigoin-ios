@@ -74,6 +74,8 @@ struct MainView: View {
                 }
                 StudentIdCardModalView(isShowing: $isShowIdCard)
                     .environmentObject(userAPI)
+                    .frame(width: geometry.size.width)
+                    .offset(x: -geometry.size.width*2)
                 AlertView(isShowing: $alertManager.isShowing)
                     .environmentObject(alertManager)
                     .frame(width: geometry.size.width)
