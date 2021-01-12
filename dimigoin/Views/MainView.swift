@@ -22,6 +22,7 @@ struct MainView: View {
     @ObservedObject var placeAPI = PlaceAPI()
     @State var tapbarIndex = 2
     @State var isShowIdCard = false
+    @State var dragOffset = CGSize.zero
     
     var body: some View {
         GeometryReader { geometry in
@@ -52,10 +53,14 @@ struct MainView: View {
                             .environmentObject(userAPI)
                             .environmentObject(alertManager)
                     }.frame(width: geometry.size.width*5)
-                    .offset(x: -geometry.size.width*CGFloat((tapbarIndex)))
+                    .offset(x: -geometry.size.width*CGFloat((tapbarIndex))+dragOffset.width)
                     .animation(.interactiveSpring())
                     .gesture(DragGesture(minimumDistance: 3.0, coordinateSpace: .local)
+                                .onChanged { value in
+                                    self.dragOffset = value.translation
+                                }
                                 .onEnded { value in
+                                    self.dragOffset = .zero
                                     if value.translation.width < 0 && value.translation.height > -30 && value.translation.height < 30 {
                                         nextPage()
                                     }
@@ -86,6 +91,5 @@ struct MainView: View {
         if tapbarIndex != 0 {
             self.tapbarIndex -= 1
         }
-        
     }
 }
