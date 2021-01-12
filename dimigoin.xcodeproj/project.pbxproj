@@ -140,6 +140,7 @@
 		42050D6F25AD1FF700C61D14 /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = SOURCE_ROOT; };
 		4206192A25A6AF7E00A5E5B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4206193D25A6B58200A5E5B8 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		420CC50A25AD98B700C6DB11 /* Dimigoin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dimigoin.entitlements; sourceTree = "<group>"; };
 		420DE42124B4A70E00005663 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		420DE42324B4A70E00005663 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		4212D96A24CBB24100FF82D5 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
@@ -380,6 +381,7 @@
 		42364EA124AFF1B5008427D5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				420CC50A25AD98B700C6DB11 /* Dimigoin.entitlements */,
 				08C9ABF624A74A54002AF525 /* Info.plist */,
 				4206192B25A6AF7E00A5E5B8 /* InfoPlist.strings */,
 				429BA5DA25A30FBB000749AC /* Localizable.strings */,
@@ -807,6 +809,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -870,6 +873,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -894,9 +898,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = dimigoin/Application/Dimigoin.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 232;
+				CURRENT_PROJECT_VERSION = 233;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -906,7 +911,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = in.dimigo.ios;
 				PRODUCT_NAME = Dimigoin;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -922,9 +927,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = dimigoin/Application/Dimigoin.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 232;
+				CURRENT_PROJECT_VERSION = 233;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -934,7 +940,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = in.dimigo.ios;
 				PRODUCT_NAME = Dimigoin;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -997,7 +1003,7 @@
 				CODE_SIGN_ENTITLEMENTS = Widget/WidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 232;
+				CURRENT_PROJECT_VERSION = 233;
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				INFOPLIST_FILE = Widget/Info.plist;
@@ -1007,7 +1013,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = in.dimigo.ios.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1027,7 +1033,7 @@
 				CODE_SIGN_ENTITLEMENTS = Widget/WidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 232;
+				CURRENT_PROJECT_VERSION = 233;
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				INFOPLIST_FILE = Widget/Info.plist;
@@ -1037,7 +1043,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = in.dimigo.ios.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

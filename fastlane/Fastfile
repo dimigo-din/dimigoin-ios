@@ -26,7 +26,7 @@ end
 
 platform :ios do
   desc "Push a new beta build to TestFlight"
-  lane :github do
+  lane :versionBump do
     increment_build_number(build_number: number_of_commits)
     commit_version_bump(xcodeproj: "dimigoin.xcodeproj")
     add_git_tag
