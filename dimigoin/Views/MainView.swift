@@ -24,41 +24,44 @@ struct MainView: View {
     @State var isShowIdCard = false
     
     var body: some View {
-        ZStack {
-            VStack {
-                switch self.tapbarIndex {
-                    case 0: ProfileView()
-                        .environmentObject(tokenAPI)
-                        .environmentObject(userAPI)
-                        .environmentObject(noticeAPI)
-                        .environmentObject(alertManager)
-                    case 1: IngangView()
-                        .environmentObject(tokenAPI)
-                        .environmentObject(alertManager)
-                        .environmentObject(ingangAPI)
-                    case 2: HomeView(isShowIdCard: $isShowIdCard)
-                        .environmentObject(tokenAPI)
-                        .environmentObject(mealAPI)
-                        .environmentObject(alertManager)
-                        .environmentObject(userAPI)
-                        .environmentObject(attendanceLogAPI)
-                        .environmentObject(placeAPI)
-                        .environmentObject(ingangAPI)
-                    case 3: MealView()
-                        .environmentObject(mealAPI)
-                    case 4: TimetableView()
-                        .environmentObject(timetableAPI)
-                        .environmentObject(userAPI)
-                        .environmentObject(alertManager)
-                    default: Text("Error")
+        GeometryReader { geometry in
+            ZStack {
+                VStack {
+                    HStack(spacing: 0){
+                        ProfileView()
+                            .environmentObject(tokenAPI)
+                            .environmentObject(userAPI)
+                            .environmentObject(noticeAPI)
+                            .environmentObject(alertManager)
+                        IngangView()
+                            .environmentObject(tokenAPI)
+                            .environmentObject(alertManager)
+                            .environmentObject(ingangAPI)
+                        HomeView(isShowIdCard: $isShowIdCard)
+                            .environmentObject(tokenAPI)
+                            .environmentObject(mealAPI)
+                            .environmentObject(alertManager)
+                            .environmentObject(userAPI)
+                            .environmentObject(attendanceLogAPI)
+                            .environmentObject(placeAPI)
+                            .environmentObject(ingangAPI)
+                        MealView()
+                            .environmentObject(mealAPI)
+                        TimetableView()
+                            .environmentObject(timetableAPI)
+                            .environmentObject(userAPI)
+                            .environmentObject(alertManager)
+                    }.frame(width: geometry.size.width*5)
+                    .offset(x: -geometry.size.width*CGFloat((tapbarIndex)))
+                    .animation(.interactiveSpring())
+                    TapBar(index: self.$tapbarIndex)
+                        .offset(x: -geometry.size.width*2)
                 }
-                TapBar(index: self.$tapbarIndex)
+                StudentIdCardModalView(isShowing: $isShowIdCard)
+                    .environmentObject(userAPI)
+                AlertView(isShowing: $alertManager.isShowing)
+                    .environmentObject(alertManager)
             }
-            StudentIdCardModalView(isShowing: $isShowIdCard)
-                .environmentObject(userAPI)
-            AlertView(isShowing: $alertManager.isShowing)
-                .environmentObject(alertManager)
-            
         }
     }
 }
