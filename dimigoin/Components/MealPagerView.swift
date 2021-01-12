@@ -14,8 +14,6 @@ struct MealPagerView: View {
     @EnvironmentObject var mealAPI: MealAPI
     private let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
     @State var dragOffset = CGSize.zero
-    @State var startPos = CGPoint(x: 0, y:0)
-    @GestureState private var translation: CGFloat = 0
     @State var currentCardIdx: Int = 0
     
     var body: some View {
@@ -40,40 +38,23 @@ struct MealPagerView: View {
                         Text("\(mealAPI.getTodayMeal().dinner)").mealMenu().horizonPadding()
                     }.padding(.top).modifier(CardViewModifier(305,147))
                 }
-                .offset(x: -CGFloat(self.currentCardIdx) * 305 + self.translation)
-                .offset(x: -CGFloat((self.currentCardIdx*15)) + (geometry.size.width-305)/2)
+                .offset(x: -CGFloat((self.currentCardIdx*320)) + (geometry.size.width-305)/2)
                 .animation(.spring())
                 .onReceive(self.timer) { _ in
                     nextCard()
                 }
                 .gesture(
-                    DragGesture().updating(self.$translation) { value, state, _ in
-                        state = value.translation.width
-                    }.onChanged { gesture in
-                        self.dragOffset = gesture.translation
-                        self.startPos = gesture.location
+                    DragGesture(minimumDistance: 3.0, coordinateSpace: .local)
+                    .onChanged { value in
+                        self.dragOffset = value.translation
                     }
-                    .onEnded { gesture in
-                        let xDist = abs(gesture.location.x - self.startPos.x)
-                        let yDist = abs(gesture.location.y - self.startPos.y)
-
-                        if self.startPos.x > gesture.location.x && yDist < xDist {
-                            // left
-                            if abs(self.dragOffset.width) > 10 {
-                                self.nextCard()
-                                self.dragOffset = .zero
-                            } else {
-                                self.dragOffset = .zero
-                            }
+                    .onEnded { value in
+                        self.dragOffset = .zero
+                        if value.translation.width < 0 && value.translation.height > -30 && value.translation.height < 30 {
+                            nextCard()
                         }
-                        else if self.startPos.x < gesture.location.x && yDist < xDist {
-                            // right
-                            if abs(self.dragOffset.width) > 10 {
-                                self.previousCard()
-                                self.dragOffset = .zero
-                            } else {
-                                self.dragOffset = .zero
-                            }
+                        else if value.translation.width > 0 && value.translation.height > -30 && value.translation.height < 30 {
+                            previousCard()
                         }
                     }
                 )
