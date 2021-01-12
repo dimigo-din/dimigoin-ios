@@ -24,7 +24,7 @@ var skinOptions: [RadioOption] = [
 struct CreditView: View {
     var body: some View {
         GeometryReader { geometry in
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: 10){
                     RadioList(options: skinOptions, title: "테마 컬러", footer: "테마 컬러는 앱, 위젯에 적용되며 선택 후 다시시작해야 적용됩니다.", geometry: geometry)
                     ToggleOption(title: "숨겨진 기능", footer: "", geometry: geometry)

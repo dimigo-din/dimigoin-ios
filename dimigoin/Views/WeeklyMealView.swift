@@ -23,7 +23,7 @@ struct WeeklyMealView: View {
     }
     var body: some View {
         GeometryReader { geometry in
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 Picker("요일", selection: $selection) {
                     ForEach(0 ..< days.count) { index in
                         Text(self.days[index]).tag(index)

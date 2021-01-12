@@ -20,7 +20,7 @@ struct FullNoticeListView: View {
     }
     var body: some View {
         GeometryReader { geometry in
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 ForEach(0..<noticeAPI.notices.count, id: \.self) { i in
                     VStack(alignment: .leading){
                         Text(noticeAPI.notices[i].title).font(Font.custom("NotoSansKR-Bold", size: 17))

@@ -15,7 +15,7 @@ struct MealView: View {
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                      VStack{
                         HStack {
                             ViewTitle("급식", sub: getDateString())

@@ -17,7 +17,7 @@ struct TimetableView: View {
     @State var isMagicRevealed: Bool = UserDefaults.standard.bool(forKey: "Magic") == true ? true : false
     var body: some View {
         GeometryReader { geometry in
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 HStack {
                     ViewTitle("시간표", sub: getDateString())
                     Spacer()

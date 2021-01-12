@@ -18,7 +18,7 @@ struct ProfileView: View {
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     HStack {
                         ViewTitle("내정보", sub: "")
                         Spacer()

@@ -18,7 +18,7 @@ struct IngangView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 HStack {
                     ViewTitle("인강실", sub: "")
                     Spacer()
