@@ -12,6 +12,7 @@ import DimigoinKit
 struct WeeklyMealView: View {
     @EnvironmentObject var mealAPI: MealAPI
     @State var selection: Int = getTodayDayOfWeekInt()-1
+    @State var dragOffset = CGSize.zero
     private let days: [String] = ["월", "화", "수", "목", "금", "토", "일"]
     
     init() {
@@ -28,43 +29,43 @@ struct WeeklyMealView: View {
                         Text(self.days[index]).tag(index)
                     }
                 }.pickerStyle(SegmentedPickerStyle())
-                .padding(20)
-                 VStack{
-                    VStack {
-                        SectionHeader("아침", sub: "오전 7시 30분")
-                        Text(mealAPI.meals[selection].breakfast)
-                            .mealMenu()
-                            .padding()
-                            .frame(width: abs(geometry.size.width-40), alignment: .leading)
-                            .background(CustomBox())
-                            .fixedSize(horizontal: false, vertical: true)
+                .frame(width: geometry.size.width-40)
+                .offset(x: -geometry.size.width*3)
+                HStack(spacing: 0){
+                    ForEach(1...7, id: \.self) { _ in
+                        VStack{
+                           SectionHeader("아침", sub: "오전 7시 30분")
+                           Text(mealAPI.meals[selection].breakfast)
+                               .mealMenu()
+                               .padding()
+                               .frame(width: abs(geometry.size.width-40), alignment: .leading)
+                               .background(CustomBox())
+                               .fixedSize(horizontal: false, vertical: true)
+                           VSpacer(20)
+                           SectionHeader("점심", sub: "오후 12시 50분")
+                           Text(mealAPI.meals[selection].lunch)
+                               .mealMenu()
+                               .padding()
+                               .frame(width: abs(geometry.size.width-40), alignment: .leading)
+                               .background(CustomBox())
+                               .fixedSize(horizontal: false, vertical: true)
+                           VSpacer(20)
+                           SectionHeader("저녁", sub: "오후 6시 35분")
+                           Text(mealAPI.meals[selection].dinner)
+                               .mealMenu()
+                               .padding()
+                               .frame(width: abs(geometry.size.width-40), alignment: .leading)
+                               .background(CustomBox())
+                               .fixedSize(horizontal: false, vertical: true)
+                        }.frame(width: geometry.size.width)
                     }
-                    VSpacer(20)
-                    VStack {
-                        SectionHeader("점심", sub: "오후 12시 50분")
-                        Text(mealAPI.meals[selection].lunch)
-                            .mealMenu()
-                            .padding()
-                            .frame(width: abs(geometry.size.width-40), alignment: .leading)
-                            .background(CustomBox())
-                            .fixedSize(horizontal: false, vertical: true)
-                            
-                    }
-                    VSpacer(20)
-                    VStack {
-                        SectionHeader("저녁", sub: "오후 6시 35분")
-                        Text(mealAPI.meals[selection].dinner)
-                            .mealMenu()
-                            .padding()
-                            .frame(width: abs(geometry.size.width-40), alignment: .leading)
-                            .background(CustomBox())
-                            .fixedSize(horizontal: false, vertical: true)
-                            
-                    }
-                 }
+                }
+                .animation(.interactiveSpring())
+                .offset(x:  -geometry.size.width*CGFloat((selection)))
             }
             .navigationBarTitle("이번주 급식")
         }.navigationViewStyle(StackNavigationViewStyle())
+
     }
 }
 
