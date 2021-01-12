@@ -69,8 +69,6 @@ struct MainView: View {
                                     }
                                 }
                     )
-                    
-                    
                     TapBar(index: self.$tapbarIndex)
                         .offset(x: -geometry.size.width*2)
                 }
@@ -78,6 +76,8 @@ struct MainView: View {
                     .environmentObject(userAPI)
                 AlertView(isShowing: $alertManager.isShowing)
                     .environmentObject(alertManager)
+                    .frame(width: geometry.size.width)
+                    .offset(x: -geometry.size.width*2)
             }
         }
     }
