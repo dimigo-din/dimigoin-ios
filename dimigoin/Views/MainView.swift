@@ -54,6 +54,18 @@ struct MainView: View {
                     }.frame(width: geometry.size.width*5)
                     .offset(x: -geometry.size.width*CGFloat((tapbarIndex)))
                     .animation(.interactiveSpring())
+                    .gesture(DragGesture(minimumDistance: 3.0, coordinateSpace: .local)
+                                .onEnded { value in
+                                    if value.translation.width < 0 && value.translation.height > -30 && value.translation.height < 30 {
+                                        nextPage()
+                                    }
+                                    else if value.translation.width > 0 && value.translation.height > -30 && value.translation.height < 30 {
+                                        previousPage()
+                                    }
+                                }
+                    )
+                    
+                    
                     TapBar(index: self.$tapbarIndex)
                         .offset(x: -geometry.size.width*2)
                 }
@@ -63,5 +75,17 @@ struct MainView: View {
                     .environmentObject(alertManager)
             }
         }
+    }
+    func nextPage() {
+        if tapbarIndex != 4 {
+            self.tapbarIndex += 1
+        }
+        
+    }
+    func previousPage() {
+        if tapbarIndex != 0 {
+            self.tapbarIndex -= 1
+        }
+        
     }
 }

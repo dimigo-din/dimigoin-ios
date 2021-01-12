@@ -100,7 +100,7 @@ struct ProfileView: View {
                     Spacer()
                 }
             
-            }
+            }.contentShape(Rectangle())
             .navigationBarTitle("내정보")
             .navigationBarHidden(true)
         }
