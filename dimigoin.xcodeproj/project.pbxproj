@@ -137,6 +137,7 @@
 		42050CB825AA148E00C61D14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		42050CC025AA19E900C61D14 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		42050CDE25AAD50D00C61D14 /* CreditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
+		42050D6F25AD1FF700C61D14 /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = SOURCE_ROOT; };
 		4206192A25A6AF7E00A5E5B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4206193D25A6B58200A5E5B8 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		420DE42124B4A70E00005663 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -420,6 +421,7 @@
 		42B79D3E253ED242003A8A7F /* Widget */ = {
 			isa = PBXGroup;
 			children = (
+				42050D6F25AD1FF700C61D14 /* WidgetExtension.entitlements */,
 				42364EA224B0CFB9008427D5 /* Fonts */,
 				42B79D3F253ED242003A8A7F /* Widget.swift */,
 				42B79D8C253FD7D7003A8A7F /* NextMealWidget.swift */,
@@ -892,10 +894,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = dimigoin/DimigoIN.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -921,10 +922,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = dimigoin/DimigoIN.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -997,8 +997,9 @@
 				CODE_SIGN_ENTITLEMENTS = Widget/WidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				INFOPLIST_FILE = Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1026,8 +1027,9 @@
 				CODE_SIGN_ENTITLEMENTS = Widget/WidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				INFOPLIST_FILE = Widget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
