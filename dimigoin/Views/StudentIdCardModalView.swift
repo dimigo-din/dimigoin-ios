@@ -31,10 +31,10 @@ struct StudentIdCardModalView: View {
                 VStack {
                     HStack {
                         Image("idcard").renderingMode(.template).foregroundColor(Color.white)
-                        Text("MOBILE ID CARD").font(Font.custom("NotoSansKR-Bold", size: 13))
+                        Text("MOBILE ID CARD").font(Font.custom("NotoSansKR-Bold", size: 13)).foregroundColor(Color.white)
                         Spacer()
-                        Text("남은 시간").font(Font.custom("NotoSansKR-Medium", size: 13))
-                        Text("\(remainTime)").font(Font.custom("NotoSansKR-Medium", size: 13))
+                        Text("남은 시간").font(Font.custom("NotoSansKR-Medium", size: 13)).foregroundColor(Color.white)
+                        Text("\(remainTime)").font(Font.custom("NotoSansKR-Medium", size: 13)).foregroundColor(Color.white)
                             .onReceive(timer) { input in
                                 if(isShowing == true) {
                                     self.remainTime -= 1
