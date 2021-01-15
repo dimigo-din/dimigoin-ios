@@ -8,7 +8,6 @@
 
 import SwiftUI
 import DimigoinKit
-import LocalAuthentication
 import SDWebImageSwiftUI
 
 struct HomeView: View {
@@ -20,7 +19,6 @@ struct HomeView: View {
     @EnvironmentObject var attendanceLogAPI: AttendanceLogAPI
     @EnvironmentObject var placeAPI: PlaceAPI
     @EnvironmentObject var ingangAPI: IngangAPI
-    @Binding var isShowIdCard: Bool
     @State var currentLocation = 0
     @State var isShowGift: Bool = false
     
@@ -42,31 +40,21 @@ struct HomeView: View {
                         HStack {
                             Image("logo").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 38).foregroundColor(Color.accent)
                             Spacer()
-                            Button(action: {
-                                if ProcessInfo.processInfo.arguments.contains("UITesting") {
-                                    showIdCard()
+                            ZStack {
+                                Circle().fill(Color.systemBackground).frame(width: 38, height: 38)
+                                withAnimation() {
+                                    userAPI.userPhoto
+                                        .resizable()
+                                        .foregroundColor(Color.accent)
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 38)
+                                        .clipShape(Circle())
+                                        .overlay(
+                                            Circle().stroke(Color.accent, lineWidth: 2)
+                                        )
+                                        .accessibility(identifier: "profile")
                                 }
-                                else {
-                                    showIdCardAfterAuthentication()
-                                }
-                            }) {
-                                ZStack {
-                                    Image("profile").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 50).foregroundColor(Color.accent)
-                                    withAnimation() {
-                                        userAPI.userPhoto
-                                            .resizable()
-                                            .foregroundColor(Color.accent)
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 38)
-                                            .clipShape(Circle())
-                                            .overlay(
-                                                Circle().stroke(Color.accent, lineWidth: 2)
-                                            )
-                                            .accessibility(identifier: "profile")
-                                    }
-                                }
-                                
-                            }.accessibility(identifier: "button.showIdCard")
+                            }
                         }.horizonPadding()
                     }
                     VSpacer(15)
@@ -104,41 +92,6 @@ struct HomeView: View {
                     }
                 }
             }
-        }
-    }
-    func showIdCardAfterAuthentication() {
-        let context = LAContext()
-        var error: NSError?
-
-        guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) else {
-            alertManager.createAlert("학생증 열기 실패", sub: "학생증을 보시려면 핸드폰의 잠금을 설정시거나 앱의 접근 권한을 허용해주세요.", .danger)
-            return
-        }
-
-        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
-            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "모바일 학생증보기", reply: { (success, error) in
-                if success {
-                    DispatchQueue.main.async {
-                        showIdCard()
-                    }
-                }else {
-                    DispatchQueue.main.async {
-                        print("Authentication was error")
-                    }
-                }
-            })
-        }else {
-            alertManager.createAlert("인증에 실패했습니다.", sub: "학생증을 보시려면 생체인증을 진행하거나, 비밀번호를 입력해야 합니다.", .danger)
-        }
-    }
-    func showIdCard() {
-        withAnimation(.spring()) {
-            self.isShowIdCard = true
-        }
-    }
-    func dismissIdCard() {
-        withAnimation(.spring()) {
-            self.isShowIdCard = false
         }
     }
 }

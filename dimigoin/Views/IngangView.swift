@@ -24,7 +24,7 @@ struct IngangView: View {
                     Spacer()
                     Image("headphone").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 40).foregroundColor(Color.accent)
                 }.horizonPadding()
-                .padding(.top, 40)
+                .padding(.top, 30)
                 HDivider().horizonPadding().offset(y: -15)
                 VSpacer(10)
                 ForEach(ingangAPI.ingangs, id: \.self) { ingang in

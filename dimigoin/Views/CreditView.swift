@@ -110,7 +110,7 @@ struct RadioButton: View {
                     .frame(width: selected == option.idx ? 26 : 0, height: selected == option.idx ? 26 : 0)
                 
                 Circle()
-                    .fill(Color(UIColor.systemBackground))
+                    .fill(Color.systemBackground)
                     .frame(width: 12, height: 12)
             }
         }
@@ -174,7 +174,7 @@ struct SimpleToggle: View {
                     .frame(width: 48, height: 26)
             }
             Circle().frame(width: 20, height: 20)
-                .foregroundColor(isOn ? Color(UIColor.systemBackground) : Color.accent)
+                .foregroundColor(isOn ? Color.systemBackground : Color.accent)
                 .offset(x: isOn ? 10 : -10)
         }.onTapGesture {
             withAnimation(.spring()) {

@@ -29,7 +29,7 @@ struct TimetableView: View {
                         }
                     }
                 }.horizonPadding()
-                .padding(.top, 40)
+                .padding(.top, 30)
                 HDivider().horizonPadding().offset(y: -15)
                 TimetableItem(grade: userAPI.user.grade, klass: userAPI.user.klass, isMagicRevealed: $isMagicRevealed, geometry: geometry)
                     .environmentObject(timetableAPI)

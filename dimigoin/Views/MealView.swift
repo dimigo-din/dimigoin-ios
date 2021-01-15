@@ -21,10 +21,10 @@ struct MealView: View {
                             ViewTitle("급식", sub: getDateString())
                             Spacer()
                             NavigationLink(destination: WeeklyMealView().environmentObject(mealAPI)) {
-                                Image("calendar").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 40).foregroundColor(Color.accent)
+                                Image("calendar.fill").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 40).foregroundColor(Color.accent)
                             }
                         }.horizonPadding()
-                        .padding(.top, 40)
+                        .padding(.top, 30)
                         HDivider().horizonPadding().offset(y: -15)
                         VStack {
                             SectionHeader("아침", sub: "오전 7시 30분")

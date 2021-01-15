@@ -73,7 +73,6 @@
 		42EFCDAA2558073200F3DC5E /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 42EFCD972558073200F3DC5E /* NotoSansKR-Medium.otf */; };
 		42EFCDAD2558073200F3DC5E /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 42EFCD982558073200F3DC5E /* NotoSansKR-Thin.otf */; };
 		42EFCDAE2558073200F3DC5E /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 42EFCD982558073200F3DC5E /* NotoSansKR-Thin.otf */; };
-		42EFCDD22558141000F3DC5E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCDD12558141000F3DC5E /* ProfileView.swift */; };
 		42EFCDD82558188100F3DC5E /* TapBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCDD72558188100F3DC5E /* TapBar.swift */; };
 		42EFCDE625581C4500F3DC5E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCDE525581C4500F3DC5E /* HomeView.swift */; };
 		42EFCDF025581D4E00F3DC5E /* MealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFCDEF25581D4E00F3DC5E /* MealView.swift */; };
@@ -190,7 +189,6 @@
 		42EFCD962558073200F3DC5E /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.otf"; sourceTree = "<group>"; };
 		42EFCD972558073200F3DC5E /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		42EFCD982558073200F3DC5E /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
-		42EFCDD12558141000F3DC5E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		42EFCDD72558188100F3DC5E /* TapBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBar.swift; sourceTree = "<group>"; };
 		42EFCDE525581C4500F3DC5E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		42EFCDEF25581D4E00F3DC5E /* MealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealView.swift; sourceTree = "<group>"; };
@@ -312,7 +310,6 @@
 				08C9AC0424A74A83002AF525 /* LoginView.swift */,
 				08C9AC0724A74A83002AF525 /* MainView.swift */,
 				42EFCDE525581C4500F3DC5E /* HomeView.swift */,
-				42EFCDD12558141000F3DC5E /* ProfileView.swift */,
 				426CBFED25A6821F00B60BB3 /* FullNoticeListView.swift */,
 				42EFCDEF25581D4E00F3DC5E /* MealView.swift */,
 				428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */,
@@ -691,7 +688,6 @@
 				42EFCE16255848C300F3DC5E /* LocationSelection.swift in Sources */,
 				42ABA0A4255F6247001925BE /* MealPagerView.swift in Sources */,
 				42ABA0C5255FC4E2001925BE /* HorizonPadding.swift in Sources */,
-				42EFCDD22558141000F3DC5E /* ProfileView.swift in Sources */,
 				42EFCE2E255852DD00F3DC5E /* ViewTitle.swift in Sources */,
 				42EFCDFE255829B100F3DC5E /* SectionHeader.swift in Sources */,
 				08C9ABEB24A74A53002AF525 /* SceneDelegate.swift in Sources */,

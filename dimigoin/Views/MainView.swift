@@ -29,16 +29,13 @@ struct MainView: View {
             ZStack {
                 VStack {
                     HStack(spacing: 0){
-                        ProfileView()
-                            .environmentObject(tokenAPI)
-                            .environmentObject(userAPI)
-                            .environmentObject(noticeAPI)
+                        StudentIdCardView(isShowIdCard: $isShowIdCard)
                             .environmentObject(alertManager)
                         IngangView()
                             .environmentObject(tokenAPI)
                             .environmentObject(alertManager)
                             .environmentObject(ingangAPI)
-                        HomeView(isShowIdCard: $isShowIdCard)
+                        HomeView()
                             .environmentObject(tokenAPI)
                             .environmentObject(mealAPI)
                             .environmentObject(alertManager)

@@ -53,7 +53,7 @@ struct TapBar: View {
             .padding(.bottom)
         }.frame(height: 74)
         .frame(maxWidth: .infinity)
-        .background(Rectangle().fill(Color(UIColor.systemBackground)).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0).edgesIgnoringSafeArea(.all))
+        .background(Rectangle().fill(Color.systemBackground).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0).edgesIgnoringSafeArea(.all))
         .edgesIgnoringSafeArea(.all)
     }
 }
