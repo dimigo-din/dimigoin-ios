@@ -22,7 +22,7 @@ struct IngangView: View {
                 HStack {
                     ViewTitle("인강실", sub: "")
                     Spacer()
-                    Image("headphone").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 40).foregroundColor(Color.accent)
+                    Image("headphone").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent)
                 }.horizonPadding()
                 .padding(.top, 30)
                 HDivider().horizonPadding().offset(y: -15)

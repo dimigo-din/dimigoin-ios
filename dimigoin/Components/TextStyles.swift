@@ -36,7 +36,7 @@ extension Text {
     
     ///NotoSansKR-Black, 40
     func title() -> Text {
-        self.font(Font.custom("NotoSansKR-Black", size: 40))
+        self.font(Font.custom("NotoSansKR-Black", size: 30))
     }
     
     /// "gray4", NotoSansKR-Bold, 13

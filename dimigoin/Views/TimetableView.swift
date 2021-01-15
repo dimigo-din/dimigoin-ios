@@ -21,7 +21,7 @@ struct TimetableView: View {
                 HStack {
                     ViewTitle("시간표", sub: getDateString())
                     Spacer()
-                    Image("calendar").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 40).foregroundColor(Color.accent)
+                    Image("calendar.fill").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent)
                     .onTapGesture {
                         self.magicNum -= 1
                         if(magicNum == 0) {
@@ -30,7 +30,7 @@ struct TimetableView: View {
                     }
                 }.horizonPadding()
                 .padding(.top, 30)
-                HDivider().horizonPadding().offset(y: -15)
+                HDivider().horizonPadding()
                 TimetableItem(grade: userAPI.user.grade, klass: userAPI.user.klass, isMagicRevealed: $isMagicRevealed, geometry: geometry)
                     .environmentObject(timetableAPI)
             }
@@ -99,27 +99,30 @@ struct TimetableItem: View{
                 HStack(alignment: .top, spacing: 0) {
                     ForEach(1...5, id: \.self) { day in
                         VStack {
-                            Text(NSLocalizedString(dayOfWeek[day], comment: "")).font(Font.custom("NotoSansKR-Bold", size: 20))
-                                .foregroundColor(getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
-                            VSpacer(20)
+                            Text(NSLocalizedString(dayOfWeek[day], comment: "")).font(Font.custom("NotoSansKR-Medium", size: 18))
+                                .foregroundColor(Color.gray4)
+                            VSpacer(29)
                             ForEach(timetableAPI.getTimetable(grade: grade, klass: klass).data[day-1], id: \.self) { lecture in
-                                Text("\(lecture)")
-                                    .frame(width: (geometry.size.width-40)/5, height: 20)
-                                    .padding(.vertical, 4)
-                                    .font(Font.custom("NotoSansKR-Regular", size: 14))
-                                    .foregroundColor(getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
+                                VStack(spacing: 0) {
+//                                    Text("\(lecture)")
+                                    Text("과목")
+                                        .frame(width: (geometry.size.width-40)/5, height: 20)
+                                        .padding(.top, 9)
+                                        .font(Font.custom("NotoSansKR-Medium", size: 18))
+                                        .foregroundColor(getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
+                                    Text("교사명")
+                                        .frame(width: (geometry.size.width-40)/5, height: 20)
+                                        .padding(.bottom, 9)
+                                        .font(Font.custom("NotoSansKR-Medium", size: 10))
+                                        .foregroundColor(getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
+                                }
+                                
                             }
                         }
                         .padding(.vertical, 5)
-                        .background(Color.accent.opacity(getTodayDayOfWeekInt() == day ? 0.09 : 0).cornerRadius(5))
                     }
                 }
-                Divider().offset(y: 45)
-                Rectangle()
-                    .fill(Color.accent)
-                    .frame(width: (geometry.size.width-40)/5, height: 3)
-                    .cornerRadius(2)
-                    .offset(x: dayIndicatorXOffset, y: 44)
+                HDivider().offset(y: 45)
             }.horizonPadding()
         }
     }
