@@ -11,10 +11,11 @@ import SwiftUI
 struct TextFieldModifier: ViewModifier {
     func body(content: Content) -> some View {
         return content
-            .frame(width: 312)
-            .padding()
+            .font(Font.custom("NotoSansKR-Regular", size: 14))
+            .padding(.leading)
+            .frame(width: 335, height: 50)
             .overlay(
-                RoundedRectangle(cornerRadius: 5)
+                RoundedRectangle(cornerRadius: 10)
                     .stroke(Color("divider"), lineWidth: 1)
             )
             .disableAutocorrection(true)

@@ -24,24 +24,20 @@ struct LoginView: View {
             VStack(alignment: .center) {
                 Spacer()
                 VStack {
-                    HStack(alignment: .center){
-                        Image("logo").resizable().frame(width: 50.5, height: 47.76)
-                        HSpacer(24)
-                        Text("디미고인").logoFont()
-                    }
-                    VSpacer(30)
-                    TextField("아이디", text: $username).textContentType(.username)
+                    Image("logo").resizable().aspectRatio(contentMode: .fit).frame(height: 42.8)
+                    VSpacer(43.5)
+                    TextField("아이디를 입력하세요", text: $username).textContentType(.username)
                         .accessibility(identifier: "textfield.username")
                         .modifier(TextFieldModifier())
                         .modifier(ClearButton(text: $username))
-                    VSpacer(16)
-                    SecureField("패스워드", text: $password, onCommit: {
+                    VSpacer(10)
+                    SecureField("패스워드를 입력하세요", text: $password, onCommit: {
                         dismissKeyboard()
                     }).textContentType(.password)
                         .accessibility(identifier: "textfield.password")
                         .modifier(TextFieldModifier())
                         .modifier(ClearButton(text: $password))
-                    VSpacer(13)
+                    VSpacer(30)
                     Button(action : {
                         LOG("get token")
                         isLoading = true
@@ -84,15 +80,19 @@ struct LoginView: View {
                                 .font(Font.custom("NotoSansKR-Bold", size: 18))
                                 .foregroundColor(Color.white)
                         }
-                        .frame(width: 345, height: 60)
-                        .cornerRadius(5)
-                        .background(Color(isLoading ? "disabled-button": "accent"))
+                        .frame(width: 335, height: 50)
+                        .background(Color(isLoading ? "disabled-button": "accent").cornerRadius(10))
                     }.accessibility(identifier: "button.login")
                 }
+                VSpacer(20)
+                HStack {
+                    Image("infomark").frame(width: 13, height: 13)
+                    Text("아이디 또는 비밀번호를 잊으셨나요?").font(Font.custom("NotoSansKR-Bold", size: 12)).gray7()
+                }
                 Spacer()
-                CopyrightText()
             }.padding(.horizontal)
-            
+            .edgesIgnoringSafeArea(.top)
+            .keyboardResponsive()
             AlertView(isShowing: $alertManager.isShowing)
                 .environmentObject(alertManager)
         }

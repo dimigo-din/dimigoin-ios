@@ -41,6 +41,7 @@
 		426CBFEE25A6821F00B60BB3 /* FullNoticeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426CBFED25A6821F00B60BB3 /* FullNoticeListView.swift */; };
 		4274147D259B0B0800235302 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4274147C259B0B0800235302 /* AuthenticationServices.framework */; };
 		428DC35E255EC40F00A4A7B5 /* WeeklyMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */; };
+		4293261225B1D33900BCD9A0 /* KeyboardResponsive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4293261125B1D33900BCD9A0 /* KeyboardResponsive.swift */; };
 		429BA5B025A0A63D000749AC /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429BA5AF25A0A63D000749AC /* LocalAuthentication.framework */; };
 		429BA5D725A30FBB000749AC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 429BA5DA25A30FBB000749AC /* Localizable.strings */; };
 		42ABA08A255F5690001925BE /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA089255F5690001925BE /* TimetableView.swift */; };
@@ -164,6 +165,7 @@
 		428DC359255EB4F400A4A7B5 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		428DC35A255EB4F400A4A7B5 /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
 		428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyMealView.swift; sourceTree = "<group>"; };
+		4293261125B1D33900BCD9A0 /* KeyboardResponsive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponsive.swift; sourceTree = "<group>"; };
 		429BA5AF25A0A63D000749AC /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		429BA5D925A30FBB000749AC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		429FD87F24B202DA003A49AF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -290,6 +292,7 @@
 				088E5D4C24A889CB0031342D /* CardViewModifier.swift */,
 				423B71EF24B191AF0099CE3E /* ClearButton.swift */,
 				42050CC025AA19E900C61D14 /* ColorExtension.swift */,
+				4293261125B1D33900BCD9A0 /* KeyboardResponsive.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 				08C9ABE924A74A53002AF525 /* AppDelegate.swift in Sources */,
 				42C487CA24DDB73000C594CB /* CopyrightText.swift in Sources */,
 				088E5D4D24A889CB0031342D /* CardViewModifier.swift in Sources */,
+				4293261225B1D33900BCD9A0 /* KeyboardResponsive.swift in Sources */,
 				42EFCDF025581D4E00F3DC5E /* MealView.swift in Sources */,
 				42EFCE20255851B500F3DC5E /* IngangView.swift in Sources */,
 				42EFCDD82558188100F3DC5E /* TapBar.swift in Sources */,
