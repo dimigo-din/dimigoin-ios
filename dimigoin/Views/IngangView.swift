@@ -138,19 +138,19 @@ struct IngangView: View {
                     }
                     VSpacer(20)
                 }
-                SectionHeader("우리반 신청자", sub: "")
-                ForEach(ingangAPI.ingangs, id: \.self) { ingang in
-                    HStack {
-                        Text("\(ingang.time == .NSS1 ? 1 : 2)타임").font(Font.custom("NotoSansKR-Medium", size: 15)).padding(.horizontal, 5)
-                        Divider()
-                        Text("\(ingang.getApplicantStringList())").font(Font.custom("NotoSansKR-Regular", size: 13)).gray4().lineSpacing(12)
-                        Spacer()
-                            
-                    }.padding()
-                    .frame(width: abs(geometry.size.width-40), alignment: .leading)
-                    .background(CustomBox())
-                    .fixedSize(horizontal: false, vertical: true)
-                }
+//                SectionHeader("우리반 신청자", sub: "")
+//                ForEach(ingangAPI.ingangs, id: \.self) { ingang in
+//                    HStack {
+//                        Text("\(ingang.time == .NSS1 ? 1 : 2)타임").font(Font.custom("NotoSansKR-Medium", size: 15)).padding(.horizontal, 5)
+//                        Divider()
+//                        Text("\(ingang.getApplicantStringList())").font(Font.custom("NotoSansKR-Regular", size: 13)).gray4().lineSpacing(12)
+//                        Spacer()
+//                            
+//                    }.padding()
+//                    .frame(width: abs(geometry.size.width-40), alignment: .leading)
+//                    .background(CustomBox())
+//                    .fixedSize(horizontal: false, vertical: true)
+//                }
                 VSpacer(20)
             }
         }

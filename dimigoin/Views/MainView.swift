@@ -31,6 +31,7 @@ struct MainView: View {
                     HStack(spacing: 0){
                         StudentIdCardView(isShowIdCard: $isShowIdCard)
                             .environmentObject(alertManager)
+                            .environmentObject(tokenAPI)
                         IngangView()
                             .environmentObject(tokenAPI)
                             .environmentObject(alertManager)

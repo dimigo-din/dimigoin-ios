@@ -58,24 +58,25 @@ struct StudentIdCardModalView: View {
                         userAPI.userPhoto.resizable().placeholder(Image("user.photo.sample")).cornerRadius(5).aspectRatio(contentMode: .fit).frame(width: 116)
                             .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray.opacity(0.15), lineWidth: 1))
                         VSpacer(25)
-                        Text(userAPI.user.name).font(Font.custom("NotoSansKR-Bold", size: 21))
+                        Text("홍길동").font(Font.custom("NanumSquareEB", size: 21))
+//                        Text(userAPI.user.name).font(Font.custom("NotoSansKR-Bold", size: 21))
                         VSpacer(25)
                         HStack(spacing: 15) {
                             VStack(alignment: .trailing, spacing: 11){
-                                Text("학과").font(Font.custom("NotoSansKR-Bold", size: 13)).foregroundColor(Color.black)
-                                Text("학번").font(Font.custom("NotoSansKR-Bold", size: 13)).foregroundColor(Color.black)
-                                Text("주민번호").font(Font.custom("NotoSansKR-Bold", size: 13)).foregroundColor(Color.black)
+                                Text("학과").font(Font.custom("NanumSquareB", size: 13)).foregroundColor(Color.black)
+                                Text("학번").font(Font.custom("NanumSquareB", size: 13)).foregroundColor(Color.black)
+                                Text("주민번호").font(Font.custom("NanumSquareB", size: 13)).foregroundColor(Color.black)
                             }
                             VStack(alignment: .leading, spacing: 11) {
-                                Text(getMajor(klass: userAPI.user.klass)).font(Font.custom("NotoSansKR-Light", size: 13)).gray4()
-                                Text(String(userAPI.user.serial)).font(Font.custom("NotoSansKR-Light", size: 13)).gray4()
-                                Text("030418-3******").font(Font.custom("NotoSansKR-Light", size: 13)).gray4()
+                                Text(getMajor(klass: userAPI.user.klass)).font(Font.custom("NanumSquareL", size: 13)).gray4()
+                                Text(String(userAPI.user.serial)).font(Font.custom("NanumSquareL", size: 13)).gray4()
+                                Text("040101-3******").font(Font.custom("NanumSquareL", size: 13)).gray4()
                             }
                         }
                         VSpacer(20)
                         Image("qr-sample").resizable().aspectRatio(contentMode: .fit).frame(height: 48)
                         VSpacer(15)
-                        Text("위 사람은 본교 학생임을 증명함.").font(Font.custom("NotoSansKR-Bold", size: 12)).foregroundColor(Color.black)
+                        Text("위 사람은 본교 학생임을 증명함.").font(Font.custom("NanumSquareB", size: 12)).foregroundColor(Color.black)
                     }
                     
                 }

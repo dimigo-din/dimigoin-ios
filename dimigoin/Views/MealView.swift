@@ -28,7 +28,8 @@ struct MealView: View {
                         HDivider().horizonPadding().offset(y: -15)
                         VStack {
                             SectionHeader("아침", sub: "오전 7시 30분")
-                            Text(mealAPI.getTodayMeal().breakfast)
+//                            Text(mealAPI.getTodayMeal().breakfast)
+                            Text(dummyMeal.breakfast)
                                 .mealMenu()
                                 .padding()
                                 .frame(width: abs(geometry.size.width-40), alignment: .leading)
@@ -38,7 +39,8 @@ struct MealView: View {
                         VSpacer(20)
                         VStack {
                             SectionHeader("점심", sub: "오후 12시 50분")
-                            Text(mealAPI.getTodayMeal().lunch)
+//                            Text(mealAPI.getTodayMeal().lunch)
+                            Text(dummyMeal.lunch)
                                 .mealMenu()
                                 .padding()
                                 .frame(width: abs(geometry.size.width-40), alignment: .leading)
@@ -48,7 +50,8 @@ struct MealView: View {
                         VSpacer(20)
                         VStack {
                             SectionHeader("저녁", sub: "오후 6시 35분")
-                            Text(mealAPI.getTodayMeal().dinner)
+//                            Text(mealAPI.getTodayMeal().dinner)
+                            Text(dummyMeal.dinner)
                                 .mealMenu()
                                 .padding()
                                 .frame(width: abs(geometry.size.width-40), alignment: .leading)

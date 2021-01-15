@@ -11,7 +11,7 @@ import SwiftUI
 struct TextFieldModifier: ViewModifier {
     func body(content: Content) -> some View {
         return content
-            .font(Font.custom("NotoSansKR-Regular", size: 14))
+            .font(Font.custom("NanumSquareR", size: 14))
             .padding(.leading)
             .frame(width: 335, height: 50)
             .overlay(

@@ -87,7 +87,7 @@ struct LoginView: View {
                 VSpacer(20)
                 HStack {
                     Image("infomark").frame(width: 13, height: 13)
-                    Text("아이디 또는 비밀번호를 잊으셨나요?").font(Font.custom("NotoSansKR-Bold", size: 12)).gray7()
+                    Text("아이디 또는 비밀번호를 잊으셨나요?").font(Font.custom("NanumSquareB", size: 12)).gray4()
                 }
                 Spacer()
             }.padding(.horizontal)
