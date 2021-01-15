@@ -27,6 +27,6 @@ struct ContentView: View {
                     .environmentObject(tokenAPI)
                     .environmentObject(alertManager)
             }
-        }
+        }.edgesIgnoringSafeArea(.bottom)
     }
 }

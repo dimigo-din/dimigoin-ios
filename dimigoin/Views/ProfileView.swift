@@ -62,7 +62,7 @@ struct ProfileView: View {
                                 Text("6명").bold().gray4().caption1()
                             }
                             HStack {
-                                Image("calendar.empty")
+                                Image("calendar")
                                 Text("일주일 최대 ").gray4().caption3()
                                 +
                                 Text("4회").bold().gray4().caption1()

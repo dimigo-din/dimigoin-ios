@@ -11,43 +11,82 @@ import SwiftUI
 struct tapBarItem: Hashable {
     var idx: Int
     var icon: String
+    var activatedIcon: String
     var label: String
     var identifier: String
+    
+    init(idx: Int, icon: String, activatedIcon: String, label: String, identifier: String) {
+        self.idx = idx
+        self.icon = icon
+        self.activatedIcon = activatedIcon
+        self.label = label
+        self.identifier = identifier
+    }
+    
+    init(idx: Int, icon: String, label: String, identifier: String) {
+        self.idx = idx
+        self.icon = icon
+        self.activatedIcon = icon
+        self.label = label
+        self.identifier = identifier
+    }
 }
 
 struct TapBar: View {
     @Binding var index: Int
     var tapBarItems: [tapBarItem] = [
-        tapBarItem(idx: 0, icon: "doc", label: "내정보", identifier: "tapbar.mypage"),
+        tapBarItem(idx: 0, icon: "user", label: "학생증", identifier: "tapbar.idcard"),
         tapBarItem(idx: 1, icon: "headphone", label: "인강실", identifier: "tapbar.ingang"),
-        tapBarItem(idx: 2, icon: "home", label: "메인", identifier: "tapbar.home"),
-        tapBarItem(idx: 3, icon: "etc", label: "급식", identifier: "tapbar.meal"),
-        tapBarItem(idx: 4, icon: "calendar", label: "시간표", identifier: "tapbar.timetable")
+        tapBarItem(idx: 2, icon: "home", activatedIcon: "home.fill", label: "메인", identifier: "tapbar.home"),
+        tapBarItem(idx: 3, icon: "meal", label: "급식표", identifier: "tapbar.meal"),
+        tapBarItem(idx: 4, icon: "calendar", activatedIcon: "calendar.fill", label: "시간표", identifier: "tapbar.timetable")
     ]
     
     var body: some View {
         VStack {
-            HDivider()
+            Spacer()
             HStack(spacing: 50) {
                 ForEach(tapBarItems, id: \.self) { item in
-                    Button(action: {
-                        self.index = item.idx
-                    }) {
-                        VStack {
-                            Image(item.icon)
-                                .renderingMode(.template)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(height: 24)
-                                .foregroundColor(self.index == item.idx ? Color.accent : Color("gray3"))
-                            VSpacer(7.8)
-                            Text(item.label)
-                                .tapBarItem()
-                                .foregroundColor(self.index == item.idx ? Color.accent : Color("gray3"))
-                        }
-                    }.accessibility(identifier: item.identifier)
+                    TapBarButton(index: $index, item: item)
                 }
+            }.frame(height: 74)
+            .padding(.bottom)
+        }.frame(height: 74)
+        .frame(maxWidth: .infinity)
+        .background(Rectangle().fill(Color(UIColor.systemBackground)).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0).edgesIgnoringSafeArea(.all))
+        .edgesIgnoringSafeArea(.all)
+    }
+}
+
+struct TapBarButton: View {
+    @Binding var index: Int
+    var item: tapBarItem
+    var body: some View {
+        Button(action: {
+            self.index = item.idx
+        }) {
+            VStack {
+                if self.index == item.idx {
+                    Image(item.activatedIcon)
+                        .renderingMode(.template)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 24)
+                        .foregroundColor(self.index == item.idx ? Color.accent : Color("gray3"))
+                }
+                else {
+                    Image(item.icon)
+                        .renderingMode(.template)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 24)
+                        .foregroundColor(self.index == item.idx ? Color.accent : Color("gray3"))
+                }
+                VSpacer(7.8)
+                Text(item.label)
+                    .tapBarItem()
+                    .foregroundColor(self.index == item.idx ? Color.accent : Color("gray3"))
             }
-        }.edgesIgnoringSafeArea(.all)
+        }.accessibility(identifier: item.identifier)
     }
 }

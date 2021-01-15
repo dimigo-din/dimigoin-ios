@@ -71,6 +71,7 @@ struct MainView: View {
                     )
                     TapBar(index: self.$tapbarIndex)
                         .offset(x: -geometry.size.width*2)
+                        
                 }
                 StudentIdCardModalView(isShowing: $isShowIdCard)
                     .environmentObject(userAPI)
