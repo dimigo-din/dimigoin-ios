@@ -20,7 +20,7 @@ struct IngangView: View {
         GeometryReader { geometry in
             ScrollView(showsIndicators: false) {
                 HStack {
-                    ViewTitle("인강실", sub: "")
+                    ViewTitle("인강실", sub: "야간자율학습")
                     Spacer()
                     Image("headphone").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent)
                 }.horizonPadding()

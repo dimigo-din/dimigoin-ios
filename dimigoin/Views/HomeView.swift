@@ -36,7 +36,6 @@ struct HomeView: View {
                                 Image("school").resizable().frame(maxWidth: .infinity).opacity(0.3)
                             }
                         }
-                        
                         HStack {
                             Image("logo").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 38).foregroundColor(Color.accent)
                             Spacer()

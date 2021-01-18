@@ -19,7 +19,7 @@ struct TimetableView: View {
         GeometryReader { geometry in
             ScrollView(showsIndicators: false) {
                 HStack {
-                    ViewTitle("시간표", sub: getDateString())
+                    ViewTitle("시간표", sub: userAPI.getUserStringClass())
                     Spacer()
                     Image("calendar.fill").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent)
                     .onTapGesture {

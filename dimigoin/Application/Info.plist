@@ -50,10 +50,10 @@
 		<string>NotoSansKR-Bold.otf</string>
 		<string>NotoSansKR-Black.otf</string>
 		<string>Openas.ttf</string>
-		<string>NanumSquareBold.ttf</string>
-		<string>NanumSquareExtraBold.ttf</string>
-		<string>NanumSquareLight.ttf</string>
-		<string>NanumSquareRegular.ttf</string>
+		<string>NanumSquareB.ttf</string>
+		<string>NanumSquareEB.ttf</string>
+		<string>NanumSquareL.ttf</string>
+		<string>NanumSquareR.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

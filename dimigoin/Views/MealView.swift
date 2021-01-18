@@ -18,7 +18,7 @@ struct MealView: View {
                 ScrollView(showsIndicators: false) {
                      VStack{
                         HStack {
-                            ViewTitle("급식", sub: getDateString())
+                            ViewTitle("오늘의 급식", sub: getDateString())
                             Spacer()
                             NavigationLink(destination: WeeklyMealView().environmentObject(mealAPI)) {
                                 Image("calendar.fill").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent)

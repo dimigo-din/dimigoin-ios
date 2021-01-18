@@ -18,7 +18,14 @@ struct StudentIdCardView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading){
-                ViewTitle("학생증", sub: "모바일 학생증").horizonPadding().padding(.top, 30)
+                HStack {
+                    ViewTitle("학생증", sub: "모바일 학생증")
+                    Spacer()
+                    Image("idcard").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent)
+                }.horizonPadding()
+                .padding(.top, 30)
+                HDivider().horizonPadding().offset(y: -15)
+                VSpacer(10)
                 Button(action: {
                     showIdCard()
 //                    showIdCardAfterAuthentication()
@@ -34,22 +41,7 @@ struct StudentIdCardView: View {
                     .background(Color.accent.cornerRadius(10))
                     .horizonPadding()
                 }
-                Button(action: {
-                    tokenAPI.clearTokens()
-                }){
-                    HStack {
-                        Image("logout").renderingMode(.template).foregroundColor(Color.systemBackground).padding(.leading, 25)
-                        HSpacer(17.5)
-                        Text("로그아웃(임시)").font(Font.custom("NotoSansKR-Bold", size: 16)).foregroundColor(Color.systemBackground)
-                        Spacer()
-                        Image(systemName: "chevron.right").padding(.trailing, 25).foregroundColor(Color.systemBackground)
-                    }
-                    .frame(width: geometry.size.width-40, height: 55)
-                    .background(Color.accent.cornerRadius(10))
-                    .horizonPadding()
-                }
             }
-            
         }
     }
     

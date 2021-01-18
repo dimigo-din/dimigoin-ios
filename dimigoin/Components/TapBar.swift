@@ -48,14 +48,12 @@ struct TapBar: View {
             HStack(spacing: 45) {
                 ForEach(tapBarItems, id: \.self) { item in
                     TapBarButton(index: $index, item: item)
-                    if item.idx != 0 || item.idx != 4 {
-//                        Spacer()
-                    }
                 }
             }.frame(height: 74)
             .padding(.bottom)
             .horizonPadding()
         }.frame(height: 74)
+        .frame(maxWidth: .infinity)
         .background(Rectangle().fill(Color.systemBackground).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0).edgesIgnoringSafeArea(.all))
         .edgesIgnoringSafeArea(.all)
     }
@@ -74,21 +72,21 @@ struct TapBarButton: View {
                         .renderingMode(.template)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(height: 24)
-                        .foregroundColor(self.index == item.idx ? Color.accent : Color("gray3"))
+                        .frame(width: item.icon == "meal" ? 15 : 24)
+                        .foregroundColor(self.index == item.idx ? Color.accent : Color("gray7"))
                 }
                 else {
                     Image(item.icon)
                         .renderingMode(.template)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(height: 24)
-                        .foregroundColor(self.index == item.idx ? Color.accent : Color("gray3"))
+                        .frame(width: item.icon == "meal" ? 15 : 24)
+                        .foregroundColor(self.index == item.idx ? Color.accent : Color("gray7"))
                 }
                 VSpacer(7.8)
                 Text(item.label)
                     .tapBarItem()
-                    .foregroundColor(self.index == item.idx ? Color.accent : Color("gray3"))
+                    .foregroundColor(self.index == item.idx ? Color.accent : Color("gray7"))
             }
         }.accessibility(identifier: item.identifier)
     }
