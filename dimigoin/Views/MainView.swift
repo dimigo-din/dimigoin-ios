@@ -53,23 +53,22 @@ struct MainView: View {
                     }.frame(width: geometry.size.width*5)
                     .offset(x: -geometry.size.width*CGFloat((tapbarIndex))+dragOffset.width)
                     .animation(.interactiveSpring())
-                    .gesture(DragGesture(minimumDistance: 3.0, coordinateSpace: .local)
-                                .onChanged { value in
-                                    self.dragOffset = value.translation
-                                }
-                                .onEnded { value in
-                                    self.dragOffset = .zero
-                                    if value.translation.width < 0 && value.translation.height > -30 && value.translation.height < 30 {
-                                        nextPage()
-                                    }
-                                    else if value.translation.width > 0 && value.translation.height > -30 && value.translation.height < 30 {
-                                        previousPage()
-                                    }
-                                }
-                    )
+//                    .gesture(DragGesture(minimumDistance: 3.0, coordinateSpace: .local)
+//                                .onChanged { value in
+//                                    self.dragOffset = value.translation
+//                                }
+//                                .onEnded { value in
+//                                    self.dragOffset = .zero
+//                                    if value.translation.width < 0 && value.translation.height > -30 && value.translation.height < 30 {
+//                                        nextPage()
+//                                    }
+//                                    else if value.translation.width > 0 && value.translation.height > -30 && value.translation.height < 30 {
+//                                        previousPage()
+//                                    }
+//                                }
+//                    )
                     TapBar(index: self.$tapbarIndex)
                         .offset(x: -geometry.size.width*2)
-                        
                 }
                 StudentIdCardModalView(isShowing: $isShowIdCard)
                     .environmentObject(userAPI)

@@ -58,7 +58,7 @@ struct StudentIdCardModalView: View {
                         userAPI.userPhoto.resizable().placeholder(Image("user.photo.sample")).cornerRadius(5).aspectRatio(contentMode: .fit).frame(width: 116)
                             .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray.opacity(0.15), lineWidth: 1))
                         VSpacer(25)
-                        Text("홍길동").font(Font.custom("NanumSquareEB", size: 21))
+                        Text("홍길동").font(Font.custom("NanumSquareExtraBold", size: 21))
 //                        Text(userAPI.user.name).font(Font.custom("NotoSansKR-Bold", size: 21))
                         VSpacer(25)
                         HStack(spacing: 15) {

@@ -40,21 +40,26 @@ struct HomeView: View {
                         HStack {
                             Image("logo").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 38).foregroundColor(Color.accent)
                             Spacer()
-                            ZStack {
-                                Circle().fill(Color.systemBackground).frame(width: 38, height: 38)
-                                withAnimation() {
-                                    userAPI.userPhoto
-                                        .resizable()
-                                        .foregroundColor(Color.accent)
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 38)
-                                        .clipShape(Circle())
-                                        .overlay(
-                                            Circle().stroke(Color.accent, lineWidth: 2)
-                                        )
-                                        .accessibility(identifier: "profile")
+                            Button(action: {
+                                tokenAPI.clearTokens()
+                            }) {
+                                ZStack {
+                                    Circle().fill(Color.systemBackground).frame(width: 38, height: 38)
+                                    withAnimation() {
+                                        userAPI.userPhoto
+                                            .resizable()
+                                            .foregroundColor(Color.accent)
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 38)
+                                            .clipShape(Circle())
+                                            .overlay(
+                                                Circle().stroke(Color.accent, lineWidth: 2)
+                                            )
+                                            .accessibility(identifier: "profile")
+                                    }
                                 }
                             }
+                            
                         }.horizonPadding()
                     }
                     VSpacer(15)

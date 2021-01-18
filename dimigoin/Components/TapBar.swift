@@ -35,7 +35,7 @@ struct tapBarItem: Hashable {
 struct TapBar: View {
     @Binding var index: Int
     var tapBarItems: [tapBarItem] = [
-        tapBarItem(idx: 0, icon: "user", label: "학생증", identifier: "tapbar.idcard"),
+        tapBarItem(idx: 0, icon: "idcard", label: "학생증", identifier: "tapbar.idcard"),
         tapBarItem(idx: 1, icon: "headphone", label: "인강실", identifier: "tapbar.ingang"),
         tapBarItem(idx: 2, icon: "home", activatedIcon: "home.fill", label: "메인", identifier: "tapbar.home"),
         tapBarItem(idx: 3, icon: "meal", label: "급식표", identifier: "tapbar.meal"),
@@ -45,14 +45,17 @@ struct TapBar: View {
     var body: some View {
         VStack {
             Spacer()
-            HStack(spacing: 50) {
+            HStack(spacing: 45) {
                 ForEach(tapBarItems, id: \.self) { item in
                     TapBarButton(index: $index, item: item)
+                    if item.idx != 0 || item.idx != 4 {
+//                        Spacer()
+                    }
                 }
             }.frame(height: 74)
             .padding(.bottom)
+            .horizonPadding()
         }.frame(height: 74)
-        .frame(maxWidth: .infinity)
         .background(Rectangle().fill(Color.systemBackground).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0).edgesIgnoringSafeArea(.all))
         .edgesIgnoringSafeArea(.all)
     }
