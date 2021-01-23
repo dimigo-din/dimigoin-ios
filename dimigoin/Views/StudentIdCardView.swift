@@ -11,6 +11,7 @@ import DimigoinKit
 import LocalAuthentication
 
 struct StudentIdCardView: View {
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @EnvironmentObject var alertManager: AlertManager
     @EnvironmentObject var userAPI: UserAPI
     @Binding var isShowIdCard: Bool
@@ -40,7 +41,7 @@ struct StudentIdCardView: View {
                         HStack {
                             Image("infomark").frame(width: 12, height: 12)
                             Text("사용 전 다음 내용을 반드시 읽어주세요").font(Font.custom("NotoSansKR-Bold", size: 11)).foregroundColor(Color.white)
-                        }.padding(.vertical, 8).frame(width: UIDevice.current.userInterfaceIdiom == .phone ? geometry.size.width-40 : 335).opacity(0.8).background(Color("gray5").cornerRadius(10)).padding(.bottom)
+                        }.padding(.vertical, 8).frame(width: horizontalSizeClass == .compact ? geometry.size.width-40 : 335).opacity(0.8).background(Color("gray5").cornerRadius(10)).padding(.bottom)
                     }
                     
                 }
@@ -88,11 +89,11 @@ struct StudentIdCardView: View {
                                 Image("dimigo-logo").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 19).foregroundColor(Color.white).padding(.leading, 25).padding(.top)
                                 Spacer()
                                 Image(systemName: "chevron.right").padding(.trailing, 25).foregroundColor(Color.white).padding(.top)
-                            }.horizonPadding()
+                            }
                             Spacer()
-                            Text("터치하여 모바일 학생증 열기").font(Font.custom("NotoSansKR-Bold", size: 11)).accent().padding(.vertical, 5).frame(maxWidth: geometry.size.width - 70).opacity(0.8).background(Color.white.cornerRadius(20)).padding(.bottom)
+                            Text("터치하여 모바일 학생증 열기").font(Font.custom("NotoSansKR-Bold", size: 11)).accent().padding(.vertical, 5).frame(width: horizontalSizeClass == .compact ? geometry.size.width-70 : 310).opacity(0.8).background(Color.white.cornerRadius(20)).padding(.bottom)
                         }
-                        .frame(height: 195).opacity(isShowIdCard ? 0 : 1)
+                        .frame(width: horizontalSizeClass == .compact ? geometry.size.width-40 : 335,height: 195).opacity(isShowIdCard ? 0 : 1)
                         VStack {
                             VSpacer(30)
                             userAPI.userPhoto.resizable().placeholder(Image("user.photo.sample")).cornerRadius(5).aspectRatio(contentMode: .fit).frame(width: 116)
@@ -121,7 +122,7 @@ struct StudentIdCardView: View {
                     .background(
                         Rectangle()
                             .foregroundColor(isShowIdCard ? Color.white : Color.accent)
-                            .frame(width: !isShowIdCard ? (UIDevice.current.userInterfaceIdiom == .phone ? geometry.size.width-40 : 335) : 473, height: !isShowIdCard ? 195 : 275)
+                            .frame(width: !isShowIdCard ? (horizontalSizeClass == .compact ? geometry.size.width-40 : 335) : 473, height: !isShowIdCard ? 195 : 275)
 //                        UIDevice.current.userInterfaceIdiom == .phone ? geometry.size.width - 20 : 380, height: 182
                             .cornerRadius(10)
                     )
