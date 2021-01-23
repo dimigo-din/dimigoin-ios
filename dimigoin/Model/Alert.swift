@@ -68,7 +68,7 @@ class AlertManager: ObservableObject {
             case .danger: colorName = "red"
             case .text: colorName = "accent"
             case .logout: colorName = "accent"
-            case .idCardReadme: colorName = "accent"
+            case .idCardReadme: colorName = "gray4"
         }
         return Color(colorName)
     }

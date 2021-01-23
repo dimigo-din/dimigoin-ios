@@ -84,7 +84,7 @@ struct AlertView: View {
                         Button(action: {
                             dismiss()
                         }) {
-                            Text("확인")
+                            Text(alertManager.alertType == .idCardReadme ? "닫기":"확인")
                                 .foregroundColor(Color.white)
                                 .font(Font.custom("NanumSquareEB", size: 14))
                                 .frame(height: 45)

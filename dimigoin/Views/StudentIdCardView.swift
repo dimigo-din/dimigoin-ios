@@ -99,7 +99,7 @@ struct StudentIdCardView: View {
                             userAPI.userPhoto.resizable().placeholder(Image("user.photo.sample")).cornerRadius(5).aspectRatio(contentMode: .fit).frame(width: 116)
                                 .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray.opacity(0.15), lineWidth: 1))
                             VSpacer(20)
-                            Text(userAPI.user.name).font(Font.custom("NanumSquareEB", size: 21))
+                            Text(userAPI.user.name).font(Font.custom("NanumSquareEB", size: 21)).foregroundColor(Color.black)
                             VSpacer(20)
                             HStack(spacing: 15) {
                                 VStack(alignment: .trailing, spacing: 11){
