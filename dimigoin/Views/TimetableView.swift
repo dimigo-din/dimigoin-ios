@@ -18,7 +18,16 @@ struct TimetableView: View {
     var body: some View {
         GeometryReader { geometry in
             ScrollView(showsIndicators: false) {
-                ViewTitle("시간표", sub: userAPI.getUserStringClass(), icon:"calendar.fill")
+                HStack {
+                    VStack(alignment: .leading, spacing: 0){
+                        Text(NSLocalizedString(userAPI.getUserStringClass(), comment: "")).subTitle()
+                        Text(NSLocalizedString("시간표", comment: "")).title()
+                    }
+                    Spacer()
+                    Image("calendar.fill").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent)
+                }.horizonPadding()
+                .padding(.top, 30)
+                VSpacer(29)
                 TimetableItem(grade: userAPI.user.grade, klass: userAPI.user.klass, isMagicRevealed: $isMagicRevealed, geometry: geometry)
                     .environmentObject(timetableAPI)
             }
@@ -107,10 +116,10 @@ struct TimetableItem: View{
                                 
                             }
                         }
-                        .padding(.vertical, 5)
                     }
                 }
-                HDivider().offset(y: 45)
+                HDivider().offset(y: 40)
+                HDivider().offset(y: -13)
             }.horizonPadding()
         }
     }
