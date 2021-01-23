@@ -16,6 +16,7 @@ enum AlertType {
     case warning
     case danger
     case cancel
+    case text
 }
 
 class AlertManager: ObservableObject {
@@ -35,12 +36,6 @@ class AlertManager: ObservableObject {
         }
         self.count += 1
         LOG("Alert presented \(content) : \(sub)")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.count -= 1
-            if(self.count == 0) {
-                self.dismiss()
-            }
-        }
     }
     func dismiss() {
         withAnimation(.spring()) {

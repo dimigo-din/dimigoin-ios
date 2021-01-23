@@ -88,14 +88,14 @@ extension Text {
     func alertTitle(_ color: Color) -> some View {
         self
             .foregroundColor(color)
-            .font(Font.custom("NotoSansKR-Bold", size: 15))
+            .font(Font.custom("NanumSquareEB", size: 15))
     }
     
     /// gray2, NotoSansKR-Regular, 11
     func alertSubTitle() -> some View {
         self
             .foregroundColor(Color("gray2"))
-            .font(Font.custom("NotoSansKR-Regular", size: 11))
+            .font(Font.custom("NotoSansKR-Medium", size: 12))
     }
     
     /// gray4, NotoSansKR-Bold, 17
