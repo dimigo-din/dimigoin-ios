@@ -106,7 +106,7 @@ struct MealView: View {
                     )
                     .contentShape(Rectangle())
                 }.frame(width: geometry.size.width)
-                VSpacer(20)
+                VSpacer(100)
             }
         }
     }

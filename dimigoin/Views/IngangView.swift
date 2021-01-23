@@ -145,7 +145,7 @@ struct IngangView: View {
 //                    .background(CustomBox())
 //                    .fixedSize(horizontal: false, vertical: true)
 //                }
-                VSpacer(20)
+                VSpacer(100)
             }
         }
     }

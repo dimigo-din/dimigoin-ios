@@ -30,6 +30,7 @@ struct TimetableView: View {
                 VSpacer(29)
                 TimetableItem(grade: userAPI.user.grade, klass: userAPI.user.klass, isMagicRevealed: $isMagicRevealed, geometry: geometry)
                     .environmentObject(timetableAPI)
+                VSpacer(100)
             }
         }
     }
