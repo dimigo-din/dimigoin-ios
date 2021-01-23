@@ -40,33 +40,31 @@ struct HomeView: View {
                             Image("logo").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 38).foregroundColor(Color.accent)
                             Spacer()
                             Button(action: {
+                                tokenAPI.clearTokens()
+                            }) {
+                                Image("logout").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 30).foregroundColor(Color.accent)
+                            }.offset(x: showLogoutButton ? 0 : 45)
+                            
+                            ZStack {
+                                Circle().fill(Color.systemBackground).frame(width: 38, height: 38)
+                                withAnimation() {
+                                    userAPI.userPhoto
+                                        .resizable()
+                                        .foregroundColor(Color.accent)
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 38)
+                                        .clipShape(Circle())
+                                        .overlay(
+                                            Circle().stroke(Color.accent, lineWidth: 2)
+                                        )
+                                        .accessibility(identifier: "profile")
+                                }
+                            }.onTapGesture {
                                 withAnimation(Animation.easeInOut(duration: 0.75)) {
                                     self.showLogoutButton.toggle()
                                 }
-                            }) {
-                                ZStack {
-                                    Circle().fill(Color.systemBackground).frame(width: 38, height: 38)
-                                    withAnimation() {
-                                        userAPI.userPhoto
-                                            .resizable()
-                                            .foregroundColor(Color.accent)
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 38)
-                                            .clipShape(Circle())
-                                            .overlay(
-                                                Circle().stroke(Color.accent, lineWidth: 2)
-                                            )
-                                            .accessibility(identifier: "profile")
-                                    }
-                                }
                             }
-                            if showLogoutButton {
-                                Button(action: {
-                                    tokenAPI.clearTokens()
-                                }) {
-                                    Image("logout").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 30).foregroundColor(Color.accent)
-                                }
-                            }
+                            
                         }.horizonPadding()
                     }
                     VSpacer(15)
