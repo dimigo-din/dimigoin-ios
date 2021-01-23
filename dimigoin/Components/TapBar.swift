@@ -34,6 +34,7 @@ struct tapBarItem: Hashable {
 
 struct TapBar: View {
     @Binding var index: Int
+    @Binding var isShowIdCard: Bool
     var tapBarItems: [tapBarItem] = [
         tapBarItem(idx: 0, icon: "idcard", label: "학생증", identifier: "tapbar.idcard"),
         tapBarItem(idx: 1, icon: "headphone", label: "인강실", identifier: "tapbar.ingang"),
@@ -56,6 +57,7 @@ struct TapBar: View {
         .frame(maxWidth: .infinity)
         .background(Rectangle().fill(Color.systemBackground).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0).edgesIgnoringSafeArea(.all))
         .edgesIgnoringSafeArea(.all)
+        .offset(y : isShowIdCard ? 74 : 0)
     }
 }
 
@@ -64,7 +66,9 @@ struct TapBarButton: View {
     var item: tapBarItem
     var body: some View {
         Button(action: {
-            self.index = item.idx
+            withAnimation(.interactiveSpring()) {
+                self.index = item.idx
+            }
         }) {
             VStack {
                 if self.index == item.idx {

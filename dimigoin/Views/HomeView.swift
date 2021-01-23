@@ -60,7 +60,7 @@ struct HomeView: View {
                                         .accessibility(identifier: "profile")
                                 }
                             }.onTapGesture {
-                                withAnimation(Animation.easeInOut(duration: 0.75)) {
+                                withAnimation(.spring()) {
                                     self.showLogoutButton.toggle()
                                 }
                             }
