@@ -18,19 +18,7 @@ struct TimetableView: View {
     var body: some View {
         GeometryReader { geometry in
             ScrollView(showsIndicators: false) {
-                HStack {
-                    ViewTitle("시간표", sub: userAPI.getUserStringClass())
-                    Spacer()
-                    Image("calendar.fill").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent)
-                    .onTapGesture {
-                        self.magicNum -= 1
-                        if(magicNum == 0) {
-                            revealSecret()
-                        }
-                    }
-                }.horizonPadding()
-                .padding(.top, 30)
-                HDivider().horizonPadding()
+                ViewTitle("시간표", sub: userAPI.getUserStringClass(), icon:"calendar.fill")
                 TimetableItem(grade: userAPI.user.grade, klass: userAPI.user.klass, isMagicRevealed: $isMagicRevealed, geometry: geometry)
                     .environmentObject(timetableAPI)
             }

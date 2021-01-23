@@ -19,14 +19,8 @@ struct IngangView: View {
     var body: some View {
         GeometryReader { geometry in
             ScrollView(showsIndicators: false) {
-                HStack {
-                    ViewTitle("인강실", sub: "야간자율학습")
-                    Spacer()
-                    Image("headphone").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent)
-                }.horizonPadding()
-                .padding(.top, 30)
-                HDivider().horizonPadding().offset(y: -15)
-                VSpacer(10)
+                    ViewTitle("인강실", sub: "야간자율학습", icon: "headphone")
+                
                 ForEach(ingangAPI.ingangs, id: \.self) { ingang in
                     SectionHeader(ingang.title, sub: ingang.timeString)
                     VSpacer(10)

@@ -28,16 +28,22 @@ struct LoginView: View {
                     VSpacer(43.5)
                     TextField("아이디를 입력하세요", text: $username).textContentType(.username)
                         .accessibility(identifier: "textfield.username")
-                        .modifier(TextFieldModifier())
+                        .modifier(TextFieldModifier(isError: $showErrorMessage))
                         .modifier(ClearButton(text: $username))
                     VSpacer(10)
                     SecureField("패스워드를 입력하세요", text: $password, onCommit: {
                         dismissKeyboard()
                     }).textContentType(.password)
                         .accessibility(identifier: "textfield.password")
-                        .modifier(TextFieldModifier())
+                        .modifier(TextFieldModifier(isError: $showErrorMessage))
                         .modifier(ClearButton(text: $password))
-                    VSpacer(30)
+                    if showErrorMessage {
+                        VSpacer(17)
+                        Text("존재하지 않는 아이디거나 잘못된 패스워드입니다.").font(Font.custom("NotoSansKR-Medium", size: 12)).warning()
+                        VSpacer(17)
+                    } else {
+                        VSpacer(30)
+                    }
                     Button(action : {
                         LOG("get token")
                         isLoading = true
@@ -61,7 +67,9 @@ struct LoginView: View {
                                     isLoading = false
                                 default:
                                     LOG("get token failed")
-                                    alertManager.createAlert("로그인에 실패했습니다.", sub: "아이디 혹은 패스워드를 확인해주세요", .danger)
+                                    withAnimation() {
+                                        self.showErrorMessage = true
+                                    }
                                     debugPrint(response)
                                     self.tokenAPI.tokenStatus = .none
                                     isLoading = false
@@ -85,9 +93,13 @@ struct LoginView: View {
                     }.accessibility(identifier: "button.login")
                 }
                 VSpacer(20)
-                HStack {
-                    Image("infomark").frame(width: 13, height: 13)
-                    Text("아이디 또는 비밀번호를 잊으셨나요?").font(Font.custom("NanumSquareB", size: 12)).disabled()
+                Button(action: {
+                    
+                }) {
+                    HStack {
+                        Image("infomark").frame(width: 13, height: 13)
+                        Text("아이디 또는 비밀번호를 잊으셨나요?").font(Font.custom("NotoSansKR-Medium", size: 12)).disabled()
+                    }
                 }
                 Spacer()
             }.padding(.horizontal)

@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct TextFieldModifier: ViewModifier {
+    @Binding var isError: Bool
     func body(content: Content) -> some View {
         return content
             .font(Font.custom("NanumSquareR", size: 14))
@@ -16,9 +17,10 @@ struct TextFieldModifier: ViewModifier {
             .frame(width: 335, height: 50)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color("divider"), lineWidth: 1)
+                    .stroke(Color(isError ? "red" : "divider"), lineWidth: 1)
             )
             .disableAutocorrection(true)
             .autocapitalization(.none)
+            
     }
 }

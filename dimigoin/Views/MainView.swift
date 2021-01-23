@@ -20,7 +20,8 @@ struct MainView: View {
     @ObservedObject var timetableAPI = TimetableAPI()
     @ObservedObject var attendanceLogAPI = AttendanceLogAPI()
     @ObservedObject var placeAPI = PlaceAPI()
-    @State var tapbarIndex = 2
+    // MARK: change here !~!
+    @State var tapbarIndex = 0
     @State var isShowIdCard = false
     @State var dragOffset = CGSize.zero
     
@@ -29,9 +30,11 @@ struct MainView: View {
             ZStack {
                 VStack {
                     HStack(spacing: 0){
-                        StudentIdCardView(isShowIdCard: $isShowIdCard)
-                            .environmentObject(alertManager)
-                            .environmentObject(tokenAPI)
+                        if #available(iOS 14.0, *) {
+                            StudentIdCardView()
+                                .environmentObject(alertManager)
+                                .environmentObject(tokenAPI)
+                        }
                         IngangView()
                             .environmentObject(tokenAPI)
                             .environmentObject(alertManager)
