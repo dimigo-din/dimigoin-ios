@@ -22,19 +22,6 @@ struct StudentIdCardView: View {
             ZStack {
                 VStack {
                     ViewTitle("학생증", sub: "모바일 학생증", icon: "idcard")
-                    
-                    VStack {
-                        HStack {
-                            Image("infomark").frame(width: 12, height: 12)
-                            Text("다음 내용을 읽어주세요").font(Font.custom("NotoSansKR-Bold", size: 12)).disabled()
-                        }
-                        VSpacer(19)
-                        Text("1. 본 증은 학교가 정식 발급한 학생증입니다.\n\n이외 신분증 등 활용은 활용처의 규정에 따라 달라질 수 있습니다.\n\n2. 본 증은 본인 이외 타인이 소지 또는 활용할 수 없습니다.\n타인에게 양도하여 입은 피해는 본인의 책임입니다.\n\n3. 스크린샷 또는 사본으로 동일한 효력을 발생시킬 수 없습니다.").disabled().multilineTextAlignment(.center).font(Font.custom("NotoSansKR-Medium", size: 11))
-                            
-                    }.frame(width: geometry.size.width-40)
-                    .padding(.vertical)
-                    .background(Color(UIColor.secondarySystemGroupedBackground).cornerRadius(10).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0))
-                    
                     Spacer()
                     if ProcessInfo.processInfo.arguments.contains("UITesting") {
                         Button(action: {
@@ -45,6 +32,19 @@ struct StudentIdCardView: View {
                         VSpacer(100)
                     }
                 }
+                VStack {
+                    Color.clear.frame(height: 280)
+                    Button(action: {
+                        alertManager.idCardReadme()
+                    }) {
+                        HStack {
+                            Image("infomark").frame(width: 12, height: 12)
+                            Text("사용 전 다음 내용을 반드시 읽어주세요").font(Font.custom("NotoSansKR-Bold", size: 11)).foregroundColor(Color.white)
+                        }.padding(.vertical, 8).frame(width: UIDevice.current.userInterfaceIdiom == .phone ? geometry.size.width-40 : 335).opacity(0.8).background(Color("gray5").cornerRadius(10)).padding(.bottom)
+                    }
+                    
+                }
+                
                 Color.black.edgesIgnoringSafeArea(.all).opacity(isShowIdCard ? 1 : 0)
                 VStack {
                     HStack {
@@ -125,7 +125,7 @@ struct StudentIdCardView: View {
 //                        UIDevice.current.userInterfaceIdiom == .phone ? geometry.size.width - 20 : 380, height: 182
                             .cornerRadius(10)
                     )
-                }.offset(y: isShowIdCard ? 0 : 50)
+                }
                 .rotation3DEffect(Angle(degrees: isShowIdCard ? 180 : 0), axis: (x: 1, y: -1, z: 0))
                 .onTapGesture {
                     if ProcessInfo.processInfo.arguments.contains("UITesting") {

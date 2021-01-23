@@ -18,6 +18,7 @@ enum AlertType {
     case cancel
     case text
     case logout
+    case idCardReadme
 }
 
 class AlertManager: ObservableObject {
@@ -46,7 +47,13 @@ class AlertManager: ObservableObject {
         }
         LOG("Alert presented \(content)")
     }
-    
+    func idCardReadme() {
+        UIImpactFeedbackGenerator(style: .soft).impactOccurred()
+        self.alertType = .idCardReadme
+        withAnimation(.spring()) {
+            self.isShowing = true
+        }
+    }
     func dismiss() {
         withAnimation(.spring()) {
             self.isShowing = false
@@ -61,6 +68,7 @@ class AlertManager: ObservableObject {
             case .danger: colorName = "red"
             case .text: colorName = "accent"
             case .logout: colorName = "accent"
+            case .idCardReadme: colorName = "accent"
         }
         return Color(colorName)
     }
@@ -74,6 +82,7 @@ class AlertManager: ObservableObject {
             case .danger: iconName = "dangermark"
             case .text: iconName = ""
             case .logout: iconName = "logout"
+            case .idCardReadme: iconName = ""
         }
         return iconName
     }
