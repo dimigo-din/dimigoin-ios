@@ -8,9 +8,11 @@
 
 import SwiftUI
 import Combine
+import DimigoinKit
 
 struct AlertView: View {
     @EnvironmentObject var alertManager: AlertManager
+    @EnvironmentObject var tokenAPI: TokenAPI
     @Binding var isShowing: Bool
     @State var dragOffset = CGSize.zero
     @State var startPos = CGPoint(x: 0, y: 0)
@@ -34,22 +36,51 @@ struct AlertView: View {
                     }
                     else {
                         VSpacer(35)
-                        Image(getIconName(alertManager.alertType)).resizable().aspectRatio(contentMode: .fit).frame(width: 30)
+                        Image(alertManager.getIconName()).renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 30).foregroundColor(alertManager.getAccentColor())
                         VSpacer(23)
-                        Text(alertManager.content).alertTitle(getTitleColor(alertManager.alertType))
+                        Text(alertManager.content).alertTitle(alertManager.getTitleColor()).foregroundColor(alertManager.getTitleColor())
                     }
                     
                     Spacer()
-                    Button(action: {
-                        dismiss()
-                    }) {
-                        Text("확인")
-                            .foregroundColor(Color.white)
-                            .font(Font.custom("NanumSquareEB", size: 14))
-                            .frame(height: 45)
-                            .frame(maxWidth: .infinity)
-                            .background(RoundSquare(tl: 0, tr: 0, bl: 10, br: 10).fill(getAccentColor(alertManager.alertType)))
+                    if alertManager.alertType == .logout {
+                        HStack(spacing: 0){
+                            Button(action: {
+                                dismiss()
+                            }) {
+                                Text("취소")
+                                    .foregroundColor(Color.white)
+                                    .font(Font.custom("NanumSquareEB", size: 14))
+                                    .frame(height: 45)
+                                    .frame(maxWidth: .infinity)
+                                    .background(RoundSquare(tl: 0, tr: 0, bl: 10, br: 0).fill(Color.gray4))
+                            }
+                            Button(action: {
+                                dismiss()
+                                tokenAPI.clearTokens()
+                            }) {
+                                Text("확인")
+                                    .foregroundColor(Color.white)
+                                    .font(Font.custom("NanumSquareEB", size: 14))
+                                    .frame(height: 45)
+                                    .frame(maxWidth: .infinity)
+                                    .background(RoundSquare(tl: 0, tr: 0, bl: 0, br: 10).fill(alertManager.getAccentColor()))
+                            }
+                        }
+                        
                     }
+                    else {
+                        Button(action: {
+                            dismiss()
+                        }) {
+                            Text("확인")
+                                .foregroundColor(Color.white)
+                                .font(Font.custom("NanumSquareEB", size: 14))
+                                .frame(height: 45)
+                                .frame(maxWidth: .infinity)
+                                .background(RoundSquare(tl: 0, tr: 0, bl: 10, br: 10).fill(alertManager.getAccentColor()))
+                        }
+                    }
+                    
                 }
                 .frame(width: UIDevice.current.userInterfaceIdiom == .phone ? geometry.size.width - 20 : 380, height: 182)
                 .background(Color(UIColor.systemBackground).cornerRadius(10))
@@ -61,38 +92,7 @@ struct AlertView: View {
         .opacity(isShowing ? 1 : 0)
     }
     
-    func getAccentColor(_ alertType: AlertType) -> Color {
-        var colorName: String = "purple"
-        switch alertType {
-            case .cancel: colorName = "gray4"
-            case .success: colorName = "accent"
-            case .warning: colorName = "yellow"
-            case .danger: colorName = "red"
-            case .text: colorName = "accent"
-        }
-        return Color(colorName)
-    }
     
-    func getIconName(_ alertType: AlertType) -> String {
-        var iconName: String = ""
-        switch alertType {
-            case .cancel: iconName = "disabled-checkmark"
-            case .success: iconName = "checkmark"
-            case .warning: iconName = "warningmark"
-            case .danger: iconName = "dangermark"
-            case .text: iconName = ""
-        }
-        return iconName
-    }
-    
-    func getTitleColor(_ alertType: AlertType) -> Color {
-        if alertType == .success {
-            return Color("accent")
-        }
-        else {
-            return Color("gray4")
-        }
-    }
     
     func dismiss() {
         withAnimation(.spring()) {

@@ -21,7 +21,7 @@ struct MainView: View {
     @ObservedObject var attendanceLogAPI = AttendanceLogAPI()
     @ObservedObject var placeAPI = PlaceAPI()
     // MARK: change here !~!
-    @State var tapbarIndex = 0
+    @State var tapbarIndex = 2
     @State var dragOffset = CGSize.zero
     @State var isShowIdCard: Bool = false
     
@@ -62,6 +62,7 @@ struct MainView: View {
                 }
                 AlertView(isShowing: $alertManager.isShowing)
                     .environmentObject(alertManager)
+                    .environmentObject(tokenAPI)
                     .frame(width: geometry.size.width)
                     .offset(x: -geometry.size.width*2)
             }

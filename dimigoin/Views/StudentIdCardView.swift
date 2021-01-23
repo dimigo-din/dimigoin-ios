@@ -22,6 +22,21 @@ struct StudentIdCardView: View {
             ZStack {
                 VStack {
                     ViewTitle("학생증", sub: "모바일 학생증", icon: "idcard")
+                    
+                    VStack {
+                        HStack {
+                            Image("infomark").frame(width: 12, height: 12)
+                            Text("다음 내용을 읽어주세요").font(Font.custom("NotoSansKR-Bold", size: 12)).disabled()
+                        }
+                        VSpacer(19)
+                        Text("1. 본 증은 학교가 정식 발급한 학생증입니다.\n\n이외 신분증 등 활용은 활용처의 규정에 따라 달라질 수 있습니다.\n\n2. 본 증은 본인 이외 타인이 소지 또는 활용할 수 없습니다.\n타인에게 양도하여 입은 피해는 본인의 책임입니다.\n\n3. 스크린샷 또는 사본으로 동일한 효력을 발생시킬 수 없습니다.").disabled().multilineTextAlignment(.center).font(Font.custom("NotoSansKR-Medium", size: 11))
+                            
+                    }.frame(width: geometry.size.width-40)
+                    .padding(.vertical)
+                    .background(Color(UIColor.secondarySystemGroupedBackground).cornerRadius(10).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0))
+                    
+//                    VSpacer(74)
+                    
                     Spacer()
                 }
                 Color.black.edgesIgnoringSafeArea(.all).opacity(isShowIdCard ? 1 : 0)
@@ -60,7 +75,6 @@ struct StudentIdCardView: View {
                     }
                     Spacer()
                 }.opacity(isShowIdCard ? 1 : 0)
-                
                 ZStack {
                     ZStack{
                         VStack {
@@ -70,9 +84,9 @@ struct StudentIdCardView: View {
                                 Image(systemName: "chevron.right").padding(.trailing, 25).foregroundColor(Color.white).padding(.top)
                             }.horizonPadding()
                             Spacer()
-                            Text("터치하여 모바일 학생증 열기").font(Font.custom("NotoSansKR-Bold", size: 11)).accent().padding(.vertical, 5).frame(width: geometry.size.width - 70).opacity(0.8).background(Color.white.cornerRadius(20)).padding(.bottom)
+                            Text("터치하여 모바일 학생증 열기").font(Font.custom("NotoSansKR-Bold", size: 11)).accent().padding(.vertical, 5).frame(maxWidth: geometry.size.width - 70).opacity(0.8).background(Color.white.cornerRadius(20)).padding(.bottom)
                         }
-                            .frame(height: 195).opacity(isShowIdCard ? 0 : 1)
+                        .frame(height: 195).opacity(isShowIdCard ? 0 : 1)
                         VStack {
                             VSpacer(30)
                             userAPI.userPhoto.resizable().placeholder(Image("user.photo.sample")).cornerRadius(5).aspectRatio(contentMode: .fit).frame(width: 116)
@@ -101,14 +115,15 @@ struct StudentIdCardView: View {
                     .background(
                         Rectangle()
                             .foregroundColor(isShowIdCard ? Color.white : Color.accent)
-                            .frame(width: !isShowIdCard ? geometry.size.width-40 : 473, height: !isShowIdCard ? 195 : 275)
+                            .frame(width: !isShowIdCard ? (UIDevice.current.userInterfaceIdiom == .phone ? geometry.size.width-40 : 335) : 473, height: !isShowIdCard ? 195 : 275)
+//                        UIDevice.current.userInterfaceIdiom == .phone ? geometry.size.width - 20 : 380, height: 182
                             .cornerRadius(10)
                     )
-                }
+                }.offset(y: isShowIdCard ? 0 : 50)
                 .rotation3DEffect(Angle(degrees: isShowIdCard ? 180 : 0), axis: (x: 1, y: -1, z: 0))
                 .onTapGesture {
-                    showIdCard()
-//                    showIdCardAfterAuthentication()
+//                    showIdCard()
+                    showIdCardAfterAuthentication()
                     
                 }
             }.frame(width: geometry.size.width)

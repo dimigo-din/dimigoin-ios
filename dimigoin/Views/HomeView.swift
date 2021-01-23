@@ -40,7 +40,7 @@ struct HomeView: View {
                             Image("logo").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 38).foregroundColor(Color.accent)
                             Spacer()
                             Button(action: {
-                                tokenAPI.clearTokens()
+                                alertManager.logoutCheck()
                             }) {
                                 Image("logout").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 30).foregroundColor(Color.accent)
                             }.offset(x: showLogoutButton ? 0 : 45)

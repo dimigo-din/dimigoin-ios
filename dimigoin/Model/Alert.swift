@@ -17,6 +17,7 @@ enum AlertType {
     case danger
     case cancel
     case text
+    case logout
 }
 
 class AlertManager: ObservableObject {
@@ -24,7 +25,6 @@ class AlertManager: ObservableObject {
     var alertType: AlertType = .warning
     var content: String = "content"
     var sub: String = "sub"
-    var count: Int = 0
     
     func createAlert(_ content: String, sub: String, _ alertType: AlertType) {
         UIImpactFeedbackGenerator(style: .soft).impactOccurred()
@@ -34,12 +34,59 @@ class AlertManager: ObservableObject {
         withAnimation(.spring()) {
             self.isShowing = true
         }
-        self.count += 1
         LOG("Alert presented \(content) : \(sub)")
     }
+    
+    func logoutCheck() {
+        UIImpactFeedbackGenerator(style: .soft).impactOccurred()
+        self.alertType = .logout
+        self.content = "정말 로그아웃 하시겠습니까?"
+        withAnimation(.spring()) {
+            self.isShowing = true
+        }
+        LOG("Alert presented \(content)")
+    }
+    
     func dismiss() {
         withAnimation(.spring()) {
             self.isShowing = false
+        }
+    }
+    func getAccentColor() -> Color {
+        var colorName: String = "purple"
+        switch alertType {
+            case .cancel: colorName = "gray4"
+            case .success: colorName = "accent"
+            case .warning: colorName = "yellow"
+            case .danger: colorName = "red"
+            case .text: colorName = "accent"
+            case .logout: colorName = "accent"
+        }
+        return Color(colorName)
+    }
+    
+    func getIconName() -> String {
+        var iconName: String = ""
+        switch alertType {
+            case .cancel: iconName = "disabled-checkmark"
+            case .success: iconName = "checkmark"
+            case .warning: iconName = "warningmark"
+            case .danger: iconName = "dangermark"
+            case .text: iconName = ""
+            case .logout: iconName = "logout"
+        }
+        return iconName
+    }
+    
+    func getTitleColor() -> Color {
+        if alertType == .success {
+            return Color("accent")
+        }
+        if alertType == .logout {
+            return Color.text
+        }
+        else {
+            return Color("gray4")
         }
     }
 }
