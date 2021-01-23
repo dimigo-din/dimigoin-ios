@@ -22,11 +22,11 @@ struct SectionHeader: View {
             HStack {
                 Text(NSLocalizedString(self.subSectionHeader, comment: "")).subSectionHeader()
                 Spacer()
-            }.horizonPadding()
+            }
             HStack {
                 Text(NSLocalizedString(self.sectionHeader, comment: "")).sectionHeader()
                 Spacer()
-            }.horizonPadding()
+            }
         }
     }
 }

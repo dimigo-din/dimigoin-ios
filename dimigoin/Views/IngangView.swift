@@ -22,7 +22,7 @@ struct IngangView: View {
                     ViewTitle("인강실", sub: "야간자율학습", icon: "headphone")
                 
                 ForEach(ingangAPI.ingangs, id: \.self) { ingang in
-                    SectionHeader(ingang.title, sub: ingang.timeString)
+                    SectionHeader(ingang.title, sub: ingang.timeString).horizonPadding()
                     VSpacer(10)
                     VStack {
                         HStack {
