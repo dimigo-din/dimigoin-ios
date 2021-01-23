@@ -21,7 +21,7 @@ struct KeyboardResponsiveModifier: ViewModifier {
             let height = value.height
             let bottomInset = UIApplication.shared.windows.first?.safeAreaInsets.bottom
             withAnimation(Animation.easeOut(duration: 0.25)) {
-                self.offset = height - (bottomInset ?? 0)
+                self.offset = height/2 - (bottomInset ?? 0)
             }
         }
 

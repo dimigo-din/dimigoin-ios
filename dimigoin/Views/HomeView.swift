@@ -20,7 +20,7 @@ struct HomeView: View {
     @EnvironmentObject var placeAPI: PlaceAPI
     @EnvironmentObject var ingangAPI: IngangAPI
     @State var currentLocation = 0
-    @State var isShowGift: Bool = false
+    @State var showLogoutButton: Bool = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -40,7 +40,9 @@ struct HomeView: View {
                             Image("logo").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 38).foregroundColor(Color.accent)
                             Spacer()
                             Button(action: {
-                                tokenAPI.clearTokens()
+                                withAnimation(Animation.easeInOut(duration: 0.75)) {
+                                    self.showLogoutButton.toggle()
+                                }
                             }) {
                                 ZStack {
                                     Circle().fill(Color.systemBackground).frame(width: 38, height: 38)
@@ -58,7 +60,13 @@ struct HomeView: View {
                                     }
                                 }
                             }
-                            
+                            if showLogoutButton {
+                                Button(action: {
+                                    tokenAPI.clearTokens()
+                                }) {
+                                    Image("logout").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 30).foregroundColor(Color.accent)
+                                }
+                            }
                         }.horizonPadding()
                     }
                     VSpacer(15)
@@ -70,30 +78,6 @@ struct HomeView: View {
                     Text("오늘의 급식").font(Font.custom("NotoSansKR-Bold", size: 20)).horizonPadding()
                     MealPagerView()
                         .environmentObject(mealAPI)
-                    
-                    if(ingangAPI.isAppliedAnyIngang()) {
-                        SectionHeader("나의 신청현황", sub: "")
-                    }
-                    ForEach(0..<ingangAPI.ingangs.count, id: \.self) { i in
-                        if(ingangAPI.ingangs[i].isApplied == true) {
-                            HStack {
-                                VStack(alignment: .leading, spacing: 5){
-                                    Text("오늘의 인강실").font(Font.custom("NotoSansKR-Bold", size: 17))
-                                    HStack {
-                                        Image("clock").frame(width: 20)
-                                        Text("\(ingangAPI.ingangs[i].title)").gray4().caption3()
-                                    }
-                                    HStack {
-                                        Image("map.pin").frame(width: 20)
-                                        Text("\(userAPI.user.grade)학년 인강실").gray4().caption3()
-                                    }
-                                }
-                            }.padding()
-                            .frame(width: abs(geometry.size.width-40), alignment: .leading)
-                            .background(CustomBox())
-                            .fixedSize(horizontal: false, vertical: true)
-                        }
-                    }
                 }
             }
         }

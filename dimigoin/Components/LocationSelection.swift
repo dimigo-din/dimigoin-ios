@@ -34,7 +34,7 @@ struct LocationSelectionView: View {
     ]
     var body: some View {
         VStack {
-            SectionHeader("자습 현황", sub: "야간자율학습 1타임")
+            SectionHeader("자습 현황", sub: "야간자율학습 1타임").horizonPadding()
             HStack() {
                 ForEach(locationButtons, id: \.self) { location in
                     LocationItem(currentLocation: $currentLocation, idx: location.idx, icon: location.icon, name: location.name)

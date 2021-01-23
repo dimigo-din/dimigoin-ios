@@ -21,7 +21,7 @@ struct MainView: View {
     @ObservedObject var attendanceLogAPI = AttendanceLogAPI()
     @ObservedObject var placeAPI = PlaceAPI()
     // MARK: change here !~!
-    @State var tapbarIndex = 3
+    @State var tapbarIndex = 2
     @State var isShowIdCard = false
     @State var dragOffset = CGSize.zero
     
