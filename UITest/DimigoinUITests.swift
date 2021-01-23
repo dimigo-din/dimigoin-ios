@@ -37,6 +37,9 @@ class UI_tests_for_screenshots: XCTestCase {
         let loginButton = app.buttons["button.login"]
         loginButton.tap()
 
+        let tabBarButtonIdCard = app.buttons["tapbar.idcard"]
+        tabBarButtonIdCard.tap()
+        
         let showIdCardButton = app.buttons["button.showIdCard"]
         showIdCardButton.tap()
 

@@ -95,7 +95,9 @@ struct MealView: View {
                             self.dragOffset = value.translation
                         }
                         .onEnded { value in
-                            self.dragOffset = .zero
+                            withAnimation() {
+                                self.dragOffset = .zero
+                            }
                             if value.translation.width < 0 && value.translation.height > -30 && value.translation.height < 30 {
                                 nextMeal()
                             }
@@ -112,13 +114,19 @@ struct MealView: View {
     }
     func nextMeal() {
         if selectedDay != 6 {
-           self.selectedDay += 1
+            withAnimation() {
+                self.selectedDay += 1
+            }
+           
        }
     }
     
     func previousMeal() {
         if selectedDay != 0 {
-           self.selectedDay -= 1
+            withAnimation() {
+                self.selectedDay -= 1
+            }
+           
        }
     }
     

@@ -35,9 +35,15 @@ struct StudentIdCardView: View {
                     .padding(.vertical)
                     .background(Color(UIColor.secondarySystemGroupedBackground).cornerRadius(10).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0))
                     
-//                    VSpacer(74)
-                    
                     Spacer()
+                    if ProcessInfo.processInfo.arguments.contains("UITesting") {
+                        Button(action: {
+                            isShowIdCard = true
+                        }) {
+                            Text("Test Button")
+                        }.accessibility(identifier: "button.showIdCard")
+                        VSpacer(100)
+                    }
                 }
                 Color.black.edgesIgnoringSafeArea(.all).opacity(isShowIdCard ? 1 : 0)
                 VStack {
@@ -72,7 +78,7 @@ struct StudentIdCardView: View {
                             Text("이곳을 눌러 닫기").font(Font.custom("NotoSansKR-Medium", size: 11)).foregroundColor(Color("gray3"))
                         }
                         
-                    }
+                    }.accessibility(identifier: "button.dismissIdCard")
                     Spacer()
                 }.opacity(isShowIdCard ? 1 : 0)
                 ZStack {
@@ -122,11 +128,16 @@ struct StudentIdCardView: View {
                 }.offset(y: isShowIdCard ? 0 : 50)
                 .rotation3DEffect(Angle(degrees: isShowIdCard ? 180 : 0), axis: (x: 1, y: -1, z: 0))
                 .onTapGesture {
-//                    showIdCard()
+                    if ProcessInfo.processInfo.arguments.contains("UITesting") {
+                        showIdCard()
+                    }
                     showIdCardAfterAuthentication()
                     
                 }
+                
             }.frame(width: geometry.size.width)
+            
+            
             
         }
     }
