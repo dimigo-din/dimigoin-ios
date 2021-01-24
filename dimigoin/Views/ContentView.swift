@@ -11,7 +11,7 @@ import DimigoinKit
 
 struct ContentView: View {
     @ObservedObject var tokenAPI = TokenAPI()
-    @ObservedObject var alertManager = AlertManager()
+    var alertManager = AlertManager()
     init() {
         tokenAPI.saveTokens()
     }
