@@ -31,7 +31,7 @@ struct MainView: View {
                 VStack {
                     Spacer()
                     Image("school").resizable().aspectRatio(contentMode: .fit).frame(maxWidth: .infinity).opacity(0.3)
-                    VSpacer(UIDevice.current.hasNotch ? 74 : 64)
+                    VSpacer(tabBarSize)
                 }
             }
             GeometryReader { geometry in

@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+public var tabBarSize: CGFloat = UIDevice.current.hasNotch ? 74 : 64
+
 struct tapBarItem: Hashable {
     var idx: Int
     var icon: String
@@ -50,16 +52,16 @@ struct TapBar: View {
                 ForEach(tapBarItems, id: \.self) { item in
                     TapBarButton(index: $index, item: item)
                 }
-            }.frame(height: UIDevice.current.hasNotch ? 74 : 64)
+            }.frame(height: tabBarSize)
             .horizonPadding()
             if UIDevice.current.hasNotch {
                 VSpacer(10)
             }
-        }.frame(height: UIDevice.current.hasNotch ? 74 : 64)
+        }.frame(height: tabBarSize)
         .frame(maxWidth: .infinity)
         .background(Rectangle().fill(Color.systemBackground).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0).edgesIgnoringSafeArea(.all))
         .edgesIgnoringSafeArea(.all)
-        .offset(y : isShowIdCard ? 74 : 0)
+        .offset(y : isShowIdCard ? tabBarSize : 0)
     }
 }
 
