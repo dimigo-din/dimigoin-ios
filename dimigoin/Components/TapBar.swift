@@ -78,19 +78,21 @@ struct TapBarButton: View {
                         .renderingMode(.template)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: item.icon == "meal" ? 15 : 24)
+                        .frame(height: item.icon == "idcard" ? 18 : 24)
                         .foregroundColor(self.index == item.idx ? Color.accent : Color("gray7"))
+                        .padding(.top, item.icon == "idcard" ? 3 : 0)
                 }
                 else {
                     Image(item.icon)
                         .renderingMode(.template)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: item.icon == "meal" ? 15 : 24)
+                        .frame(height: item.icon == "idcard" ? 18 : 24)
                         .foregroundColor(self.index == item.idx ? Color.accent : Color("gray7"))
+                        .padding(.top, item.icon == "idcard" ? 3 : 0)
                 }
                 
-                    VSpacer(7.8)
+                VSpacer(item.icon == "idcard" ? 11.8 : 7.8)
                 
                 Text(item.label)
                     .tapBarItem()
