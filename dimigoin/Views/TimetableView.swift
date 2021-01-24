@@ -13,8 +13,7 @@ struct TimetableView: View {
     @EnvironmentObject var timetableAPI: TimetableAPI
     @EnvironmentObject var userAPI: UserAPI
     @EnvironmentObject var alertManager: AlertManager
-    @State private var magicNum: Int = 5
-    @State var isMagicRevealed: Bool = UserDefaults.standard.bool(forKey: "Magic") == true ? true : false
+    
     var body: some View {
         GeometryReader { geometry in
             ScrollView(showsIndicators: false) {
@@ -24,45 +23,28 @@ struct TimetableView: View {
                         Text(NSLocalizedString("시간표", comment: "")).title()
                     }
                     Spacer()
-                    Image("calendar.fill").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent).onTapGesture {
-                        if magicNum == 0 {
-                            revealSecret()
-                        } else {
-                            magicNum -= 1
-                        }
-                    }
+                    Image("calendar.fill").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent)
                 }.horizonPadding()
                 .padding(.top, 30)
                 VSpacer(29)
-                TimetableItem(grade: userAPI.user.grade, klass: userAPI.user.klass, isMagicRevealed: $isMagicRevealed, geometry: geometry)
+                TimetableItem(grade: userAPI.user.grade, klass: userAPI.user.klass, geometry: geometry)
                     .environmentObject(timetableAPI)
                 VSpacer(100)
             }
         }
     }
     
-    private func revealSecret() {
-        if(!isMagicRevealed) {
-            alertManager.createAlert("이스터에그를 발견하셨네요!", sub: "축하드립니다🥳\n이제 모든 교실의 시간표를 조회할 수 있습니다.", .success)
-            UserDefaults.standard.setValue(true, forKey: "Magic")
-            withAnimation() {
-                self.isMagicRevealed = true
-            }
-        }
-    }
 }
 
 struct TimetableItem: View{
     @EnvironmentObject var timetableAPI: TimetableAPI
     @State var grade: Int
     @State var klass: Int
-    @Binding var isMagicRevealed: Bool
     @State var geometry: GeometryProxy
     var dayIndicatorXOffset: CGFloat = 0
-    init(grade: Int, klass: Int, isMagicRevealed: Binding<Bool>, geometry: GeometryProxy) {
+    init(grade: Int, klass: Int, geometry: GeometryProxy) {
         self._grade = .init(initialValue: grade)
         self._klass = .init(initialValue: klass)
-        self._isMagicRevealed = isMagicRevealed
         self._geometry = .init(initialValue: geometry)
         self.dayIndicatorXOffset = CGFloat(getTodayDayOfWeekInt()-1)*(geometry.size.width-40)/5
     }
@@ -77,28 +59,6 @@ struct TimetableItem: View{
     }
     var body: some View {
         VStack {
-            if(isMagicRevealed) {
-                if #available(iOS 14.0, *) {
-                    HStack {
-                        Picker(selection: $grade, label: pickerButton(type:"학년", grade)) {
-                            Text("1학년").tag(1)
-                            Text("2학년").tag(2)
-                            Text("3학년").tag(3)
-                        }.pickerStyle(MenuPickerStyle())
-                        Picker(selection: $klass, label: pickerButton(type:"반", klass)) {
-                            Text("1반").tag(1)
-                            Text("2반").tag(2)
-                            Text("3반").tag(3)
-                            Text("4반").tag(4)
-                            Text("5반").tag(5)
-                            Text("6반").tag(6)
-                        }.pickerStyle(MenuPickerStyle())
-
-                        Spacer()
-                    }.horizonPadding()
-                    .offset(y: -20)
-                }
-            }
             VSpacer(10)
             ZStack(alignment: .topLeading){
                 HStack(alignment: .top, spacing: 0) {

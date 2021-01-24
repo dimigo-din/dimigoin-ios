@@ -24,7 +24,7 @@ struct HomeView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack{
+            VStack {
                 ZStack {
                     VStack {
                         VSpacer(50)
@@ -65,18 +65,20 @@ struct HomeView: View {
                         }
                         
                     }.horizonPadding()
-                }
+                }.frame(width: geometry.size.width)
                 VSpacer(15)
                 LocationSelectionView(currentLocation: $currentLocation)
                     .environmentObject(attendanceLogAPI)
                     .environmentObject(placeAPI)
                     .environmentObject(alertManager)
                 Spacer()
-                Text("오늘의 급식").font(Font.custom("NotoSansKR-Bold", size: 20)).horizonPadding()
                 MealPagerView(geometry: geometry)
                     .environmentObject(mealAPI)
+                    
+                    
+                    .background(Color.red)
                 VSpacer(tabBarSize + 40)
-            }
+            }.frame(width: geometry.size.width)
             
         }
     }

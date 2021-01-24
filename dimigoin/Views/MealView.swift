@@ -18,7 +18,7 @@ struct MealView: View {
     var body: some View {
         GeometryReader { geometry in
             ScrollView(showsIndicators: false) {
-                VStack() {
+                VStack {
                     VStack {
                         HStack {
                             VStack(alignment: .leading, spacing: 0){
@@ -85,8 +85,8 @@ struct MealView: View {
                                     .fixedSize(horizontal: false, vertical: true)
                                     .background(Color(UIColor.secondarySystemGroupedBackground).cornerRadius(10).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0))
                             }
-                                .horizonPadding()
-                                .frame(width: geometry.size.width)
+                            .horizonPadding()
+                            .frame(width: geometry.size.width)
                         }
                     }.offset(x: -geometry.size.width*CGFloat(selectedDay-3)+dragOffset.width)
                     .animation(.interactiveSpring())
