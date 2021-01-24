@@ -24,7 +24,13 @@ struct TimetableView: View {
                         Text(NSLocalizedString("시간표", comment: "")).title()
                     }
                     Spacer()
-                    Image("calendar.fill").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent)
+                    Image("calendar.fill").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent).onTapGesture {
+                        if magicNum == 0 {
+                            revealSecret()
+                        } else {
+                            magicNum -= 1
+                        }
+                    }
                 }.horizonPadding()
                 .padding(.top, 30)
                 VSpacer(29)
@@ -71,27 +77,28 @@ struct TimetableItem: View{
     }
     var body: some View {
         VStack {
-//            if(isMagicRevealed) {
-//                if #available(iOS 14.0, *) {
-//                    HStack {
-//                        Picker(selection: $grade, label: pickerButton(type:"학년", grade)) {
-//                            Text("1학년").tag(1)
-//                            Text("2학년").tag(2)
-//                            Text("3학년").tag(3)
-//                        }.pickerStyle(MenuPickerStyle())
-//                        Picker(selection: $klass, label: pickerButton(type:"반", klass)) {
-//                            Text("1반").tag(1)
-//                            Text("2반").tag(2)
-//                            Text("3반").tag(3)
-//                            Text("4반").tag(4)
-//                            Text("5반").tag(5)
-//                            Text("6반").tag(6)
-//                        }.pickerStyle(MenuPickerStyle())
-//
-//                        Spacer()
-//                    }.horizonPadding()
-//                }
-//            }
+            if(isMagicRevealed) {
+                if #available(iOS 14.0, *) {
+                    HStack {
+                        Picker(selection: $grade, label: pickerButton(type:"학년", grade)) {
+                            Text("1학년").tag(1)
+                            Text("2학년").tag(2)
+                            Text("3학년").tag(3)
+                        }.pickerStyle(MenuPickerStyle())
+                        Picker(selection: $klass, label: pickerButton(type:"반", klass)) {
+                            Text("1반").tag(1)
+                            Text("2반").tag(2)
+                            Text("3반").tag(3)
+                            Text("4반").tag(4)
+                            Text("5반").tag(5)
+                            Text("6반").tag(6)
+                        }.pickerStyle(MenuPickerStyle())
+
+                        Spacer()
+                    }.horizonPadding()
+                    .offset(y: -20)
+                }
+            }
             VSpacer(10)
             ZStack(alignment: .topLeading){
                 HStack(alignment: .top, spacing: 0) {
@@ -102,8 +109,7 @@ struct TimetableItem: View{
                             VSpacer(29)
                             ForEach(timetableAPI.getTimetable(grade: grade, klass: klass).data[day-1], id: \.self) { lecture in
                                 VStack(spacing: 0) {
-//                                    Text("\(lecture)")
-                                    Text("과목")
+                                    Text("\(lecture)")
                                         .frame(width: (geometry.size.width-40)/5, height: 20)
                                         .padding(.top, 9)
                                         .font(Font.custom("NotoSansKR-Medium", size: 18))

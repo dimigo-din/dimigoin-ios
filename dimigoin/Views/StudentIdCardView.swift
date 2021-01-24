@@ -39,9 +39,9 @@ struct StudentIdCardView: View {
                         alertManager.idCardReadme()
                     }) {
                         HStack {
-                            Image("infomark").frame(width: 12, height: 12)
+                            Image("infomark").renderingMode(.template).foregroundColor(Color.white).frame(width: 12, height: 12)
                             Text("사용 전 다음 내용을 반드시 읽어주세요").font(Font.custom("NotoSansKR-Bold", size: 11)).foregroundColor(Color.white)
-                        }.padding(.vertical, 8).frame(width: horizontalSizeClass == .compact ? geometry.size.width-40 : 335).opacity(0.8).background(Color("gray5").cornerRadius(10)).padding(.bottom)
+                        }.padding(.vertical, 13).frame(width: horizontalSizeClass == .compact ? geometry.size.width-40 : 335).opacity(0.8).background(Color("gray6").cornerRadius(10)).padding(.bottom)
                     }
                     
                 }
@@ -133,13 +133,9 @@ struct StudentIdCardView: View {
                         showIdCard()
                     }
                     showIdCardAfterAuthentication()
-                    
                 }
                 
             }.frame(width: geometry.size.width)
-            
-            
-            
         }
     }
     
