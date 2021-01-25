@@ -166,12 +166,14 @@ struct StudentIdCardView: View {
         }
     }
     func showIdCard() {
+        UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
         withAnimation(Animation.spring(response: 0.6, dampingFraction: 0.6, blendDuration: 0.6)) {
             self.isShowIdCard = true
         }
         remainTime = 15
     }
     func dismissIdCard() {
+        UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
         withAnimation(.spring()) {
             self.isShowIdCard = false
         }
