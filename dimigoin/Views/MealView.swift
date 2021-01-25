@@ -89,13 +89,15 @@ struct MealView: View {
                             .frame(width: geometry.size.width)
                         }
                     }.offset(x: -geometry.size.width*CGFloat(selectedDay-3)+dragOffset.width)
-                    .animation(.interactiveSpring())
+                    .animation(.spring())
                     .gesture(DragGesture(minimumDistance: 3.0, coordinateSpace: .local)
                         .onChanged { value in
-                            self.dragOffset = value.translation
+                            withAnimation(.spring()) {
+                                self.dragOffset = value.translation
+                            }
                         }
                         .onEnded { value in
-                            withAnimation() {
+                            withAnimation(.spring()) {
                                 self.dragOffset = .zero
                             }
                             if value.translation.width < 0 && value.translation.height > -30 && value.translation.height < 30 {
@@ -114,7 +116,7 @@ struct MealView: View {
     }
     func nextMeal() {
         if selectedDay != 6 {
-            withAnimation() {
+            withAnimation(.spring()) {
                 self.selectedDay += 1
             }
            
@@ -123,7 +125,7 @@ struct MealView: View {
     
     func previousMeal() {
         if selectedDay != 0 {
-            withAnimation() {
+            withAnimation(.spring()) {
                 self.selectedDay -= 1
             }
            
