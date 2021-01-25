@@ -129,10 +129,11 @@ struct StudentIdCardView: View {
                 }
                 .rotation3DEffect(Angle(degrees: isShowIdCard ? 180 : 0), axis: (x: 1, y: -1, z: 0))
                 .onTapGesture {
-                    if ProcessInfo.processInfo.arguments.contains("UITesting") {
+                    #if targetEnvironment(simulator)
                         showIdCard()
-                    }
-                    showIdCardAfterAuthentication()
+                    #else
+                        showIdCardAfterAuthentication()
+                    #endif
                 }
                 
             }.frame(width: geometry.size.width)
@@ -165,7 +166,7 @@ struct StudentIdCardView: View {
         }
     }
     func showIdCard() {
-        withAnimation(.spring()) {
+        withAnimation(Animation.spring(response: 0.6, dampingFraction: 0.6, blendDuration: 0.6)) {
             self.isShowIdCard = true
         }
         remainTime = 15
