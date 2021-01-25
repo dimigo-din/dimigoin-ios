@@ -32,9 +32,7 @@ class AlertManager: ObservableObject {
         self.alertType = alertType
         self.content = content
         self.sub = sub
-        withAnimation(.spring()) {
-            self.isShowing = true
-        }
+        showAlert()
         LOG("Alert presented \(content) : \(sub)")
     }
     
@@ -42,20 +40,21 @@ class AlertManager: ObservableObject {
         UIImpactFeedbackGenerator(style: .soft).impactOccurred()
         self.alertType = .logout
         self.content = "정말 로그아웃 하시겠습니까?"
-        withAnimation(.spring()) {
-            self.isShowing = true
-        }
+        showAlert()
         LOG("Alert presented \(content)")
     }
     func idCardReadme() {
         UIImpactFeedbackGenerator(style: .soft).impactOccurred()
         self.alertType = .idCardReadme
-        withAnimation(.spring()) {
+        showAlert()
+    }
+    func showAlert() {
+        withAnimation(.easeInOut(duration: 0.25)) {
             self.isShowing = true
         }
     }
     func dismiss() {
-        withAnimation(.spring()) {
+        withAnimation(.easeInOut(duration: 0.25)) {
             self.isShowing = false
         }
     }

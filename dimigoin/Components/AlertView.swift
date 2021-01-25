@@ -19,11 +19,6 @@ struct AlertView: View {
     
     var body: some View {
         ZStack {
-            if isShowing {
-                BlurView().edgesIgnoringSafeArea(.all).onTapGesture {
-                    dismiss()
-                }
-            }
             GeometryReader { geometry in
                 VStack(spacing: 0){
                     if alertManager.alertType == .text {
@@ -111,10 +106,4 @@ struct AlertView: View {
             self.isShowing = false
         }
     }
-}
-
-struct BlurView: UIViewRepresentable {
-    var effect: UIVisualEffect = UIBlurEffect(style: .systemThinMaterial)
-    func makeUIView(context: UIViewRepresentableContext<Self>) -> UIVisualEffectView { UIVisualEffectView() }
-    func updateUIView(_ uiView: UIVisualEffectView, context: UIViewRepresentableContext<Self>) { uiView.effect = effect }
 }
