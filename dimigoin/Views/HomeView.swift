@@ -22,6 +22,8 @@ struct HomeView: View {
     @State var currentLocation = 0
     @State var showLogoutButton: Bool = false
     
+    @Binding var tapbarIndex: Int 
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -74,9 +76,7 @@ struct HomeView: View {
                 Spacer()
                 MealPagerView(geometry: geometry)
                     .environmentObject(mealAPI)
-                    
-                    
-                    .background(Color.red)
+                    .opacity(tapbarIndex == 2 ? 1 : 0)
                 VSpacer(tabBarSize + 40)
             }.frame(width: geometry.size.width)
             

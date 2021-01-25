@@ -45,7 +45,7 @@ struct MainView: View {
                                 .environmentObject(tokenAPI)
                                 .environmentObject(alertManager)
                                 .environmentObject(ingangAPI)
-                            HomeView()
+                            HomeView(tapbarIndex: $tapbarIndex)
                                 .environmentObject(tokenAPI)
                                 .environmentObject(mealAPI)
                                 .environmentObject(alertManager)

@@ -37,30 +37,30 @@ struct MealPagerView: View {
                     VSpacer(10)
                     Text("\(mealAPI.getTodayMeal().dinner)").mealMenu().horizonPadding()
                 }.padding(.top).modifier(CardViewModifier(305,147))
+            }.offset(x: (geometry.size.width-305)/2)
+            .offset(x: -320*CGFloat(currentCardIdx)+dragOffset.width)
+            .animation(.spring())
+            .onReceive(self.timer) { _ in
+                if dragOffset.width == 0 {
+                    nextCard()
+                }
             }
-                .offset(x: (geometry.size.width-305)/2)
-    //            .offset(x: -320*CGFloat(currentCardIdx)+dragOffset.width)
-                .animation(.spring())
-                .onReceive(self.timer) { _ in
-                    if dragOffset.width == 0 {
+            
+            .gesture(
+                DragGesture(minimumDistance: 3.0, coordinateSpace: .local)
+                .onChanged { value in
+                    self.dragOffset = value.translation
+                }
+                .onEnded { value in
+                    self.dragOffset = .zero
+                    if value.translation.width < 0 && value.translation.height > -30 && value.translation.height < 30 {
                         nextCard()
                     }
+                    else if value.translation.width > 0 && value.translation.height > -30 && value.translation.height < 30 {
+                        previousCard()
+                    }
                 }
-                .gesture(
-                    DragGesture(minimumDistance: 3.0, coordinateSpace: .local)
-                    .onChanged { value in
-                        self.dragOffset = value.translation
-                    }
-                    .onEnded { value in
-                        self.dragOffset = .zero
-                        if value.translation.width < 0 && value.translation.height > -30 && value.translation.height < 30 {
-                            nextCard()
-                        }
-                        else if value.translation.width > 0 && value.translation.height > -30 && value.translation.height < 30 {
-                            previousCard()
-                        }
-                    }
-                )
+            )
             HStack(spacing: 5){
                 ForEach(0...2, id: \.self) { idx in
                     Circle().frame(width: 8, height: 8).foregroundColor(currentCardIdx == idx ? Color.accent : Color.divider)
@@ -70,8 +70,6 @@ struct MealPagerView: View {
                 }
             }.offset(x: (geometry.size.width-34)/2)
         }.frame(width: geometry.size.width, alignment: .leading)
-//        .background(Color.blue)
-
     }
     
     func nextCard() {
