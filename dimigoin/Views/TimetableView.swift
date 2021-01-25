@@ -71,13 +71,8 @@ struct TimetableItem: View{
                                 VStack(spacing: 0) {
                                     Text("\(lecture)")
                                         .frame(width: (geometry.size.width-40)/5, height: 20)
-                                        .padding(.top, 9)
+                                        .padding(.top, 15)
                                         .font(Font.custom("NotoSansKR-Medium", size: 18))
-                                        .foregroundColor(getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
-                                    Text("교사명")
-                                        .frame(width: (geometry.size.width-40)/5, height: 20)
-                                        .padding(.bottom, 9)
-                                        .font(Font.custom("NotoSansKR-Medium", size: 10))
                                         .foregroundColor(getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
                                 }
                                 
