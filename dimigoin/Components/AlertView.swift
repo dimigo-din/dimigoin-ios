@@ -12,7 +12,6 @@ import DimigoinKit
 
 struct AlertView: View {
     @EnvironmentObject var alertManager: AlertManager
-    @EnvironmentObject var tokenAPI: TokenAPI
     @Binding var isShowing: Bool
     @State var dragOffset = CGSize.zero
     @State var startPos = CGPoint(x: 0, y: 0)
@@ -37,15 +36,17 @@ struct AlertView: View {
                             }
                             VSpacer(19)
                             Text("1. 본 증은 학교가 정식 발급한 학생증입니다.\n\n이외 신분증 등 활용은 활용처의 규정에 따라 달라질 수 있습니다.\n\n2. 본 증은 본인 이외 타인이 소지 또는 활용할 수 없습니다.\n타인에게 양도하여 입은 피해는 본인의 책임입니다.\n\n3. 스크린샷 또는 사본으로 동일한 효력을 발생시킬 수 없습니다.").disabled().multilineTextAlignment(.center).font(Font.custom("NotoSansKR-Medium", size: 11))
-                        }
+                        }.animation(.none)
                         .padding(.vertical)
                                             
                     }
                     else {
-                        VSpacer(35)
-                        Image(alertManager.getIconName()).renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 30).foregroundColor(alertManager.getAccentColor())
-                        VSpacer(23)
-                        Text(alertManager.content).alertTitle(alertManager.getTitleColor()).foregroundColor(alertManager.getTitleColor())
+                        VStack {
+                            VSpacer(35)
+                            Image(alertManager.getIconName()).renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 30).foregroundColor(alertManager.getAccentColor())
+                            VSpacer(23)
+                            Text(alertManager.content).alertTitle(alertManager.getTitleColor()).foregroundColor(alertManager.getTitleColor())
+                        }.animation(.none)
                     }
                     
                     Spacer()
@@ -63,7 +64,7 @@ struct AlertView: View {
                             }
                             Button(action: {
                                 dismiss()
-                                tokenAPI.clearTokens()
+//                                tokenAPI.clearTokens()
                             }) {
                                 Text("확인")
                                     .foregroundColor(Color.white)
@@ -90,7 +91,7 @@ struct AlertView: View {
                     
                 }
                 .frame(width: UIDevice.current.userInterfaceIdiom == .phone ? geometry.size.width - 20 : 380, height: alertManager.alertType == .idCardReadme ? 260 : 195)
-                .background(Color(UIColor.systemBackground).cornerRadius(10))
+                .background(Color(UIColor.systemBackground).cornerRadius(10).animation(.none))
                 .padding(.horizontal, UIDevice.current.userInterfaceIdiom == .phone ? 10 : (geometry.size.width - 380)/2)
                 .padding(.top, (geometry.size.height - 182)/2)
                 .edgesIgnoringSafeArea(.all)

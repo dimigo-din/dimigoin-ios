@@ -33,7 +33,7 @@ class AlertManager: ObservableObject {
         self.content = content
         self.sub = sub
         showAlert()
-        LOG("Alert presented \(content) : \(sub)")
+        print("Alert presented \(content) : \(sub)")
     }
     
     func logoutCheck() {
@@ -41,7 +41,7 @@ class AlertManager: ObservableObject {
         self.alertType = .logout
         self.content = "정말 로그아웃 하시겠습니까?"
         showAlert()
-        LOG("Alert presented \(content)")
+        print("Alert presented \(content)")
     }
     func idCardReadme() {
         UIImpactFeedbackGenerator(style: .soft).impactOccurred()

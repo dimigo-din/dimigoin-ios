@@ -12,13 +12,8 @@ import SDWebImageSwiftUI
 
 struct HomeView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    @EnvironmentObject var mealAPI: MealAPI
     @EnvironmentObject var alertManager: AlertManager
-    @EnvironmentObject var tokenAPI : TokenAPI
-    @EnvironmentObject var userAPI: UserAPI
-    @EnvironmentObject var attendanceLogAPI: AttendanceLogAPI
-    @EnvironmentObject var placeAPI: PlaceAPI
-    @EnvironmentObject var ingangAPI: IngangAPI
+    @EnvironmentObject var api: DimigoinAPI
     @State var currentLocation = 0
     @State var showLogoutButton: Bool = false
     
@@ -26,59 +21,60 @@ struct HomeView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack {
-                ZStack {
-                    VStack {
-                        VSpacer(50)
-                        if(horizontalSizeClass == .compact) {
-                            Image("school").resizable().aspectRatio(contentMode: .fit).frame(maxWidth: .infinity).opacity(0.3)
-                        }
-                        else {
-                            Image("school").resizable().frame(maxWidth: .infinity).opacity(0.3)
-                        }
-                    }
-                    HStack {
-                        Image("logo").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 38).foregroundColor(Color.accent)
-                        Spacer()
-                        Button(action: {
-                            alertManager.logoutCheck()
-                        }) {
-                            Image("logout").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 30).foregroundColor(Color.accent)
-                        }.offset(x: showLogoutButton ? 0 : 45)
-                        
-                        ZStack {
-                            Circle().fill(Color.systemBackground).frame(width: 38, height: 38)
-                            withAnimation() {
-                                userAPI.userPhoto
-                                    .resizable()
-                                    .foregroundColor(Color.accent)
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 38)
-                                    .clipShape(Circle())
-                                    .overlay(
-                                        Circle().stroke(Color.accent, lineWidth: 2)
-                                    )
-                                    .accessibility(identifier: "profile")
+            ScrollView(showsIndicators: false) {
+                VStack {
+                    ZStack {
+                        VStack {
+                            VSpacer(50)
+                            if(horizontalSizeClass == .compact) {
+                                Image("school").resizable().aspectRatio(contentMode: .fit).frame(maxWidth: .infinity).opacity(0.3)
                             }
-                        }.onTapGesture {
-                            withAnimation(.spring()) {
-                                self.showLogoutButton.toggle()
+                            else {
+                                Image("school").resizable().frame(maxWidth: .infinity).opacity(0.3)
                             }
                         }
-                        
-                    }.horizonPadding()
+                        HStack {
+                            Image("logo").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 38).foregroundColor(Color.accent)
+                            Spacer()
+                            Button(action: {
+                                alertManager.logoutCheck()
+                            }) {
+                                Image("logout").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 30).foregroundColor(Color.accent)
+                            }.offset(x: showLogoutButton ? 0 : 45)
+                            
+                            ZStack {
+                                Circle().fill(Color.systemBackground).frame(width: 38, height: 38)
+//                                withAnimation() {
+//                                    api.userPhoto
+//                                        .resizable()
+//                                        .foregroundColor(Color.accent)
+//                                        .aspectRatio(contentMode: .fit)
+//                                        .frame(width: 38)
+//                                        .clipShape(Circle())
+//                                        .overlay(
+//                                            Circle().stroke(Color.accent, lineWidth: 2)
+//                                        )
+//                                        .accessibility(identifier: "profile")
+//                                }
+                            }.onTapGesture {
+                                withAnimation(.spring()) {
+                                    self.showLogoutButton.toggle()
+                                }
+                            }
+                            
+                        }.horizonPadding()
+                    }.frame(width: geometry.size.width)
+                    VSpacer(15)
+                    LocationSelectionView(currentLocation: $currentLocation)
+                        .environmentObject(alertManager)
+                        .environmentObject(api)
+                    Spacer()
+                    MealPagerView(geometry: geometry)
+                        .environmentObject(api)
+                    VSpacer(tabBarSize + 40)
                 }.frame(width: geometry.size.width)
-                VSpacer(15)
-                LocationSelectionView(currentLocation: $currentLocation)
-                    .environmentObject(attendanceLogAPI)
-                    .environmentObject(placeAPI)
-                    .environmentObject(alertManager)
-                Spacer()
-                MealPagerView(geometry: geometry)
-                    .environmentObject(mealAPI)
-                    .opacity(tapbarIndex == 2 ? 1 : 0)
-                VSpacer(tabBarSize + 40)
-            }.frame(width: geometry.size.width)
+            }
+            
             
         }
     }

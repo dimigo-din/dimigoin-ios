@@ -10,7 +10,7 @@ import SwiftUI
 import DimigoinKit
 
 struct WeeklyMealView: View {
-    @EnvironmentObject var mealAPI: MealAPI
+    @EnvironmentObject var api: DimigoinAPI
     @State var selection: Int = getTodayDayOfWeekInt()-1
     @State var dragOffset = CGSize.zero
     private let days: [String] = ["월", "화", "수", "목", "금", "토", "일"]
@@ -35,7 +35,7 @@ struct WeeklyMealView: View {
                     ForEach(1...7, id: \.self) { _ in
                         VStack{
                            SectionHeader("아침", sub: "오전 7시 30분")
-                           Text(mealAPI.meals[selection].breakfast)
+                           Text(api.meals[selection].breakfast)
                                .mealMenu()
                                .padding()
                                .frame(width: abs(geometry.size.width-40), alignment: .leading)
@@ -43,7 +43,7 @@ struct WeeklyMealView: View {
                                .fixedSize(horizontal: false, vertical: true)
                            VSpacer(20)
                            SectionHeader("점심", sub: "오후 12시 50분")
-                           Text(mealAPI.meals[selection].lunch)
+                           Text(api.meals[selection].lunch)
                                .mealMenu()
                                .padding()
                                .frame(width: abs(geometry.size.width-40), alignment: .leading)
@@ -51,7 +51,7 @@ struct WeeklyMealView: View {
                                .fixedSize(horizontal: false, vertical: true)
                            VSpacer(20)
                            SectionHeader("저녁", sub: "오후 6시 35분")
-                           Text(mealAPI.meals[selection].dinner)
+                           Text(api.meals[selection].dinner)
                                .mealMenu()
                                .padding()
                                .frame(width: abs(geometry.size.width-40), alignment: .leading)

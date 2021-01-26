@@ -22,10 +22,6 @@
 		42050CB925AA148E00C61D14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42050CB825AA148E00C61D14 /* GoogleService-Info.plist */; };
 		42050CC125AA19E900C61D14 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42050CC025AA19E900C61D14 /* ColorExtension.swift */; };
 		42050CC225AA19E900C61D14 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42050CC025AA19E900C61D14 /* ColorExtension.swift */; };
-		42050CDF25AAD50D00C61D14 /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42050CDE25AAD50D00C61D14 /* CreditView.swift */; };
-		42050CE025AAD50D00C61D14 /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42050CDE25AAD50D00C61D14 /* CreditView.swift */; };
-		42050D0825ABBFD700C61D14 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42050D0725ABBFD700C61D14 /* DimigoinKit */; };
-		42050D0D25ABC01A00C61D14 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42050D0C25ABC01A00C61D14 /* DimigoinKit */; };
 		4206192825A6AF7E00A5E5B8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4206192B25A6AF7E00A5E5B8 /* InfoPlist.strings */; };
 		4206192925A6AF7E00A5E5B8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4206192B25A6AF7E00A5E5B8 /* InfoPlist.strings */; };
 		420D92672557F79300CDF76A /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC55024AF849D00456846 /* TextStyles.swift */; };
@@ -49,6 +45,8 @@
 		4293263425B1E65F00BCD9A0 /* NanumSquareL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4293262D25B1E65E00BCD9A0 /* NanumSquareL.ttf */; };
 		4293263525B1E65F00BCD9A0 /* NanumSquareR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4293262E25B1E65F00BCD9A0 /* NanumSquareR.ttf */; };
 		4293263625B1E65F00BCD9A0 /* NanumSquareR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4293262E25B1E65F00BCD9A0 /* NanumSquareR.ttf */; };
+		42980A1325C0704400F8AB82 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42980A1225C0704400F8AB82 /* DimigoinKit */; };
+		42980A1525C0704A00F8AB82 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42980A1425C0704A00F8AB82 /* DimigoinKit */; };
 		429BA5B025A0A63D000749AC /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429BA5AF25A0A63D000749AC /* LocalAuthentication.framework */; };
 		429BA5D725A30FBB000749AC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 429BA5DA25A30FBB000749AC /* Localizable.strings */; };
 		42ABA08A255F5690001925BE /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA089255F5690001925BE /* TimetableView.swift */; };
@@ -142,7 +140,6 @@
 		25D1958C54B4C63F0C895030 /* Pods-WidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-WidgetExtension/Pods-WidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
 		42050CB825AA148E00C61D14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		42050CC025AA19E900C61D14 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
-		42050CDE25AAD50D00C61D14 /* CreditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
 		42050D6F25AD1FF700C61D14 /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = SOURCE_ROOT; };
 		4206192A25A6AF7E00A5E5B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4206193D25A6B58200A5E5B8 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -155,7 +152,6 @@
 		422CE5D425A75462001072CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		422CE5DD25A75CE4001072CD /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		423B71EF24B191AF0099CE3E /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
-		42445B8D25A884CB00294D09 /* DimigoinKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DimigoinKit; path = ../../DimigoinKit; sourceTree = "<group>"; };
 		4250011B25595C2900C593CF /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		4250012525595F9E00C593CF /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		42524E2B25621BF30021F48B /* VSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSpacer.swift; sourceTree = "<group>"; };
@@ -174,6 +170,7 @@
 		4293262C25B1E65E00BCD9A0 /* NanumSquareB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareB.ttf; sourceTree = "<group>"; };
 		4293262D25B1E65E00BCD9A0 /* NanumSquareL.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareL.ttf; sourceTree = "<group>"; };
 		4293262E25B1E65F00BCD9A0 /* NanumSquareR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareR.ttf; sourceTree = "<group>"; };
+		42980A0E25C0700900F8AB82 /* DimigoinKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DimigoinKit; path = ../../../Desktop/DimigoinKit; sourceTree = "<group>"; };
 		429BA5AF25A0A63D000749AC /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		429BA5D925A30FBB000749AC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		429FD87F24B202DA003A49AF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -219,7 +216,7 @@
 				4274147D259B0B0800235302 /* AuthenticationServices.framework in Frameworks */,
 				429BA5B025A0A63D000749AC /* LocalAuthentication.framework in Frameworks */,
 				8BD3C0481C4C1DDB0D5FBC3D /* Pods_dimigoin.framework in Frameworks */,
-				42050D0D25ABC01A00C61D14 /* DimigoinKit in Frameworks */,
+				42980A1325C0704400F8AB82 /* DimigoinKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +234,7 @@
 				42B79D3D253ED242003A8A7F /* SwiftUI.framework in Frameworks */,
 				42B79D3C253ED242003A8A7F /* WidgetKit.framework in Frameworks */,
 				7F957C994456696929F8B918 /* Pods_WidgetExtension.framework in Frameworks */,
-				42050D0825ABBFD700C61D14 /* DimigoinKit in Frameworks */,
+				42980A1525C0704A00F8AB82 /* DimigoinKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +266,7 @@
 		08C9ABE724A74A53002AF525 /* dimigoin */ = {
 			isa = PBXGroup;
 			children = (
-				42445B8D25A884CB00294D09 /* DimigoinKit */,
+				42980A0E25C0700900F8AB82 /* DimigoinKit */,
 				08C9AC0124A74A83002AF525 /* Views */,
 				08C9ABFF24A74A83002AF525 /* Model */,
 				08C9AC0824A74A83002AF525 /* Components */,
@@ -323,7 +320,6 @@
 				42EFCE1F255851B500F3DC5E /* IngangView.swift */,
 				42C72C042559FED900E3294E /* StudentIdCardView.swift */,
 				42ABA089255F5690001925BE /* TimetableView.swift */,
-				42050CDE25AAD50D00C61D14 /* CreditView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -466,7 +462,7 @@
 			);
 			name = dimigoin;
 			packageProductDependencies = (
-				42050D0C25ABC01A00C61D14 /* DimigoinKit */,
+				42980A1225C0704400F8AB82 /* DimigoinKit */,
 			);
 			productName = dimigoin;
 			productReference = 08C9ABE524A74A53002AF525 /* Dimigoin.app */;
@@ -505,7 +501,7 @@
 			);
 			name = WidgetExtension;
 			packageProductDependencies = (
-				42050D0725ABBFD700C61D14 /* DimigoinKit */,
+				42980A1425C0704A00F8AB82 /* DimigoinKit */,
 			);
 			productName = WidgetExtension;
 			productReference = 42B79D3B253ED242003A8A7F /* WidgetExtension.appex */;
@@ -711,7 +707,6 @@
 				086CC55124AF849D00456846 /* TextStyles.swift in Sources */,
 				08C9ABED24A74A53002AF525 /* ContentView.swift in Sources */,
 				4250011C25595C2900C593CF /* AlertView.swift in Sources */,
-				42050CDF25AAD50D00C61D14 /* CreditView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -728,7 +723,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42050CE025AAD50D00C61D14 /* CreditView.swift in Sources */,
 				420D92712557F79F00CDF76A /* HSpacer.swift in Sources */,
 				42B79D40253ED242003A8A7F /* Widget.swift in Sources */,
 				42F73BA8253FF4BF008E8B25 /* DailyMealWidget.swift in Sources */,
@@ -1112,11 +1106,11 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		42050D0725ABBFD700C61D14 /* DimigoinKit */ = {
+		42980A1225C0704400F8AB82 /* DimigoinKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DimigoinKit;
 		};
-		42050D0C25ABC01A00C61D14 /* DimigoinKit */ = {
+		42980A1425C0704A00F8AB82 /* DimigoinKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DimigoinKit;
 		};

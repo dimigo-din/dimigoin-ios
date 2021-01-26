@@ -12,15 +12,7 @@ import DimigoinKit
 
 struct MainView: View {
     @EnvironmentObject var alertManager: AlertManager
-    @EnvironmentObject var tokenAPI: TokenAPI
-    @ObservedObject var mealAPI = MealAPI()
-    @ObservedObject var noticeAPI = NoticeAPI()
-    @ObservedObject var ingangAPI = IngangAPI()
-    @ObservedObject var userAPI = UserAPI()
-    @ObservedObject var timetableAPI = TimetableAPI()
-    @ObservedObject var attendanceLogAPI = AttendanceLogAPI()
-    @ObservedObject var placeAPI = PlaceAPI()
-    // MARK: change here !~!
+    @EnvironmentObject var api: DimigoinAPI
     @State var tapbarIndex = 2
     @State var dragOffset = CGSize.zero
     @State var isShowIdCard: Bool = false
@@ -40,25 +32,17 @@ struct MainView: View {
                         HStack(spacing: 0){
                             StudentIdCardView(isShowIdCard: $isShowIdCard)
                                 .environmentObject(alertManager)
-                                .environmentObject(userAPI)
+                                .environmentObject(api)
                             IngangView()
-                                .environmentObject(tokenAPI)
                                 .environmentObject(alertManager)
-                                .environmentObject(ingangAPI)
+                                .environmentObject(api)
                             HomeView(tapbarIndex: $tapbarIndex)
-                                .environmentObject(tokenAPI)
-                                .environmentObject(mealAPI)
                                 .environmentObject(alertManager)
-                                .environmentObject(userAPI)
-                                .environmentObject(attendanceLogAPI)
-                                .environmentObject(placeAPI)
-                                .environmentObject(ingangAPI)
+                                .environmentObject(api)
                             MealView()
-                                .environmentObject(mealAPI)
+                                .environmentObject(api)
                             TimetableView()
-                                .environmentObject(timetableAPI)
-                                .environmentObject(userAPI)
-                                .environmentObject(alertManager)
+                                .environmentObject(api)
                         }.frame(width: geometry.size.width*5)
                         .offset(x: -geometry.size.width*CGFloat(tapbarIndex))
                     }.blur(radius: alertManager.isShowing ? 2 : 0)
@@ -71,7 +55,7 @@ struct MainView: View {
                     Color.black.edgesIgnoringSafeArea(.all).opacity(alertManager.isShowing ? 0.1 : 0)
                     AlertView(isShowing: $alertManager.isShowing)
                         .environmentObject(alertManager)
-                        .environmentObject(tokenAPI)
+                        .environmentObject(api)
                         .frame(width: geometry.size.width)
                         .offset(x: -geometry.size.width*2)
                 }

@@ -11,7 +11,7 @@ import Combine
 import DimigoinKit
 
 struct MealPagerView: View {
-    @EnvironmentObject var mealAPI: MealAPI
+    @EnvironmentObject var api: DimigoinAPI
     private let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
     @State var dragOffset = CGSize.zero
     @State var currentCardIdx: Int = 0
@@ -23,19 +23,19 @@ struct MealPagerView: View {
                 VStack(alignment: .leading){
                     Text("아침").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color.accent).horizonPadding()
                     VSpacer(10)
-                    Text("\(mealAPI.getTodayMeal().breakfast)").mealMenu().horizonPadding()
+                    Text("\(api.getTodayMeal().breakfast)").mealMenu().horizonPadding()
                 }.padding(.top).modifier(CardViewModifier(305,147))
                 HSpacer(15)
                 VStack(alignment: .leading){
                     Text("점심").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color.accent).horizonPadding()
                     VSpacer(10)
-                    Text("\(mealAPI.getTodayMeal().lunch)").mealMenu().horizonPadding()
+                    Text("\(api.getTodayMeal().lunch)").mealMenu().horizonPadding()
                 }.padding(.top).modifier(CardViewModifier(305,147))
                 HSpacer(15)
                 VStack(alignment: .leading){
                     Text("저녁").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color.accent).horizonPadding()
                     VSpacer(10)
-                    Text("\(mealAPI.getTodayMeal().dinner)").mealMenu().horizonPadding()
+                    Text("\(api.getTodayMeal().dinner)").mealMenu().horizonPadding()
                 }.padding(.top).modifier(CardViewModifier(305,147))
             }.offset(x: (geometry.size.width-305)/2)
             .offset(x: -320*CGFloat(currentCardIdx)+dragOffset.width)

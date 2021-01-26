@@ -10,8 +10,7 @@ import SwiftUI
 import DimigoinKit
 
 struct TimetableView: View {
-    @EnvironmentObject var timetableAPI: TimetableAPI
-    @EnvironmentObject var userAPI: UserAPI
+    @EnvironmentObject var api: DimigoinAPI
     @EnvironmentObject var alertManager: AlertManager
     
     var body: some View {
@@ -19,7 +18,7 @@ struct TimetableView: View {
             ScrollView(showsIndicators: false) {
                 HStack {
                     VStack(alignment: .leading, spacing: 0){
-                        Text(NSLocalizedString(userAPI.getUserStringClass(), comment: "")).subTitle()
+//                        Text(NSLocalizedString(api.getUserStringClass(), comment: "")).subTitle()
                         Text(NSLocalizedString("시간표", comment: "")).title()
                     }
                     Spacer()
@@ -27,8 +26,8 @@ struct TimetableView: View {
                 }.horizonPadding()
                 .padding(.top, 30)
                 VSpacer(29)
-                TimetableItem(grade: userAPI.user.grade, klass: userAPI.user.klass, geometry: geometry)
-                    .environmentObject(timetableAPI)
+                TimetableItem(grade: api.user.grade, klass: api.user.klass, geometry: geometry)
+                    .environmentObject(api)
                 VSpacer(100)
             }
         }

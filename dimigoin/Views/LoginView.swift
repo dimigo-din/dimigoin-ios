@@ -12,7 +12,7 @@ import SwiftyJSON
 import DimigoinKit
 
 struct LoginView: View {
-    @EnvironmentObject var tokenAPI: TokenAPI
+    @EnvironmentObject var api: DimigoinAPI
     @EnvironmentObject var alertManager: AlertManager
     @State var username = ""
     @State var password = ""
@@ -45,36 +45,8 @@ struct LoginView: View {
                         VSpacer(30)
                     }
                     Button(action : {
-                        LOG("get token")
-                        isLoading = true
-                        let parameters: [String: String] = [
-                            "username": "\(self.username)",
-                            "password": "\(self.password)"
-                        ]
-                        let endPoint = "/auth"
-                        let method:HTTPMethod = .post
-                        AF.request(rootURL+endPoint, method: method, parameters: parameters, encoding: JSONEncoding.default).response { response in
-                            if let status = response.response?.statusCode {
-                                switch(status) {
-                                case 200:
-                                    let json = JSON(response.value!!)
-                                    self.tokenAPI.accessToken = json["accessToken"].string!
-                                    self.tokenAPI.refreshToken = json["refreshToken"].string!
-                                    self.dismissKeyboard()
-                                    self.tokenAPI.debugToken()
-                                    self.tokenAPI.saveTokens()
-                                    self.tokenAPI.tokenStatus = .exist
-                                    isLoading = false
-                                default:
-                                    LOG("get token failed")
-                                    withAnimation() {
-                                        self.showErrorMessage = true
-                                    }
-                                    debugPrint(response)
-                                    self.tokenAPI.tokenStatus = .none
-                                    isLoading = false
-                                }
-                            }
+                        api.login(username, password) { result in
+                            print(result)
                         }
                     }) {
                         HStack {

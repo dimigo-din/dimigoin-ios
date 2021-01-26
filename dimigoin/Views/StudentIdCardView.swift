@@ -12,8 +12,8 @@ import LocalAuthentication
 
 struct StudentIdCardView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @EnvironmentObject var api: DimigoinAPI
     @EnvironmentObject var alertManager: AlertManager
-    @EnvironmentObject var userAPI: UserAPI
     @Binding var isShowIdCard: Bool
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var remainTime = 15
@@ -96,10 +96,10 @@ struct StudentIdCardView: View {
                         .frame(width: horizontalSizeClass == .compact ? geometry.size.width-40 : 335,height: 195).opacity(isShowIdCard ? 0 : 1)
                         VStack {
                             VSpacer(30)
-                            userAPI.userPhoto.resizable().placeholder(Image("user.photo.sample")).cornerRadius(5).aspectRatio(contentMode: .fit).frame(width: 116)
-                                .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray.opacity(0.15), lineWidth: 1))
+//                            api.userPhoto.resizable().placeholder(Image("user.photo.sample")).cornerRadius(5).aspectRatio(contentMode: .fit).frame(width: 116)
+//                                .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray.opacity(0.15), lineWidth: 1))
                             VSpacer(20)
-                            Text(userAPI.user.name).font(Font.custom("NanumSquareEB", size: 21)).foregroundColor(Color.black)
+                            Text(api.user.name).font(Font.custom("NanumSquareEB", size: 21)).foregroundColor(Color.black)
                             VSpacer(20)
                             HStack(spacing: 15) {
                                 VStack(alignment: .trailing, spacing: 11){
@@ -108,8 +108,8 @@ struct StudentIdCardView: View {
                                     Text("주민번호").font(Font.custom("NanumSquareB", size: 13)).foregroundColor(Color.black)
                                 }
                                 VStack(alignment: .leading, spacing: 11) {
-                                    Text(getMajor(klass: userAPI.user.klass)).font(Font.custom("NanumSquareL", size: 13)).gray4()
-                                    Text(String(userAPI.user.serial)).font(Font.custom("NanumSquareL", size: 13)).gray4()
+                                    Text(getMajor(klass: api.user.klass)).font(Font.custom("NanumSquareL", size: 13)).gray4()
+                                    Text(String(api.user.serial)).font(Font.custom("NanumSquareL", size: 13)).gray4()
                                     Text("040101-3******").font(Font.custom("NanumSquareL", size: 13)).gray4()
                                 }
                             }

@@ -10,7 +10,7 @@ import SwiftUI
 import DimigoinKit
 
 struct MealView: View {
-    @EnvironmentObject var mealAPI: MealAPI
+    @EnvironmentObject var api: DimigoinAPI
     @State var selectedDay: Int = getTodayDayOfWeekInt()-1
     private let days: [String] = ["월", "화", "수", "목", "금", "토", "일"]
     @State var dragOffset = CGSize.zero
@@ -26,7 +26,7 @@ struct MealView: View {
                                 Text(NSLocalizedString("오늘의 급식", comment: "")).title()
                             }
                             Spacer()
-                            NavigationLink(destination: WeeklyMealView().environmentObject(mealAPI)) {
+                            NavigationLink(destination: WeeklyMealView().environmentObject(api)) {
                                 Image("meal").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent)
                             }
                         }
@@ -62,7 +62,7 @@ struct MealView: View {
                         ForEach(0..<7, id: \.self) { index in
                             VStack {
                                 SectionHeader("아침", sub: "오전 7시 30분")
-                                Text(mealAPI.meals[index].breakfast)
+                                Text(api.meals[index].breakfast)
                                     .mealMenu()
                                     .padding()
                                     .frame(width: abs(geometry.size.width-40), alignment: .leading)
@@ -70,7 +70,7 @@ struct MealView: View {
                                     .background(Color(UIColor.secondarySystemGroupedBackground).cornerRadius(10).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0))
                                 VSpacer(30)
                                 SectionHeader("점심", sub: "오후 12시 50분")
-                                Text(mealAPI.meals[index].lunch)
+                                Text(api.meals[index].lunch)
                                     .mealMenu()
                                     .padding()
                                     .frame(width: abs(geometry.size.width-40), alignment: .leading)
@@ -78,7 +78,7 @@ struct MealView: View {
                                     .background(Color(UIColor.secondarySystemGroupedBackground).cornerRadius(10).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0))
                                 VSpacer(30)
                                 SectionHeader("저녁", sub: "오후 6시 35분")
-                                Text(mealAPI.meals[index].dinner)
+                                Text(api.meals[index].dinner)
                                     .mealMenu()
                                     .padding()
                                     .frame(width: abs(geometry.size.width-40), alignment: .leading)

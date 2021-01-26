@@ -10,22 +10,18 @@ import SwiftUI
 import DimigoinKit
 
 struct ContentView: View {
-    @ObservedObject var tokenAPI = TokenAPI()
+    @ObservedObject var api = DimigoinAPI()
     var alertManager = AlertManager()
-    init() {
-        tokenAPI.saveTokens()
-    }
-    var body: some View { // check if token exist
+    
+    var body: some View {
         Group {
-            if(tokenAPI.tokenStatus == .exist) {
-                MainView()
-                    .environmentObject(tokenAPI)
-                    .environmentObject(alertManager)
-            }
-            else if(tokenAPI.tokenStatus == .none) {
+            if(api.isFirstLogin) {
                 LoginView()
-                    .environmentObject(tokenAPI)
-                    .environmentObject(alertManager)
+                    .environmentObject(api)
+            }
+            else {
+                MainView()
+                    .environmentObject(api)
             }
         }.edgesIgnoringSafeArea(.bottom)
     }

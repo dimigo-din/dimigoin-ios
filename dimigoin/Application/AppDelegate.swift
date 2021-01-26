@@ -74,13 +74,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
       let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
-      LOG("[Log] deviceToken :", deviceTokenString)
+      print("[Log] deviceToken :", deviceTokenString)
 
       Messaging.messaging().apnsToken = deviceToken
     }
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-      LOG("Firebase registration token: \(String(describing: fcmToken))")
+      print("Firebase registration token: \(String(describing: fcmToken))")
 
       let dataDict:[String: String] = ["token": fcmToken ?? ""]
       NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
@@ -101,11 +101,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
       // Print message ID.
       if let messageID = userInfo[gcmMessageIDKey] {
-        LOG("Message ID: \(messageID)")
+        print("Message ID: \(messageID)")
       }
 
       // Print full message.
-        LOG(userInfo)
+        print(userInfo)
     }
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
@@ -119,11 +119,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
       // Print message ID.
       if let messageID = userInfo[gcmMessageIDKey] {
-        LOG("Message ID: \(messageID)")
+        print("Message ID: \(messageID)")
       }
 
       // Print full message.
-        LOG(userInfo)
+        print(userInfo)
 
       completionHandler(UIBackgroundFetchResult.newData)
     }
