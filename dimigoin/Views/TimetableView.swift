@@ -72,10 +72,10 @@ struct TimetableItem: View{
                                     Text("\(lecture)")
                                         .frame(width: (geometry.size.width-40)/5, height: 20)
                                         .padding(.top, 15)
+                                        .padding(.bottom, 15)
                                         .font(Font.custom("NotoSansKR-Medium", size: 18))
                                         .foregroundColor(getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
                                 }
-                                
                             }
                         }
                     }
