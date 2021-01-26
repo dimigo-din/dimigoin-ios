@@ -18,11 +18,14 @@ struct ContentView: View {
             if(api.isFirstLogin) {
                 LoginView()
                     .environmentObject(api)
+                    .environmentObject(alertManager)
             }
             else {
                 MainView()
                     .environmentObject(api)
+                    .environmentObject(alertManager)
             }
         }.edgesIgnoringSafeArea(.bottom)
+        .animation(.easeInOut)
     }
 }

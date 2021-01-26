@@ -12,6 +12,7 @@ import DimigoinKit
 
 struct AlertView: View {
     @EnvironmentObject var alertManager: AlertManager
+    @EnvironmentObject var api: DimigoinAPI
     @Binding var isShowing: Bool
     @State var dragOffset = CGSize.zero
     @State var startPos = CGPoint(x: 0, y: 0)
@@ -64,7 +65,7 @@ struct AlertView: View {
                             }
                             Button(action: {
                                 dismiss()
-//                                tokenAPI.clearTokens()
+                                api.logout()
                             }) {
                                 Text("확인")
                                     .foregroundColor(Color.white)

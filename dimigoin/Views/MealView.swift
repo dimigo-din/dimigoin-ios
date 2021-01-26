@@ -59,7 +59,7 @@ struct MealView: View {
                     }.frame(width: geometry.size.width)
                     VSpacer(20)
                     HStack(spacing: 0){
-                        ForEach(0..<7, id: \.self) { index in
+                        ForEach(0..<3, id: \.self) { index in
                             VStack {
                                 SectionHeader("아침", sub: "오전 7시 30분")
                                 Text(api.meals[index].breakfast)

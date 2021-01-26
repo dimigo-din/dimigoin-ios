@@ -45,8 +45,14 @@ struct LoginView: View {
                         VSpacer(30)
                     }
                     Button(action : {
+                        self.isLoading = true
                         api.login(username, password) { result in
-                            print(result)
+                            if result == true {
+                                self.isLoading = false
+                            } else {
+                                self.isLoading = false
+                                self.showErrorMessage = true
+                            }
                         }
                     }) {
                         HStack {
@@ -63,7 +69,7 @@ struct LoginView: View {
                         .frame(width: 335, height: 50)
                         .background(Color(isLoading ? "disabled-button": "accent").cornerRadius(10))
                     }.accessibility(identifier: "button.login")
-                }
+                }.animation(.easeInOut)
                 VSpacer(20)
                 Button(action: {
                     alertManager.createAlert("아이디 또는 패스워드를 잊으셨나요?", sub: "계정을 분실하셨다면 본관 1층 교무실\nIT 특성화부 하미영 선생님께 문의 하시기 바랍니다", .text)

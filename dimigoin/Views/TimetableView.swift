@@ -66,16 +66,16 @@ struct TimetableItem: View{
                             Text(NSLocalizedString(dayOfWeek[day], comment: "")).font(Font.custom("NotoSansKR-Medium", size: 18))
                                 .foregroundColor(Color.gray4)
                             VSpacer(29)
-                            ForEach(timetableAPI.getTimetable(grade: grade, klass: klass).data[day-1], id: \.self) { lecture in
-                                VStack(spacing: 0) {
-                                    Text("\(lecture)")
-                                        .frame(width: (geometry.size.width-40)/5, height: 20)
-                                        .padding(.top, 15)
-                                        .padding(.bottom, 15)
-                                        .font(Font.custom("NotoSansKR-Medium", size: 18))
-                                        .foregroundColor(getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
-                                }
-                            }
+//                            ForEach(timetableAPI.getTimetable(grade: grade, klass: klass).data[day-1], id: \.self) { lecture in
+//                                VStack(spacing: 0) {
+//                                    Text("\(lecture)")
+//                                        .frame(width: (geometry.size.width-40)/5, height: 20)
+//                                        .padding(.top, 15)
+//                                        .padding(.bottom, 15)
+//                                        .font(Font.custom("NotoSansKR-Medium", size: 18))
+//                                        .foregroundColor(getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
+//                                }
+//                            }
                         }
                     }
                 }
