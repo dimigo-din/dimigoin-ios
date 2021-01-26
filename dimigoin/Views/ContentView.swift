@@ -26,6 +26,5 @@ struct ContentView: View {
                     .environmentObject(alertManager)
             }
         }.edgesIgnoringSafeArea(.bottom)
-        .animation(.easeInOut)
     }
 }

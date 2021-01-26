@@ -62,15 +62,4 @@ struct MainView: View {
             }
         }
     }
-    func nextPage() {
-        if tapbarIndex != 4 {
-            self.tapbarIndex += 1
-        }
-        
-    }
-    func previousPage() {
-        if tapbarIndex != 0 {
-            self.tapbarIndex -= 1
-        }
-    }
 }

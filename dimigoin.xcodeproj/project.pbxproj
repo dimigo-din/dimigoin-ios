@@ -27,6 +27,7 @@
 		420D92672557F79300CDF76A /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC55024AF849D00456846 /* TextStyles.swift */; };
 		420D92712557F79F00CDF76A /* HSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54E24AF819400456846 /* HSpacer.swift */; };
 		420D9285255800C700CDF76A /* CopyrightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C487C924DDB73000C594CB /* CopyrightText.swift */; };
+		42257BEB25C0DFB600E373C8 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 42257BEA25C0DFB600E373C8 /* SDWebImageSwiftUI */; };
 		422CE5D325A75462001072CD /* DimigoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422CE5D225A75462001072CD /* DimigoinUITests.swift */; };
 		422CE5DE25A75CE4001072CD /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422CE5DD25A75CE4001072CD /* SnapshotHelper.swift */; };
 		423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71EF24B191AF0099CE3E /* ClearButton.swift */; };
@@ -213,6 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42257BEB25C0DFB600E373C8 /* SDWebImageSwiftUI in Frameworks */,
 				4274147D259B0B0800235302 /* AuthenticationServices.framework in Frameworks */,
 				429BA5B025A0A63D000749AC /* LocalAuthentication.framework in Frameworks */,
 				8BD3C0481C4C1DDB0D5FBC3D /* Pods_dimigoin.framework in Frameworks */,
@@ -463,6 +465,7 @@
 			name = dimigoin;
 			packageProductDependencies = (
 				42980A1225C0704400F8AB82 /* DimigoinKit */,
+				42257BEA25C0DFB600E373C8 /* SDWebImageSwiftUI */,
 			);
 			productName = dimigoin;
 			productReference = 08C9ABE524A74A53002AF525 /* Dimigoin.app */;
@@ -541,6 +544,7 @@
 			);
 			mainGroup = 08C9ABDC24A74A53002AF525;
 			packageReferences = (
+				42257BE925C0DFB600E373C8 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 08C9ABE624A74A53002AF525 /* Products */;
 			projectDirPath = "";
@@ -907,6 +911,7 @@
 			baseConfigurationReference = A99B136D9D73DA47610CE741 /* Pods-dimigoin.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = dimigoin/Application/Dimigoin.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -936,6 +941,7 @@
 			baseConfigurationReference = BB9364231D7E87113C335E75 /* Pods-dimigoin.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = dimigoin/Application/Dimigoin.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -1105,7 +1111,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		42257BE925C0DFB600E373C8 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		42257BEA25C0DFB600E373C8 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 42257BE925C0DFB600E373C8 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
 		42980A1225C0704400F8AB82 /* DimigoinKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DimigoinKit;

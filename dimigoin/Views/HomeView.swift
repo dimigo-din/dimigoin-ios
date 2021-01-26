@@ -44,18 +44,18 @@ struct HomeView: View {
                             
                             ZStack {
                                 Circle().fill(Color.systemBackground).frame(width: 38, height: 38)
-//                                withAnimation() {
-//                                    api.userPhoto
-//                                        .resizable()
-//                                        .foregroundColor(Color.accent)
-//                                        .aspectRatio(contentMode: .fit)
-//                                        .frame(width: 38)
-//                                        .clipShape(Circle())
-//                                        .overlay(
-//                                            Circle().stroke(Color.accent, lineWidth: 2)
-//                                        )
-//                                        .accessibility(identifier: "profile")
-//                                }
+                                withAnimation() {
+                                    WebImage(url: api.user.photoURL)
+                                        .resizable()
+                                        .foregroundColor(Color.accent)
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 38)
+                                        .clipShape(Circle())
+                                        .overlay(
+                                            Circle().stroke(Color.accent, lineWidth: 2)
+                                        )
+                                        .accessibility(identifier: "profile")
+                                }
                             }.onTapGesture {
                                 withAnimation(.spring()) {
                                     self.showLogoutButton.toggle()

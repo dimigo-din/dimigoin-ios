@@ -9,6 +9,7 @@
 import SwiftUI
 import DimigoinKit
 import LocalAuthentication
+import SDWebImageSwiftUI
 
 struct StudentIdCardView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
@@ -96,8 +97,8 @@ struct StudentIdCardView: View {
                         .frame(width: horizontalSizeClass == .compact ? geometry.size.width-40 : 335,height: 195).opacity(isShowIdCard ? 0 : 1)
                         VStack {
                             VSpacer(30)
-//                            api.userPhoto.resizable().placeholder(Image("user.photo.sample")).cornerRadius(5).aspectRatio(contentMode: .fit).frame(width: 116)
-//                                .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray.opacity(0.15), lineWidth: 1))
+                            WebImage(url: api.user.photoURL).resizable().placeholder(Image("user.photo.sample")).cornerRadius(5).aspectRatio(contentMode: .fit).frame(width: 116)
+                                .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray.opacity(0.15), lineWidth: 1))
                             VSpacer(20)
                             Text(api.user.name).font(Font.custom("NanumSquareEB", size: 21)).foregroundColor(Color.black)
                             VSpacer(20)
