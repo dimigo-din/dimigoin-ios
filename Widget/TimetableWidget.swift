@@ -10,7 +10,7 @@ import SwiftUI
 import DimigoinKit
 
 struct TimetableWidget: View {
-    @State var timetableAPI: TimetableAPI = TimetableAPI()
+//    @State var timetableAPI: TimetableAPI = TimetableAPI()
     @State var grade: Int =  UserDefaults(suiteName: appGroupName)?.integer(forKey: "user.grade") ?? 2
     @State var klass: Int = UserDefaults(suiteName: appGroupName)?.integer(forKey: "user.klass") ?? 4
     var data: WidgetEntry
@@ -33,13 +33,13 @@ struct TimetableWidget: View {
                                         Text(NSLocalizedString(dayOfWeek[day], comment: "")).font(Font.custom("NotoSansKR-Bold", size: 20))
                                             .foregroundColor(getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
                                         VSpacer(20)
-                                        ForEach(timetableAPI.getTimetable(grade: grade, klass: klass).data[day-1], id: \.self) { lecture in
-                                            Text("\(lecture)")
-                                                .frame(width: (geometry.size.width-40)/5, height: 20)
-                                                .padding(.vertical, 4)
-                                                .font(Font.custom("NotoSansKR-Regular", size: 14))
-                                                .foregroundColor(getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
-                                        }
+//                                        ForEach(timetableAPI.getTimetable(grade: grade, klass: klass).data[day-1], id: \.self) { lecture in
+//                                            Text("\(lecture)")
+//                                                .frame(width: (geometry.size.width-40)/5, height: 20)
+//                                                .padding(.vertical, 4)
+//                                                .font(Font.custom("NotoSansKR-Regular", size: 14))
+//                                                .foregroundColor(getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
+//                                        }
                                     }
                                     .padding(.vertical, 5)
                                     .background(Color.accent.frame(height: geometry.size.height).opacity(getTodayDayOfWeekInt() == day ? 0.06 : 0).cornerRadius(5))

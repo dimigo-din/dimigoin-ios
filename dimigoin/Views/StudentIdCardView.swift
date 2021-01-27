@@ -47,7 +47,7 @@ struct StudentIdCardView: View {
                     
                 }
                 
-                Color.black.edgesIgnoringSafeArea(.all).opacity(isShowIdCard ? 1 : 0)
+                Color.black.edgesIgnoringSafeArea(.all).opacity(isShowIdCard ? 1 : 0).statusBar(hidden: isShowIdCard)
                 VStack {
                     HStack {
                         Image("idcard").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 15).foregroundColor(Color.white)

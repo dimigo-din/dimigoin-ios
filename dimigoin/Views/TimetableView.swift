@@ -18,7 +18,7 @@ struct TimetableView: View {
             ScrollView(showsIndicators: false) {
                 HStack {
                     VStack(alignment: .leading, spacing: 0){
-//                        Text(NSLocalizedString(api.getUserStringClass(), comment: "")).subTitle()
+                        Text(NSLocalizedString("\(api.user.grade)학년 \(api.user.klass)반", comment: "")).subTitle()
                         Text(NSLocalizedString("시간표", comment: "")).title()
                     }
                     Spacer()
@@ -26,7 +26,7 @@ struct TimetableView: View {
                 }.horizonPadding()
                 .padding(.top, 30)
                 VSpacer(29)
-                TimetableItem(grade: api.user.grade, klass: api.user.klass, geometry: geometry)
+                TimetableItem(geometry: geometry)
                     .environmentObject(api)
                 VSpacer(100)
             }
@@ -36,14 +36,10 @@ struct TimetableView: View {
 }
 
 struct TimetableItem: View{
-    @EnvironmentObject var timetableAPI: TimetableAPI
-    @State var grade: Int
-    @State var klass: Int
+    @EnvironmentObject var api: DimigoinAPI
     @State var geometry: GeometryProxy
     var dayIndicatorXOffset: CGFloat = 0
-    init(grade: Int, klass: Int, geometry: GeometryProxy) {
-        self._grade = .init(initialValue: grade)
-        self._klass = .init(initialValue: klass)
+    init(geometry: GeometryProxy) {
         self._geometry = .init(initialValue: geometry)
         self.dayIndicatorXOffset = CGFloat(getTodayDayOfWeekInt()-1)*(geometry.size.width-40)/5
     }
@@ -66,16 +62,17 @@ struct TimetableItem: View{
                             Text(NSLocalizedString(dayOfWeek[day], comment: "")).font(Font.custom("NotoSansKR-Medium", size: 18))
                                 .foregroundColor(Color.gray4)
                             VSpacer(29)
-//                            ForEach(timetableAPI.getTimetable(grade: grade, klass: klass).data[day-1], id: \.self) { lecture in
-//                                VStack(spacing: 0) {
-//                                    Text("\(lecture)")
-//                                        .frame(width: (geometry.size.width-40)/5, height: 20)
-//                                        .padding(.top, 15)
-//                                        .padding(.bottom, 15)
-//                                        .font(Font.custom("NotoSansKR-Medium", size: 18))
-//                                        .foregroundColor(getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
-//                                }
-//                            }
+                            ForEach(1...7, id: \.self) { period in
+                                VStack(spacing: 0) {
+//                                    Text("\(day)/\(period)")
+                                    Text("\(api.getLectureName(weekDay: day, period: period))")
+                                        .frame(width: (geometry.size.width-40)/5, height: 20)
+                                        .padding(.top, 15)
+                                        .padding(.bottom, 15)
+                                        .font(Font.custom("NotoSansKR-Medium", size: 18))
+                                        .foregroundColor(getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
+                                }
+                            }
                         }
                     }
                 }
