@@ -33,7 +33,7 @@ struct AlertView: View {
                 }
                 else if alertManager.alertType == .attendance {
                     VSpacer(20)
-                    Text("\(getCurrentTimeString())").font(Font.custom("NotoSansKR-Bold", size: 11)).accent()
+                    Text("\(getStringTimeZone())").font(Font.custom("NotoSansKR-Bold", size: 11)).accent()
                     Text("어디에 계신가요?").font(Font.custom("NotoSansKR-Bold", size: 16))
                     VSpacer(20)
                     NavigationLink(destination: SelectLocationView()) {
