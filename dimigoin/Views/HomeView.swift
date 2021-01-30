@@ -25,12 +25,12 @@ struct HomeView: View {
                     ZStack {
                         VStack {
                             VSpacer(50)
-                            if(horizontalSizeClass == .compact) {
+//                            if(horizontalSizeClass == .compact) {
                                 Image("school").resizable().aspectRatio(contentMode: .fit).frame(maxWidth: .infinity).opacity(0.3)
-                            }
-                            else {
-                                Image("school").resizable().frame(maxWidth: .infinity).opacity(0.3)
-                            }
+//                            }
+//                            else {
+//                                Image("school").resizable().frame(maxWidth: .infinity).opacity(0.3)
+//                            }
                         }
                         HStack {
                             Image("logo").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 38).foregroundColor(Color.accent)

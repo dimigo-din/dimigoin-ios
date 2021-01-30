@@ -51,7 +51,6 @@ platform :ios do
   end
 end
 
-
 platform :ios do
   desc "Deploy new build to AppStore"
   lane :deploy do 

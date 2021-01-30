@@ -3,18 +3,18 @@
     "default": {
       "keyword": {
         "font": "./fonts/NanumSquareR.ttf",
-        "font_size": 160,
+        "font_size": 60,
         "color": "#000000"
       },
       "title": {
         "font": "./fonts/NanumSquareEB.ttf",
-        "font_size": 220,
+        "font_size": 90,
         "color": "#000000"
       },
       "background": "./background.jpg",
       "padding": 70,
       "show_complete_frame": false,
-      "stack_title" : false,
+      "stack_title" : true,
       "title_below_image": false,
       "interline_spacing": 20,
       "frame": "WHITE",
