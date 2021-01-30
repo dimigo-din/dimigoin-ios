@@ -66,7 +66,7 @@ struct HomeView: View {
                     VSpacer(15)
                     LocationSelectionView(_api)
                         .environmentObject(alertManager)
-                    NavigationLink(destination: AttendanceListView()) {
+                    NavigationLink(destination: AttendanceListView().environmentObject(api)) {
                         ZStack {
                             Text("우리반 자습 현황 확인하기")
                             HStack {
@@ -81,5 +81,6 @@ struct HomeView: View {
                 }.frame(width: geometry.size.width)
             }
         }
+
     }
 }

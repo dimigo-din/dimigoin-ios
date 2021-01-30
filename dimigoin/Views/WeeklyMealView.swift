@@ -64,7 +64,7 @@ struct WeeklyMealView: View {
                 .offset(x:  -geometry.size.width*CGFloat((selection)))
             }
             .navigationBarTitle("이번주 급식")
-        }.navigationViewStyle(StackNavigationViewStyle())
+        }
 
     }
 }

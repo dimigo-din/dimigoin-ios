@@ -28,7 +28,7 @@ struct ContentView: View {
                 }
             }.edgesIgnoringSafeArea(.bottom)
             .navigationBarHidden(true)
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
         
     }
 }

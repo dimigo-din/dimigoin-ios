@@ -51,7 +51,7 @@
 		429BA5B025A0A63D000749AC /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429BA5AF25A0A63D000749AC /* LocalAuthentication.framework */; };
 		429BA5D725A30FBB000749AC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 429BA5DA25A30FBB000749AC /* Localizable.strings */; };
 		42ABA08A255F5690001925BE /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA089255F5690001925BE /* TimetableView.swift */; };
-		42ABA090255F57E7001925BE /* HDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA08F255F57E7001925BE /* HDivider.swift */; };
+		42ABA090255F57E7001925BE /* Divider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA08F255F57E7001925BE /* Divider.swift */; };
 		42ABA0A4255F6247001925BE /* MealPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0A3255F6247001925BE /* MealPagerView.swift */; };
 		42ABA0B2255FA725001925BE /* CustomBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0B1255FA725001925BE /* CustomBox.swift */; };
 		42ABA0C5255FC4E2001925BE /* HorizonPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0C4255FC4E2001925BE /* HorizonPadding.swift */; };
@@ -177,7 +177,7 @@
 		429BA5D925A30FBB000749AC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		429FD87F24B202DA003A49AF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		42ABA089255F5690001925BE /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
-		42ABA08F255F57E7001925BE /* HDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDivider.swift; sourceTree = "<group>"; };
+		42ABA08F255F57E7001925BE /* Divider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Divider.swift; sourceTree = "<group>"; };
 		42ABA0A3255F6247001925BE /* MealPagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPagerView.swift; sourceTree = "<group>"; };
 		42ABA0B1255FA725001925BE /* CustomBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBox.swift; sourceTree = "<group>"; };
 		42ABA0C4255FC4E2001925BE /* HorizonPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizonPadding.swift; sourceTree = "<group>"; };
@@ -343,7 +343,7 @@
 				42C487C924DDB73000C594CB /* CopyrightText.swift */,
 				42EFCDFD255829B100F3DC5E /* SectionHeader.swift */,
 				42EFCE2D255852DD00F3DC5E /* ViewTitle.swift */,
-				42ABA08F255F57E7001925BE /* HDivider.swift */,
+				42ABA08F255F57E7001925BE /* Divider.swift */,
 				42ABA0A3255F6247001925BE /* MealPagerView.swift */,
 				42ABA0B1255FA725001925BE /* CustomBox.swift */,
 				42ABA0C4255FC4E2001925BE /* HorizonPadding.swift */,
@@ -701,7 +701,7 @@
 				42050CC125AA19E900C61D14 /* ColorExtension.swift in Sources */,
 				4250012625595F9E00C593CF /* Alert.swift in Sources */,
 				42ABA08A255F5690001925BE /* TimetableView.swift in Sources */,
-				42ABA090255F57E7001925BE /* HDivider.swift in Sources */,
+				42ABA090255F57E7001925BE /* Divider.swift in Sources */,
 				42EFCDE625581C4500F3DC5E /* HomeView.swift in Sources */,
 				086CC54F24AF819400456846 /* HSpacer.swift in Sources */,
 				08C9AC1424A74A83002AF525 /* LoginView.swift in Sources */,

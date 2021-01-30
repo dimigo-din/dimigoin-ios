@@ -21,6 +21,8 @@ platform :ios do
     increment_build_number(build_number: number_of_commits)
     build_app(workspace: "dimigoin.xcworkspace", scheme: "dimigoin")
     upload_to_testflight
+    slack(message: "새로운 iOS TestFlight가 업로드 되었습니다!",
+          channel: "#일반")
   end
 end
 

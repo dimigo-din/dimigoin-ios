@@ -18,3 +18,15 @@ struct HDivider: View {
             .edgesIgnoringSafeArea(.horizontal)
     }
 }
+
+struct VDivider: View {
+    let color: Color = Color("divider")
+    let width: CGFloat = 1
+    var body: some View {
+        Rectangle()
+            .fill(color)
+            .frame(width: width)
+            .edgesIgnoringSafeArea(.vertical)
+    }
+}
+
