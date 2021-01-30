@@ -15,6 +15,8 @@ struct AlertView: View {
     @EnvironmentObject var api: DimigoinAPI
     @State var dragOffset = CGSize.zero
     @State var startPos = CGPoint(x: 0, y: 0)
+    @State var placeName: String = ""
+    @State var remark: String = ""
     
     var body: some View {
         GeometryReader { geometry in
@@ -28,6 +30,21 @@ struct AlertView: View {
                 }
                 else if alertManager.alertType == .idCardReadme {
                     idcardReadme
+                }
+                else if alertManager.alertType == .attendance {
+                    VSpacer(20)
+                    Text("\(getCurrentTimeString())").font(Font.custom("NotoSansKR-Bold", size: 11)).accent()
+                    Text("어디에 계신가요?").font(Font.custom("NotoSansKR-Bold", size: 16))
+                    VSpacer(20)
+                    TextField("장소를 입력하세요", text: $placeName).textContentType(.none)
+                        .modifier(TextFieldModifier())
+                        .modifier(ClearButton(text: $placeName))
+                    VSpacer(15)
+                    TextField("사유를 입력하세요", text: $remark).textContentType(.none)
+                        .modifier(TextFieldModifier())
+                        .modifier(ClearButton(text: $remark))
+                    VSpacer(20)
+                    Text("사전 허가된 활동 또는 감독 교사 승인 외\n임의로 등록할 경우 불이익을 받을 수 있습니다.").font(Font.custom("NotoSansKR-Medium", size: 12)).foregroundColor(Color("gray7")).multilineTextAlignment(.center)
                 }
                 else {
                     VStack {
@@ -45,6 +62,48 @@ struct AlertView: View {
                 if alertManager.alertType == .logout {
                     logoutButtons
                 }
+                else if alertManager.alertType == .attendance {
+                    HStack(spacing: 0){
+                        Button(action: {
+                            dismiss()
+                        }) {
+                            Text("취소")
+                                .foregroundColor(Color.white)
+                                .font(Font.custom("NanumSquareEB", size: 14))
+                                .frame(height: 45)
+                                .frame(maxWidth: .infinity)
+                                .background(RoundSquare(tl: 0, tr: 0, bl: 10, br: 0).fill(Color.gray4))
+                        }
+                        Button(action: {
+                            dismiss()
+                            api.changeUserPlace(placeName: placeName, remark: remark) { result in
+                                switch result {
+                                case .success(_):
+                                    self.alertManager.createAlert("\(placeName)으로 위치가 변경되었습니다.", .danger)
+                                case .failure(let error):
+                                    switch error {
+                                    case .noSuchPlace:
+                                        self.alertManager.createAlert("출입 인증에 실패 하였습니다.", sub: "동일한 장소 이름을 찾지 못했습니다.", .danger)
+                                    case .notRightTime:
+                                        self.alertManager.createAlert("출입 인증에 실패 하였습니다.", sub: "출입 인증을 할 수 있는 시간이 아닙니다.", .danger)
+                                    case .tokenExpired:
+                                        self.alertManager.createAlert("출입 인증에 실패 하였습니다.", sub: "토큰이 만료 되었습니다.", .danger)
+                                    case .unknown:
+                                        self.alertManager.createAlert("알 수 없는 에러", sub: "나중에 다시 시도해 주세요.", .danger)
+                                    }
+                                }
+                                
+                            }
+                        }) {
+                            Text("확인")
+                                .foregroundColor(Color.white)
+                                .font(Font.custom("NanumSquareEB", size: 14))
+                                .frame(height: 45)
+                                .frame(maxWidth: .infinity)
+                                .background(RoundSquare(tl: 0, tr: 0, bl: 0, br: 10).fill(alertManager.getAccentColor()))
+                        }
+                    }
+                }
                 else {
                     Button(action: {
                         dismiss()
@@ -59,10 +118,10 @@ struct AlertView: View {
                 }
                 
             }
-            .frame(width: UIDevice.current.userInterfaceIdiom == .phone ? geometry.size.width - 20 : 380, height: alertManager.alertType == .idCardReadme ? 260 : 195)
+            .frame(width: UIDevice.current.userInterfaceIdiom == .phone ? geometry.size.width - 20 : 380, height: alertManager.alertType == .idCardReadme ? 260 : (alertManager.alertType == .attendance ? 314 : 195))
             .background(Color(UIColor.systemBackground).cornerRadius(10).animation(.none))
             .padding(.horizontal, UIDevice.current.userInterfaceIdiom == .phone ? 10 : (geometry.size.width - 380)/2)
-            .padding(.top, (geometry.size.height - (alertManager.alertType == .idCardReadme ? 260 : 195))/2)
+            .padding(.top, (geometry.size.height - (alertManager.alertType == .idCardReadme ? 260 : (alertManager.alertType == .attendance ? 314 : 195)))/2)
             .edgesIgnoringSafeArea(.all)
         }.frame(alignment: .center)
         .opacity(alertManager.isShowing ? 1 : 0)

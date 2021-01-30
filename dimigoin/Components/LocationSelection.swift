@@ -70,7 +70,7 @@ struct LocationItem: View {
                 api.changeUserPlace(placeName: place.name, remark: "") { result in
                     switch result {
                     case .success(_):
-                        alertManager.createAlert("\(place.name)으로 장소가 바뀌었습니다.", sub: "", .success)
+                        alertManager.createAlert("\(place.name)으로 장소가 바뀌었습니다.", .success)
                     case .failure(let error):
                         switch error {
                         case .noSuchPlace:
@@ -109,7 +109,7 @@ struct LocationItemEtc: View {
     var body: some View {
         VStack {
             Button(action: {
-                // 기타 자리 바꾸기 팝업
+                alertManager.attendance()
             }) {
                 Circle()
                     .fill(Color(UIColor.secondarySystemGroupedBackground))

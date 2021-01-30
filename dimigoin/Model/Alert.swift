@@ -28,7 +28,6 @@ class AlertManager: ObservableObject {
     var sub: String = ""
     
     func createAlert(_ content: String, sub: String, _ alertType: AlertType) {
-        UIImpactFeedbackGenerator(style: .soft).impactOccurred()
         self.alertType = alertType
         self.content = content
         self.sub = sub
@@ -37,7 +36,6 @@ class AlertManager: ObservableObject {
     }
     
     func createAlert(_ content: String, _ alertType: AlertType) {
-        UIImpactFeedbackGenerator(style: .soft).impactOccurred()
         self.alertType = alertType
         self.content = content
         self.sub = ""
@@ -46,23 +44,27 @@ class AlertManager: ObservableObject {
     }
     
     func logoutCheck() {
-        UIImpactFeedbackGenerator(style: .soft).impactOccurred()
         self.alertType = .logout
         self.content = "정말 로그아웃 하시겠습니까?"
         showAlert()
         print("Alert presented \(content)")
     }
     func idCardReadme() {
-        UIImpactFeedbackGenerator(style: .soft).impactOccurred()
         self.alertType = .idCardReadme
         showAlert()
     }
+    func attendance() {
+        self.alertType = .attendance
+        showAlert()
+    }
     func showAlert() {
+        UIImpactFeedbackGenerator(style: .soft).impactOccurred()
         withAnimation(.easeInOut(duration: 0.25)) {
             self.isShowing = true
         }
     }
     func dismiss() {
+        UIImpactFeedbackGenerator(style: .soft).impactOccurred()
         withAnimation(.easeInOut(duration: 0.25)) {
             self.isShowing = false
         }

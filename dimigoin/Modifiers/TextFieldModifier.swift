@@ -10,6 +10,12 @@ import SwiftUI
 
 struct TextFieldModifier: ViewModifier {
     @Binding var isError: Bool
+    init(isError: Binding<Bool>) {
+        self._isError = isError
+    }
+    init() {
+        self._isError = .constant(false)
+    }
     func body(content: Content) -> some View {
         return content
             .font(Font.custom("NanumSquareR", size: 14))
