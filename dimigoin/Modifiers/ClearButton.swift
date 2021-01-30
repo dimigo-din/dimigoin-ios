@@ -26,7 +26,7 @@ struct ClearButton: ViewModifier
                 })
                 {
                     Image(systemName: "xmark")
-                        .foregroundColor(Color.gray)
+                        .foregroundColor(Color("gray6"))
                         .font(.system(size: 15))
                         .zIndex(1)
                 }
@@ -35,3 +35,38 @@ struct ClearButton: ViewModifier
         }
     }
 }
+
+struct SearchBarClearButton: ViewModifier
+{
+    @Binding var text: String
+
+    public func body(content: Content) -> some View
+    {
+        ZStack(alignment: .trailing)
+        {
+            content
+
+            if !text.isEmpty
+            {
+                Button(action:
+                {
+                    self.text = ""
+                })
+                {
+                    Image(systemName: "xmark")
+                        .foregroundColor(Color("gray6"))
+                        .font(.system(size: 15))
+                        .zIndex(1)
+                }
+                .padding(.trailing, 12)
+            } else {
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(Color("gray6"))
+                    .font(.system(size: 18))
+                    .zIndex(1)
+                    .padding(.trailing, 12)
+            }
+        }
+    }
+}
+

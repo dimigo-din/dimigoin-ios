@@ -11,7 +11,7 @@ import DimigoinKit
 
 struct AttendanceListView: View {
     @EnvironmentObject var api: DimigoinAPI
-    
+    @State var searchText: String = ""
     init() {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
@@ -22,34 +22,70 @@ struct AttendanceListView: View {
             ScrollView {
                 HStack {
                     VStack(alignment: .leading, spacing: 0){
-                        Text(NSLocalizedString("야간 자율 학습 1타임", comment: "")).subTitle()
-                        Text(NSLocalizedString("자습 현황", comment: "")).title()
+                        Text(getStringTimeZone()).subTitle()
+                        Text("자습 현황").title()
                     }
                     Spacer()
                     Image("class").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent)
                 }.horizonPadding()
                 HDivider().horizonPadding().offset(y: -15)
                 VSpacer(10)
-                
-                VStack {
-                    Text("hello")
-                }
+                AttendanceChart(api: api, geometry: geometry)
+                SearchBar(searchText: $searchText, geometry: geometry)
+                AttendanceList(api: api, searchText: $searchText, geometry: geometry)
             }
         }
         .navigationBarTitle("", displayMode: .inline)
     }
 }
-
-struct HiddenNavigationBar: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-        .navigationBarTitle("", displayMode: .inline)
-        .navigationBarHidden(true)
+struct SearchBar: View {
+    @Binding var searchText: String
+    var geometry: GeometryProxy
+    var body: some View {
+        TextField("이름으로 검색하기", text: $searchText).textContentType(.none)
+            .font(Font.custom("NanumSquareR", size: 14))
+            .padding(.leading)
+            .frame(width: geometry.size.width-40, height: 38)
+            .overlay(
+                RoundedRectangle(cornerRadius: 5)
+                    .stroke(Color("gray6"), lineWidth: 1)
+            )
+            .disableAutocorrection(true)
+            .autocapitalization(.none)
+            .modifier(SearchBarClearButton(text: $searchText))
     }
 }
 
-extension View {
-    func hiddenNavigationBarStyle() -> some View {
-        modifier( HiddenNavigationBar() )
+struct AttendanceChart: View {
+    @State var api: DimigoinAPI
+    var geometry: GeometryProxy
+
+    var body: some View {
+        Text("chart")
+    }
+}
+
+struct AttendanceList: View {
+    @State var api: DimigoinAPI
+    @Binding var searchText: String
+    var geometry: GeometryProxy
+
+    var body: some View {
+        VStack {
+            ForEach(api.attendances.filter {
+                self.searchText.isEmpty ? true : ($0.name.contains(self.searchText) || $0.currentLocation.label.contains(self.searchText))
+            }, id: \.self) { attendance in
+                AttendanceListItem(attendance: attendance, geometry: geometry)
+            }
+        }.animation(.spring())
+    }
+}
+
+struct AttendanceListItem: View {
+    @State var attendance: Attendance
+    var geometry: GeometryProxy
+    
+    var body: some View {
+        Text("\(attendance.name) \(attendance.currentLocation.label)")
     }
 }
