@@ -68,14 +68,11 @@ struct HomeView: View {
                     LocationSelectionView(currentLocation: $currentLocation)
                         .environmentObject(alertManager)
                         .environmentObject(api)
-                    Spacer()
                     MealPagerView(geometry: geometry)
                         .environmentObject(api)
                     VSpacer(tabBarSize + 40)
                 }.frame(width: geometry.size.width)
             }
-            
-            
         }
     }
 }

@@ -15,13 +15,13 @@ struct ContentView: View {
     
     var body: some View {
         Group {
-            if(api.isFirstLogin) {
-                LoginView()
+            if(api.isLoggedIn) {
+                MainView()
                     .environmentObject(api)
                     .environmentObject(alertManager)
             }
             else {
-                MainView()
+                LoginView()
                     .environmentObject(api)
                     .environmentObject(alertManager)
             }

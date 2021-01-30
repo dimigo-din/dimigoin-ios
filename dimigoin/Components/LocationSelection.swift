@@ -49,7 +49,6 @@ struct LocationSelectionView: View {
             
         }
         VSpacer(19)
-        HDivider()
     }
 }
 
