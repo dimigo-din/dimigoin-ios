@@ -141,7 +141,6 @@
 		25D1958C54B4C63F0C895030 /* Pods-WidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-WidgetExtension/Pods-WidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
 		42050CB825AA148E00C61D14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		42050CC025AA19E900C61D14 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
-		42050D6F25AD1FF700C61D14 /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = SOURCE_ROOT; };
 		4206192A25A6AF7E00A5E5B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4206193D25A6B58200A5E5B8 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		420CC50A25AD98B700C6DB11 /* Dimigoin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dimigoin.entitlements; sourceTree = "<group>"; };
@@ -431,7 +430,6 @@
 		42B79D3E253ED242003A8A7F /* Widget */ = {
 			isa = PBXGroup;
 			children = (
-				42050D6F25AD1FF700C61D14 /* WidgetExtension.entitlements */,
 				42364EA224B0CFB9008427D5 /* Fonts */,
 				42B79D3F253ED242003A8A7F /* Widget.swift */,
 				42B79D8C253FD7D7003A8A7F /* NextMealWidget.swift */,

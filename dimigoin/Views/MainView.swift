@@ -53,7 +53,7 @@ struct MainView: View {
                             .blur(radius: alertManager.isShowing ? 2 : 0)
                     }
                     Color.black.edgesIgnoringSafeArea(.all).opacity(alertManager.isShowing ? 0.1 : 0)
-                    AlertView(isShowing: $alertManager.isShowing)
+                    AlertView()
                         .environmentObject(alertManager)
                         .environmentObject(api)
                         .frame(width: geometry.size.width)

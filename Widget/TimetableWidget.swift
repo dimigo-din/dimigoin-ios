@@ -10,19 +10,18 @@ import SwiftUI
 import DimigoinKit
 
 struct TimetableWidget: View {
-//    @State var timetableAPI: TimetableAPI = TimetableAPI()
-    @State var grade: Int =  UserDefaults(suiteName: appGroupName)?.integer(forKey: "user.grade") ?? 2
-    @State var klass: Int = UserDefaults(suiteName: appGroupName)?.integer(forKey: "user.klass") ?? 4
+    var api: DimigoinAPI
     var data: WidgetEntry
     
     var body: some View {
         ZStack {
-            Image(data.tokenExist == false ? "dangermark" : "logo").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 60)
-                .opacity(data.tokenExist == false ? 0.4 : 0.25).foregroundColor(data.tokenExist == false ? Color("red") : Color.accent)
+            Image(api.isLoggedIn == false ? "dangermark" : "logo").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 60)
+                .opacity(api.isLoggedIn == false ? 0.4 : 0.25).foregroundColor(api.isLoggedIn == false ? Color("red") : Color.accent)
             GeometryReader { geometry in
-                Rectangle().fill(data.tokenExist == false ? Color("red") : Color.accent).frame(width: geometry.size.width, height: 4)
+                Rectangle().fill(api.isLoggedIn == false ? Color("red") : Color.accent).frame(width: geometry.size.width, height: 4)
             }
-            if(data.tokenExist) {
+            if(api.isLoggedIn == true) {
+                Text("\(api.user.grade) \(api.user.klass)")
                 GeometryReader { geometry in
                     VStack {
                         Spacer()
@@ -56,6 +55,7 @@ struct TimetableWidget: View {
                     }
                 }
             } else {
+                Text("\(api.user.grade) \(api.user.klass)")
                 Text("사용자 정보가 동기화 되지 않았습니다. 앱을 실행하여 로그인 하거나 이미 로그인을 완료했다면 잠시만 기다려주세요.😉").caption3().padding(.horizontal)
             }
             

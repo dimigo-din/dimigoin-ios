@@ -83,7 +83,7 @@ struct LoginView: View {
             }.padding(.horizontal)
             .edgesIgnoringSafeArea(.top)
             .keyboardResponsive()
-            AlertView(isShowing: $alertManager.isShowing)
+            AlertView()
                 .environmentObject(alertManager)
         }
     }

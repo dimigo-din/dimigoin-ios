@@ -17,7 +17,6 @@ struct WidgetEntry : TimelineEntry {
     var breakfast: String
     var lunch: String
     var dinner: String
-    var tokenExist: Bool
 }
 
 @main
@@ -31,71 +30,52 @@ struct MainWidget : Widget {
         }
         .configurationDisplayName("디미고인 위젯")
         .description("누구보다 빠르게 급식과 시간표를 확인해보세요")
-        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
+//        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
+        .supportedFamilies([.systemSmall, .systemMedium])
+
     }
 }
 
 struct Provider : TimelineProvider {
+    func getTimeline(in context: Context, completion: @escaping (Timeline<WidgetEntry>) -> Void) {
+        getMeal(from: getToday8DigitDateString()) { meal in
+            let data = WidgetEntry(date: Date(),
+                                    breakfast: meal.breakfast,
+                                    lunch: meal.lunch,
+                                    dinner: meal.dinner)
+            let nextUpdate = Calendar.current.date(byAdding: .minute, value: 15, to: Date())
+            let timeline = Timeline(entries: [data], policy: .after(nextUpdate!))
+            completion(timeline)
+        }
+    }
+    
     func getSnapshot(in context: Context, completion: @escaping (WidgetEntry) -> Void) {
         let placeholderEntry = WidgetEntry(date: Date(),
                                       breakfast: sampleMeal.breakfast,
                                       lunch: sampleMeal.lunch,
-                                      dinner: sampleMeal.dinner,
-                                      tokenExist: true)
+                                      dinner: sampleMeal.dinner)
         completion(placeholderEntry)
-    }
-    
-    func getTimeline(in context: Context, completion: @escaping (Timeline<WidgetEntry>) -> Void) {
-        let accessToken: String = UserDefaults(suiteName: appGroupName)?.string(forKey: "accessToken") ?? ""
-        // 토큰이 없을 때 API호출 자체를 안하고 그냥 없다고 넘겨버리고 15분마다 새로고침하게 스케쥴 (또는 UITest일때)
-        if(accessToken == "" || ProcessInfo.processInfo.arguments.contains("UITesting")) {
-            let date = Date()
-            let data = WidgetEntry(date: Date(),
-                                   breakfast: "",
-                                   lunch: "",
-                                   dinner: "",
-                                   tokenExist: false)
-            let nextUpdate = Calendar.current.date(byAdding: .minute, value: 15, to: date)
-            let timeline = Timeline(entries: [data], policy: .after(nextUpdate!))
-            completion(timeline)
-        }
-        
-//      있으면 API호출하고 다음 15분후에 새로고침 하도록 스케쥴
-        let headers: HTTPHeaders = ["Authorization":"Bearer \(accessToken)"]
-        let endPoint = "/meal/\(getToday8DigitDateString())"
-        let method: HTTPMethod = .get
-        AF.request(rootURL+endPoint, method: method, encoding: JSONEncoding.default, headers: headers).responseData { response in
-            let json = JSON(response.value ?? [])
-            let date = Date()
-            let data = WidgetEntry(date: Date(),
-                                   breakfast: bindingMenus(menu: json["meal"]["breakfast"]),
-                                   lunch: bindingMenus(menu: json["meal"]["lunch"]),
-                                   dinner: bindingMenus(menu: json["meal"]["dinner"]),
-                                   tokenExist: true)
-            let nextUpdate = Calendar.current.date(byAdding: .minute, value: 15, to: date)
-            let timeline = Timeline(entries: [data], policy: .after(nextUpdate!))
-            completion(timeline)
-        }
     }
     
     func placeholder(in context: Context) -> WidgetEntry {
         let placeholderData = WidgetEntry(date: Date(),
                                       breakfast: sampleMeal.breakfast,
                                       lunch: sampleMeal.lunch,
-                                      dinner: sampleMeal.dinner,
-                                      tokenExist: true)
+                                      dinner: sampleMeal.dinner)
         return placeholderData
     }
 }
 
 struct WidgetView : View {
     @Environment(\.widgetFamily) var widgetFamily
+    @State var api: DimigoinAPI = DimigoinAPI()
+
     var data : WidgetEntry
     var body: some View{
         switch widgetFamily {
         case .systemSmall: NextMealWidget(data: data)
         case .systemMedium: DailyMealWidget(data: data)
-        case .systemLarge: TimetableWidget(data: data)
+//        case .systemLarge: TimetableWidget(api: api, data: data)
         default: Text("error")
         }
     }
@@ -107,8 +87,4 @@ extension UserDefaults {
         let appGroupId = "group.in.dimigo.ios"
         return UserDefaults(suiteName: appGroupId)!
     }
-}
-
-public func getAccentColor() -> String {
-    return UserDefaults.standard.string(forKey: "accentColor") ?? "accent"
 }

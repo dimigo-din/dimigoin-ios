@@ -9,7 +9,6 @@
 import Foundation
 import DimigoinKit
 import SwiftUI
-import Combine
 
 enum AlertType {
     case success
@@ -19,6 +18,7 @@ enum AlertType {
     case text
     case logout
     case idCardReadme
+    case attendance
 }
 
 class AlertManager: ObservableObject {
@@ -32,6 +32,15 @@ class AlertManager: ObservableObject {
         self.alertType = alertType
         self.content = content
         self.sub = sub
+        showAlert()
+        print("Alert presented \(content) : \(sub)")
+    }
+    
+    func createAlert(_ content: String, _ alertType: AlertType) {
+        UIImpactFeedbackGenerator(style: .soft).impactOccurred()
+        self.alertType = alertType
+        self.content = content
+        self.sub = ""
         showAlert()
         print("Alert presented \(content) : \(sub)")
     }
@@ -68,6 +77,7 @@ class AlertManager: ObservableObject {
             case .text: colorName = "accent"
             case .logout: colorName = "accent"
             case .idCardReadme: colorName = "gray4"
+            case .attendance: colorName = "accent"
         }
         return Color(colorName)
     }
@@ -82,6 +92,7 @@ class AlertManager: ObservableObject {
             case .text: iconName = ""
             case .logout: iconName = "logout"
             case .idCardReadme: iconName = ""
+            case .attendance: iconName = ""
         }
         return iconName
     }
