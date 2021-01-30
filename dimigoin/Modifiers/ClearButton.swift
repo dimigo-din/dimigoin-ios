@@ -25,9 +25,9 @@ struct ClearButton: ViewModifier
                     self.text = ""
                 })
                 {
-                    Image(systemName: "xmark.circle")
+                    Image(systemName: "xmark")
                         .foregroundColor(Color.gray)
-                        .font(.system(size: 17))
+                        .font(.system(size: 15))
                         .zIndex(1)
                 }
                 .padding(.trailing, 12)

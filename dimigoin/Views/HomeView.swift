@@ -14,7 +14,6 @@ struct HomeView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @EnvironmentObject var alertManager: AlertManager
     @EnvironmentObject var api: DimigoinAPI
-    @State var currentLocation = 0
     @State var showLogoutButton: Bool = false
     
     @Binding var tapbarIndex: Int 
@@ -65,9 +64,8 @@ struct HomeView: View {
                         }.horizonPadding()
                     }.frame(width: geometry.size.width)
                     VSpacer(15)
-                    LocationSelectionView(currentLocation: $currentLocation)
+                    LocationSelectionView(_api)
                         .environmentObject(alertManager)
-                        .environmentObject(api)
                     MealPagerView(geometry: geometry)
                         .environmentObject(api)
                     VSpacer(tabBarSize + 40)

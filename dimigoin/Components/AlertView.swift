@@ -47,6 +47,10 @@ struct AlertView: View {
                             Image(alertManager.getIconName()).renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 30).foregroundColor(alertManager.getAccentColor())
                             VSpacer(23)
                             Text(alertManager.content).alertTitle(alertManager.getTitleColor()).foregroundColor(alertManager.getTitleColor())
+                            VSpacer(5)
+                            if(alertManager.sub != "") {
+                                Text(alertManager.sub).alertSubTitle().foregroundColor(Color.gray4.opacity(0.7))
+                            }
                         }.animation(.none)
                     }
                     

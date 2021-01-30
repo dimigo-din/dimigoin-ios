@@ -25,7 +25,7 @@ class AlertManager: ObservableObject {
     @Published var isShowing: Bool = false
     var alertType: AlertType = .warning
     var content: String = "content"
-    var sub: String = "sub"
+    var sub: String = ""
     
     func createAlert(_ content: String, sub: String, _ alertType: AlertType) {
         UIImpactFeedbackGenerator(style: .soft).impactOccurred()
