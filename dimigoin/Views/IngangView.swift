@@ -38,7 +38,7 @@ struct IngangView: View {
                                 Text("총원").font(Font.custom("NotoSansKR-Bold", size: 15))
                             }
                             Spacer()
-                        }.frame(width: geometry.size.width - 40, height: 120)
+                        }.frame(width: abs(geometry.size.width - 40), height: 120)
                     }.modifier(CardViewModifier(geometry.size.width - 40, 120))
                     VSpacer(10)
                     if (ingang.applicants.count == ingang.maxApplier && ingang.isApplied == false) {

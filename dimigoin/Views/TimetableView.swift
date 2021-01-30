@@ -66,7 +66,7 @@ struct TimetableItem: View{
                                 VStack(spacing: 0) {
 //                                    Text("\(day)/\(period)")
                                     Text("\(api.getLectureName(weekDay: day, period: period))")
-                                        .frame(width: (geometry.size.width-40)/5, height: 20)
+                                        .frame(width: abs(geometry.size.width-40)/5, height: 20)
                                         .padding(.top, 15)
                                         .padding(.bottom, 15)
                                         .font(Font.custom("NotoSansKR-Medium", size: 18))

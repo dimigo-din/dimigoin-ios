@@ -66,6 +66,15 @@ struct HomeView: View {
                     VSpacer(15)
                     LocationSelectionView(_api)
                         .environmentObject(alertManager)
+                    NavigationLink(destination: AttendanceListView()) {
+                        ZStack {
+                            Text("우리반 자습 현황 확인하기")
+                            HStack {
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                            }
+                        }
+                    }
                     MealPagerView(geometry: geometry)
                         .environmentObject(api)
                     VSpacer(tabBarSize + 40)

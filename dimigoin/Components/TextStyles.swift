@@ -176,7 +176,7 @@ extension Text {
         self
             .foregroundColor(Color.white)
             .font(Font.custom("NotoSansKR-Medium", size: 15))
-            .frame(width: w, height: h)
+            .frame(width: abs(w), height: abs(h))
             .background(Color.gray4.cornerRadius(10))
     }
     

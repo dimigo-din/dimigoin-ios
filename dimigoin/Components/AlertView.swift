@@ -36,9 +36,13 @@ struct AlertView: View {
                     Text("\(getCurrentTimeString())").font(Font.custom("NotoSansKR-Bold", size: 11)).accent()
                     Text("어디에 계신가요?").font(Font.custom("NotoSansKR-Bold", size: 16))
                     VSpacer(20)
-                    TextField("장소를 입력하세요", text: $placeName).textContentType(.none)
-                        .modifier(TextFieldModifier())
-                        .modifier(ClearButton(text: $placeName))
+                    NavigationLink(destination: SelectLocationView()) {
+                        Text("장소를 선택하세요")
+                    }
+                    
+//                    .textContentType(.none)
+//                        .modifier(TextFieldModifier())
+//                        .modifier(ClearButton(text: $placeName))
                     VSpacer(15)
                     TextField("사유를 입력하세요", text: $remark).textContentType(.none)
                         .modifier(TextFieldModifier())
@@ -74,26 +78,10 @@ struct AlertView: View {
                                 .frame(maxWidth: .infinity)
                                 .background(RoundSquare(tl: 0, tr: 0, bl: 10, br: 0).fill(Color.gray4))
                         }
+                        
                         Button(action: {
                             dismiss()
-                            api.changeUserPlace(placeName: placeName, remark: remark) { result in
-                                switch result {
-                                case .success(_):
-                                    self.alertManager.createAlert("\(placeName)으로 위치가 변경되었습니다.", .danger)
-                                case .failure(let error):
-                                    switch error {
-                                    case .noSuchPlace:
-                                        self.alertManager.createAlert("출입 인증에 실패 하였습니다.", sub: "동일한 장소 이름을 찾지 못했습니다.", .danger)
-                                    case .notRightTime:
-                                        self.alertManager.createAlert("출입 인증에 실패 하였습니다.", sub: "출입 인증을 할 수 있는 시간이 아닙니다.", .danger)
-                                    case .tokenExpired:
-                                        self.alertManager.createAlert("출입 인증에 실패 하였습니다.", sub: "토큰이 만료 되었습니다.", .danger)
-                                    case .unknown:
-                                        self.alertManager.createAlert("알 수 없는 에러", sub: "나중에 다시 시도해 주세요.", .danger)
-                                    }
-                                }
-                                
-                            }
+                            
                         }) {
                             Text("확인")
                                 .foregroundColor(Color.white)
@@ -118,7 +106,7 @@ struct AlertView: View {
                 }
                 
             }
-            .frame(width: UIDevice.current.userInterfaceIdiom == .phone ? geometry.size.width - 20 : 380, height: alertManager.alertType == .idCardReadme ? 260 : (alertManager.alertType == .attendance ? 314 : 195))
+            .frame(width: UIDevice.current.userInterfaceIdiom == .phone ? abs(geometry.size.width - 20) : 380, height: alertManager.alertType == .idCardReadme ? 260 : (alertManager.alertType == .attendance ? 314 : 195))
             .background(Color(UIColor.systemBackground).cornerRadius(10).animation(.none))
             .padding(.horizontal, UIDevice.current.userInterfaceIdiom == .phone ? 10 : (geometry.size.width - 380)/2)
             .padding(.top, (geometry.size.height - (alertManager.alertType == .idCardReadme ? 260 : (alertManager.alertType == .attendance ? 314 : 195)))/2)
