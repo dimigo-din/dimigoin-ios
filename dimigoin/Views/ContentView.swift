@@ -14,21 +14,17 @@ struct ContentView: View {
     var alertManager = AlertManager()
     
     var body: some View {
-        NavigationView {
-            Group {
-                if(api.isLoggedIn) {
-                    MainView()
-                        .environmentObject(api)
-                        .environmentObject(alertManager)
-                }
-                else {
-                    LoginView()
-                        .environmentObject(api)
-                        .environmentObject(alertManager)
-                }
-            }.edgesIgnoringSafeArea(.bottom)
-            .navigationBarHidden(true)
-        }.navigationViewStyle(StackNavigationViewStyle())
-        
+        Group {
+            if(api.isLoggedIn) {
+                MainView()
+                    .environmentObject(api)
+                    .environmentObject(alertManager)
+            }
+            else {
+                LoginView()
+                    .environmentObject(api)
+                    .environmentObject(alertManager)
+            }
+        }.edgesIgnoringSafeArea(.bottom)
     }
 }

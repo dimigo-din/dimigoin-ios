@@ -54,8 +54,8 @@ struct MainView: View {
                     }
                     Color.black.edgesIgnoringSafeArea(.all).opacity(alertManager.isShowing ? 0.1 : 0)
                     AlertView()
-                        .environmentObject(alertManager)
                         .environmentObject(api)
+                        .environmentObject(alertManager)
                         .frame(width: geometry.size.width)
                         .offset(x: -geometry.size.width*2)
                 }

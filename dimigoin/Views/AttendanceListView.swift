@@ -96,7 +96,7 @@ struct AttendanceChart: View {
                 VStack {
                     Text("총원").foregroundColor(Color.white).font(Font.custom("NotoSansKR-Bold", size: 15))
                     VSpacer(12)
-                    Text("0").foregroundColor(Color.accent).font(Font.custom("NotoSansKR-Bold", size: 15))
+                    Text("\(api.attendanceList.count)").foregroundColor(Color.accent).font(Font.custom("NotoSansKR-Bold", size: 15))
                 }
             }.horizonPadding()
         }.horizonPadding()
@@ -111,7 +111,7 @@ struct AttendanceList: View {
 
     var body: some View {
         VStack(spacing: 13) {
-            ForEach(api.attendances.filter {
+            ForEach(api.attendanceList.filter {
                 self.searchText.isEmpty ? true : ($0.name.contains(self.searchText) || $0.currentLocation.label.contains(self.searchText))
             }, id: \.self) { attendance in
                 AttendanceListItem(attendance: attendance)
@@ -141,7 +141,7 @@ struct PlaceBadge: View {
     
     var body: some View  {
         HStack {
-            Text(place.label).font(Font.custom("NotoSansKR-Medium", size: 11)).gray4()
+            Text(place.type).font(Font.custom("NotoSansKR-Medium", size: 11)).gray4()
         }.frame(width: 60, height: 20)
         .overlay(
             RoundedRectangle(cornerRadius: 5)

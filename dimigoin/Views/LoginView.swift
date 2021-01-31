@@ -85,6 +85,7 @@ struct LoginView: View {
             .keyboardResponsive()
             Color.black.edgesIgnoringSafeArea(.all).opacity(alertManager.isShowing ? 0.1 : 0)
             AlertView()
+                .environmentObject(api)
                 .environmentObject(alertManager)
         }
     }

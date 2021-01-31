@@ -68,12 +68,12 @@ struct HomeView: View {
                         .environmentObject(alertManager)
                     NavigationLink(destination: AttendanceListView().environmentObject(api)) {
                         ZStack {
-                            Text("우리반 자습 현황 확인하기")
+                            Text("우리반 자습 현황 확인하기").font(Font.custom("NotoSansKR-Bold", size: 13)).foregroundColor(Color.white)
                             HStack {
                                 Spacer()
-                                Image(systemName: "chevron.right")
+                                Image(systemName: "chevron.right").foregroundColor(Color.white).padding(.trailing)
                             }
-                        }
+                        }.padding(.vertical, 10).frame(width: horizontalSizeClass == .compact ? abs(geometry.size.width-40) : 335).opacity(0.8).background(Color.accent.cornerRadius(10)).padding(.bottom)
                     }
                     MealPagerView(geometry: geometry)
                         .environmentObject(api)

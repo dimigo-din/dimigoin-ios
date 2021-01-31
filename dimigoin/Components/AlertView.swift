@@ -17,6 +17,11 @@ struct AlertView: View {
     @State var startPos = CGPoint(x: 0, y: 0)
     @State var placeName: String = ""
     @State var remark: String = ""
+    @State var selectedPlace: Place = Place()
+    
+    init() {
+        selectedPlace = api.currentPlace
+    }
     
     var body: some View {
         GeometryReader { geometry in
@@ -36,9 +41,9 @@ struct AlertView: View {
                     Text("\(getStringTimeZone())").font(Font.custom("NotoSansKR-Bold", size: 11)).accent()
                     Text("어디에 계신가요?").font(Font.custom("NotoSansKR-Bold", size: 16))
                     VSpacer(20)
-                    NavigationLink(destination: SelectPlaceView(api: api)) {
+                    NavigationLink(destination: SelectPlaceView(api: api, selectedPlace: $selectedPlace)) {
                         HStack {
-                            Text(api.currentPlace.name)
+                            Text(selectedPlace.name)
                                 .foregroundColor(Color.accent)
                                 .font(Font.custom("NanumSquareR", size: 14))
                                 .padding(.leading)
@@ -54,6 +59,7 @@ struct AlertView: View {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(Color("divider"), lineWidth: 1)
                     )
+                    
                     VSpacer(15)
                     TextField("사유를 입력하세요", text: $remark).textContentType(.none)
                         .modifier(TextFieldModifier())
@@ -90,7 +96,6 @@ struct AlertView: View {
                                 .frame(maxWidth: .infinity)
                                 .background(RoundSquare(tl: 0, tr: 0, bl: 10, br: 0).fill(Color.gray4))
                         }
-                        
                         Button(action: {
                             dismiss()
                             

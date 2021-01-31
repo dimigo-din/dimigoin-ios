@@ -58,14 +58,14 @@ struct SearchBarClearButton: ViewModifier
                         .font(.system(size: 15))
                         .zIndex(1)
                 }
-                .padding(.trailing, 12)
-            } else {
-                Image(systemName: "magnifyingglass")
-                    .foregroundColor(Color("gray6"))
-                    .font(.system(size: 18))
-                    .zIndex(1)
-                    .padding(.trailing, 12)
+                .padding(.trailing, 37)
+                
             }
+            Image(systemName: "magnifyingglass")
+                .foregroundColor(Color("gray6"))
+                .font(.system(size: 18))
+                .zIndex(1)
+                .padding(.trailing, 12)
         }
     }
 }
