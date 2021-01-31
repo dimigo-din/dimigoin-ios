@@ -55,7 +55,7 @@
 		42ABA0A4255F6247001925BE /* MealPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0A3255F6247001925BE /* MealPagerView.swift */; };
 		42ABA0B2255FA725001925BE /* CustomBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0B1255FA725001925BE /* CustomBox.swift */; };
 		42ABA0C5255FC4E2001925BE /* HorizonPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA0C4255FC4E2001925BE /* HorizonPadding.swift */; };
-		42AE3CF825C5941400ACC130 /* SelectLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AE3CF725C5941400ACC130 /* SelectLocationView.swift */; };
+		42AE3CF825C5941400ACC130 /* SelectPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AE3CF725C5941400ACC130 /* SelectPlaceView.swift */; };
 		42AE3CFD25C59A8100ACC130 /* AttendanceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AE3CFC25C59A8100ACC130 /* AttendanceListView.swift */; };
 		42B79D3C253ED242003A8A7F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42124B4A70E00005663 /* WidgetKit.framework */; };
 		42B79D3D253ED242003A8A7F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 420DE42324B4A70E00005663 /* SwiftUI.framework */; };
@@ -181,7 +181,7 @@
 		42ABA0A3255F6247001925BE /* MealPagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPagerView.swift; sourceTree = "<group>"; };
 		42ABA0B1255FA725001925BE /* CustomBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBox.swift; sourceTree = "<group>"; };
 		42ABA0C4255FC4E2001925BE /* HorizonPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizonPadding.swift; sourceTree = "<group>"; };
-		42AE3CF725C5941400ACC130 /* SelectLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationView.swift; sourceTree = "<group>"; };
+		42AE3CF725C5941400ACC130 /* SelectPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPlaceView.swift; sourceTree = "<group>"; };
 		42AE3CFC25C59A8100ACC130 /* AttendanceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceListView.swift; sourceTree = "<group>"; };
 		42B79D3B253ED242003A8A7F /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B79D3F253ED242003A8A7F /* Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
@@ -325,7 +325,7 @@
 				42EFCE1F255851B500F3DC5E /* IngangView.swift */,
 				42C72C042559FED900E3294E /* StudentIdCardView.swift */,
 				42ABA089255F5690001925BE /* TimetableView.swift */,
-				42AE3CF725C5941400ACC130 /* SelectLocationView.swift */,
+				42AE3CF725C5941400ACC130 /* SelectPlaceView.swift */,
 				42AE3CFC25C59A8100ACC130 /* AttendanceListView.swift */,
 			);
 			path = Views;
@@ -706,7 +706,7 @@
 				086CC54F24AF819400456846 /* HSpacer.swift in Sources */,
 				08C9AC1424A74A83002AF525 /* LoginView.swift in Sources */,
 				08C9AC1024A74A83002AF525 /* TextFieldModifier.swift in Sources */,
-				42AE3CF825C5941400ACC130 /* SelectLocationView.swift in Sources */,
+				42AE3CF825C5941400ACC130 /* SelectPlaceView.swift in Sources */,
 				42EFCE16255848C300F3DC5E /* LocationSelection.swift in Sources */,
 				42ABA0A4255F6247001925BE /* MealPagerView.swift in Sources */,
 				42ABA0C5255FC4E2001925BE /* HorizonPadding.swift in Sources */,

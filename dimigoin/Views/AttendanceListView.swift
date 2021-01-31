@@ -29,9 +29,10 @@ struct AttendanceListView: View {
                     Image("class").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent)
                 }.horizonPadding()
                 HDivider().horizonPadding().offset(y: -15)
-                VSpacer(10)
                 AttendanceChart(api: api, geometry: geometry)
+                VSpacer(15)
                 SearchBar(searchText: $searchText, geometry: geometry)
+                VSpacer(15)
                 AttendanceList(api: api, searchText: $searchText, geometry: geometry)
             }
         }
@@ -61,7 +62,45 @@ struct AttendanceChart: View {
     var geometry: GeometryProxy
 
     var body: some View {
-        Text("chart")
+        ZStack {
+
+            VStack(spacing: 0){
+                RoundSquare(tl: 5, tr: 5, bl: 0, br: 0).fill(Color.accent).frame(height:  35)
+                Spacer()
+            }
+            HStack {
+                VStack {
+                    Text("교실").foregroundColor(Color.white).font(Font.custom("NotoSansKR-Bold", size: 15))
+                    VSpacer(12)
+                    Text("0").foregroundColor(Color.accent).font(Font.custom("NotoSansKR-Bold", size: 15))
+                }
+                Spacer()
+                VStack {
+                    Text("인강실").foregroundColor(Color.white).font(Font.custom("NotoSansKR-Bold", size: 15))
+                    VSpacer(12)
+                    Text("0").foregroundColor(Color.accent).font(Font.custom("NotoSansKR-Bold", size: 15))
+                }
+                Spacer()
+                VStack {
+                    Text("동아리").foregroundColor(Color.white).font(Font.custom("NotoSansKR-Bold", size: 15))
+                    VSpacer(12)
+                    Text("0").foregroundColor(Color.accent).font(Font.custom("NotoSansKR-Bold", size: 15))
+                }
+                Spacer()
+                VStack {
+                    Text("기타").foregroundColor(Color.white).font(Font.custom("NotoSansKR-Bold", size: 15))
+                    VSpacer(12)
+                    Text("0").foregroundColor(Color.accent).font(Font.custom("NotoSansKR-Bold", size: 15))
+                }
+                Spacer()
+                VStack {
+                    Text("총원").foregroundColor(Color.white).font(Font.custom("NotoSansKR-Bold", size: 15))
+                    VSpacer(12)
+                    Text("0").foregroundColor(Color.accent).font(Font.custom("NotoSansKR-Bold", size: 15))
+                }
+            }.horizonPadding()
+        }.horizonPadding()
+        .frame(height: 70)
     }
 }
 
@@ -71,21 +110,42 @@ struct AttendanceList: View {
     var geometry: GeometryProxy
 
     var body: some View {
-        VStack {
+        VStack(spacing: 13) {
             ForEach(api.attendances.filter {
                 self.searchText.isEmpty ? true : ($0.name.contains(self.searchText) || $0.currentLocation.label.contains(self.searchText))
             }, id: \.self) { attendance in
-                AttendanceListItem(attendance: attendance, geometry: geometry)
+                AttendanceListItem(attendance: attendance)
             }
-        }.animation(.spring())
+        }.horizonPadding()
+        .frame(width: geometry.size.width)
+        .animation(.spring())
     }
 }
 
 struct AttendanceListItem: View {
     @State var attendance: Attendance
-    var geometry: GeometryProxy
     
     var body: some View {
-        Text("\(attendance.name) \(attendance.currentLocation.label)")
+        HStack {
+            Text("\(String(format: "%02d", attendance.number))").font(Font.custom("NotoSansKR-Bold", size: 16)).gray4()
+            Spacer()
+            Text("\(attendance.name)").font(Font.custom("NotoSansKR-Bold", size: 16)).gray4()
+            Spacer()
+            PlaceBadge(place: attendance.currentLocation)
+        }.horizonPadding()
+    }
+}
+
+struct PlaceBadge: View {
+    @State var place: Place
+    
+    var body: some View  {
+        HStack {
+            Text(place.label).font(Font.custom("NotoSansKR-Medium", size: 11)).gray4()
+        }.frame(width: 60, height: 20)
+        .overlay(
+            RoundedRectangle(cornerRadius: 5)
+                .stroke(Color("gray6"), lineWidth: 1)
+        )
     }
 }

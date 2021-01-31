@@ -67,9 +67,11 @@ struct LocationItem: View {
     var body: some View {
         VStack {
             Button(action: {
-                api.changeUserPlace(placeName: place.name, remark: "") { result in
+                api.changeUserPlace(placeName: place.name, remark: "iOS") { result in
                     switch result {
                     case .success(_):
+                        self.api.fetchUserCurrentPlace {}
+                        
                         alertManager.createAlert("\(place.name)으로 장소가 바뀌었습니다.", .success)
                     case .failure(let error):
                         switch error {
@@ -86,13 +88,13 @@ struct LocationItem: View {
                 }
             }) {
                 Circle()
-                    .fill(api.currentPlace == place ? Color.accent : Color(UIColor.secondarySystemGroupedBackground))
+                    .fill(api.currentPlace.id == place.id ? Color.accent : Color(UIColor.secondarySystemGroupedBackground))
                     .frame(width: 40, height: 40)
                     .shadow(color: Color.gray4.opacity(0.12), radius: 4, x: 0, y: 0)
                     .overlay(
                         Image(icon)
                             .renderingMode(.template)
-                            .foregroundColor(api.currentPlace == place ? Color.white : Color.accent)
+                            .foregroundColor(api.currentPlace.id == place.id ? Color.white : Color.accent)
                     )
             }
             VSpacer(9)

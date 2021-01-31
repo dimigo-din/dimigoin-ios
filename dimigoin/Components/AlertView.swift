@@ -36,13 +36,24 @@ struct AlertView: View {
                     Text("\(getStringTimeZone())").font(Font.custom("NotoSansKR-Bold", size: 11)).accent()
                     Text("어디에 계신가요?").font(Font.custom("NotoSansKR-Bold", size: 16))
                     VSpacer(20)
-                    NavigationLink(destination: SelectLocationView()) {
-                        Text("장소를 선택하세요")
+                    NavigationLink(destination: SelectPlaceView(api: api)) {
+                        HStack {
+                            Text(api.currentPlace.name)
+                                .foregroundColor(Color.accent)
+                                .font(Font.custom("NanumSquareR", size: 14))
+                                .padding(.leading)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .padding(.trailing)
+                                .foregroundColor(Color.accent)
+                        }
+                        
                     }
-                    
-//                    .textContentType(.none)
-//                        .modifier(TextFieldModifier())
-//                        .modifier(ClearButton(text: $placeName))
+                    .frame(width: 335, height: 50)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color("divider"), lineWidth: 1)
+                    )
                     VSpacer(15)
                     TextField("사유를 입력하세요", text: $remark).textContentType(.none)
                         .modifier(TextFieldModifier())
@@ -70,6 +81,7 @@ struct AlertView: View {
                     HStack(spacing: 0){
                         Button(action: {
                             dismiss()
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                         }) {
                             Text("취소")
                                 .foregroundColor(Color.white)
