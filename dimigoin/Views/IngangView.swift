@@ -79,6 +79,9 @@ struct IngangView: View {
                     .modifier(CardViewModifier(geometry.size.width - 40, 89))
                     VSpacer(30)
                 }
+                if api.ingangs.count == 0 {
+                    Text("오늘은 인강이 없습니다").font(Font.custom("NotoSansKR-Regular", size: 13)).foregroundColor(Color.gray4)
+                }
                 VSpacer(100)
             }
         }
