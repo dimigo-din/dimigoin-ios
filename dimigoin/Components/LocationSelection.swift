@@ -77,7 +77,7 @@ struct LocationItem: View {
                     case .failure(let error):
                         switch error {
                         case .noSuchPlace:
-                            alertManager.createAlert("인원 점검 오류", sub: "장소 ID에러", .danger)
+                            alertManager.createAlert("인원 점검 오류", sub: "유효하지 않은 장소입니다.", .danger)
                         case .notRightTime:
                             alertManager.createAlert("인원 점검 오류", sub: "인원 점검 시간이 아닙니다.", .danger)
                         case .tokenExpired:
@@ -115,13 +115,13 @@ struct LocationItemEtc: View {
                 alertManager.attendance()
             }) {
                 Circle()
-                    .fill(Color(UIColor.secondarySystemGroupedBackground))
+                    .fill(!api.isPrimaryPlace(place: api.currentPlace) ? Color.accent : Color(UIColor.secondarySystemGroupedBackground))
                     .frame(width: 40, height: 40)
                     .shadow(color: Color.gray4.opacity(0.12), radius: 4, x: 0, y: 0)
                     .overlay(
                         Image("etc")
                             .renderingMode(.template)
-                            .foregroundColor(Color.accent)
+                            .foregroundColor(!api.isPrimaryPlace(place: api.currentPlace) ? Color.white : Color.accent)
                     )
             }
             VSpacer(9)

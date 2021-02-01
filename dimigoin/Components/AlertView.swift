@@ -89,7 +89,23 @@ struct AlertView: View {
                         }
                         Button(action: {
                             dismiss()
-                            
+                            api.changeUserPlace(placeName: selectedPlace.name, remark: remark == "" ? "없음" : remark) { result in
+                                switch result {
+                                case .success(()):
+                                    alertManager.createAlert("\(api.currentPlace.name)으로 변경되었습니다.", .success)
+                                case .failure(let error):
+                                    switch error {
+                                    case .noSuchPlace:
+                                        alertManager.createAlert("유효하지 않은 장소 이름입니다.", .danger)
+                                    case .notRightTime:
+                                        alertManager.createAlert("인원 점검 시간이 아닙니다.", .danger)
+                                    case .tokenExpired:
+                                        print("")
+                                    case .unknown:
+                                        alertManager.createAlert("알 수 없는 에러", .danger)
+                                    }
+                                }
+                            }
                         }) {
                             Text("확인")
                                 .foregroundColor(Color.white)
