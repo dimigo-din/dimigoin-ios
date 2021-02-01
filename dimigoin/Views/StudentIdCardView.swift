@@ -45,7 +45,7 @@ struct StudentIdCardView: View {
                         }.padding(.vertical, 13).frame(width: horizontalSizeClass == .compact ? abs(geometry.size.width-40) : 335).opacity(0.8).background(Color("gray6").cornerRadius(10)).padding(.bottom)
                     }
                     
-                }
+                }.offset(y: -tabBarSize/2)
                 
                 Color.black.edgesIgnoringSafeArea(.all).opacity(isShowIdCard ? 1 : 0).statusBar(hidden: isShowIdCard)
                 VStack {
@@ -83,6 +83,7 @@ struct StudentIdCardView: View {
                     }.accessibility(identifier: "button.dismissIdCard")
                     Spacer()
                 }.opacity(isShowIdCard ? 1 : 0)
+                
                 ZStack {
                     ZStack {
                         VStack {
@@ -127,6 +128,7 @@ struct StudentIdCardView: View {
 //                        UIDevice.current.userInterfaceIdiom == .phone ? geometry.size.width - 20 : 380, height: 182
                             .cornerRadius(10)
                     )
+                    
                 }
                 .rotation3DEffect(Angle(degrees: isShowIdCard ? 180 : 0), axis: (x: 1, y: -1, z: 0))
                 .onTapGesture {
@@ -135,8 +137,7 @@ struct StudentIdCardView: View {
                     #else
                         showIdCardAfterAuthentication()
                     #endif
-                }
-                
+                }.offset(y: -tabBarSize/2)
             }.frame(width: geometry.size.width)
         }
     }
