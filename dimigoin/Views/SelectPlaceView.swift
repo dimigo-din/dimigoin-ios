@@ -64,7 +64,7 @@ struct PlaceListItem: View {
         .contentShape(Rectangle())
         .background(Color.accent.opacity(selectedPlace.id == place.id ? 0.05 : 0))
         .onTapGesture {
-            withAnimation() {
+            withAnimation {
                 self.selectedPlace = place
             }
             
@@ -73,4 +73,3 @@ struct PlaceListItem: View {
         HDivider()
     }
 }
-

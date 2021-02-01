@@ -8,23 +8,17 @@
 
 import SwiftUI
 
-struct ClearButton: ViewModifier
-{
+struct ClearButton: ViewModifier {
     @Binding var text: String
 
-    public func body(content: Content) -> some View
-    {
-        ZStack(alignment: .trailing)
-        {
+    public func body(content: Content) -> some View {
+        ZStack(alignment: .trailing) {
             content
 
-            if !text.isEmpty
-            {
-                Button(action:
-                {
+            if !text.isEmpty {
+                Button(action: {
                     self.text = ""
-                })
-                {
+                }) {
                     Image(systemName: "xmark")
                         .foregroundColor(Color("gray6"))
                         .font(.system(size: 15))
@@ -36,23 +30,17 @@ struct ClearButton: ViewModifier
     }
 }
 
-struct SearchBarClearButton: ViewModifier
-{
+struct SearchBarClearButton: ViewModifier {
     @Binding var text: String
 
-    public func body(content: Content) -> some View
-    {
-        ZStack(alignment: .trailing)
-        {
+    public func body(content: Content) -> some View {
+        ZStack(alignment: .trailing) {
             content
 
-            if !text.isEmpty
-            {
-                Button(action:
-                {
+            if !text.isEmpty {
+                Button(action: {
                     self.text = ""
-                })
-                {
+                }) {
                     Image(systemName: "xmark")
                         .foregroundColor(Color("gray6"))
                         .font(.system(size: 15))
@@ -69,4 +57,3 @@ struct SearchBarClearButton: ViewModifier
         }
     }
 }
-

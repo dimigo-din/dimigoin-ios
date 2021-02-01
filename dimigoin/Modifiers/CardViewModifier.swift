@@ -9,16 +9,15 @@
 import SwiftUI
 
 struct CardViewModifier: ViewModifier {
-    var w: CGFloat
-    var h: CGFloat
-    init(_ w:CGFloat, _ h: CGFloat) {
-        self.w = w
-        self.h = h
+    var width: CGFloat
+    var height: CGFloat
+    init(_ width: CGFloat, _ height: CGFloat) {
+        self.width = width
+        self.height = height
     }
     func body(content: Content) -> some View {
         return content
-            .frame(width: abs(w), height: abs(h), alignment: .topLeading)
+            .frame(width: abs(width), height: abs(height), alignment: .topLeading)
             .background(Color(UIColor.secondarySystemGroupedBackground).cornerRadius(10).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0))
     }
 }
-

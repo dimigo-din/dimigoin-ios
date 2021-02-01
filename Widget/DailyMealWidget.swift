@@ -22,7 +22,7 @@ struct DailyMealWidget: View {
                     .offset(y: getMealType() == .lunch ? geometry.size.height/3 : (getMealType() == .dinner ? geometry.size.height*2/3 : 0))
             }
             VStack(alignment: .leading, spacing: 10) {
-                HStack{
+                HStack {
                     Text("아침").accent().font(Font.custom("NotoSansKR-Bold", size: 16))
                     Text("\(data.breakfast)").font(Font.custom("NotoSansKR-Regular", size: 10))
                 }
@@ -38,4 +38,3 @@ struct DailyMealWidget: View {
         }
     }
 }
-

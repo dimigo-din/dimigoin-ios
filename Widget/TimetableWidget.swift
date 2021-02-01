@@ -20,12 +20,12 @@ struct TimetableWidget: View {
             GeometryReader { geometry in
                 Rectangle().fill(api.isLoggedIn == false ? Color("red") : Color.accent).frame(width: geometry.size.width, height: 4)
             }
-            if(api.isLoggedIn == true) {
+            if api.isLoggedIn {
                 Text("\(api.user.grade) \(api.user.klass)")
                 GeometryReader { geometry in
                     VStack {
                         Spacer()
-                        ZStack(alignment: .topLeading){
+                        ZStack(alignment: .topLeading) {
                             HStack(alignment: .top, spacing: 0) {
                                 ForEach(1...5, id: \.self) { day in
                                     VStack {

@@ -27,6 +27,5 @@ struct TextFieldModifier: ViewModifier {
             )
             .disableAutocorrection(true)
             .autocapitalization(.none)
-            
     }
 }

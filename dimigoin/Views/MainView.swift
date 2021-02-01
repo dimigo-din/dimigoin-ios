@@ -29,7 +29,7 @@ struct MainView: View {
             GeometryReader { geometry in
                 ZStack {
                     VStack {
-                        HStack(spacing: 0){
+                        HStack(spacing: 0) {
                             StudentIdCardView(isShowIdCard: $isShowIdCard)
                                 .environmentObject(alertManager)
                                 .environmentObject(api)

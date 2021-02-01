@@ -10,9 +10,8 @@ import Foundation
 
 public var debugMode: Bool = true
 
-public func LOG(line: Int = #line, funcname: String = #function, _ output:Any...) {
+public func LOG(line: Int = #line, funcname: String = #function, _ output: Any...) {
     if debugMode {
         print("👨‍💻 \(funcname) - Line \(line) \(output)")
     }
 }
-

@@ -55,10 +55,10 @@ struct StudentIdCardView: View {
                         Spacer()
                         Text("남은 시간").font(Font.custom("NotoSansKR-Medium", size: 13)).foregroundColor(Color.white)
                         Text("\(remainTime)").font(Font.custom("NotoSansKR-Black", size: 13)).foregroundColor(Color.white)
-                            .onReceive(timer) { input in
-                                if(isShowIdCard == true) {
+                            .onReceive(timer) { _ in
+                                if isShowIdCard == true {
                                     self.remainTime -= 1
-                                    if(remainTime == 0) {
+                                    if remainTime == 0 {
                                         withAnimation(.spring()) {
                                             dismissIdCard()
                                         }
@@ -84,7 +84,7 @@ struct StudentIdCardView: View {
                     Spacer()
                 }.opacity(isShowIdCard ? 1 : 0)
                 ZStack {
-                    ZStack{
+                    ZStack {
                         VStack {
                             HStack {
                                 Image("dimigo-logo").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 19).foregroundColor(Color.white).padding(.leading, 25).padding(.top)
@@ -94,7 +94,7 @@ struct StudentIdCardView: View {
                             Spacer()
                             Text("터치하여 모바일 학생증 열기").font(Font.custom("NotoSansKR-Bold", size: 11)).accent().padding(.vertical, 5).frame(width: horizontalSizeClass == .compact ? abs(geometry.size.width-70) : 310).opacity(0.8).background(Color.white.cornerRadius(20)).padding(.bottom)
                         }
-                        .frame(width: horizontalSizeClass == .compact ? abs(geometry.size.width-40) : 335,height: 195).opacity(isShowIdCard ? 0 : 1)
+                        .frame(width: horizontalSizeClass == .compact ? abs(geometry.size.width-40) : 335, height: 195).opacity(isShowIdCard ? 0 : 1)
                         VStack {
                             VSpacer(30)
                             WebImage(url: api.user.photoURL).resizable().placeholder(Image("user.photo.sample")).cornerRadius(5).aspectRatio(contentMode: .fit).frame(width: 116)
@@ -103,7 +103,7 @@ struct StudentIdCardView: View {
                             Text(api.user.name).font(Font.custom("NanumSquareEB", size: 21)).foregroundColor(Color.black)
                             VSpacer(20)
                             HStack(spacing: 15) {
-                                VStack(alignment: .trailing, spacing: 11){
+                                VStack(alignment: .trailing, spacing: 11) {
                                     Text("학과").font(Font.custom("NanumSquareB", size: 13)).foregroundColor(Color.black)
                                     Text("학번").font(Font.custom("NanumSquareB", size: 13)).foregroundColor(Color.black)
                                     Text("주민번호").font(Font.custom("NanumSquareB", size: 13)).foregroundColor(Color.black)
@@ -151,18 +151,18 @@ struct StudentIdCardView: View {
         }
 
         if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
-            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "모바일 학생증보기", reply: { (success, error) in
+            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "모바일 학생증보기", reply: { (success, _) in
                 if success {
                     DispatchQueue.main.async {
                         showIdCard()
                     }
-                }else {
+                } else {
                     DispatchQueue.main.async {
                         print("Authentication was error")
                     }
                 }
             })
-        }else {
+        } else {
             alertManager.createAlert("인증에 실패했습니다.", sub: "학생증을 보시려면 생체인증을 진행하거나, 비밀번호를 입력해야 합니다.", .danger)
         }
     }

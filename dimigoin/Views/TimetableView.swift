@@ -17,7 +17,7 @@ struct TimetableView: View {
         GeometryReader { geometry in
             ScrollView(showsIndicators: false) {
                 HStack {
-                    VStack(alignment: .leading, spacing: 0){
+                    VStack(alignment: .leading, spacing: 0) {
                         Text(NSLocalizedString("\(api.user.grade)학년 \(api.user.klass)반", comment: "")).subTitle()
                         Text(NSLocalizedString("시간표", comment: "")).title()
                     }
@@ -35,7 +35,7 @@ struct TimetableView: View {
     
 }
 
-struct TimetableItem: View{
+struct TimetableItem: View {
     @EnvironmentObject var api: DimigoinAPI
     @State var geometry: GeometryProxy
     var dayIndicatorXOffset: CGFloat = 0
@@ -43,7 +43,7 @@ struct TimetableItem: View{
         self._geometry = .init(initialValue: geometry)
         self.dayIndicatorXOffset = CGFloat(getTodayDayOfWeekInt()-1)*(geometry.size.width-40)/5
     }
-    func pickerButton(type:String, _ value: Int) -> some View{
+    func pickerButton(type: String, _ value: Int) -> some View {
         return Text("\(value)\(type)")
             .foregroundColor(Color.white)
             .sectionHeader()
@@ -55,7 +55,7 @@ struct TimetableItem: View{
     var body: some View {
         VStack {
             VSpacer(10)
-            ZStack(alignment: .topLeading){
+            ZStack(alignment: .topLeading) {
                 HStack(alignment: .top, spacing: 0) {
                     ForEach(1...5, id: \.self) { day in
                         VStack {

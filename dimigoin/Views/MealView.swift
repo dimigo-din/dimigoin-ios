@@ -21,7 +21,7 @@ struct MealView: View {
                 VStack {
                     VStack {
                         HStack {
-                            VStack(alignment: .leading, spacing: 0){
+                            VStack(alignment: .leading, spacing: 0) {
                                 Text(NSLocalizedString(getDateString(), comment: "")).subTitle()
                                 Text(NSLocalizedString("오늘의 급식", comment: "")).title()
                             }
@@ -36,7 +36,7 @@ struct MealView: View {
                         HStack(spacing: 0) {
                             ForEach(0 ..< days.count) { index in
                                 Button(action: {
-                                    withAnimation() {
+                                    withAnimation {
                                         self.selectedDay = index
                                     }
                                 }) {
@@ -47,7 +47,7 @@ struct MealView: View {
                                 }
                             }
                         }.frame(width: abs(geometry.size.width-40))
-                        ZStack(alignment: .leading){
+                        ZStack(alignment: .leading) {
                             HDivider()
                             Rectangle()
                                 .fill(Color("accent"))
@@ -58,7 +58,7 @@ struct MealView: View {
                         }.frame(width: abs(geometry.size.width-40))
                     }.frame(width: geometry.size.width)
                     VSpacer(20)
-                    HStack(spacing: 0){
+                    HStack(spacing: 0) {
                         ForEach(0..<7, id: \.self) { index in
                             VStack {
                                 SectionHeader("아침", sub: "오전 7시 30분")
@@ -102,8 +102,7 @@ struct MealView: View {
                             }
                             if value.translation.width < 0 && value.translation.height > -30 && value.translation.height < 30 {
                                 nextMeal()
-                            }
-                            else if value.translation.width > 0 && value.translation.height > -30 && value.translation.height < 30 {
+                            } else if value.translation.width > 0 && value.translation.height > -30 && value.translation.height < 30 {
                                 previousMeal()
                             }
                         }

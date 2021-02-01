@@ -31,9 +31,9 @@ struct WeeklyMealView: View {
                 }.pickerStyle(SegmentedPickerStyle())
                 .frame(width: geometry.size.width-40)
                 .offset(x: -geometry.size.width*3)
-                HStack(spacing: 0){
+                HStack(spacing: 0) {
                     ForEach(1...7, id: \.self) { _ in
-                        VStack{
+                        VStack {
                            SectionHeader("아침", sub: "오전 7시 30분")
                            Text(api.meals[selection].breakfast)
                                .mealMenu()
@@ -61,11 +61,10 @@ struct WeeklyMealView: View {
                     }
                 }
                 .animation(.interactiveSpring())
-                .offset(x:  -geometry.size.width*CGFloat((selection)))
+                .offset(x: -geometry.size.width*CGFloat((selection)))
             }
             .navigationBarTitle("이번주 급식")
         }
 
     }
 }
-

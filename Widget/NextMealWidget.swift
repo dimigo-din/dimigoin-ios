@@ -19,7 +19,7 @@ struct NextMealWidget: View {
             }
             VStack {
                 HStack {
-                    switch getMealType(){
+                    switch getMealType() {
                     case .breakfast : Text("아침").accent().font(Font.custom("NotoSansKR-Bold", size: 16))
                     case .lunch : Text("점심").accent().font(Font.custom("NotoSansKR-Bold", size: 16))
                     case .dinner : Text("저녁").accent().font(Font.custom("NotoSansKR-Bold", size: 16))
@@ -27,7 +27,7 @@ struct NextMealWidget: View {
                     Spacer()
                     Text(getDateString()).font(Font.custom("NotoSansKR-Medium", size: 10)).gray4()
                 }
-                switch getMealType(){
+                switch getMealType() {
                 case .breakfast : Text(data.breakfast).caption3()
                 case .lunch : Text(data.lunch).caption3()
                 case .dinner : Text(data.dinner).caption3()
@@ -36,4 +36,3 @@ struct NextMealWidget: View {
         }
     }
 }
-

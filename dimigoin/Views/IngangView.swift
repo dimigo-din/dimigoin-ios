@@ -11,7 +11,6 @@ import Alamofire
 import SwiftyJSON
 import DimigoinKit
 
-
 struct IngangView: View {
     @EnvironmentObject var api: DimigoinAPI
     @EnvironmentObject var alertManager: AlertManager
@@ -30,13 +29,12 @@ struct IngangView: View {
                         HStack {
                             Text(ingang.title).sectionHeader()
                             Spacer()
-                            if (ingang.applicants.count == ingang.maxApplier && ingang.isApplied == false) {
+                            if ingang.applicants.count == ingang.maxApplier && ingang.isApplied == false {
                                 Text("신청불가").foregroundColor(Color.white)
                                     .font(Font.custom("NotoSansKR-Bold", size: 13))
                                     .frame(width: 74, height: 25)
                                     .background(Color.gray4.cornerRadius(15))
-                            }
-                            else {
+                            } else {
                                 if !ingang.isApplied {
                                     Button(action: {
                                         applyIngang(ingang: ingang)
@@ -62,17 +60,17 @@ struct IngangView: View {
                     .horizonPadding()
                     VSpacer(10)
                     HStack {
-                        ForEach(1...4, id: \.self) { i in
+                        ForEach(1...4, id: \.self) { row in
                             VStack(spacing: 14) {
-                                ForEach(0...1, id: \.self) { j in
-                                    if (api.getApplicant(j, i).name == "") {
+                                ForEach(0...1, id: \.self) { col in
+                                    if api.getApplicant(col, row).name == "" {
                                         Text("신청가능").font(Font.custom("NotoSansKR-Medium", size: 12)).foregroundColor(Color("gray6"))
                                     } else {
-                                        Text("\(api.getApplicant(j, i).name)").font(Font.custom("NotoSansKR-Medium", size: 12)).foregroundColor(Color("gray3"))
+                                        Text("\(api.getApplicant(col, row).name)").font(Font.custom("NotoSansKR-Medium", size: 12)).foregroundColor(Color("gray3"))
                                     }
                                 }
                             }
-                            if ( i != 4 ) {
+                            if row != 4 {
                                 Spacer()
                             }
                         }
@@ -133,7 +131,6 @@ struct IngangView: View {
     }
 }
 
-
 struct TicketStatusView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @State var api: DimigoinAPI
@@ -143,7 +140,7 @@ struct TicketStatusView: View {
             ZStack {
                 VDivider()
                 HStack {
-                    if(horizontalSizeClass != .compact) {
+                    if horizontalSizeClass != .compact {
                         Spacer()
                     }
                     VStack(alignment: .leading, spacing: 0) {
@@ -179,7 +176,7 @@ struct TicketStatusView: View {
                             Text("\(api.weeklyRemainTicket)/\(api.weeklyTicketCount)").font(Font.custom("NotoSansKR-Bold", size: 10)).foregroundColor(Color.accent)
                         }
                     }.padding(.trailing, horizontalSizeClass == .compact ? 40 : 0)
-                    if(horizontalSizeClass != .compact) {
+                    if horizontalSizeClass != .compact {
                         Spacer()
                     }
                 }.frame(width: abs(geometry.size.width - 40), height: 122)

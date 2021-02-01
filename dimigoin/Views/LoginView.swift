@@ -16,7 +16,7 @@ struct LoginView: View {
     @EnvironmentObject var alertManager: AlertManager
     @State var username = ""
     @State var password = ""
-    @State var showErrorMessage:Bool = false
+    @State var showErrorMessage: Bool = false
     @State var isLoading: Bool = false
     
     var body: some View {
@@ -44,7 +44,7 @@ struct LoginView: View {
                     } else {
                         VSpacer(30)
                     }
-                    Button(action : {
+                    Button(action: {
                         self.isLoading = true
                         api.login(username, password) { result in
                             if result == true {
@@ -56,7 +56,7 @@ struct LoginView: View {
                         }
                     }) {
                         HStack {
-                            if(isLoading) {
+                            if isLoading {
                                 if #available(iOS 14.0, *) {
                                     ProgressView()
                                 }
@@ -82,7 +82,6 @@ struct LoginView: View {
                 Spacer()
             }.padding(.horizontal)
             .edgesIgnoringSafeArea(.top)
-            .keyboardResponsive()
             Color.black.edgesIgnoringSafeArea(.all).opacity(alertManager.isShowing ? 0.1 : 0)
             AlertView()
                 .environmentObject(api)

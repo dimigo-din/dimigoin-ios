@@ -8,7 +8,7 @@
 
 import XCTest
 
-class UI_tests_for_screenshots: XCTestCase {
+class UITestsforScreenshots: XCTestCase {
 
     override func setUpWithError() throws {
         continueAfterFailure = false

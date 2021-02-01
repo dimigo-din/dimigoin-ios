@@ -37,7 +37,6 @@
 		42524E2D25621BF30021F48B /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524E2B25621BF30021F48B /* VSpacer.swift */; };
 		4274147D259B0B0800235302 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4274147C259B0B0800235302 /* AuthenticationServices.framework */; };
 		428DC35E255EC40F00A4A7B5 /* WeeklyMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */; };
-		4293261225B1D33900BCD9A0 /* KeyboardResponsive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4293261125B1D33900BCD9A0 /* KeyboardResponsive.swift */; };
 		4293262F25B1E65F00BCD9A0 /* NanumSquareEB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4293262B25B1E65E00BCD9A0 /* NanumSquareEB.ttf */; };
 		4293263025B1E65F00BCD9A0 /* NanumSquareEB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4293262B25B1E65E00BCD9A0 /* NanumSquareEB.ttf */; };
 		4293263125B1E65F00BCD9A0 /* NanumSquareB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4293262C25B1E65E00BCD9A0 /* NanumSquareB.ttf */; };
@@ -167,7 +166,6 @@
 		428DC359255EB4F400A4A7B5 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		428DC35A255EB4F400A4A7B5 /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
 		428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyMealView.swift; sourceTree = "<group>"; };
-		4293261125B1D33900BCD9A0 /* KeyboardResponsive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponsive.swift; sourceTree = "<group>"; };
 		4293262B25B1E65E00BCD9A0 /* NanumSquareEB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareEB.ttf; sourceTree = "<group>"; };
 		4293262C25B1E65E00BCD9A0 /* NanumSquareB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareB.ttf; sourceTree = "<group>"; };
 		4293262D25B1E65E00BCD9A0 /* NanumSquareL.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareL.ttf; sourceTree = "<group>"; };
@@ -300,7 +298,6 @@
 				088E5D4C24A889CB0031342D /* CardViewModifier.swift */,
 				423B71EF24B191AF0099CE3E /* ClearButton.swift */,
 				42050CC025AA19E900C61D14 /* ColorExtension.swift */,
-				4293261125B1D33900BCD9A0 /* KeyboardResponsive.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -460,6 +457,7 @@
 				08C9ABE324A74A53002AF525 /* Resources */,
 				429FD88B24B202DA003A49AF /* Embed App Extensions */,
 				0C82EC2E7D50698B7600B784 /* [CP] Embed Pods Frameworks */,
+				42AE3D1925C82E5400ACC130 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -634,6 +632,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dimigoin/Pods-dimigoin-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		42AE3D1925C82E5400ACC130 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
 		5211A222D66C26DC1454D782 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -692,7 +707,6 @@
 				08C9ABE924A74A53002AF525 /* AppDelegate.swift in Sources */,
 				42C487CA24DDB73000C594CB /* CopyrightText.swift in Sources */,
 				088E5D4D24A889CB0031342D /* CardViewModifier.swift in Sources */,
-				4293261225B1D33900BCD9A0 /* KeyboardResponsive.swift in Sources */,
 				42EFCDF025581D4E00F3DC5E /* MealView.swift in Sources */,
 				42EFCE20255851B500F3DC5E /* IngangView.swift in Sources */,
 				42EFCDD82558188100F3DC5E /* TapBar.swift in Sources */,

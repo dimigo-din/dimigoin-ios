@@ -34,7 +34,7 @@ extension Text {
         self.foregroundColor(Color("disabled"))
     }
     
-    ///NotoSansKR-Black, 40
+    /// NotoSansKR-Black, 40
     func title() -> Text {
         self.font(Font.custom("NotoSansKR-Black", size: 30))
     }
@@ -82,7 +82,6 @@ extension Text {
             .font(Font.custom("NotoSansKR-Regular", size: 12))
             
     }
-    
     
     /// color, NotoSansKR-Bold, 15
     func alertTitle(_ color: Color) -> some View {
@@ -145,38 +144,38 @@ extension Text {
         self.font(Font.custom("NotoSansKR-Regular", size: 11))
     }
     
-    func SquareButton(_ w:CGFloat, _ h:CGFloat) -> some View {
+    func squareButton(_ width: CGFloat, _ height: CGFloat) -> some View {
         self
             .font(Font.custom("NotoSansKR-Bold", size: 18))
-            .frame(width: w, height: h)
+            .frame(width: width, height: height)
             .padding()
             .background(Color.accent)
             .foregroundColor(Color.white)
             .cornerRadius(5.0)
     }
     
-    func DisabledSquareButton(_ w:CGFloat, _ h:CGFloat) -> some View {
+    func disabledSquareButton(_ width: CGFloat, _ height: CGFloat) -> some View {
         self
             .font(Font.custom("NotoSansKR-Bold", size: 17))
-            .frame(width: w, height: h)
+            .frame(width: width, height: height)
             .padding()
             .background(Color("sub"))
             .foregroundColor(Color.white)
             .cornerRadius(5.0)
     }
-    func RSquareButton(_ w: CGFloat, _ h: CGFloat) -> some View {
+    func RSquareButton(_ width: CGFloat, _ height: CGFloat) -> some View {
         self
             .foregroundColor(Color.white)
             .font(Font.custom("NotoSansKR-Medium", size: 15))
-            .frame(width: w, height: h)
+            .frame(width: width, height: height)
             .background(Color.accent.cornerRadius(10))
     }
     
-    func DisabledRSquareButton(_ w: CGFloat, _ h: CGFloat) -> some View {
+    func disabledRSquareButton(_ width: CGFloat, _ height: CGFloat) -> some View {
         self
             .foregroundColor(Color.white)
             .font(Font.custom("NotoSansKR-Medium", size: 15))
-            .frame(width: abs(w), height: abs(h))
+            .frame(width: abs(width), height: abs(height))
             .background(Color.gray4.cornerRadius(10))
     }
     

@@ -21,7 +21,7 @@ struct AttendanceListView: View {
         GeometryReader { geometry in
             ScrollView {
                 HStack {
-                    VStack(alignment: .leading, spacing: 0){
+                    VStack(alignment: .leading, spacing: 0) {
                         Text(getStringTimeZone()).subTitle()
                         Text("자습 현황").title()
                     }
@@ -63,8 +63,8 @@ struct AttendanceChart: View {
 
     var body: some View {
         ZStack {
-            VStack(spacing: 0){
-                RoundSquare(tl: 5, tr: 5, bl: 0, br: 0).fill(Color.accent).frame(height:  35)
+            VStack(spacing: 0) {
+                RoundSquare(topLeft: 5, topRight: 5, bottomLeft: 0, bottomRight: 0).fill(Color.accent).frame(height: 35)
                 Spacer()
             }.addBorder(Color.accent, width: 1, cornerRadius: 5)
             HStack {
@@ -138,7 +138,7 @@ struct AttendanceListItem: View {
 struct PlaceBadge: View {
     @State var place: Place
     
-    var body: some View  {
+    var body: some View {
         HStack {
             Text(place.type).font(Font.custom("NotoSansKR-Medium", size: 11)).gray4()
         }.frame(width: 60, height: 20)
@@ -150,7 +150,7 @@ struct PlaceBadge: View {
 }
 
 extension View {
-    public func addBorder<S>(_ content: S, width: CGFloat = 1, cornerRadius: CGFloat) -> some View where S : ShapeStyle {
+    public func addBorder<S>(_ content: S, width: CGFloat = 1, cornerRadius: CGFloat) -> some View where S: ShapeStyle {
         let roundedRect = RoundedRectangle(cornerRadius: cornerRadius)
         return clipShape(roundedRect)
              .overlay(roundedRect.strokeBorder(content, lineWidth: width))

@@ -70,33 +70,29 @@ class AlertManager: ObservableObject {
         }
     }
     func getAccentColor() -> Color {
-        var colorName: String = "purple"
         switch alertType {
-            case .cancel: colorName = "gray4"
-            case .success: colorName = "accent"
-            case .warning: colorName = "yellow"
-            case .danger: colorName = "red"
-            case .text: colorName = "accent"
-            case .logout: colorName = "accent"
-            case .idCardReadme: colorName = "gray4"
-            case .attendance: colorName = "accent"
+        case .cancel: return Color("gray4")
+        case .success: return Color("accent")
+        case .warning: return Color("yellow")
+        case .danger: return Color("red")
+        case .text: return Color("accent")
+        case .logout: return Color("accent")
+        case .idCardReadme: return Color("gray4")
+        case .attendance: return Color("accent")
         }
-        return Color(colorName)
     }
     
     func getIconName() -> String {
-        var iconName: String = ""
         switch alertType {
-            case .cancel: iconName = "disabled-checkmark"
-            case .success: iconName = "checkmark"
-            case .warning: iconName = "warningmark"
-            case .danger: iconName = "dangermark"
-            case .text: iconName = ""
-            case .logout: iconName = "logout"
-            case .idCardReadme: iconName = ""
-            case .attendance: iconName = ""
+        case .cancel: return "disabled-checkmark"
+        case .success: return "checkmark"
+        case .warning: return "warningmark"
+        case .danger: return "dangermark"
+        case .text: return ""
+        case .logout: return "logout"
+        case .idCardReadme: return ""
+        case .attendance: return ""
         }
-        return iconName
     }
     
     func getTitleColor() -> Color {
@@ -105,8 +101,7 @@ class AlertManager: ObservableObject {
         }
         if alertType == .logout {
             return Color.text
-        }
-        else {
+        } else {
             return Color("gray4")
         }
     }

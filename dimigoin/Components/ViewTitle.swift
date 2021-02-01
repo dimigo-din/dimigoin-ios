@@ -21,7 +21,7 @@ struct ViewTitle: View {
     var body: some View {
         
         HStack {
-            VStack(alignment: .leading, spacing: 0){
+            VStack(alignment: .leading, spacing: 0) {
                 Text(NSLocalizedString(self.subTitle, comment: "")).subTitle()
                 Text(NSLocalizedString(self.title, comment: "")).title()
             }
@@ -31,9 +31,5 @@ struct ViewTitle: View {
         .padding(.top, 30)
         HDivider().horizonPadding().offset(y: -15)
         VSpacer(10)
-        
-        
     }
 }
-
-

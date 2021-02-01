@@ -29,4 +29,3 @@ struct VDivider: View {
             .edgesIgnoringSafeArea(.vertical)
     }
 }
-

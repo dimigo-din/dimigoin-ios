@@ -12,16 +12,16 @@ import Alamofire
 import SwiftyJSON
 import DimigoinKit
 
-struct WidgetEntry : TimelineEntry {
-    var date : Date
+struct WidgetEntry: TimelineEntry {
+    var date: Date
     var breakfast: String
     var lunch: String
     var dinner: String
 }
 
 @main
-struct MainWidget : Widget {
-    var body: some WidgetConfiguration{
+struct MainWidget: Widget {
+    var body: some WidgetConfiguration {
         StaticConfiguration(
             kind: "DimigoinWidget",
             provider: Provider()
@@ -36,7 +36,7 @@ struct MainWidget : Widget {
     }
 }
 
-struct Provider : TimelineProvider {
+struct Provider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<WidgetEntry>) -> Void) {
         getMeal(from: getToday8DigitDateString()) { meal in
             let data = WidgetEntry(date: Date(),
@@ -48,7 +48,6 @@ struct Provider : TimelineProvider {
             completion(timeline)
         }
     }
-    
     func getSnapshot(in context: Context, completion: @escaping (WidgetEntry) -> Void) {
         let placeholderEntry = WidgetEntry(date: Date(),
                                       breakfast: sampleMeal.breakfast,
@@ -56,7 +55,6 @@ struct Provider : TimelineProvider {
                                       dinner: sampleMeal.dinner)
         completion(placeholderEntry)
     }
-    
     func placeholder(in context: Context) -> WidgetEntry {
         let placeholderData = WidgetEntry(date: Date(),
                                       breakfast: sampleMeal.breakfast,
@@ -66,12 +64,12 @@ struct Provider : TimelineProvider {
     }
 }
 
-struct WidgetView : View {
+struct WidgetView: View {
     @Environment(\.widgetFamily) var widgetFamily
     @State var api: DimigoinAPI = DimigoinAPI()
 
-    var data : WidgetEntry
-    var body: some View{
+    var data: WidgetEntry
+    var body: some View {
         switch widgetFamily {
         case .systemSmall: NextMealWidget(data: data)
         case .systemMedium: DailyMealWidget(data: data)

@@ -43,7 +43,7 @@ struct HomeView: View {
                             
                             ZStack {
                                 Circle().fill(Color.systemBackground).frame(width: 38, height: 38)
-                                withAnimation() {
+                                withAnimation {
                                     WebImage(url: api.user.photoURL)
                                         .resizable()
                                         .foregroundColor(Color.accent)

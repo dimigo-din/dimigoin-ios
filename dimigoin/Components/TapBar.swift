@@ -10,7 +10,7 @@ import SwiftUI
 
 public var tabBarSize: CGFloat = UIDevice.current.hasNotch ? 74 : 64
 
-struct tapBarItem: Hashable {
+struct TapBarItem: Hashable {
     var idx: Int
     var icon: String
     var activatedIcon: String
@@ -37,12 +37,12 @@ struct tapBarItem: Hashable {
 struct TapBar: View {
     @Binding var index: Int
     @Binding var isShowIdCard: Bool
-    var tapBarItems: [tapBarItem] = [
-        tapBarItem(idx: 0, icon: "idcard", label: "학생증", identifier: "tapbar.idcard"),
-        tapBarItem(idx: 1, icon: "headphone", label: "인강실", identifier: "tapbar.ingang"),
-        tapBarItem(idx: 2, icon: "home", activatedIcon: "home.fill", label: "메인", identifier: "tapbar.home"),
-        tapBarItem(idx: 3, icon: "meal", label: "급식표", identifier: "tapbar.meal"),
-        tapBarItem(idx: 4, icon: "calendar", activatedIcon: "calendar.fill", label: "시간표", identifier: "tapbar.timetable")
+    var tapBarItems: [TapBarItem] = [
+        TapBarItem(idx: 0, icon: "idcard", label: "학생증", identifier: "tapbar.idcard"),
+        TapBarItem(idx: 1, icon: "headphone", label: "인강실", identifier: "tapbar.ingang"),
+        TapBarItem(idx: 2, icon: "home", activatedIcon: "home.fill", label: "메인", identifier: "tapbar.home"),
+        TapBarItem(idx: 3, icon: "meal", label: "급식표", identifier: "tapbar.meal"),
+        TapBarItem(idx: 4, icon: "calendar", activatedIcon: "calendar.fill", label: "시간표", identifier: "tapbar.timetable")
     ]
     
     var body: some View {
@@ -61,13 +61,13 @@ struct TapBar: View {
         .frame(maxWidth: .infinity)
         .background(Rectangle().fill(Color.systemBackground).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0).edgesIgnoringSafeArea(.all))
         .edgesIgnoringSafeArea(.all)
-        .offset(y : isShowIdCard ? tabBarSize : 0)
+        .offset(y: isShowIdCard ? tabBarSize : 0)
     }
 }
 
 struct TapBarButton: View {
     @Binding var index: Int
-    var item: tapBarItem
+    var item: TapBarItem
     var body: some View {
         Button(action: {
             withAnimation(.interactiveSpring()) {
@@ -83,8 +83,7 @@ struct TapBarButton: View {
                         .frame(height: item.icon == "idcard" ? 18 : 24)
                         .foregroundColor(self.index == item.idx ? Color.accent : Color("gray7"))
                         .padding(.top, item.icon == "idcard" ? 3 : 0)
-                }
-                else {
+                } else {
                     Image(item.icon)
                         .renderingMode(.template)
                         .resizable()
@@ -103,7 +102,6 @@ struct TapBarButton: View {
         }.accessibility(identifier: item.identifier)
     }
 }
-
 
 extension UIDevice {
     var hasNotch: Bool {

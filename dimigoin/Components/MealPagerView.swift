@@ -18,25 +18,25 @@ struct MealPagerView: View {
     var geometry: GeometryProxy
     
     var body: some View {
-        VStack(alignment: .leading){
+        VStack(alignment: .leading) {
             HStack {
-                VStack(alignment: .leading){
+                VStack(alignment: .leading) {
                     Text("아침").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color.accent).horizonPadding()
                     VSpacer(10)
                     Text("\(api.getTodayMeal().breakfast)").mealMenu().horizonPadding()
-                }.padding(.top).modifier(CardViewModifier(305,147))
+                }.padding(.top).modifier(CardViewModifier(305, 147))
                 HSpacer(15)
-                VStack(alignment: .leading){
+                VStack(alignment: .leading) {
                     Text("점심").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color.accent).horizonPadding()
                     VSpacer(10)
                     Text("\(api.getTodayMeal().lunch)").mealMenu().horizonPadding()
-                }.padding(.top).modifier(CardViewModifier(305,147))
+                }.padding(.top).modifier(CardViewModifier(305, 147))
                 HSpacer(15)
-                VStack(alignment: .leading){
+                VStack(alignment: .leading) {
                     Text("저녁").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color.accent).horizonPadding()
                     VSpacer(10)
                     Text("\(api.getTodayMeal().dinner)").mealMenu().horizonPadding()
-                }.padding(.top).modifier(CardViewModifier(305,147))
+                }.padding(.top).modifier(CardViewModifier(305, 147))
             }.offset(x: (geometry.size.width-305)/2)
             .offset(x: -320*CGFloat(currentCardIdx)+dragOffset.width)
             .animation(.spring())
@@ -55,13 +55,12 @@ struct MealPagerView: View {
                     self.dragOffset = .zero
                     if value.translation.width < 0 && value.translation.height > -30 && value.translation.height < 30 {
                         nextCard()
-                    }
-                    else if value.translation.width > 0 && value.translation.height > -30 && value.translation.height < 30 {
+                    } else if value.translation.width > 0 && value.translation.height > -30 && value.translation.height < 30 {
                         previousCard()
                     }
                 }
             )
-            HStack(spacing: 5){
+            HStack(spacing: 5) {
                 ForEach(0...2, id: \.self) { idx in
                     Circle().frame(width: 8, height: 8).foregroundColor(currentCardIdx == idx ? Color.accent : Color.divider)
                         .onTapGesture {
@@ -73,13 +72,13 @@ struct MealPagerView: View {
     }
     
     func nextCard() {
-        if(currentCardIdx == 2) {
+        if currentCardIdx == 2 {
             withAnimation(.spring()) {
                 currentCardIdx = 0
             }
         } else {
             withAnimation(.spring()) {
-                self.currentCardIdx = self.currentCardIdx + 1
+                self.currentCardIdx += 1
             }
         }
     }
@@ -90,6 +89,3 @@ struct MealPagerView: View {
         }
     }
 }
-
-
-

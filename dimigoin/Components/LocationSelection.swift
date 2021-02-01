@@ -11,7 +11,7 @@ import DimigoinKit
 import Alamofire
 import SwiftyJSON
 
-struct LocationButton: Codable, Hashable{
+struct LocationButton: Codable, Hashable {
     var place: Place
     var icon: String
     var idx: Int
@@ -34,13 +34,13 @@ struct LocationSelectionView: View {
         if #available(iOS 14.0, *) {
             VStack {
                 SectionHeader("자습 현황", sub: getStringTimeZone()).horizonPadding()
-                HStack() {
+                HStack {
                     ForEach(locationButtons, id: \.self) { location in
                         LocationItem(idx: location.idx, icon: location.icon, place: location.place)
                             .environmentObject(alertManager)
                             .environmentObject(api)
                             .accessibility(identifier: "locationSelection.\(location.icon)")
-                        if(locationButtons.count-1 != location.idx) {
+                        if locationButtons.count-1 != location.idx {
                             Spacer()
                         }
                     }
@@ -70,7 +70,7 @@ struct LocationItem: View {
             Button(action: {
                 api.changeUserPlace(placeName: place.name, remark: "iOS") { result in
                     switch result {
-                    case .success(_):
+                    case .success(()):
                         self.api.fetchUserCurrentPlace {}
                         
                         alertManager.createAlert("\(place.name)으로 장소가 바뀌었습니다.", .success)

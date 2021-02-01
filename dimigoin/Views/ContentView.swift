@@ -15,15 +15,14 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            if(api.isFetching) {
+            if api.isFetching {
                 if #available(iOS 14.0, *) {
                     Group {
-                        if(api.isLoggedIn) {
+                        if api.isLoggedIn {
                             MainView()
                                 .environmentObject(api)
                                 .environmentObject(alertManager)
-                        }
-                        else {
+                        } else {
                             LoginView()
                                 .environmentObject(api)
                                 .environmentObject(alertManager)
@@ -32,15 +31,13 @@ struct ContentView: View {
                     .edgesIgnoringSafeArea(.bottom)
                     .navigationBarHidden(true)
                 }
-            }
-            else {
+            } else {
                 Group {
-                    if(api.isLoggedIn) {
+                    if api.isLoggedIn {
                         MainView()
                             .environmentObject(api)
                             .environmentObject(alertManager)
-                    }
-                    else {
+                    } else {
                         LoginView()
                             .environmentObject(api)
                             .environmentObject(alertManager)

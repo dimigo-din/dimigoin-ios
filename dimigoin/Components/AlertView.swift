@@ -21,18 +21,16 @@ struct AlertView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack(spacing: 0){
+            VStack(spacing: 0) {
                 if alertManager.alertType == .text {
                     VSpacer(35)
                     Text(alertManager.content).foregroundColor(Color.text)
                         .font(Font.custom("NotoSansKR-Bold", size: 14))
                     VSpacer(20)
                     Text(alertManager.sub).alertSubTitle().multilineTextAlignment(.center)
-                }
-                else if alertManager.alertType == .idCardReadme {
+                } else if alertManager.alertType == .idCardReadme {
                     idcardReadme
-                }
-                else if alertManager.alertType == .attendance {
+                } else if alertManager.alertType == .attendance {
                     VSpacer(20)
                     Text("\(getStringTimeZone())").font(Font.custom("NotoSansKR-Bold", size: 11)).accent()
                     Text("어디에 계신가요?").font(Font.custom("NotoSansKR-Bold", size: 16))
@@ -61,15 +59,14 @@ struct AlertView: View {
                         .modifier(ClearButton(text: $remark))
                     VSpacer(20)
                     Text("사전 허가된 활동 또는 감독 교사 승인 외\n임의로 등록할 경우 불이익을 받을 수 있습니다.").font(Font.custom("NotoSansKR-Medium", size: 12)).foregroundColor(Color("gray7")).multilineTextAlignment(.center)
-                }
-                else {
+                } else {
                     VStack {
                         VSpacer(35)
                         Image(alertManager.getIconName()).renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 30).foregroundColor(alertManager.getAccentColor())
                         VSpacer(23)
                         Text(alertManager.content).alertTitle(alertManager.getTitleColor()).foregroundColor(alertManager.getTitleColor())
                         VSpacer(5)
-                        if(alertManager.sub != "") {
+                        if alertManager.sub != "" {
                             Text(alertManager.sub).alertSubTitle().foregroundColor(Color.gray4.opacity(0.7))
                         }
                     }.animation(.none)
@@ -77,9 +74,8 @@ struct AlertView: View {
                 Spacer()
                 if alertManager.alertType == .logout {
                     logoutButtons
-                }
-                else if alertManager.alertType == .attendance {
-                    HStack(spacing: 0){
+                } else if alertManager.alertType == .attendance {
+                    HStack(spacing: 0) {
                         Button(action: {
                             dismiss()
                             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
@@ -89,7 +85,7 @@ struct AlertView: View {
                                 .font(Font.custom("NanumSquareEB", size: 14))
                                 .frame(height: 45)
                                 .frame(maxWidth: .infinity)
-                                .background(RoundSquare(tl: 0, tr: 0, bl: 10, br: 0).fill(Color.gray4))
+                                .background(RoundSquare(topLeft: 0, topRight: 0, bottomLeft: 10, bottomRight: 0).fill(Color.gray4))
                         }
                         Button(action: {
                             dismiss()
@@ -100,11 +96,10 @@ struct AlertView: View {
                                 .font(Font.custom("NanumSquareEB", size: 14))
                                 .frame(height: 45)
                                 .frame(maxWidth: .infinity)
-                                .background(RoundSquare(tl: 0, tr: 0, bl: 0, br: 10).fill(alertManager.getAccentColor()))
+                                .background(RoundSquare(topLeft: 0, topRight: 0, bottomLeft: 0, bottomRight: 10).fill(alertManager.getAccentColor()))
                         }
                     }
-                }
-                else {
+                } else {
                     Button(action: {
                         dismiss()
                     }) {
@@ -113,7 +108,7 @@ struct AlertView: View {
                             .font(Font.custom("NanumSquareEB", size: 14))
                             .frame(height: 45)
                             .frame(maxWidth: .infinity)
-                            .background(RoundSquare(tl: 0, tr: 0, bl: 10, br: 10).fill(alertManager.getAccentColor()))
+                            .background(RoundSquare(topLeft: 0, topRight: 0, bottomLeft: 10, bottomRight: 10).fill(alertManager.getAccentColor()))
                     }
                 }
                 
@@ -146,7 +141,7 @@ struct AlertView: View {
     }
     
     var logoutButtons: some View {
-        HStack(spacing: 0){
+        HStack(spacing: 0) {
             Button(action: {
                 dismiss()
             }) {
@@ -155,7 +150,7 @@ struct AlertView: View {
                     .font(Font.custom("NanumSquareEB", size: 14))
                     .frame(height: 45)
                     .frame(maxWidth: .infinity)
-                    .background(RoundSquare(tl: 0, tr: 0, bl: 10, br: 0).fill(Color.gray4))
+                    .background(RoundSquare(topLeft: 0, topRight: 0, bottomLeft: 10, bottomRight: 0).fill(Color.gray4))
             }
             Button(action: {
                 dismiss()
@@ -166,7 +161,7 @@ struct AlertView: View {
                     .font(Font.custom("NanumSquareEB", size: 14))
                     .frame(height: 45)
                     .frame(maxWidth: .infinity)
-                    .background(RoundSquare(tl: 0, tr: 0, bl: 0, br: 10).fill(alertManager.getAccentColor()))
+                    .background(RoundSquare(topLeft: 0, topRight: 0, bottomLeft: 0, bottomRight: 10).fill(alertManager.getAccentColor()))
             }
         }
         

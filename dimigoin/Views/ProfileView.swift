@@ -48,7 +48,7 @@ struct ProfileView: View {
                             .fixedSize(horizontal: false, vertical: true)
                    
                     SectionHeader("신청 안내", sub: "")
-                    HStack(alignment: .top){
+                    HStack(alignment: .top) {
                         VStack(alignment: .leading) {
                             Text("\(userAPI.user.grade)학년 신청시간").infoText()
                             HStack {
