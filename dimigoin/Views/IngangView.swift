@@ -24,11 +24,11 @@ struct IngangView: View {
                 ForEach(api.ingangs, id: \.self) { ingang in
                     VStack {
                         HStack {
-                            Text(NSLocalizedString(ingang.timeString, comment: "")).subSectionHeader()
+                            Text(ingang.timeString).subSectionHeader()
                             Spacer()
                         }
                         HStack {
-                            Text(NSLocalizedString(ingang.title, comment: "")).sectionHeader()
+                            Text(ingang.title).sectionHeader()
                             Spacer()
                             if (ingang.applicants.count == ingang.maxApplier && ingang.isApplied == false) {
                                 Text("신청불가").foregroundColor(Color.white)

@@ -19,10 +19,6 @@ struct AlertView: View {
     @State var remark: String = ""
     @State var selectedPlace: Place = Place()
     
-    init() {
-        selectedPlace = api.currentPlace
-    }
-    
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0){
@@ -43,7 +39,7 @@ struct AlertView: View {
                     VSpacer(20)
                     NavigationLink(destination: SelectPlaceView(api: api, selectedPlace: $selectedPlace)) {
                         HStack {
-                            Text(selectedPlace.name)
+                            Text(selectedPlace == Place() ? "장소를 선택하세요" : selectedPlace.name)
                                 .foregroundColor(Color.accent)
                                 .font(Font.custom("NanumSquareR", size: 14))
                                 .padding(.leading)
@@ -52,7 +48,6 @@ struct AlertView: View {
                                 .padding(.trailing)
                                 .foregroundColor(Color.accent)
                         }
-                        
                     }
                     .frame(width: 335, height: 50)
                     .overlay(
