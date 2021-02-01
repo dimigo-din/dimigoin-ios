@@ -63,11 +63,11 @@ struct AttendanceChart: View {
 
     var body: some View {
         ZStack {
-
+            
             VStack(spacing: 0){
                 RoundSquare(tl: 5, tr: 5, bl: 0, br: 0).fill(Color.accent).frame(height:  35)
                 Spacer()
-            }
+            }.addBorder(Color.accent, width: 1, cornerRadius: 5)
             HStack {
                 VStack {
                     Text("교실").foregroundColor(Color.white).font(Font.custom("NotoSansKR-Bold", size: 15))
@@ -147,5 +147,13 @@ struct PlaceBadge: View {
             RoundedRectangle(cornerRadius: 5)
                 .stroke(Color("gray6"), lineWidth: 1)
         )
+    }
+}
+
+extension View {
+    public func addBorder<S>(_ content: S, width: CGFloat = 1, cornerRadius: CGFloat) -> some View where S : ShapeStyle {
+        let roundedRect = RoundedRectangle(cornerRadius: cornerRadius)
+        return clipShape(roundedRect)
+             .overlay(roundedRect.strokeBorder(content, lineWidth: width))
     }
 }
