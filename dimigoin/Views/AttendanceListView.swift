@@ -63,7 +63,6 @@ struct AttendanceChart: View {
 
     var body: some View {
         ZStack {
-            
             VStack(spacing: 0){
                 RoundSquare(tl: 5, tr: 5, bl: 0, br: 0).fill(Color.accent).frame(height:  35)
                 Spacer()

@@ -31,26 +31,27 @@ struct LocationSelectionView: View {
         locationButtons.append(LocationButton(place: self.api.findPrimaryPlaceByLabel(label: "동아리"), icon: "club", idx: 4))
     }
     var body: some View {
-        VStack {
-            SectionHeader("자습 현황", sub: getStringTimeZone()).horizonPadding()
-            HStack() {
-                ForEach(locationButtons, id: \.self) { location in
-                    LocationItem(idx: location.idx, icon: location.icon, place: location.place)
+        if #available(iOS 14.0, *) {
+            VStack {
+                SectionHeader("자습 현황", sub: getStringTimeZone()).horizonPadding()
+                HStack() {
+                    ForEach(locationButtons, id: \.self) { location in
+                        LocationItem(idx: location.idx, icon: location.icon, place: location.place)
+                            .environmentObject(alertManager)
+                            .environmentObject(api)
+                            .accessibility(identifier: "locationSelection.\(location.icon)")
+                        if(locationButtons.count-1 != location.idx) {
+                            Spacer()
+                        }
+                    }
+                    Spacer()
+                    LocationItemEtc()
                         .environmentObject(alertManager)
                         .environmentObject(api)
-                        .accessibility(identifier: "locationSelection.\(location.icon)")
-                    
-                    if(locationButtons.count-1 != location.idx) {
-                        Spacer()
-                    }
-                }
-                Spacer()
-                LocationItemEtc()
-                    .environmentObject(alertManager)
-                    .environmentObject(api)
-            }.padding(.top, 5)
-            .horizonPadding()
-            
+                }.padding(.top, 5)
+                .horizonPadding()
+                
+            }
         }
         VSpacer(19)
     }
