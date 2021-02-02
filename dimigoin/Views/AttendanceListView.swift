@@ -22,8 +22,8 @@ struct AttendanceListView: View {
             ScrollView {
                 HStack {
                     VStack(alignment: .leading, spacing: 0) {
-                        Text(getStringTimeZone()).subTitle()
-                        Text("자습 현황").title()
+                        Text(getStringTimeZone()).notoSans(.bold, size: 13, Color.gray4)
+                        Text("자습 현황").notoSans(.black, size: 30)
                     }
                     Spacer()
                     Image("class").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent)
@@ -69,33 +69,33 @@ struct AttendanceChart: View {
             }.addBorder(Color.accent, width: 1, cornerRadius: 5)
             HStack {
                 VStack {
-                    Text("교실").foregroundColor(Color.white).font(Font.custom("NotoSansKR-Bold", size: 15))
+                    Text("교실").notoSans(.bold, size: 15, Color.white)
                     VSpacer(12)
-                    Text("0").foregroundColor(Color.accent).font(Font.custom("NotoSansKR-Bold", size: 15))
+                    Text("0").notoSans(.bold, size: 15, Color.accent)
                 }
                 Spacer()
                 VStack {
-                    Text("인강실").foregroundColor(Color.white).font(Font.custom("NotoSansKR-Bold", size: 15))
+                    Text("인강실").notoSans(.bold, size: 15, Color.white)
                     VSpacer(12)
-                    Text("0").foregroundColor(Color.accent).font(Font.custom("NotoSansKR-Bold", size: 15))
+                    Text("0").notoSans(.bold, size: 15, Color.accent)
                 }
                 Spacer()
                 VStack {
-                    Text("동아리").foregroundColor(Color.white).font(Font.custom("NotoSansKR-Bold", size: 15))
+                    Text("동아리").notoSans(.bold, size: 15, Color.white)
                     VSpacer(12)
-                    Text("0").foregroundColor(Color.accent).font(Font.custom("NotoSansKR-Bold", size: 15))
+                    Text("0").notoSans(.bold, size: 15, Color.accent)
                 }
                 Spacer()
                 VStack {
-                    Text("기타").foregroundColor(Color.white).font(Font.custom("NotoSansKR-Bold", size: 15))
+                    Text("기타").notoSans(.bold, size: 15, Color.white)
                     VSpacer(12)
-                    Text("0").foregroundColor(Color.accent).font(Font.custom("NotoSansKR-Bold", size: 15))
+                    Text("0").notoSans(.bold, size: 15, Color.accent)
                 }
                 Spacer()
                 VStack {
-                    Text("총원").foregroundColor(Color.white).font(Font.custom("NotoSansKR-Bold", size: 15))
+                    Text("총원").notoSans(.bold, size: 15, Color.white)
                     VSpacer(12)
-                    Text("\(api.attendanceList.count)").foregroundColor(Color.accent).font(Font.custom("NotoSansKR-Bold", size: 15))
+                    Text("\(api.attendanceList.count)").notoSans(.bold, size: 15, Color.accent)
                 }
             }.horizonPadding()
         }.horizonPadding()
@@ -126,16 +126,15 @@ struct AttendanceListItem: View {
     
     var body: some View {
         HStack {
-            Text("\(String(format: "%02d", attendance.number))").font(Font.custom("NotoSansKR-Bold", size: 16)).gray4()
+            Text("\(String(format: "%02d", attendance.number))").notoSans(.bold, size: 16, Color.gray4)
             Spacer()
-            Text("\(attendance.name)").font(Font.custom("NotoSansKR-Bold", size: 16)).gray4()
+            Text("\(attendance.name)").notoSans(.bold, size: 16, Color.gray4)
             Spacer()
             PlaceBadge(place: attendance.currentLocation)
             Spacer()
             NavigationLink(destination: AttendanceDetailView(attendance: attendance)) {
                 Text("자세히보기")
-                    .foregroundColor(Color.white)
-                    .font(Font.custom("NotoSansKR-Bold", size: 10))
+                    .notoSans(.bold, size: 10, Color.white)
                     .frame(width: 74, height: 20)
                     .background(Color("gray6").cornerRadius(5))
             }
@@ -148,7 +147,7 @@ struct PlaceBadge: View {
     
     var body: some View {
         HStack {
-            Text(place.type).font(Font.custom("NotoSansKR-Medium", size: 11)).gray4()
+            Text(place.type).notoSans(.medium, size: 11, Color.gray4)
         }.frame(width: 60, height: 20)
         .overlay(
             RoundedRectangle(cornerRadius: 5)

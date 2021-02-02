@@ -25,8 +25,8 @@ struct SelectPlaceView: View {
         GeometryReader { geometry in
             ZStack {
                 ScrollView {
-                    Text("야간자율학습 학생현황").font(Font.custom("NotoSansKR-Bold", size: 12)).accent()
-                    Text("장소를 선택해주세요").font(Font.custom("NotoSansKR-Bold", size: 20))
+                    Text("야간자율학습 학생현황").notoSans(.bold, size: 12, Color.accent)
+                    Text("장소를 선택해주세요").notoSans(.bold, size: 20)
                     PlaceList(api: api, selectedPlace: $selectedPlace)
                 }
                 VStack {
@@ -37,7 +37,7 @@ struct SelectPlaceView: View {
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
                             Text("선택완료")
-                                .font(Font.custom("NotoSansKR-Bold", size: 14))
+                                .notoSans(.bold, size: 14)
                                 .foregroundColor(Color.white)
                                 .frame(width: geometry.size.width-40, height: 50)
                                 .background(Color("accent").cornerRadius(10))
@@ -89,8 +89,9 @@ struct PlaceListItem: View {
             .padding(.leading, 25)
             HSpacer(25)
             Text("\(place.name)")
-                .font(Font.custom("NotoSansKR-\(selectedPlace.id == place.id ? "Bold" : "Medium")", size: 16))
-                .foregroundColor(selectedPlace.id == place.id ? Color.black : Color.gray4)
+                .notoSans(selectedPlace.id == place.id ? .bold: .medium,
+                          size: 16,
+                          selectedPlace.id == place.id ? Color.text : Color.gray4)
                 .padding(.trailing, 25)
             Spacer()
         }.frame(height: 50)

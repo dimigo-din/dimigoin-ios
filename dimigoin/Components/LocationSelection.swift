@@ -35,15 +35,15 @@ struct LocationSelectionView: View {
             VStack {
                 VStack {
                     HStack {
-                        Text(NSLocalizedString(getStringTimeZone(), comment: "")).subSectionHeader()
+                        Text(NSLocalizedString(getStringTimeZone(), comment: "")).notoSans(.bold, size: 10, Color.accent)
                         Spacer()
                     }
                     HStack {
-                        Text(NSLocalizedString("자습 현황", comment: "")).sectionHeader()
+                        Text(NSLocalizedString("자습 현황", comment: "")).notoSans(.bold, size: 21)
                         Spacer()
                         NavigationLink(destination: AttendanceListView().environmentObject(api)) {
-                            Text("자세히").foregroundColor(Color.white)
-                                .font(Font.custom("NotoSansKR-Bold", size: 12))
+                            Text("자세히")
+                                .notoSans(.bold, size: 12, Color.white)
                                 .frame(width: 74, height: 25)
                                 .background(Color.accent.cornerRadius(15))
                         }
@@ -85,17 +85,17 @@ struct LocationItem: View {
                 api.changeUserPlace(placeName: place.name, remark: "iOS") { result in
                     switch result {
                     case .success(()):
-                        self.api.fetchUserCurrentPlace {}
-                        
-                        alertManager.createAlert("\(place.name)으로 장소가 바뀌었습니다.", .success)
+                        self.api.fetchUserCurrentPlace {
+                            alertManager.createAlert("\"\(place.name)\"(으)로 변경되었습니다.", .success)
+                        }
                     case .failure(let error):
                         switch error {
                         case .noSuchPlace:
-                            alertManager.createAlert("인원 점검 오류", sub: "유효하지 않은 장소입니다.", .danger)
+                            alertManager.createAlert("자습 현황 오류", sub: "유효하지 않은 장소입니다.", .danger)
                         case .notRightTime:
-                            alertManager.createAlert("인원 점검 오류", sub: "인원 점검 시간이 아닙니다.", .danger)
+                            alertManager.createAlert("자습 현황 오류", sub: "인원 점검 시간이 아닙니다.", .danger)
                         case .tokenExpired:
-                            alertManager.createAlert("인원 점검 오류", sub: "토큰이 만료 되었습니다. 다시 시도해주세요", .danger)
+                            alertManager.createAlert("자습 현황 오류", sub: "토큰이 만료 되었습니다. 다시 시도해주세요", .danger)
                         case .unknown:
                             alertManager.createAlert("알 수 없는 에러", sub: "잠시 후 다시 시도해주세요", .danger)
                         }
@@ -113,7 +113,7 @@ struct LocationItem: View {
                     )
             }
             VSpacer(9)
-            Text(NSLocalizedString(place.label, comment: "")).caption1()
+            Text(NSLocalizedString(place.label, comment: "")).notoSans(.medium, size: 12)
             
         }
     }
@@ -139,7 +139,7 @@ struct LocationItemEtc: View {
                     )
             }
             VSpacer(9)
-            Text(NSLocalizedString("기타", comment: "")).caption1()
+            Text(NSLocalizedString("기타", comment: "")).notoSans(.medium, size: 12)
         }
     }
 }

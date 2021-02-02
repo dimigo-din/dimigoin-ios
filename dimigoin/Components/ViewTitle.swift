@@ -22,8 +22,8 @@ struct ViewTitle: View {
         
         HStack {
             VStack(alignment: .leading, spacing: 0) {
-                Text(NSLocalizedString(self.subTitle, comment: "")).subTitle()
-                Text(NSLocalizedString(self.title, comment: "")).title()
+                Text(NSLocalizedString(self.subTitle, comment: "")).notoSans(.bold, size: 13, Color.gray4)
+                Text(NSLocalizedString(self.title, comment: "")).notoSans(.black, size: 30)
             }
             Spacer()
             Image(icon).renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent)

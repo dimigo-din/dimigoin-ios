@@ -18,8 +18,10 @@ struct TimetableView: View {
             ScrollView(showsIndicators: false) {
                 HStack {
                     VStack(alignment: .leading, spacing: 0) {
-                        Text(NSLocalizedString("\(api.user.grade)학년 \(api.user.klass)반", comment: "")).subTitle()
-                        Text(NSLocalizedString("시간표", comment: "")).title()
+                        Text(NSLocalizedString("\(api.user.grade)학년 \(api.user.klass)반", comment: ""))
+                            .notoSans(.bold, size: 13, Color.gray4)
+                        Text(NSLocalizedString("시간표", comment: ""))
+                            .notoSans(.black, size: 30)
                     }
                     Spacer()
                     Image("calendar.fill").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent)
@@ -46,7 +48,7 @@ struct TimetableItem: View {
     func pickerButton(type: String, _ value: Int) -> some View {
         return Text("\(value)\(type)")
             .foregroundColor(Color.white)
-            .sectionHeader()
+            .notoSans(.bold, size: 21)
             .padding(.horizontal, 7)
             .background(Color.accent)
             .cornerRadius(3)
@@ -59,24 +61,23 @@ struct TimetableItem: View {
                 HStack(alignment: .top, spacing: 0) {
                     ForEach(1...5, id: \.self) { day in
                         VStack {
-                            Text(NSLocalizedString(dayOfWeek[day], comment: "")).font(Font.custom("NotoSansKR-Medium", size: 18))
-                                .foregroundColor(Color.gray4).frame(width: abs(geometry.size.width-40)/5, height: 20)
+                            Text(NSLocalizedString(dayOfWeek[day], comment: "")).notoSans(.medium, size: 18, Color.gray4).frame(width: abs(geometry.size.width-40)/5, height: 20)
                             VSpacer(29)
                             ForEach(api.timetable.lectures[day-1], id: \.self) { lecture in
                                 VStack(spacing: 0) {
                                     Text("\(lecture)")
+                                        .notoSans(.medium, size: 18, getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
                                         .frame(width: abs(geometry.size.width-40)/5, height: 20)
                                         .padding(.top, 15)
                                         .padding(.bottom, 15)
-                                        .font(Font.custom("NotoSansKR-Medium", size: 18))
-                                        .foregroundColor(getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
+                                        
                                 }
                             }
                         }
                     }
                 }
-                HDivider().offset(y: 40)
-                HDivider().offset(y: -13)
+                HDivider().offset(y: 30)
+                HDivider().offset(y: -10)
             }.horizonPadding()
         }
     }

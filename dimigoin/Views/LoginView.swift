@@ -39,7 +39,7 @@ struct LoginView: View {
                         .modifier(ClearButton(text: $password))
                     if showErrorMessage {
                         VSpacer(17)
-                        Text("존재하지 않는 아이디거나 잘못된 패스워드입니다.").font(Font.custom("NotoSansKR-Medium", size: 12)).warning()
+                        Text("존재하지 않는 아이디거나 잘못된 패스워드입니다.").notoSans(.medium, size: 12, Color("red"))
                         VSpacer(17)
                     } else {
                         VSpacer(30)
@@ -63,7 +63,7 @@ struct LoginView: View {
                             }
                             HSpacer(10)
                             Text("로그인")
-                                .font(Font.custom("NotoSansKR-Bold", size: 18))
+                                .notoSans(.bold, size: 18)
                                 .foregroundColor(Color.white)
                         }
                         .frame(width: 335, height: 50)
@@ -76,7 +76,7 @@ struct LoginView: View {
                 }) {
                     HStack {
                         Image("infomark").frame(width: 13, height: 13)
-                        Text("아이디 또는 비밀번호를 잊으셨나요?").font(Font.custom("NotoSansKR-Medium", size: 12)).disabled()
+                        Text("아이디 또는 비밀번호를 잊으셨나요?").notoSans(.medium, size: 12, Color("disabled"))
                     }
                 }
                 Spacer()

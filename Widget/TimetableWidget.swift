@@ -29,8 +29,8 @@ struct TimetableWidget: View {
                             HStack(alignment: .top, spacing: 0) {
                                 ForEach(1...5, id: \.self) { day in
                                     VStack {
-                                        Text(NSLocalizedString(dayOfWeek[day], comment: "")).font(Font.custom("NotoSansKR-Bold", size: 20))
-                                            .foregroundColor(getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
+                                        Text(NSLocalizedString(dayOfWeek[day], comment: ""))
+                                            .notoSans(.bold, size: 20, getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
                                         VSpacer(20)
 //                                        ForEach(timetableAPI.getTimetable(grade: grade, klass: klass).data[day-1], id: \.self) { lecture in
 //                                            Text("\(lecture)")
@@ -56,7 +56,7 @@ struct TimetableWidget: View {
                 }
             } else {
                 Text("\(api.user.grade) \(api.user.klass)")
-                Text("사용자 정보가 동기화 되지 않았습니다. 앱을 실행하여 로그인 하거나 이미 로그인을 완료했다면 잠시만 기다려주세요.😉").caption3().padding(.horizontal)
+                Text("사용자 정보가 동기화 되지 않았습니다. 앱을 실행하여 로그인 하거나 이미 로그인을 완료했다면 잠시만 기다려주세요.😉").notoSans(.regular, size: 11).padding(.horizontal)
             }
             
         }

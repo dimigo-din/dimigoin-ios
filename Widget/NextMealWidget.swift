@@ -20,17 +20,17 @@ struct NextMealWidget: View {
             VStack {
                 HStack {
                     switch getMealType() {
-                    case .breakfast : Text("아침").accent().font(Font.custom("NotoSansKR-Bold", size: 16))
-                    case .lunch : Text("점심").accent().font(Font.custom("NotoSansKR-Bold", size: 16))
-                    case .dinner : Text("저녁").accent().font(Font.custom("NotoSansKR-Bold", size: 16))
+                    case .breakfast : Text("아침").notoSans(.bold, size: 16, Color.accent)
+                    case .lunch : Text("점심").notoSans(.bold, size: 16, Color.accent)
+                    case .dinner : Text("저녁").notoSans(.bold, size: 16, Color.accent)
                     }
                     Spacer()
-                    Text(getDateString()).font(Font.custom("NotoSansKR-Medium", size: 10)).gray4()
+                    Text(getDateString()).notoSans(.medium, size: 10, Color.gray4)
                 }
                 switch getMealType() {
-                case .breakfast : Text(data.breakfast).caption3()
-                case .lunch : Text(data.lunch).caption3()
-                case .dinner : Text(data.dinner).caption3()
+                case .breakfast : Text(data.breakfast).notoSans(.regular, size: 11)
+                case .lunch : Text(data.lunch).notoSans(.regular, size: 11)
+                case .dinner : Text(data.dinner).notoSans(.regular, size: 11)
                 }
             }.padding(.horizontal)
         }

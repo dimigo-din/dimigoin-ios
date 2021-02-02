@@ -24,16 +24,15 @@ struct AlertView: View {
             VStack(spacing: 0) {
                 if alertManager.alertType == .text {
                     VSpacer(35)
-                    Text(alertManager.content).foregroundColor(Color.text)
-                        .font(Font.custom("NotoSansKR-Bold", size: 14))
+                    Text(alertManager.content).notoSans(.bold, size: 14, Color.text)
                     VSpacer(20)
-                    Text(alertManager.sub).alertSubTitle().multilineTextAlignment(.center)
+                    Text(alertManager.sub).notoSans(.medium, size: 12, Color("gray2")).multilineTextAlignment(.center)
                 } else if alertManager.alertType == .idCardReadme {
                     idcardReadme
                 } else if alertManager.alertType == .attendance {
                     VSpacer(20)
-                    Text("\(getStringTimeZone())").font(Font.custom("NotoSansKR-Bold", size: 11)).accent()
-                    Text("어디에 계신가요?").font(Font.custom("NotoSansKR-Bold", size: 16))
+                    Text("\(getStringTimeZone())").notoSans(.bold, size: 11, Color.accent)
+                    Text("어디에 계신가요?").notoSans(.bold, size: 16)
                     VSpacer(20)
                     NavigationLink(destination: SelectPlaceView(api: api, selectedPlace: $selectedPlace)) {
                         HStack {
@@ -58,16 +57,18 @@ struct AlertView: View {
                         .modifier(TextFieldModifier())
                         .modifier(ClearButton(text: $remark))
                     VSpacer(20)
-                    Text("사전 허가된 활동 또는 감독 교사 승인 외\n임의로 등록할 경우 불이익을 받을 수 있습니다.").font(Font.custom("NotoSansKR-Medium", size: 12)).foregroundColor(Color("gray7")).multilineTextAlignment(.center)
+                    Text("사전 허가된 활동 또는 감독 교사 승인 외\n임의로 등록할 경우 불이익을 받을 수 있습니다.")
+                        .notoSans(.medium, size: 12, Color("gray7")).multilineTextAlignment(.center)
                 } else {
                     VStack {
                         VSpacer(35)
                         Image(alertManager.getIconName()).renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 30).foregroundColor(alertManager.getAccentColor())
                         VSpacer(23)
-                        Text(alertManager.content).alertTitle(alertManager.getTitleColor()).foregroundColor(alertManager.getTitleColor())
+                        Text(alertManager.content)
+                            .nanumSquare(.extraBold, size: 15, alertManager.getTitleColor())
                         VSpacer(5)
                         if alertManager.sub != "" {
-                            Text(alertManager.sub).alertSubTitle().foregroundColor(Color.gray4.opacity(0.7))
+                            Text(alertManager.sub).notoSans(.medium, size: 12, Color.gray4.opacity(0.7))
                         }
                     }.animation(.none)
                 }
@@ -92,7 +93,7 @@ struct AlertView: View {
                             api.changeUserPlace(placeName: selectedPlace.name, remark: remark == "" ? "없음" : remark) { result in
                                 switch result {
                                 case .success(()):
-                                    alertManager.createAlert("\(api.currentPlace.name)으로 변경되었습니다.", .success)
+                                    alertManager.createAlert("\"\(api.currentPlace.name)\" (으)로 변경되었습니다.", .success)
                                 case .failure(let error):
                                     switch error {
                                     case .noSuchPlace:
@@ -149,10 +150,10 @@ struct AlertView: View {
         return VStack {
             HStack {
                 Image("infomark").frame(width: 12, height: 12)
-                Text("다음 내용을 읽어주세요").font(Font.custom("NotoSansKR-Bold", size: 12)).disabled()
+                Text("다음 내용을 읽어주세요").notoSans(.bold, size: 12, Color("disabled"))
             }
             VSpacer(19)
-            Text("1. 본 증은 학교가 정식 발급한 학생증입니다.\n\n이외 신분증 등 활용은 활용처의 규정에 따라 달라질 수 있습니다.\n\n2. 본 증은 본인 이외 타인이 소지 또는 활용할 수 없습니다.\n타인에게 양도하여 입은 피해는 본인의 책임입니다.\n\n3. 스크린샷 또는 사본으로 동일한 효력을 발생시킬 수 없습니다.").disabled().multilineTextAlignment(.center).font(Font.custom("NotoSansKR-Medium", size: 11))
+            Text("1. 본 증은 학교가 정식 발급한 학생증입니다.\n\n이외 신분증 등 활용은 활용처의 규정에 따라 달라질 수 있습니다.\n\n2. 본 증은 본인 이외 타인이 소지 또는 활용할 수 없습니다.\n타인에게 양도하여 입은 피해는 본인의 책임입니다.\n\n3. 스크린샷 또는 사본으로 동일한 효력을 발생시킬 수 없습니다.").notoSans(.medium, size: 12, Color("disabled")).multilineTextAlignment(.center)
         }.animation(.none)
         .padding(.vertical)
     }

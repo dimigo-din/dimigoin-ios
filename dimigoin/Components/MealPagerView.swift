@@ -21,21 +21,21 @@ struct MealPagerView: View {
         VStack(alignment: .leading) {
             HStack {
                 VStack(alignment: .leading) {
-                    Text("아침").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color.accent).horizonPadding()
+                    Text("아침").notoSans(.bold, size: 18, Color.accent).horizonPadding()
                     VSpacer(10)
-                    Text("\(api.getTodayMeal().breakfast)").mealMenu().horizonPadding()
+                    Text("\(api.getTodayMeal().breakfast)").notoSans(.regular, size: 12, Color("gray2")).horizonPadding()
                 }.padding(.top).modifier(CardViewModifier(305, 147))
                 HSpacer(15)
                 VStack(alignment: .leading) {
-                    Text("점심").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color.accent).horizonPadding()
+                    Text("점심").notoSans(.bold, size: 18, Color.accent).horizonPadding()
                     VSpacer(10)
-                    Text("\(api.getTodayMeal().lunch)").mealMenu().horizonPadding()
+                    Text("\(api.getTodayMeal().lunch)").notoSans(.regular, size: 12, Color("gray2")).horizonPadding()
                 }.padding(.top).modifier(CardViewModifier(305, 147))
                 HSpacer(15)
                 VStack(alignment: .leading) {
-                    Text("저녁").font(Font.custom("NotoSansKR-Bold", size: 18)).foregroundColor(Color.accent).horizonPadding()
+                    Text("저녁").notoSans(.bold, size: 18, Color.accent).horizonPadding()
                     VSpacer(10)
-                    Text("\(api.getTodayMeal().dinner)").mealMenu().horizonPadding()
+                    Text("\(api.getTodayMeal().dinner)").notoSans(.regular, size: 12, Color("gray2")).horizonPadding()
                 }.padding(.top).modifier(CardViewModifier(305, 147))
             }.offset(x: (geometry.size.width-305)/2)
             .offset(x: -320*CGFloat(currentCardIdx)+dragOffset.width)

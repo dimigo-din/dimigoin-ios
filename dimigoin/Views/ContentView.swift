@@ -26,8 +26,8 @@ struct ContentView: View {
                         .environmentObject(alertManager)
                 }
             }.edgesIgnoringSafeArea(.bottom)
-            .navigationBarHidden(true)
             .placeholderWhileFetching(isFetching: $api.isFetching)
+            .navigationBarHidden(true)
         }.navigationViewStyle(StackNavigationViewStyle())
         
     }

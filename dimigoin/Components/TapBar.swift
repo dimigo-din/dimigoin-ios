@@ -96,7 +96,7 @@ struct TapBarButton: View {
                 VSpacer(item.icon == "idcard" ? 11.8 : 7.8)
                 
                 Text(item.label)
-                    .tapBarItem()
+                    .nanumSquare(.extraBold, size: 10)
                     .foregroundColor(self.index == item.idx ? Color.accent : Color("gray7"))
             }
         }.accessibility(identifier: item.identifier)

@@ -41,7 +41,9 @@ struct StudentIdCardView: View {
                     }) {
                         HStack {
                             Image("infomark").renderingMode(.template).foregroundColor(Color.white).frame(width: 12, height: 12)
-                            Text("사용 전 다음 내용을 반드시 읽어주세요").font(Font.custom("NotoSansKR-Bold", size: 11)).foregroundColor(Color.white)
+                            Text("사용 전 다음 내용을 반드시 읽어주세요")
+                                .notoSans(.bold, size: 11)
+                                .foregroundColor(Color.white)
                         }.padding(.vertical, 13).frame(width: horizontalSizeClass == .compact ? abs(geometry.size.width-40) : 335).opacity(0.8).background(Color("gray6").cornerRadius(10)).padding(.bottom)
                     }
                     
@@ -50,10 +52,10 @@ struct StudentIdCardView: View {
                 VStack {
                     HStack {
                         Image("idcard").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 15).foregroundColor(Color.white)
-                        Text("MOBILE ID CARD").font(Font.custom("NotoSansKR-Bold", size: 13)).foregroundColor(Color.white)
+                        Text("MOBILE ID CARD").notoSans(.bold, size: 13, Color.white)
                         Spacer()
-                        Text("남은 시간").font(Font.custom("NotoSansKR-Medium", size: 13)).foregroundColor(Color.white)
-                        Text("\(remainTime)").font(Font.custom("NotoSansKR-Black", size: 13)).foregroundColor(Color.white)
+                        Text("남은 시간").notoSans(.medium, size: 13, Color.white)
+                        Text("\(remainTime)").notoSans(.black, size: 13, Color.white)
                             .onReceive(timer) { _ in
                                 if isShowIdCard == true {
                                     self.remainTime -= 1
@@ -76,7 +78,7 @@ struct StudentIdCardView: View {
                     }) {
                         VStack {
                             Image("xmark").renderingMode(.template).foregroundColor(Color("gray3"))
-                            Text("이곳을 눌러 닫기").font(Font.custom("NotoSansKR-Medium", size: 11)).foregroundColor(Color("gray3"))
+                            Text("이곳을 눌러 닫기").notoSans(.medium, size: 11, Color("gray3"))
                         }
                         
                     }.accessibility(identifier: "button.dismissIdCard")
@@ -92,7 +94,7 @@ struct StudentIdCardView: View {
                                 Image(systemName: "chevron.right").padding(.trailing, 25).foregroundColor(Color.white).padding(.top)
                             }
                             Spacer()
-                            Text("터치하여 모바일 학생증 열기").font(Font.custom("NotoSansKR-Bold", size: 11)).accent().padding(.vertical, 5).frame(width: horizontalSizeClass == .compact ? abs(geometry.size.width-70) : 310).opacity(0.8).background(Color.white.cornerRadius(20)).padding(.bottom)
+                            Text("터치하여 모바일 학생증 열기").notoSans(.bold, size: 11, Color.accent).padding(.vertical, 5).frame(width: horizontalSizeClass == .compact ? abs(geometry.size.width-70) : 310).opacity(0.8).background(Color.white.cornerRadius(20)).padding(.bottom)
                         }
                         .frame(width: horizontalSizeClass == .compact ? abs(geometry.size.width-40) : 335, height: 195).opacity(isShowIdCard ? 0 : 1)
                         VStack {

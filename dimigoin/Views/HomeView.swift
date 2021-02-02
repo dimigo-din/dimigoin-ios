@@ -11,7 +11,6 @@ import DimigoinKit
 import SDWebImageSwiftUI
 
 struct HomeView: View {
-    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @EnvironmentObject var alertManager: AlertManager
     @EnvironmentObject var api: DimigoinAPI
     @State var showLogoutButton: Bool = false
@@ -20,7 +19,6 @@ struct HomeView: View {
     
     var body: some View {
         GeometryReader { geometry in
-//            ScrollView(showsIndicators: false) {
             RefreshableScrollView(height: 70, refreshing: $api.isFetching) {
                 VStack {
                     ZStack {
@@ -71,6 +69,6 @@ struct HomeView: View {
         }
     }
     func calMidSpace(geo: GeometryProxy) -> CGFloat {
-        geo.size.height-tabBarSize-400-(14*geo.size.width/75)
+        geo.size.height-tabBarSize-420-(14*geo.size.width/75)
     }
 }

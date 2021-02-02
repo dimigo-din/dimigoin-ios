@@ -8,177 +8,40 @@
 
 import SwiftUI
 
+enum NotoSansFontWeight: String {
+    case regular = "Regular"
+    case medium = "Medium"
+    case bold = "Bold"
+    case black = "Black"
+}
+
+enum NanumSquareFontWeight: String {
+    case extraBold = "EB"
+}
+
 extension Text {
-    
-    /// 마젠타색으로 강조
-    func accent() -> Text {
-        self.foregroundColor(Color.accent)
+    func notoSans(_ weight: NotoSansFontWeight, size: CGFloat) -> Text {
+        self.font(Font.custom("NotoSansKR-\(weight.rawValue)", size: size))
     }
     
-    /// 빨간색 린팅
-    func warning() -> Text {
-        self.foregroundColor(Color("red"))
-    }
-    /// Sub 색 린팅
-    func sub() -> Text {
-        self.foregroundColor(Color("sub"))
-    }
-    
-    /// NanumSquareEB, 10
-    func tapBarItem() -> Text {
-        self.font(Font.custom("NanumSquareEB", size: 10))
-    }
-    
-    /// "disabled"
-    func disabled() -> Text {
-        self.foregroundColor(Color("disabled"))
-    }
-    
-    /// NotoSansKR-Black, 40
-    func title() -> Text {
-        self.font(Font.custom("NotoSansKR-Black", size: 30))
-    }
-    
-    /// "gray4", NotoSansKR-Bold, 13
-    func subTitle() -> Text {
-        self
-            .foregroundColor(Color.gray4)
-            .font(Font.custom("NotoSansKR-Bold", size: 13))
-    }
-    
-    /// accent, NotoSansKR-Bold, 10
-    func subSectionHeader() -> Text {
-        self
-            .foregroundColor(Color.accent)
-            .font(Font.custom("NotoSansKR-Bold", size: 10))
-    }
-    
-    /// NotoSansKR-Bold, 21
-    func sectionHeader() -> Text {
-        self.font(Font.custom("NotoSansKR-Bold", size: 21))
-    }
-    
-    /// lineSpacing(12), gray2, NotoSansKR-Regular, 12
-    func mealMenu() -> some View {
-        self
-            .lineSpacing(12)
-            .foregroundColor(Color("gray2"))
-            .font(Font.custom("NotoSansKR-Regular", size: 12))
-            
-    }
-    /// lineSpacing(12), black, NotoSansKR-Medium, 14
-    func noticeTitle() -> some View {
-        self
-            .lineSpacing(12)
-            .foregroundColor(Color.black)
-            .font(Font.custom("NotoSansKR-Medium", size: 14))
-            
-    }
-    /// lineSpacing(12), gray2, NotoSansKR-Regular, 12
-    func noticeContent() -> some View {
-        self
-            .lineSpacing(12)
-            .foregroundColor(Color("gray2"))
-            .font(Font.custom("NotoSansKR-Regular", size: 12))
-            
-    }
-    
-    /// color, NotoSansKR-Bold, 15
-    func alertTitle(_ color: Color) -> some View {
-        self
+    func notoSans(_ weight: NotoSansFontWeight, size: CGFloat, _ color: Color) -> Text {
+        self.font(Font.custom("NotoSansKR-\(weight.rawValue)", size: size))
             .foregroundColor(color)
-            .font(Font.custom("NanumSquareEB", size: 15))
     }
     
-    /// gray2, NotoSansKR-Regular, 11
-    func alertSubTitle() -> some View {
-        self
-            .foregroundColor(Color("gray2"))
-            .font(Font.custom("NotoSansKR-Medium", size: 12))
+    func nanumSquare(_ weight: NanumSquareFontWeight, size: CGFloat) -> Text {
+        self.font(Font.custom("NanumSquare\(weight.rawValue)", size: size))
     }
     
-    /// gray4, NotoSansKR-Bold, 17
-    func alertButton() -> some View {
-        self
-            .foregroundColor(Color.gray4)
-            .font(Font.custom("NotoSansKR-Bold", size: 17))
+    func nanumSquare(_ weight: NanumSquareFontWeight, size: CGFloat, _ color: Color) -> Text {
+        self.font(Font.custom("NanumSquare\(weight.rawValue)", size: size))
+            .foregroundColor(color)
     }
-    
-    /// NotoSansKR-Regular, 15
-    func body() -> Text {
-        self.font(Font.custom("NotoSansKR-Regular", size: 15))
+    func opennas(size: CGFloat, _ color: Color) -> Text {
+        self.font(Font.custom("Openas", size: size))
+            .foregroundColor(color)
     }
-    
-    /// NotoSansKR-Medium, 16
-    func infoText() -> Text {
-        self.font(Font.custom("NotoSansKR-Medium", size: 16))
-    }
-    
-    /// Openas, 57
-    func logoFont() -> Text {
-        self.font(Font.custom("Openas", size: 57)).foregroundColor(Color("text.logo"))
-    }
-    
-    /// .heavy
-    func heavy() -> Text {
-        self.fontWeight(.heavy)
-    }
-    
-    /// .black
-    func black() -> Text {
-        self.fontWeight(.black)
-    }
-    
-    /// NotoSansKR-Bold, 12
-    func caption1() -> Text {
-        self.font(Font.custom("NotoSansKR-Bold", size: 12))
-    }
-    
-    /// NotoSansKR-Regular, 13
-    func caption2() -> Text {
-        self.font(Font.custom("NotoSansKR-Regular", size: 13))
-    }
-    
-    /// NotoSansKR-Regular, 11
-    func caption3() -> Text {
-        self.font(Font.custom("NotoSansKR-Regular", size: 11))
-    }
-    
-    func squareButton(_ width: CGFloat, _ height: CGFloat) -> some View {
-        self
-            .font(Font.custom("NotoSansKR-Bold", size: 18))
-            .frame(width: width, height: height)
-            .padding()
-            .background(Color.accent)
-            .foregroundColor(Color.white)
-            .cornerRadius(5.0)
-    }
-    
-    func disabledSquareButton(_ width: CGFloat, _ height: CGFloat) -> some View {
-        self
-            .font(Font.custom("NotoSansKR-Bold", size: 17))
-            .frame(width: width, height: height)
-            .padding()
-            .background(Color("sub"))
-            .foregroundColor(Color.white)
-            .cornerRadius(5.0)
-    }
-    func RSquareButton(_ width: CGFloat, _ height: CGFloat) -> some View {
-        self
-            .foregroundColor(Color.white)
-            .font(Font.custom("NotoSansKR-Medium", size: 15))
-            .frame(width: width, height: height)
-            .background(Color.accent.cornerRadius(10))
-    }
-    
-    func disabledRSquareButton(_ width: CGFloat, _ height: CGFloat) -> some View {
-        self
-            .foregroundColor(Color.white)
-            .font(Font.custom("NotoSansKR-Medium", size: 15))
-            .frame(width: abs(width), height: abs(height))
-            .background(Color.gray4.cornerRadius(10))
-    }
-    
+
     func gray1() -> Text {
         self.foregroundColor(Color("gray1"))
     }

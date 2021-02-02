@@ -22,16 +22,16 @@ struct MealView: View {
                     VStack {
                         HStack {
                             VStack(alignment: .leading, spacing: 0) {
-                                Text(NSLocalizedString(getDateString(), comment: "")).subTitle()
-                                Text(NSLocalizedString("오늘의 급식", comment: "")).title()
+                                Text(getDateString()).notoSans(.bold, size: 13, Color.gray4)
+                                Text("오늘의 급식").notoSans(.black, size: 30)
                             }
                             Spacer()
                             NavigationLink(destination: WeeklyMealView().environmentObject(api)) {
                                 Image("meal").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent)
                             }
                         }
-                            .horizonPadding()
-                            .padding(.top, 30)
+                        .horizonPadding()
+                        .padding(.top, 30)
                         VSpacer(20)
                         HStack(spacing: 0) {
                             ForEach(0 ..< days.count) { index in
@@ -40,7 +40,8 @@ struct MealView: View {
                                         self.selectedDay = index
                                     }
                                 }) {
-                                    Text(self.days[index]).font(Font.custom("NotoSansKR-Bold", size: 17))
+                                    Text(self.days[index])
+                                        .notoSans(.bold, size: 17)
                                         .foregroundColor(index == selectedDay ? Color.accent : Color.gray4)
                                         .frame(width: abs(geometry.size.width-40)/7)
                                         
@@ -63,7 +64,7 @@ struct MealView: View {
                             VStack {
                                 SectionHeader("아침", sub: "오전 7시 30분")
                                 Text(api.meals[index].breakfast)
-                                    .mealMenu()
+                                    .notoSans(.regular, size: 12, Color("gray2"))
                                     .padding()
                                     .frame(width: abs(geometry.size.width-40), alignment: .leading)
                                     .fixedSize(horizontal: false, vertical: true)
@@ -71,7 +72,7 @@ struct MealView: View {
                                 VSpacer(30)
                                 SectionHeader("점심", sub: "오후 12시 50분")
                                 Text(api.meals[index].lunch)
-                                    .mealMenu()
+                                    .notoSans(.regular, size: 12, Color("gray2"))
                                     .padding()
                                     .frame(width: abs(geometry.size.width-40), alignment: .leading)
                                     .fixedSize(horizontal: false, vertical: true)
@@ -79,7 +80,7 @@ struct MealView: View {
                                 VSpacer(30)
                                 SectionHeader("저녁", sub: "오후 6시 35분")
                                 Text(api.meals[index].dinner)
-                                    .mealMenu()
+                                    .notoSans(.regular, size: 12, Color("gray2"))
                                     .padding()
                                     .frame(width: abs(geometry.size.width-40), alignment: .leading)
                                     .fixedSize(horizontal: false, vertical: true)
