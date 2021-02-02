@@ -33,7 +33,22 @@ struct LocationSelectionView: View {
     var body: some View {
         if #available(iOS 14.0, *) {
             VStack {
-                SectionHeader("자습 현황", sub: getStringTimeZone()).horizonPadding()
+                VStack {
+                    HStack {
+                        Text(NSLocalizedString(getStringTimeZone(), comment: "")).subSectionHeader()
+                        Spacer()
+                    }
+                    HStack {
+                        Text(NSLocalizedString("자습 현황", comment: "")).sectionHeader()
+                        Spacer()
+                        NavigationLink(destination: AttendanceListView().environmentObject(api)) {
+                            Text("자세히").foregroundColor(Color.white)
+                                .font(Font.custom("NotoSansKR-Bold", size: 12))
+                                .frame(width: 74, height: 25)
+                                .background(Color.accent.cornerRadius(15))
+                        }
+                    }
+                }.horizonPadding()
                 HStack {
                     ForEach(locationButtons, id: \.self) { location in
                         LocationItem(idx: location.idx, icon: location.icon, place: location.place)

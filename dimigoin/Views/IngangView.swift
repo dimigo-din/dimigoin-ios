@@ -74,7 +74,8 @@ struct IngangView: View {
                                 Spacer()
                             }
                         }
-                    }.padding(.horizontal, 30)
+                    }
+                    .padding(.horizontal, 30)
                     .frame(width: abs(geometry.size.width - 40), height: 89)
                     .modifier(CardViewModifier(geometry.size.width - 40, 89))
                     VSpacer(30)
