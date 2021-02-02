@@ -14,8 +14,7 @@ struct DailyMealWidget: View {
     
     var body: some View {
         ZStack {
-            Image("logo").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 60).foregroundColor(Color.accent)
-                .opacity(0.25)
+            Image("logo").templateImage(width: 60, Color.accent).opacity(0.25)
             GeometryReader { geometry in
                 Rectangle().fill(Color.accent)
                     .frame(width: 4, height: geometry.size.height/3)

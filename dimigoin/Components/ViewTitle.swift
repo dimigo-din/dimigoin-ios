@@ -26,7 +26,7 @@ struct ViewTitle: View {
                 Text(NSLocalizedString(self.title, comment: "")).notoSans(.black, size: 30)
             }
             Spacer()
-            Image(icon).renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent)
+            Image(icon).templateImage(height: 35, Color.accent)
         }.horizonPadding()
         .padding(.top, 30)
         HDivider().horizonPadding().offset(y: -15)

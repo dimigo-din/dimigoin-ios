@@ -26,7 +26,7 @@ struct AttendanceListView: View {
                         Text("자습 현황").notoSans(.black, size: 30)
                     }
                     Spacer()
-                    Image("class").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent)
+                    Image("class").templateImage(height: 35, Color.accent)
                 }.horizonPadding()
                 HDivider().horizonPadding().offset(y: -15)
                 AttendanceChart(api: api, geometry: geometry)

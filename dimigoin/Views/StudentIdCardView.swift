@@ -40,7 +40,7 @@ struct StudentIdCardView: View {
                         alertManager.idCardReadme()
                     }) {
                         HStack {
-                            Image("infomark").renderingMode(.template).foregroundColor(Color.white).frame(width: 12, height: 12)
+                            Image("infomark").templateImage(width: 15, height: 15, Color.white)
                             Text("사용 전 다음 내용을 반드시 읽어주세요")
                                 .notoSans(.bold, size: 11)
                                 .foregroundColor(Color.white)
@@ -51,7 +51,7 @@ struct StudentIdCardView: View {
                 Color.black.edgesIgnoringSafeArea(.all).opacity(isShowIdCard ? 1 : 0).statusBar(hidden: isShowIdCard)
                 VStack {
                     HStack {
-                        Image("idcard").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 15).foregroundColor(Color.white)
+                        Image("idcard").templateImage(width: 15, Color.white)
                         Text("MOBILE ID CARD").notoSans(.bold, size: 13, Color.white)
                         Spacer()
                         Text("남은 시간").notoSans(.medium, size: 13, Color.white)
@@ -89,7 +89,7 @@ struct StudentIdCardView: View {
                     ZStack {
                         VStack {
                             HStack {
-                                Image("dimigo-logo").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 19).foregroundColor(Color.white).padding(.leading, 25).padding(.top)
+                                Image("dimigo-logo").templateImage(height: 19, Color.white).padding(.leading, 25).padding(.top)
                                 Spacer()
                                 Image(systemName: "chevron.right").padding(.trailing, 25).foregroundColor(Color.white).padding(.top)
                             }
@@ -119,7 +119,7 @@ struct StudentIdCardView: View {
                             VSpacer(25)
                             Image("qr-sample").resizable().aspectRatio(contentMode: .fit).frame(height: 47)
                             VSpacer(20)
-                            Image("dimigo-logo").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 28).foregroundColor(Color.black)
+                            Image("dimigo-logo").templateImage(height: 15, Color.black)
                         }.opacity(isShowIdCard ? 1 : 0).rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: -1, z: 0)).scaleEffect(isShowIdCard ? 1 : 0.8)
                     }
                     .background(

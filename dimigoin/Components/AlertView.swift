@@ -59,10 +59,19 @@ struct AlertView: View {
                     VSpacer(20)
                     Text("사전 허가된 활동 또는 감독 교사 승인 외\n임의로 등록할 경우 불이익을 받을 수 있습니다.")
                         .notoSans(.medium, size: 12, Color("gray7")).multilineTextAlignment(.center)
+                } else if alertManager.alertType == .logout {
+                    VStack {
+                        VSpacer(35)
+                        Image(alertManager.getIconName()).templateImage(width: 30, alertManager.getAccentColor())
+                        VSpacer(23)
+                        Text(alertManager.content)
+                            .nanumSquare(.extraBold, size: 15, alertManager.getTitleColor())
+                        VSpacer(5)
+                    }.animation(.none)
                 } else {
                     VStack {
                         VSpacer(35)
-                        Image(alertManager.getIconName()).renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 30).foregroundColor(alertManager.getAccentColor())
+                        Image(alertManager.getIconName()).templateImage(width: 30, alertManager.getAccentColor())
                         VSpacer(23)
                         Text(alertManager.content)
                             .nanumSquare(.extraBold, size: 15, alertManager.getTitleColor())
@@ -149,11 +158,12 @@ struct AlertView: View {
     var idcardReadme: some View {
         return VStack {
             HStack {
-                Image("infomark").frame(width: 12, height: 12)
-                Text("다음 내용을 읽어주세요").notoSans(.bold, size: 12, Color("disabled"))
-            }
-            VSpacer(19)
-            Text("1. 본 증은 학교가 정식 발급한 학생증입니다.\n\n이외 신분증 등 활용은 활용처의 규정에 따라 달라질 수 있습니다.\n\n2. 본 증은 본인 이외 타인이 소지 또는 활용할 수 없습니다.\n타인에게 양도하여 입은 피해는 본인의 책임입니다.\n\n3. 스크린샷 또는 사본으로 동일한 효력을 발생시킬 수 없습니다.").notoSans(.medium, size: 12, Color("disabled")).multilineTextAlignment(.center)
+                Image("infomark").templateImage(width: 12, height: 12, Color.gray4)
+                Text("사용 전 다음 내용을 반드시 읽어주세요").notoSans(.bold, size: 12, Color.gray4)
+            }.padding()
+            Text("1. 본 증은 학교가 정식 발급한 학생증입니다.\n\n이외 신분증 등 활용은 활용처의 규정에 따라 달라질 수 있습니다.\n\n2. 본 증은 본인 이외 타인이 소지 또는 활용할 수 없습니다.\n타인에게 양도하여 입은 피해는 본인의 책임입니다.\n\n3. 스크린샷 또는 사본으로 동일한 효력을 발생시킬 수 없습니다.")
+                .notoSans(.medium, size: 11, Color("gray6"))
+                .multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
         }.animation(.none)
         .padding(.vertical)
     }

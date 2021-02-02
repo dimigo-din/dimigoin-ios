@@ -27,7 +27,7 @@ struct MealView: View {
                             }
                             Spacer()
                             NavigationLink(destination: WeeklyMealView().environmentObject(api)) {
-                                Image("meal").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent)
+                                Image("meal").templateImage(height: 35, Color.accent)
                             }
                         }
                         .horizonPadding()

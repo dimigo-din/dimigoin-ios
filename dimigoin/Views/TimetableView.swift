@@ -24,7 +24,7 @@ struct TimetableView: View {
                             .notoSans(.black, size: 30)
                     }
                     Spacer()
-                    Image("calendar.fill").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 35).foregroundColor(Color.accent)
+                    Image("calendar.fill").templateImage(height: 35, Color.accent)
                 }.horizonPadding()
                 .padding(.top, 30)
                 VSpacer(29)

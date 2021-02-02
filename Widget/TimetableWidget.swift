@@ -15,8 +15,9 @@ struct TimetableWidget: View {
     
     var body: some View {
         ZStack {
-            Image(api.isLoggedIn == false ? "dangermark" : "logo").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 60)
-                .opacity(api.isLoggedIn == false ? 0.4 : 0.25).foregroundColor(api.isLoggedIn == false ? Color("red") : Color.accent)
+            Image(api.isLoggedIn == false ? "dangermark" : "logo")
+                .templateImage(width: 60, api.isLoggedIn == false ? Color("red") : Color.accent)
+                .opacity(api.isLoggedIn == false ? 0.4 : 0.25)
             GeometryReader { geometry in
                 Rectangle().fill(api.isLoggedIn == false ? Color("red") : Color.accent).frame(width: geometry.size.width, height: 4)
             }

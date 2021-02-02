@@ -27,12 +27,12 @@ struct HomeView: View {
                             Image("school").resizable().aspectRatio(contentMode: .fit).frame(maxWidth: .infinity).opacity(0.3)
                         }
                         HStack {
-                            Image("logo").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 38).foregroundColor(Color.accent)
+                            Image("logo").templateImage(height: 38, Color.accent)
                             Spacer()
                             Button(action: {
                                 alertManager.logoutCheck()
                             }) {
-                                Image("logout").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 30).foregroundColor(Color.accent)
+                                Image("logout").templateImage(width: 30, Color.accent)
                             }.offset(x: showLogoutButton ? 0 : 45)
                             
                             ZStack {

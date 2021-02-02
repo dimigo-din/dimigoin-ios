@@ -156,13 +156,13 @@ struct TicketStatusView: View {
                             .notoSans(.bold, size: 12, Color.text)
                         VSpacer(14)
                         HStack {
-                            Image("clock").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 15).foregroundColor(Color.gray4)
+                            Image("clock").templateImage(width: 15, Color.gray4)
                             Text("07:00 - 08:15")
                                 .notoSans(.regular, size: 10, Color.gray4)
                         }
                         VSpacer(17)
                         HStack {
-                            Image("club").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 15).foregroundColor(Color.gray4)
+                            Image("club").templateImage(width: 15, Color.gray4)
                             Text("한 학급당 최대 ")
                                 .notoSans(.regular, size: 10, Color.gray4)
                             +
@@ -174,14 +174,14 @@ struct TicketStatusView: View {
                         Text("남은 티켓").notoSans(.bold, size: 12, Color.text)
                         VSpacer(14)
                         HStack {
-                            Image("calendar").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 15).foregroundColor(Color.gray4)
+                            Image("calendar").templateImage(width: 15, Color.gray4)
                             Text("일주일 최대 ").notoSans(.regular, size: 10, Color.gray4)
                             +
                             Text("\(api.weeklyTicketCount)개").notoSans(.bold, size: 10, Color.gray4)
                         }
                         VSpacer(17)
                         HStack {
-                            Image("ticket").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(width: 15).foregroundColor(Color.accent)
+                            Image("ticket").templateImage(width: 15, Color.accent)
                             Text("남은 티켓 ").notoSans(.regular, size: 10, Color.accent)
                             +
                             Text("\(api.weeklyRemainTicket)/\(api.weeklyTicketCount)")
