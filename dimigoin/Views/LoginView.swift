@@ -80,8 +80,10 @@ struct LoginView: View {
                     }
                 }
                 Spacer()
-            }.padding(.horizontal)
+            }
+            .padding(.horizontal)
             .edgesIgnoringSafeArea(.top)
+            .keyboardResponsive()
             Color.black.edgesIgnoringSafeArea(.all).opacity(alertManager.isShowing ? 0.1 : 0)
             AlertView()
                 .environmentObject(api)

@@ -130,10 +130,11 @@ struct AlertView: View {
                 
             }
             .frame(width: UIDevice.current.userInterfaceIdiom == .phone ? abs(geometry.size.width - 20) : 380, height: alertManager.alertType == .idCardReadme ? 260 : (alertManager.alertType == .attendance ? 314 : 195))
-            .background(Color(UIColor.systemBackground).cornerRadius(10).animation(.none))
+            .background(Color(UIColor.systemBackground).cornerRadius(10))
             .padding(.horizontal, UIDevice.current.userInterfaceIdiom == .phone ? 10 : (geometry.size.width - 380)/2)
             .padding(.top, (geometry.size.height - (alertManager.alertType == .idCardReadme ? 260 : (alertManager.alertType == .attendance ? 314 : 195)))/2)
             .edgesIgnoringSafeArea(.all)
+            .keyboardResponsive()
         }.frame(alignment: .center)
         .opacity(alertManager.isShowing ? 1 : 0)
     }
