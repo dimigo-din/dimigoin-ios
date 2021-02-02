@@ -10,6 +10,7 @@ import SwiftUI
 import DimigoinKit
 
 struct SelectPlaceView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var api: DimigoinAPI
     @Binding var selectedPlace: Place
     
@@ -21,10 +22,34 @@ struct SelectPlaceView: View {
     }
     
     var body: some View {
-        ScrollView {
-            Text("야간자율학습 학생현황").font(Font.custom("NotoSansKR-Bold", size: 12)).accent()
-            Text("장소를 선택해주세요").font(Font.custom("NotoSansKR-Bold", size: 20))
-            PlaceList(api: api, selectedPlace: $selectedPlace)
+        GeometryReader { geometry in
+            ZStack {
+                ScrollView {
+                    Text("야간자율학습 학생현황").font(Font.custom("NotoSansKR-Bold", size: 12)).accent()
+                    Text("장소를 선택해주세요").font(Font.custom("NotoSansKR-Bold", size: 20))
+                    PlaceList(api: api, selectedPlace: $selectedPlace)
+                }
+                VStack {
+                    Spacer()
+                    VStack {
+                        Spacer()
+                        Button(action: {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }) {
+                            Text("선택완료")
+                                .font(Font.custom("NotoSansKR-Bold", size: 14))
+                                .foregroundColor(Color.white)
+                                .frame(width: geometry.size.width-40, height: 50)
+                                .background(Color("accent").cornerRadius(10))
+                        }
+                        Spacer()
+                    }.frame(height: 100)
+                    .frame(maxWidth: .infinity)
+                    .background(Rectangle().fill(Color.systemBackground).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0).edgesIgnoringSafeArea(.all))
+                    .edgesIgnoringSafeArea(.all)
+                    
+                }
+            }
         }
     }
 }
@@ -39,12 +64,12 @@ struct PlaceList: View {
             ForEach(api.allPlaces, id: \.self) { place in
                 PlaceListItem(place: place, selectedPlace: $selectedPlace)
             }
+            VSpacer(100)
         }
     }
 }
 
 struct PlaceListItem: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var place: Place
     @Binding var selectedPlace: Place
     
@@ -53,13 +78,21 @@ struct PlaceListItem: View {
             ZStack {
                 Circle()
                     .strokeBorder(Color.gray, lineWidth: 1)
-                    .frame(width: 20, height: 20)
+                    .frame(width: 26, height: 26)
                 Circle()
                     .fill(Color.accent)
-                    .frame(width: selectedPlace.id == place.id ? 12 : 0, height: selectedPlace.id == place.id ? 12 : 0)
-            }.padding(.leading)
+                    .frame(width: selectedPlace.id == place.id ? 26 : 0, height: selectedPlace.id == place.id ? 26 : 0)
+                Circle()
+                    .fill(Color.white)
+                    .frame(width: 12, height: 12)
+            }.animation(.easeInOut(duration: 0.25))
+            .padding(.leading, 25)
+            HSpacer(25)
+            Text("\(place.name)")
+                .font(Font.custom("NotoSansKR-\(selectedPlace.id == place.id ? "Bold" : "Medium")", size: 16))
+                .foregroundColor(selectedPlace.id == place.id ? Color.black : Color.gray4)
+                .padding(.trailing, 25)
             Spacer()
-            Text("\(place.name)").font(Font.custom("NotoSansKR-Medium", size: 14)).padding(.trailing)
         }.frame(height: 50)
         .contentShape(Rectangle())
         .background(Color.accent.opacity(selectedPlace.id == place.id ? 0.05 : 0))
@@ -67,8 +100,6 @@ struct PlaceListItem: View {
             withAnimation {
                 self.selectedPlace = place
             }
-            
-            self.presentationMode.wrappedValue.dismiss()
         }
         HDivider()
     }
