@@ -65,7 +65,6 @@ struct LocationSelectionView: View {
                         .environmentObject(api)
                 }.padding(.top, 5)
                 .horizonPadding()
-                
             }
         }
         VSpacer(19)

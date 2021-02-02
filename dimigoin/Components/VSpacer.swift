@@ -9,5 +9,5 @@
 import SwiftUI
 
 func VSpacer(_ amount: CGFloat) -> some View {
-    return Spacer().frame(height: amount)
+    return Spacer().frame(height: abs(amount))
 }

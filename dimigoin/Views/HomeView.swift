@@ -26,12 +26,7 @@ struct HomeView: View {
                     ZStack {
                         VStack {
                             VSpacer(50)
-//                            if(horizontalSizeClass == .compact) {
-                                Image("school").resizable().aspectRatio(contentMode: .fit).frame(maxWidth: .infinity).opacity(0.3)
-//                            }
-//                            else {
-//                                Image("school").resizable().frame(maxWidth: .infinity).opacity(0.3)
-//                            }
+                            Image("school").resizable().aspectRatio(contentMode: .fit).frame(maxWidth: .infinity).opacity(0.3)
                         }
                         HStack {
                             Image("logo").renderingMode(.template).resizable().aspectRatio(contentMode: .fit).frame(height: 38).foregroundColor(Color.accent)
@@ -67,12 +62,15 @@ struct HomeView: View {
                     VSpacer(15)
                     LocationSelectionView(_api)
                         .environmentObject(alertManager)
+                    VSpacer(calMidSpace(geo: geometry))
                     MealPagerView(geometry: geometry)
                         .environmentObject(api)
                     VSpacer(tabBarSize + 40)
                 }.frame(width: geometry.size.width)
             }
         }
-
+    }
+    func calMidSpace(geo: GeometryProxy) -> CGFloat {
+        geo.size.height-tabBarSize-400-(14*geo.size.width/75)
     }
 }
