@@ -69,6 +69,7 @@
 		42E5B3E325C97C730067692A /* AttendanceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5B3E225C97C730067692A /* AttendanceDetailView.swift */; };
 		42E5B3F025C986E50067692A /* keyboardResponsive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5B3EF25C986E50067692A /* keyboardResponsive.swift */; };
 		42E5B3F525C988CF0067692A /* FetchPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5B3F425C988CF0067692A /* FetchPlaceholder.swift */; };
+		42E5B3FA25C98BFF0067692A /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5B3F925C98BFF0067692A /* RefreshableScrollView.swift */; };
 		42EF39BB25A727AE00BE6DEA /* TimetableWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF39BA25A727AE00BE6DEA /* TimetableWidget.swift */; };
 		42EFCD992558073200F3DC5E /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 42EFCD932558073200F3DC5E /* NotoSansKR-Bold.otf */; };
 		42EFCD9A2558073200F3DC5E /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 42EFCD932558073200F3DC5E /* NotoSansKR-Bold.otf */; };
@@ -195,6 +196,7 @@
 		42E5B3E225C97C730067692A /* AttendanceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceDetailView.swift; sourceTree = "<group>"; };
 		42E5B3EF25C986E50067692A /* keyboardResponsive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyboardResponsive.swift; sourceTree = "<group>"; };
 		42E5B3F425C988CF0067692A /* FetchPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPlaceholder.swift; sourceTree = "<group>"; };
+		42E5B3F925C98BFF0067692A /* RefreshableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableScrollView.swift; sourceTree = "<group>"; };
 		42EF39BA25A727AE00BE6DEA /* TimetableWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableWidget.swift; sourceTree = "<group>"; };
 		42EFCD932558073200F3DC5E /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		42EFCD942558073200F3DC5E /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 				42ABA0A3255F6247001925BE /* MealPagerView.swift */,
 				42ABA0B1255FA725001925BE /* CustomBox.swift */,
 				42ABA0C4255FC4E2001925BE /* HorizonPadding.swift */,
+				42E5B3F925C98BFF0067692A /* RefreshableScrollView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -728,6 +731,7 @@
 				42EFCDE625581C4500F3DC5E /* HomeView.swift in Sources */,
 				086CC54F24AF819400456846 /* HSpacer.swift in Sources */,
 				08C9AC1424A74A83002AF525 /* LoginView.swift in Sources */,
+				42E5B3FA25C98BFF0067692A /* RefreshableScrollView.swift in Sources */,
 				08C9AC1024A74A83002AF525 /* TextFieldModifier.swift in Sources */,
 				42E5B3F525C988CF0067692A /* FetchPlaceholder.swift in Sources */,
 				42AE3CF825C5941400ACC130 /* SelectPlaceView.swift in Sources */,
