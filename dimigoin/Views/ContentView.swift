@@ -15,37 +15,19 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            if api.isFetching {
-                if #available(iOS 14.0, *) {
-                    Group {
-                        if api.isLoggedIn {
-                            MainView()
-                                .environmentObject(api)
-                                .environmentObject(alertManager)
-                        } else {
-                            LoginView()
-                                .environmentObject(api)
-                                .environmentObject(alertManager)
-                        }
-                    }.redacted(reason: RedactionReasons.placeholder)
-                    .edgesIgnoringSafeArea(.bottom)
-                    .navigationBarHidden(true)
+            Group {
+                if api.isLoggedIn {
+                    MainView()
+                        .environmentObject(api)
+                        .environmentObject(alertManager)
+                } else {
+                    LoginView()
+                        .environmentObject(api)
+                        .environmentObject(alertManager)
                 }
-            } else {
-                Group {
-                    if api.isLoggedIn {
-                        MainView()
-                            .environmentObject(api)
-                            .environmentObject(alertManager)
-                    } else {
-                        LoginView()
-                            .environmentObject(api)
-                            .environmentObject(alertManager)
-                    }
-                }
-                .edgesIgnoringSafeArea(.bottom)
-                .navigationBarHidden(true)
-            }
+            }.edgesIgnoringSafeArea(.bottom)
+            .navigationBarHidden(true)
+            .placeholderWhileFetching(isFetching: $api.isFetching)
         }.navigationViewStyle(StackNavigationViewStyle())
         
     }
