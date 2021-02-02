@@ -66,6 +66,7 @@
 		42C487CA24DDB73000C594CB /* CopyrightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C487C924DDB73000C594CB /* CopyrightText.swift */; };
 		42C72C052559FED900E3294E /* StudentIdCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C72C042559FED900E3294E /* StudentIdCardView.swift */; };
 		42DBE5A92536BABE00E5F4EA /* Openas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42DBE5A82536BABD00E5F4EA /* Openas.ttf */; };
+		42E5B3E325C97C730067692A /* AttendanceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5B3E225C97C730067692A /* AttendanceDetailView.swift */; };
 		42EF39BB25A727AE00BE6DEA /* TimetableWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF39BA25A727AE00BE6DEA /* TimetableWidget.swift */; };
 		42EFCD992558073200F3DC5E /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 42EFCD932558073200F3DC5E /* NotoSansKR-Bold.otf */; };
 		42EFCD9A2558073200F3DC5E /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 42EFCD932558073200F3DC5E /* NotoSansKR-Bold.otf */; };
@@ -189,6 +190,7 @@
 		42C487C924DDB73000C594CB /* CopyrightText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyrightText.swift; sourceTree = "<group>"; };
 		42C72C042559FED900E3294E /* StudentIdCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIdCardView.swift; sourceTree = "<group>"; };
 		42DBE5A82536BABD00E5F4EA /* Openas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Openas.ttf; sourceTree = "<group>"; };
+		42E5B3E225C97C730067692A /* AttendanceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceDetailView.swift; sourceTree = "<group>"; };
 		42EF39BA25A727AE00BE6DEA /* TimetableWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableWidget.swift; sourceTree = "<group>"; };
 		42EFCD932558073200F3DC5E /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		42EFCD942558073200F3DC5E /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				42ABA089255F5690001925BE /* TimetableView.swift */,
 				42AE3CF725C5941400ACC130 /* SelectPlaceView.swift */,
 				42AE3CFC25C59A8100ACC130 /* AttendanceListView.swift */,
+				42E5B3E225C97C730067692A /* AttendanceDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -726,6 +729,7 @@
 				42ABA0C5255FC4E2001925BE /* HorizonPadding.swift in Sources */,
 				42EFCE2E255852DD00F3DC5E /* ViewTitle.swift in Sources */,
 				42EFCDFE255829B100F3DC5E /* SectionHeader.swift in Sources */,
+				42E5B3E325C97C730067692A /* AttendanceDetailView.swift in Sources */,
 				08C9ABEB24A74A53002AF525 /* SceneDelegate.swift in Sources */,
 				423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */,
 				086CC55124AF849D00456846 /* TextStyles.swift in Sources */,

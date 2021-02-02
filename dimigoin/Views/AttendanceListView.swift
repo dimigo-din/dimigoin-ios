@@ -131,6 +131,14 @@ struct AttendanceListItem: View {
             Text("\(attendance.name)").font(Font.custom("NotoSansKR-Bold", size: 16)).gray4()
             Spacer()
             PlaceBadge(place: attendance.currentLocation)
+            Spacer()
+            NavigationLink(destination: AttendanceDetailView(attendance: attendance)) {
+                Text("자세히보기")
+                    .foregroundColor(Color.white)
+                    .font(Font.custom("NotoSansKR-Bold", size: 10))
+                    .frame(width: 74, height: 20)
+                    .background(Color("gray6").cornerRadius(5))
+            }
         }.horizonPadding()
     }
 }
