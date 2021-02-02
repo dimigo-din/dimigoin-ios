@@ -63,10 +63,10 @@ struct IngangView: View {
                         ForEach(1...4, id: \.self) { row in
                             VStack(spacing: 14) {
                                 ForEach(0...1, id: \.self) { col in
-                                    if api.getApplicant(col, row).name == "" {
+                                    if api.getApplicant(ingang.time, col*4+row).name == "" {
                                         Text("신청가능").font(Font.custom("NotoSansKR-Medium", size: 12)).foregroundColor(Color("gray6"))
                                     } else {
-                                        Text("\(api.getApplicant(col, row).name)").font(Font.custom("NotoSansKR-Medium", size: 12)).foregroundColor(Color("gray3"))
+                                        Text("\(api.getApplicant(ingang.time, col*4+row).name)").font(Font.custom("NotoSansKR-Medium", size: 12)).foregroundColor(Color("gray3"))
                                     }
                                 }
                             }
@@ -91,6 +91,7 @@ struct IngangView: View {
             switch result {
             case .success(()):
                 print("인강 신청 성공")
+                api.fetchIngangData { }
             case .failure(let error):
                 switch error {
                 case .alreadyApplied:
@@ -114,6 +115,7 @@ struct IngangView: View {
             switch result {
             case .success(()):
                 print("인강 취소 성공")
+                api.fetchIngangData { }
             case .failure(let error):
                 switch error {
                 case .alreadyApplied:

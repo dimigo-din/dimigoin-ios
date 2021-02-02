@@ -45,8 +45,7 @@ struct StudentIdCardView: View {
                         }.padding(.vertical, 13).frame(width: horizontalSizeClass == .compact ? abs(geometry.size.width-40) : 335).opacity(0.8).background(Color("gray6").cornerRadius(10)).padding(.bottom)
                     }
                     
-                }.offset(y: -tabBarSize/2)
-                
+                }.offset(y: isShowIdCard ? 0 : -tabBarSize/2)
                 Color.black.edgesIgnoringSafeArea(.all).opacity(isShowIdCard ? 1 : 0).statusBar(hidden: isShowIdCard)
                 VStack {
                     HStack {
@@ -137,7 +136,7 @@ struct StudentIdCardView: View {
                     #else
                         showIdCardAfterAuthentication()
                     #endif
-                }.offset(y: -tabBarSize/2)
+                }.offset(y: isShowIdCard ? 0 : -tabBarSize/2)
             }.frame(width: geometry.size.width)
         }
     }
