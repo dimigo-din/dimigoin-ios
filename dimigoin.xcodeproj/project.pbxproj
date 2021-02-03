@@ -19,7 +19,6 @@
 		08C9AC1024A74A83002AF525 /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9ABFE24A74A83002AF525 /* TextFieldModifier.swift */; };
 		08C9AC1424A74A83002AF525 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9AC0424A74A83002AF525 /* LoginView.swift */; };
 		08C9AC1724A74A83002AF525 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C9AC0724A74A83002AF525 /* MainView.swift */; };
-		42050CB925AA148E00C61D14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42050CB825AA148E00C61D14 /* GoogleService-Info.plist */; };
 		42050CC125AA19E900C61D14 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42050CC025AA19E900C61D14 /* ColorExtension.swift */; };
 		42050CC225AA19E900C61D14 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42050CC025AA19E900C61D14 /* ColorExtension.swift */; };
 		4206192825A6AF7E00A5E5B8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4206192B25A6AF7E00A5E5B8 /* InfoPlist.strings */; };
@@ -70,6 +69,7 @@
 		42E5B3FA25C98BFF0067692A /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5B3F925C98BFF0067692A /* RefreshableScrollView.swift */; };
 		42E5B40825CA10B70067692A /* TemplateImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5B40725CA10B70067692A /* TemplateImageModifier.swift */; };
 		42E5B40C25CA13A30067692A /* TemplateImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5B40725CA10B70067692A /* TemplateImageModifier.swift */; };
+		42E5B44D25CADA3A0067692A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42E5B44C25CADA3A0067692A /* GoogleService-Info.plist */; };
 		42EF39BB25A727AE00BE6DEA /* TimetableWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF39BA25A727AE00BE6DEA /* TimetableWidget.swift */; };
 		42EFCD992558073200F3DC5E /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 42EFCD932558073200F3DC5E /* NotoSansKR-Bold.otf */; };
 		42EFCD9A2558073200F3DC5E /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 42EFCD932558073200F3DC5E /* NotoSansKR-Bold.otf */; };
@@ -144,7 +144,6 @@
 		08C9AC0424A74A83002AF525 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		08C9AC0724A74A83002AF525 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		25D1958C54B4C63F0C895030 /* Pods-WidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-WidgetExtension/Pods-WidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
-		42050CB825AA148E00C61D14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		42050CC025AA19E900C61D14 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		4206192A25A6AF7E00A5E5B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4206193D25A6B58200A5E5B8 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -197,6 +196,7 @@
 		42E5B3F425C988CF0067692A /* FetchPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPlaceholder.swift; sourceTree = "<group>"; };
 		42E5B3F925C98BFF0067692A /* RefreshableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableScrollView.swift; sourceTree = "<group>"; };
 		42E5B40725CA10B70067692A /* TemplateImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateImageModifier.swift; sourceTree = "<group>"; };
+		42E5B44C25CADA3A0067692A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		42EF39BA25A727AE00BE6DEA /* TimetableWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableWidget.swift; sourceTree = "<group>"; };
 		42EFCD932558073200F3DC5E /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		42EFCD942558073200F3DC5E /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
@@ -286,7 +286,7 @@
 				42364EA124AFF1B5008427D5 /* Application */,
 				08C9ABF024A74A54002AF525 /* Preview Content */,
 				08C9ABEE24A74A54002AF525 /* Assets.xcassets */,
-				42050CB825AA148E00C61D14 /* GoogleService-Info.plist */,
+				42E5B44C25CADA3A0067692A /* GoogleService-Info.plist */,
 			);
 			path = dimigoin;
 			sourceTree = "<group>";
@@ -470,6 +470,7 @@
 				429FD88B24B202DA003A49AF /* Embed App Extensions */,
 				0C82EC2E7D50698B7600B784 /* [CP] Embed Pods Frameworks */,
 				42AE3D1925C82E5400ACC130 /* ShellScript */,
+				42E5B42D25CAD6B10067692A /* Firebase Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -577,6 +578,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42EFCDA12558073200F3DC5E /* NotoSansKR-Regular.otf in Resources */,
+				42E5B44D25CADA3A0067692A /* GoogleService-Info.plist in Resources */,
 				429BA5D725A30FBB000749AC /* Localizable.strings in Resources */,
 				42EFCDA92558073200F3DC5E /* NotoSansKR-Medium.otf in Resources */,
 				4206192825A6AF7E00A5E5B8 /* InfoPlist.strings in Resources */,
@@ -589,7 +591,6 @@
 				42EFCD9D2558073200F3DC5E /* NotoSansKR-Light.otf in Resources */,
 				08C9ABF524A74A54002AF525 /* LaunchScreen.storyboard in Resources */,
 				08C9ABF224A74A54002AF525 /* Preview Assets.xcassets in Resources */,
-				42050CB925AA148E00C61D14 /* GoogleService-Info.plist in Resources */,
 				4293263525B1E65F00BCD9A0 /* NanumSquareR.ttf in Resources */,
 				4293262F25B1E65F00BCD9A0 /* NanumSquareEB.ttf in Resources */,
 				08C9ABEF24A74A54002AF525 /* Assets.xcassets in Resources */,
@@ -660,6 +661,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
+		42E5B42D25CAD6B10067692A /* Firebase Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+			);
+			name = "Firebase Crashlytics";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/FirebaseCrashlytics/run\n${PODS_ROOT}/FirebaseCrashlytics/upload-symbols -gsp ${PROJECT_DIR}/Your_path/GoogleService-Info.plist -p ios ${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\n";
 		};
 		5211A222D66C26DC1454D782 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -953,6 +974,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 304;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;

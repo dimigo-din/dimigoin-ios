@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseMessaging
+import FirebaseCrashlytics
 import UserNotifications
 import DimigoinKit
 
@@ -26,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseConfiguration.shared.setLoggerLevel(FirebaseLoggerLevel.min)
         FirebaseApp.configure()
+        Crashlytics.crashlytics()
         if #available(iOS 10.0, *) {
         // For iOS 10 display notification (sent via APNS)
           UNUserNotificationCenter.current().delegate = self

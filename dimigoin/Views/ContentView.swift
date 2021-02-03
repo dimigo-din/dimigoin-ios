@@ -17,9 +17,15 @@ struct ContentView: View {
         NavigationView {
             Group {
                 if api.isLoggedIn {
+                    
                     MainView()
                         .environmentObject(api)
                         .environmentObject(alertManager)
+                    Button(action: {
+                        fatalError()
+                    }) {
+                        Text("erro")
+                    }
                 } else {
                     LoginView()
                         .environmentObject(api)

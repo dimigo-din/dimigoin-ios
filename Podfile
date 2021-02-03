@@ -8,6 +8,7 @@ target 'dimigoin' do
   # Pods for dimigoin
   pod 'Firebase/Analytics'
   pod 'Firebase/Messaging'
+  pod 'Firebase/Crashlytics'
   pod 'SwiftLint'
 end
 
