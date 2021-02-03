@@ -71,25 +71,29 @@ struct AttendanceChart: View {
                 VStack {
                     Text("교실").notoSans(.bold, size: 15, Color.white)
                     VSpacer(12)
-                    Text("0").notoSans(.bold, size: 15, Color.accent)
+                    Text("\(api.attendanceList.filter { $0.currentLocation.type == .classroom }.count)")
+                        .notoSans(.bold, size: 15, Color.accent)
                 }
                 Spacer()
                 VStack {
                     Text("인강실").notoSans(.bold, size: 15, Color.white)
                     VSpacer(12)
-                    Text("0").notoSans(.bold, size: 15, Color.accent)
+                    Text("\(api.attendanceList.filter { $0.currentLocation.type == .ingang }.count)")
+                        .notoSans(.bold, size: 15, Color.accent)
                 }
                 Spacer()
                 VStack {
                     Text("동아리").notoSans(.bold, size: 15, Color.white)
                     VSpacer(12)
-                    Text("0").notoSans(.bold, size: 15, Color.accent)
+                    Text("\(api.attendanceList.filter { $0.currentLocation.type == .circle }.count)")
+                        .notoSans(.bold, size: 15, Color.accent)
                 }
                 Spacer()
                 VStack {
                     Text("기타").notoSans(.bold, size: 15, Color.white)
                     VSpacer(12)
-                    Text("0").notoSans(.bold, size: 15, Color.accent)
+                    Text("\(api.attendanceList.filter { $0.currentLocation.type == .etc }.count)")
+                        .notoSans(.bold, size: 15, Color.accent)
                 }
                 Spacer()
                 VStack {
@@ -146,13 +150,25 @@ struct PlaceBadge: View {
     @State var place: Place
     
     var body: some View {
-        HStack {
-            Text(place.type).notoSans(.medium, size: 11, Color.gray4)
+        HStack(spacing: 0) {
+            Image(getPlaceBadgeIcon(place.type)).templateImage(width: 10, Color.gray4)
+                .padding(.leading, 8)
+            Spacer()
+            Text(placeType2String(place.type)).notoSans(.medium, size: 11, Color.gray4)
+                .padding(.trailing, 8)
         }.frame(width: 60, height: 20)
         .overlay(
             RoundedRectangle(cornerRadius: 5)
                 .stroke(Color("gray6"), lineWidth: 1)
         )
+    }
+    func getPlaceBadgeIcon(_ placeType: PlaceType) -> String {
+        switch placeType {
+        case .circle: return "person.2"
+        case .etc: return "etc"
+        case .classroom: return "class"
+        case .ingang: return "headphone"
+        }
     }
 }
 

@@ -83,7 +83,7 @@ struct PlaceListItem: View {
                     .fill(Color.accent)
                     .frame(width: selectedPlace.id == place.id ? 26 : 0, height: selectedPlace.id == place.id ? 26 : 0)
                 Circle()
-                    .fill(Color.white)
+                    .fill(Color(UIColor.secondarySystemGroupedBackground))
                     .frame(width: 12, height: 12)
             }.animation(.easeInOut(duration: 0.25))
             .padding(.leading, 25)

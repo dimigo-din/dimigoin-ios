@@ -11,7 +11,7 @@ import DimigoinKit
 import Alamofire
 import SwiftyJSON
 
-struct LocationButton: Codable, Hashable {
+struct LocationButton: Hashable {
     var place: Place
     var icon: String
     var idx: Int
@@ -86,7 +86,9 @@ struct LocationItem: View {
                     switch result {
                     case .success(()):
                         self.api.fetchUserCurrentPlace {
-                            alertManager.createAlert("\"\(place.name)\"(으)로 변경되었습니다.", .success)
+                            self.api.fetchAttendanceListData {
+                                alertManager.createAlert("\"\(place.name)\"(으)로 변경되었습니다.", .success)
+                            }
                         }
                     case .failure(let error):
                         switch error {

@@ -102,7 +102,11 @@ struct AlertView: View {
                             api.changeUserPlace(placeName: selectedPlace.name, remark: remark == "" ? "없음" : remark) { result in
                                 switch result {
                                 case .success(()):
-                                    alertManager.createAlert("\"\(api.currentPlace.name)\" (으)로 변경되었습니다.", .success)
+                                    self.api.fetchUserCurrentPlace {
+                                        self.api.fetchAttendanceListData {
+                                            alertManager.createAlert("\"\(placeName)\"(으)로 변경되었습니다.", .success)
+                                        }
+                                    }
                                 case .failure(let error):
                                     switch error {
                                     case .noSuchPlace:
