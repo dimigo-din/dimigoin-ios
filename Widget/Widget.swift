@@ -73,16 +73,8 @@ struct WidgetView: View {
         switch widgetFamily {
         case .systemSmall: NextMealWidget(data: data)
         case .systemMedium: DailyMealWidget(data: data)
-//        case .systemLarge: TimetableWidget(api: api, data: data)
+        case .systemLarge: TimetableWidget(data: data)
         default: Text("error")
         }
-    }
-}
-
-extension UserDefaults {
-    /// Shared app group(group.in.dimigo.ios)
-    static var shared: UserDefaults {
-        let appGroupId = "group.in.dimigo.ios"
-        return UserDefaults(suiteName: appGroupId)!
     }
 }
