@@ -30,8 +30,8 @@ struct MainWidget: Widget {
         }
         .configurationDisplayName("디미고인 위젯")
         .description("누구보다 빠르게 급식과 시간표를 확인해보세요")
-//        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
-        .supportedFamilies([.systemSmall, .systemMedium])
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
+//        .supportedFamilies([.systemSmall, .systemMedium])
 
     }
 }

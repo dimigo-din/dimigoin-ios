@@ -104,7 +104,7 @@ struct AlertView: View {
                                 case .success(()):
                                     self.api.fetchUserCurrentPlace {
                                         self.api.fetchAttendanceListData {
-                                            alertManager.createAlert("\"\(placeName)\"(으)로 변경되었습니다.", .success)
+                                            alertManager.createAlert("\"\(selectedPlace.name)\"(으)로 변경되었습니다.", .success)
                                         }
                                     }
                                 case .failure(let error):

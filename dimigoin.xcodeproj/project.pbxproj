@@ -336,6 +336,7 @@
 				42AE3CF725C5941400ACC130 /* SelectPlaceView.swift */,
 				42AE3CFC25C59A8100ACC130 /* AttendanceListView.swift */,
 				42E5B3E225C97C730067692A /* AttendanceDetailView.swift */,
+				4250011B25595C2900C593CF /* AlertView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -343,7 +344,6 @@
 		08C9AC0824A74A83002AF525 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				4250011B25595C2900C593CF /* AlertView.swift */,
 				086CC55024AF849D00456846 /* TextStyles.swift */,
 				42EFCE15255848C300F3DC5E /* LocationSelection.swift */,
 				42EFCDD72558188100F3DC5E /* TapBar.swift */,
@@ -680,7 +680,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/FirebaseCrashlytics/run\n${PODS_ROOT}/FirebaseCrashlytics/upload-symbols -gsp ${PROJECT_DIR}/Your_path/GoogleService-Info.plist -p ios ${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\n";
+			shellScript = "${PODS_ROOT}/FirebaseCrashlytics/run\n${PODS_ROOT}/FirebaseCrashlytics/upload-symbols -gsp ${PROJECT_DIR}/dimigoin/GoogleService-Info.plist -p ios ${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\n";
 		};
 		5211A222D66C26DC1454D782 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -973,7 +973,7 @@
 				CODE_SIGN_ENTITLEMENTS = dimigoin/Application/Dimigoin.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 304;
+				CURRENT_PROJECT_VERSION = 307;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
@@ -1004,7 +1004,7 @@
 				CODE_SIGN_ENTITLEMENTS = dimigoin/Application/Dimigoin.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 304;
+				CURRENT_PROJECT_VERSION = 307;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -1077,7 +1077,7 @@
 				CODE_SIGN_ENTITLEMENTS = Widget/WidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 304;
+				CURRENT_PROJECT_VERSION = 307;
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				INFOPLIST_FILE = Widget/Info.plist;
@@ -1107,7 +1107,7 @@
 				CODE_SIGN_ENTITLEMENTS = Widget/WidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 304;
+				CURRENT_PROJECT_VERSION = 307;
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				INFOPLIST_FILE = Widget/Info.plist;

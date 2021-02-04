@@ -48,9 +48,12 @@ struct MainView: View {
                     }.blur(radius: alertManager.isShowing ? 2 : 0)
                     VStack {
                         Spacer()
-                        TapBar(index: $tapbarIndex, isShowIdCard: $isShowIdCard)
-                            .offset(x: -geometry.size.width*2)
-                            .blur(radius: alertManager.isShowing ? 2 : 0)
+                        if #available(iOS 14.0, *) {
+                            TapBar(index: $tapbarIndex, isShowIdCard: $isShowIdCard)
+                                .offset(x: -geometry.size.width*2)
+                                .blur(radius: alertManager.isShowing ? 2 : 0)
+                                .unredacted()
+                        }
                     }
                     Color.black.edgesIgnoringSafeArea(.all).opacity(alertManager.isShowing ? 0.1 : 0)
                     AlertView()

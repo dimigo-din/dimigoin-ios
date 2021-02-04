@@ -24,10 +24,14 @@ struct HomeView: View {
                     ZStack {
                         VStack {
                             VSpacer(50)
-                            Image("school").resizable().aspectRatio(contentMode: .fit).frame(maxWidth: .infinity).opacity(0.3)
+                            if #available(iOS 14.0, *) {
+                                Image("school").resizable().aspectRatio(contentMode: .fit).frame(maxWidth: .infinity).opacity(0.3).unredacted()
+                            }
                         }
                         HStack {
-                            Image("logo").templateImage(height: 38, Color.accent)
+                            if #available(iOS 14.0, *) {
+                                Image("logo").templateImage(height: 38, Color.accent).unredacted()
+                            }
                             Spacer()
                             Button(action: {
                                 alertManager.logoutCheck()

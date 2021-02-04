@@ -41,19 +41,12 @@ struct TimetableItem: View {
     @EnvironmentObject var api: DimigoinAPI
     @State var geometry: GeometryProxy
     var dayIndicatorXOffset: CGFloat = 0
+    
     init(geometry: GeometryProxy) {
         self._geometry = .init(initialValue: geometry)
         self.dayIndicatorXOffset = CGFloat(getTodayDayOfWeekInt()-1)*(geometry.size.width-40)/5
     }
-    func pickerButton(type: String, _ value: Int) -> some View {
-        return Text("\(value)\(type)")
-            .foregroundColor(Color.white)
-            .notoSans(.bold, size: 21)
-            .padding(.horizontal, 7)
-            .background(Color.accent)
-            .cornerRadius(3)
-        
-    }
+    
     var body: some View {
         VStack {
             VSpacer(10)
@@ -76,8 +69,8 @@ struct TimetableItem: View {
                         }
                     }
                 }
-                HDivider().offset(y: 30)
-                HDivider().offset(y: -10)
+                HDivider().offset(y: 33)
+                HDivider().offset(y: -12)
             }.horizonPadding()
         }
     }
