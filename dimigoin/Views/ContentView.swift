@@ -12,13 +12,18 @@ import DimigoinKit
 struct ContentView: View {
     @ObservedObject var api = DimigoinAPI()
     var alertManager = AlertManager()
-    
+    var tapbarIdx = 2
+    init() {
+        
+    }
+    init(tapbarIdx: Int) {
+        self.tapbarIdx = tapbarIdx
+    }
     var body: some View {
         NavigationView {
             Group {
                 if api.isLoggedIn {
-                    
-                    MainView()
+                    MainView(tapbarIdx: tapbarIdx)
                         .environmentObject(api)
                         .environmentObject(alertManager)
 //                    Button(action: {

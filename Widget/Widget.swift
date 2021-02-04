@@ -71,9 +71,9 @@ struct WidgetView: View {
     var data: WidgetEntry
     var body: some View {
         switch widgetFamily {
-        case .systemSmall: NextMealWidget(data: data)
-        case .systemMedium: DailyMealWidget(data: data)
-        case .systemLarge: TimetableWidget(data: data)
+        case .systemSmall: NextMealWidget(data: data).widgetURL(URL(string: "widget://meal")!)
+        case .systemMedium: DailyMealWidget(data: data).widgetURL(URL(string: "widget://meal")!)
+        case .systemLarge: TimetableWidget(data: data).widgetURL(URL(string: "widget://timetable")!)
         default: Text("error")
         }
     }
