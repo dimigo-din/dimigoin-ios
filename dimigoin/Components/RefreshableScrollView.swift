@@ -29,7 +29,6 @@ struct RefreshableScrollView<Content: View>: View {
             ScrollView {
                 ZStack(alignment: .top) {
                     MovingView()
-                    
                     VStack { self.content }.alignmentGuide(.top, computeValue: { _ in (self.refreshing && self.frozen) ? -self.threshold : 0.0 })
                     
                     SymbolView(height: self.threshold, loading: self.refreshing, frozen: self.frozen, rotation: self.rotation)
@@ -104,15 +103,6 @@ struct RefreshableScrollView<Content: View>: View {
                         Spacer()
                     }.frame(height: height).fixedSize()
                     .offset(y: -height + (self.loading && self.frozen ? height : 0.0))
-                } else {
-                    Image("logo") // If not loading, show the arrow
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: height * 0.3, height: height * 0.3).fixedSize()
-                        .padding(height * 0.375)
-                        .rotationEffect(rotation)
-                        .offset(y: -height + (loading && frozen ? +height : 0.0))
-                        .opacity(0.5)
                 }
             }
         }

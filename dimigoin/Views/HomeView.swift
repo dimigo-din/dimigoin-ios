@@ -19,7 +19,7 @@ struct HomeView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            RefreshableScrollView(height: 70, refreshing: $api.isFetching) {
+            ScrollView(showsIndicators: false) {
                 VStack {
                     ZStack {
                         VStack {
