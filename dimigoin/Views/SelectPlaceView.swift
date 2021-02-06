@@ -80,8 +80,8 @@ struct PlaceListItem: View {
                     .strokeBorder(Color.gray, lineWidth: 1)
                     .frame(width: 26, height: 26)
                 Circle()
-                    .fill(Color.accent)
-                    .frame(width: selectedPlace.id == place.id ? 26 : 0, height: selectedPlace.id == place.id ? 26 : 0)
+                    .strokeBorder(Color.accent, lineWidth: selectedPlace.id == place.id ? 15 : 0)
+                    .frame(width: 26, height: 26)
                 Circle()
                     .fill(Color(UIColor.secondarySystemGroupedBackground))
                     .frame(width: 12, height: 12)
@@ -98,7 +98,7 @@ struct PlaceListItem: View {
         .contentShape(Rectangle())
         .background(Color.accent.opacity(selectedPlace.id == place.id ? 0.05 : 0))
         .onTapGesture {
-            withAnimation {
+            withAnimation(.spring()) {
                 self.selectedPlace = place
             }
         }
