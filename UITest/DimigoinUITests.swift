@@ -77,6 +77,7 @@ class UITestsforScreenshots: XCTestCase {
         let passwordTextField = app.secureTextFields["textfield.password"]
         passwordTextField.tap()
         passwordTextField.typeText("dimigofrontdev")
+        // MARK: 이곳에서 오류가 난다면 simulator의 'Hardware -> Keyboard -> Connect hardware keyboard'를 꺼주세요.
         
         let loginButton = app.buttons["button.login"]
         loginButton.tap()

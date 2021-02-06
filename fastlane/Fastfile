@@ -18,15 +18,9 @@ default_platform(:ios)
 platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do
-    slack(message: "iOS TestFlight 빌드 시작",
-          slack_url: "https://hooks.slack.com/services/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",
-          channel: "#iOS")
     increment_build_number(build_number: number_of_commits)
     build_app(workspace: "dimigoin.xcworkspace", scheme: "dimigoin")
     upload_to_testflight
-    slack(message: "새로운 iOS TestFlight가 업로드 되었습니다!",
-          slack_url: "https://hooks.slack.com/services/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",
-          channel: "#iOS")
   end
 end
 
