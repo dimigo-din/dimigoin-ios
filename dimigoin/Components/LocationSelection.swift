@@ -31,41 +31,39 @@ struct LocationSelectionView: View {
         locationButtons.append(LocationButton(place: self.api.findPrimaryPlaceByLabel(label: "동아리"), icon: "club", idx: 4))
     }
     var body: some View {
-        if #available(iOS 14.0, *) {
+        VStack {
             VStack {
-                VStack {
-                    HStack {
-                        Text(NSLocalizedString(getStringTimeZone(), comment: "")).notoSans(.bold, size: 10, Color.accent)
-                        Spacer()
-                    }
-                    HStack {
-                        Text(NSLocalizedString("자습 현황", comment: "")).notoSans(.bold, size: 21)
-                        Spacer()
-                        NavigationLink(destination: AttendanceListView().environmentObject(api)) {
-                            Text("자세히")
-                                .notoSans(.bold, size: 12, Color.white)
-                                .frame(width: 74, height: 25)
-                                .background(Color.accent.cornerRadius(15))
-                        }
-                    }
-                }.horizonPadding()
                 HStack {
-                    ForEach(locationButtons, id: \.self) { location in
-                        LocationItem(idx: location.idx, icon: location.icon, place: location.place)
-                            .environmentObject(alertManager)
-                            .environmentObject(api)
-                            .accessibility(identifier: "locationSelection.\(location.icon)")
-                        if locationButtons.count-1 != location.idx {
-                            Spacer()
-                        }
-                    }
+                    Text(NSLocalizedString(getStringTimeZone(), comment: "")).notoSans(.bold, size: 10, Color.accent)
                     Spacer()
-                    LocationItemEtc()
+                }
+                HStack {
+                    Text(NSLocalizedString("자습 현황", comment: "")).notoSans(.bold, size: 21)
+                    Spacer()
+                    NavigationLink(destination: AttendanceListView().environmentObject(api)) {
+                        Text("자세히")
+                            .notoSans(.bold, size: 12, Color.white)
+                            .frame(width: 74, height: 25)
+                            .background(Color.accent.cornerRadius(15))
+                    }
+                }
+            }.horizonPadding()
+            HStack {
+                ForEach(locationButtons, id: \.self) { location in
+                    LocationItem(idx: location.idx, icon: location.icon, place: location.place)
                         .environmentObject(alertManager)
                         .environmentObject(api)
-                }.padding(.top, 5)
-                .horizonPadding()
-            }
+                        .accessibility(identifier: "locationSelection.\(location.icon)")
+                    if locationButtons.count-1 != location.idx {
+                        Spacer()
+                    }
+                }
+                Spacer()
+                LocationItemEtc()
+                    .environmentObject(alertManager)
+                    .environmentObject(api)
+            }.padding(.top, 5)
+            .horizonPadding()
         }
         VSpacer(19)
     }

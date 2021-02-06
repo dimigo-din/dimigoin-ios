@@ -11,6 +11,8 @@ import DimigoinKit
 
 struct ContentView: View {
     @ObservedObject var api = DimigoinAPI()
+    @Namespace var namespace
+    
     var alertManager = AlertManager()
     var tapbarIdx = 2
     init() {

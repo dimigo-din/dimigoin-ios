@@ -17,9 +17,7 @@ struct WeeklyMealView: View {
     
     init() {
         _ = UINavigationBarAppearance()
-        if #available(iOS 14.0, *) {
-            UINavigationBar.appearance().tintColor = UIColor(Color.accent)
-        }
+        UINavigationBar.appearance().tintColor = UIColor(Color.accent)
     }
     var body: some View {
         GeometryReader { geometry in

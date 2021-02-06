@@ -57,9 +57,7 @@ struct LoginView: View {
                     }) {
                         HStack {
                             if isLoading {
-                                if #available(iOS 14.0, *) {
-                                    ProgressView()
-                                }
+                                ProgressView()
                             }
                             HSpacer(10)
                             Text("로그인")

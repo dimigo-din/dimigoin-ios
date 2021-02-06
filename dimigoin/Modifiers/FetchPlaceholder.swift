@@ -14,9 +14,7 @@ struct FetchPlaceholderViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         ZStack {
             if isFetching {
-                if #available(iOS 14.0, *) {
-                    content.redacted(reason: .placeholder)
-                }
+                content.redacted(reason: .placeholder)
             } else {
                 content
             }
