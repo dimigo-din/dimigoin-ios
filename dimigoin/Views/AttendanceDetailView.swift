@@ -77,7 +77,10 @@ struct AttendanceDetailView: View {
                                             .notoSans(.medium, size: 10, Color.gray4)
                                     }
                                 }.multilineTextAlignment(.leading)
-                            }.horizonPadding()
+                                .horizonPadding()
+                                VSpacer(15)
+                            }
+                            .padding(.bottom, 45)
                         }
                         VStack {
                             Spacer()

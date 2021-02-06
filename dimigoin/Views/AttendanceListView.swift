@@ -42,9 +42,10 @@ struct AttendanceListView: View {
                     VSpacer(10)
                 }
             }
-            .navigationBarTitle("", displayMode: .inline)
+            
             AttendanceDetailView(isShowing: $showDetailView, attendance: $selectedAttendance)
         }
+        .navigationBarTitle("", displayMode: .inline)
     }
 }
 struct SearchBar: View {
