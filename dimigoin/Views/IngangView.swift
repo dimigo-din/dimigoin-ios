@@ -21,40 +21,13 @@ struct IngangView: View {
                 TicketStatusView(api: api, geometry: geometry)
                 VSpacer(30)
                 ForEach(api.ingangs, id: \.self) { ingang in
-                    VStack {
+                    VStack(spacing: 0) {
                         HStack {
-                            Text(ingang.timeString).notoSans(.bold, size: 10, Color.accent)
-                            Spacer()
-                        }
-                        HStack {
-                            Text(ingang.title).notoSans(.bold, size: 21)
-                            Spacer()
-                            if ingang.applicants.count == ingang.maxApplier && ingang.isApplied == false {
-                                Text("신청불가")
-                                    .notoSans(.bold, size: 13, Color.white)
-                                    .frame(width: 74, height: 25)
-                                    .background(Color.gray4.cornerRadius(15))
-                            } else {
-                                if !ingang.isApplied {
-                                    Button(action: {
-                                        applyIngang(ingang: ingang)
-                                    }) {
-                                        Text("신청하기")
-                                            .notoSans(.bold, size: 13, Color.white)
-                                            .frame(width: 74, height: 25)
-                                            .background(Color.accent.cornerRadius(15))
-                                    }
-                                } else {
-                                    Button(action: {
-                                        cancelIngang(ingang: ingang)
-                                    }) {
-                                        Text("취소하기")
-                                            .notoSans(.bold, size: 13, Color.white)
-                                            .frame(width: 74, height: 25)
-                                            .background(Color.gray4.cornerRadius(15))
-                                    }
-                                }
+                            VStack(alignment: .leading, spacing: 0) {
+                                Text(ingang.timeString).notoSans(.bold, size: 10, Color.accent)
+                                Text(ingang.title).notoSans(.bold, size: 21)
                             }
+                            Spacer()
                         }
                     }
                     .horizonPadding()
@@ -80,6 +53,33 @@ struct IngangView: View {
                     .padding(.horizontal, 30)
                     .frame(width: abs(geometry.size.width - 40), height: 89)
                     .modifier(CardViewModifier(geometry.size.width - 40, 89))
+                    VSpacer(10)
+                    if ingang.applicants.count == ingang.maxApplier && ingang.isApplied == false {
+                        Text("신청불가")
+                            .notoSans(.bold, size: 13, Color.white)
+                            .frame(width: geometry.size.width - 40, height: 45)
+                            .background(Color.gray4.cornerRadius(10))
+                    } else {
+                        if !ingang.isApplied {
+                            Button(action: {
+                                applyIngang(ingang: ingang)
+                            }) {
+                                Text("신청하기")
+                                    .notoSans(.bold, size: 13, Color.white)
+                                    .frame(width: geometry.size.width - 40, height: 45)
+                                    .background(Color.accent.cornerRadius(10))
+                            }
+                        } else {
+                            Button(action: {
+                                cancelIngang(ingang: ingang)
+                            }) {
+                                Text("취소하기")
+                                    .notoSans(.bold, size: 13, Color.white)
+                                    .frame(width: geometry.size.width - 40, height: 45)
+                                    .background(Color.gray4.cornerRadius(10))
+                            }
+                        }
+                    }
                     VSpacer(30)
                 }
                 if api.ingangs.count == 0 {
@@ -152,47 +152,25 @@ struct TicketStatusView: View {
                         Spacer()
                     }
                     VStack(alignment: .leading, spacing: 0) {
-                        Text("\(api.user.grade)학년 신청 시간")
-                            .notoSans(.bold, size: 12, Color.text)
-                        VSpacer(14)
                         HStack {
                             Image("clock").templateImage(width: 15, Color.gray4)
+                            HSpacer(8)
                             Text("07:00 - 08:15")
-                                .notoSans(.regular, size: 10, Color.gray4)
+                                .notoSans(.bold, size: 10, Color.gray4)
                         }
-                        VSpacer(17)
-                        HStack {
-                            Image("club").templateImage(width: 15, Color.gray4)
-                            Text("한 학급당 최대 ")
-                                .notoSans(.regular, size: 10, Color.gray4)
-                            +
-                            Text("6명").notoSans(.bold, size: 10, Color.gray4)
-                        }
-                    }.padding(.leading, horizontalSizeClass == .compact ? 30 : 0)
+                    }.padding(.leading, horizontalSizeClass == .compact ? 40 : 0)
                     Spacer()
                     VStack(alignment: .leading) {
-                        Text("남은 티켓").notoSans(.bold, size: 12, Color.text)
-                        VSpacer(14)
-                        HStack {
-                            Image("calendar").templateImage(width: 15, Color.gray4)
-                            Text("일주일 최대 ").notoSans(.regular, size: 10, Color.gray4)
-                            +
-                            Text("\(api.weeklyTicketCount)개").notoSans(.bold, size: 10, Color.gray4)
-                        }
-                        VSpacer(17)
                         HStack {
                             Image("ticket").templateImage(width: 15, Color.accent)
-                            Text("남은 티켓 ").notoSans(.regular, size: 10, Color.accent)
-                            +
-                            Text("\(api.weeklyRemainTicket)/\(api.weeklyTicketCount)")
-                                .notoSans(.bold, size: 10, Color.accent)
+                            Text("남은 티켓 \(api.weeklyRemainTicket)/\(api.weeklyTicketCount)").notoSans(.bold, size: 10, Color.accent)
                         }
-                    }.padding(.trailing, horizontalSizeClass == .compact ? 40 : 0)
+                    }.padding(.trailing, horizontalSizeClass == .compact ? 50 : 0)
                     if horizontalSizeClass != .compact {
                         Spacer()
                     }
-                }.frame(width: abs(geometry.size.width - 40), height: 122)
+                }.frame(width: abs(geometry.size.width - 40), height: 40)
             }
-        }.modifier(CardViewModifier(geometry.size.width - 40, 120))
+        }.modifier(CardViewModifier(geometry.size.width - 40, 40))
     }
 }

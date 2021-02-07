@@ -82,7 +82,7 @@ struct TapBarButton: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(height: item.icon == "idcard" ? 18 : 24)
-                        .foregroundColor(self.index == item.idx ? Color.accent : Color("gray7"))
+                        .foregroundColor(self.index == item.idx ? Color.accent : Color("divider"))
                         .padding(.top, item.icon == "idcard" ? 3 : 0)
                 } else {
                     Image(item.icon)
@@ -90,7 +90,7 @@ struct TapBarButton: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(height: item.icon == "idcard" ? 18 : 24)
-                        .foregroundColor(self.index == item.idx ? Color.accent : Color("gray7"))
+                        .foregroundColor(self.index == item.idx ? Color.accent : Color("divider"))
                         .padding(.top, item.icon == "idcard" ? 3 : 0)
                 }
                 
@@ -98,7 +98,7 @@ struct TapBarButton: View {
                 
                 Text(item.label)
                     .nanumSquare(.extraBold, size: 10)
-                    .foregroundColor(self.index == item.idx ? Color.accent : Color("gray7"))
+                    .foregroundColor(self.index == item.idx ? Color.accent : Color("divider"))
             }
         }.accessibility(identifier: item.identifier)
     }

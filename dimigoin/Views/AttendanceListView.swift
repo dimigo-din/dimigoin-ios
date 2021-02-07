@@ -13,6 +13,7 @@ struct AttendanceListView: View {
     @EnvironmentObject var api: DimigoinAPI
     @State var searchText: String = ""
     @State var showDetailView: Bool = false
+    @State var showHistoryView: Bool = false
     @State var selectedAttendance: Attendance = Attendance()
     init() {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
@@ -26,10 +27,15 @@ struct AttendanceListView: View {
                     HStack {
                         VStack(alignment: .leading, spacing: 0) {
                             Text(getStringTimeZone()).notoSans(.bold, size: 13, Color.gray4)
-                            Text("자습 현황").notoSans(.black, size: 30)
+                            HStack {
+                                Text("자습 현황").notoSans(.black, size: 30)
+                                Spacer()
+                                Text("히스토리")
+                                    .notoSans(.bold, size: 12, Color.white)
+                                    .frame(width: 74, height: 25)
+                                    .background(Color.accent.cornerRadius(13))
+                            }
                         }
-                        Spacer()
-                        Image("class").templateImage(height: 35, Color.accent)
                     }.horizonPadding()
                     AttendanceChart(api: api, geometry: geometry)
                     VSpacer(20)

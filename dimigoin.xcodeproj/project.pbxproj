@@ -70,6 +70,7 @@
 		42E5B40825CA10B70067692A /* TemplateImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5B40725CA10B70067692A /* TemplateImageModifier.swift */; };
 		42E5B40C25CA13A30067692A /* TemplateImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5B40725CA10B70067692A /* TemplateImageModifier.swift */; };
 		42E5B44D25CADA3A0067692A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42E5B44C25CADA3A0067692A /* GoogleService-Info.plist */; };
+		42E5B4AA25D01FA10067692A /* AttendanceHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5B4A925D01FA10067692A /* AttendanceHistoryView.swift */; };
 		42EF39BB25A727AE00BE6DEA /* TimetableWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF39BA25A727AE00BE6DEA /* TimetableWidget.swift */; };
 		42EFCD992558073200F3DC5E /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 42EFCD932558073200F3DC5E /* NotoSansKR-Bold.otf */; };
 		42EFCD9A2558073200F3DC5E /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 42EFCD932558073200F3DC5E /* NotoSansKR-Bold.otf */; };
@@ -197,6 +198,7 @@
 		42E5B3F925C98BFF0067692A /* RefreshableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableScrollView.swift; sourceTree = "<group>"; };
 		42E5B40725CA10B70067692A /* TemplateImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateImageModifier.swift; sourceTree = "<group>"; };
 		42E5B44C25CADA3A0067692A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		42E5B4A925D01FA10067692A /* AttendanceHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceHistoryView.swift; sourceTree = "<group>"; };
 		42EF39BA25A727AE00BE6DEA /* TimetableWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableWidget.swift; sourceTree = "<group>"; };
 		42EFCD932558073200F3DC5E /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		42EFCD942558073200F3DC5E /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				42AE3CF725C5941400ACC130 /* SelectPlaceView.swift */,
 				42AE3CFC25C59A8100ACC130 /* AttendanceListView.swift */,
 				42E5B3E225C97C730067692A /* AttendanceDetailView.swift */,
+				42E5B4A925D01FA10067692A /* AttendanceHistoryView.swift */,
 				4250011B25595C2900C593CF /* AlertView.swift */,
 			);
 			path = Views;
@@ -765,6 +768,7 @@
 				42EFCE20255851B500F3DC5E /* IngangView.swift in Sources */,
 				42EFCDD82558188100F3DC5E /* TapBar.swift in Sources */,
 				428DC35E255EC40F00A4A7B5 /* WeeklyMealView.swift in Sources */,
+				42E5B4AA25D01FA10067692A /* AttendanceHistoryView.swift in Sources */,
 				42ABA0B2255FA725001925BE /* CustomBox.swift in Sources */,
 				42050CC125AA19E900C61D14 /* ColorExtension.swift in Sources */,
 				4250012625595F9E00C593CF /* Alert.swift in Sources */,
@@ -995,7 +999,7 @@
 				CODE_SIGN_ENTITLEMENTS = dimigoin/Application/Dimigoin.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 315;
+				CURRENT_PROJECT_VERSION = 316;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
@@ -1027,7 +1031,7 @@
 				CODE_SIGN_ENTITLEMENTS = dimigoin/Application/Dimigoin.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 315;
+				CURRENT_PROJECT_VERSION = 316;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -1101,7 +1105,7 @@
 				CODE_SIGN_ENTITLEMENTS = Widget/WidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 315;
+				CURRENT_PROJECT_VERSION = 316;
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				INFOPLIST_FILE = Widget/Info.plist;
@@ -1131,7 +1135,7 @@
 				CODE_SIGN_ENTITLEMENTS = Widget/WidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 315;
+				CURRENT_PROJECT_VERSION = 316;
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				INFOPLIST_FILE = Widget/Info.plist;
