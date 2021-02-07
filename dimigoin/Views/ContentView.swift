@@ -28,18 +28,13 @@ struct ContentView: View {
                     MainView(tapbarIdx: tapbarIdx)
                         .environmentObject(api)
                         .environmentObject(alertManager)
-//                    Button(action: {
-//                        fatalError()
-//                    }) {
-//                        Text("error")
-//                    }
                 } else {
                     LoginView()
+                        .matchedGeometryEffect(id: "mainview", in: namespace)
                         .environmentObject(api)
                         .environmentObject(alertManager)
                 }
             }.edgesIgnoringSafeArea(.bottom)
-            .placeholderWhileFetching(isFetching: $api.isFetching)
             .navigationBarHidden(true)
         }.navigationViewStyle(StackNavigationViewStyle())
         

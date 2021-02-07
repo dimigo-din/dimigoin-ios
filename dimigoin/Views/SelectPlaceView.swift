@@ -22,35 +22,35 @@ struct SelectPlaceView: View {
     }
     
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
+//        GeometryReader { geometry in
+//            ZStack {
                 ScrollView {
                     Text("야간자율학습 학생현황").notoSans(.bold, size: 12, Color.accent)
                     Text("장소를 선택해주세요").notoSans(.bold, size: 20)
                     PlaceList(api: api, selectedPlace: $selectedPlace)
                 }
-                VStack {
-                    Spacer()
-                    VStack {
-                        Spacer()
-                        Button(action: {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }) {
-                            Text("선택완료")
-                                .notoSans(.bold, size: 14)
-                                .foregroundColor(Color.white)
-                                .frame(width: geometry.size.width-40, height: 50)
-                                .background(Color("accent").cornerRadius(10))
-                        }
-                        Spacer()
-                    }.frame(height: 100)
-                    .frame(maxWidth: .infinity)
-                    .background(Rectangle().fill(Color.systemBackground).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0).edgesIgnoringSafeArea(.all))
-                    .edgesIgnoringSafeArea(.all)
-                    
-                }
-            }
-        }
+//                VStack {
+//                    Spacer()
+//                    VStack {
+//                        Spacer()
+//                        Button(action: {
+//                            self.presentationMode.wrappedValue.dismiss()
+//                        }) {
+//                            Text("선택완료")
+//                                .notoSans(.bold, size: 14)
+//                                .foregroundColor(Color.white)
+//                                .frame(width: geometry.size.width-40, height: 50)
+//                                .background(Color("accent").cornerRadius(10))
+//                        }
+//                        Spacer()
+//                    }.frame(height: 100)
+//                    .frame(maxWidth: .infinity)
+//                    .background(Rectangle().fill(Color.systemBackground).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0).edgesIgnoringSafeArea(.all))
+//                    .edgesIgnoringSafeArea(.all)
+//
+//                }
+//            }
+//        }
     }
 }
 
@@ -70,6 +70,7 @@ struct PlaceList: View {
 }
 
 struct PlaceListItem: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var place: Place
     @Binding var selectedPlace: Place
     
@@ -101,6 +102,7 @@ struct PlaceListItem: View {
             withAnimation(.spring()) {
                 self.selectedPlace = place
             }
+            self.presentationMode.wrappedValue.dismiss()
         }
         HDivider()
     }

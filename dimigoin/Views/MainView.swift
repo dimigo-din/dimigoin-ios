@@ -52,7 +52,7 @@ struct MainView: View {
                     }.blur(radius: alertManager.isShowing ? 2 : 0)
                     VStack {
                         Spacer()
-                        TapBar(index: $tapbarIndex, isShowIdCard: $isShowIdCard)
+                        TapBar(index: $tapbarIndex, isShowIdCard: $isShowIdCard, isFetching: $api.isFetching)
                             .offset(x: -geometry.size.width*2)
                             .blur(radius: alertManager.isShowing ? 2 : 0)
                             .unredacted()

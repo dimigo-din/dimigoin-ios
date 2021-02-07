@@ -14,7 +14,7 @@ struct TimetableWidget: View {
     @State var isLoggedIn = UserDefaults(suiteName: appGroupName)?.bool(forKey: "isLoggedIn") ?? false
     var body: some View {
         ZStack {
-            Image(isLoggedIn == false ? "dangermark" : "logo")
+            Image(isLoggedIn ? "logo" : "dangermark")
                 .templateImage(width: 60, isLoggedIn == false ? Color("red") : Color.accent)
                 .opacity(isLoggedIn == false ? 0.4 : 0.25)
             GeometryReader { geometry in

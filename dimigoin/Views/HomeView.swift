@@ -14,12 +14,13 @@ struct HomeView: View {
     @EnvironmentObject var alertManager: AlertManager
     @EnvironmentObject var api: DimigoinAPI
     @State var showLogoutButton: Bool = false
-    
-    @Binding var tapbarIndex: Int 
+    @Binding var tapbarIndex: Int
+    @Namespace var homeview
     
     var body: some View {
-        GeometryReader { geometry in
-            ScrollView(showsIndicators: false) {
+        if !api.isFetching {
+            GeometryReader { geometry in
+                ScrollView(showsIndicators: false) {
                 VStack {
                     ZStack {
                         VStack {
@@ -28,6 +29,7 @@ struct HomeView: View {
                         }
                         HStack {
                             Image("logo").templateImage(height: 38, Color.accent).unredacted()
+                                .matchedGeometryEffect(id: "logo", in: homeview)
                             Spacer()
                             Button(action: {
                                 alertManager.logoutCheck()
@@ -65,6 +67,14 @@ struct HomeView: View {
                         .environmentObject(api)
                     VSpacer(tabBarSize + 40)
                 }.frame(width: geometry.size.width)
+            }
+            }
+        } else {
+            ZStack {
+                Color(UIColor.systemBackground).edgesIgnoringSafeArea(.all)
+                Image("logo").templateImage(width: 73, Color.accent)
+                    .matchedGeometryEffect(id: "logo", in: homeview)
+                    .offset(y: -50)
             }
         }
     }
