@@ -67,7 +67,7 @@ struct AlertView: View {
                         Text(alertManager.content)
                             .nanumSquare(.extraBold, size: 15, alertManager.getTitleColor())
                         VSpacer(5)
-                    }.animation(.none)
+                    }
                 } else {
                     VStack {
                         VSpacer(35)
@@ -149,8 +149,9 @@ struct AlertView: View {
             .padding(.top, (geometry.size.height - (alertManager.alertType == .idCardReadme ? 260 : (alertManager.alertType == .attendance ? 314 : 195)))/2)
             .edgesIgnoringSafeArea(.all)
             .keyboardResponsive()
+            .opacity(alertManager.isShowing ? 1 : 0)
         }.frame(alignment: .center)
-        .opacity(alertManager.isShowing ? 1 : 0)
+        
     }
     
     func dismiss() {
@@ -165,7 +166,7 @@ struct AlertView: View {
                 Image("infomark").templateImage(width: 12, height: 12, Color.gray4)
                 Text("사용 전 다음 내용을 반드시 읽어주세요").notoSans(.bold, size: 12, Color.gray4)
             }.padding()
-            Text("1. 본 증은 학교가 정식 발급한 학생증입니다.\n\n이외 신분증 등 활용은 활용처의 규정에 따라 달라질 수 있습니다.\n\n2. 본 증은 본인 이외 타인이 소지 또는 활용할 수 없습니다.\n타인에게 양도하여 입은 피해는 본인의 책임입니다.\n\n3. 스크린샷 또는 사본으로 동일한 효력을 발생시킬 수 없습니다.")
+            Text("1. 본 증은 학교가 정식 발급한 학생증입니다.\n이외 신분증 등 활용은 활용처의 규정에 따라 달라질 수 있습니다.\n\n2. 본 증은 본인 이외 타인이 소지 또는 활용할 수 없습니다.\n타인에게 양도하여 입은 피해는 본인의 책임입니다.\n\n3. 스크린샷 또는 사본으로 동일한 효력을 발생시킬 수 없습니다.")
                 .notoSans(.medium, size: 11, Color("gray6"))
                 .multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
         }.animation(.none)

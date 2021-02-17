@@ -66,7 +66,6 @@ struct Provider: TimelineProvider {
 
 struct WidgetView: View {
     @Environment(\.widgetFamily) var widgetFamily
-    @State var api: DimigoinAPI = DimigoinAPI()
 
     var data: WidgetEntry
     var body: some View {

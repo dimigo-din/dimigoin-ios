@@ -30,10 +30,16 @@ struct AttendanceListView: View {
                             HStack {
                                 Text("자습 현황").notoSans(.black, size: 30)
                                 Spacer()
-                                Text("히스토리")
-                                    .notoSans(.bold, size: 12, Color.white)
-                                    .frame(width: 74, height: 25)
-                                    .background(Color.accent.cornerRadius(13))
+                                Button(action: {
+                                    withAnimation(.spring()) {
+                                        self.showHistoryView = true
+                                    }
+                                }) {
+                                    Text("히스토리")
+                                        .notoSans(.bold, size: 12, Color.white)
+                                        .frame(width: 74, height: 25)
+                                        .background(Color.accent.cornerRadius(13))
+                                }
                             }
                         }
                     }.horizonPadding()
@@ -48,8 +54,9 @@ struct AttendanceListView: View {
                     VSpacer(10)
                 }
             }
-            
             AttendanceDetailView(isShowing: $showDetailView, attendance: $selectedAttendance)
+            AttendanceHistoryView(isShowing: $showHistoryView)
+                .environmentObject(api)
         }
         .navigationBarTitle("", displayMode: .inline)
     }

@@ -29,18 +29,17 @@ struct TimetableWidget: View {
                                 ForEach(1...5, id: \.self) { day in
                                     VStack {
                                         Text(NSLocalizedString(dayOfWeek[day], comment: ""))
-                                            .notoSans(.medium, size: 18, getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
+                                            .notoSans(.medium, size: 18, Color.gray4)
                                         VSpacer(20)
                                         ForEach(loadTimetable(day: day-1), id: \.self) { lecture in
                                             Text("\(lecture)")
                                                 .frame(width: (geometry.size.width-40)/5, height: 20)
                                                 .padding(.vertical, 4)
-                                                .font(Font.custom("NotoSansKR-Regular", size: 14))
+                                                .font(Font.custom("NotoSansKR-Bold", size: 14))
                                                 .foregroundColor(getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
                                         }
                                     }
                                     .padding(.vertical, 5)
-                                    .background(Color.accent.frame(height: geometry.size.height).opacity(getTodayDayOfWeekInt() == day ? 0.06 : 0).cornerRadius(5))
                                 }
                             }
                             Divider().offset(y: 45)

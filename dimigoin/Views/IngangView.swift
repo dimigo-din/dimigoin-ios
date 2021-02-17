@@ -103,6 +103,8 @@ struct IngangView: View {
                     self.alertManager.createAlert("신청에 실패했습니다.", sub: "신청 최대 인원에 도달했습니다.", .danger)
                 case .noIngang:
                     self.alertManager.createAlert("신청에 실패했습니다.", sub: "인강이 없습니다.", .danger)
+                case .noTicket:
+                    self.alertManager.createAlert("신청에 실패했습니다.", sub: "이번 주 인강실 티켓을 모두 사용했습니다.", .danger)
                 case .timeout:
                     self.alertManager.createAlert("신청에 실패했습니다.", sub: "시간 초과", .danger)
                 case .tokenExpired:
@@ -110,6 +112,7 @@ struct IngangView: View {
                 case .unknown:
                     self.alertManager.createAlert("신청에 실패했습니다.", sub: "알 수 없는 에러", .danger)
                 }
+                
             }
         }
     }
@@ -127,6 +130,8 @@ struct IngangView: View {
                     self.alertManager.createAlert("신청에 실패했습니다.", sub: "신청 최대 인원에 도달했습니다.", .danger)
                 case .noIngang:
                     self.alertManager.createAlert("신청에 실패했습니다.", sub: "인강이 없습니다.", .danger)
+                case .noTicket:
+                    self.alertManager.createAlert("신청에 실패했습니다.", sub: "이번 주 인강실 티켓을 모두 사용했습니다.", .danger)
                 case .timeout:
                     self.alertManager.createAlert("신청에 실패했습니다.", sub: "시간 초과", .danger)
                 case .tokenExpired:
