@@ -50,7 +50,7 @@ struct LoginView: View {
                         }
                         Button(action: {
                             self.isLoading = true
-                            api.login(username, password) { result in
+                            api.login(username, password, FCMToken) { result in
                                 if result == true {
                                     self.isLoading = false
                                 } else {
