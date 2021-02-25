@@ -102,7 +102,6 @@ struct PlaceListItem: View {
             withAnimation(.spring()) {
                 self.selectedPlace = place
             }
-            self.presentationMode.wrappedValue.dismiss()
         }
         HDivider()
     }
