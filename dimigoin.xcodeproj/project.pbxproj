@@ -33,6 +33,7 @@
 		4250012625595F9E00C593CF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250012525595F9E00C593CF /* Alert.swift */; };
 		42524E2C25621BF30021F48B /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524E2B25621BF30021F48B /* VSpacer.swift */; };
 		42524E2D25621BF30021F48B /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524E2B25621BF30021F48B /* VSpacer.swift */; };
+		426F061E25DDE0FF00549E5C /* TeacherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426F061D25DDE0FF00549E5C /* TeacherView.swift */; };
 		4274147D259B0B0800235302 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4274147C259B0B0800235302 /* AuthenticationServices.framework */; };
 		428DC35E255EC40F00A4A7B5 /* WeeklyMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */; };
 		4293262F25B1E65F00BCD9A0 /* NanumSquareEB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4293262B25B1E65E00BCD9A0 /* NanumSquareEB.ttf */; };
@@ -160,6 +161,7 @@
 		4250011B25595C2900C593CF /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		4250012525595F9E00C593CF /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		42524E2B25621BF30021F48B /* VSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSpacer.swift; sourceTree = "<group>"; };
+		426F061D25DDE0FF00549E5C /* TeacherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherView.swift; sourceTree = "<group>"; };
 		4274147C259B0B0800235302 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		428464B825A35BAB00D68E03 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		428DC354255EB4F300A4A7B5 /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				08C9ABEC24A74A53002AF525 /* ContentView.swift */,
 				08C9AC0424A74A83002AF525 /* LoginView.swift */,
 				08C9AC0724A74A83002AF525 /* MainView.swift */,
+				426F061D25DDE0FF00549E5C /* TeacherView.swift */,
 				42EFCDE525581C4500F3DC5E /* HomeView.swift */,
 				42EFCDEF25581D4E00F3DC5E /* MealView.swift */,
 				428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */,
@@ -780,6 +783,7 @@
 				42E5B3FA25C98BFF0067692A /* RefreshableScrollView.swift in Sources */,
 				08C9AC1024A74A83002AF525 /* TextFieldModifier.swift in Sources */,
 				42E5B3F525C988CF0067692A /* FetchPlaceholder.swift in Sources */,
+				426F061E25DDE0FF00549E5C /* TeacherView.swift in Sources */,
 				42AE3CF825C5941400ACC130 /* SelectPlaceView.swift in Sources */,
 				42EFCE16255848C300F3DC5E /* LocationSelection.swift in Sources */,
 				42ABA0A4255F6247001925BE /* MealPagerView.swift in Sources */,
@@ -925,6 +929,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -982,6 +987,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";

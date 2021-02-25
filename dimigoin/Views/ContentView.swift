@@ -25,9 +25,14 @@ struct ContentView: View {
         NavigationView {
             Group {
                 if api.isLoggedIn {
-                    MainView(tapbarIdx: tapbarIdx)
-                        .environmentObject(api)
-                        .environmentObject(alertManager)
+                    if api.user.type == .teacher {
+                        TeacherView()
+                            .environmentObject(api)
+                    } else {
+                        MainView(tapbarIdx: tapbarIdx)
+                            .environmentObject(api)
+                            .environmentObject(alertManager)
+                    }
                 } else {
                     LoginView()
                         .matchedGeometryEffect(id: "mainview", in: namespace)

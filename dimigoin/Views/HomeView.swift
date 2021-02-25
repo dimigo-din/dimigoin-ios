@@ -63,14 +63,14 @@ struct HomeView: View {
                     LocationSelectionView(_api)
                         .environmentObject(alertManager)
                     if api.notices.count != 0 {
-                        VSpacer(10)
-                        Text("\(api.notices[0].content)")
-                            .notoSans(.regular, size: 12, Color.gray4)
-                            .lineSpacing(6)
-                            .padding(.horizontal, 20)
-                            .padding(.top, 20)
-                            .frame(width: geometry.size.width-40, height: 170, alignment: .top)
-                            .addBorder(Color.divider, width: 1, cornerRadius: 10)
+                        ScrollView(showsIndicators: false) {
+                            Text("\(api.notices[0].content)")
+                                .notoSans(.regular, size: 12, Color.gray4)
+                                .lineSpacing(6)
+                                
+                        }.padding(20)
+                        .frame(width: geometry.size.width-40, height: 170, alignment: .top)
+                        .addBorder(Color.divider, width: 1, cornerRadius: 10)
                     }
                     VSpacer(calMidSpace(geo: geometry))
                     MealPagerView(geometry: geometry)
