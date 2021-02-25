@@ -108,16 +108,19 @@ struct StudentIdCardView: View {
                                 VStack(alignment: .trailing, spacing: 11) {
                                     Text("학과").font(Font.custom("NanumSquareB", size: 13)).foregroundColor(Color.black)
                                     Text("학번").font(Font.custom("NanumSquareB", size: 13)).foregroundColor(Color.black)
-                                    Text("주민번호").font(Font.custom("NanumSquareB", size: 13)).foregroundColor(Color.black)
+                                    Text("생년월일").font(Font.custom("NanumSquareB", size: 13)).foregroundColor(Color.black)
                                 }
                                 VStack(alignment: .leading, spacing: 11) {
                                     Text(getMajorByClass(klass: api.user.klass)).font(Font.custom("NanumSquareL", size: 13)).gray4()
                                     Text(String(api.user.serial)).font(Font.custom("NanumSquareL", size: 13)).gray4()
-                                    Text("040101-3******").font(Font.custom("NanumSquareL", size: 13)).gray4()
+                                    Text(api.user.birthDay).font(Font.custom("NanumSquareL", size: 13)).gray4()
                                 }
                             }
                             VSpacer(25)
-                            Image("qr-sample").resizable().aspectRatio(contentMode: .fit).frame(height: 47)
+                            VStack(spacing: 0) {
+                                Image(uiImage: (generateBarcode(from: api.user.libraryId) ?? generateBarcode(from: "nil"))!).resizable().aspectRatio(contentMode: .fit).frame(height: 56)
+                                Text(api.user.libraryId).notoSans(.regular, size: 9)
+                            }
                             VSpacer(20)
                             Image("dimigo-logo").templateImage(height: 15, Color.black)
                         }.opacity(isShowIdCard ? 1 : 0).rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: -1, z: 0)).scaleEffect(isShowIdCard ? 1 : 0.8)

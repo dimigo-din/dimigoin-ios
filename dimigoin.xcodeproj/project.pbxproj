@@ -46,6 +46,7 @@
 		4293263625B1E65F00BCD9A0 /* NanumSquareR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4293262E25B1E65F00BCD9A0 /* NanumSquareR.ttf */; };
 		42980A1325C0704400F8AB82 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42980A1225C0704400F8AB82 /* DimigoinKit */; };
 		42980A1525C0704A00F8AB82 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42980A1425C0704A00F8AB82 /* DimigoinKit */; };
+		4299E9E825E776BE00D8B6DF /* BarcodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4299E9E725E776BE00D8B6DF /* BarcodeGenerator.swift */; };
 		429BA5B025A0A63D000749AC /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429BA5AF25A0A63D000749AC /* LocalAuthentication.framework */; };
 		429BA5D725A30FBB000749AC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 429BA5DA25A30FBB000749AC /* Localizable.strings */; };
 		42ABA08A255F5690001925BE /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ABA089255F5690001925BE /* TimetableView.swift */; };
@@ -177,6 +178,7 @@
 		4293262D25B1E65E00BCD9A0 /* NanumSquareL.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareL.ttf; sourceTree = "<group>"; };
 		4293262E25B1E65F00BCD9A0 /* NanumSquareR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareR.ttf; sourceTree = "<group>"; };
 		42980A0E25C0700900F8AB82 /* DimigoinKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DimigoinKit; path = ../../../Desktop/DimigoinKit; sourceTree = "<group>"; };
+		4299E9E725E776BE00D8B6DF /* BarcodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeGenerator.swift; sourceTree = "<group>"; };
 		429BA5AF25A0A63D000749AC /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		429BA5D925A30FBB000749AC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		429FD87F24B202DA003A49AF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -320,6 +322,7 @@
 		08C9ABFF24A74A83002AF525 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4299E9E725E776BE00D8B6DF /* BarcodeGenerator.swift */,
 				4250012525595F9E00C593CF /* Alert.swift */,
 			);
 			path = Model;
@@ -693,7 +696,7 @@
 		};
 		42E5B46C25CC33440067692A /* Firebase Crashlytics dSYM */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
@@ -706,7 +709,7 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "${PODS_ROOT}/FirebaseCrashlytics/upload-symbols -gsp ${PROJECT_DIR}/dimigoin/GoogleService-Info.plist -p ios ${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\n";
 		};
@@ -769,6 +772,7 @@
 				088E5D4D24A889CB0031342D /* CardViewModifier.swift in Sources */,
 				42EFCDF025581D4E00F3DC5E /* MealView.swift in Sources */,
 				42EFCE20255851B500F3DC5E /* IngangView.swift in Sources */,
+				4299E9E825E776BE00D8B6DF /* BarcodeGenerator.swift in Sources */,
 				42EFCDD82558188100F3DC5E /* TapBar.swift in Sources */,
 				428DC35E255EC40F00A4A7B5 /* WeeklyMealView.swift in Sources */,
 				42E5B4AA25D01FA10067692A /* AttendanceHistoryView.swift in Sources */,
@@ -929,7 +933,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
+				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-expression-type-checking=1000";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -987,7 +991,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
+				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-expression-type-checking=1000";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
