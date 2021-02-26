@@ -33,6 +33,7 @@
 		4250012625595F9E00C593CF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250012525595F9E00C593CF /* Alert.swift */; };
 		42524E2C25621BF30021F48B /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524E2B25621BF30021F48B /* VSpacer.swift */; };
 		42524E2D25621BF30021F48B /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524E2B25621BF30021F48B /* VSpacer.swift */; };
+		426B450325E8E5A500ADC3E3 /* NoticeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426B450225E8E5A500ADC3E3 /* NoticeItem.swift */; };
 		426F061E25DDE0FF00549E5C /* TeacherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426F061D25DDE0FF00549E5C /* TeacherView.swift */; };
 		4274147D259B0B0800235302 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4274147C259B0B0800235302 /* AuthenticationServices.framework */; };
 		428DC35E255EC40F00A4A7B5 /* WeeklyMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */; };
@@ -162,6 +163,7 @@
 		4250012525595F9E00C593CF /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		42524E2B25621BF30021F48B /* VSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSpacer.swift; sourceTree = "<group>"; };
 		426B44FB25E8BB2000ADC3E3 /* DimigoinKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DimigoinKit; path = ../../DimigoinKit; sourceTree = "<group>"; };
+		426B450225E8E5A500ADC3E3 /* NoticeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeItem.swift; sourceTree = "<group>"; };
 		426F061D25DDE0FF00549E5C /* TeacherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherView.swift; sourceTree = "<group>"; };
 		4274147C259B0B0800235302 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		428464B825A35BAB00D68E03 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 		08C9AC0824A74A83002AF525 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				426B450225E8E5A500ADC3E3 /* NoticeItem.swift */,
 				086CC55024AF849D00456846 /* TextStyles.swift */,
 				42EFCE15255848C300F3DC5E /* LocationSelection.swift */,
 				42EFCDD72558188100F3DC5E /* TapBar.swift */,
@@ -789,6 +792,7 @@
 				42ABA0A4255F6247001925BE /* MealPagerView.swift in Sources */,
 				42ABA0C5255FC4E2001925BE /* HorizonPadding.swift in Sources */,
 				42EFCE2E255852DD00F3DC5E /* ViewTitle.swift in Sources */,
+				426B450325E8E5A500ADC3E3 /* NoticeItem.swift in Sources */,
 				42EFCDFE255829B100F3DC5E /* SectionHeader.swift in Sources */,
 				42E5B3E325C97C730067692A /* AttendanceDetailView.swift in Sources */,
 				08C9ABEB24A74A53002AF525 /* SceneDelegate.swift in Sources */,
