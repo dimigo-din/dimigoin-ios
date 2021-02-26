@@ -35,7 +35,7 @@ struct AttendanceDetailView: View {
                                     if attendance.isRegistered {
                                         PlaceBadge(place: attendance.attendanceLog[0].place)
                                     } else {
-                                        PlaceBadge(placeType: .classroom)
+                                        PlaceBadge(placeName: "\(attendance.grade)학년 \(attendance.klass)반", placeType: .classroom)
                                     }
                                 }
                                 HSpacer(64)

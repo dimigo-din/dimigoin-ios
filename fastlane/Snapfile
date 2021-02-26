@@ -4,15 +4,15 @@
 devices([
 #   "iPhone 12 Pro",
 #   "iPhone 8",
-  #  "iPhone 8 Plus",
+    "iPhone 8 Plus",
 #    "iPhone SE (2nd generation)",
 #    "iPhone 11 Pro",
-  #  "iPhone 11 Pro Max",
+    "iPhone 11 Pro Max",
 #   "iPhone X",
 #   "iPad Pro (12.9-inch) (2nd generation)",
-  #  "iPad Pro (12.9-inch) (4th generation)",
- "Mac"
-  #  "iPad Pro (9.7-inch)",
+    "iPad Pro (12.9-inch) (4th generation)",
+# "Mac"
+   "iPad Pro (9.7-inch)",
 #   "Apple TV 1080p"
 ])
 

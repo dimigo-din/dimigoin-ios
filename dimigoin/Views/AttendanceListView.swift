@@ -187,7 +187,7 @@ struct AttendanceListItem: View {
             if attendance.isRegistered {
                 PlaceBadge(place: attendance.attendanceLog[0].place)
             } else {
-                PlaceBadge(placeType: .classroom)
+                PlaceBadge(placeName: "\(attendance.grade)학년 \(attendance.klass)반", placeType: .classroom)
             }
             Spacer()
             if userType == .teacher {
@@ -198,13 +198,13 @@ struct AttendanceListItem: View {
                     }
                 }) {
                     Text("자세히보기")
-                        .notoSans(.bold, size: 10, Color.white)
+                        .notoSans(.bold, size: 10, Color.systemBackground)
                         .frame(width: 74, height: 20)
                         .background(Color("gray6").cornerRadius(5))
                 }
             } else {
                 Text(attendance.isRegistered ? attendance.attendanceLog[0].time : "정보 없음")
-                    .notoSans(.bold, size: 10, Color.gray4)
+                    .notoSans(.bold, size: 10, Color.systemBackground)
                     .frame(width: 74, height: 20)
                     .background(Color("gray6").cornerRadius(5))
             }
@@ -214,24 +214,30 @@ struct AttendanceListItem: View {
 
 struct PlaceBadge: View {
     @State var place: Place
+    @State var showFullPlaceName: Bool = false
     init(place: Place) {
         self._place = .init(initialValue: place)
     }
-    init(placeType: PlaceType) {
-        self._place = .init(initialValue: Place(id: "", label: "", name: "", location: "", type: placeType))
+    init(placeName: String, placeType: PlaceType) {
+        self._place = .init(initialValue: Place(id: "", label: "", name: placeName, location: "", type: placeType))
     }
     var body: some View {
         HStack(spacing: 0) {
             Image(getPlaceBadgeIcon(place.type)).templateImage(width: 10, Color.gray4)
                 .padding(.leading, 8)
-            Spacer()
+            HSpacer(11)
             Text(place.name).notoSans(.medium, size: 10, Color.gray4)
                 .padding(.trailing, 13)
-        }.frame(width: 60, height: 20)
+        }.frame(height: 20)
         .overlay(
             RoundedRectangle(cornerRadius: 5)
                 .stroke(Color("gray6"), lineWidth: 1)
         )
+        .onTapGesture {
+            withAnimation(.easeInOut) {
+                self.showFullPlaceName.toggle()
+            }
+        }
     }
     func getPlaceBadgeIcon(_ placeType: PlaceType) -> String {
         switch placeType {
