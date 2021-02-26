@@ -14,8 +14,9 @@ struct TeacherView: View {
     @State var searchText: String = ""
     @State var showDetailView: Bool = false
     @State var showHistoryView: Bool = false
+    @State var attendanceList: [Attendance] = []
     @State var selectedAttendance: Attendance = Attendance()
-    
+
     @State var selectedGrade: Int = 1
     @State var selectedClass: Int = 1
     
@@ -33,6 +34,12 @@ struct TeacherView: View {
                             Text(getStringTimeZone()).notoSans(.bold, size: 13, Color.gray4)
                             HStack {
                                 Text("\(selectedGrade)학년 \(selectedClass)반").notoSans(.black, size: 30)
+                                Button(action: {
+                                    api.logout()
+                                }) {
+                                    Image("logout")
+                                }
+                                
                                 Spacer()
                                 Button(action: {
                                     withAnimation(.spring()) {
@@ -48,11 +55,13 @@ struct TeacherView: View {
                         }
                     }.horizonPadding()
                     .padding(.top, 30)
-                    AttendanceChart(api: api, geometry: geometry)
+                    AttendanceChart(attendanceList: attendanceList, geometry: geometry)
                     VSpacer(20)
                     SearchBar(searchText: $searchText, geometry: geometry)
                     VSpacer(25)
-                    AttendanceList(api: api, searchText: $searchText,
+                    AttendanceList(attendanceList: attendanceList,
+                                   userType: api.user.type,
+                                   searchText: $searchText,
                                    selectedAttendance: $selectedAttendance,
                                    showDetailView: $showDetailView,
                                    geometry: geometry)
@@ -60,8 +69,10 @@ struct TeacherView: View {
                 }
             }
             AttendanceDetailView(isShowing: $showDetailView, attendance: $selectedAttendance)
-            AttendanceHistoryView(isShowing: $showHistoryView)
-                .environmentObject(api)
+            AttendanceHistoryView(isShowing: $showHistoryView,
+                                  attendanceList: $attendanceList,
+                                  selectedGrade: $selectedGrade,
+                                  selectedClass: $selectedClass)
             VStack {
                 Spacer()
                 VStack {
@@ -91,75 +102,3 @@ struct TeacherView: View {
         }
     }
 }
-
-//struct AttendanceChart: View {
-//    @State var attendanceList:[Attendance]
-//    var geometry: GeometryProxy
-//
-//    var body: some View {
-//        ZStack {
-//            VStack(spacing: 0) {
-//                RoundSquare(topLeft: 5, topRight: 5, bottomLeft: 0, bottomRight: 0).fill(Color.accent).frame(height: 35)
-//                Spacer()
-//            }.addBorder(Color.accent, width: 1, cornerRadius: 5)
-//            HStack {
-//                VStack {
-//                    Text("교실").notoSans(.bold, size: 13, Color.white)
-//                    VSpacer(12)
-//                    Text("\(attendanceList.filter { $0.attendanceLog[0].type == .classroom }.count)")
-//                        .notoSans(.bold, size: 13, Color.accent)
-//                }
-//                Spacer()
-//                VStack {
-//                    Text("인강실").notoSans(.bold, size: 13, Color.white)
-//                    VSpacer(12)
-//                    Text("\(attendanceList.filter { $0.attendanceLog[0].type == .ingang }.count)")
-//                        .notoSans(.bold, size: 13, Color.accent)
-//                }
-//                Spacer()
-//                VStack {
-//                    Text("동아리").notoSans(.bold, size: 13, Color.white)
-//                    VSpacer(12)
-//                    Text("\(attendanceList.filter { $0.attendanceLog[0].type == .circle }.count)")
-//                        .notoSans(.bold, size: 13, Color.accent)
-//                }
-//                Spacer()
-//                VStack {
-//                    Text("기타").notoSans(.bold, size: 13, Color.white)
-//                    VSpacer(12)
-//                    Text("\(attendanceList.filter { $0.attendanceLog[0].type == .etc }.count)")
-//                        .notoSans(.bold, size: 13, Color.accent)
-//                }
-//                Spacer()
-//                VStack {
-//                    Text("총원").notoSans(.bold, size: 13, Color.white)
-//                    VSpacer(12)
-//                    Text("\(attendanceList.count)").notoSans(.bold, size: 13, Color.accent)
-//                }
-//            }.horizonPadding()
-//        }.horizonPadding()
-//        .frame(height: 70)
-//    }
-//}
-//
-//struct AttendanceList: View {
-//    @State var api: DimigoinAPI
-//    @Binding var searchText: String
-//    @Binding var selectedAttendance: Attendance
-//    @Binding var showDetailView: Bool
-//    var geometry: GeometryProxy
-//
-//    var body: some View {
-//        VStack(spacing: 13) {
-//            ForEach(api.attendanceList.filter {
-//                self.searchText.isEmpty ? true : ($0.name.contains(self.searchText) || $0.attendanceLog[0].label.contains(self.searchText))
-//            }, id: \.self) { attendance in
-//                AttendanceListItem(attendance: attendance,
-//                                   selectedAttendance: $selectedAttendance,
-//                                   showDetailView: $showDetailView)
-//            }
-//        }.horizonPadding()
-//        .frame(width: geometry.size.width)
-//        .animation(.spring())
-//    }
-//}

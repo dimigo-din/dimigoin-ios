@@ -45,11 +45,13 @@ struct AttendanceListView: View {
                             }
                         }
                     }.horizonPadding()
-                    AttendanceChart(api: api, geometry: geometry)
+                    AttendanceChart(attendanceList: api.attendanceList, geometry: geometry)
                     VSpacer(20)
                     SearchBar(searchText: $searchText, geometry: geometry)
                     VSpacer(25)
-                    AttendanceList(api: api, searchText: $searchText,
+                    AttendanceList(attendanceList: api.attendanceList,
+                                   userType: api.user.type,
+                                   searchText: $searchText,
                                    selectedAttendance: $selectedAttendance,
                                    showDetailView: $showDetailView,
                                    geometry: geometry)
@@ -57,8 +59,8 @@ struct AttendanceListView: View {
                 }
             }
             AttendanceDetailView(isShowing: $showDetailView, attendance: $selectedAttendance)
-            AttendanceHistoryView(isShowing: $showHistoryView)
-                .environmentObject(api)
+//            AttendanceHistoryView(isShowing: $showHistoryView, s)
+//                .environmentObject(api)
         }
         .navigationBarTitle("", displayMode: .inline)
         .navigationBarItems(trailing:
@@ -89,18 +91,18 @@ struct SearchBar: View {
 }
 
 struct AttendanceChart: View {
-    @State var api: DimigoinAPI
+    @State var attendanceList: [Attendance]
     var geometry: GeometryProxy
     func getAttendanceCountByPlaceType(placeType: PlaceType) -> Int {
 //        api.attendanceList.filter { $0.attendanceLog[0].place.type == placeType }.count
         switch placeType {
-        case .classroom: return api.attendanceList.filter { !$0.isRegistered }.count
+        case .classroom: return attendanceList.filter { !$0.isRegistered }.count
         case .etc:
-            return api.attendanceList.filter { $0.isRegistered }.filter { $0.attendanceLog[0].place.type == .etc }.count
+            return attendanceList.filter { $0.isRegistered }.filter { $0.attendanceLog[0].place.type == .etc }.count
         case .circle:
-            return api.attendanceList.filter { $0.isRegistered }.filter { $0.attendanceLog[0].place.type == .circle }.count
+            return attendanceList.filter { $0.isRegistered }.filter { $0.attendanceLog[0].place.type == .circle }.count
         case .ingang:
-            return api.attendanceList.filter { $0.isRegistered }.filter { $0.attendanceLog[0].place.type == .ingang }.count
+            return attendanceList.filter { $0.isRegistered }.filter { $0.attendanceLog[0].place.type == .ingang }.count
         }
     }
     var body: some View {
@@ -141,7 +143,7 @@ struct AttendanceChart: View {
                 VStack {
                     Text("총원").notoSans(.bold, size: 13, Color.white)
                     VSpacer(12)
-                    Text("\(api.attendanceList.count)").notoSans(.bold, size: 13, Color.accent)
+                    Text("\(attendanceList.count)").notoSans(.bold, size: 13, Color.accent)
                 }
             }.horizonPadding()
         }.horizonPadding()
@@ -150,7 +152,8 @@ struct AttendanceChart: View {
 }
 
 struct AttendanceList: View {
-    @State var api: DimigoinAPI
+    @State var attendanceList: [Attendance]
+    @State var userType: UserType
     @Binding var searchText: String
     @Binding var selectedAttendance: Attendance
     @Binding var showDetailView: Bool
@@ -158,13 +161,13 @@ struct AttendanceList: View {
 
     var body: some View {
         VStack(spacing: 13) {
-            ForEach(api.attendanceList.filter {
+            ForEach(attendanceList.filter {
                 self.searchText.isEmpty ? true : $0.name.contains(self.searchText)
             }, id: \.self) { attendance in
                 AttendanceListItem(attendance: attendance,
                                    selectedAttendance: $selectedAttendance,
                                    showDetailView: $showDetailView,
-                                   userType: $api.user.type)
+                                   userType: $userType)
             }
         }.horizonPadding()
         .frame(width: geometry.size.width)

@@ -11,7 +11,9 @@ import DimigoinKit
 
 struct AttendanceHistoryView: View {
     @Binding var isShowing: Bool
-    @EnvironmentObject var api: DimigoinAPI
+    @Binding var attendanceList: [Attendance]
+    @Binding var selectedGrade: Int
+    @Binding var selectedClass: Int
     
     var body: some View {
         ZStack {
@@ -21,7 +23,7 @@ struct AttendanceHistoryView: View {
                     ZStack {
                         VStack {
                             VSpacer(35)
-                            Text("\(api.user.grade)학년 \(api.user.klass)반")
+                            Text("\(selectedGrade)학년 \(selectedClass)반")
                                 .notoSans(.bold, size: 10, Color.accent)
                             VSpacer(4)
                             Text("히스토리")
