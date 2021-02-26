@@ -118,7 +118,7 @@ struct StudentIdCardView: View {
                             }
                             VSpacer(25)
                             VStack(spacing: 0) {
-                                Image(uiImage: (generateBarcode(from: api.user.libraryId) ?? generateBarcode(from: "nil"))!).resizable().aspectRatio(contentMode: .fit).frame(height: 56)
+                                Image(uiImage: api.user.barcode).resizable().aspectRatio(contentMode: .fit).frame(height: 56)
                                 Text(api.user.libraryId).notoSans(.regular, size: 9)
                             }
                             VSpacer(20)
