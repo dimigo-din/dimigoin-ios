@@ -30,6 +30,7 @@ struct TimetableWidget: View {
                                     VStack {
                                         Text(NSLocalizedString(dayOfWeek[day], comment: ""))
                                             .notoSans(.medium, size: 18, Color.gray4)
+                                            .frame(width: (geometry.size.width-40)/5, height: 20)
                                         VSpacer(20)
                                         ForEach(loadTimetable(day: day-1), id: \.self) { lecture in
                                             Text("\(lecture)")
