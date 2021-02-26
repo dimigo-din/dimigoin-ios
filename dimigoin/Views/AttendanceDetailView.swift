@@ -32,8 +32,8 @@ struct AttendanceDetailView: View {
                                     Text("현재위치")
                                         .notoSans(.medium, size: 12, Color.gray4)
                                     VSpacer(7)
-                                    if attendance.isEnrolled {
-                                        PlaceBadge(place: attendance.attendanceLog[0])
+                                    if attendance.isRegistered {
+                                        PlaceBadge(place: attendance.attendanceLog[0].place)
                                     } else {
                                         PlaceBadge(placeType: .classroom)
                                     }
@@ -43,8 +43,8 @@ struct AttendanceDetailView: View {
                                     Text("등록시간")
                                         .notoSans(.medium, size: 12, Color.gray4)
                                     VSpacer(7)
-                                    if attendance.isEnrolled {
-                                        Text(attendance.timeline[0])
+                                    if attendance.isRegistered {
+                                        Text(attendance.attendanceLog[0].place.name)
                                             .notoSans(.medium, size: 10, Color.gray4)
                                             .frame(width: 60, height: 20)
                                             .overlay(
@@ -64,23 +64,23 @@ struct AttendanceDetailView: View {
                             }
                             VSpacer(30)
                             HDivider()
-                            ScrollView {
-                                VStack(spacing: 15) {
-                                    ForEach(0..<attendance.attendanceLog.count, id: \.self) { idx in
-                                        Text("[ \(attendance.isEnrolled ? attendance.timeline[idx] : "디미고인") ] \(attendance.name)님이 자신의 현황을 ")
-                                            .notoSans(.medium, size: 10, Color.gray4)
-                                        +
-                                        Text(attendance.attendanceLog[idx].name)
-                                            .notoSans(.bold, size: 10, Color.accent)
-                                        +
-                                        Text("(으)로 \(attendance.isEnrolled ? "변경" : "등록")")
-                                            .notoSans(.medium, size: 10, Color.gray4)
-                                    }
-                                }.multilineTextAlignment(.leading)
-                                .horizonPadding()
-                                VSpacer(15)
-                            }
-                            .padding(.bottom, 45)
+//                            ScrollView {
+//                                VStack(spacing: 15) {
+//                                    ForEach(0..<attendance.attendanceLog.count, id: \.self) { idx in
+//                                        Text("[ \(attendance.isRegistered ? attendance.attendanceLog[idx].time : "디미고인") ] \(attendance.name)님이 자신의 현황을 ")
+//                                            .notoSans(.medium, size: 10, Color.gray4)
+//                                        +
+//                                        Text(attendance.attendanceLog[idx].name)
+//                                            .notoSans(.bold, size: 10, Color.accent)
+//                                        +
+//                                        Text("(으)로 \(attendance.isRegistered ? "변경" : "등록")")
+//                                            .notoSans(.medium, size: 10, Color.gray4)
+//                                    }
+//                                }.multilineTextAlignment(.leading)
+//                                .horizonPadding()
+//                                VSpacer(15)
+//                            }
+//                            .padding(.bottom, 45)
                         }
                         VStack {
                             Spacer()

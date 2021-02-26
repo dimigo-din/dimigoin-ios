@@ -30,15 +30,17 @@ struct AttendanceListView: View {
                             HStack {
                                 Text("자습 현황").notoSans(.black, size: 30)
                                 Spacer()
-                                Button(action: {
-                                    withAnimation(.spring()) {
-                                        self.showHistoryView = true
+                                if api.user.type == .teacher {
+                                    Button(action: {
+                                        withAnimation(.spring()) {
+                                            self.showHistoryView = true
+                                        }
+                                    }) {
+                                        Text("히스토리")
+                                            .notoSans(.bold, size: 12, Color.white)
+                                            .frame(width: 74, height: 25)
+                                            .background(Color.accent.cornerRadius(13))
                                     }
-                                }) {
-                                    Text("히스토리")
-                                        .notoSans(.bold, size: 12, Color.white)
-                                        .frame(width: 74, height: 25)
-                                        .background(Color.accent.cornerRadius(13))
                                 }
                             }
                         }
@@ -59,6 +61,13 @@ struct AttendanceListView: View {
                 .environmentObject(api)
         }
         .navigationBarTitle("", displayMode: .inline)
+        .navigationBarItems(trailing:
+            Button(action: {
+                api.fetchAttendanceListData { }
+            }) {
+                Image(systemName: "arrow.triangle.2.circlepath")
+            }
+        )
     }
 }
 struct SearchBar: View {
@@ -82,7 +91,18 @@ struct SearchBar: View {
 struct AttendanceChart: View {
     @State var api: DimigoinAPI
     var geometry: GeometryProxy
-
+    func getAttendanceCountByPlaceType(placeType: PlaceType) -> Int {
+//        api.attendanceList.filter { $0.attendanceLog[0].place.type == placeType }.count
+        switch placeType {
+        case .classroom: return api.attendanceList.filter { !$0.isRegistered }.count
+        case .etc:
+            return api.attendanceList.filter { $0.isRegistered }.filter { $0.attendanceLog[0].place.type == .etc }.count
+        case .circle:
+            return api.attendanceList.filter { $0.isRegistered }.filter { $0.attendanceLog[0].place.type == .circle }.count
+        case .ingang:
+            return api.attendanceList.filter { $0.isRegistered }.filter { $0.attendanceLog[0].place.type == .ingang }.count
+        }
+    }
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
@@ -93,28 +113,28 @@ struct AttendanceChart: View {
                 VStack {
                     Text("교실").notoSans(.bold, size: 13, Color.white)
                     VSpacer(12)
-                    Text("\(api.attendanceList.filter { $0.attendanceLog[0].type == .classroom }.count)")
+                    Text("\(getAttendanceCountByPlaceType(placeType: .classroom))")
                         .notoSans(.bold, size: 13, Color.accent)
                 }
                 Spacer()
                 VStack {
                     Text("인강실").notoSans(.bold, size: 13, Color.white)
                     VSpacer(12)
-                    Text("\(api.attendanceList.filter { $0.attendanceLog[0].type == .ingang }.count)")
+                    Text("\(getAttendanceCountByPlaceType(placeType: .ingang))")
                         .notoSans(.bold, size: 13, Color.accent)
                 }
                 Spacer()
                 VStack {
-                    Text("동아리").notoSans(.bold, size: 13, Color.white)
+                    Text("동아리실").notoSans(.bold, size: 13, Color.white)
                     VSpacer(12)
-                    Text("\(api.attendanceList.filter { $0.attendanceLog[0].type == .circle }.count)")
+                    Text("\(getAttendanceCountByPlaceType(placeType: .circle))")
                         .notoSans(.bold, size: 13, Color.accent)
                 }
                 Spacer()
                 VStack {
                     Text("기타").notoSans(.bold, size: 13, Color.white)
                     VSpacer(12)
-                    Text("\(api.attendanceList.filter { $0.attendanceLog[0].type == .etc }.count)")
+                    Text("\(getAttendanceCountByPlaceType(placeType: .etc))")
                         .notoSans(.bold, size: 13, Color.accent)
                 }
                 Spacer()
@@ -139,11 +159,12 @@ struct AttendanceList: View {
     var body: some View {
         VStack(spacing: 13) {
             ForEach(api.attendanceList.filter {
-                self.searchText.isEmpty ? true : ($0.name.contains(self.searchText) || $0.attendanceLog[0].label.contains(self.searchText))
+                self.searchText.isEmpty ? true : $0.name.contains(self.searchText)
             }, id: \.self) { attendance in
                 AttendanceListItem(attendance: attendance,
                                    selectedAttendance: $selectedAttendance,
-                                   showDetailView: $showDetailView)
+                                   showDetailView: $showDetailView,
+                                   userType: $api.user.type)
             }
         }.horizonPadding()
         .frame(width: geometry.size.width)
@@ -155,6 +176,7 @@ struct AttendanceListItem: View {
     @State var attendance: Attendance
     @Binding var selectedAttendance: Attendance
     @Binding var showDetailView: Bool
+    @Binding var userType: UserType
 
     var body: some View {
         HStack {
@@ -162,20 +184,27 @@ struct AttendanceListItem: View {
             Spacer()
             Text("\(attendance.name)").notoSans(.bold, size: 15, Color.gray4)
             Spacer()
-            if attendance.isEnrolled {
-                PlaceBadge(place: attendance.attendanceLog[0])
+            if attendance.isRegistered {
+                PlaceBadge(place: attendance.attendanceLog[0].place)
             } else {
                 PlaceBadge(placeType: .classroom)
             }
             Spacer()
-            Button(action: {
-                self.selectedAttendance = attendance
-                withAnimation(.spring()) {
-                    self.showDetailView = true
+            if userType == .teacher {
+                Button(action: {
+                    self.selectedAttendance = attendance
+                    withAnimation(.spring()) {
+                        self.showDetailView = true
+                    }
+                }) {
+                    Text("자세히보기")
+                        .notoSans(.bold, size: 10, Color.white)
+                        .frame(width: 74, height: 20)
+                        .background(Color("gray6").cornerRadius(5))
                 }
-            }) {
-                Text("자세히보기")
-                    .notoSans(.bold, size: 10, Color.white)
+            } else {
+                Text(attendance.isRegistered ? attendance.attendanceLog[0].time : "정보 없음")
+                    .notoSans(.bold, size: 10, Color.gray4)
                     .frame(width: 74, height: 20)
                     .background(Color("gray6").cornerRadius(5))
             }
@@ -196,7 +225,7 @@ struct PlaceBadge: View {
             Image(getPlaceBadgeIcon(place.type)).templateImage(width: 10, Color.gray4)
                 .padding(.leading, 8)
             Spacer()
-            Text(placeType2String(place.type)).notoSans(.medium, size: 10, Color.gray4)
+            Text(place.name).notoSans(.medium, size: 10, Color.gray4)
                 .padding(.trailing, 13)
         }.frame(width: 60, height: 20)
         .overlay(
