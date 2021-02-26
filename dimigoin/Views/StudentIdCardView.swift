@@ -139,7 +139,9 @@ struct StudentIdCardView: View {
                     #if targetEnvironment(simulator)
                         showIdCard()
                     #else
-                        showIdCardAfterAuthentication()
+                        if !isShowIdCard {
+                            showIdCardAfterAuthentication()
+                        }
                     #endif
                 }.offset(y: isShowIdCard ? 0 : -tabBarSize/2)
             }.frame(width: geometry.size.width)
