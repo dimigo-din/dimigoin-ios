@@ -14,6 +14,7 @@ import DimigoinKit
 struct IngangView: View {
     @EnvironmentObject var api: DimigoinAPI
     @EnvironmentObject var alertManager: AlertManager
+    
     var body: some View {
         GeometryReader { geometry in
             ScrollView(showsIndicators: false) {
@@ -41,7 +42,7 @@ struct IngangView: View {
                                             .notoSans(.medium, size: 12, Color("gray6"))
                                     } else {
                                         Text("\(api.getApplicant(ingang.time, col*4+row).name)")
-                                            .notoSans(.medium, size: 12, Color("gray3"))
+                                            .notoSans(.medium, size: 12, api.getApplicant(ingang.time, col*4+row).name == api.user.name ? Color.text : Color("gray3"))
                                     }
                                 }
                             }
@@ -54,29 +55,35 @@ struct IngangView: View {
                     .frame(width: abs(geometry.size.width - 40), height: 89)
                     .modifier(CardViewModifier(geometry.size.width - 40, 89))
                     VSpacer(10)
-                    if ingang.applicants.count == ingang.maxApplier && ingang.isApplied == false {
-                        Text("신청불가")
-                            .notoSans(.bold, size: 13, Color.white)
+                    if ingang.isFetching {
+                        ProgressView()
                             .frame(width: geometry.size.width - 40, height: 45)
                             .background(Color.gray4.cornerRadius(10))
                     } else {
-                        if !ingang.isApplied {
-                            Button(action: {
-                                applyIngang(ingang: ingang)
-                            }) {
-                                Text("신청하기")
-                                    .notoSans(.bold, size: 13, Color.white)
-                                    .frame(width: geometry.size.width - 40, height: 45)
-                                    .background(Color.accent.cornerRadius(10))
-                            }
+                        if ingang.applicants.count == ingang.maxApplier && ingang.isApplied == false {
+                            Text("신청불가")
+                                .notoSans(.bold, size: 13, Color.white)
+                                .frame(width: geometry.size.width - 40, height: 45)
+                                .background(Color.gray4.cornerRadius(10))
                         } else {
-                            Button(action: {
-                                cancelIngang(ingang: ingang)
-                            }) {
-                                Text("취소하기")
-                                    .notoSans(.bold, size: 13, Color.white)
-                                    .frame(width: geometry.size.width - 40, height: 45)
-                                    .background(Color.gray4.cornerRadius(10))
+                            if !ingang.isApplied {
+                                Button(action: {
+                                    applyIngang(ingang: ingang)
+                                }) {
+                                    Text("신청하기")
+                                        .notoSans(.bold, size: 13, Color.white)
+                                        .frame(width: geometry.size.width - 40, height: 45)
+                                        .background(Color.accent.cornerRadius(10))
+                                }
+                            } else {
+                                Button(action: {
+                                    cancelIngang(ingang: ingang)
+                                }) {
+                                    Text("취소하기")
+                                        .notoSans(.bold, size: 13, Color.white)
+                                        .frame(width: geometry.size.width - 40, height: 45)
+                                        .background(Color.gray4.cornerRadius(10))
+                                }
                             }
                         }
                     }
@@ -90,7 +97,7 @@ struct IngangView: View {
         }
     }
     func applyIngang(ingang: Ingang) {
-        api.applyIngang(time: ingang.time) { result in
+        api.applyIngang(ingang: ingang) { result in
             switch result {
             case .success(()):
                 print("인강 신청 성공")
@@ -117,7 +124,7 @@ struct IngangView: View {
         }
     }
     func cancelIngang(ingang: Ingang) {
-        api.cancelIngang(time: ingang.time) { result in
+        api.cancelIngang(ingang: ingang) { result in
             switch result {
             case .success(()):
                 print("인강 취소 성공")

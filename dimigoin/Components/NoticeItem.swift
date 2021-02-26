@@ -18,7 +18,6 @@ struct NoticeItem: View {
     ]
     var body: some View {
         if api.notices.count != 0 {
-            
                 ScrollView(showsIndicators: false) {
                     Text("\(api.notices[0].content)")
                         .notoSans(.regular, size: 12, Color.gray4)
@@ -27,7 +26,6 @@ struct NoticeItem: View {
                 }.padding([.horizontal, .top], 20)
                 .frame(width: geometry.size.width-40, height: 170, alignment: .top)
                 .addBorder(Color.divider, width: 1, cornerRadius: 10)
-                
         }
     }
 }
