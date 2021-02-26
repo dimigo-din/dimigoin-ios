@@ -20,6 +20,7 @@ struct LocationButton: Hashable {
 struct LocationSelectionView: View {
     @EnvironmentObject var api: DimigoinAPI
     @EnvironmentObject var alertManager: AlertManager
+
     var locationButtons: [LocationButton] = [
     ]
     init(_ api: EnvironmentObject<DimigoinAPI>) {
@@ -28,7 +29,7 @@ struct LocationSelectionView: View {
         locationButtons.append(LocationButton(place: self.api.findPrimaryPlaceByLabel(label: "안정실"), icon: "crossmark", idx: 1))
         locationButtons.append(LocationButton(place: self.api.findPrimaryPlaceByLabel(label: "인강실"), icon: "headphone", idx: 2))
         locationButtons.append(LocationButton(place: self.api.findPrimaryPlaceByLabel(label: "세탁"), icon: "laundry", idx: 3))
-        locationButtons.append(LocationButton(place: self.api.findPrimaryPlaceByLabel(label: "동아리"), icon: "club", idx: 4))
+//        locationButtons.append(LocationButton(place: self.api.findPrimaryPlaceByLabel(label: "동아리"), icon: "club", idx: 4))
     }
     var body: some View {
         VStack {
@@ -75,17 +76,19 @@ struct LocationItem: View {
     @State var idx: Int
     @State var icon: String
     var place: Place
-    @State var isLoading: Bool = false
+    @State var isFetching: Bool = false
     
     var body: some View {
         VStack {
             Button(action: {
+                withAnimation(.easeInOut) { self.isFetching = true }
                 api.changeUserPlace(placeName: place.name, remark: "iOS") { result in
                     switch result {
                     case .success(()):
                         self.api.fetchUserCurrentPlace {
                             self.api.fetchAttendanceListData {
                                 alertManager.createAlert("\"\(place.name)\"(으)로 변경되었습니다.", .success)
+                                withAnimation(.easeInOut) { self.isFetching = false }
                             }
                         }
                     case .failure(let error):
@@ -99,7 +102,9 @@ struct LocationItem: View {
                         case .unknown:
                             alertManager.createAlert("알 수 없는 에러", sub: "잠시 후 다시 시도해주세요", .danger)
                         }
+                        withAnimation(.easeInOut) { self.isFetching = false }
                     }
+                    
                 }
             }) {
                 Circle()
@@ -107,9 +112,16 @@ struct LocationItem: View {
                     .frame(width: 40, height: 40)
                     .shadow(color: Color.gray4.opacity(0.12), radius: 4, x: 0, y: 0)
                     .overlay(
-                        Image(icon)
-                            .renderingMode(.template)
-                            .foregroundColor(api.currentPlace.id == place.id ? Color.white : Color.accent)
+                        ZStack {
+                            if self.isFetching {
+                                ProgressView()
+                            } else {
+                                Image(icon)
+                                    .renderingMode(.template)
+                                    .foregroundColor(api.currentPlace.id == place.id ? Color.white : Color.accent)
+                            }
+                        }
+                        
                     )
             }
             VSpacer(9)
@@ -122,6 +134,7 @@ struct LocationItem: View {
 struct LocationItemEtc: View {
     @EnvironmentObject var alertManager: AlertManager
     @EnvironmentObject var api: DimigoinAPI
+    @State var isFetching: Bool = false
     
     var body: some View {
         VStack {
@@ -133,9 +146,15 @@ struct LocationItemEtc: View {
                     .frame(width: 40, height: 40)
                     .shadow(color: Color.gray4.opacity(0.12), radius: 4, x: 0, y: 0)
                     .overlay(
-                        Image("etc")
-                            .renderingMode(.template)
-                            .foregroundColor(!api.isPrimaryPlace(place: api.currentPlace) ? Color.white : Color.accent)
+                        ZStack {
+                            if self.isFetching {
+                                ProgressView()
+                            } else {
+                                Image("etc")
+                                    .renderingMode(.template)
+                                    .foregroundColor(!api.isPrimaryPlace(place: api.currentPlace) ? Color.white : Color.accent)
+                            }
+                        }
                     )
             }
             VSpacer(9)
