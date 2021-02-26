@@ -18,16 +18,15 @@ struct LoginView: View {
     @State var password = ""
     @State var showErrorMessage: Bool = false
     @State var isLoading: Bool = false
-    @State var isShowSplash: Bool = true
     @Namespace var loginView
     
     var body: some View {
         ZStack {
-            if !isShowSplash {
+            if !api.isFetching {
                 VStack(alignment: .center) {
                     Spacer()
                     VStack {
-                        Image("logo").templateImage(height: 42.8, Color.accent)
+                        Image("logo").templateImage(width: 45, Color.accent)
                             .matchedGeometryEffect(id: "logo", in: loginView)
                         VSpacer(43.5)
                         TextField("아이디를 입력하세요", text: $username).textContentType(.username)
@@ -92,17 +91,13 @@ struct LoginView: View {
                     .environmentObject(alertManager)
             } else {
                 Color(UIColor.systemBackground).edgesIgnoringSafeArea(.all)
+                
                 Image("logo").templateImage(width: 73, Color.accent)
                     .matchedGeometryEffect(id: "logo", in: loginView)
                     .offset(y: -50)
+                    .padding(.horizontal)
+
             }
-        }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                withAnimation(.easeInOut(duration: 0.75)) {
-                    self.isShowSplash = false
-                }
-           }
         }
     }
     func dismissKeyboard() {

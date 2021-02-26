@@ -11,7 +11,6 @@ import DimigoinKit
 
 struct ContentView: View {
     @ObservedObject var api = DimigoinAPI()
-    @Namespace var namespace
     
     var alertManager = AlertManager()
     var tapbarIdx = 2
@@ -35,7 +34,6 @@ struct ContentView: View {
                     }
                 } else {
                     LoginView()
-                        .matchedGeometryEffect(id: "mainview", in: namespace)
                         .environmentObject(api)
                         .environmentObject(alertManager)
                 }
