@@ -10,8 +10,11 @@ import SwiftUI
 import DimigoinKit
 
 struct AttendanceDetailView: View {
+    @EnvironmentObject var api: DimigoinAPI
     @Binding var isShowing: Bool
     @Binding var attendance: Attendance
+    @State var attendanceLog: [AttendanceLog] = []
+    @State var isFetching: Bool = false
     
     var body: some View {
         ZStack {
@@ -64,23 +67,27 @@ struct AttendanceDetailView: View {
                             }
                             VSpacer(30)
                             HDivider()
-//                            ScrollView {
-//                                VStack(spacing: 15) {
-//                                    ForEach(0..<attendance.attendanceLog.count, id: \.self) { idx in
-//                                        Text("[ \(attendance.isRegistered ? attendance.attendanceLog[idx].time : "디미고인") ] \(attendance.name)님이 자신의 현황을 ")
-//                                            .notoSans(.medium, size: 10, Color.gray4)
-//                                        +
-//                                        Text(attendance.attendanceLog[idx].name)
-//                                            .notoSans(.bold, size: 10, Color.accent)
-//                                        +
-//                                        Text("(으)로 \(attendance.isRegistered ? "변경" : "등록")")
-//                                            .notoSans(.medium, size: 10, Color.gray4)
-//                                    }
-//                                }.multilineTextAlignment(.leading)
-//                                .horizonPadding()
-//                                VSpacer(15)
-//                            }
-//                            .padding(.bottom, 45)
+                            ScrollView {
+                                VStack(spacing: 15) {
+                                    if isFetching {
+                                        ProgressView()
+                                    } else {
+                                        ForEach(0..<attendanceLog.count, id: \.self) { idx in
+                                            Text("[ \(attendanceLog[idx].time) ] \(attendance.name)님이 자신의 현황을 ")
+                                                .notoSans(.medium, size: 10, Color.gray4)
+                                            +
+                                            Text(attendanceLog[idx].place.name)
+                                                .notoSans(.bold, size: 10, Color.accent)
+                                            +
+                                            Text("(으)로 \(idx == 0 ? "등록" : "변경")")
+                                                .notoSans(.medium, size: 10, Color.gray4)
+                                        }
+                                    }
+                                }.multilineTextAlignment(.leading)
+                                .horizonPadding()
+                                VSpacer(15)
+                            }
+                            .padding(.bottom, 45)
                         }
                         VStack {
                             Spacer()
@@ -104,6 +111,18 @@ struct AttendanceDetailView: View {
                 .padding(.top, (geometry.size.height-380)/2)
                 .offset(y: isShowing ? 0 : geometry.size.height)
             }.frame(alignment: .center)
+        }
+        .onChange(of: isShowing) { change in
+            withAnimation(.easeInOut) { self.isFetching = true }
+            getAttendenceHistory(api.accessToken, studentId: attendance.id) { result in
+                switch result {
+                case .success(let attendanceLog):
+                    withAnimation(.easeInOut) { self.attendanceLog = attendanceLog}
+                case .failure(_):
+                    print("Attendance DetailView call history error")
+                }
+                withAnimation(.easeInOut) { self.isFetching = false }
+            }
         }
     }
     

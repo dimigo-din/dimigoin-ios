@@ -120,6 +120,7 @@ struct TeacherView: View {
     func fetchAttendanceList() {
         withAnimation(.easeInOut) { self.isFetching = true }
         getAttendenceList(api.accessToken, grade: selectedGrade, klass: selectedClass) { result in
+            print(self.attendanceList)
             switch result {
             case .success(let attendanceList):
                 withAnimation(.easeInOut) { self.attendanceList = attendanceList }
