@@ -73,11 +73,7 @@ struct TeacherView: View {
                     VSpacer(130)
                 }
             }
-            AttendanceDetailView(isShowing: $showDetailView, attendance: $selectedAttendance)
-            AttendanceHistoryView(isShowing: $showHistoryView,
-                                  attendanceList: $attendanceList,
-                                  selectedGrade: $selectedGrade,
-                                  selectedClass: $selectedClass)
+            
             VStack {
                 Spacer()
                 VStack {
@@ -104,6 +100,11 @@ struct TeacherView: View {
                 )
                 .edgesIgnoringSafeArea(.all)
             }
+            AttendanceDetailView(isShowing: $showDetailView, attendance: $selectedAttendance)
+            AttendanceHistoryView(isShowing: $showHistoryView,
+                                  attendanceList: $attendanceList,
+                                  selectedGrade: $selectedGrade,
+                                  selectedClass: $selectedClass)
         }
         .onAppear {
             fetchAttendanceList()
