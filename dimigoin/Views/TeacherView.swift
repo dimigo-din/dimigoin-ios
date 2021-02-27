@@ -20,6 +20,7 @@ struct TeacherView: View {
     @State var selectedGrade: Int = 1
     @State var selectedClass: Int = 1
     
+    @State var isFetching: Bool = false
     init() {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
@@ -55,17 +56,21 @@ struct TeacherView: View {
                         }
                     }.horizonPadding()
                     .padding(.top, 30)
-                    AttendanceChart(attendanceList: attendanceList, geometry: geometry)
+                    AttendanceChart(attendanceList: $attendanceList, geometry: geometry)
                     VSpacer(20)
                     SearchBar(searchText: $searchText, geometry: geometry)
                     VSpacer(25)
-                    AttendanceList(attendanceList: attendanceList,
-                                   userType: api.user.type,
-                                   searchText: $searchText,
-                                   selectedAttendance: $selectedAttendance,
-                                   showDetailView: $showDetailView,
-                                   geometry: geometry)
-                    VSpacer(10)
+                    if isFetching {
+                        ProgressView()
+                    } else {
+                        AttendanceList(attendanceList: $attendanceList,
+                                       userType: api.user.type,
+                                       searchText: $searchText,
+                                       selectedAttendance: $selectedAttendance,
+                                       showDetailView: $showDetailView,
+                                       geometry: geometry)
+                    }
+                    VSpacer(130)
                 }
             }
             AttendanceDetailView(isShowing: $showDetailView, attendance: $selectedAttendance)
@@ -99,6 +104,28 @@ struct TeacherView: View {
                 )
                 .edgesIgnoringSafeArea(.all)
             }
+        }
+        .onAppear {
+            fetchAttendanceList()
+        }
+        .onChange(of: selectedGrade) { _ in
+            fetchAttendanceList()
+        }
+        .onChange(of: selectedClass) { _ in
+            fetchAttendanceList()
+        }
+        
+    }
+    func fetchAttendanceList() {
+        withAnimation(.easeInOut) { self.isFetching = true }
+        getAttendenceList(api.accessToken, grade: selectedGrade, klass: selectedClass) { result in
+            switch result {
+            case .success(let attendanceList):
+                withAnimation(.easeInOut) { self.attendanceList = attendanceList }
+            case .failure(_):
+                print("error")
+            }
+            withAnimation(.easeInOut) { self.isFetching = false }
         }
     }
 }

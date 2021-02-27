@@ -45,11 +45,11 @@ struct AttendanceListView: View {
                             }
                         }
                     }.horizonPadding()
-                    AttendanceChart(attendanceList: api.attendanceList, geometry: geometry)
+                    AttendanceChart(attendanceList: $api.attendanceList, geometry: geometry)
                     VSpacer(20)
                     SearchBar(searchText: $searchText, geometry: geometry)
                     VSpacer(25)
-                    AttendanceList(attendanceList: api.attendanceList,
+                    AttendanceList(attendanceList: $api.attendanceList,
                                    userType: api.user.type,
                                    searchText: $searchText,
                                    selectedAttendance: $selectedAttendance,
@@ -91,7 +91,7 @@ struct SearchBar: View {
 }
 
 struct AttendanceChart: View {
-    @State var attendanceList: [Attendance]
+    @Binding var attendanceList: [Attendance]
     var geometry: GeometryProxy
     func getAttendanceCountByPlaceType(placeType: PlaceType) -> Int {
 //        api.attendanceList.filter { $0.attendanceLog[0].place.type == placeType }.count
@@ -152,7 +152,7 @@ struct AttendanceChart: View {
 }
 
 struct AttendanceList: View {
-    @State var attendanceList: [Attendance]
+    @Binding var attendanceList: [Attendance]
     @State var userType: UserType
     @Binding var searchText: String
     @Binding var selectedAttendance: Attendance
