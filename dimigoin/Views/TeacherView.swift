@@ -35,11 +35,11 @@ struct TeacherView: View {
                             Text(getStringTimeZone()).notoSans(.bold, size: 13, Color.gray4)
                             HStack {
                                 Text("\(selectedGrade)학년 \(selectedClass)반").notoSans(.black, size: 30)
-                                Button(action: {
-                                    api.logout()
-                                }) {
-                                    Image("logout")
-                                }
+//                                Button(action: {
+//                                    api.logout()
+//                                }) {
+//                                    Image("logout")
+//                                }
                                 
                                 Spacer()
                                 Button(action: {

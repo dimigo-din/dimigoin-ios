@@ -112,7 +112,7 @@ struct AttendanceDetailView: View {
                 .offset(y: isShowing ? 0 : geometry.size.height)
             }.frame(alignment: .center)
         }
-        .onChange(of: isShowing) { change in
+        .onChange(of: isShowing) { _ in
             withAnimation(.easeInOut) { self.isFetching = true }
             getAttendenceHistory(api.accessToken, studentId: attendance.id) { result in
                 switch result {
