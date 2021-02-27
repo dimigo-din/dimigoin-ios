@@ -102,9 +102,9 @@ struct TeacherView: View {
             }
             AttendanceDetailView(isShowing: $showDetailView, attendance: $selectedAttendance)
             AttendanceHistoryView(isShowing: $showHistoryView,
-                                  attendanceList: $attendanceList,
                                   selectedGrade: $selectedGrade,
                                   selectedClass: $selectedClass)
+                .environmentObject(api)
         }
         .onAppear {
             fetchAttendanceList()

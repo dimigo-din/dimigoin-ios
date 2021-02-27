@@ -10,10 +10,12 @@ import SwiftUI
 import DimigoinKit
 
 struct AttendanceHistoryView: View {
+    @EnvironmentObject var api: DimigoinAPI
     @Binding var isShowing: Bool
-    @Binding var attendanceList: [Attendance]
+    @State var attendanceLog: [AttendanceLog] = []
     @Binding var selectedGrade: Int
     @Binding var selectedClass: Int
+    @State var isFetcing: Bool = false
     
     var body: some View {
         ZStack {
@@ -31,16 +33,21 @@ struct AttendanceHistoryView: View {
                             VSpacer(15)
                             ScrollView {
                                 VStack(spacing: 15) {
-//                                    ForEach(0..<attendance.attendanceLog.count, id: \.self) { idx in
-//                                        Text("[ \(attendance.isEnrolled ? attendance.timeline[idx] : "디미고인") ] \(attendance.name)님이 자신의 현황을 ")
-//                                            .notoSans(.medium, size: 10, Color.gray4)
-//                                        +
-//                                        Text(attendance.attendanceLog[idx].name)
-//                                            .notoSans(.bold, size: 10, Color.accent)
-//                                        +
-//                                        Text("(으)로 \(attendance.isEnrolled ? "변경" : "등록")")
-//                                            .notoSans(.medium, size: 10, Color.gray4)
-//                                    }
+                                    if isFetcing {
+                                        ProgressView()
+                                    } else {
+                                        ForEach(0..<attendanceLog.count, id: \.self) { idx in
+                                            Text("[ \(attendanceLog[idx].time) ] \(attendanceLog[idx].student.name)님이 자신의 현황을 ")
+                                                .notoSans(.medium, size: 10, Color.gray4)
+                                            +
+                                            Text(attendanceLog[idx].place.name)
+                                                .notoSans(.bold, size: 10, Color.accent)
+                                            +
+                                            Text("(으)로 변경")
+                                                .notoSans(.medium, size: 10, Color.gray4)
+                                        }
+                                    }
+                                    
                                 }.multilineTextAlignment(.leading)
                                 .horizonPadding()
                                 VSpacer(15)
@@ -69,6 +76,25 @@ struct AttendanceHistoryView: View {
                 .padding(.top, (geometry.size.height-400)/2)
                 .offset(y: isShowing ? 0 : geometry.size.height)
             }.frame(alignment: .center)
+        }
+        .onChange(of: selectedGrade) { _ in
+            fetchAttendanceLog()
+        }
+        .onChange(of: selectedClass) { _ in
+            fetchAttendanceLog()
+        }
+    }
+    
+    func fetchAttendanceLog() {
+        withAnimation(.easeInOut) { self.isFetcing = true }
+        getClassHistory(api.accessToken, grade: selectedGrade, klass: selectedClass) { result in
+            switch result {
+            case .success(let attendanceLog):
+                withAnimation(.easeInOut) { self.attendanceLog = attendanceLog }
+            case .failure(_):
+                print("get attendanceLog failed in Attendance HistoryView")
+            }
+            withAnimation(.easeInOut) { self.isFetcing = false }
         }
     }
     
