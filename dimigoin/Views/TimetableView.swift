@@ -63,9 +63,19 @@ struct TimetableItem: View {
                                         .frame(width: abs(geometry.size.width-40)/5, height: 20)
                                         .padding(.top, 15)
                                         .padding(.bottom, 15)
-                                        
+
                                 }
                             }
+//                            ForEach(1...7, id: \.self) { lecture in
+//                                VStack(spacing: 0) {
+//                                    Text("과목")
+//                                        .notoSans(.medium, size: 18, getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
+//                                        .frame(width: abs(geometry.size.width-40)/5, height: 20)
+//                                        .padding(.top, 15)
+//                                        .padding(.bottom, 15)
+//
+//                                }
+//                            }
                         }
                     }
                 }

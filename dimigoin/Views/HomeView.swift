@@ -28,7 +28,7 @@ struct HomeView: View {
                             Image("school").resizable().aspectRatio(contentMode: .fit).frame(maxWidth: .infinity).opacity(0.3).unredacted()
                         }
                         HStack {
-                            Image("logo").templateImage(height: 38, Color.accent).unredacted()
+                            Image("logo").templateImage(height: 38, Color.accent)
                                 .matchedGeometryEffect(id: "logo", in: homeview)
                             Spacer()
                             Button(action: {

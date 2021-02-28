@@ -55,7 +55,6 @@ struct MainView: View {
                         TapBar(index: $tapbarIndex, isShowIdCard: $isShowIdCard, isFetching: $api.isFetching)
                             .offset(x: -geometry.size.width*2)
                             .blur(radius: alertManager.isShowing ? 2 : 0)
-                            .unredacted()
                     }
                     Color.black.edgesIgnoringSafeArea(.all).opacity(alertManager.isShowing ? 0.1 : 0)
                     AlertView()
