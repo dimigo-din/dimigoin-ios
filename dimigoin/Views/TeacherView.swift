@@ -21,6 +21,7 @@ struct TeacherView: View {
     @State var selectedClass: Int = 1
     
     @State var isFetching: Bool = false
+    
     init() {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
@@ -35,12 +36,11 @@ struct TeacherView: View {
                             Text(getStringTimeZone()).notoSans(.bold, size: 13, Color.gray4)
                             HStack {
                                 Text("\(selectedGrade)학년 \(selectedClass)반").notoSans(.black, size: 30)
-//                                Button(action: {
-//                                    api.logout()
-//                                }) {
-//                                    Image("logout")
-//                                }
-                                
+                                Button(action: {
+                                    api.logout()
+                                }) {
+                                    Image("logout").templateImage(width: 25, Color.accent)
+                                }
                                 Spacer()
                                 Button(action: {
                                     withAnimation(.spring()) {
@@ -120,7 +120,6 @@ struct TeacherView: View {
     func fetchAttendanceList() {
         withAnimation(.easeInOut) { self.isFetching = true }
         getAttendenceList(api.accessToken, grade: selectedGrade, klass: selectedClass) { result in
-            print(self.attendanceList)
             switch result {
             case .success(let attendanceList):
                 withAnimation(.easeInOut) { self.attendanceList = attendanceList }
