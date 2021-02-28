@@ -16,13 +16,8 @@
 
 ---
 
-<p align="row">
-<img src= "src/1-급식.png" width="19%" >
-<img src= "src/2-시간표.png" width="19%" >
-<img src= "src/3-인강실.png" width="19%" >
-<img src= "src/4-학생증.png" width="19%" >
-<img src= "src/5-다크모드.png" width="19%" >
-</p>
+
+
 
 
 ## 🕹 주요 기능들
