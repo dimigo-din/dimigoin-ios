@@ -23,7 +23,7 @@ struct MealView: View {
                         HStack {
                             VStack(alignment: .leading, spacing: 0) {
                                 Text(getDateString()).notoSans(.bold, size: 13, Color.gray4)
-                                Text("오늘의 급식").notoSans(.black, size: 30)
+                                Text("급식표").notoSans(.black, size: 30)
                             }
                             Spacer()
                             NavigationLink(destination: WeeklyMealView().environmentObject(api)) {
