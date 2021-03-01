@@ -49,12 +49,13 @@ struct MainView: View {
                                 .environmentObject(api)
                         }.frame(width: geometry.size.width*5)
                         .offset(x: -geometry.size.width*CGFloat(tapbarIndex))
-                    }.blur(radius: alertManager.isShowing ? 2 : 0)
+                    }
+//                    .blur(radius: alertManager.isShowing ? 2 : 0)
                     VStack {
                         Spacer()
                         TapBar(index: $tapbarIndex, isShowIdCard: $isShowIdCard, isFetching: $api.isFetching)
                             .offset(x: -geometry.size.width*2)
-                            .blur(radius: alertManager.isShowing ? 2 : 0)
+//                            .blur(radius: alertManager.isShowing ? 2 : 0)
                     }
                     Color.black.edgesIgnoringSafeArea(.all).opacity(alertManager.isShowing ? 0.1 : 0)
                     AlertView()
