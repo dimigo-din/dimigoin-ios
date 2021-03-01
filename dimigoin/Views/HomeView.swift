@@ -18,7 +18,7 @@ struct HomeView: View {
     @Namespace var homeview
     
     var body: some View {
-        if !api.isFetching {
+//        if !api.isFetching {
             GeometryReader { geometry in
                 ScrollView(showsIndicators: false) {
                 VStack {
@@ -30,6 +30,7 @@ struct HomeView: View {
                         HStack {
                             Image("logo").templateImage(height: 38, Color.accent)
                                 .matchedGeometryEffect(id: "logo", in: homeview)
+                                .unredacted()
                             Spacer()
                             Button(action: {
                                 alertManager.logoutCheck()
@@ -71,14 +72,14 @@ struct HomeView: View {
                 }.frame(width: geometry.size.width)
             }
             }
-        } else {
-            ZStack {
-                Color(UIColor.systemBackground).edgesIgnoringSafeArea(.all)
-                Image("logo").templateImage(width: 73, Color.accent)
-                    .matchedGeometryEffect(id: "logo", in: homeview)
-                    .offset(y: -50)
-            }
-        }
+//        } else {
+//            ZStack {
+//                Color(UIColor.systemBackground).edgesIgnoringSafeArea(.all)
+//                Image("logo").templateImage(width: 73, Color.accent)
+//                    .matchedGeometryEffect(id: "logo", in: homeview)
+//                    .offset(y: -50)
+//            }
+//        }
     }
     func calMidSpace(geo: GeometryProxy) -> CGFloat {
         var space = geo.size.height-tabBarSize-420-(14*geo.size.width/75)

@@ -27,10 +27,12 @@ struct ContentView: View {
                     if api.user.type == .teacher {
                         TeacherView()
                             .environmentObject(api)
+                            .placeholderWhileFetching(isFetching: $api.isFetching)
                     } else {
                         MainView(tapbarIdx: tapbarIdx)
                             .environmentObject(api)
                             .environmentObject(alertManager)
+                            .placeholderWhileFetching(isFetching: $api.isFetching)
                     }
                 } else {
                     LoginView()

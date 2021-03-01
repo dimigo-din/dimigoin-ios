@@ -96,7 +96,7 @@ struct AttendanceChart: View {
     func getAttendanceCountByPlaceType(placeType: PlaceType) -> Int {
 //        api.attendanceList.filter { $0.attendanceLog[0].place.type == placeType }.count
         switch placeType {
-        case .classroom: return attendanceList.filter { !$0.isRegistered }.count
+        case .classroom: return attendanceList.filter { !$0.isRegistered }.count + attendanceList.filter { $0.isRegistered }.filter { $0.attendanceLog[0].place.type == .classroom }.count
         case .etc:
             return attendanceList.filter { $0.isRegistered }.filter { $0.attendanceLog[0].place.type == .etc }.count
         case .circle:
