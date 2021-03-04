@@ -27,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        FirebaseConfiguration.shared.setLoggerLevel(FirebaseLoggerLevel.min)
         FirebaseApp.configure()
         Crashlytics.crashlytics()
         if #available(iOS 10.0, *) {

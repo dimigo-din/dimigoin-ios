@@ -10,6 +10,7 @@ import SwiftUI
 import Alamofire
 import SwiftyJSON
 import DimigoinKit
+import Firebase
 
 struct LoginView: View {
     @EnvironmentObject var api: DimigoinAPI
@@ -52,6 +53,7 @@ struct LoginView: View {
                             api.login(username, password, FCMToken) { result in
                                 if result == true {
                                     self.isLoading = false
+                                    
                                 } else {
                                     self.isLoading = false
                                     self.showErrorMessage = true
