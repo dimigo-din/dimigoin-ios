@@ -51,6 +51,7 @@ struct HomeView: View {
                                             Circle().stroke(Color.accent, lineWidth: 2)
                                         )
                                         .accessibility(identifier: "profile")
+                                        .unredacted()
                                 }
                             }.onTapGesture {
                                 withAnimation(.spring()) {

@@ -88,6 +88,7 @@ struct AttendanceHistoryView: View {
     func fetchAttendanceLog() {
         withAnimation(.easeInOut) { self.isFetcing = true }
         getClassHistory(api.accessToken, grade: selectedGrade, klass: selectedClass) { result in
+            print(result)
             switch result {
             case .success(let attendanceLog):
                 withAnimation(.easeInOut) { self.attendanceLog = attendanceLog }

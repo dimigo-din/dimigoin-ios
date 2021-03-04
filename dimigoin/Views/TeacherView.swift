@@ -99,7 +99,7 @@ struct TeacherView: View {
                         .edgesIgnoringSafeArea(.all)
                 )
                 .edgesIgnoringSafeArea(.all)
-            }
+            }.unredacted()
             AttendanceDetailView(isShowing: $showDetailView, attendance: $selectedAttendance)
             AttendanceHistoryView(isShowing: $showHistoryView,
                                   selectedGrade: $selectedGrade,
