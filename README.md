@@ -16,6 +16,7 @@
 
 ---
 
+[설치하기](https://apps.apple.com/app/디미고인/id1548069749)
 
 
 
