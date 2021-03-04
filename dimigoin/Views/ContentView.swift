@@ -15,10 +15,9 @@ struct ContentView: View {
     var alertManager = AlertManager()
     var tapbarIdx = 2
     init() {
-        
-    }
-    init(tapbarIdx: Int) {
-        self.tapbarIdx = tapbarIdx
+        if needsUpdate() {
+            alertManager.createAlert("최신버전으로 업데이트 해주세요!", .warning)
+        }
     }
     var body: some View {
         NavigationView {

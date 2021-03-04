@@ -1008,7 +1008,7 @@
 				CODE_SIGN_ENTITLEMENTS = dimigoin/Application/Dimigoin.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 353;
+				CURRENT_PROJECT_VERSION = 355;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
@@ -1040,7 +1040,7 @@
 				CODE_SIGN_ENTITLEMENTS = dimigoin/Application/Dimigoin.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 353;
+				CURRENT_PROJECT_VERSION = 355;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				ENABLE_PREVIEWS = YES;
@@ -1114,7 +1114,7 @@
 				CODE_SIGN_ENTITLEMENTS = Widget/WidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 353;
+				CURRENT_PROJECT_VERSION = 355;
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				INFOPLIST_FILE = Widget/Info.plist;
@@ -1144,7 +1144,7 @@
 				CODE_SIGN_ENTITLEMENTS = Widget/WidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 353;
+				CURRENT_PROJECT_VERSION = 355;
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				INFOPLIST_FILE = Widget/Info.plist;
