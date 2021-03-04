@@ -46,38 +46,38 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             #endif
         }
     }
-    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        if let url = URLContexts.first?.url {
-            if url.absoluteString.starts(with: "widget://") {
-                print(url)
-                if let windowScene = scene as? UIWindowScene {
-                    let window = UIWindow(windowScene: windowScene)
-                    window.rootViewController = UIHostingController(rootView: ContentView(tapbarIdx: url.absoluteString ==
-                                                                        "widget://meal" ? 3 : 4))
-                    self.window = window
-                    window.makeKeyAndVisible()
-                    
-                    // MARK: UI테스트 - 다크모드
-                    if ProcessInfo.processInfo.arguments.contains("Darkmode") {
-                        window.overrideUserInterfaceStyle = .dark
-                    }
-                    
-                    // MARK: UI테스트 - 화이트모드
-                    if ProcessInfo.processInfo.arguments.contains("Lightmode") {
-                        window.overrideUserInterfaceStyle = .light
-                    }
-                    
-                    // Mac OS Catalyst 타이틀 바
-                    #if targetEnvironment(macCatalyst)
-                    if let titlebar = windowScene.titlebar {
-                        titlebar.titleVisibility = .hidden
-                        titlebar.toolbar = nil
-                    }
-                    #endif
-                }
-            }
-        }
-    }
+//    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+//        if let url = URLContexts.first?.url {
+//            if url.absoluteString.starts(with: "widget://") {
+//                print(url)
+//                if let windowScene = scene as? UIWindowScene {
+//                    let window = UIWindow(windowScene: windowScene)
+//                    window.rootViewController = UIHostingController(rootView: ContentView(tapbarIdx: url.absoluteString ==
+//                                                                        "widget://meal" ? 3 : 4))
+//                    self.window = window
+//                    window.makeKeyAndVisible()
+//
+//                    // MARK: UI테스트 - 다크모드
+//                    if ProcessInfo.processInfo.arguments.contains("Darkmode") {
+//                        window.overrideUserInterfaceStyle = .dark
+//                    }
+//
+//                    // MARK: UI테스트 - 화이트모드
+//                    if ProcessInfo.processInfo.arguments.contains("Lightmode") {
+//                        window.overrideUserInterfaceStyle = .light
+//                    }
+//
+//                    // Mac OS Catalyst 타이틀 바
+//                    #if targetEnvironment(macCatalyst)
+//                    if let titlebar = windowScene.titlebar {
+//                        titlebar.titleVisibility = .hidden
+//                        titlebar.toolbar = nil
+//                    }
+//                    #endif
+//                }
+//            }
+//        }
+//    }
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
