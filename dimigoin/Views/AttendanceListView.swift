@@ -212,6 +212,7 @@ struct AttendanceListItem: View {
                     .background(Color("gray6").cornerRadius(5))
             }
         }.horizonPadding()
+        .opacity(attendance.isRegistered ? 1 : 0.4)
     }
 }
 
