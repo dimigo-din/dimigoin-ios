@@ -107,7 +107,7 @@ struct IngangView: View {
                 case .alreadyApplied:
                     self.alertManager.createAlert("신청에 실패했습니다.", sub: "이미 신청한 인강입니다.", .danger)
                 case .full:
-                    self.alertManager.createAlert("신청에 실패했습니다.", sub: "신청 최대 인원에 도달했습니다.", .danger)
+                    self.alertManager.createAlert("신청에 실패했습니다.", sub: "신청 최대 인원에 도달했거나 인강 신청 시간이 아닙니다.", .danger)
                 case .noIngang:
                     self.alertManager.createAlert("신청에 실패했습니다.", sub: "인강이 없습니다.", .danger)
                 case .noTicket:
@@ -134,7 +134,7 @@ struct IngangView: View {
                 case .alreadyApplied:
                     self.alertManager.createAlert("신청에 실패했습니다.", sub: "이미 신청한 인강입니다.", .danger)
                 case .full:
-                    self.alertManager.createAlert("신청에 실패했습니다.", sub: "신청 최대 인원에 도달했습니다.", .danger)
+                    self.alertManager.createAlert("신청에 실패했습니다.", sub: "신청 최대 인원에 도달했거나 인강 신청 시간이 아닙니다.", .danger)
                 case .noIngang:
                     self.alertManager.createAlert("신청에 실패했습니다.", sub: "인강이 없습니다.", .danger)
                 case .noTicket:
