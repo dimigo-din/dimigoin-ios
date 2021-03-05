@@ -25,6 +25,7 @@ struct TeacherView: View {
     init() {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().tintColor = UIColor(Color.accent)
     }
     
     var body: some View {

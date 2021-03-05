@@ -19,6 +19,7 @@ struct SelectPlaceView: View {
         self._selectedPlace = selectedPlace
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().tintColor = UIColor(Color.accent)
     }
     
     var body: some View {
