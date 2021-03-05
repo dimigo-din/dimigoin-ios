@@ -23,10 +23,15 @@ struct ContentView: View {
         NavigationView {
             Group {
                 if api.isLoggedIn {
+//                    MealRegisterView()
+//                        .environmentObject(api)
                     if api.user.type == .teacher {
                         TeacherView()
                             .environmentObject(api)
                             .placeholderWhileFetching(isFetching: $api.isFetching)
+                    } else if api.user.type == .aramark {
+                        MealRegisterView()
+                            .environmentObject(api)
                     } else {
                         MainView(tapbarIdx: tapbarIdx)
                             .environmentObject(api)
