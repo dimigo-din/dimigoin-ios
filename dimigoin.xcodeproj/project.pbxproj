@@ -47,6 +47,7 @@
 		4293263625B1E65F00BCD9A0 /* NanumSquareR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4293262E25B1E65F00BCD9A0 /* NanumSquareR.ttf */; };
 		4295F65825F1E4F5009289DB /* MealPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4295F65725F1E4F5009289DB /* MealPreviewView.swift */; };
 		4295F66325F1EC21009289DB /* TagField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4295F66225F1EC21009289DB /* TagField.swift */; };
+		4295F67625F1F95B009289DB /* RevealButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4295F67525F1F95B009289DB /* RevealButton.swift */; };
 		42980A1325C0704400F8AB82 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42980A1225C0704400F8AB82 /* DimigoinKit */; };
 		42980A1525C0704A00F8AB82 /* DimigoinKit in Frameworks */ = {isa = PBXBuildFile; productRef = 42980A1425C0704A00F8AB82 /* DimigoinKit */; };
 		429BA5B025A0A63D000749AC /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429BA5AF25A0A63D000749AC /* LocalAuthentication.framework */; };
@@ -183,6 +184,7 @@
 		4293262E25B1E65F00BCD9A0 /* NanumSquareR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareR.ttf; sourceTree = "<group>"; };
 		4295F65725F1E4F5009289DB /* MealPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPreviewView.swift; sourceTree = "<group>"; };
 		4295F66225F1EC21009289DB /* TagField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagField.swift; sourceTree = "<group>"; };
+		4295F67525F1F95B009289DB /* RevealButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealButton.swift; sourceTree = "<group>"; };
 		429BA5AF25A0A63D000749AC /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		429BA5D925A30FBB000749AC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		429FD87F24B202DA003A49AF /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -315,6 +317,7 @@
 				08C9ABFE24A74A83002AF525 /* TextFieldModifier.swift */,
 				088E5D4C24A889CB0031342D /* CardViewModifier.swift */,
 				423B71EF24B191AF0099CE3E /* ClearButton.swift */,
+				4295F67525F1F95B009289DB /* RevealButton.swift */,
 				42050CC025AA19E900C61D14 /* ColorExtension.swift */,
 				42E5B3EF25C986E50067692A /* keyboardResponsive.swift */,
 				42E5B3F425C988CF0067692A /* FetchPlaceholder.swift */,
@@ -780,6 +783,7 @@
 				42EFCE20255851B500F3DC5E /* IngangView.swift in Sources */,
 				42EFCDD82558188100F3DC5E /* TapBar.swift in Sources */,
 				42E5B4AA25D01FA10067692A /* AttendanceHistoryView.swift in Sources */,
+				4295F67625F1F95B009289DB /* RevealButton.swift in Sources */,
 				42ABA0B2255FA725001925BE /* CustomBox.swift in Sources */,
 				4295F65825F1E4F5009289DB /* MealPreviewView.swift in Sources */,
 				42050CC125AA19E900C61D14 /* ColorExtension.swift in Sources */,

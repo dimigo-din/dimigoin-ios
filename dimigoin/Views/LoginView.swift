@@ -19,6 +19,7 @@ struct LoginView: View {
     @State var password = ""
     @State var showErrorMessage: Bool = false
     @State var isLoading: Bool = false
+    @State var showPassword: Bool = false
     @Namespace var loginView
     
     var body: some View {
@@ -35,15 +36,27 @@ struct LoginView: View {
                             .modifier(TextFieldModifier(isError: $showErrorMessage))
                             .modifier(ClearButton(text: $username))
                         VSpacer(10)
-                        SecureField("패스워드를 입력하세요", text: $password, onCommit: {
-                            dismissKeyboard()
-                        }).textContentType(.password)
-                            .accessibility(identifier: "textfield.password")
-                            .modifier(TextFieldModifier(isError: $showErrorMessage))
-                            .modifier(ClearButton(text: $password))
+                        if showPassword {
+                            TextField("패스워드를 입력하세요", text: $password, onCommit: {
+                                dismissKeyboard()
+                            }).textContentType(.password)
+                                .accessibility(identifier: "textfield.password")
+                                .modifier(TextFieldModifier(isError: $showErrorMessage))
+                                .modifier(ClearButton(text: $password))
+                                .modifier(RevealButton(text: $password, showPassword: $showPassword))
+                        } else {
+                            SecureField("패스워드를 입력하세요", text: $password, onCommit: {
+                                dismissKeyboard()
+                            }).textContentType(.password)
+                                .accessibility(identifier: "textfield.password")
+                                .modifier(TextFieldModifier(isError: $showErrorMessage))
+                                .modifier(ClearButton(text: $password))
+                                .modifier(RevealButton(text: $password, showPassword: $showPassword))
+                        }
                         if showErrorMessage {
                             VSpacer(17)
-                            Text("존재하지 않는 아이디거나 잘못된 패스워드입니다.").notoSans(.medium, size: 12, Color("red"))
+                            Text("존재하지 않는 아이디거나 잘못된 패스워드입니다.")
+                                .notoSans(.medium, size: 12, Color("red"))
                             VSpacer(17)
                         } else {
                             VSpacer(30)
@@ -98,7 +111,6 @@ struct LoginView: View {
                     .matchedGeometryEffect(id: "logo", in: loginView)
                     .offset(y: -50)
                     .padding(.horizontal)
-
             }
         }
     }
