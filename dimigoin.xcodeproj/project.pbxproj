@@ -37,7 +37,6 @@
 		426F061E25DDE0FF00549E5C /* TeacherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426F061D25DDE0FF00549E5C /* TeacherView.swift */; };
 		4274147D259B0B0800235302 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4274147C259B0B0800235302 /* AuthenticationServices.framework */; };
 		427831D225F1E0CB00CA878A /* MealRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427831D125F1E0CB00CA878A /* MealRegisterView.swift */; };
-		428DC35E255EC40F00A4A7B5 /* WeeklyMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */; };
 		4293262F25B1E65F00BCD9A0 /* NanumSquareEB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4293262B25B1E65E00BCD9A0 /* NanumSquareEB.ttf */; };
 		4293263025B1E65F00BCD9A0 /* NanumSquareEB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4293262B25B1E65E00BCD9A0 /* NanumSquareEB.ttf */; };
 		4293263125B1E65F00BCD9A0 /* NanumSquareB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4293262C25B1E65E00BCD9A0 /* NanumSquareB.ttf */; };
@@ -178,7 +177,6 @@
 		428DC358255EB4F400A4A7B5 /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.otf"; sourceTree = "<group>"; };
 		428DC359255EB4F400A4A7B5 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		428DC35A255EB4F400A4A7B5 /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
-		428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyMealView.swift; sourceTree = "<group>"; };
 		4293262B25B1E65E00BCD9A0 /* NanumSquareEB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareEB.ttf; sourceTree = "<group>"; };
 		4293262C25B1E65E00BCD9A0 /* NanumSquareB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareB.ttf; sourceTree = "<group>"; };
 		4293262D25B1E65E00BCD9A0 /* NanumSquareL.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareL.ttf; sourceTree = "<group>"; };
@@ -344,7 +342,6 @@
 				4295F65725F1E4F5009289DB /* MealPreviewView.swift */,
 				42EFCDE525581C4500F3DC5E /* HomeView.swift */,
 				42EFCDEF25581D4E00F3DC5E /* MealView.swift */,
-				428DC35D255EC40F00A4A7B5 /* WeeklyMealView.swift */,
 				42EFCE1F255851B500F3DC5E /* IngangView.swift */,
 				42C72C042559FED900E3294E /* StudentIdCardView.swift */,
 				42ABA089255F5690001925BE /* TimetableView.swift */,
@@ -782,7 +779,6 @@
 				42EFCDF025581D4E00F3DC5E /* MealView.swift in Sources */,
 				42EFCE20255851B500F3DC5E /* IngangView.swift in Sources */,
 				42EFCDD82558188100F3DC5E /* TapBar.swift in Sources */,
-				428DC35E255EC40F00A4A7B5 /* WeeklyMealView.swift in Sources */,
 				42E5B4AA25D01FA10067692A /* AttendanceHistoryView.swift in Sources */,
 				42ABA0B2255FA725001925BE /* CustomBox.swift in Sources */,
 				4295F65825F1E4F5009289DB /* MealPreviewView.swift in Sources */,

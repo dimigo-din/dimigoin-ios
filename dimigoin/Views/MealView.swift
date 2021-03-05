@@ -26,9 +26,7 @@ struct MealView: View {
                                 Text("급식표").notoSans(.black, size: 30)
                             }
                             Spacer()
-                            NavigationLink(destination: WeeklyMealView().environmentObject(api)) {
-                                Image("meal").templateImage(height: 35, Color.accent)
-                            }
+                            Image("meal").templateImage(height: 35, Color.accent)
                         }
                         .horizonPadding()
                         .padding(.top, 30)
