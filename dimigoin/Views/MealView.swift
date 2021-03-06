@@ -61,7 +61,7 @@ struct MealView: View {
                         ForEach(0..<7, id: \.self) { index in
                             VStack {
                                 SectionHeader("아침", sub: "오전 7시 30분")
-                                Text(api.meals[index].breakfast)
+                                Text(api.meals[index].getBreakfastString())
                                     .notoSans(.regular, size: 12, Color("gray2"))
                                     .padding()
                                     .frame(width: abs(geometry.size.width-40), alignment: .leading)
@@ -69,7 +69,7 @@ struct MealView: View {
                                     .background(Color(UIColor.secondarySystemGroupedBackground).cornerRadius(10).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0))
                                 VSpacer(30)
                                 SectionHeader("점심", sub: "오후 12시 50분")
-                                Text(api.meals[index].lunch)
+                                Text(api.meals[index].getLunchString())
                                     .notoSans(.regular, size: 12, Color("gray2"))
                                     .padding()
                                     .frame(width: abs(geometry.size.width-40), alignment: .leading)
@@ -77,7 +77,7 @@ struct MealView: View {
                                     .background(Color(UIColor.secondarySystemGroupedBackground).cornerRadius(10).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0))
                                 VSpacer(30)
                                 SectionHeader("저녁", sub: "오후 6시 35분")
-                                Text(api.meals[index].dinner)
+                                Text(api.meals[index].getDinnerString())
                                     .notoSans(.regular, size: 12, Color("gray2"))
                                     .padding()
                                     .frame(width: abs(geometry.size.width-40), alignment: .leading)

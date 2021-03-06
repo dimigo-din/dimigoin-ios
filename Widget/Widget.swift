@@ -40,9 +40,9 @@ struct Provider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<WidgetEntry>) -> Void) {
         getMeal(from: getToday8DigitDateString()) { meal in
             let data = WidgetEntry(date: Date(),
-                                    breakfast: meal.breakfast,
-                                    lunch: meal.lunch,
-                                    dinner: meal.dinner)
+                                    breakfast: meal.getBreakfastString(),
+                                    lunch: meal.getLunchString(),
+                                    dinner: meal.getDinnerString())
             let nextUpdate = Calendar.current.date(byAdding: .minute, value: 15, to: Date())
             let timeline = Timeline(entries: [data], policy: .after(nextUpdate!))
             completion(timeline)
@@ -50,16 +50,16 @@ struct Provider: TimelineProvider {
     }
     func getSnapshot(in context: Context, completion: @escaping (WidgetEntry) -> Void) {
         let placeholderEntry = WidgetEntry(date: Date(),
-                                      breakfast: sampleMeal.breakfast,
-                                      lunch: sampleMeal.lunch,
-                                      dinner: sampleMeal.dinner)
+                                      breakfast: sampleMeal.getBreakfastString(),
+                                      lunch: sampleMeal.getLunchString(),
+                                      dinner: sampleMeal.getDinnerString())
         completion(placeholderEntry)
     }
     func placeholder(in context: Context) -> WidgetEntry {
         let placeholderData = WidgetEntry(date: Date(),
-                                      breakfast: sampleMeal.breakfast,
-                                      lunch: sampleMeal.lunch,
-                                      dinner: sampleMeal.dinner)
+                                      breakfast: sampleMeal.getBreakfastString(),
+                                      lunch: sampleMeal.getLunchString(),
+                                      dinner: sampleMeal.getDinnerString())
         return placeholderData
     }
 }
