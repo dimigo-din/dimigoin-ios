@@ -23,13 +23,16 @@ struct ContentView: View {
         NavigationView {
             Group {
                 if api.isLoggedIn {
-                   
                     if api.user.type == .teacher {
-//                        TeacherView()
-//                            .environmentObject(api)
-//                            .placeholderWhileFetching(isFetching: $api.isFetching)
-                        MealRegisterView()
-                            .environmentObject(api)
+                        if api.user.username == "aramark" {
+                            MealRegisterView()
+                                .environmentObject(api)
+                                .placeholderWhileFetching(isFetching: $api.isFetching)
+                        } else {
+                            TeacherView()
+                                .environmentObject(api)
+                                .placeholderWhileFetching(isFetching: $api.isFetching)
+                        }
                     } else if api.user.type == .aramark {
                         MealRegisterView()
                             .environmentObject(api)
