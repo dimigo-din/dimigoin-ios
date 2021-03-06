@@ -106,7 +106,6 @@ struct LoginView: View {
                     .environmentObject(alertManager)
             } else {
                 Color(UIColor.systemBackground).edgesIgnoringSafeArea(.all)
-                
                 Image("logo").templateImage(width: 73, Color.accent)
                     .matchedGeometryEffect(id: "logo", in: loginView)
                     .offset(y: -50)

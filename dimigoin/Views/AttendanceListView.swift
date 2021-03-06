@@ -185,7 +185,7 @@ struct AttendanceListItem: View {
     var body: some View {
         HStack {
             Text("\(String(format: "%02d", attendance.number))").notoSans(.bold, size: 15, Color.gray4)
-            Spacer()
+            HSpacer(30)
             Text("\(attendance.name)").notoSans(.bold, size: 15, Color.gray4)
             Spacer()
             if attendance.isRegistered {
