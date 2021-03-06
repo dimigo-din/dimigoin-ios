@@ -47,7 +47,7 @@ struct AttendanceDetailView: View {
                                         .notoSans(.medium, size: 12, Color.gray4)
                                     VSpacer(7)
                                     if attendance.isRegistered {
-                                        Text(attendance.attendanceLog[0].place.name)
+                                        Text(attendance.attendanceLog[0].time)
                                             .notoSans(.medium, size: 10, Color.gray4)
                                             .frame(width: 60, height: 20)
                                             .overlay(
