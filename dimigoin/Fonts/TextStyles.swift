@@ -17,6 +17,9 @@ enum NotoSansFontWeight: String {
 
 enum NanumSquareFontWeight: String {
     case extraBold = "EB"
+    case bold = "B"
+    case large = "L"
+    case regular = "R"
 }
 
 extension Text {

@@ -60,8 +60,6 @@ struct AttendanceListView: View {
                 }
             }
             AttendanceDetailView(isShowing: $showDetailView, attendance: $selectedAttendance)
-//            AttendanceHistoryView(isShowing: $showHistoryView, s)
-//                .environmentObject(api)
         }
         .navigationBarTitle("", displayMode: .inline)
         .navigationBarItems(trailing:

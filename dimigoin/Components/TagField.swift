@@ -21,48 +21,56 @@ public struct TagField : View {
             }, onCommit: {
                 appendNewTag()
             })
+            .font(Font.custom("NanumSquareR", size: 15))
             .fixedSize()
             .disableAutocorrection(true)
             .accentColor(color)
-            .id("TextField")
             .padding([.leading, .vertical])
             .frame(maxWidth: .infinity-40, alignment: .leading)
             .overlay(
-                RoundedRectangle(cornerRadius: 5)
+                RoundedRectangle(cornerRadius: 13)
                     .stroke(color, lineWidth: 0.75)
             )
             .onChange(of: newTag) { change in
                 if change.isContainSpaceAndNewlines() {
                     appendNewTag()
                 }
-                
             }
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    ForEach(tags, id: \.self) { tag in
-                        HStack {
-                            Text("\(tag)")
-                                .notoSans(.medium, size: 13)
-                                .fixedSize()
-                                .foregroundColor(color.opacity(0.8))
-                                .padding([.leading], 10)
-                                .padding(.vertical, 5)
-                            Button(action: {
-                                withAnimation {
-                                    tags.removeAll { $0 == tag }
-                                }
-                            }) {
-                                Image(systemName: "xmark")
+            ScrollViewReader { scrollView in
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(tags, id: \.self) { tag in
+                            HStack {
+                                Text("\(tag)")
+                                    .nanumSquare(.bold, size: 13)
+                                    .fixedSize()
                                     .foregroundColor(color.opacity(0.8))
-                                    .font(.system(size: 12, weight: .bold, design: .rounded))
-                                    .padding([.trailing], 10)
-                            }
-                        }.background(color.opacity(0.1).cornerRadius(.infinity))
+                                    .padding([.leading], 10)
+                                    .padding(.vertical, 5)
+                                    .id(tag)
+                                Button(action: {
+                                    withAnimation {
+                                        tags.removeAll { $0 == tag }
+                                    }
+                                }) {
+                                    Image(systemName: "xmark")
+                                        .foregroundColor(color.opacity(0.8))
+                                        .font(.system(size: 12, weight: .bold, design: .rounded))
+                                        .padding([.trailing], 10)
+                                }
+                            }.background(color.opacity(0.1).cornerRadius(.infinity))
+                        }
+                    }
+                }.padding(.vertical, 6)
+                .onChange(of: tags) { _ in
+                    if !tags.isEmpty {
+                        withAnimation(.spring()) {
+                            scrollView.scrollTo(tags[tags.count-1], anchor: .trailing)
+                        }
                     }
                     
                 }
-            }.padding(.top)
+            }
         }
     }
     func appendNewTag() {

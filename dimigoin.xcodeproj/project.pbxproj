@@ -361,7 +361,6 @@
 			isa = PBXGroup;
 			children = (
 				426B450225E8E5A500ADC3E3 /* NoticeItem.swift */,
-				086CC55024AF849D00456846 /* TextStyles.swift */,
 				42EFCE15255848C300F3DC5E /* LocationSelection.swift */,
 				42EFCDD72558188100F3DC5E /* TapBar.swift */,
 				086CC54E24AF819400456846 /* HSpacer.swift */,
@@ -445,6 +444,7 @@
 		428DC353255EB4F300A4A7B5 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				086CC55024AF849D00456846 /* TextStyles.swift */,
 				428DC356255EB4F400A4A7B5 /* Openas.ttf */,
 				428DC358255EB4F400A4A7B5 /* NotoSansKR-Black.otf */,
 				428DC355255EB4F400A4A7B5 /* NotoSansKR-Bold.otf */,
