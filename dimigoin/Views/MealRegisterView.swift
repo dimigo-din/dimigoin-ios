@@ -164,7 +164,22 @@ struct MealRegisterView: View {
                             }.horizonPadding()
                             VSpacer(8)
                             Button(action: {
-                                
+                                registerMeal(accessToken: api.accessToken,
+                                             date: date,
+                                             meal: Meal(breakfast, lunch, dinner)) { result in
+                                    switch result {
+                                    case .success(): break
+                                    case .failure(let error):
+                                        switch error {
+                                        case .alreadyExist:
+                                            patchMeal(accessToken: api.accessToken,
+                                                      date: date,
+                                                      meal: Meal(breakfast, lunch, dinner)) { }
+                                        default:
+                                            print("error")
+                                        }
+                                    }
+                                }
                             }) {
                                 Text("\(getDateString(from: date)) 급식 등록하기")
                                     .nanumSquare(.extraBold, size: 14, Color.white)
