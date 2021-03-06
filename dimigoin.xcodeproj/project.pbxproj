@@ -66,6 +66,7 @@
 		42B79D46253ED243003A8A7F /* WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 42B79D3B253ED242003A8A7F /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		42B79D71253F2D5D003A8A7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08C9ABEE24A74A54002AF525 /* Assets.xcassets */; };
 		42B79D8D253FD7D7003A8A7F /* NextMealWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B79D8C253FD7D7003A8A7F /* NextMealWidget.swift */; };
+		42BDF16E25F3A0170087553C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BDF16D25F3A0170087553C /* ImagePicker.swift */; };
 		42C72C052559FED900E3294E /* StudentIdCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C72C042559FED900E3294E /* StudentIdCardView.swift */; };
 		42DBE5A92536BABE00E5F4EA /* Openas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42DBE5A82536BABD00E5F4EA /* Openas.ttf */; };
 		42E5B3E325C97C730067692A /* AttendanceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5B3E225C97C730067692A /* AttendanceDetailView.swift */; };
@@ -200,6 +201,7 @@
 		42B79D41253ED243003A8A7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42B79D43253ED243003A8A7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42B79D8C253FD7D7003A8A7F /* NextMealWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextMealWidget.swift; sourceTree = "<group>"; };
+		42BDF16D25F3A0170087553C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		42C72C042559FED900E3294E /* StudentIdCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIdCardView.swift; sourceTree = "<group>"; };
 		42DBE5A82536BABD00E5F4EA /* Openas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Openas.ttf; sourceTree = "<group>"; };
 		42E5B3E225C97C730067692A /* AttendanceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceDetailView.swift; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 				42ABA0C4255FC4E2001925BE /* HorizonPadding.swift */,
 				42E5B3F925C98BFF0067692A /* RefreshableScrollView.swift */,
 				4295F66225F1EC21009289DB /* TagField.swift */,
+				42BDF16D25F3A0170087553C /* ImagePicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -775,6 +778,7 @@
 				42524E2C25621BF30021F48B /* VSpacer.swift in Sources */,
 				42AE3CFD25C59A8100ACC130 /* AttendanceListView.swift in Sources */,
 				08C9AC1724A74A83002AF525 /* MainView.swift in Sources */,
+				42BDF16E25F3A0170087553C /* ImagePicker.swift in Sources */,
 				4295F66325F1EC21009289DB /* TagField.swift in Sources */,
 				42C72C052559FED900E3294E /* StudentIdCardView.swift in Sources */,
 				08C9ABE924A74A53002AF525 /* AppDelegate.swift in Sources */,
