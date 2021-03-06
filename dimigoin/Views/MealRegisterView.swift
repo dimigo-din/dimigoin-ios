@@ -33,6 +33,11 @@ struct MealRegisterView: View {
                                 Text("디미고인").notoSans(.bold, size: 13, Color.gray4)
                                 HStack {
                                     Text("급식 등록").notoSans(.black, size: 30)
+                                    Button(action: {
+                                        api.logout()
+                                    }) {
+                                        Image("logout").templateImage(width: 25, Color.accent)
+                                    }
                                     Spacer()
                                     if breakfast.isEmpty && lunch.isEmpty && dinner.isEmpty {
                                         Text("미리보기")
@@ -63,7 +68,9 @@ struct MealRegisterView: View {
                             }
                         }.horizonPadding()
                         HStack {
-                            Text("날짜를 선택해주세요").notoSans(.medium, size: 12, Color.gray4)
+                            Text("날짜를 선택해주세요")
+                                .nanumSquare(.regular, size: 14, Color.gray4)
+                                .padding(.leading)
                             Spacer()
                             DatePicker("등록 날짜를 선택해주세요", selection: $date, displayedComponents: .date)
                                 .accentColor(Color.accent)
@@ -82,8 +89,9 @@ struct MealRegisterView: View {
                         Button(action: {
                             
                         }) {
-                            Text("등록하기")
-                                .notoSans(.bold, size: 18)
+                            Text("\(getDateString(from: date)) 급식 등록하기")
+                                .nanumSquare(.extraBold, size: 14, Color.white)
+//                                .notoSans(.bold, size: 18)
                                 .foregroundColor(Color.white)
                                 .frame(width: abs(geometry.size.width-40), height: 50)
                                 .background(Color.accent.cornerRadius(10))

@@ -23,21 +23,22 @@ struct ContentView: View {
         NavigationView {
             Group {
                 if api.isLoggedIn {
-                    MealRegisterView()
-                        .environmentObject(api)
-//                    if api.user.type == .teacher {
+                   
+                    if api.user.type == .teacher {
 //                        TeacherView()
 //                            .environmentObject(api)
 //                            .placeholderWhileFetching(isFetching: $api.isFetching)
-//                    } else if api.user.type == .aramark {
-//                        MealRegisterView()
-//                            .environmentObject(api)
-//                    } else {
-//                        MainView(tapbarIdx: tapbarIdx)
-//                            .environmentObject(api)
-//                            .environmentObject(alertManager)
-//                            .placeholderWhileFetching(isFetching: $api.isFetching)
-//                    }
+                        MealRegisterView()
+                            .environmentObject(api)
+                    } else if api.user.type == .aramark {
+                        MealRegisterView()
+                            .environmentObject(api)
+                    } else {
+                        MainView(tapbarIdx: tapbarIdx)
+                            .environmentObject(api)
+                            .environmentObject(alertManager)
+                            .placeholderWhileFetching(isFetching: $api.isFetching)
+                    }
                 } else {
                     LoginView()
                         .environmentObject(api)
