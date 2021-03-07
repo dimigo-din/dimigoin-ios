@@ -11,17 +11,20 @@ import DimigoinKit
 import TagField
 
 struct MealRegisterView: View {
+    @EnvironmentObject var api: DimigoinAPI
+    @EnvironmentObject var alertManager: AlertManager
+    
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
 
-    @EnvironmentObject var api: DimigoinAPI
     @State private var date = Date()
-    @State var breakfast: [String] = []
-    @State var lunch: [String] = []
-    @State var dinner: [String] = []
-    @State var isShowImagePreview: Bool = false
-    @Namespace var mealRegisterView
+    @State private var breakfast: [String] = []
+    @State private var lunch: [String] = []
+    @State private var dinner: [String] = []
+    @State private var isShowImagePreview: Bool = false
+    @State private var isFetching: Bool = false
+    @Namespace private var mealRegisterView
 
     init() {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
@@ -92,6 +95,8 @@ struct MealRegisterView: View {
                                                 .notoSans(.bold, size: 12, Color.white)
                                                 .frame(width: 74, height: 25)
                                                 .background(Color.accent.cornerRadius(13))
+                                        }.onTapGesture {
+                                            api.fetchMealData()
                                         }
                                     }
                                 }
@@ -163,34 +168,49 @@ struct MealRegisterView: View {
                                 }
                             }.horizonPadding()
                             VSpacer(8)
-                            Button(action: {
-                                registerMeal(accessToken: api.accessToken,
-                                             date: date,
-                                             meal: Meal(breakfast, lunch, dinner)) { result in
-                                    switch result {
-                                    case .success(): break
-                                    case .failure(let error):
-                                        switch error {
-                                        case .alreadyExist:
-                                            patchMeal(accessToken: api.accessToken,
-                                                      date: date,
-                                                      meal: Meal(breakfast, lunch, dinner)) { }
-                                        default:
-                                            print("error")
-                                        }
-                                    }
-                                }
-                            }) {
-                                Text("\(getDateString(from: date)) 급식 등록하기")
-                                    .nanumSquare(.extraBold, size: 14, Color.white)
-    //                                .notoSans(.bold, size: 18)
-                                    .foregroundColor(Color.white)
+                            if isFetching {
+                                ProgressView()
                                     .frame(width: abs(geometry.size.width-40), height: 50)
-                                    .background(Color.accent.cornerRadius(10))
+                                    .background(Color.gray4.cornerRadius(10))
+                            } else {
+                                Button(action: {
+                                    withAnimation(.easeInOut) { self.isFetching = true }
+                                    registerMeal(accessToken: api.accessToken,
+                                                 date: date,
+                                                 meal: Meal(breakfast, lunch, dinner)) { result in
+                                        switch result {
+                                        case .success():
+                                            alertManager.createAlert("\(getDateString(from: date)) 급식 등록에 성공하였습니다.", .success)
+                                        case .failure(let error):
+                                            switch error {
+                                            case .alreadyExist:
+                                                patchMeal(accessToken: api.accessToken,
+                                                          date: date,
+                                                          meal: Meal(breakfast, lunch, dinner)) {
+                                                    self.alertManager.createAlert("\(getDateString(from: date)) 급식 수정에 성공하였습니다.", .success)
+                                                }
+                                            default:
+                                                alertManager.createAlert("오류가 발생하였습니다.", .danger)
+                                            }
+                                        }
+                                        withAnimation(.easeInOut) { self.isFetching = false }
+                                    }
+                                }) {
+                                    Text("\(getDateString(from: date)) 급식 등록하기")
+                                        .nanumSquare(.extraBold, size: 14, Color.white)
+                                        .foregroundColor(Color.white)
+                                        .frame(width: abs(geometry.size.width-40), height: 50)
+                                        .background(Color.accent.cornerRadius(10))
+                                }
                             }
                         }
                     }
                 }
+                Color.black.edgesIgnoringSafeArea(.all).opacity(alertManager.isShowing ? 0.1 : 0)
+                AlertView()
+                    .environmentObject(api)
+                    .environmentObject(alertManager)
+                    .ignoresSafeArea(.all)
                 
             }
             .sheet(isPresented: self.$isImagePickerDisplay) {

@@ -27,15 +27,13 @@ struct ContentView: View {
                         if api.user.username == "aramark" {
                             MealRegisterView()
                                 .environmentObject(api)
+                                .environmentObject(alertManager)
                                 .placeholderWhileFetching(isFetching: $api.isFetching)
                         } else {
                             TeacherView()
                                 .environmentObject(api)
                                 .placeholderWhileFetching(isFetching: $api.isFetching)
                         }
-                    } else if api.user.type == .aramark {
-                        MealRegisterView()
-                            .environmentObject(api)
                     } else {
                         MainView(tapbarIdx: tapbarIdx)
                             .environmentObject(api)
