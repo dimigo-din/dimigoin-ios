@@ -8,7 +8,6 @@
 
 import SwiftUI
 import DimigoinKit
-import TagField
 
 struct MealRegisterView: View {
     @EnvironmentObject var api: DimigoinAPI
@@ -95,8 +94,6 @@ struct MealRegisterView: View {
                                                 .notoSans(.bold, size: 12, Color.white)
                                                 .frame(width: 74, height: 25)
                                                 .background(Color.accent.cornerRadius(13))
-                                        }.onTapGesture {
-                                            api.fetchMealData()
                                         }
                                     }
                                 }
@@ -173,35 +170,55 @@ struct MealRegisterView: View {
                                     .frame(width: abs(geometry.size.width-40), height: 50)
                                     .background(Color.gray4.cornerRadius(10))
                             } else {
-                                Button(action: {
-                                    withAnimation(.easeInOut) { self.isFetching = true }
-                                    registerMeal(accessToken: api.accessToken,
-                                                 date: date,
-                                                 meal: Meal(breakfast, lunch, dinner)) { result in
-                                        switch result {
-                                        case .success():
-                                            alertManager.createAlert("\(getDateString(from: date)) 급식 등록에 성공하였습니다.", .success)
-                                        case .failure(let error):
-                                            switch error {
-                                            case .alreadyExist:
-                                                patchMeal(accessToken: api.accessToken,
-                                                          date: date,
-                                                          meal: Meal(breakfast, lunch, dinner)) {
-                                                    self.alertManager.createAlert("\(getDateString(from: date)) 급식 수정에 성공하였습니다.", .success)
-                                                }
-                                            default:
-                                                alertManager.createAlert("오류가 발생하였습니다.", .danger)
-                                            }
+                                HStack {
+                                    Button(action: {
+                                        withAnimation(.easeInOut) {
+                                            self.breakfast.removeAll()
+                                            self.lunch.removeAll()
+                                            self.dinner.removeAll()
                                         }
-                                        withAnimation(.easeInOut) { self.isFetching = false }
+                                    }) {
+                                        Image(systemName: "trash")
+                                            .foregroundColor(Color.white)
+                                            .frame(width: 50, height: 50)
+                                            .background(Color.gray4.cornerRadius(10))
                                     }
-                                }) {
-                                    Text("\(getDateString(from: date)) 급식 등록하기")
-                                        .nanumSquare(.extraBold, size: 14, Color.white)
-                                        .foregroundColor(Color.white)
-                                        .frame(width: abs(geometry.size.width-40), height: 50)
-                                        .background(Color.accent.cornerRadius(10))
+                                    HSpacer(10)
+                                    Button(action: {
+                                        withAnimation(.easeInOut) { self.isFetching = true }
+                                        registerMeal(accessToken: api.accessToken,
+                                                     date: date,
+                                                     meal: Meal(breakfast, lunch, dinner)) { result in
+                                            switch result {
+                                            case .success():
+                                                alertManager.createAlert("\(getDateString(from: date)) 급식 등록에 성공하였습니다.", .success)
+                                                withAnimation(.easeInOut) { self.isFetching = false }
+                                            case .failure(let error):
+                                                switch error {
+                                                case .alreadyExist:
+                                                    patchMeal(accessToken: api.accessToken,
+                                                              date: date,
+                                                              meal: Meal(breakfast, lunch, dinner)) {
+                                                        
+                                                        self.alertManager.createAlert("\(getDateString(from: date)) 급식 수정에 성공하였습니다.", .success)
+                                                        withAnimation(.easeInOut) { self.isFetching = false }
+                                                    }
+                                                default:
+                                                    alertManager.createAlert("오류가 발생하였습니다.", .danger)
+                                                    withAnimation(.easeInOut) { self.isFetching = false }
+                                                }
+                                            }
+                                            api.fetchMealData()
+                                        }
+                                    }) {
+                                        Text("\(getDateString(from: date)) 급식 등록하기")
+                                            .nanumSquare(.extraBold, size: 14, Color.white)
+                                            .foregroundColor(Color.white)
+                                            .frame(width: abs(geometry.size.width-40-60), height: 50)
+                                            .background(Color.accent.cornerRadius(10))
+                                    }
                                 }
+                                
                             }
                         }
                     }
@@ -217,6 +234,6 @@ struct MealRegisterView: View {
                 ImagePicker(selectedImage: self.$selectedImage, sourceType: self.sourceType)
             }
             .navigationBarTitle("", displayMode: .inline)
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
