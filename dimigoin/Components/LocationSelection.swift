@@ -82,7 +82,7 @@ struct LocationItem: View {
         VStack {
             Button(action: {
                 withAnimation(.easeInOut) { self.isFetching = true }
-                api.changeUserPlace(placeName: place.name, remark: "iOS") { result in
+                api.changeUserPlace(placeName: place.name, remark: "없음") { result in
                     switch result {
                     case .success(()):
                         self.api.fetchUserCurrentPlace {
