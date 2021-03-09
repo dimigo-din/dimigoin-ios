@@ -10,17 +10,13 @@ import SwiftUI
 import DimigoinKit
 
 struct MealPreviewView: View {
-    @State var breakfast: [String] = []
-    @State var lunch: [String] = []
-    @State var dinner: [String] = []
+    @State var meal: Meal = Meal()
     
-    init(_ breakfast: [String], _ lunch: [String], _ dinner: [String]) {
+    init(_ meal: Meal) {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().tintColor = UIColor(Color.accent)
-        self._breakfast = .init(wrappedValue: breakfast)
-        self._lunch = .init(wrappedValue: lunch)
-        self._dinner = .init(wrappedValue: dinner)
+        self._meal = .init(wrappedValue: meal)
     }
     
     var body: some View {
@@ -33,7 +29,7 @@ struct MealPreviewView: View {
                     }.ignoresSafeArea(.all)
                     ScrollView {
                         SectionHeader("아침", sub: "오전 7시 30분")
-                        Text(bindingMenus(menu: breakfast))
+                        Text(meal.getBreakfastString())
                             .notoSans(.regular, size: 12, Color("gray2"))
                             .padding()
                             .frame(width: abs(geometry.size.width-40), alignment: .leading)
@@ -41,7 +37,7 @@ struct MealPreviewView: View {
                             .background(Color(UIColor.secondarySystemGroupedBackground).cornerRadius(10).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0))
                         VSpacer(30)
                         SectionHeader("점심", sub: "오후 12시 50분")
-                        Text(bindingMenus(menu: lunch))
+                        Text(meal.getLunchString())
                             .notoSans(.regular, size: 12, Color("gray2"))
                             .padding()
                             .frame(width: abs(geometry.size.width-40), alignment: .leading)
@@ -49,7 +45,7 @@ struct MealPreviewView: View {
                             .background(Color(UIColor.secondarySystemGroupedBackground).cornerRadius(10).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0))
                         VSpacer(30)
                         SectionHeader("저녁", sub: "오후 6시 35분")
-                        Text(bindingMenus(menu: dinner))
+                        Text(meal.getDinnerString())
                             .notoSans(.regular, size: 12, Color("gray2"))
                             .padding()
                             .frame(width: abs(geometry.size.width-40), alignment: .leading)

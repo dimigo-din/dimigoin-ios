@@ -18,9 +18,7 @@ struct MealRegisterView: View {
     @State private var isImagePickerDisplay = false
 
     @State private var date = Date()
-    @State private var breakfast: [String] = []
-    @State private var lunch: [String] = []
-    @State private var dinner: [String] = []
+    @State private var meal = Meal()
     @State private var isShowImagePreview: Bool = false
     @State private var isFetching: Bool = false
     @Namespace private var mealRegisterView
@@ -70,7 +68,7 @@ struct MealRegisterView: View {
                                             Image("logout").templateImage(width: 25, Color.accent)
                                         }
                                         Spacer()
-                                        if breakfast.isEmpty && lunch.isEmpty && dinner.isEmpty {
+                                        if meal.breakfast.isEmpty && meal.lunch.isEmpty && meal.dinner.isEmpty {
                                             Text("미리보기")
                                                 .notoSans(.bold, size: 12, Color.white)
                                                 .frame(width: 74, height: 25)
@@ -78,7 +76,7 @@ struct MealRegisterView: View {
                                                 .opacity(0.5)
                                         } else {
                                             NavigationLink(destination:
-                                                MealPreviewView(breakfast, lunch, dinner)
+                                                MealPreviewView(meal)
                                                     
                                             ) {
                                                 Text("미리보기")
@@ -98,6 +96,7 @@ struct MealRegisterView: View {
                                     }
                                 }
                             }.horizonPadding()
+                            
                             HStack {
                                 Text("날짜를 선택해주세요")
                                     .nanumSquare(.regular, size: 14, Color.gray4)
@@ -108,74 +107,80 @@ struct MealRegisterView: View {
                                     .labelsHidden()
                             }.horizonPadding()
                             VSpacer(8)
-                            TagField(tags: $breakfast, placeholder: "아침 급식을 입력해주세요")
+                            TagField(tags: $meal.breakfast, placeholder: "아침 급식을 입력해주세요")
                                 .accentColor(Color.accent)
                                 .horizonPadding()
-                            TagField(tags: $lunch, placeholder: "점심 급식을 입력해주세요")
+                            TagField(tags: $meal.lunch, placeholder: "점심 급식을 입력해주세요")
                                 .accentColor(Color.accent)
                                 .horizonPadding()
-                            TagField(tags: $dinner, placeholder: "저녁 급식을 입력해주세요")
+                            TagField(tags: $meal.dinner, placeholder: "저녁 급식을 입력해주세요")
                                 .accentColor(Color.accent)
                                 .horizonPadding()
-                            HStack {
-                                if selectedImage != nil {
-                                    Image(uiImage: selectedImage!)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 100, height: 100)
-                                        .onTapGesture {
-                                            withAnimation(.spring()) { isShowImagePreview.toggle() }
-                                        }
-                                        .matchedGeometryEffect(id: "mealImage", in: mealRegisterView)
-                                } else {
-                                    Text("사진을 선택해주세요")
-                                        .nanumSquare(.regular, size: 14, Color.gray4)
-                                        .padding(.leading)
-                                }
-                                Spacer()
-                                VStack(spacing: 5) {
-                                    Button(action: {
-                                        self.sourceType = .camera
-                                        self.isImagePickerDisplay.toggle()
-                                    }) {
-                                        HStack {
-                                            Image(systemName: "camera")
-                                                .font(.system(size: 12, weight: .semibold))
-                                                .foregroundColor(Color.white)
-                                            Text("사진찍기")
-                                                .notoSans(.bold, size: 12, Color.white)
-                                                
-                                        }.frame(width: 90, height: 25)
-                                        .background(Color.accent.cornerRadius(13))
-                                    }
-                                    Button(action: {
-                                        self.sourceType = .photoLibrary
-                                        self.isImagePickerDisplay.toggle()
-                                    }) {
-                                        HStack {
-                                            Image(systemName: "photo")
-                                                .font(.system(size: 12, weight: .semibold))
-                                                .foregroundColor(Color.white)
-                                            Text("앨범열기")
-                                                .notoSans(.bold, size: 12, Color.white)
-                                                
-                                        }.frame(width: 90, height: 25)
-                                        .background(Color.accent.cornerRadius(13))
-                                    }
-                                }
-                            }.horizonPadding()
+//                            HStack {
+//                                if selectedImage != nil {
+//                                    Image(uiImage: selectedImage!)
+//                                        .resizable()
+//                                        .aspectRatio(contentMode: .fit)
+//                                        .frame(width: 100, height: 100)
+//                                        .onTapGesture {
+//                                            withAnimation(.spring()) { isShowImagePreview.toggle() }
+//                                        }
+//                                        .matchedGeometryEffect(id: "mealImage", in: mealRegisterView)
+//                                } else {
+//                                    Text("사진을 선택해주세요")
+//                                        .nanumSquare(.regular, size: 14, Color.gray4)
+//                                        .padding(.leading)
+//                                }
+//                                Spacer()
+//                                VStack(spacing: 5) {
+//                                    Button(action: {
+//                                        self.sourceType = .camera
+//                                        self.isImagePickerDisplay.toggle()
+//                                    }) {
+//                                        HStack {
+//                                            Image(systemName: "camera")
+//                                                .font(.system(size: 12, weight: .semibold))
+//                                                .foregroundColor(Color.white)
+//                                            Text("사진찍기")
+//                                                .notoSans(.bold, size: 12, Color.white)
+//
+//                                        }.frame(width: 90, height: 25)
+//                                        .background(Color.accent.cornerRadius(13))
+//                                    }
+//                                    Button(action: {
+//                                        self.sourceType = .photoLibrary
+//                                        self.isImagePickerDisplay.toggle()
+//                                    }) {
+//                                        HStack {
+//                                            Image(systemName: "photo")
+//                                                .font(.system(size: 12, weight: .semibold))
+//                                                .foregroundColor(Color.white)
+//                                            Text("앨범열기")
+//                                                .notoSans(.bold, size: 12, Color.white)
+//
+//                                        }.frame(width: 90, height: 25)
+//                                        .background(Color.accent.cornerRadius(13))
+//                                    }
+//                                }
+//                            }.horizonPadding()
                             VSpacer(8)
                             if isFetching {
-                                ProgressView()
-                                    .frame(width: abs(geometry.size.width-40), height: 50)
-                                    .background(Color.gray4.cornerRadius(10))
+                                HStack {
+                                    Image(systemName: "trash")
+                                        .foregroundColor(Color.white)
+                                        .frame(width: 50, height: 50)
+                                        .background(Color.gray4.cornerRadius(10))
+                                    HSpacer(10)
+                                    ProgressView()
+                                        .foregroundColor(Color.white)
+                                        .frame(width: abs(geometry.size.width-40-60), height: 50)
+                                        .background(Color.accent.cornerRadius(10))
+                                }
                             } else {
                                 HStack {
                                     Button(action: {
                                         withAnimation(.easeInOut) {
-                                            self.breakfast.removeAll()
-                                            self.lunch.removeAll()
-                                            self.dinner.removeAll()
+                                            self.meal = Meal()
                                         }
                                     }) {
                                         Image(systemName: "trash")
@@ -188,7 +193,7 @@ struct MealRegisterView: View {
                                         withAnimation(.easeInOut) { self.isFetching = true }
                                         registerMeal(accessToken: api.accessToken,
                                                      date: date,
-                                                     meal: Meal(breakfast, lunch, dinner)) { result in
+                                                     meal: meal) { result in
                                             switch result {
                                             case .success():
                                                 alertManager.createAlert("\(getDateString(from: date)) 급식 등록에 성공하였습니다.", .success)
@@ -198,7 +203,7 @@ struct MealRegisterView: View {
                                                 case .alreadyExist:
                                                     patchMeal(accessToken: api.accessToken,
                                                               date: date,
-                                                              meal: Meal(breakfast, lunch, dinner)) {
+                                                              meal: meal) {
                                                         
                                                         self.alertManager.createAlert("\(getDateString(from: date)) 급식 수정에 성공하였습니다.", .success)
                                                         withAnimation(.easeInOut) { self.isFetching = false }
@@ -218,7 +223,16 @@ struct MealRegisterView: View {
                                             .background(Color.accent.cornerRadius(10))
                                     }
                                 }
-                                
+                            }
+                        }
+                        .onChange(of: date) { _ in
+                            getMeal(from: date) { meal in
+                                withAnimation(.easeInOut) { self.meal = meal }
+                            }
+                        }
+                        .onAppear {
+                            getMeal(from: date) { meal in
+                                withAnimation(.easeInOut) { self.meal = meal }
                             }
                         }
                     }
