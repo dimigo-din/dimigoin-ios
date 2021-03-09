@@ -12,17 +12,9 @@ import DimigoinKit
 struct MealRegisterView: View {
     @EnvironmentObject var api: DimigoinAPI
     @EnvironmentObject var alertManager: AlertManager
-    
-    @State var sourceType: UIImagePickerController.SourceType = .photoLibrary
-    @State private var selectedImage: UIImage?
-    @State private var isImagePickerDisplay = false
-
     @State private var date = Date()
-    @State var meal = Meal()
+    @State private var meal = Meal()
     @State private var isFetching: Bool = false
-    @State var breakfastImage: UIImage?
-    @State var lunchImage: UIImage?
-    @State var dinnerImage: UIImage?
 
     init() {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
@@ -85,9 +77,9 @@ struct MealRegisterView: View {
                                 .labelsHidden()
                         }.horizonPadding()
                         VSpacer(8)
-                        MealInput(mealName: "아침", menus: $meal.breakfast, selectedImage: $meal.breakfastImage, sourceType: $sourceType, isImagePickerDisplay: $isImagePickerDisplay)
-                        MealInput(mealName: "점심", menus: $meal.lunch, selectedImage: $meal.lunchImage, sourceType: $sourceType, isImagePickerDisplay: $isImagePickerDisplay)
-                        MealInput(mealName: "저녁", menus: $meal.dinner, selectedImage: $meal.dinnerImage, sourceType: $sourceType, isImagePickerDisplay: $isImagePickerDisplay)
+                        MealInput(mealName: "아침", menus: $meal.breakfast, selectedImage: $meal.breakfastImage)
+                        MealInput(mealName: "점심", menus: $meal.lunch, selectedImage: $meal.lunchImage)
+                        MealInput(mealName: "저녁", menus: $meal.dinner, selectedImage: $meal.dinnerImage)
                         VSpacer(8)
                         if isFetching {
                             HStack {
@@ -150,6 +142,7 @@ struct MealRegisterView: View {
                             }
                         }
                     }
+                    .padding(.bottom, 20)
                     .onChange(of: date) { _ in
                         getMeal(from: date) { meal in
                             withAnimation(.easeInOut) { self.meal = meal }
@@ -161,16 +154,11 @@ struct MealRegisterView: View {
                         }
                     }
                 }
-                
                 Color.black.edgesIgnoringSafeArea(.all).opacity(alertManager.isShowing ? 0.1 : 0)
                 AlertView()
                     .environmentObject(api)
                     .environmentObject(alertManager)
                     .ignoresSafeArea(.all)
-                
-            }
-            .sheet(isPresented: self.$isImagePickerDisplay) {
-                ImagePicker(selectedImage: self.$selectedImage, sourceType: self.sourceType)
             }
             .navigationBarTitle("", displayMode: .inline)
         }.navigationViewStyle(StackNavigationViewStyle())
@@ -181,12 +169,12 @@ struct MealInput: View {
     @State var mealName: String
     @Binding var menus: [String]
     @Binding var selectedImage: UIImage?
-    @Binding var sourceType: UIImagePickerController.SourceType
-    @Binding var isImagePickerDisplay: Bool
+    @State var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    @State var showImagePicker: Bool = false
 
     var body: some View {
         VStack {
-            TagField(tags: $menus, placeholder: "급식을 입력해주세요")
+            TagField(tags: $menus, placeholder: "\(mealName) 급식을 입력해주세요")
                 .accentColor(Color.accent)
                 .horizonPadding()
             HStack {
@@ -194,7 +182,8 @@ struct MealInput: View {
                     Image(uiImage: selectedImage!)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 100, height: 100)
+                        .frame(height: 150)
+                        .cornerRadius(5)
                 } else {
                     Text("사진을 선택해주세요")
                         .nanumSquare(.regular, size: 14, Color.gray4)
@@ -204,7 +193,7 @@ struct MealInput: View {
                 HStack(spacing: 5) {
                     Button(action: {
                         self.sourceType = .camera
-                        self.isImagePickerDisplay.toggle()
+                        self.showImagePicker.toggle()
                     }) {
                         Image(systemName: "camera")
                             .font(.system(size: 12, weight: .semibold))
@@ -214,7 +203,7 @@ struct MealInput: View {
                     }
                     Button(action: {
                         self.sourceType = .photoLibrary
-                        self.isImagePickerDisplay.toggle()
+                        self.showImagePicker.toggle()
                     }) {
                         Image(systemName: "photo")
                             .font(.system(size: 15, weight: .semibold))
@@ -223,37 +212,10 @@ struct MealInput: View {
                             .background(Color.accent.cornerRadius(15))
                     }
                 }
-//                VStack(spacing: 5) {
-//                    Button(action: {
-//                        self.sourceType = .camera
-//                    }) {
-//                        HStack {
-//                            Image(systemName: "camera")
-//                                .font(.system(size: 12, weight: .semibold))
-//                                .foregroundColor(Color.white)
-//                            Text("사진찍기")
-//                                .notoSans(.bold, size: 12, Color.white)
-//
-//                        }.frame(width: 90, height: 25)
-//                        .background(Color.accent.cornerRadius(13))
-//                    }
-//                    Button(action: {
-//                        self.sourceType = .photoLibrary
-//                        self.isImagePickerDisplay.toggle()
-//                    }) {
-//                        HStack {
-//                            Image(systemName: "photo")
-//                                .font(.system(size: 12, weight: .semibold))
-//                                .foregroundColor(Color.white)
-//                            Text("앨범열기")
-//                                .notoSans(.bold, size: 12, Color.white)
-//
-//                        }.frame(width: 90, height: 25)
-//                        .background(Color.accent.cornerRadius(13))
-//                    }
-//                }
             }.horizonPadding()
         }
-        
+        .sheet(isPresented: self.$showImagePicker) {
+            ImagePicker(selectedImage: self.$selectedImage, sourceType: self.sourceType)
+        }
     }
 }
