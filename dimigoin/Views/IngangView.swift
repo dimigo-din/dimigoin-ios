@@ -26,7 +26,7 @@ struct IngangView: View {
                         HStack {
                             VStack(alignment: .leading, spacing: 0) {
                                 Text(ingang.timeString).notoSans(.bold, size: 10, Color.accent)
-                                Text(ingang.title).notoSans(.bold, size: 21)
+                                Text(ingang.title.localized).notoSans(.bold, size: 21)
                             }
                             Spacer()
                         }
@@ -175,7 +175,9 @@ struct TicketStatusView: View {
                     VStack(alignment: .leading) {
                         HStack {
                             Image("ticket").templateImage(width: 15, Color.accent)
-                            Text("남은 티켓 \(api.weeklyRemainTicket)/\(api.weeklyTicketCount)").notoSans(.bold, size: 10, Color.accent)
+                            Text("남은 티켓").notoSans(.bold, size: 10, Color.accent)
+                            +
+                            Text(" \(api.weeklyRemainTicket)/\(api.weeklyTicketCount)").notoSans(.bold, size: 10, Color.accent)
                         }
                     }.padding(.trailing, horizontalSizeClass == .compact ? 50 : 0)
                     if horizontalSizeClass != .compact {

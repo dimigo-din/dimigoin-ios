@@ -8,43 +8,91 @@
 
 // English
 
-//"내정보" = "My Page";
-//"인강실" = "Ingang";
-//"메인" = "Main";
-//"급식" = "Meal";
-//"시간표" = "TimeTable";
-//"교실" = "Class";
-//"안정실" = "Relaxation";
-//"세탁" = "Laundry";
-//"동아리" = "Club";
-//"기타" = "Extras";
-//"방과후 1타임" = "After School 1st";
-//"방과후 2타임" = "After School 2nd";
-//"야간자율학습 1타임" = "1st Night Self Study";
-//"야간자율학습 2타임" = "2nd Night Self Study";
-//"자습 현황" = "Location";
-//"오전" = "Am";
-//"신청하기" = "Apply";
-//"취소하기" = "Cancel";
-//"월" = "Mon";
-//"화" = "Tue";
-//"수" = "Wed";
-//"목" = "Thu";
-//"금" = "Fri";
-//"오늘의 급식" = "Today's Meal";
-//"아침" = "Breakfast";
-//"점심" = "Lunch";
-//"저녁" = "Dinner";
-//"현원" = "Total";
-//"총원" = "Max";
-//"1타임" = "1st";
-//"2타임" = "2nd";
-//"오전 7시 30분" = "AM 7:30";
-//"오후 12시 50분" = "PM 12:50";
-//"오후 6시 35분" = "PM 6:35";
-//"공지사항" = "Notice";
-//"더보기" = "More";
-//"신청 안내" = "Information";
-//"로그아웃" = "LOGOUT";
-//"우리반 신청자" = "Applicants";
-//"나의 신청현황" = "My Resolvations";
+// Login View
+"디미고인"="Dimigoin";
+"날짜를 선택해주세요"="Dimigoin";
+"아이디를 입력하세요"="ID";
+"패스워드를 입력하세요"="Password";
+"로그인"="Login";
+"아이디 또는 비밀번호를 잊으셨나요?"="Did you forgot your ID or Password?";
+"존재하지 않는 아이디거나 잘못된 패스워드입니다."="Not Existing ID or Wrong Password";
+
+// Tap bar
+"학생증"="IDCard";
+"인강실"="Laptop";
+"메인"="Home";
+"급식표"="Meal";
+"시간표"="Timetable";
+
+// Home View
+"자세히"="More";
+"자습 현황"="Location";
+"교실"="Class";
+"안정실" = "Medic";
+"인강실"="Laptop";
+"세탁"="Laundry";
+"기타"="Etc";
+"아침"="Breakfast";
+"점심"="Lunch";
+"저녁"="Dinner";
+"방과후 1타임"="1st After School";
+"방과후 1타임"="2nd After School";
+"저녁시간"="Dinner";
+"학과시간"="School";
+
+// IDCardView
+"모바일 학생증"="Mobile ID Card";
+"터치하여 모바일 학생증 열기"="Tap to View ID Card";
+"사용 전 다음 내용을 반드시 읽어주세요"="Read it before use ID card";
+"학과"="Major";
+"학번"="Serial";
+"생년월일"="Birth";
+"남은 시간"="Time Left";
+"남은 티켓"="Ticket Left";
+"이곳을 눌러 닫기"="Close";
+"이비즈니스과"="E-Buisness";
+"디지털컨텐츠과"="Digital Contents";
+"웹프로그래밍과"="Web Programming";
+"해킹방어과"="Hacking Defense";
+
+// IngangView
+"야간자율학습"="Night Self-Study";
+"야간자율학습 1타임"="1st Night Self-Study";
+"야간자율학습 2타임"="2nd Night Self-Study";
+"신청가능"="Empty";
+"신청하기"="Apply";
+"취소하기"="Cancel";
+
+// Meal View
+"월"="Mon";
+"화"="Tue";
+"수"="Wed";
+"목"="Thu";
+"금"="Fri";
+"토"="Sat";
+"일"="Sun";
+"오전 7시 30분"="AM 7:30";
+"오후 12시 50분"="PM 12:50";
+"오후 6시 35분"="PM 6:35";
+
+// Timetable View
+"%d학년 %d반"="%d-%d";
+
+// Alert View
+"최신버전으로 업데이트 해주세요!"="Please Update To Latest Version!";
+"정말 로그아웃 하시겠습니까?"="Ensure Logout?";
+"확인"="Sure";
+"취소"="Cancel";
+
+// Select Location View
+"야간자율학습 학생현황"="Attendance Log";
+"장소를 선택해주세요"="Select Your Location";
+"선택완료"="Select";
+
+// Attendance List View
+"동아리실"="Club";
+"총원"="Total";
+"이름으로 검색하기"="Search with name";
+"정보 없음"="None";
+// Teacher View
+

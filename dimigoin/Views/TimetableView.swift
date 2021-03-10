@@ -18,7 +18,7 @@ struct TimetableView: View {
             ScrollView(showsIndicators: false) {
                 HStack {
                     VStack(alignment: .leading, spacing: 0) {
-                        Text(NSLocalizedString("\(api.user.grade)학년 \(api.user.klass)반", comment: ""))
+                        Text("\(api.user.grade)학년 \(api.user.klass)반".localized)
                             .notoSans(.bold, size: 13, Color.gray4)
                         Text(NSLocalizedString("시간표", comment: ""))
                             .notoSans(.black, size: 30)
@@ -66,16 +66,6 @@ struct TimetableItem: View {
 
                                 }
                             }
-//                            ForEach(1...7, id: \.self) { lecture in
-//                                VStack(spacing: 0) {
-//                                    Text("과목")
-//                                        .notoSans(.medium, size: 18, getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
-//                                        .frame(width: abs(geometry.size.width-40)/5, height: 20)
-//                                        .padding(.top, 15)
-//                                        .padding(.bottom, 15)
-//
-//                                }
-//                            }
                         }
                     }
                 }

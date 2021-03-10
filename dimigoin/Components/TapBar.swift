@@ -96,7 +96,7 @@ struct TapBarButton: View {
                 
                 VSpacer(item.icon == "idcard" ? 11.8 : 7.8)
                 
-                Text(item.label)
+                Text(item.label.localized)
                     .nanumSquare(.extraBold, size: 10)
                     .foregroundColor(self.index == item.idx ? Color.accent : Color("divider"))
             }

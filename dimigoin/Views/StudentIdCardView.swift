@@ -111,7 +111,7 @@ struct StudentIdCardView: View {
                                     Text("생년월일").font(Font.custom("NanumSquareB", size: 13)).foregroundColor(Color.black)
                                 }
                                 VStack(alignment: .leading, spacing: 11) {
-                                    Text(getMajorByClass(klass: api.user.klass)).font(Font.custom("NanumSquareL", size: 13)).gray4()
+                                    Text(getMajorByClass(klass: api.user.klass).localized).font(Font.custom("NanumSquareL", size: 13)).gray4()
                                     Text(String(api.user.serial)).font(Font.custom("NanumSquareL", size: 13)).gray4()
                                     Text(api.user.birthDay).font(Font.custom("NanumSquareL", size: 13)).gray4()
                                 }

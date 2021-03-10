@@ -38,7 +38,7 @@ struct MealView: View {
                                         self.selectedDay = index
                                     }
                                 }) {
-                                    Text(self.days[index])
+                                    Text(self.days[index].localized)
                                         .notoSans(.bold, size: 17)
                                         .foregroundColor(index == selectedDay ? Color.accent : Color.gray4)
                                         .frame(width: abs(geometry.size.width-40)/7)
