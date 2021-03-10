@@ -29,7 +29,7 @@ struct AlertView: View {
                     Text(alertManager.sub).notoSans(.medium, size: 12, Color("gray2")).multilineTextAlignment(.center)
                 } else if alertManager.alertType == .idCardReadme {
                     idcardReadme
-                } else if alertManager.alertType == .attendance {
+                } else if (alertManager.alertType == .attendance || alertManager.alertType == .manageAttendance) {
                     VSpacer(20)
                     Text("\(getStringTimeZone())").notoSans(.bold, size: 11, Color.accent)
                     Text("어디에 계신가요?").notoSans(.bold, size: 16)

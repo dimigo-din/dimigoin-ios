@@ -19,6 +19,7 @@ enum AlertType {
     case logout
     case idCardReadme
     case attendance
+    case manageAttendance
 }
 
 class AlertManager: ObservableObject {
@@ -57,6 +58,10 @@ class AlertManager: ObservableObject {
         self.alertType = .attendance
         showAlert()
     }
+    func manageAttendance() {
+        self.alertType = .manageAttendance
+        showAlert()
+    }
     func showAlert() {
         UIImpactFeedbackGenerator(style: .soft).impactOccurred()
         withAnimation(.easeInOut(duration: 0.25)) {
@@ -79,6 +84,8 @@ class AlertManager: ObservableObject {
         case .logout: return Color("accent")
         case .idCardReadme: return Color("gray4")
         case .attendance: return Color("accent")
+        case .manageAttendance: return Color.accent
+        
         }
     }
     
@@ -92,6 +99,7 @@ class AlertManager: ObservableObject {
         case .logout: return "logout"
         case .idCardReadme: return ""
         case .attendance: return ""
+        case .manageAttendance: return ""
         }
     }
     

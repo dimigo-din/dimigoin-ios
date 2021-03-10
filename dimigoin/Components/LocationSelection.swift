@@ -41,7 +41,11 @@ struct LocationSelectionView: View {
                 HStack {
                     Text(NSLocalizedString("자습 현황", comment: "")).notoSans(.bold, size: 21)
                     Spacer()
-                    NavigationLink(destination: AttendanceListView().environmentObject(api)) {
+                    NavigationLink(destination:
+                        AttendanceListView()
+                            .environmentObject(api)
+                            .environmentObject(alertManager)
+                    ) {
                         Text("자세히")
                             .notoSans(.bold, size: 12, Color.white)
                             .frame(width: 74, height: 25)
