@@ -12,7 +12,6 @@ import DimigoinKit
 
 struct MealPagerView: View {
     @EnvironmentObject var api: DimigoinAPI
-    private let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
     @State var dragOffset = CGSize.zero
     @State var currentCardIdx: Int = 0
     var geometry: GeometryProxy
@@ -40,12 +39,6 @@ struct MealPagerView: View {
             }.offset(x: (geometry.size.width-305)/2)
             .offset(x: -320*CGFloat(currentCardIdx)+dragOffset.width)
             .animation(.spring())
-            .onReceive(self.timer) { _ in
-                if dragOffset.width == 0 {
-                    nextCard()
-                }
-            }
-            
             .gesture(
                 DragGesture(minimumDistance: 3.0, coordinateSpace: .local)
                 .onChanged { value in
@@ -72,11 +65,7 @@ struct MealPagerView: View {
     }
     
     func nextCard() {
-        if currentCardIdx == 2 {
-            withAnimation(.spring()) {
-                currentCardIdx = 0
-            }
-        } else {
+        if currentCardIdx != 2 {
             withAnimation(.spring()) {
                 self.currentCardIdx += 1
             }
