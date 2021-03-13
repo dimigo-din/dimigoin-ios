@@ -25,11 +25,13 @@
 		4206192925A6AF7E00A5E5B8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4206192B25A6AF7E00A5E5B8 /* InfoPlist.strings */; };
 		420D92672557F79300CDF76A /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC55024AF849D00456846 /* TextStyles.swift */; };
 		420D92712557F79F00CDF76A /* HSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54E24AF819400456846 /* HSpacer.swift */; };
+		422373DE25FCB6580046C6B7 /* AlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422373DD25FCB6580046C6B7 /* AlertButton.swift */; };
+		422373E925FCB6810046C6B7 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422373E825FCB6810046C6B7 /* AlertView.swift */; };
+		422373EE25FCB69D0046C6B7 /* AlertWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422373ED25FCB69D0046C6B7 /* AlertWindow.swift */; };
 		42257BEB25C0DFB600E373C8 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 42257BEA25C0DFB600E373C8 /* SDWebImageSwiftUI */; };
 		422CE5D325A75462001072CD /* DimigoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422CE5D225A75462001072CD /* DimigoinUITests.swift */; };
 		422CE5DE25A75CE4001072CD /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422CE5DD25A75CE4001072CD /* SnapshotHelper.swift */; };
 		423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423B71EF24B191AF0099CE3E /* ClearButton.swift */; };
-		4250011C25595C2900C593CF /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250011B25595C2900C593CF /* AlertView.swift */; };
 		4250012625595F9E00C593CF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250012525595F9E00C593CF /* Alert.swift */; };
 		42524E2C25621BF30021F48B /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524E2B25621BF30021F48B /* VSpacer.swift */; };
 		42524E2D25621BF30021F48B /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524E2B25621BF30021F48B /* VSpacer.swift */; };
@@ -158,12 +160,14 @@
 		420DE42124B4A70E00005663 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		420DE42324B4A70E00005663 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		4212D96A24CBB24100FF82D5 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		422373DD25FCB6580046C6B7 /* AlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertButton.swift; sourceTree = "<group>"; };
+		422373E825FCB6810046C6B7 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		422373ED25FCB69D0046C6B7 /* AlertWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertWindow.swift; sourceTree = "<group>"; };
 		422CE5D025A75462001072CD /* DimigoinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DimigoinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		422CE5D225A75462001072CD /* DimigoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimigoinUITests.swift; sourceTree = "<group>"; };
 		422CE5D425A75462001072CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		422CE5DD25A75CE4001072CD /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		423B71EF24B191AF0099CE3E /* ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButton.swift; sourceTree = "<group>"; };
-		4250011B25595C2900C593CF /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		4250012525595F9E00C593CF /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		42524E2B25621BF30021F48B /* VSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSpacer.swift; sourceTree = "<group>"; };
 		426B44FB25E8BB2000ADC3E3 /* DimigoinKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DimigoinKit; path = ../../DimigoinKit; sourceTree = "<group>"; };
@@ -354,7 +358,6 @@
 				42AE3CFC25C59A8100ACC130 /* AttendanceListView.swift */,
 				42E5B3E225C97C730067692A /* AttendanceDetailView.swift */,
 				42E5B4A925D01FA10067692A /* AttendanceHistoryView.swift */,
-				4250011B25595C2900C593CF /* AlertView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 		08C9AC0824A74A83002AF525 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				422373DC25FCB6410046C6B7 /* Alert */,
 				426B450225E8E5A500ADC3E3 /* NoticeItem.swift */,
 				42EFCE15255848C300F3DC5E /* LocationSelection.swift */,
 				42EFCDD72558188100F3DC5E /* TapBar.swift */,
@@ -404,6 +408,16 @@
 				BB9364231D7E87113C335E75 /* Pods-dimigoin.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		422373DC25FCB6410046C6B7 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				422373DD25FCB6580046C6B7 /* AlertButton.swift */,
+				422373E825FCB6810046C6B7 /* AlertView.swift */,
+				422373ED25FCB69D0046C6B7 /* AlertWindow.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		422CE5D125A75462001072CD /* UITest */ = {
@@ -784,6 +798,7 @@
 				08C9ABE924A74A53002AF525 /* AppDelegate.swift in Sources */,
 				088E5D4D24A889CB0031342D /* CardViewModifier.swift in Sources */,
 				42EFCDF025581D4E00F3DC5E /* MealView.swift in Sources */,
+				422373EE25FCB69D0046C6B7 /* AlertWindow.swift in Sources */,
 				42EFCE20255851B500F3DC5E /* IngangView.swift in Sources */,
 				42EFCDD82558188100F3DC5E /* TapBar.swift in Sources */,
 				42E5B4AA25D01FA10067692A /* AttendanceHistoryView.swift in Sources */,
@@ -800,6 +815,7 @@
 				42E5B3FA25C98BFF0067692A /* RefreshableScrollView.swift in Sources */,
 				08C9AC1024A74A83002AF525 /* TextFieldModifier.swift in Sources */,
 				42E5B3F525C988CF0067692A /* FetchPlaceholder.swift in Sources */,
+				422373E925FCB6810046C6B7 /* AlertView.swift in Sources */,
 				426F061E25DDE0FF00549E5C /* TeacherView.swift in Sources */,
 				42AE3CF825C5941400ACC130 /* SelectPlaceView.swift in Sources */,
 				42EFCE16255848C300F3DC5E /* LocationSelection.swift in Sources */,
@@ -807,6 +823,7 @@
 				42ABA0C5255FC4E2001925BE /* HorizonPadding.swift in Sources */,
 				42EFCE2E255852DD00F3DC5E /* ViewTitle.swift in Sources */,
 				426B450325E8E5A500ADC3E3 /* NoticeItem.swift in Sources */,
+				422373DE25FCB6580046C6B7 /* AlertButton.swift in Sources */,
 				42EFCDFE255829B100F3DC5E /* SectionHeader.swift in Sources */,
 				42E5B3E325C97C730067692A /* AttendanceDetailView.swift in Sources */,
 				08C9ABEB24A74A53002AF525 /* SceneDelegate.swift in Sources */,
@@ -816,7 +833,6 @@
 				42E5B40825CA10B70067692A /* TemplateImageModifier.swift in Sources */,
 				086CC55124AF849D00456846 /* TextStyles.swift in Sources */,
 				08C9ABED24A74A53002AF525 /* ContentView.swift in Sources */,
-				4250011C25595C2900C593CF /* AlertView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,7 +19,7 @@ struct LocationButton: Hashable {
 
 struct LocationSelectionView: View {
     @EnvironmentObject var api: DimigoinAPI
-    @EnvironmentObject var alertManager: AlertManager
+//    @EnvironmentObject var alertManager: AlertManager
 
     var locationButtons: [LocationButton] = [
     ]
@@ -44,7 +44,7 @@ struct LocationSelectionView: View {
                     NavigationLink(destination:
                         AttendanceListView()
                             .environmentObject(api)
-                            .environmentObject(alertManager)
+//                            .environmentObject(alertManager)
                     ) {
                         Text("자세히")
                             .notoSans(.bold, size: 12, Color.white)
@@ -56,7 +56,7 @@ struct LocationSelectionView: View {
             HStack {
                 ForEach(locationButtons, id: \.self) { location in
                     LocationItem(idx: location.idx, icon: location.icon, place: location.place)
-                        .environmentObject(alertManager)
+//                        .environmentObject(alertManager)
                         .environmentObject(api)
                         .accessibility(identifier: "locationSelection.\(location.icon)")
                     if locationButtons.count-1 != location.idx {
@@ -65,7 +65,7 @@ struct LocationSelectionView: View {
                 }
                 Spacer()
                 LocationItemEtc()
-                    .environmentObject(alertManager)
+//                    .environmentObject(alertManager)
                     .environmentObject(api)
             }.padding(.top, 5)
             .horizonPadding()
@@ -76,7 +76,7 @@ struct LocationSelectionView: View {
 
 struct LocationItem: View {
     @EnvironmentObject var api: DimigoinAPI
-    @EnvironmentObject var alertManager: AlertManager
+//    @EnvironmentObject var alertManager: AlertManager
     @State var idx: Int
     @State var icon: String
     var place: Place
@@ -91,20 +91,24 @@ struct LocationItem: View {
                     case .success(()):
                         self.api.fetchUserCurrentPlace {
                             self.api.fetchAttendanceListData {
-                                alertManager.createAlert("\"\(place.name)\"(으)로 변경되었습니다.", .success)
+//                                alertManager.createAlert("\"\(place.name)\"(으)로 변경되었습니다.", .success)
                                 withAnimation(.easeInOut) { self.isFetching = false }
                             }
                         }
                     case .failure(let error):
                         switch error {
                         case .noSuchPlace:
-                            alertManager.createAlert("자습 현황 오류", sub: "유효하지 않은 장소입니다.", .danger)
+                            break
+//                            alertManager.createAlert("자습 현황 오류", sub: "유효하지 않은 장소입니다.", .danger)
                         case .notRightTime:
-                            alertManager.createAlert("자습 현황 오류", sub: "인원 점검 시간이 아닙니다.", .danger)
+                            break
+//                            alertManager.createAlert("자습 현황 오류", sub: "인원 점검 시간이 아닙니다.", .danger)
                         case .tokenExpired:
-                            alertManager.createAlert("자습 현황 오류", sub: "토큰이 만료 되었습니다. 다시 시도해주세요", .danger)
+                            break
+//                            alertManager.createAlert("자습 현황 오류", sub: "토큰이 만료 되었습니다. 다시 시도해주세요", .danger)
                         case .unknown:
-                            alertManager.createAlert("알 수 없는 에러", sub: "잠시 후 다시 시도해주세요", .danger)
+                            break
+//                            alertManager.createAlert("알 수 없는 에러", sub: "잠시 후 다시 시도해주세요", .danger)
                         }
                         withAnimation(.easeInOut) { self.isFetching = false }
                     }
@@ -136,14 +140,14 @@ struct LocationItem: View {
 }
 
 struct LocationItemEtc: View {
-    @EnvironmentObject var alertManager: AlertManager
+//    @EnvironmentObject var alertManager: AlertManager
     @EnvironmentObject var api: DimigoinAPI
     @State var isFetching: Bool = false
     
     var body: some View {
         VStack {
             Button(action: {
-                alertManager.attendance()
+//                alertManager.attendance()
             }) {
                 Circle()
                     .fill(!api.isPrimaryPlace(place: api.currentPlace) ? Color.accent : Color(UIColor.secondarySystemGroupedBackground))

@@ -11,7 +11,7 @@ import UserNotifications
 import DimigoinKit
 
 struct MainView: View {
-    @EnvironmentObject var alertManager: AlertManager
+//    @EnvironmentObject var alertManager: AlertManager
     @EnvironmentObject var api: DimigoinAPI
     @State var tapbarIndex = 2
     @State var dragOffset = CGSize.zero
@@ -35,13 +35,13 @@ struct MainView: View {
                     VStack {
                         HStack(spacing: 0) {
                             StudentIdCardView(isShowIdCard: $isShowIdCard)
-                                .environmentObject(alertManager)
+//                                .environmentObject(alertManager)
                                 .environmentObject(api)
                             IngangView()
-                                .environmentObject(alertManager)
+//                                .environmentObject(alertManager)
                                 .environmentObject(api)
                             HomeView(tapbarIndex: $tapbarIndex)
-                                .environmentObject(alertManager)
+//                                .environmentObject(alertManager)
                                 .environmentObject(api)
                             MealView()
                                 .environmentObject(api)
@@ -58,12 +58,12 @@ struct MainView: View {
                             .unredacted()
 //                            .blur(radius: alertManager.isShowing ? 2 : 0)
                     }
-                    Color.black.edgesIgnoringSafeArea(.all).opacity(alertManager.isShowing ? 0.1 : 0)
-                    AlertView()
-                        .environmentObject(api)
-                        .environmentObject(alertManager)
-                        .frame(width: geometry.size.width)
-                        .offset(x: -geometry.size.width*2)
+//                    Color.black.edgesIgnoringSafeArea(.all).opacity(alertManager.isShowing ? 0.1 : 0)
+//                    AlertView()
+//                        .environmentObject(api)
+//                        .environmentObject(alertManager)
+//                        .frame(width: geometry.size.width)
+//                        .offset(x: -geometry.size.width*2)
                 }
             }
         }

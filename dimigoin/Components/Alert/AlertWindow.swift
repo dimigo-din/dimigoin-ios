@@ -1,0 +1,119 @@
+//
+//  AlertWindow.swift
+//  dimigoin
+//
+//  Created by 변경민 on 2021/03/10.
+//  Copyright © 2021 seohun. All rights reserved.
+//
+import SwiftUI
+
+struct AlertView: View {
+    static var currentAlertVCReference: AlertViewController?
+    
+    @Binding var visible: Bool
+    @State var show: Bool = false
+    
+    let alert: Alert
+    
+    public var body: some View {
+        ZStack {
+            Rectangle()
+                .foregroundColor(Color.black.opacity(0.1))
+                .edgesIgnoringSafeArea(.all)
+            if show {
+                alert.transition(self.alert.animation)
+            }
+        }.onAppear {
+            Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { _ in
+                withAnimation {
+                    if self.visible {
+                        self.show = true
+                    }
+                }
+            }
+        }
+        
+    }
+    
+}
+
+class AlertViewController: UIHostingController<AlertView> {
+    var alertView: AlertView
+    var isPresented: Binding<Bool>
+    
+    init(alertView: AlertView, isPresented: Binding<Bool>) {
+        self.alertView = alertView
+        self.isPresented = isPresented
+        super.init(rootView: self.alertView)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    public override func viewWillDisappear(_ animated: Bool) {
+        self.isPresented.wrappedValue =  false
+    }
+    
+}
+
+extension View {
+    public func alert(isPresented: Binding<Bool>, content: () -> Alert) -> some View {
+        let alertView = AlertView(visible: isPresented, alert: content())
+        let alertVC = AlertViewController(alertView: alertView, isPresented: isPresented)
+        alertVC.modalPresentationStyle = .overCurrentContext
+        alertVC.view.backgroundColor = UIColor.clear
+        alertVC.modalTransitionStyle = .crossDissolve
+        
+        if isPresented.wrappedValue {
+            if AlertView.currentAlertVCReference == nil {
+                AlertView.currentAlertVCReference = alertVC
+            }
+            
+            let viewController = self.topViewController()
+            viewController?.present(alertVC, animated: true, completion: nil)
+        } else {
+            alertVC.dismiss(animated: true, completion: nil)
+        }
+        return self
+    }
+    
+    private func topViewController(baseVC: UIViewController? = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.rootViewController) -> UIViewController? {
+        
+        if let nav = baseVC as? UINavigationController {
+            return topViewController(baseVC: nav.visibleViewController)
+        }
+        if let tab = baseVC as? UITabBarController {
+            if let selected = tab.selectedViewController {
+                return topViewController(baseVC: selected)
+            }
+        }
+        if let presented = baseVC?.presentedViewController {
+            return topViewController(baseVC: presented)
+        }
+        return baseVC
+    }
+}
+
+extension Alert {
+    struct Window: View {
+        var windowColor: Color
+        var windowColorOpacity: Double
+        var cornerRadius: CGFloat
+        
+        public init() {
+            self.windowColor = Color.systemBackground
+            self.windowColorOpacity = 1
+            self.cornerRadius = 10
+        }
+        
+        var body: some View {
+            Rectangle()
+                .frame(maxWidth: .infinity-40, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                .foregroundColor(windowColor.opacity(windowColorOpacity))
+                .cornerRadius(cornerRadius)
+        }
+        
+    }
+    
+}

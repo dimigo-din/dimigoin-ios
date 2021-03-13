@@ -14,7 +14,7 @@ import SDWebImageSwiftUI
 struct StudentIdCardView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @EnvironmentObject var api: DimigoinAPI
-    @EnvironmentObject var alertManager: AlertManager
+//    @EnvironmentObject var alertManager: AlertManager
     @Binding var isShowIdCard: Bool
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State var remainTime = 15
@@ -37,7 +37,7 @@ struct StudentIdCardView: View {
                 VStack {
                     Color.clear.frame(height: 280)
                     Button(action: {
-                        alertManager.idCardReadme()
+//                        alertManager.idCardReadme()
                     }) {
                         HStack {
                             Image("infomark").templateImage(width: 15, height: 15, Color.white)
@@ -153,7 +153,7 @@ struct StudentIdCardView: View {
         var error: NSError?
 
         guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) else {
-            alertManager.createAlert("학생증 열기 실패", sub: "학생증을 보시려면 핸드폰의 잠금을 설정시거나 앱의 접근 권한을 허용해주세요.", .danger)
+//            alertManager.createAlert("학생증 열기 실패", sub: "학생증을 보시려면 핸드폰의 잠금을 설정시거나 앱의 접근 권한을 허용해주세요.", .danger)
             return
         }
 
@@ -170,7 +170,7 @@ struct StudentIdCardView: View {
                 }
             })
         } else {
-            alertManager.createAlert("인증에 실패했습니다.", sub: "학생증을 보시려면 생체인증을 진행하거나, 비밀번호를 입력해야 합니다.", .danger)
+//            alertManager.createAlert("인증에 실패했습니다.", sub: "학생증을 보시려면 생체인증을 진행하거나, 비밀번호를 입력해야 합니다.", .danger)
         }
     }
     func showIdCard() {

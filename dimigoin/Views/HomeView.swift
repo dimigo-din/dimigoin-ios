@@ -11,7 +11,7 @@ import DimigoinKit
 import SDWebImageSwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject var alertManager: AlertManager
+//    @EnvironmentObject var alertManager: AlertManager
     @EnvironmentObject var api: DimigoinAPI
     @State var showLogoutButton: Bool = false
     @Binding var tapbarIndex: Int
@@ -33,7 +33,7 @@ struct HomeView: View {
                                 .unredacted()
                             Spacer()
                             Button(action: {
-                                alertManager.logoutCheck()
+//                                alertManager.logoutCheck()
                             }) {
                                 Image("logout").templateImage(width: 30, Color.accent)
                             }.offset(x: showLogoutButton ? 0 : 45)
@@ -63,7 +63,7 @@ struct HomeView: View {
                     }.frame(width: geometry.size.width)
                     VSpacer(15)
                     LocationSelectionView(_api)
-                        .environmentObject(alertManager)
+//                        .environmentObject(alertManager)
                     NoticeItem(geometry: geometry)
                         .environmentObject(api)
                     VSpacer(calMidSpace(geo: geometry))
