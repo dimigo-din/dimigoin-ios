@@ -29,23 +29,31 @@ public struct Alert: View {
     }
     
     public var body: some View {
-        ZStack {
-            VStack {
-                title
-                    .foregroundColor(Color.text)
-                    .font(.headline)
-                content
-                    .foregroundColor(Color.text)
-                HStack(spacing: 0) {
-                    ForEach(0...buttonStack.count-1, id: \.self) {
-                        self.buttonStack[$0]
+        GeometryReader { geometry in
+            ZStack {
+                VStack {
+                    Spacer()
+                    VStack {
+                        title
+                            .foregroundColor(Color.text)
+                            .font(.headline)
+                        content
+                            .foregroundColor(Color.text)
+                        HStack(spacing: 0) {
+                            ForEach(0...buttonStack.count-1, id: \.self) {
+                                self.buttonStack[$0]
+                            }
+                        }
                     }
+                    .background(Alert.Window())
+                    .frame(minWidth: 0, maxWidth: geometry.size.width-40, alignment: .center)
+                    .horizonPadding()
+                    Spacer()
                 }
+                
             }
-            .background(Alert.Window())
-            .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
-            .cornerRadius(10)
-        }
+        }.frame(alignment: .center)
+        
     }
 }
 

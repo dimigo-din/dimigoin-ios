@@ -24,6 +24,7 @@ struct ContentView: View {
         VStack {
             Button(action: {
                 self.showAlert.toggle()
+                
             }) {
                 Text("hello")
             }
