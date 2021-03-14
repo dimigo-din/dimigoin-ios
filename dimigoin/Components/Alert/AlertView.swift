@@ -11,61 +11,39 @@ import Combine
 import DimigoinKit
 
 public struct Alert: View {
-    // Variable parameters
+    @State var showAlert: Bool = false
+    
     var cornerRadius: CGFloat = 10
     var shadowRadius: CGFloat = 10
     
-    // Alert Fields
     var title: Text
     var content: Text
     var buttonStack: [Alert.Button]
-        
-    // Theme and Animation
+    
     var animation: AnyTransition = AnyTransition.scale(scale: 1.2).combined(with: .opacity).animation(.easeOut(duration: 0.15))
     
-    public init(title: Text, content: Text, primaryButton: Alert.Button? = .default(Text("OK")), secondaryButton: Alert.Button? = nil) {
+    public init(title: Text, content: Text, trailingButton: Alert.Button, leadingButton: Alert.Button) {
         self.title = title
         self.content = content
-        
-        self.buttonStack = [primaryButton!]
-        if let secondaryButton = secondaryButton {
-            self.buttonStack.append(secondaryButton)
-        }
-    }
-    
-    public init(title: Text, content: Text, buttonStack: [Alert.Button] = [Alert.Button.default(Text("OK"))]) {
-        self.title = title
-        self.content = content
-        
-        self.buttonStack = buttonStack
+        self.buttonStack = [trailingButton, leadingButton]
     }
     
     public var body: some View {
         ZStack {
             VStack {
                 title
-                    .padding(.init(top: 35, leading: 25, bottom: 15, trailing: 25))
                     .foregroundColor(Color.text)
                     .font(.headline)
-
                 content
-                    .padding(.init(top: 0, leading: 25, bottom: 35, trailing: 25))
                     .foregroundColor(Color.text)
-//                self.buttonStack
-                
-//                    HStack {
-//                        ForEach(0...buttonStack.count-1, id: \.self) {
-//                            self.buttonStack?[$0]
-//                                .background(self.buttonStack![$0].buttonType == alert.ButtonType.default ? Color.accent : Color.gray4)
-//                                .foregroundColor(self.buttonStack![$0].buttonType == Color.text)
-//                            .cornerRadius(5)
-//
-//                        }
-//                    }.padding()
+                HStack(spacing: 0) {
+                    ForEach(0...buttonStack.count-1, id: \.self) {
+                        self.buttonStack[$0]
+                    }
+                }
             }
             .background(Alert.Window())
             .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
-            .padding()
             .cornerRadius(10)
         }
     }

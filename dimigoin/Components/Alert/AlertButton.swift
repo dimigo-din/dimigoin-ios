@@ -13,15 +13,24 @@ extension Alert {
     enum ButtonType {
         case `default`
         case cancel
+        case warning
+        case danger
+    }
+    enum ButtonPosition {
+        case trailing
+        case leading
+        case `default`
     }
     public struct Button: View {
-        let label: Text
+        let label: String
         var buttonType: Alert.ButtonType = .default
+        var buttonPosition: Alert.ButtonPosition = .default
         var action: (() -> Void)?
 
-        private init(label: Text, buttonType: Alert.ButtonType, action: (() -> Void)? = {}) {
+        init(label: String, type: Alert.ButtonType, position: Alert.ButtonPosition, action: (() -> Void)? = {}) {
             self.label = label
-            self.buttonType = buttonType
+            self.buttonType = type
+            self.buttonPosition = position
             self.action = action
         }
         
@@ -34,27 +43,34 @@ extension Alert {
                     }
                 }
             }) {
-                label
-                    .frame(minWidth: 150, maxWidth: .infinity, alignment: .center)
-                    .padding(.init(top: 10, leading: 10, bottom: 10, trailing: 10))
-                    .shadow(radius: 1.0)
+                Text(label)
+                    .notoSans(.bold, size: 14)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .frame(height: 45)
+                    .foregroundColor(Color.systemBackground)
+                    .background(getButtonBackgroundByPosition(buttonPosition).fill(getButtonColorByType(buttonType)))
             }
             
         }
-        
+        func getButtonBackgroundByPosition(_ position: Alert.ButtonPosition) -> RoundSquare {
+            switch position {
+            case .default: return RoundSquare(topLeft: 0, topRight: 0, bottomLeft: 10, bottomRight: 10)
+            case .trailing: return RoundSquare(topLeft: 0, topRight: 0, bottomLeft: 10, bottomRight: 0)
+            case .leading: return RoundSquare(topLeft: 0, topRight: 0, bottomLeft: 0, bottomRight: 10)
+            }
+        }
+        func getButtonColorByType(_ type: Alert.ButtonType) -> Color {
+            switch type {
+            case .default: return Color.accent
+            case .cancel: return Color.gray4
+            case .warning: return Color.yellow
+            case .danger: return Color.red
+            }
+        }
         // button types
-        public static func `default`(_ label: Text, action: (() -> Void)? = {}) -> Alert.Button {
-            return Alert.Button(label: label, buttonType: .default, action: action)
+        public static func `default`(_ label: String, action: (() -> Void)? = {}) -> Alert.Button {
+            return Alert.Button(label: label, type: .default, position: .default, action: action)
         }
-        
-        public static func cancel(_ label: Text, action: (() -> Void)? = {}) -> Alert.Button {
-            return Alert.Button(label: label, buttonType: .cancel, action: action)
-        }
-        
-        public static func cancel(_ action: (() -> Void)? = {}) -> Alert.Button {
-            return Alert.Button(label: Text("Cancel"), buttonType: .cancel, action: action)
-        }
-        
     }
     
 }

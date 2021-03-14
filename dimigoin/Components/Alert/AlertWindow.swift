@@ -5,13 +5,14 @@
 //  Created by 변경민 on 2021/03/10.
 //  Copyright © 2021 seohun. All rights reserved.
 //
+
 import SwiftUI
 
 struct AlertView: View {
     static var currentAlertVCReference: AlertViewController?
     
     @Binding var visible: Bool
-    @State var show: Bool = false
+    @State var showAlert: Bool = false
     
     let alert: Alert
     
@@ -20,19 +21,16 @@ struct AlertView: View {
             Rectangle()
                 .foregroundColor(Color.black.opacity(0.1))
                 .edgesIgnoringSafeArea(.all)
-            if show {
+            if showAlert {
                 alert.transition(self.alert.animation)
             }
         }.onAppear {
-            Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { _ in
-                withAnimation {
-                    if self.visible {
-                        self.show = true
-                    }
+            withAnimation {
+                if self.visible {
+                    self.showAlert = true
                 }
             }
         }
-        
     }
     
 }
@@ -97,23 +95,13 @@ extension View {
 
 extension Alert {
     struct Window: View {
-        var windowColor: Color
-        var windowColorOpacity: Double
-        var cornerRadius: CGFloat
-        
-        public init() {
-            self.windowColor = Color.systemBackground
-            self.windowColorOpacity = 1
-            self.cornerRadius = 10
-        }
-        
+//        @State var windowHeight: CGFloat =
         var body: some View {
             Rectangle()
                 .frame(maxWidth: .infinity-40, minHeight: 0, maxHeight: .infinity, alignment: .center)
-                .foregroundColor(windowColor.opacity(windowColorOpacity))
-                .cornerRadius(cornerRadius)
+                .foregroundColor(Color.systemBackground)
+                .cornerRadius(10)
         }
-        
     }
     
 }
