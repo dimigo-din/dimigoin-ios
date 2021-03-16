@@ -10,22 +10,22 @@ import SwiftUI
 import Combine
 import DimigoinKit
 
+typealias SystemButton = Button
+
 public struct Alert: View {
     @State var showAlert: Bool = false
     
     var cornerRadius: CGFloat = 10
     var shadowRadius: CGFloat = 10
     
-    var title: Text
-    var content: Text
+    var content: AnyView
     var buttonStack: [Alert.Button]
     
     var animation: AnyTransition = AnyTransition.scale(scale: 1.2).combined(with: .opacity).animation(.easeOut(duration: 0.15))
     
-    public init(title: Text, content: Text, trailingButton: Alert.Button, leadingButton: Alert.Button) {
-        self.title = title
-        self.content = content
-        self.buttonStack = [trailingButton, leadingButton]
+    public init(content: @escaping () -> AnyView, leadingButton: Alert.Button, trailingButton: Alert.Button) {
+        self.content = content()
+        self.buttonStack = [leadingButton, trailingButton]
     }
     
     public var body: some View {
@@ -33,19 +33,20 @@ public struct Alert: View {
             ZStack {
                 VStack {
                     Spacer()
-                    VStack {
-                        title
-                            .foregroundColor(Color.text)
-                            .font(.headline)
+                    VStack(spacing: 0) {
                         content
-                            .foregroundColor(Color.text)
                         HStack(spacing: 0) {
                             ForEach(0...buttonStack.count-1, id: \.self) {
                                 self.buttonStack[$0]
                             }
                         }
                     }
-                    .background(Alert.Window())
+                    .background(
+                        Rectangle()
+                            .frame(maxWidth: .infinity-40, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                            .foregroundColor(Color.systemBackground)
+                            .cornerRadius(10)
+                    )
                     .frame(minWidth: 0, maxWidth: geometry.size.width-40, alignment: .center)
                     .horizonPadding()
                     Spacer()
@@ -54,6 +55,56 @@ public struct Alert: View {
             }
         }.frame(alignment: .center)
         
+    }
+    
+    public struct Button: View {
+        let label: String
+        var backgroundColor: Color = Color.gray4
+        var buttonPosition: Alert.ButtonPosition = .center
+        var action: (() -> Void)?
+
+        init(label: String, color: Color, position: Alert.ButtonPosition, action: (() -> Void)? = {}) {
+            self.label = label
+            self.backgroundColor = color
+            self.buttonPosition = position
+            self.action = action
+        }
+        
+        public var body: some View {
+            SystemButton(action: {
+                AlertView.currentAlertVCReference?.dismiss(animated: true) {
+                    AlertView.currentAlertVCReference = nil
+                    if let action = self.action {
+                        action()
+                    }
+                }
+            }) {
+                Text(label)
+                    .notoSans(.bold, size: 14)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .frame(height: 45)
+                    .foregroundColor(Color.systemBackground)
+                    .background(getButtonBackgroundByPosition(buttonPosition).fill(backgroundColor))
+            }
+        }
+        
+        // button types
+        public static func center(_ label: String, action: (() -> Void)? = {}) -> Alert.Button {
+            return Alert.Button(label: label, color: .gray4, position: .center, action: action)
+        }
+        
+        public static func dismiss() -> Alert.Button {
+            return Alert.Button(label: "취소", color: .gray4, position: .leading)
+        }
+        
+        public static func ok() -> Alert.Button {
+            return Alert.Button(label: "확인", color: .accent, position: .trailing)
+        }
+        
+        public static func ok(action: @escaping () -> Void) -> Alert.Button {
+            return Alert.Button(label: "확인", color: .accent, position: .trailing, action: action)
+        }
+//        public static func
     }
 }
 

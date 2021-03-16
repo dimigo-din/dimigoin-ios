@@ -92,16 +92,3 @@ extension View {
         return baseVC
     }
 }
-
-extension Alert {
-    struct Window: View {
-//        @State var windowHeight: CGFloat =
-        var body: some View {
-            Rectangle()
-                .frame(maxWidth: .infinity-40, minHeight: 0, maxHeight: .infinity, alignment: .center)
-                .foregroundColor(Color.systemBackground)
-                .cornerRadius(10)
-        }
-    }
-    
-}
