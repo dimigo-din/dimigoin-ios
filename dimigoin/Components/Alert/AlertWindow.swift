@@ -43,6 +43,9 @@ class AlertViewController: UIHostingController<AlertView> {
         self.alertView = alertView
         self.isPresented = isPresented
         super.init(rootView: self.alertView)
+        self.modalPresentationStyle = .overCurrentContext
+        self.view.backgroundColor = UIColor.clear
+        self.modalTransitionStyle = .crossDissolve
     }
     
     required init?(coder: NSCoder) {
@@ -52,24 +55,15 @@ class AlertViewController: UIHostingController<AlertView> {
     public override func viewWillDisappear(_ animated: Bool) {
         self.isPresented.wrappedValue =  false
     }
-    
 }
 
 extension View {
     public func alert(isPresented: Binding<Bool>, content: () -> Alert) -> some View {
         let alertView = AlertView(visible: isPresented, alert: content())
         let alertVC = AlertViewController(alertView: alertView, isPresented: isPresented)
-        alertVC.modalPresentationStyle = .overCurrentContext
-        alertVC.view.backgroundColor = UIColor.clear
-        alertVC.modalTransitionStyle = .crossDissolve
-        
         if isPresented.wrappedValue {
-            if AlertView.currentAlertVCReference == nil {
-                AlertView.currentAlertVCReference = alertVC
-            }
-            
-            let viewController = self.topViewController()
-            viewController?.present(alertVC, animated: true, completion: nil)
+            AlertView.currentAlertVCReference = alertVC
+            self.topViewController()?.present(alertVC, animated: true, completion: nil)
         } else {
             alertVC.dismiss(animated: true, completion: nil)
         }

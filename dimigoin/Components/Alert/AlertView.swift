@@ -27,7 +27,7 @@ public struct Alert: View {
         self.content = content()
         self.buttonStack = [leadingButton, trailingButton]
     }
-    
+
     public init(icon: ButtonIcon, color: Color, message: String) {
         self.content = AnyView(
             VStack {
@@ -38,9 +38,26 @@ public struct Alert: View {
             }
         )
         self.buttonStack = [
-            Alert.Button.dismiss(),
-            Alert.Button.ok()
+            Alert.Button.center("확인", color: color)
         ]
+    }
+    
+    public static func logoutCheck() -> Alert {
+        return Alert(content: {
+            AnyView(
+                VStack {
+                    VSpacer(48)
+                    Image("logout").templateImage(width: 20, Color.accent)
+                    VSpacer(20)
+                    Text("정말 로그아웃 하시겠습니까?").notoSans(.bold, size: 15, Color.text).padding(.bottom, 40)
+                }
+            )
+        },
+        leadingButton: Alert.Button(label: "취소", color: Color.gray4, position: .leading),
+        trailingButton: Alert.Button(label: "확인", color: Color.accent, position: .trailing, action: {
+            print("logout")
+//            api.logout
+        }))
     }
     
     public var body: some View {
@@ -73,8 +90,8 @@ public struct Alert: View {
     }
     
     public enum ButtonIcon: String {
-        case warningmark = "warning"
-        case dangermark = "danger"
+        case warningmark = "warningmark"
+        case dangermark = "dangermark"
         case checkmark = "checkmark"
         case logoutmark = "logout"
     }
@@ -116,6 +133,10 @@ public struct Alert: View {
             return Alert.Button(label: label, color: .gray4, position: .center, action: action)
         }
         
+        public static func center(_ label: String, color: Color) -> Alert.Button {
+            return Alert.Button(label: label, color: color, position: .center)
+        }
+        
         public static func dismiss() -> Alert.Button {
             return Alert.Button(label: "취소", color: .gray4, position: .leading)
         }
@@ -127,16 +148,9 @@ public struct Alert: View {
         public static func ok(action: @escaping () -> Void) -> Alert.Button {
             return Alert.Button(label: "확인", color: .accent, position: .trailing, action: action)
         }
+        
+//        public static func logoutCheck() -> Alert.Bu
 //        public static func
-    }
-}
-
-public func getButtonIconColor(icon: Alert.ButtonIcon) -> Color {
-    switch icon {
-    case .checkmark: return Color.accent
-    case .warningmark: return Color.yellow
-    case .dangermark: return Color.red
-    case .logoutmark: return Color.accent
     }
 }
 

@@ -22,6 +22,7 @@ struct ContentView: View {
     @State var showAlert: Bool = false
     var body: some View {
         VStack {
+            Text(showAlert ? "show" : "not show")
             Button(action: {
                 self.showAlert.toggle()
                 
@@ -38,7 +39,9 @@ struct ContentView: View {
 //                    )},
 //                    leadingButton: Alert.Button.dismiss(),
 //                    trailingButton: Alert.Button.ok())
-                Alert(icon: .checkmark, color: Color.accent, message: "헬로")
+//                Alert(icon: .checkmark, color: Color.accent, message: "헬로")
+                
+                Alert(icon: .dangermark, color: Color.red, message: "취소불가")
             })
         }
         
