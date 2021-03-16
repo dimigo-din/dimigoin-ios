@@ -29,15 +29,16 @@ struct ContentView: View {
                 Text("hello")
             }
             .alert(isPresented: $showAlert, content: {
-                Alert(content: {
-                    AnyView(
-                        VStack {
-                            Text("hello")
-                            Text("line2")
-                        }
-                    )},
-                    leadingButton: Alert.Button.dismiss(),
-                    trailingButton: Alert.Button.ok())
+//                Alert(content: {
+//                    AnyView(
+//                        VStack {
+//                            Text("hello")
+//                            Text("line2")
+//                        }
+//                    )},
+//                    leadingButton: Alert.Button.dismiss(),
+//                    trailingButton: Alert.Button.ok())
+                Alert(icon: .checkmark, color: Color.accent, message: "헬로")
             })
         }
         

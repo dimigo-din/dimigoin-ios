@@ -28,6 +28,21 @@ public struct Alert: View {
         self.buttonStack = [leadingButton, trailingButton]
     }
     
+    public init(icon: ButtonIcon, color: Color, message: String) {
+        self.content = AnyView(
+            VStack {
+                VSpacer(48)
+                Image(icon.rawValue).templateImage(width: 20, color)
+                VSpacer(20)
+                Text(message).notoSans(.bold, size: 15, color).padding(.bottom, 40)
+            }
+        )
+        self.buttonStack = [
+            Alert.Button.dismiss(),
+            Alert.Button.ok()
+        ]
+    }
+    
     public var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -56,6 +71,14 @@ public struct Alert: View {
         }.frame(alignment: .center)
         
     }
+    
+    public enum ButtonIcon: String {
+        case warningmark = "warning"
+        case dangermark = "danger"
+        case checkmark = "checkmark"
+        case logoutmark = "logout"
+    }
+    
     
     public struct Button: View {
         let label: String
@@ -105,6 +128,15 @@ public struct Alert: View {
             return Alert.Button(label: "확인", color: .accent, position: .trailing, action: action)
         }
 //        public static func
+    }
+}
+
+public func getButtonIconColor(icon: Alert.ButtonIcon) -> Color {
+    switch icon {
+    case .checkmark: return Color.accent
+    case .warningmark: return Color.yellow
+    case .dangermark: return Color.red
+    case .logoutmark: return Color.accent
     }
 }
 
