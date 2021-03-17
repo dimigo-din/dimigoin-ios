@@ -21,7 +21,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button(action: {
-                Test.present()
+                Alert.present()
             }) {
                 Text("hello")
             }

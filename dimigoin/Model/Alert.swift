@@ -10,8 +10,7 @@ import Foundation
 import DimigoinKit
 import SwiftUI
 
-
-public enum Test {
+public enum Alert {
     public static func present() {
         AlertViewController(alertView: AlertView(icon: .checkmark, color: .accent, message: "hello")).present()
     }
