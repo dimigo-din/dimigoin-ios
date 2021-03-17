@@ -25,9 +25,6 @@ extension Alert {
         case checkmark = "checkmark"
         case logoutmark = "logout"
     }
-    public func hello() {
-//        Self.dismiss
-    }
     
     public struct Button: View {
         let label: String

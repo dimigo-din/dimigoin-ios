@@ -14,10 +14,7 @@ typealias SystemButton = Button
 
 public enum Test {
     public static func present() {
-        AlertViewController(alertView: AlertView(alert: Alert.logoutCheck())).present()
-//        let alertView = AlertView(visible: .constant(true), alert: Alert.logoutCheck())
-//        alertView.present()
-        print("presented")
+        AlertViewController(alertView: Alert(icon: .checkmark, color: .accent, message: "hello")).present()
     }
     
     public static func dismiss() {
@@ -74,31 +71,41 @@ public struct Alert: View {
     }
     
     public var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                VStack {
-                    Spacer()
-                    VStack(spacing: 0) {
-                        content
-                        HStack(spacing: 0) {
-                            ForEach(0...buttonStack.count-1, id: \.self) {
-                                self.buttonStack[$0]
+        ZStack {
+            Color.black.opacity(0.1).edgesIgnoringSafeArea(.all)
+            if showAlert {
+                GeometryReader { geometry in
+                    ZStack {
+                        VStack {
+                            Spacer()
+                            VStack(spacing: 0) {
+                                content
+                                HStack(spacing: 0) {
+                                    ForEach(0...buttonStack.count-1, id: \.self) {
+                                        self.buttonStack[$0]
+                                    }
+                                }
                             }
+                            .background(
+                                Rectangle()
+                                    .frame(maxWidth: .infinity-40, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                                    .foregroundColor(Color.systemBackground)
+                                    .cornerRadius(10)
+                            )
+                            .frame(minWidth: 0, maxWidth: geometry.size.width-40, alignment: .center)
+                            .horizonPadding()
+                            Spacer()
                         }
+                        
                     }
-                    .background(
-                        Rectangle()
-                            .frame(maxWidth: .infinity-40, minHeight: 0, maxHeight: .infinity, alignment: .center)
-                            .foregroundColor(Color.systemBackground)
-                            .cornerRadius(10)
-                    )
-                    .frame(minWidth: 0, maxWidth: geometry.size.width-40, alignment: .center)
-                    .horizonPadding()
-                    Spacer()
-                }
-                
+                }.frame(alignment: .center)
+                .transition(animation)
             }
-        }.frame(alignment: .center)
+        }.onAppear {
+            withAnimation {
+                self.showAlert = true
+            }
+        }
         
     }
 }

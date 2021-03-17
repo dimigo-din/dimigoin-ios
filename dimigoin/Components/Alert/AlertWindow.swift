@@ -9,11 +9,11 @@
 import SwiftUI
 
 
-class AlertViewController: UIHostingController<AlertView> {
-    var alertView: AlertView
+class AlertViewController: UIHostingController<Alert> {
+    var alertView: Alert
 //    var isPresented: Binding<Bool>
     
-    init(alertView: AlertView) {
+    init(alertView: Alert) {
         self.alertView = alertView
 //        self.isPresented = isPresented
         super.init(rootView: self.alertView)

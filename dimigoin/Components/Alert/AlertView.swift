@@ -8,33 +8,6 @@
 
 import SwiftUI
 
-struct AlertView: View {
-    static var currentAlertVCReference: AlertViewController?
-    
-//    @Binding var visible: Bool
-    @State var showAlert: Bool = false
-    
-    let alert: Alert
-    
-    public var body: some View {
-        ZStack {
-            Color.black.opacity(0.1).edgesIgnoringSafeArea(.all)
-            if showAlert {
-                alert.transition(self.alert.animation)
-            }
-        }.onAppear {
-            withAnimation {
-//                if self.visible {
-                    self.showAlert = true
-//                }
-            }
-        }
-    }
-    public func dismiss() {
-        self.showAlert = false
-    }
-}
-
 // struct AlertView: View {
 //    @EnvironmentObject var alertManager: AlertManager
 //    @EnvironmentObject var api: DimigoinAPI
