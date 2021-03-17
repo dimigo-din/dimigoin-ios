@@ -10,6 +10,16 @@ import Foundation
 import DimigoinKit
 import SwiftUI
 
+public enum Test {
+    public static func present() {
+        AlertViewController(alertView: AlertView(visible: .constant(true), alert: Alert.logoutCheck()), isPresented: .constant(true)).present()
+//        let alertView = AlertView(visible: .constant(true), alert: Alert.logoutCheck())
+//        alertView.present()
+        print("presented")
+    }
+}
+
+
 //enum AlertType {
 //    case success
 //    case warning

@@ -18,9 +18,7 @@ struct AlertView: View {
     
     public var body: some View {
         ZStack {
-            Rectangle()
-                .foregroundColor(Color.black.opacity(0.1))
-                .edgesIgnoringSafeArea(.all)
+            Color.black.opacity(0.1).edgesIgnoringSafeArea(.all)
             if showAlert {
                 alert.transition(self.alert.animation)
             }
@@ -32,7 +30,6 @@ struct AlertView: View {
             }
         }
     }
-    
 }
 
 class AlertViewController: UIHostingController<AlertView> {
@@ -53,36 +50,27 @@ class AlertViewController: UIHostingController<AlertView> {
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
-        self.isPresented.wrappedValue =  false
+        // MARK: 여기서 다시 false로 돌려주네
+        self.isPresented.wrappedValue = false
+    }
+    public func present() {
+        UIApplication.shared.windows.first!.rootViewController?.present(self, animated: true, completion: nil)
+    }
+    public func cancel() {
+//        self.isPresented.wrappedValue = false
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
 extension View {
     public func alert(isPresented: Binding<Bool>, content: () -> Alert) -> some View {
-        let alertView = AlertView(visible: isPresented, alert: content())
-        let alertVC = AlertViewController(alertView: alertView, isPresented: isPresented)
+        let alertVC = AlertViewController(alertView: AlertView(visible: isPresented, alert: content()), isPresented: isPresented)
         if isPresented.wrappedValue {
-            AlertView.currentAlertVCReference = alertVC
-            self.topViewController()?.present(alertVC, animated: true, completion: nil)
+            alertVC.present()
         } else {
+            alertVC.cancel()
             alertVC.dismiss(animated: true, completion: nil)
         }
         return self
-    }
-    
-    private func topViewController(baseVC: UIViewController? = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.rootViewController) -> UIViewController? {
-        
-        if let nav = baseVC as? UINavigationController {
-            return topViewController(baseVC: nav.visibleViewController)
-        }
-        if let tab = baseVC as? UITabBarController {
-            if let selected = tab.selectedViewController {
-                return topViewController(baseVC: selected)
-            }
-        }
-        if let presented = baseVC?.presentedViewController {
-            return topViewController(baseVC: presented)
-        }
-        return baseVC
     }
 }

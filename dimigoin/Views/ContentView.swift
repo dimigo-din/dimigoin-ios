@@ -24,23 +24,12 @@ struct ContentView: View {
         VStack {
             Text(showAlert ? "show" : "not show")
             Button(action: {
-                self.showAlert.toggle()
-                
+//                self.showAlert.toggle()
+                Test.present()
             }) {
                 Text("hello")
             }
             .alert(isPresented: $showAlert, content: {
-//                Alert(content: {
-//                    AnyView(
-//                        VStack {
-//                            Text("hello")
-//                            Text("line2")
-//                        }
-//                    )},
-//                    leadingButton: Alert.Button.dismiss(),
-//                    trailingButton: Alert.Button.ok())
-//                Alert(icon: .checkmark, color: Color.accent, message: "헬로")
-                
                 Alert(icon: .dangermark, color: Color.red, message: "취소불가")
             })
         }
