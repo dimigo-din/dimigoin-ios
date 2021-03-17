@@ -12,6 +12,8 @@ import DimigoinKit
 struct ContentView: View {
     @ObservedObject var api = DimigoinAPI()
     var tapbarIdx = 2
+    @State var place = Place()
+    
     
     var body: some View {
         NavigationView {

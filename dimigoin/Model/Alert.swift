@@ -31,6 +31,76 @@ public enum Alert {
         )).present()
     }
     
+    public static func classHistory(grade: Int, klass: Int, attendanceLog: [AttendanceLog]) {
+        AlertViewController(alertView: AlertView(content: {
+            AnyView(
+                ZStack {
+                    GeometryReader { geometry in
+                        VStack(spacing: 0) {
+                            ZStack {
+                                VStack {
+                                    VSpacer(35)
+                                    Text("\(grade)학년 \(klass)반")
+                                        .notoSans(.bold, size: 10, Color.accent)
+                                    VSpacer(4)
+                                    Text("히스토리")
+                                        .notoSans(.bold, size: 20, Color.text)
+                                    VSpacer(15)
+                                    ScrollView {
+                                        VStack(spacing: 15) {
+                                            ForEach(0..<attendanceLog.count, id: \.self) { idx in
+                                                Text("[ \(attendanceLog[idx].time) ] \(attendanceLog[idx].student.name)님이 자신의 현황을 ")
+                                                    .notoSans(.medium, size: 10, Color.gray4)
+                                                +
+                                                Text(attendanceLog[idx].place.name)
+                                                    .notoSans(.bold, size: 10, Color.accent)
+                                                +
+                                                Text("(으)로 변경")
+                                                    .notoSans(.medium, size: 10, Color.gray4)
+                                            }
+                                        }.multilineTextAlignment(.leading)
+                                        .padding(.horizontal, 10)
+                                        VSpacer(15)
+                                    }
+                                    .padding(.bottom, 45)
+                                }
+                            }
+                        }
+                        .frame(width: UIDevice.current.userInterfaceIdiom == .phone ? abs(geometry.size.width - 80) : 295)
+                        .background(Color(UIColor.systemBackground).cornerRadius(10))
+                        .edgesIgnoringSafeArea(.all)
+                        .padding(.horizontal, UIDevice.current.userInterfaceIdiom == .phone ? 40 : (geometry.size.width - 295)/2)
+                    }.frame(alignment: .center)
+                }.frame(maxHeight: 450)
+            )
+        },
+        centerButton: AlertView.Button.center("확인", color: .accent)
+        )).present()
+    }
+    
+    public static func selectLoaction(api: DimigoinAPI, place: Binding<Place>) {
+        // TODO: - implement select etc location
+        var place: Place = Place()
+        var remark: String = ""
+        AlertViewController(alertView: AlertView(content: {
+            AnyView(
+                Text(place.name)
+//                LocationSelectDialog(
+            )
+        },
+        leadingButton: AlertView.Button.dismiss(),
+        trailingButton: AlertView.Button(label: "확인", color: .accent, position: .trailing, action: {
+            // api call
+//            api.changeUserPlace(placeName: "sdkf", remark: "sdl") { result in
+//                switch result {
+//                case .success():
+//                     break
+//                }
+//            }
+        })
+        )).present()
+    }
+    
     public static func updateRequired() {
         AlertViewController(alertView: AlertView(content: {
             AnyView(
@@ -108,3 +178,45 @@ public enum Alert {
         }))).present()
     }
 }
+
+
+struct LocationSelectDialog: View {
+    @EnvironmentObject var api: DimigoinAPI
+    @Binding var selectedPlace: Place
+    @Binding var remark: String
+    var body: some View {
+        VStack {
+            VSpacer(20)
+            Text("\(getStringTimeZone())").notoSans(.bold, size: 11, Color.accent)
+            Text("어디에 계신가요?").notoSans(.bold, size: 16)
+            VSpacer(20)
+            NavigationLink(destination: SelectPlaceView(api: api, selectedPlace: $selectedPlace)) {
+                HStack {
+                    Text(selectedPlace == Place() ? "장소를 선택하세요" : selectedPlace.name)
+                        .foregroundColor(Color.accent)
+                        .font(Font.custom("NanumSquareR", size: 14))
+                        .padding(.leading)
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                        .padding(.trailing)
+                        .foregroundColor(Color.accent)
+                }
+            }
+            .frame(width: 335, height: 50)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color("divider"), lineWidth: 1)
+            )
+
+            VSpacer(15)
+            TextField("사유를 입력하세요", text: $remark).textContentType(.none)
+                .modifier(TextFieldModifier())
+                .modifier(ClearButton(text: $remark))
+            VSpacer(20)
+            Text("사전 허가된 활동 또는 감독 교사 승인 외\n임의로 등록할 경우 불이익을 받을 수 있습니다.")
+                .notoSans(.medium, size: 12, Color("gray7")).multilineTextAlignment(.center)
+        }
+    }
+}
+
+

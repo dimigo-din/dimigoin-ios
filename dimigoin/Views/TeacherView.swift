@@ -21,6 +21,7 @@ struct TeacherView: View {
     @State var selectedClass: Int = 1
     
     @State var isFetching: Bool = false
+    @State var isFetchingAttendanceLog: Bool = false
     
     init() {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
@@ -40,18 +41,32 @@ struct TeacherView: View {
                                 Button(action: {
                                     api.logout()
                                 }) {
-                                    Image("logout").templateImage(width: 25, Color.accent)
+                                    Image("logout").foregroundColor(.accent)
                                 }
                                 Spacer()
                                 Button(action: {
-                                    withAnimation(.spring()) {
-                                        self.showHistoryView = true
+                                    withAnimation(.easeInOut) { self.isFetchingAttendanceLog = true }
+                                    getClassHistory(api.accessToken, grade: selectedGrade, klass: selectedClass) { result in
+                                        print(result)
+                                        switch result {
+                                        case .success(let attendanceLog):
+                                            Alert.classHistory(grade: selectedGrade, klass: selectedClass, attendanceLog: attendanceLog)
+                                        case .failure(_):
+                                            print("get attendanceLog failed in Attendance HistoryView")
+                                        }
+                                        withAnimation(.easeInOut) { self.isFetchingAttendanceLog = false }
                                     }
                                 }) {
-                                    Text("히스토리")
-                                        .notoSans(.bold, size: 12, Color.white)
-                                        .frame(width: 74, height: 25)
-                                        .background(Color.accent.cornerRadius(13))
+                                    if isFetchingAttendanceLog {
+                                        ProgressView()
+                                            .frame(width: 74, height: 25)
+                                            .background(Color.accent.cornerRadius(13))
+                                    } else {
+                                        Text("히스토리")
+                                            .notoSans(.bold, size: 12, Color.white)
+                                            .frame(width: 74, height: 25)
+                                            .background(Color.accent.cornerRadius(13))
+                                    }
                                 }
                             }
                         }
@@ -102,10 +117,6 @@ struct TeacherView: View {
                 .edgesIgnoringSafeArea(.all)
             }.unredacted()
             AttendanceDetailView(isShowing: $showDetailView, attendance: $selectedAttendance)
-            AttendanceHistoryView(isShowing: $showHistoryView,
-                                  selectedGrade: $selectedGrade,
-                                  selectedClass: $selectedClass)
-                .environmentObject(api)
         }
         .onAppear {
             fetchAttendanceList()
