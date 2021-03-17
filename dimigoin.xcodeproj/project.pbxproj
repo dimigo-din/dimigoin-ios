@@ -27,7 +27,7 @@
 		420D92712557F79F00CDF76A /* HSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086CC54E24AF819400456846 /* HSpacer.swift */; };
 		422373DE25FCB6580046C6B7 /* AlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422373DD25FCB6580046C6B7 /* AlertButton.swift */; };
 		422373E925FCB6810046C6B7 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422373E825FCB6810046C6B7 /* AlertView.swift */; };
-		422373EE25FCB69D0046C6B7 /* AlertWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422373ED25FCB69D0046C6B7 /* AlertWindow.swift */; };
+		422373EE25FCB69D0046C6B7 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422373ED25FCB69D0046C6B7 /* AlertViewController.swift */; };
 		42257BEB25C0DFB600E373C8 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 42257BEA25C0DFB600E373C8 /* SDWebImageSwiftUI */; };
 		422CE5D325A75462001072CD /* DimigoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422CE5D225A75462001072CD /* DimigoinUITests.swift */; };
 		422CE5DE25A75CE4001072CD /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422CE5DD25A75CE4001072CD /* SnapshotHelper.swift */; };
@@ -162,7 +162,7 @@
 		4212D96A24CBB24100FF82D5 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		422373DD25FCB6580046C6B7 /* AlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertButton.swift; sourceTree = "<group>"; };
 		422373E825FCB6810046C6B7 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
-		422373ED25FCB69D0046C6B7 /* AlertWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertWindow.swift; sourceTree = "<group>"; };
+		422373ED25FCB69D0046C6B7 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		422CE5D025A75462001072CD /* DimigoinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DimigoinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		422CE5D225A75462001072CD /* DimigoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimigoinUITests.swift; sourceTree = "<group>"; };
 		422CE5D425A75462001072CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -415,7 +415,7 @@
 			children = (
 				422373DD25FCB6580046C6B7 /* AlertButton.swift */,
 				422373E825FCB6810046C6B7 /* AlertView.swift */,
-				422373ED25FCB69D0046C6B7 /* AlertWindow.swift */,
+				422373ED25FCB69D0046C6B7 /* AlertViewController.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -798,7 +798,7 @@
 				08C9ABE924A74A53002AF525 /* AppDelegate.swift in Sources */,
 				088E5D4D24A889CB0031342D /* CardViewModifier.swift in Sources */,
 				42EFCDF025581D4E00F3DC5E /* MealView.swift in Sources */,
-				422373EE25FCB69D0046C6B7 /* AlertWindow.swift in Sources */,
+				422373EE25FCB69D0046C6B7 /* AlertViewController.swift in Sources */,
 				42EFCE20255851B500F3DC5E /* IngangView.swift in Sources */,
 				42EFCDD82558188100F3DC5E /* TapBar.swift in Sources */,
 				42E5B4AA25D01FA10067692A /* AttendanceHistoryView.swift in Sources */,

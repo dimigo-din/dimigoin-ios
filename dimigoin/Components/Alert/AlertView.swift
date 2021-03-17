@@ -8,6 +8,94 @@
 
 import SwiftUI
 
+typealias SystemButton = Button
+
+public struct AlertView: View {
+    @State var showAlert: Bool = false
+    
+    var cornerRadius: CGFloat = 10
+    var shadowRadius: CGFloat = 10
+    
+    var content: AnyView
+    var buttonStack: [AlertView.Button]
+    
+    var animation: AnyTransition = AnyTransition.scale(scale: 1.2).combined(with: .opacity).animation(.easeOut(duration: 0.15))
+    
+    public init(content: @escaping () -> AnyView, leadingButton: AlertView.Button, trailingButton: AlertView.Button) {
+        self.content = content()
+        self.buttonStack = [leadingButton, trailingButton]
+    }
+
+    public init(icon: ButtonIcon, color: Color, message: String) {
+        self.content = AnyView(
+            VStack {
+                VSpacer(48)
+                Image(icon.rawValue).templateImage(width: 20, color)
+                VSpacer(20)
+                Text(message).notoSans(.bold, size: 15, color).padding(.bottom, 40)
+            }
+        )
+        self.buttonStack = [
+            AlertView.Button.center("확인", color: color)
+        ]
+    }
+    
+    public static func logoutCheck() -> AlertView {
+        return AlertView(content: {
+            AnyView(
+                VStack {
+                    VSpacer(48)
+                    Image("logout").templateImage(width: 20, Color.accent)
+                    VSpacer(20)
+                    Text("정말 로그아웃 하시겠습니까?").notoSans(.bold, size: 15, Color.text).padding(.bottom, 40)
+                }
+            )
+        },
+        leadingButton: AlertView.Button(label: "취소", color: Color.gray4, position: .leading),
+        trailingButton: AlertView.Button(label: "확인", color: Color.accent, position: .trailing, action: {
+            print("logout")
+        }))
+    }
+    
+    public var body: some View {
+        ZStack {
+            Color.black.opacity(0.1).edgesIgnoringSafeArea(.all)
+            if showAlert {
+                GeometryReader { geometry in
+                    ZStack {
+                        VStack {
+                            Spacer()
+                            VStack(spacing: 0) {
+                                content
+                                HStack(spacing: 0) {
+                                    ForEach(0...buttonStack.count-1, id: \.self) {
+                                        self.buttonStack[$0]
+                                    }
+                                }
+                            }
+                            .background(
+                                Rectangle()
+                                    .frame(maxWidth: .infinity-40, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                                    .foregroundColor(Color.systemBackground)
+                                    .cornerRadius(10)
+                            )
+                            .frame(minWidth: 0, maxWidth: geometry.size.width-40, alignment: .center)
+                            .horizonPadding()
+                            Spacer()
+                        }
+                        
+                    }
+                }.frame(alignment: .center)
+                .transition(animation)
+            }
+        }.onAppear {
+            withAnimation {
+                self.showAlert = true
+            }
+        }
+        
+    }
+}
 // struct AlertView: View {
 //    @EnvironmentObject var alertManager: AlertManager
 //    @EnvironmentObject var api: DimigoinAPI

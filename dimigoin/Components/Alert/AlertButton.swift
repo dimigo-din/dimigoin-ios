@@ -7,7 +7,7 @@
 //
 import SwiftUI
 
-extension Alert {
+extension AlertView {
     enum ButtonType {
         case `default`
         case cancel
@@ -29,10 +29,10 @@ extension Alert {
     public struct Button: View {
         let label: String
         var backgroundColor: Color = Color.gray4
-        var buttonPosition: Alert.ButtonPosition = .center
+        var buttonPosition: AlertView.ButtonPosition = .center
         var action: (() -> Void)?
 
-        init(label: String, color: Color, position: Alert.ButtonPosition, action: (() -> Void)? = {}) {
+        init(label: String, color: Color, position: AlertView.ButtonPosition, action: (() -> Void)? = {}) {
             self.label = label
             self.backgroundColor = color
             self.buttonPosition = position
@@ -56,39 +56,36 @@ extension Alert {
         }
         
         // button types
-        public static func center(_ label: String, action: (() -> Void)? = {}) -> Alert.Button {
-            return Alert.Button(label: label, color: .gray4, position: .center, action: action)
+        public static func center(_ label: String, action: (() -> Void)? = {}) -> AlertView.Button {
+            return AlertView.Button(label: label, color: .gray4, position: .center, action: action)
         }
         
-        public static func center(_ label: String, color: Color) -> Alert.Button {
-            return Alert.Button(label: label, color: color, position: .center)
+        public static func center(_ label: String, color: Color) -> AlertView.Button {
+            return AlertView.Button(label: label, color: color, position: .center)
         }
         
-        public static func dismiss() -> Alert.Button {
-            return Alert.Button(label: "취소", color: .gray4, position: .leading)
+        public static func dismiss() -> AlertView.Button {
+            return AlertView.Button(label: "취소", color: .gray4, position: .leading)
         }
         
-        public static func ok() -> Alert.Button {
-            return Alert.Button(label: "확인", color: .accent, position: .trailing)
+        public static func ok() -> AlertView.Button {
+            return AlertView.Button(label: "확인", color: .accent, position: .trailing)
         }
         
-        public static func ok(action: @escaping () -> Void) -> Alert.Button {
-            return Alert.Button(label: "확인", color: .accent, position: .trailing, action: action)
+        public static func ok(action: @escaping () -> Void) -> AlertView.Button {
+            return AlertView.Button(label: "확인", color: .accent, position: .trailing, action: action)
         }
-        
-//        public static func logoutCheck() -> Alert.Bu
-//        public static func
     }
 }
 
-func getButtonBackgroundByPosition(_ position: Alert.ButtonPosition) -> RoundSquare {
+func getButtonBackgroundByPosition(_ position: AlertView.ButtonPosition) -> RoundSquare {
     switch position {
     case .center: return RoundSquare(topLeft: 0, topRight: 0, bottomLeft: 10, bottomRight: 10)
     case .trailing: return RoundSquare(topLeft: 0, topRight: 0, bottomLeft: 0, bottomRight: 10)
     case .leading: return RoundSquare(topLeft: 0, topRight: 0, bottomLeft: 10, bottomRight: 0)
     }
 }
-func getButtonColorByType(_ type: Alert.ButtonType) -> Color {
+func getButtonColorByType(_ type: AlertView.ButtonType) -> Color {
     switch type {
     case .default: return Color.accent
     case .cancel: return Color.gray4
