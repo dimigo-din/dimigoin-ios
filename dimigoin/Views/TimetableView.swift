@@ -11,7 +11,6 @@ import DimigoinKit
 
 struct TimetableView: View {
     @EnvironmentObject var api: DimigoinAPI
-//    @EnvironmentObject var alertManager: AlertManager
     
     var body: some View {
         GeometryReader { geometry in

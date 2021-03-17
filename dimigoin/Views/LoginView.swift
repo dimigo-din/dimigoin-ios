@@ -14,7 +14,6 @@ import Firebase
 
 struct LoginView: View {
     @EnvironmentObject var api: DimigoinAPI
-//    @EnvironmentObject var alertManager: AlertManager
     @State var username = ""
     @State var password = ""
     @State var showErrorMessage: Bool = false
@@ -88,7 +87,7 @@ struct LoginView: View {
                     }.animation(.easeInOut)
                     VSpacer(20)
                     Button(action: {
-//                        alertManager.createAlert("아이디 또는 패스워드를 잊으셨나요?", sub: "계정을 분실하셨다면 본관 1층 교무실\nIT 특성화부 하미영 선생님께 문의 하시기 바랍니다", .text)
+                        Alert.forgetPassword()
                     }) {
                         HStack {
                             Image("infomark").frame(width: 13, height: 13)
@@ -100,10 +99,6 @@ struct LoginView: View {
                 .padding(.horizontal)
                 .edgesIgnoringSafeArea(.top)
                 .keyboardResponsive()
-//                Color.black.edgesIgnoringSafeArea(.all).opacity(alertManager.isShowing ? 0.1 : 0)
-//                AlertView()
-//                    .environmentObject(api)
-//                    .environmentObject(alertManager)
             } else {
                 Color(UIColor.systemBackground).edgesIgnoringSafeArea(.all)
                 Image("logo").templateImage(width: 73, Color.accent)

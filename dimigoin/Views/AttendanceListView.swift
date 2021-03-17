@@ -11,7 +11,6 @@ import DimigoinKit
 
 struct AttendanceListView: View {
     @EnvironmentObject var api: DimigoinAPI
-//    @EnvironmentObject var alertManager: AlertManager
     @State var searchText: String = ""
     @State var showDetailView: Bool = false
     @State var showHistoryView: Bool = false
@@ -57,7 +56,6 @@ struct AttendanceListView: View {
                                    selectedAttendance: $selectedAttendance,
                                    showDetailView: $showDetailView,
                                    geometry: geometry)
-//                        .environmentObject(alertManager)
                     VSpacer(10)
                 }
             }
@@ -95,7 +93,6 @@ struct AttendanceChart: View {
     @Binding var attendanceList: [Attendance]
     var geometry: GeometryProxy
     func getAttendanceCountByPlaceType(placeType: PlaceType) -> Int {
-//        api.attendanceList.filter { $0.attendanceLog[0].place.type == placeType }.count
         switch placeType {
         case .classroom: return attendanceList.filter { !$0.isRegistered }.count + attendanceList.filter { $0.isRegistered }.filter { $0.attendanceLog[0].place.type == .classroom }.count
         case .etc:
@@ -153,7 +150,6 @@ struct AttendanceChart: View {
 }
 
 struct AttendanceList: View {
-//    @EnvironmentObject var alertManager: AlertManager
     @Binding var attendanceList: [Attendance]
     @State var userType: UserType
     @Binding var searchText: String
@@ -170,7 +166,6 @@ struct AttendanceList: View {
                                    selectedAttendance: $selectedAttendance,
                                    showDetailView: $showDetailView,
                                    userType: $userType)
-//                    .environmentObject(alertManager)
             }
         }.horizonPadding()
         .frame(width: geometry.size.width)
@@ -179,7 +174,6 @@ struct AttendanceList: View {
 }
 
 struct AttendanceListItem: View {
-//    @EnvironmentObject var alertManager: AlertManager
     @State var attendance: Attendance
     @Binding var selectedAttendance: Attendance
     @Binding var showDetailView: Bool
@@ -194,7 +188,7 @@ struct AttendanceListItem: View {
             if attendance.isRegistered {
                 PlaceBadge(place: attendance.attendanceLog[0].place)
                     .onTapGesture {
-//                        alertManager.createAlert("", sub: "", .attendance)
+                        // MARK: - 장소 바꾸기
                     }
             } else {
                 PlaceBadge(placeName: "\(attendance.grade)학년 \(attendance.klass)반", placeType: .classroom)

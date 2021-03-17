@@ -70,15 +70,7 @@ struct HomeView: View {
                     VSpacer(tabBarSize + 40)
                 }.frame(width: geometry.size.width)
             }
-            }
-//        } else {
-//            ZStack {
-//                Color(UIColor.systemBackground).edgesIgnoringSafeArea(.all)
-//                Image("logo").templateImage(width: 73, Color.accent)
-//                    .matchedGeometryEffect(id: "logo", in: homeview)
-//                    .offset(y: -50)
-//            }
-//        }
+        }
     }
     func calMidSpace(geo: GeometryProxy) -> CGFloat {
         var space = geo.size.height-tabBarSize-420-(14*geo.size.width/75)
