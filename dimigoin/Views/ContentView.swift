@@ -40,7 +40,9 @@ struct ContentView: View {
             .navigationBarHidden(true)
         }.navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
-            Alert.updateRequired()
+            if needsUpdate() {
+                Alert.updateRequired()
+            }
         }
         
     }

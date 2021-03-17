@@ -153,7 +153,7 @@ struct StudentIdCardView: View {
         var error: NSError?
 
         guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) else {
-            Alert.present("학생증 열기 실패", remark: "학생증을 보시려면 핸드폰의 잠금을 설정시거나 앱의 접근 권한을 허용해주세요.", icon: .dangermark, color: .red)
+            Alert.present("학생증 열기 실패", message: "학생증을 보시려면 핸드폰의 잠금을 설정시거나 앱의 접근 권한을 허용해주세요.", icon: .dangermark, color: .red)
             return
         }
 
@@ -170,7 +170,7 @@ struct StudentIdCardView: View {
                 }
             })
         } else {
-            Alert.present("인증에 실패했습니다.", remark: "학생증을 보시려면 생체인증을 진행하거나, 비밀번호를 입력해야 합니다.", icon: .dangermark, color: .red)
+            Alert.present("인증에 실패했습니다.", message: "학생증을 보시려면 생체인증을 진행하거나, 비밀번호를 입력해야 합니다.", icon: .dangermark, color: .red)
         }
     }
     func showIdCard() {

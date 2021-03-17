@@ -11,11 +11,11 @@ import DimigoinKit
 import SwiftUI
 
 public enum Alert {
-    public static func present(_ message: String, icon: AlertView.AlertIcon, color: Color) {
-        AlertViewController(alertView: AlertView(icon: icon, color: color, message: message)).present()
+    public static func present(_ title: String, icon: AlertView.AlertIcon, color: Color) {
+        AlertViewController(alertView: AlertView(icon: icon, color: color, message: title)).present()
     }
     
-    public static func present(_ title: String, remark: String, icon: AlertView.AlertIcon, color: Color) {
+    public static func present(_ title: String, message: String, icon: AlertView.AlertIcon, color: Color) {
         AlertViewController(alertView: AlertView(content: {
             AnyView(
                 VStack {
@@ -23,7 +23,7 @@ public enum Alert {
                     Image(icon.rawValue).templateImage(width: 30, color)
                     VSpacer(15)
                     Text(title).notoSans(.bold, size: 15, .gray4)
-                    Text(remark).notoSans(.medium, size: 13, .gray4).padding(.bottom, 25)
+                    Text(message).notoSans(.medium, size: 12, .gray4).padding(.bottom, 25)
                 }
             )
         },
