@@ -11,10 +11,6 @@ import DimigoinKit
 import SwiftUI
 
 public enum Alert {
-    public static func present() {
-        AlertViewController(alertView: AlertView(icon: .checkmark, color: .accent, message: "hello")).present()
-    }
-    
     public static func present(_ message: String, icon: AlertView.AlertIcon, color: Color) {
         AlertViewController(alertView: AlertView(icon: icon, color: color, message: message)).present()
     }
@@ -32,6 +28,27 @@ public enum Alert {
             )
         },
         centerButton: AlertView.Button.center("확인", color: color)
+        )).present()
+    }
+    
+    public static func updateRequired() {
+        AlertViewController(alertView: AlertView(content: {
+            AnyView(
+                VStack {
+                    VSpacer(40)
+                    Image("warningmark").templateImage(width: 30, .yellow)
+                    VSpacer(15)
+                    Text("최신버전으로 업데이트 해주세요!").notoSans(.bold, size: 15, .gray4)
+                    Text("확인을 누르면 앱스토어로 이동합니다").notoSans(.medium, size: 13, .gray4).padding(.bottom, 25)
+                }
+            )
+        },
+        leadingButton: AlertView.Button.dismiss(),
+        trailingButton: AlertView.Button(label: "확인", color: .yellow, position: .trailing, action: {
+            if let url = URL(string: "https://apps.apple.com/app/디미고인/id1548069749") {
+                UIApplication.shared.open(url, options: [:])
+            }
+        })
         )).present()
     }
     
