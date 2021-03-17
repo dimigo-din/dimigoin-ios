@@ -8,14 +8,11 @@
 
 import SwiftUI
 
-
 class AlertViewController: UIHostingController<AlertView> {
     var alertView: AlertView
-//    var isPresented: Binding<Bool>
     
     init(alertView: AlertView) {
         self.alertView = alertView
-//        self.isPresented = isPresented
         super.init(rootView: self.alertView)
         self.modalPresentationStyle = .overCurrentContext
         self.view.backgroundColor = UIColor.clear
@@ -27,15 +24,12 @@ class AlertViewController: UIHostingController<AlertView> {
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
-        // MARK: 여기서 다시 false로 돌려주네
-//        self.isPresented.wrappedValue = false
         alertView.showAlert = false
     }
     public func present() {
         UIApplication.shared.windows.first!.rootViewController?.present(self, animated: true, completion: nil)
     }
     public func dismiss() {
-//        self.isPresented.wrappedValue = false
         self.dismiss(animated: true, completion: nil)
     }
 }

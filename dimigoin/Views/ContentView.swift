@@ -10,7 +10,7 @@ import SwiftUI
 import DimigoinKit
 
 struct ContentView: View {
-//    @ObservedObject var api = DimigoinAPI()
+    @ObservedObject var api = DimigoinAPI()
 //    var alertManager = AlertManager()
     var tapbarIdx = 2
     init() {
@@ -21,9 +21,24 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button(action: {
-                Alert.present()
+                Alert.forgetPassword()
+            }) {
+                Text("forgetPassword")
+            }
+            Button(action: {
+                Alert.present("안녕하세요", icon: .checkmark, color: .accent)
             }) {
                 Text("hello")
+            }
+            Button(action: {
+                Alert.present("인강 신청 실패", remark: "어떤 오류가 발생", icon: .checkmark, color: .gray4)
+            }) {
+                Text("hello")
+            }
+            Button(action: {
+                Alert.readmeBeforeUseIDCard()
+            }) {
+                Text("readme")
             }
         }
         

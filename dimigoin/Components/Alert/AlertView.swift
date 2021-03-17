@@ -25,8 +25,13 @@ public struct AlertView: View {
         self.content = content()
         self.buttonStack = [leadingButton, trailingButton]
     }
+    
+    public init(content: @escaping () -> AnyView, centerButton: AlertView.Button) {
+        self.content = content()
+        self.buttonStack = [centerButton]
+    }
 
-    public init(icon: ButtonIcon, color: Color, message: String) {
+    public init(icon: AlertIcon, color: Color, message: String) {
         self.content = AnyView(
             VStack {
                 VSpacer(48)
@@ -40,21 +45,11 @@ public struct AlertView: View {
         ]
     }
     
-    public static func logoutCheck() -> AlertView {
-        return AlertView(content: {
-            AnyView(
-                VStack {
-                    VSpacer(48)
-                    Image("logout").templateImage(width: 20, Color.accent)
-                    VSpacer(20)
-                    Text("정말 로그아웃 하시겠습니까?").notoSans(.bold, size: 15, Color.text).padding(.bottom, 40)
-                }
-            )
-        },
-        leadingButton: AlertView.Button(label: "취소", color: Color.gray4, position: .leading),
-        trailingButton: AlertView.Button(label: "확인", color: Color.accent, position: .trailing, action: {
-            print("logout")
-        }))
+    public enum AlertIcon: String {
+        case warningmark = "warningmark"
+        case dangermark = "dangermark"
+        case checkmark = "checkmark"
+        case logoutmark = "logout"
     }
     
     public var body: some View {

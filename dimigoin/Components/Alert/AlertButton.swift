@@ -19,12 +19,6 @@ extension AlertView {
         case leading
         case center
     }
-    public enum ButtonIcon: String {
-        case warningmark = "warningmark"
-        case dangermark = "dangermark"
-        case checkmark = "checkmark"
-        case logoutmark = "logout"
-    }
     
     public struct Button: View {
         let label: String
