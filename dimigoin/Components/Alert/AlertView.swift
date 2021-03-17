@@ -7,150 +7,31 @@
 //
 
 import SwiftUI
-import Combine
-import DimigoinKit
 
-typealias SystemButton = Button
-
-public struct Alert: View {
+struct AlertView: View {
+    static var currentAlertVCReference: AlertViewController?
+    
+//    @Binding var visible: Bool
     @State var showAlert: Bool = false
     
-    var cornerRadius: CGFloat = 10
-    var shadowRadius: CGFloat = 10
-    
-    var content: AnyView
-    var buttonStack: [Alert.Button]
-    
-    var animation: AnyTransition = AnyTransition.scale(scale: 1.2).combined(with: .opacity).animation(.easeOut(duration: 0.15))
-    
-    public init(content: @escaping () -> AnyView, leadingButton: Alert.Button, trailingButton: Alert.Button) {
-        self.content = content()
-        self.buttonStack = [leadingButton, trailingButton]
-    }
-
-    public init(icon: ButtonIcon, color: Color, message: String) {
-        self.content = AnyView(
-            VStack {
-                VSpacer(48)
-                Image(icon.rawValue).templateImage(width: 20, color)
-                VSpacer(20)
-                Text(message).notoSans(.bold, size: 15, color).padding(.bottom, 40)
-            }
-        )
-        self.buttonStack = [
-            Alert.Button.center("확인", color: color)
-        ]
-    }
-    
-    public static func logoutCheck() -> Alert {
-        return Alert(content: {
-            AnyView(
-                VStack {
-                    VSpacer(48)
-                    Image("logout").templateImage(width: 20, Color.accent)
-                    VSpacer(20)
-                    Text("정말 로그아웃 하시겠습니까?").notoSans(.bold, size: 15, Color.text).padding(.bottom, 40)
-                }
-            )
-        },
-        leadingButton: Alert.Button(label: "취소", color: Color.gray4, position: .leading),
-        trailingButton: Alert.Button(label: "확인", color: Color.accent, position: .trailing, action: {
-            print("logout")
-//            api.logout
-        }))
-    }
+    let alert: Alert
     
     public var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                VStack {
-                    Spacer()
-                    VStack(spacing: 0) {
-                        content
-                        HStack(spacing: 0) {
-                            ForEach(0...buttonStack.count-1, id: \.self) {
-                                self.buttonStack[$0]
-                            }
-                        }
-                    }
-                    .background(
-                        Rectangle()
-                            .frame(maxWidth: .infinity-40, minHeight: 0, maxHeight: .infinity, alignment: .center)
-                            .foregroundColor(Color.systemBackground)
-                            .cornerRadius(10)
-                    )
-                    .frame(minWidth: 0, maxWidth: geometry.size.width-40, alignment: .center)
-                    .horizonPadding()
-                    Spacer()
-                }
-                
+        ZStack {
+            Color.black.opacity(0.1).edgesIgnoringSafeArea(.all)
+            if showAlert {
+                alert.transition(self.alert.animation)
             }
-        }.frame(alignment: .center)
-        
-    }
-    
-    public enum ButtonIcon: String {
-        case warningmark = "warningmark"
-        case dangermark = "dangermark"
-        case checkmark = "checkmark"
-        case logoutmark = "logout"
-    }
-    
-    
-    public struct Button: View {
-        let label: String
-        var backgroundColor: Color = Color.gray4
-        var buttonPosition: Alert.ButtonPosition = .center
-        var action: (() -> Void)?
-
-        init(label: String, color: Color, position: Alert.ButtonPosition, action: (() -> Void)? = {}) {
-            self.label = label
-            self.backgroundColor = color
-            self.buttonPosition = position
-            self.action = action
-        }
-        
-        public var body: some View {
-            SystemButton(action: {
-                AlertView.currentAlertVCReference?.dismiss(animated: true) {
-                    AlertView.currentAlertVCReference = nil
-                    if let action = self.action {
-                        action()
-                    }
-                }
-            }) {
-                Text(label)
-                    .notoSans(.bold, size: 14)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .frame(height: 45)
-                    .foregroundColor(Color.systemBackground)
-                    .background(getButtonBackgroundByPosition(buttonPosition).fill(backgroundColor))
+        }.onAppear {
+            withAnimation {
+//                if self.visible {
+                    self.showAlert = true
+//                }
             }
         }
-        
-        // button types
-        public static func center(_ label: String, action: (() -> Void)? = {}) -> Alert.Button {
-            return Alert.Button(label: label, color: .gray4, position: .center, action: action)
-        }
-        
-        public static func center(_ label: String, color: Color) -> Alert.Button {
-            return Alert.Button(label: label, color: color, position: .center)
-        }
-        
-        public static func dismiss() -> Alert.Button {
-            return Alert.Button(label: "취소", color: .gray4, position: .leading)
-        }
-        
-        public static func ok() -> Alert.Button {
-            return Alert.Button(label: "확인", color: .accent, position: .trailing)
-        }
-        
-        public static func ok(action: @escaping () -> Void) -> Alert.Button {
-            return Alert.Button(label: "확인", color: .accent, position: .trailing, action: action)
-        }
-        
-//        public static func logoutCheck() -> Alert.Bu
-//        public static func
+    }
+    public func dismiss() {
+        self.showAlert = false
     }
 }
 

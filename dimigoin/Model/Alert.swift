@@ -10,14 +10,100 @@ import Foundation
 import DimigoinKit
 import SwiftUI
 
+typealias SystemButton = Button
+
 public enum Test {
     public static func present() {
-        AlertViewController(alertView: AlertView(visible: .constant(true), alert: Alert.logoutCheck()), isPresented: .constant(true)).present()
+        AlertViewController(alertView: AlertView(alert: Alert.logoutCheck())).present()
 //        let alertView = AlertView(visible: .constant(true), alert: Alert.logoutCheck())
 //        alertView.present()
         print("presented")
     }
+    
+    public static func dismiss() {
+//        AlertViewController.dismiss(self)
+    }
 }
+
+public struct Alert: View {
+    @State var showAlert: Bool = false
+    
+    var cornerRadius: CGFloat = 10
+    var shadowRadius: CGFloat = 10
+    
+    var content: AnyView
+    var buttonStack: [Alert.Button]
+    
+    var animation: AnyTransition = AnyTransition.scale(scale: 1.2).combined(with: .opacity).animation(.easeOut(duration: 0.15))
+    
+    public init(content: @escaping () -> AnyView, leadingButton: Alert.Button, trailingButton: Alert.Button) {
+        self.content = content()
+        self.buttonStack = [leadingButton, trailingButton]
+    }
+
+    public init(icon: ButtonIcon, color: Color, message: String) {
+        self.content = AnyView(
+            VStack {
+                VSpacer(48)
+                Image(icon.rawValue).templateImage(width: 20, color)
+                VSpacer(20)
+                Text(message).notoSans(.bold, size: 15, color).padding(.bottom, 40)
+            }
+        )
+        self.buttonStack = [
+            Alert.Button.center("확인", color: color)
+        ]
+    }
+    
+    public static func logoutCheck() -> Alert {
+        return Alert(content: {
+            AnyView(
+                VStack {
+                    VSpacer(48)
+                    Image("logout").templateImage(width: 20, Color.accent)
+                    VSpacer(20)
+                    Text("정말 로그아웃 하시겠습니까?").notoSans(.bold, size: 15, Color.text).padding(.bottom, 40)
+                }
+            )
+        },
+        leadingButton: Alert.Button(label: "취소", color: Color.gray4, position: .leading),
+        trailingButton: Alert.Button(label: "확인", color: Color.accent, position: .trailing, action: {
+            print("logout")
+//            api.logout
+        }))
+    }
+    
+    public var body: some View {
+        GeometryReader { geometry in
+            ZStack {
+                VStack {
+                    Spacer()
+                    VStack(spacing: 0) {
+                        content
+                        HStack(spacing: 0) {
+                            ForEach(0...buttonStack.count-1, id: \.self) {
+                                self.buttonStack[$0]
+                            }
+                        }
+                    }
+                    .background(
+                        Rectangle()
+                            .frame(maxWidth: .infinity-40, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                            .foregroundColor(Color.systemBackground)
+                            .cornerRadius(10)
+                    )
+                    .frame(minWidth: 0, maxWidth: geometry.size.width-40, alignment: .center)
+                    .horizonPadding()
+                    Spacer()
+                }
+                
+            }
+        }.frame(alignment: .center)
+        
+    }
+}
+
+
 
 
 //enum AlertType {

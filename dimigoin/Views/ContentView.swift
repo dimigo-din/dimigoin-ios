@@ -11,7 +11,6 @@ import DimigoinKit
 
 struct ContentView: View {
 //    @ObservedObject var api = DimigoinAPI()
-    
 //    var alertManager = AlertManager()
     var tapbarIdx = 2
     init() {
@@ -19,19 +18,13 @@ struct ContentView: View {
 //            alertManager.createAlert("최신버전으로 업데이트 해주세요!", .warning)
         }
     }
-    @State var showAlert: Bool = false
     var body: some View {
         VStack {
-            Text(showAlert ? "show" : "not show")
             Button(action: {
-//                self.showAlert.toggle()
                 Test.present()
             }) {
                 Text("hello")
             }
-            .alert(isPresented: $showAlert, content: {
-                Alert(icon: .dangermark, color: Color.red, message: "취소불가")
-            })
         }
         
 //        NavigationView {
