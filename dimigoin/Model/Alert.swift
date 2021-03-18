@@ -159,26 +159,12 @@ public enum Alert {
         )).present()
     }
     
-    public static func selectLoaction(api: DimigoinAPI, place: Binding<Place>) {
-        // TODO: - implement select etc location
-        var place: Place = Place()
-        var remark: String = ""
+    public static func selectLocation(api: DimigoinAPI) {
         AlertViewController(alertView: AlertView(content: {
             AnyView(
-                Text(place.name)
-//                LocationSelectDialog(
+                ChangeLocationDialog().environmentObject(api)
             )
-        },
-        leadingButton: AlertView.Button.dismiss(),
-        trailingButton: AlertView.Button(label: "확인", color: .accent, position: .trailing, action: {
-            // api call
-//            api.changeUserPlace(placeName: "sdkf", remark: "sdl") { result in
-//                switch result {
-//                case .success():
-//                     break
-//                }
-//            }
-        })
+        }
         )).present()
     }
     
@@ -260,44 +246,101 @@ public enum Alert {
     }
 }
 
-
-struct LocationSelectDialog: View {
+struct ChangeLocationDialog: View {
     @EnvironmentObject var api: DimigoinAPI
-    @Binding var selectedPlace: Place
-    @Binding var remark: String
+    @State var selectedPlace: Place = Place()
+    @State var remark: String = ""
+    @State var isShowPlaceList: Bool = false
+    @State var isRemarkEmpty: Bool = false
+   
     var body: some View {
-        VStack {
-            VSpacer(20)
-            Text("\(getStringTimeZone())").notoSans(.bold, size: 11, Color.accent)
-            Text("어디에 계신가요?").notoSans(.bold, size: 16)
-            VSpacer(20)
-            NavigationLink(destination: SelectPlaceView(api: api, selectedPlace: $selectedPlace)) {
-                HStack {
-                    Text(selectedPlace == Place() ? "장소를 선택하세요" : selectedPlace.name)
-                        .foregroundColor(Color.accent)
-                        .font(Font.custom("NanumSquareR", size: 14))
-                        .padding(.leading)
-                    Spacer()
-                    Image(systemName: "chevron.right")
-                        .padding(.trailing)
-                        .foregroundColor(Color.accent)
+        NavigationView {
+            VStack {
+                VSpacer(20)
+                Text("\(getStringTimeZone())").notoSans(.bold, size: 11, Color.accent)
+                Text("어디에 계신가요?").notoSans(.bold, size: 16)
+                VSpacer(20)
+                VStack {
+                    NavigationLink(destination: SelectPlaceView(api: api, selectedPlace: $selectedPlace), isActive: $isShowPlaceList) {
+                        HStack {
+                            Text(selectedPlace == Place() ? "장소를 선택하세요" : selectedPlace.name)
+                                .foregroundColor(Color.accent)
+                                .font(Font.custom("NanumSquareR", size: 14))
+                                .padding(.leading)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .padding(.trailing)
+                                .foregroundColor(Color.accent)
+                        }
+                    }
+                    .frame(width: 335, height: 50)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color("divider"), lineWidth: 1)
+                    )
+                    VSpacer(15)
+                    TextField("사유를 입력하세요", text: $remark).textContentType(.none)
+                        .modifier(TextFieldModifier(isError: $isRemarkEmpty))
+                        .modifier(ClearButton(text: $remark))
+//                    if isRemarkEmpty {
+//                        Text("사유는 비어 있을 수 없습니다")
+//                            .notoSans(.medium, size: 12, .red)
+//                    }
+                    
+                    Text("사전 허가된 활동 또는 감독 교사 승인 외\n임의로 등록할 경우 불이익을 받을 수 있습니다.")
+                        .notoSans(.medium, size: 12, Color("gray7")).multilineTextAlignment(.center)
+                        .padding(.top, 20)
+                }
+                Spacer()
+                HStack(spacing: 0) {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Text("취소")
+                            .foregroundColor(Color.white)
+                            .notoSans(.bold, size: 14)
+                            .frame(height: 45)
+                            .frame(maxWidth: .infinity)
+                            .background(RoundSquare(topLeft: 0, topRight: 0, bottomLeft: 10, bottomRight: 0).fill(Color.gray4))
+                    }
+                    Button(action: {
+//                        if remark.isEmpty {
+//                            withAnimation(.easeInOut) { self.isRemarkEmpty = true }
+//                        } else {
+                            dismiss()
+                            api.changeUserPlace(placeName: selectedPlace.name, remark: remark.isEmpty ? "없음" : remark) { result in
+                                print(result)
+                                switch result {
+                                case .success(_):
+                                    Alert.present("위치 변경에 성공했습니다.", message: "\"\(selectedPlace.name)\"(으)로 변경되었습니다.", icon: .checkmark, color: .accent)
+                                case .failure(let error):
+                                    switch error {
+                                    case .noSuchPlace:
+                                        Alert.present("위치 변경에 실패했습니다.", message: "유효한 장소가 아닙니다.", icon: .dangermark, color: .red)
+                                    case .notRightTime:
+                                        Alert.present("위치 변경에 실패했습니다.", message: "자습 현황 등록 시간이 아닙니다.", icon: .dangermark, color: .red)
+                                    case .tokenExpired:
+                                        Alert.present("위치 변경에 실패했습니다.", message: "토큰이 만료 되었습니다.", icon: .dangermark, color: .red)
+                                    case .unknown:
+                                        Alert.present("위치 변경에 실패했습니다.", message: "알 수 없는 에러", icon: .dangermark, color: .red)
+                                    }
+                                }
+//                            }
+                        }
+                    }) {
+                        Text("확인")
+                            .foregroundColor(Color.white)
+                            .notoSans(.bold, size: 14)
+                            .frame(height: 45)
+                            .frame(maxWidth: .infinity)
+                            .background(RoundSquare(topLeft: 0, topRight: 0, bottomLeft: 0, bottomRight: 10).fill(Color.accent))
+                    }
                 }
             }
-            .frame(width: 335, height: 50)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color("divider"), lineWidth: 1)
-            )
-
-            VSpacer(15)
-            TextField("사유를 입력하세요", text: $remark).textContentType(.none)
-                .modifier(TextFieldModifier())
-                .modifier(ClearButton(text: $remark))
-            VSpacer(20)
-            Text("사전 허가된 활동 또는 감독 교사 승인 외\n임의로 등록할 경우 불이익을 받을 수 있습니다.")
-                .notoSans(.medium, size: 12, Color("gray7")).multilineTextAlignment(.center)
-        }
+        }.frame(maxHeight: 450, alignment: .center).keyboardResponsive()
+        .cornerRadius(10)
+    }
+    func dismiss() {
+        UIApplication.shared.windows.first!.rootViewController?.dismiss(animated: true, completion: nil)
     }
 }
-
-

@@ -39,7 +39,7 @@ struct TeacherView: View {
                             HStack {
                                 Text("\(selectedGrade)학년 \(selectedClass)반").notoSans(.black, size: 30)
                                 Button(action: {
-                                    api.logout()
+                                    Alert.logoutCheck(api: api)
                                 }) {
                                     Image("logout").renderingMode(.template).foregroundColor(.accent)
                                 }
@@ -59,6 +59,7 @@ struct TeacherView: View {
                                 }) {
                                     if isFetchingAttendanceLog {
                                         ProgressView()
+                                            .scaleEffect(0.7, anchor: .center)
                                             .frame(width: 74, height: 25)
                                             .background(Color.accent.cornerRadius(13))
                                     } else {

@@ -132,12 +132,11 @@ struct LocationItem: View {
 struct LocationItemEtc: View {
     @EnvironmentObject var api: DimigoinAPI
     @State var isFetching: Bool = false
-//    @State var place:
     
     var body: some View {
         VStack {
             Button(action: {
-//                Alert.selectLoaction()
+                Alert.selectLocation(api: api)
             }) {
                 Circle()
                     .fill(!api.isPrimaryPlace(place: api.currentPlace) ? Color.accent : Color(UIColor.secondarySystemGroupedBackground))

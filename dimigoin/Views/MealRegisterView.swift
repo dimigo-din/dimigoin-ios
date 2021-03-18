@@ -11,7 +11,6 @@ import DimigoinKit
 
 struct MealRegisterView: View {
     @EnvironmentObject var api: DimigoinAPI
-//    @EnvironmentObject var alertManager: AlertManager
     @State private var date = Date()
     @State private var meal = Meal()
     @State private var isFetching: Bool = false
@@ -126,7 +125,7 @@ struct MealRegisterView: View {
                                                     withAnimation(.easeInOut) { self.isFetching = false }
                                                 }
                                             default:
-//                                                alertManager.createAlert("오류가 발생하였습니다.", .danger)
+                                                Alert.present("오류가 발생했습니다.", icon: .dangermark, color: .red)
                                                 withAnimation(.easeInOut) { self.isFetching = false }
                                             }
                                         }

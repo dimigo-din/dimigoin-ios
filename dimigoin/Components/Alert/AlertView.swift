@@ -30,6 +30,11 @@ public struct AlertView: View {
         self.content = content()
         self.buttonStack = [centerButton]
     }
+    
+    public init(content: @escaping () -> AnyView) {
+        self.content = content()
+        self.buttonStack = []
+    }
 
     public init(icon: AlertIcon, color: Color, message: String) {
         self.content = AnyView(
@@ -63,8 +68,10 @@ public struct AlertView: View {
                             VStack(spacing: 0) {
                                 content
                                 HStack(spacing: 0) {
-                                    ForEach(0...buttonStack.count-1, id: \.self) {
-                                        self.buttonStack[$0]
+                                    if !buttonStack.isEmpty {
+                                        ForEach(0...buttonStack.count-1, id: \.self) {
+                                            self.buttonStack[$0]
+                                        }
                                     }
                                 }
                             }
