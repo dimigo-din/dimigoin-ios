@@ -13,7 +13,6 @@ import DimigoinKit
 
 struct IngangView: View {
     @EnvironmentObject var api: DimigoinAPI
-    @EnvironmentObject var alertManager: AlertManager
     
     var body: some View {
         GeometryReader { geometry in
@@ -105,21 +104,21 @@ struct IngangView: View {
             case .failure(let error):
                 switch error {
                 case .alreadyApplied:
-                    self.alertManager.createAlert("신청에 실패했습니다.", sub: "이미 신청한 인강입니다.", .danger)
+                    Alert.present("인강 신청에 실패했습니다.", message: "이미 신청한 인강입니다.", icon: .dangermark, color: .red)
                 case .full:
-                    self.alertManager.createAlert("신청에 실패했습니다.", sub: "신청 최대 인원에 도달했거나 인강 신청 시간이 아닙니다.", .danger)
+                    Alert.present("인강 신청에 실패했습니다.", message: "신청 최대 인원에 도달했거나 인강 신청 시간이 아닙니다.", icon: .dangermark, color: .red)
                 case .noIngang:
-                    self.alertManager.createAlert("신청에 실패했습니다.", sub: "인강이 없습니다.", .danger)
+                    Alert.present("인강 신청에 실패했습니다.", message: "인강이 없습니다.", icon: .dangermark, color: .red)
                 case .noTicket:
-                    self.alertManager.createAlert("신청에 실패했습니다.", sub: "이번 주 인강실 티켓을 모두 사용했습니다.", .danger)
+                    Alert.present("인강 신청에 실패했습니다.", message: "이번 주 인강실 티켓을 모두 사용했습니다.", icon: .dangermark, color: .red)
                 case .timeout:
-                    self.alertManager.createAlert("신청에 실패했습니다.", sub: "시간 초과", .danger)
+                    Alert.present("인강 신청에 실패했습니다.", message: "시간 초과", icon: .dangermark, color: .red)
                 case .tokenExpired:
-                    self.alertManager.createAlert("신청에 실패했습니다.", sub: "토큰이 만료 되었습니다. 다시시도 해주세요", .danger)
+                    Alert.present("인강 신청에 실패했습니다.", message: "토큰이 만료 되었습니다. 다시시도 해주세요", icon: .dangermark, color: .red)
                 case .unknown:
-                    self.alertManager.createAlert("신청에 실패했습니다.", sub: "알 수 없는 에러", .danger)
+                    Alert.present("인강 신청에 실패했습니다.", message: "알 수 없는 에러", icon: .dangermark, color: .red)
                 }
-                
+
             }
         }
     }
@@ -132,19 +131,19 @@ struct IngangView: View {
             case .failure(let error):
                 switch error {
                 case .alreadyApplied:
-                    self.alertManager.createAlert("신청에 실패했습니다.", sub: "이미 신청한 인강입니다.", .danger)
+                    Alert.present("인강 취소에 실패했습니다.", message: "이미 취소한 인강입니다.", icon: .dangermark, color: .red)
                 case .full:
-                    self.alertManager.createAlert("신청에 실패했습니다.", sub: "신청 최대 인원에 도달했거나 인강 신청 시간이 아닙니다.", .danger)
+                    Alert.present("인강 취소에 실패했습니다.", message: "신청 최대 인원에 도달했거나 인강 신청 시간이 아닙니다.", icon: .dangermark, color: .red)
                 case .noIngang:
-                    self.alertManager.createAlert("신청에 실패했습니다.", sub: "인강이 없습니다.", .danger)
+                    Alert.present("인강 취소에 실패했습니다.", message: "인강이 없습니다.", icon: .dangermark, color: .red)
                 case .noTicket:
-                    self.alertManager.createAlert("신청에 실패했습니다.", sub: "이번 주 인강실 티켓을 모두 사용했습니다.", .danger)
+                    Alert.present("인강 취소에 실패했습니다.", message: "이번 주 인강실 티켓을 모두 사용했습니다.", icon: .dangermark, color: .red)
                 case .timeout:
-                    self.alertManager.createAlert("신청에 실패했습니다.", sub: "시간 초과", .danger)
+                    Alert.present("인강 취소에 실패했습니다.", message: "시간 초과", icon: .dangermark, color: .red)
                 case .tokenExpired:
-                    self.alertManager.createAlert("신청에 실패했습니다.", sub: "토큰이 만료 되었습니다. 다시시도 해주세요", .danger)
+                    Alert.present("인강 취소에 실패했습니다.", message: "토큰이 만료 되었습니다. 다시시도 해주세요", icon: .dangermark, color: .red)
                 case .unknown:
-                    self.alertManager.createAlert("신청에 실패했습니다.", sub: "알 수 없는 에러", .danger)
+                    Alert.present("인강 취소에 실패했습니다.", message: "알 수 없는 에러", icon: .dangermark, color: .red)
                 }
             }
         }

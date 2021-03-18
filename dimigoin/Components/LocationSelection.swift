@@ -19,7 +19,6 @@ struct LocationButton: Hashable {
 
 struct LocationSelectionView: View {
     @EnvironmentObject var api: DimigoinAPI
-    @EnvironmentObject var alertManager: AlertManager
 
     var locationButtons: [LocationButton] = [
     ]
@@ -44,7 +43,6 @@ struct LocationSelectionView: View {
                     NavigationLink(destination:
                         AttendanceListView()
                             .environmentObject(api)
-                            .environmentObject(alertManager)
                     ) {
                         Text("자세히")
                             .notoSans(.bold, size: 12, Color.white)
@@ -56,7 +54,6 @@ struct LocationSelectionView: View {
             HStack {
                 ForEach(locationButtons, id: \.self) { location in
                     LocationItem(idx: location.idx, icon: location.icon, place: location.place)
-                        .environmentObject(alertManager)
                         .environmentObject(api)
                         .accessibility(identifier: "locationSelection.\(location.icon)")
                     if locationButtons.count-1 != location.idx {
@@ -65,7 +62,6 @@ struct LocationSelectionView: View {
                 }
                 Spacer()
                 LocationItemEtc()
-                    .environmentObject(alertManager)
                     .environmentObject(api)
             }.padding(.top, 5)
             .horizonPadding()
@@ -76,7 +72,6 @@ struct LocationSelectionView: View {
 
 struct LocationItem: View {
     @EnvironmentObject var api: DimigoinAPI
-    @EnvironmentObject var alertManager: AlertManager
     @State var idx: Int
     @State var icon: String
     var place: Place
@@ -91,24 +86,23 @@ struct LocationItem: View {
                     case .success(()):
                         self.api.fetchUserCurrentPlace {
                             self.api.fetchAttendanceListData {
-                                alertManager.createAlert("\"\(place.name)\"(으)로 변경되었습니다.", .success)
+                                Alert.present("위치 변경에 성공했습니다.", message: "\"\(place.name)\"(으)로 변경되었습니다.", icon: .checkmark, color: .accent)
                                 withAnimation(.easeInOut) { self.isFetching = false }
                             }
                         }
                     case .failure(let error):
                         switch error {
                         case .noSuchPlace:
-                            alertManager.createAlert("자습 현황 오류", sub: "유효하지 않은 장소입니다.", .danger)
+                            Alert.present("위치 변경에 실패했습니다.", message: "유효하지 않은 장소입니다.", icon: .dangermark, color: .red)
                         case .notRightTime:
-                            alertManager.createAlert("자습 현황 오류", sub: "인원 점검 시간이 아닙니다.", .danger)
+                            Alert.present("위치 변경에 실패했습니다.", message: "인원 점검 시간이 아닙니다.", icon: .dangermark, color: .red)
                         case .tokenExpired:
-                            alertManager.createAlert("자습 현황 오류", sub: "토큰이 만료 되었습니다. 다시 시도해주세요", .danger)
+                            Alert.present("위치 변경에 실패했습니다.", message: "토큰이 만료 되었습니다. 다시 시도해주세요", icon: .dangermark, color: .red)
                         case .unknown:
-                            alertManager.createAlert("알 수 없는 에러", sub: "잠시 후 다시 시도해주세요", .danger)
+                            Alert.present("알 수 없는 에러", message: "잠시 후 다시 시도해주세요", icon: .dangermark, color: .red)
                         }
                         withAnimation(.easeInOut) { self.isFetching = false }
                     }
-                    
                 }
             }) {
                 Circle()
@@ -136,14 +130,13 @@ struct LocationItem: View {
 }
 
 struct LocationItemEtc: View {
-    @EnvironmentObject var alertManager: AlertManager
     @EnvironmentObject var api: DimigoinAPI
     @State var isFetching: Bool = false
     
     var body: some View {
         VStack {
             Button(action: {
-                alertManager.attendance()
+                Alert.selectLocation(api: api)
             }) {
                 Circle()
                     .fill(!api.isPrimaryPlace(place: api.currentPlace) ? Color.accent : Color(UIColor.secondarySystemGroupedBackground))

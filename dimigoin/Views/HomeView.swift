@@ -11,7 +11,6 @@ import DimigoinKit
 import SDWebImageSwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject var alertManager: AlertManager
     @EnvironmentObject var api: DimigoinAPI
     @State var showLogoutButton: Bool = false
     @Binding var tapbarIndex: Int
@@ -33,7 +32,7 @@ struct HomeView: View {
                                 .unredacted()
                             Spacer()
                             Button(action: {
-                                alertManager.logoutCheck()
+                                Alert.logoutCheck(api: api)
                             }) {
                                 Image("logout").templateImage(width: 30, Color.accent)
                             }.offset(x: showLogoutButton ? 0 : 45)
@@ -63,7 +62,6 @@ struct HomeView: View {
                     }.frame(width: geometry.size.width)
                     VSpacer(15)
                     LocationSelectionView(_api)
-                        .environmentObject(alertManager)
                     NoticeItem(geometry: geometry)
                         .environmentObject(api)
                     VSpacer(calMidSpace(geo: geometry))
@@ -72,15 +70,7 @@ struct HomeView: View {
                     VSpacer(tabBarSize + 40)
                 }.frame(width: geometry.size.width)
             }
-            }
-//        } else {
-//            ZStack {
-//                Color(UIColor.systemBackground).edgesIgnoringSafeArea(.all)
-//                Image("logo").templateImage(width: 73, Color.accent)
-//                    .matchedGeometryEffect(id: "logo", in: homeview)
-//                    .offset(y: -50)
-//            }
-//        }
+        }
     }
     func calMidSpace(geo: GeometryProxy) -> CGFloat {
         var space = geo.size.height-tabBarSize-420-(14*geo.size.width/75)

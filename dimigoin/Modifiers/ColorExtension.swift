@@ -14,5 +14,7 @@ extension Color {
     static let divider = Color("divider")
     static let gray4 = Color("gray4")
     static let text = Color("text")
+    static let yellow = Color("yellow")
+    static let red = Color("red")
     static let systemBackground = Color(UIColor.systemBackground)
 }

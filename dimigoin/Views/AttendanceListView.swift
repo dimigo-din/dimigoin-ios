@@ -11,7 +11,6 @@ import DimigoinKit
 
 struct AttendanceListView: View {
     @EnvironmentObject var api: DimigoinAPI
-    @EnvironmentObject var alertManager: AlertManager
     @State var searchText: String = ""
     @State var showDetailView: Bool = false
     @State var showHistoryView: Bool = false
@@ -57,11 +56,10 @@ struct AttendanceListView: View {
                                    selectedAttendance: $selectedAttendance,
                                    showDetailView: $showDetailView,
                                    geometry: geometry)
-                        .environmentObject(alertManager)
+                        .environmentObject(api)
                     VSpacer(10)
                 }
             }
-            AttendanceDetailView(isShowing: $showDetailView, attendance: $selectedAttendance)
         }
         .navigationBarTitle("", displayMode: .inline)
         .navigationBarItems(trailing:
@@ -95,7 +93,6 @@ struct AttendanceChart: View {
     @Binding var attendanceList: [Attendance]
     var geometry: GeometryProxy
     func getAttendanceCountByPlaceType(placeType: PlaceType) -> Int {
-//        api.attendanceList.filter { $0.attendanceLog[0].place.type == placeType }.count
         switch placeType {
         case .classroom: return attendanceList.filter { !$0.isRegistered }.count + attendanceList.filter { $0.isRegistered }.filter { $0.attendanceLog[0].place.type == .classroom }.count
         case .etc:
@@ -153,7 +150,7 @@ struct AttendanceChart: View {
 }
 
 struct AttendanceList: View {
-    @EnvironmentObject var alertManager: AlertManager
+    @EnvironmentObject var api: DimigoinAPI
     @Binding var attendanceList: [Attendance]
     @State var userType: UserType
     @Binding var searchText: String
@@ -163,14 +160,9 @@ struct AttendanceList: View {
 
     var body: some View {
         VStack(spacing: 13) {
-            ForEach(attendanceList.filter {
-                self.searchText.isEmpty ? true : $0.name.contains(self.searchText)
-            }, id: \.self) { attendance in
-                AttendanceListItem(attendance: attendance,
-                                   selectedAttendance: $selectedAttendance,
-                                   showDetailView: $showDetailView,
-                                   userType: $userType)
-                    .environmentObject(alertManager)
+            ForEach(attendanceList.filter { self.searchText.isEmpty ? true : $0.name.contains(self.searchText) }, id: \.self) { attendance in
+                AttendanceListItem(attendance: attendance)
+                    .environmentObject(api)
             }
         }.horizonPadding()
         .frame(width: geometry.size.width)
@@ -179,11 +171,9 @@ struct AttendanceList: View {
 }
 
 struct AttendanceListItem: View {
-    @EnvironmentObject var alertManager: AlertManager
+    @EnvironmentObject var api: DimigoinAPI
     @State var attendance: Attendance
-    @Binding var selectedAttendance: Attendance
-    @Binding var showDetailView: Bool
-    @Binding var userType: UserType
+    @State var isFetching: Bool = false
 
     var body: some View {
         HStack {
@@ -194,23 +184,36 @@ struct AttendanceListItem: View {
             if attendance.isRegistered {
                 PlaceBadge(place: attendance.attendanceLog[0].place)
                     .onTapGesture {
-                        alertManager.createAlert("", sub: "", .attendance)
+                        // TODO: - 인원체크 담당자 - 다른 사람 위치 바꾸기
                     }
             } else {
                 PlaceBadge(placeName: "\(attendance.grade)학년 \(attendance.klass)반", placeType: .classroom)
             }
             Spacer()
-            if userType == .teacher {
+            if api.user.type == .teacher {
                 Button(action: {
-                    self.selectedAttendance = attendance
-                    withAnimation(.spring()) {
-                        self.showDetailView = true
+                    withAnimation(.easeInOut) { self.isFetching = true }
+                    getAttendenceHistory(api.accessToken, studentId: attendance.id) { result in
+                        switch result {
+                        case .success(let attendanceLog):
+                            Alert.attendanceHistory(attendance: attendance, attendanceLog: attendanceLog)
+                        case .failure(_):
+                            Alert.present("데이터를 불러올 수 없습니다", icon: .dangermark, color: .red)
+                        }
+                        withAnimation(.easeInOut) { self.isFetching = false }
                     }
                 }) {
-                    Text("자세히보기")
-                        .notoSans(.bold, size: 10, Color.systemBackground)
-                        .frame(width: 74, height: 20)
-                        .background(Color("gray6").cornerRadius(5))
+                    if isFetching {
+                        ProgressView()
+                            .scaleEffect(0.7, anchor: .center)
+                            .frame(width: 74, height: 20)
+                            .background(Color("gray6").cornerRadius(5))
+                    } else {
+                        Text("자세히보기")
+                            .notoSans(.bold, size: 10, Color.systemBackground)
+                            .frame(width: 74, height: 20)
+                            .background(Color("gray6").cornerRadius(5))
+                    }
                 }
             } else {
                 Text(attendance.isRegistered ? attendance.attendanceLog[0].time : "정보 없음".localized)

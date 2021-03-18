@@ -11,14 +11,10 @@ import DimigoinKit
 
 struct ContentView: View {
     @ObservedObject var api = DimigoinAPI()
-    
-    var alertManager = AlertManager()
     var tapbarIdx = 2
-    init() {
-        if needsUpdate() {
-            alertManager.createAlert("최신버전으로 업데이트 해주세요!", .warning)
-        }
-    }
+    @State var place = Place()
+    
+    
     var body: some View {
         NavigationView {
             Group {
@@ -27,7 +23,6 @@ struct ContentView: View {
                         if api.user.username == "aramark" {
                             MealRegisterView()
                                 .environmentObject(api)
-                                .environmentObject(alertManager)
                                 .placeholderWhileFetching(isFetching: $api.isFetching)
                         } else {
                             TeacherView()
@@ -37,17 +32,20 @@ struct ContentView: View {
                     } else {
                         MainView(tapbarIdx: tapbarIdx)
                             .environmentObject(api)
-                            .environmentObject(alertManager)
                             .placeholderWhileFetching(isFetching: $api.isFetching)
                     }
                 } else {
                     LoginView()
                         .environmentObject(api)
-                        .environmentObject(alertManager)
                 }
             }.edgesIgnoringSafeArea(.bottom)
             .navigationBarHidden(true)
         }.navigationViewStyle(StackNavigationViewStyle())
+        .onAppear {
+            if needsUpdate() {
+                Alert.updateRequired()
+            }
+        }
         
     }
 }

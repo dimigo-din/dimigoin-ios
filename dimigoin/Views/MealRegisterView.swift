@@ -11,7 +11,6 @@ import DimigoinKit
 
 struct MealRegisterView: View {
     @EnvironmentObject var api: DimigoinAPI
-    @EnvironmentObject var alertManager: AlertManager
     @State private var date = Date()
     @State private var meal = Meal()
     @State private var isFetching: Bool = false
@@ -113,7 +112,7 @@ struct MealRegisterView: View {
                                                  meal: meal) { result in
                                         switch result {
                                         case .success():
-                                            alertManager.createAlert("\(getDateString(from: date)) 급식 등록에 성공하였습니다.", .success)
+                                            Alert.present("\(getDateString(from: date)) 급식 등록에 성공하였습니다.", icon: .checkmark, color: .accent)
                                             withAnimation(.easeInOut) { self.isFetching = false }
                                         case .failure(let error):
                                             switch error {
@@ -122,11 +121,11 @@ struct MealRegisterView: View {
                                                           date: date,
                                                           meal: meal) {
                                                     
-                                                    self.alertManager.createAlert("\(getDateString(from: date)) 급식 수정에 성공하였습니다.", .success)
+                                                    Alert.present("\(getDateString(from: date)) 급식 수정에 성공하였습니다.", icon: .checkmark, color: .accent)
                                                     withAnimation(.easeInOut) { self.isFetching = false }
                                                 }
                                             default:
-                                                alertManager.createAlert("오류가 발생하였습니다.", .danger)
+                                                Alert.present("오류가 발생했습니다.", icon: .dangermark, color: .red)
                                                 withAnimation(.easeInOut) { self.isFetching = false }
                                             }
                                         }
@@ -154,11 +153,6 @@ struct MealRegisterView: View {
                         }
                     }
                 }
-                Color.black.edgesIgnoringSafeArea(.all).opacity(alertManager.isShowing ? 0.1 : 0)
-                AlertView()
-                    .environmentObject(api)
-                    .environmentObject(alertManager)
-                    .ignoresSafeArea(.all)
             }
             .navigationBarTitle("", displayMode: .inline)
         }.navigationViewStyle(StackNavigationViewStyle())
