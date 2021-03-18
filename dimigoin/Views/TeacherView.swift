@@ -41,7 +41,7 @@ struct TeacherView: View {
                                 Button(action: {
                                     api.logout()
                                 }) {
-                                    Image("logout").foregroundColor(.accent)
+                                    Image("logout").renderingMode(.template).foregroundColor(.accent)
                                 }
                                 Spacer()
                                 Button(action: {
@@ -116,7 +116,6 @@ struct TeacherView: View {
                 )
                 .edgesIgnoringSafeArea(.all)
             }.unredacted()
-            AttendanceDetailView(isShowing: $showDetailView, attendance: $selectedAttendance)
         }
         .onAppear {
             fetchAttendanceList()

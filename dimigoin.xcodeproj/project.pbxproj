@@ -71,7 +71,6 @@
 		42BDF16E25F3A0170087553C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BDF16D25F3A0170087553C /* ImagePicker.swift */; };
 		42C72C052559FED900E3294E /* StudentIdCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C72C042559FED900E3294E /* StudentIdCardView.swift */; };
 		42DBE5A92536BABE00E5F4EA /* Openas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42DBE5A82536BABD00E5F4EA /* Openas.ttf */; };
-		42E5B3E325C97C730067692A /* AttendanceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5B3E225C97C730067692A /* AttendanceDetailView.swift */; };
 		42E5B3F025C986E50067692A /* keyboardResponsive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5B3EF25C986E50067692A /* keyboardResponsive.swift */; };
 		42E5B3F525C988CF0067692A /* FetchPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5B3F425C988CF0067692A /* FetchPlaceholder.swift */; };
 		42E5B3FA25C98BFF0067692A /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E5B3F925C98BFF0067692A /* RefreshableScrollView.swift */; };
@@ -207,7 +206,6 @@
 		42BDF16D25F3A0170087553C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		42C72C042559FED900E3294E /* StudentIdCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIdCardView.swift; sourceTree = "<group>"; };
 		42DBE5A82536BABD00E5F4EA /* Openas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Openas.ttf; sourceTree = "<group>"; };
-		42E5B3E225C97C730067692A /* AttendanceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceDetailView.swift; sourceTree = "<group>"; };
 		42E5B3EF25C986E50067692A /* keyboardResponsive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyboardResponsive.swift; sourceTree = "<group>"; };
 		42E5B3F425C988CF0067692A /* FetchPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPlaceholder.swift; sourceTree = "<group>"; };
 		42E5B3F925C98BFF0067692A /* RefreshableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableScrollView.swift; sourceTree = "<group>"; };
@@ -354,7 +352,6 @@
 				42ABA089255F5690001925BE /* TimetableView.swift */,
 				42AE3CF725C5941400ACC130 /* SelectPlaceView.swift */,
 				42AE3CFC25C59A8100ACC130 /* AttendanceListView.swift */,
-				42E5B3E225C97C730067692A /* AttendanceDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -821,7 +818,6 @@
 				426B450325E8E5A500ADC3E3 /* NoticeItem.swift in Sources */,
 				422373DE25FCB6580046C6B7 /* AlertButton.swift in Sources */,
 				42EFCDFE255829B100F3DC5E /* SectionHeader.swift in Sources */,
-				42E5B3E325C97C730067692A /* AttendanceDetailView.swift in Sources */,
 				08C9ABEB24A74A53002AF525 /* SceneDelegate.swift in Sources */,
 				423B71F024B191AF0099CE3E /* ClearButton.swift in Sources */,
 				427831D225F1E0CB00CA878A /* MealRegisterView.swift in Sources */,
