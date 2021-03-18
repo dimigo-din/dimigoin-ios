@@ -182,7 +182,7 @@ public enum Alert {
         },
         leadingButton: AlertView.Button.dismiss(),
         trailingButton: AlertView.Button(label: "확인", color: .yellow, position: .trailing, action: {
-            if let url = URL(string: "https://apps.apple.com/app/디미고인/id1548069749") {
+            if let url = URL(string: "https://apps.apple.com/app/id1548069749") {
                 UIApplication.shared.open(url, options: [:])
             }
         })
@@ -282,10 +282,10 @@ struct ChangeLocationDialog: View {
                     TextField("사유를 입력하세요", text: $remark).textContentType(.none)
                         .modifier(TextFieldModifier(isError: $isRemarkEmpty))
                         .modifier(ClearButton(text: $remark))
-//                    if isRemarkEmpty {
-//                        Text("사유는 비어 있을 수 없습니다")
-//                            .notoSans(.medium, size: 12, .red)
-//                    }
+                    if isRemarkEmpty {
+                        Text("사유는 비어 있을 수 없습니다")
+                            .notoSans(.medium, size: 12, .red)
+                    }
                     
                     Text("사전 허가된 활동 또는 감독 교사 승인 외\n임의로 등록할 경우 불이익을 받을 수 있습니다.")
                         .notoSans(.medium, size: 12, Color("gray7")).multilineTextAlignment(.center)
@@ -304,9 +304,9 @@ struct ChangeLocationDialog: View {
                             .background(RoundSquare(topLeft: 0, topRight: 0, bottomLeft: 10, bottomRight: 0).fill(Color.gray4))
                     }
                     Button(action: {
-//                        if remark.isEmpty {
-//                            withAnimation(.easeInOut) { self.isRemarkEmpty = true }
-//                        } else {
+                        if remark.isEmpty {
+                            withAnimation(.easeInOut) { self.isRemarkEmpty = true }
+                        } else {
                             dismiss()
                             api.changeUserPlace(placeName: selectedPlace.name, remark: remark.isEmpty ? "없음" : remark) { result in
                                 print(result)
@@ -325,7 +325,7 @@ struct ChangeLocationDialog: View {
                                         Alert.present("위치 변경에 실패했습니다.", message: "알 수 없는 에러", icon: .dangermark, color: .red)
                                     }
                                 }
-//                            }
+                            }
                         }
                     }) {
                         Text("확인")
@@ -338,6 +338,7 @@ struct ChangeLocationDialog: View {
                 }
             }
         }.frame(maxHeight: 450, alignment: .center).keyboardResponsive()
+        .navigationViewStyle(StackNavigationViewStyle())
         .cornerRadius(10)
     }
     func dismiss() {
