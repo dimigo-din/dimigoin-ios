@@ -18,7 +18,7 @@ struct MealRegisterView: View {
     init() {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().tintColor = UIColor(Color.accent)
+        UINavigationBar.appearance().tintColor = UIColor(.accent)
     }
     
     var body: some View {
@@ -28,18 +28,18 @@ struct MealRegisterView: View {
                     ScrollView {
                         HStack {
                             VStack(alignment: .leading, spacing: 0) {
-                                Text("디미고인").notoSans(.bold, size: 13, Color.gray4)
+                                Text("디미고인").notoSans(.bold, size: 13, .gray4)
                                 HStack {
                                     Text("급식 등록").notoSans(.black, size: 30)
                                     Button(action: {
                                         api.logout()
                                     }) {
-                                        Image("logout").templateImage(width: 25, Color.accent)
+                                        Image("logout").templateImage(width: 25, .accent)
                                     }
                                     Spacer()
                                     if meal.breakfast.isEmpty && meal.lunch.isEmpty && meal.dinner.isEmpty {
                                         Text("미리보기")
-                                            .notoSans(.bold, size: 12, Color.white)
+                                            .notoSans(.bold, size: 12, .white)
                                             .frame(width: 74, height: 25)
                                             .background(Color.accent.cornerRadius(13))
                                             .opacity(0.5)
@@ -49,7 +49,7 @@ struct MealRegisterView: View {
                                                 
                                         ) {
                                             Text("미리보기")
-                                                .notoSans(.bold, size: 12, Color.white)
+                                                .notoSans(.bold, size: 12, .white)
                                                 .frame(width: 74, height: 25)
                                                 .background(Color.accent.cornerRadius(13))
                                         }
@@ -58,7 +58,7 @@ struct MealRegisterView: View {
                                         MealView().environmentObject(api)
                                     ) {
                                         Text("급식보기")
-                                            .notoSans(.bold, size: 12, Color.white)
+                                            .notoSans(.bold, size: 12, .white)
                                             .frame(width: 74, height: 25)
                                             .background(Color.accent.cornerRadius(13))
                                     }
@@ -68,11 +68,11 @@ struct MealRegisterView: View {
                         
                         HStack {
                             Text("날짜를 선택해주세요")
-                                .nanumSquare(.regular, size: 14, Color.gray4)
+                                .nanumSquare(.regular, size: 14, .gray4)
                                 .padding(.leading)
                             Spacer()
                             DatePicker("등록 날짜를 선택해주세요", selection: $date, displayedComponents: .date)
-                                .accentColor(Color.accent)
+                                .accentColor(.accent)
                                 .labelsHidden()
                         }.horizonPadding()
                         VSpacer(8)
@@ -83,12 +83,12 @@ struct MealRegisterView: View {
                         if isFetching {
                             HStack {
                                 Image(systemName: "trash")
-                                    .foregroundColor(Color.white)
+                                    .foregroundColor(.white)
                                     .frame(width: 50, height: 50)
                                     .background(Color.gray4.cornerRadius(10))
                                 HSpacer(10)
                                 ProgressView()
-                                    .foregroundColor(Color.white)
+                                    .foregroundColor(.white)
                                     .frame(width: abs(geometry.size.width-40-60), height: 50)
                                     .background(Color.accent.cornerRadius(10))
                             }
@@ -100,7 +100,7 @@ struct MealRegisterView: View {
                                     }
                                 }) {
                                     Image(systemName: "trash")
-                                        .foregroundColor(Color.white)
+                                        .foregroundColor(.white)
                                         .frame(width: 50, height: 50)
                                         .background(Color.gray4.cornerRadius(10))
                                 }
@@ -133,8 +133,8 @@ struct MealRegisterView: View {
                                     }
                                 }) {
                                     Text("\(getDateString(from: date)) 급식 등록하기")
-                                        .nanumSquare(.extraBold, size: 14, Color.white)
-                                        .foregroundColor(Color.white)
+                                        .nanumSquare(.extraBold, size: 14, .white)
+                                        .foregroundColor(.white)
                                         .frame(width: abs(geometry.size.width-40-60), height: 50)
                                         .background(Color.accent.cornerRadius(10))
                                 }

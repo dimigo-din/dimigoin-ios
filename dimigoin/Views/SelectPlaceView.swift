@@ -19,14 +19,14 @@ struct SelectPlaceView: View {
         self._selectedPlace = selectedPlace
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().tintColor = UIColor(Color.accent)
+        UINavigationBar.appearance().tintColor = UIColor(.accent)
     }
     
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 ScrollView {
-                    Text("야간자율학습 학생현황").notoSans(.bold, size: 12, Color.accent)
+                    Text("야간자율학습 학생현황").notoSans(.bold, size: 12, .accent)
                     Text("장소를 선택해주세요").notoSans(.bold, size: 20)
                     PlaceList(api: api, selectedPlace: $selectedPlace)
                 }
@@ -39,7 +39,7 @@ struct SelectPlaceView: View {
                         }) {
                             Text("선택완료")
                                 .notoSans(.bold, size: 14)
-                                .foregroundColor(Color.white)
+                                .foregroundColor(.white)
                                 .frame(width: geometry.size.width-40, height: 45)
                                 .background(Color("accent").cornerRadius(10))
                         }
@@ -93,7 +93,7 @@ struct PlaceListItem: View {
             Text("\(place.name)")
                 .notoSans(selectedPlace.id == place.id ? .bold: .medium,
                           size: 16,
-                          selectedPlace.id == place.id ? Color.text : Color.gray4)
+                          selectedPlace.id == place.id ? .text : .gray4)
                 .padding(.trailing, 25)
             Spacer()
         }.frame(height: 50)

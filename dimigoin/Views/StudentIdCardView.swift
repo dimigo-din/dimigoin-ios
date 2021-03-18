@@ -40,10 +40,10 @@ struct StudentIdCardView: View {
                         Alert.readmeBeforeUseIDCard()
                     }) {
                         HStack {
-                            Image("infomark").templateImage(width: 15, height: 15, Color.white)
+                            Image("infomark").templateImage(width: 15, height: 15, .white)
                             Text("사용 전 다음 내용을 반드시 읽어주세요")
                                 .notoSans(.bold, size: 11)
-                                .foregroundColor(Color.white)
+                                .foregroundColor(.white)
                         }.padding(.vertical, 13).frame(width: horizontalSizeClass == .compact ? abs(geometry.size.width-40) : 335).opacity(0.8).background(Color("gray6").cornerRadius(10)).padding(.bottom)
                     }
                     
@@ -51,11 +51,11 @@ struct StudentIdCardView: View {
                 Color.black.edgesIgnoringSafeArea(.all).opacity(isShowIdCard ? 1 : 0).statusBar(hidden: isShowIdCard)
                 VStack {
                     HStack {
-                        Image("idcard").templateImage(width: 15, Color.white)
-                        Text("MOBILE ID CARD").notoSans(.bold, size: 13, Color.white)
+                        Image("idcard").templateImage(width: 15, .white)
+                        Text("MOBILE ID CARD").notoSans(.bold, size: 13, .white)
                         Spacer()
-                        Text("남은 시간").notoSans(.medium, size: 13, Color.white)
-                        Text("\(remainTime)").notoSans(.black, size: 13, Color.white)
+                        Text("남은 시간").notoSans(.medium, size: 13, .white)
+                        Text("\(remainTime)").notoSans(.black, size: 13, .white)
                             .onReceive(timer) { _ in
                                 if isShowIdCard == true {
                                     self.remainTime -= 1
@@ -89,12 +89,12 @@ struct StudentIdCardView: View {
                     ZStack {
                         VStack {
                             HStack {
-                                Image("dimigo-logo").templateImage(height: 19, Color.white).padding(.leading, 25).padding(.top)
+                                Image("dimigo-logo").templateImage(height: 19, .white).padding(.leading, 25).padding(.top)
                                 Spacer()
-                                Image(systemName: "chevron.right").padding(.trailing, 25).foregroundColor(Color.white).padding(.top)
+                                Image(systemName: "chevron.right").padding(.trailing, 25).foregroundColor(.white).padding(.top)
                             }
                             Spacer()
-                            Text("터치하여 모바일 학생증 열기").notoSans(.bold, size: 11, Color.accent).padding(.vertical, 5).frame(width: horizontalSizeClass == .compact ? abs(geometry.size.width-70) : 310).opacity(0.8).background(Color.white.cornerRadius(20)).padding(.bottom)
+                            Text("터치하여 모바일 학생증 열기").notoSans(.bold, size: 11, .accent).padding(.vertical, 5).frame(width: horizontalSizeClass == .compact ? abs(geometry.size.width-70) : 310).opacity(0.8).background(Color.white.cornerRadius(20)).padding(.bottom)
                         }
                         .frame(width: horizontalSizeClass == .compact ? abs(geometry.size.width-40) : 335, height: 195).opacity(isShowIdCard ? 0 : 1)
                         VStack {
@@ -102,18 +102,18 @@ struct StudentIdCardView: View {
                             WebImage(url: api.user.photoURL).resizable().placeholder(Image("user.photo.sample")).cornerRadius(5).aspectRatio(contentMode: .fit).frame(width: 116)
                                 .overlay(RoundedRectangle(cornerRadius: 5).stroke(Color.gray.opacity(0.15), lineWidth: 1))
                             VSpacer(20)
-                            Text(api.user.name).font(Font.custom("NanumSquareEB", size: 21)).foregroundColor(Color.black)
+                            Text(api.user.name).font(Font.custom("NanumSquareEB", size: 21)).foregroundColor(.black)
                             VSpacer(20)
                             HStack(spacing: 15) {
                                 VStack(alignment: .trailing, spacing: 11) {
-                                    Text("학과").font(Font.custom("NanumSquareB", size: 13)).foregroundColor(Color.black)
-                                    Text("학번").font(Font.custom("NanumSquareB", size: 13)).foregroundColor(Color.black)
-                                    Text("생년월일").font(Font.custom("NanumSquareB", size: 13)).foregroundColor(Color.black)
+                                    Text("학과").nanumSquare(.bold, size: 13, .black)
+                                    Text("학번").nanumSquare(.bold, size: 13, .black)
+                                    Text("생년월일").nanumSquare(.bold, size: 13, .black)
                                 }
                                 VStack(alignment: .leading, spacing: 11) {
-                                    Text(getMajorByClass(klass: api.user.klass).localized).font(Font.custom("NanumSquareL", size: 13)).gray4()
-                                    Text(String(api.user.serial)).font(Font.custom("NanumSquareL", size: 13)).gray4()
-                                    Text(api.user.birthDay).font(Font.custom("NanumSquareL", size: 13)).gray4()
+                                    Text(getMajorByClass(klass: api.user.klass).localized).nanumSquare(.large, size: 13, .gray4)
+                                    Text(String(api.user.serial)).nanumSquare(.large, size: 13, .gray4)
+                                    Text(api.user.birthDay).nanumSquare(.large, size: 13, .gray4)
                                 }
                             }
                             VSpacer(25)
@@ -122,17 +122,17 @@ struct StudentIdCardView: View {
                                 Text(api.user.libraryId).notoSans(.regular, size: 9)
                             }
                             VSpacer(20)
-                            Image("dimigo-logo").templateImage(height: 15, Color.black)
-                        }.opacity(isShowIdCard ? 1 : 0).rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: -1, z: 0)).scaleEffect(isShowIdCard ? 1 : 0.8)
+                            Image("dimigo-logo").templateImage(height: 15, .black)
+                        }.opacity(isShowIdCard ? 1 : 0)
+                        .rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: -1, z: 0))
+                        .scaleEffect(isShowIdCard ? 1 : 0.8)
                     }
                     .background(
                         Rectangle()
-                            .foregroundColor(isShowIdCard ? Color.white : Color.accent)
+                            .foregroundColor(isShowIdCard ? .white : .accent)
                             .frame(width: !isShowIdCard ? (horizontalSizeClass == .compact ? abs(geometry.size.width-40) : 335) : 473, height: !isShowIdCard ? 195 : 275)
-//                        UIDevice.current.userInterfaceIdiom == .phone ? geometry.size.width - 20 : 380, height: 182
                             .cornerRadius(10)
                     )
-                    
                 }
                 .rotation3DEffect(Angle(degrees: isShowIdCard ? 180 : 0), axis: (x: 1, y: -1, z: 0))
                 .onTapGesture {

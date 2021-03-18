@@ -20,7 +20,7 @@ struct SectionHeader: View {
     var body: some View {
         VStack {
             HStack {
-                Text(NSLocalizedString(self.subSectionHeader, comment: "")).notoSans(.bold, size: 10, Color.accent)
+                Text(NSLocalizedString(self.subSectionHeader, comment: "")).notoSans(.bold, size: 10, .accent)
                 Spacer()
             }
             HStack {

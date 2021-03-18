@@ -12,6 +12,7 @@ import DimigoinKit
 extension Color {
     static let accent = Color("accent")
     static let divider = Color("divider")
+    static let gray7 = Color("gray7")
     static let gray4 = Color("gray4")
     static let text = Color("text")
     static let yellow = Color("yellow")

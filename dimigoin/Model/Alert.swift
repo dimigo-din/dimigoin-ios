@@ -40,15 +40,15 @@ public enum Alert {
                             VStack {
                                 VSpacer(35)
                                 Text("\(attendance.grade)학년 \(attendance.klass)반 \(attendance.number)번")
-                                    .notoSans(.bold, size: 10, Color.accent)
+                                    .notoSans(.bold, size: 10, .accent)
                                 VSpacer(4)
                                 Text("\(attendance.name)")
-                                    .notoSans(.bold, size: 20, Color.text)
+                                    .notoSans(.bold, size: 20, .text)
                                 VSpacer(14)
                                 HStack {
                                     VStack {
                                         Text("현재위치")
-                                            .notoSans(.medium, size: 12, Color.gray4)
+                                            .notoSans(.medium, size: 12, .gray4)
                                         VSpacer(7)
                                         if attendance.isRegistered {
                                             PlaceBadge(place: attendance.attendanceLog[0].place)
@@ -59,11 +59,11 @@ public enum Alert {
                                     HSpacer(64)
                                     VStack {
                                         Text("등록시간")
-                                            .notoSans(.medium, size: 12, Color.gray4)
+                                            .notoSans(.medium, size: 12, .gray4)
                                         VSpacer(7)
                                         if attendance.isRegistered {
                                             Text(attendance.attendanceLog[0].time)
-                                                .notoSans(.medium, size: 10, Color.gray4)
+                                                .notoSans(.medium, size: 10, .gray4)
                                                 .frame(width: 60, height: 20)
                                                 .overlay(
                                                     RoundedRectangle(cornerRadius: 5)
@@ -71,7 +71,7 @@ public enum Alert {
                                                 )
                                         } else {
                                             Text("미등록")
-                                                .notoSans(.medium, size: 10, Color.gray4)
+                                                .notoSans(.medium, size: 10, .gray4)
                                                 .frame(width: 60, height: 20)
                                                 .overlay(
                                                     RoundedRectangle(cornerRadius: 5)
@@ -86,13 +86,13 @@ public enum Alert {
                                     VStack(spacing: 15) {
                                         ForEach(0..<attendanceLog.count, id: \.self) { idx in
                                             Text("[ \(attendanceLog[idx].time) ] \(attendance.name)님이 자신의 현황을 ")
-                                                .notoSans(.medium, size: 10, Color.gray4)
+                                                .notoSans(.medium, size: 10, .gray4)
                                             +
                                             Text(attendanceLog[idx].place.name)
-                                            .notoSans(.bold, size: 10, Color.accent)
+                                            .notoSans(.bold, size: 10, .accent)
                                             +
                                             Text("(으)로 \(idx == 0 ? "등록" : "변경")")
-                                                .notoSans(.medium, size: 10, Color.gray4)
+                                                .notoSans(.medium, size: 10, .gray4)
                                         }
                                     }.multilineTextAlignment(.leading)
                                     .padding(.horizontal, 10)
@@ -123,22 +123,22 @@ public enum Alert {
                             VStack {
                                 VSpacer(35)
                                 Text("\(grade)학년 \(klass)반")
-                                    .notoSans(.bold, size: 10, Color.accent)
+                                    .notoSans(.bold, size: 10, .accent)
                                 VSpacer(4)
                                 Text("히스토리")
-                                    .notoSans(.bold, size: 20, Color.text)
+                                    .notoSans(.bold, size: 20, .text)
                                 VSpacer(15)
                                 ScrollView {
                                     VStack(spacing: 15) {
                                         ForEach(0..<attendanceLog.count, id: \.self) { idx in
                                             Text("[ \(attendanceLog[idx].time) ] \(attendanceLog[idx].student.name)님이 자신의 현황을 ")
-                                                .notoSans(.medium, size: 10, Color.gray4)
+                                                .notoSans(.medium, size: 10, .gray4)
                                             +
                                             Text(attendanceLog[idx].place.name)
-                                                .notoSans(.bold, size: 10, Color.accent)
+                                                .notoSans(.bold, size: 10, .accent)
                                             +
                                             Text("(으)로 변경")
-                                                .notoSans(.medium, size: 10, Color.gray4)
+                                                .notoSans(.medium, size: 10, .gray4)
                                         }
                                     }.multilineTextAlignment(.leading)
                                     .padding(.horizontal, 10)
@@ -213,8 +213,8 @@ public enum Alert {
                 VStack {
                     VSpacer(30)
                     HStack {
-                        Image("infomark").templateImage(width: 14, height: 14, Color.gray4)
-                        Text("사용 전 다음 내용을 반드시 읽어주세요").notoSans(.bold, size: 12, Color.gray4)
+                        Image("infomark").templateImage(width: 14, height: 14, .gray4)
+                        Text("사용 전 다음 내용을 반드시 읽어주세요").notoSans(.bold, size: 12, .gray4)
                     }
                     VSpacer(24)
                     Text("1. 본 증은 학교가 정식 발급한 학생증입니다.\n이외 신분증 등 활용은 활용처의 규정에 따라 달라질 수 있습니다.\n\n2. 본 증은 본인 이외 타인이 소지 또는 활용할 수 없습니다.\n타인에게 양도하여 입은 피해는 본인의 책임입니다.\n\n3. 스크린샷 또는 사본으로 동일한 효력을 발생시킬 수 없습니다.")
@@ -233,14 +233,14 @@ public enum Alert {
             AnyView(
                 VStack {
                     VSpacer(48)
-                    Image("logout").templateImage(width: 20, Color.accent)
+                    Image("logout").templateImage(width: 20, .accent)
                     VSpacer(20)
-                    Text("정말 로그아웃 하시겠습니까?").notoSans(.bold, size: 15, Color.text).padding(.bottom, 40)
+                    Text("정말 로그아웃 하시겠습니까?").notoSans(.bold, size: 15, .text).padding(.bottom, 40)
                 }
             )
         },
         leadingButton: AlertView.Button.dismiss(),
-        trailingButton: AlertView.Button(label: "확인", color: Color.accent, position: .trailing, action: {
+        trailingButton: AlertView.Button(label: "확인", color: .accent, position: .trailing, action: {
             api.logout()
         }))).present()
     }
@@ -257,20 +257,20 @@ struct ChangeLocationDialog: View {
         NavigationView {
             VStack {
                 VSpacer(20)
-                Text("\(getStringTimeZone())").notoSans(.bold, size: 11, Color.accent)
+                Text("\(getStringTimeZone())").notoSans(.bold, size: 11, .accent)
                 Text("어디에 계신가요?").notoSans(.bold, size: 16)
                 VSpacer(20)
                 VStack {
                     NavigationLink(destination: SelectPlaceView(api: api, selectedPlace: $selectedPlace), isActive: $isShowPlaceList) {
                         HStack {
                             Text(selectedPlace == Place() ? "장소를 선택하세요" : selectedPlace.name)
-                                .foregroundColor(Color.accent)
+                                .foregroundColor(.accent)
                                 .font(Font.custom("NanumSquareR", size: 14))
                                 .padding(.leading)
                             Spacer()
                             Image(systemName: "chevron.right")
                                 .padding(.trailing)
-                                .foregroundColor(Color.accent)
+                                .foregroundColor(.accent)
                         }
                     }
                     .frame(width: 335, height: 50)
@@ -297,7 +297,7 @@ struct ChangeLocationDialog: View {
                         dismiss()
                     }) {
                         Text("취소")
-                            .foregroundColor(Color.white)
+                            .foregroundColor(.white)
                             .notoSans(.bold, size: 14)
                             .frame(height: 45)
                             .frame(maxWidth: .infinity)
@@ -329,7 +329,7 @@ struct ChangeLocationDialog: View {
                         }
                     }) {
                         Text("확인")
-                            .foregroundColor(Color.white)
+                            .foregroundColor(.white)
                             .notoSans(.bold, size: 14)
                             .frame(height: 45)
                             .frame(maxWidth: .infinity)

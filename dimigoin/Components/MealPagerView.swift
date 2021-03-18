@@ -20,19 +20,19 @@ struct MealPagerView: View {
         VStack(alignment: .leading) {
             HStack {
                 VStack(alignment: .leading) {
-                    Text("아침").notoSans(.bold, size: 18, Color.accent).horizonPadding()
+                    Text("아침").notoSans(.bold, size: 18, .accent).horizonPadding()
                     VSpacer(10)
                     Text("\(api.getTodayMeal().getBreakfastString())").notoSans(.regular, size: 12, Color("gray2")).horizonPadding()
                 }.padding(.top).modifier(CardViewModifier(305, 147))
                 HSpacer(15)
                 VStack(alignment: .leading) {
-                    Text("점심").notoSans(.bold, size: 18, Color.accent).horizonPadding()
+                    Text("점심").notoSans(.bold, size: 18, .accent).horizonPadding()
                     VSpacer(10)
                     Text("\(api.getTodayMeal().getLunchString())").notoSans(.regular, size: 12, Color("gray2")).horizonPadding()
                 }.padding(.top).modifier(CardViewModifier(305, 147))
                 HSpacer(15)
                 VStack(alignment: .leading) {
-                    Text("저녁").notoSans(.bold, size: 18, Color.accent).horizonPadding()
+                    Text("저녁").notoSans(.bold, size: 18, .accent).horizonPadding()
                     VSpacer(10)
                     Text("\(api.getTodayMeal().getDinnerString())").notoSans(.regular, size: 12, Color("gray2")).horizonPadding()
                 }.padding(.top).modifier(CardViewModifier(305, 147))
@@ -55,7 +55,7 @@ struct MealPagerView: View {
             )
             HStack(spacing: 5) {
                 ForEach(0...2, id: \.self) { idx in
-                    Circle().frame(width: 8, height: 8).foregroundColor(currentCardIdx == idx ? Color.accent : Color.divider)
+                    Circle().frame(width: 8, height: 8).foregroundColor(currentCardIdx == idx ? .accent : .divider)
                         .onTapGesture {
                             self.currentCardIdx = idx
                         }

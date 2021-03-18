@@ -22,11 +22,11 @@ struct ViewTitle: View {
         
         HStack {
             VStack(alignment: .leading, spacing: 0) {
-                Text(NSLocalizedString(self.subTitle, comment: "")).notoSans(.bold, size: 13, Color.gray4)
+                Text(NSLocalizedString(self.subTitle, comment: "")).notoSans(.bold, size: 13, .gray4)
                 Text(NSLocalizedString(self.title, comment: "")).notoSans(.black, size: 30)
             }
             Spacer()
-            Image(icon).templateImage(height: 35, Color.accent)
+            Image(icon).templateImage(height: 35, .accent)
         }.horizonPadding()
         .padding(.top, 30)
         HDivider().horizonPadding().offset(y: -15)

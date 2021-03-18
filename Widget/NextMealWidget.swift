@@ -13,19 +13,19 @@ struct NextMealWidget: View {
     var data: WidgetEntry
     var body: some View {
         ZStack {
-            Image("logo").templateImage(width: 60, Color.accent).opacity(0.25)
+            Image("logo").templateImage(width: 60, .accent).opacity(0.25)
             GeometryReader { geometry in
                 Rectangle().fill(Color.accent).frame(width: 4, height: geometry.size.height)
             }
             VStack {
                 HStack {
                     switch getMealType() {
-                    case .breakfast : Text("아침").notoSans(.bold, size: 16, Color.accent)
-                    case .lunch : Text("점심").notoSans(.bold, size: 16, Color.accent)
-                    case .dinner : Text("저녁").notoSans(.bold, size: 16, Color.accent)
+                    case .breakfast : Text("아침").notoSans(.bold, size: 16, .accent)
+                    case .lunch : Text("점심").notoSans(.bold, size: 16, .accent)
+                    case .dinner : Text("저녁").notoSans(.bold, size: 16, .accent)
                     }
                     Spacer()
-                    Text(getDateString()).notoSans(.medium, size: 10, Color.gray4)
+                    Text(getDateString()).notoSans(.medium, size: 10, .gray4)
                 }
                 switch getMealType() {
                 case .breakfast : Text(data.breakfast).notoSans(.regular, size: 11)

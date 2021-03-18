@@ -27,14 +27,14 @@ struct HomeView: View {
                             Image("school").resizable().aspectRatio(contentMode: .fit).frame(maxWidth: .infinity).opacity(0.3).unredacted()
                         }
                         HStack {
-                            Image("logo").templateImage(height: 38, Color.accent)
+                            Image("logo").templateImage(height: 38, .accent)
                                 .matchedGeometryEffect(id: "logo", in: homeview)
                                 .unredacted()
                             Spacer()
                             Button(action: {
                                 Alert.logoutCheck(api: api)
                             }) {
-                                Image("logout").templateImage(width: 30, Color.accent)
+                                Image("logout").templateImage(width: 30, .accent)
                             }.offset(x: showLogoutButton ? 0 : 45)
                             
                             ZStack {
@@ -42,7 +42,7 @@ struct HomeView: View {
                                 withAnimation {
                                     WebImage(url: api.user.photoURL)
                                         .resizable()
-                                        .foregroundColor(Color.accent)
+                                        .foregroundColor(.accent)
                                         .aspectRatio(contentMode: .fit)
                                         .frame(width: 38)
                                         .clipShape(Circle())

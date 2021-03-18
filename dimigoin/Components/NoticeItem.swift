@@ -20,7 +20,7 @@ struct NoticeItem: View {
         if api.notices.count != 0 {
                 ScrollView(showsIndicators: false) {
                     Text("\(api.notices[0].content)")
-                        .notoSans(.regular, size: 12, Color.gray4)
+                        .notoSans(.regular, size: 12, .gray4)
                         .lineSpacing(6)
                     VSpacer(20)
                 }.padding([.horizontal, .top], 20)

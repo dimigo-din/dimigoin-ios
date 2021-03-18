@@ -11,7 +11,7 @@ import SwiftUI
 public struct TagField: View {
     @Binding public var tags: [String]
     @State private var newTag: String = ""
-    @State var color: Color = Color.accent
+    @State var color: Color = .accent
     private var placeholder: String = ""
     
     public var body: some View {

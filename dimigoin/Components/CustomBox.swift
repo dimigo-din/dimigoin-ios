@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CustomBox: View {
     var edgeInsets: Edge.Set = [.leading]
-    var accentColor: Color = Color.accent
+    var accentColor: Color = .accent
     var width: CGFloat = 5
     var topLeft: CGFloat = 2
     var topRight: CGFloat = 17

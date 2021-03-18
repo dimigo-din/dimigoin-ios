@@ -24,7 +24,7 @@ struct IngangView: View {
                     VStack(spacing: 0) {
                         HStack {
                             VStack(alignment: .leading, spacing: 0) {
-                                Text(ingang.timeString).notoSans(.bold, size: 10, Color.accent)
+                                Text(ingang.timeString).notoSans(.bold, size: 10, .accent)
                                 Text(ingang.title.localized).notoSans(.bold, size: 21)
                             }
                             Spacer()
@@ -41,7 +41,7 @@ struct IngangView: View {
                                             .notoSans(.medium, size: 12, Color("gray6"))
                                     } else {
                                         Text("\(api.getApplicant(ingang.time, col*4+row).name)")
-                                            .notoSans(.medium, size: 12, api.getApplicant(ingang.time, col*4+row).name == api.user.name ? Color.text : Color("gray3"))
+                                            .notoSans(.medium, size: 12, api.getApplicant(ingang.time, col*4+row).name == api.user.name ? .text : Color("gray3"))
                                     }
                                 }
                             }
@@ -61,7 +61,7 @@ struct IngangView: View {
                     } else {
                         if ingang.applicants.count == ingang.maxApplier && ingang.isApplied == false {
                             Text("신청불가")
-                                .notoSans(.bold, size: 13, Color.white)
+                                .notoSans(.bold, size: 13, .white)
                                 .frame(width: geometry.size.width - 40, height: 45)
                                 .background(Color.gray4.cornerRadius(10))
                         } else {
@@ -70,7 +70,7 @@ struct IngangView: View {
                                     applyIngang(ingang: ingang)
                                 }) {
                                     Text("신청하기")
-                                        .notoSans(.bold, size: 13, Color.white)
+                                        .notoSans(.bold, size: 13, .white)
                                         .frame(width: geometry.size.width - 40, height: 45)
                                         .background(Color.accent.cornerRadius(10))
                                 }
@@ -79,7 +79,7 @@ struct IngangView: View {
                                     cancelIngang(ingang: ingang)
                                 }) {
                                     Text("취소하기")
-                                        .notoSans(.bold, size: 13, Color.white)
+                                        .notoSans(.bold, size: 13, .white)
                                         .frame(width: geometry.size.width - 40, height: 45)
                                         .background(Color.gray4.cornerRadius(10))
                                 }
@@ -89,7 +89,7 @@ struct IngangView: View {
                     VSpacer(30)
                 }
                 if api.ingangs.count == 0 {
-                    Text("오늘은 인강이 없습니다").notoSans(.regular, size: 13, Color.gray4)
+                    Text("오늘은 인강이 없습니다").notoSans(.regular, size: 13, .gray4)
                 }
                 VSpacer(100)
             }
@@ -167,16 +167,16 @@ struct TicketStatusView: View {
                             Image("clock").templateImage(width: 15, Color.gray4)
                             HSpacer(8)
                             Text("07:00 - 08:15")
-                                .notoSans(.bold, size: 10, Color.gray4)
+                                .notoSans(.bold, size: 10, .gray4)
                         }
                     }.padding(.leading, horizontalSizeClass == .compact ? 40 : 0)
                     Spacer()
                     VStack(alignment: .leading) {
                         HStack {
-                            Image("ticket").templateImage(width: 15, Color.accent)
-                            Text("남은 티켓").notoSans(.bold, size: 10, Color.accent)
+                            Image("ticket").templateImage(width: 15, .accent)
+                            Text("남은 티켓").notoSans(.bold, size: 10, .accent)
                             +
-                            Text(" \(api.weeklyRemainTicket)/\(api.weeklyTicketCount)").notoSans(.bold, size: 10, Color.accent)
+                            Text(" \(api.weeklyRemainTicket)/\(api.weeklyTicketCount)").notoSans(.bold, size: 10, .accent)
                         }
                     }.padding(.trailing, horizontalSizeClass == .compact ? 50 : 0)
                     if horizontalSizeClass != .compact {

@@ -14,7 +14,7 @@ struct DailyMealWidget: View {
     
     var body: some View {
         ZStack {
-            Image("logo").templateImage(width: 60, Color.accent).opacity(0.25)
+            Image("logo").templateImage(width: 60, .accent).opacity(0.25)
             GeometryReader { geometry in
                 Rectangle().fill(Color.accent)
                     .frame(width: 4, height: geometry.size.height/3)
@@ -22,15 +22,15 @@ struct DailyMealWidget: View {
             }
             VStack(alignment: .leading, spacing: 10) {
                 HStack {
-                    Text("아침").notoSans(.bold, size: 16, Color.accent)
+                    Text("아침").notoSans(.bold, size: 16, .accent)
                     Text("\(data.breakfast)").notoSans(.regular, size: 10)
                 }
                 HStack {
-                    Text("점심").notoSans(.bold, size: 16, Color.accent)
+                    Text("점심").notoSans(.bold, size: 16, .accent)
                     Text("\(data.lunch)").notoSans(.regular, size: 10)
                 }
                 HStack {
-                    Text("저녁").notoSans(.bold, size: 16, Color.accent)
+                    Text("저녁").notoSans(.bold, size: 16, .accent)
                     Text("\(data.dinner)").notoSans(.regular, size: 10)
                 }
             }.padding(.horizontal)

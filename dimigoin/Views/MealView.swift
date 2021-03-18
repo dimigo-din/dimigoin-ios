@@ -22,11 +22,11 @@ struct MealView: View {
                     VStack {
                         HStack {
                             VStack(alignment: .leading, spacing: 0) {
-                                Text(getDateString()).notoSans(.bold, size: 13, Color.gray4)
+                                Text(getDateString()).notoSans(.bold, size: 13, .gray4)
                                 Text("급식표").notoSans(.black, size: 30)
                             }
                             Spacer()
-                            Image("meal").templateImage(height: 35, Color.accent)
+                            Image("meal").templateImage(height: 35, .accent)
                         }
                         .horizonPadding()
                         .padding(.top, 30)
@@ -40,7 +40,7 @@ struct MealView: View {
                                 }) {
                                     Text(self.days[index].localized)
                                         .notoSans(.bold, size: 17)
-                                        .foregroundColor(index == selectedDay ? Color.accent : Color.gray4)
+                                        .foregroundColor(index == selectedDay ? .accent : .gray4)
                                         .frame(width: abs(geometry.size.width-40)/7)
                                         
                                 }

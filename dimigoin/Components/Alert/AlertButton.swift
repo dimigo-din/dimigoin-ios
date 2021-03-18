@@ -22,7 +22,7 @@ extension AlertView {
     
     public struct Button: View {
         let label: String
-        var backgroundColor: Color = Color.gray4
+        var backgroundColor: Color = .gray4
         var buttonPosition: AlertView.ButtonPosition = .center
         var action: (() -> Void)?
 
@@ -44,7 +44,7 @@ extension AlertView {
                     .notoSans(.bold, size: 14)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .frame(height: 45)
-                    .foregroundColor(Color.systemBackground)
+                    .foregroundColor(.systemBackground)
                     .background(getButtonBackgroundByPosition(buttonPosition).fill(backgroundColor))
             }
         }
@@ -81,9 +81,9 @@ func getButtonBackgroundByPosition(_ position: AlertView.ButtonPosition) -> Roun
 }
 func getButtonColorByType(_ type: AlertView.ButtonType) -> Color {
     switch type {
-    case .default: return Color.accent
-    case .cancel: return Color.gray4
-    case .warning: return Color.yellow
-    case .danger: return Color.red
+    case .default: return .accent
+    case .cancel: return .gray4
+    case .warning: return .yellow
+    case .danger: return .red
     }
 }

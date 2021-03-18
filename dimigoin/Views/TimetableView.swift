@@ -18,12 +18,12 @@ struct TimetableView: View {
                 HStack {
                     VStack(alignment: .leading, spacing: 0) {
                         Text("\(api.user.grade)학년 \(api.user.klass)반".localized)
-                            .notoSans(.bold, size: 13, Color.gray4)
+                            .notoSans(.bold, size: 13, .gray4)
                         Text(NSLocalizedString("시간표", comment: ""))
                             .notoSans(.black, size: 30)
                     }
                     Spacer()
-                    Image("calendar.fill").templateImage(height: 35, Color.accent)
+                    Image("calendar.fill").templateImage(height: 35, .accent)
                 }.horizonPadding()
                 .padding(.top, 30)
                 VSpacer(29)
@@ -53,12 +53,12 @@ struct TimetableItem: View {
                 HStack(alignment: .top, spacing: 0) {
                     ForEach(1...5, id: \.self) { day in
                         VStack {
-                            Text(NSLocalizedString(dayOfWeek[day], comment: "")).notoSans(.medium, size: 18, Color.gray4).frame(width: abs(geometry.size.width-40)/5, height: 20)
+                            Text(NSLocalizedString(dayOfWeek[day], comment: "")).notoSans(.medium, size: 18, .gray4).frame(width: abs(geometry.size.width-40)/5, height: 20)
                             VSpacer(29)
                             ForEach(api.timetable.lectures[day-1], id: \.self) { lecture in
                                 VStack(spacing: 0) {
                                     Text("\(lecture)")
-                                        .notoSans(.medium, size: 18, getTodayDayOfWeekInt() == day ? Color.accent : Color.gray4)
+                                        .notoSans(.medium, size: 18, getTodayDayOfWeekInt() == day ? .accent : .gray4)
                                         .frame(width: abs(geometry.size.width-40)/5, height: 20)
                                         .padding(.top, 15)
                                         .padding(.bottom, 15)

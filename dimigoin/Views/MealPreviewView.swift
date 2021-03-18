@@ -15,7 +15,7 @@ struct MealPreviewView: View {
     init(_ meal: Meal) {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().tintColor = UIColor(Color.accent)
+        UINavigationBar.appearance().tintColor = UIColor(.accent)
         self._meal = .init(wrappedValue: meal)
     }
     

@@ -44,32 +44,4 @@ extension Text {
         self.font(Font.custom("Openas", size: size))
             .foregroundColor(color)
     }
-
-    func gray1() -> Text {
-        self.foregroundColor(Color("gray1"))
-    }
-    
-    func gray2() -> Text {
-        self.foregroundColor(Color("gray2"))
-    }
-    
-    func gray3() -> Text {
-        self.foregroundColor(Color("gray3"))
-    }
-    
-    func gray4() -> Text {
-        self.foregroundColor(Color.gray4)
-    }
-    
-    func gray5() -> Text {
-        self.foregroundColor(Color("gray5"))
-    }
-    
-    func gray6() -> Text {
-        self.foregroundColor(Color("gray6"))
-    }
-    
-    func gray7() -> Text {
-        self.foregroundColor(Color("gray7"))
-    }
 }

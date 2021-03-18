@@ -18,7 +18,7 @@ struct AttendanceListView: View {
     init() {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().tintColor = UIColor(Color.accent)
+        UINavigationBar.appearance().tintColor = UIColor(.accent)
     }
     
     var body: some View {
@@ -27,7 +27,7 @@ struct AttendanceListView: View {
                 ScrollView {
                     HStack {
                         VStack(alignment: .leading, spacing: 0) {
-                            Text(getStringTimeZone()).notoSans(.bold, size: 13, Color.gray4)
+                            Text(getStringTimeZone()).notoSans(.bold, size: 13, .gray4)
                             HStack {
                                 Text("자습 현황").notoSans(.black, size: 30)
                                 Spacer()
@@ -38,7 +38,7 @@ struct AttendanceListView: View {
                                         }
                                     }) {
                                         Text("히스토리")
-                                            .notoSans(.bold, size: 12, Color.white)
+                                            .notoSans(.bold, size: 12, .white)
                                             .frame(width: 74, height: 25)
                                             .background(Color.accent.cornerRadius(13))
                                     }
@@ -111,37 +111,37 @@ struct AttendanceChart: View {
             }.addBorder(Color.accent, width: 1, cornerRadius: 5)
             HStack {
                 VStack {
-                    Text("교실").notoSans(.bold, size: 13, Color.white)
+                    Text("교실").notoSans(.bold, size: 13, .white)
                     VSpacer(12)
                     Text("\(getAttendanceCountByPlaceType(placeType: .classroom))")
-                        .notoSans(.bold, size: 13, Color.accent)
+                        .notoSans(.bold, size: 13, .accent)
                 }
                 Spacer()
                 VStack {
-                    Text("인강실").notoSans(.bold, size: 13, Color.white)
+                    Text("인강실").notoSans(.bold, size: 13, .white)
                     VSpacer(12)
                     Text("\(getAttendanceCountByPlaceType(placeType: .ingang))")
-                        .notoSans(.bold, size: 13, Color.accent)
+                        .notoSans(.bold, size: 13, .accent)
                 }
                 Spacer()
                 VStack {
-                    Text("동아리실").notoSans(.bold, size: 13, Color.white)
+                    Text("동아리실").notoSans(.bold, size: 13, .white)
                     VSpacer(12)
                     Text("\(getAttendanceCountByPlaceType(placeType: .circle))")
-                        .notoSans(.bold, size: 13, Color.accent)
+                        .notoSans(.bold, size: 13, .accent)
                 }
                 Spacer()
                 VStack {
-                    Text("기타").notoSans(.bold, size: 13, Color.white)
+                    Text("기타").notoSans(.bold, size: 13, .white)
                     VSpacer(12)
                     Text("\(getAttendanceCountByPlaceType(placeType: .etc))")
-                        .notoSans(.bold, size: 13, Color.accent)
+                        .notoSans(.bold, size: 13, .accent)
                 }
                 Spacer()
                 VStack {
-                    Text("총원").notoSans(.bold, size: 13, Color.white)
+                    Text("총원").notoSans(.bold, size: 13, .white)
                     VSpacer(12)
-                    Text("\(attendanceList.count)").notoSans(.bold, size: 13, Color.accent)
+                    Text("\(attendanceList.count)").notoSans(.bold, size: 13, .accent)
                 }
             }.horizonPadding()
         }.horizonPadding()
@@ -177,9 +177,9 @@ struct AttendanceListItem: View {
 
     var body: some View {
         HStack {
-            Text("\(String(format: "%02d", attendance.number))").notoSans(.bold, size: 15, Color.gray4)
+            Text("\(String(format: "%02d", attendance.number))").notoSans(.bold, size: 15, .gray4)
             HSpacer(30)
-            Text("\(attendance.name)").notoSans(.bold, size: 15, Color.gray4)
+            Text("\(attendance.name)").notoSans(.bold, size: 15, .gray4)
             Spacer()
             if attendance.isRegistered {
                 PlaceBadge(place: attendance.attendanceLog[0].place)
@@ -210,14 +210,14 @@ struct AttendanceListItem: View {
                             .background(Color("gray6").cornerRadius(5))
                     } else {
                         Text("자세히보기")
-                            .notoSans(.bold, size: 10, Color.systemBackground)
+                            .notoSans(.bold, size: 10, .systemBackground)
                             .frame(width: 74, height: 20)
                             .background(Color("gray6").cornerRadius(5))
                     }
                 }
             } else {
                 Text(attendance.isRegistered ? attendance.attendanceLog[0].time : "정보 없음".localized)
-                    .notoSans(.bold, size: 10, Color.systemBackground)
+                    .notoSans(.bold, size: 10, .systemBackground)
                     .frame(width: 74, height: 20)
                     .background(Color("gray6").cornerRadius(5))
             }
@@ -238,10 +238,10 @@ struct PlaceBadge: View {
     }
     var body: some View {
         HStack(spacing: 0) {
-            Image(getPlaceBadgeIcon(place.type)).templateImage(width: 10, Color.gray4)
+            Image(getPlaceBadgeIcon(place.type)).templateImage(width: 10, .gray4)
                 .padding(.leading, 8)
             HSpacer(11)
-            Text(place.name).notoSans(.medium, size: 10, Color.gray4)
+            Text(place.name).notoSans(.medium, size: 10, .gray4)
                 .padding(.trailing, 13)
         }.frame(height: 20)
         .overlay(

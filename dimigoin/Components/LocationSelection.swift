@@ -34,7 +34,7 @@ struct LocationSelectionView: View {
         VStack {
             VStack {
                 HStack {
-                    Text(NSLocalizedString(getStringTimeZone(), comment: "")).notoSans(.bold, size: 10, Color.accent)
+                    Text(NSLocalizedString(getStringTimeZone(), comment: "")).notoSans(.bold, size: 10, .accent)
                     Spacer()
                 }
                 HStack {
@@ -45,7 +45,7 @@ struct LocationSelectionView: View {
                             .environmentObject(api)
                     ) {
                         Text("자세히")
-                            .notoSans(.bold, size: 12, Color.white)
+                            .notoSans(.bold, size: 12, .white)
                             .frame(width: 74, height: 25)
                             .background(Color.accent.cornerRadius(15))
                     }
@@ -106,7 +106,7 @@ struct LocationItem: View {
                 }
             }) {
                 Circle()
-                    .fill(api.currentPlace.id == place.id ? Color.accent : Color(UIColor.secondarySystemGroupedBackground))
+                    .fill(api.currentPlace.id == place.id ? .accent : Color(UIColor.secondarySystemGroupedBackground))
                     .frame(width: 40, height: 40)
                     .shadow(color: Color.gray4.opacity(0.12), radius: 4, x: 0, y: 0)
                     .overlay(
@@ -116,7 +116,7 @@ struct LocationItem: View {
                             } else {
                                 Image(icon)
                                     .renderingMode(.template)
-                                    .foregroundColor(api.currentPlace.id == place.id ? Color.white : Color.accent)
+                                    .foregroundColor(api.currentPlace.id == place.id ? .white : .accent)
                             }
                         }
                         
@@ -139,7 +139,7 @@ struct LocationItemEtc: View {
                 Alert.selectLocation(api: api)
             }) {
                 Circle()
-                    .fill(!api.isPrimaryPlace(place: api.currentPlace) ? Color.accent : Color(UIColor.secondarySystemGroupedBackground))
+                    .fill(!api.isPrimaryPlace(place: api.currentPlace) ? .accent : Color(UIColor.secondarySystemGroupedBackground))
                     .frame(width: 40, height: 40)
                     .shadow(color: Color.gray4.opacity(0.12), radius: 4, x: 0, y: 0)
                     .overlay(
@@ -149,7 +149,7 @@ struct LocationItemEtc: View {
                             } else {
                                 Image("etc")
                                     .renderingMode(.template)
-                                    .foregroundColor(!api.isPrimaryPlace(place: api.currentPlace) ? Color.white : Color.accent)
+                                    .foregroundColor(!api.isPrimaryPlace(place: api.currentPlace) ? .white : .accent)
                             }
                         }
                     )

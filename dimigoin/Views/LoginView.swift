@@ -27,7 +27,7 @@ struct LoginView: View {
                 VStack(alignment: .center) {
                     Spacer()
                     VStack {
-                        Image("logo").templateImage(width: 45, Color.accent)
+                        Image("logo").templateImage(width: 45, .accent)
                             .matchedGeometryEffect(id: "logo", in: loginView)
                         VSpacer(43.5)
                         TextField("아이디를 입력하세요", text: $username).textContentType(.username)
@@ -79,7 +79,7 @@ struct LoginView: View {
                                 HSpacer(10)
                                 Text("로그인")
                                     .notoSans(.bold, size: 18)
-                                    .foregroundColor(Color.white)
+                                    .foregroundColor(.white)
                             }
                             .frame(width: 335, height: 50)
                             .background(Color(isLoading ? "disabled-button": "accent").cornerRadius(10))
@@ -101,7 +101,7 @@ struct LoginView: View {
                 .keyboardResponsive()
             } else {
                 Color(UIColor.systemBackground).edgesIgnoringSafeArea(.all)
-                Image("logo").templateImage(width: 73, Color.accent)
+                Image("logo").templateImage(width: 73, .accent)
                     .matchedGeometryEffect(id: "logo", in: loginView)
                     .offset(y: -50)
                     .padding(.horizontal)

@@ -26,7 +26,7 @@ struct TeacherView: View {
     init() {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().tintColor = UIColor(Color.accent)
+        UINavigationBar.appearance().tintColor = UIColor(.accent)
     }
     
     var body: some View {
@@ -35,7 +35,7 @@ struct TeacherView: View {
                 ScrollView {
                     HStack {
                         VStack(alignment: .leading, spacing: 0) {
-                            Text(getStringTimeZone()).notoSans(.bold, size: 13, Color.gray4)
+                            Text(getStringTimeZone()).notoSans(.bold, size: 13, .gray4)
                             HStack {
                                 Text("\(selectedGrade)학년 \(selectedClass)반").notoSans(.black, size: 30)
                                 Button(action: {
@@ -64,7 +64,7 @@ struct TeacherView: View {
                                             .background(Color.accent.cornerRadius(13))
                                     } else {
                                         Text("히스토리")
-                                            .notoSans(.bold, size: 12, Color.white)
+                                            .notoSans(.bold, size: 12, .white)
                                             .frame(width: 74, height: 25)
                                             .background(Color.accent.cornerRadius(13))
                                     }

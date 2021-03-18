@@ -78,7 +78,7 @@ public struct AlertView: View {
                             .background(
                                 Rectangle()
                                     .frame(maxWidth: .infinity-40, minHeight: 0, maxHeight: .infinity, alignment: .center)
-                                    .foregroundColor(Color.systemBackground)
+                                    .foregroundColor(.systemBackground)
                                     .cornerRadius(10)
                             )
                             .frame(minWidth: 0, maxWidth: geometry.size.width-40, alignment: .center)
