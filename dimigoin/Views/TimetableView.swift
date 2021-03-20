@@ -17,7 +17,7 @@ struct TimetableView: View {
             ScrollView(showsIndicators: false) {
                 HStack {
                     VStack(alignment: .leading, spacing: 0) {
-                        Text("\(api.user.grade)학년 \(api.user.klass)반".localized)
+                        Text("\(api.user.grade)학년 \(api.user.class)반".localized)
                             .notoSans(.bold, size: 13, .gray4)
                         Text(NSLocalizedString("시간표", comment: ""))
                             .notoSans(.black, size: 30)

@@ -46,11 +46,11 @@ struct TeacherView: View {
                                 Spacer()
                                 Button(action: {
                                     withAnimation(.easeInOut) { self.isFetchingAttendanceLog = true }
-                                    getClassHistory(api.accessToken, grade: selectedGrade, klass: selectedClass) { result in
+                                    getClassHistory(api.accessToken, grade: selectedGrade, class: selectedClass) { result in
                                         print(result)
                                         switch result {
                                         case .success(let attendanceLog):
-                                            Alert.classHistory(grade: selectedGrade, klass: selectedClass, attendanceLog: attendanceLog)
+                                            Alert.classHistory(grade: selectedGrade, class: selectedClass, attendanceLog: attendanceLog)
                                         case .failure(_):
                                             print("get attendanceLog failed in Attendance HistoryView")
                                         }
@@ -102,8 +102,8 @@ struct TeacherView: View {
                     .horizonPadding()
                     VSpacer(5)
                     Picker("교실을 선택해주세요", selection: $selectedClass) {
-                        ForEach(1..<7, id: \.self) { klass in
-                            Text("\(klass)반")
+                        ForEach(1..<7, id: \.self) { `class` in
+                            Text("\(`class`)반")
                         }
                     }.pickerStyle(SegmentedPickerStyle())
                     .horizonPadding()
@@ -131,7 +131,7 @@ struct TeacherView: View {
     }
     func fetchAttendanceList() {
         withAnimation(.easeInOut) { self.isFetching = true }
-        getAttendenceList(api.accessToken, grade: selectedGrade, klass: selectedClass) { result in
+        getAttendenceList(api.accessToken, grade: selectedGrade, class: selectedClass) { result in
             switch result {
             case .success(let attendanceList):
                 withAnimation(.easeInOut) { self.attendanceList = attendanceList }

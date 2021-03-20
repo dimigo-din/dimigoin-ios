@@ -39,7 +39,7 @@ public enum Alert {
                         ZStack {
                             VStack {
                                 VSpacer(35)
-                                Text("\(attendance.grade)학년 \(attendance.klass)반 \(attendance.number)번")
+                                Text("\(attendance.grade)학년 \(attendance.class)반 \(attendance.number)번")
                                     .notoSans(.bold, size: 10, .accent)
                                 VSpacer(4)
                                 Text("\(attendance.name)")
@@ -53,7 +53,7 @@ public enum Alert {
                                         if attendance.isRegistered {
                                             PlaceBadge(place: attendance.attendanceLog[0].place)
                                         } else {
-                                            PlaceBadge(placeName: "\(attendance.grade)학년 \(attendance.klass)반", placeType: .classroom)
+                                            PlaceBadge(placeName: "\(attendance.grade)학년 \(attendance.class)반", placeType: .classroom)
                                         }
                                     }
                                     HSpacer(64)
@@ -114,7 +114,7 @@ public enum Alert {
         )).present()
     }
     
-    public static func classHistory(grade: Int, klass: Int, attendanceLog: [AttendanceLog]) {
+    public static func classHistory(grade: Int, `class`: Int, attendanceLog: [AttendanceLog]) {
         AlertViewController(alertView: AlertView(content: {
             AnyView(
                 GeometryReader { geometry in
@@ -122,7 +122,7 @@ public enum Alert {
                         ZStack {
                             VStack {
                                 VSpacer(35)
-                                Text("\(grade)학년 \(klass)반")
+                                Text("\(grade)학년 \(`class`)반")
                                     .notoSans(.bold, size: 10, .accent)
                                 VSpacer(4)
                                 Text("히스토리")

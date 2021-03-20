@@ -111,7 +111,7 @@ struct StudentIdCardView: View {
                                     Text("생년월일").nanumSquare(.bold, size: 13, .black)
                                 }
                                 VStack(alignment: .leading, spacing: 11) {
-                                    Text(getMajorByClass(klass: api.user.klass).localized).nanumSquare(.large, size: 13, .gray4)
+                                    Text(getMajorByClass(class: api.user.class).localized).nanumSquare(.large, size: 13, .gray4)
                                     Text(String(api.user.serial)).nanumSquare(.large, size: 13, .gray4)
                                     Text(api.user.birthDay).nanumSquare(.large, size: 13, .gray4)
                                 }

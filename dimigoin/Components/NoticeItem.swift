@@ -12,10 +12,7 @@ import DimigoinKit
 struct NoticeItem: View {
     @EnvironmentObject var api: DimigoinAPI
     @State var geometry: GeometryProxy
-    @State var gradientColors: [Color] = [
-        Color.systemBackground.opacity(0),
-        Color.systemBackground.opacity(1)
-    ]
+    
     var body: some View {
         if api.notices.count != 0 {
                 ScrollView(showsIndicators: false) {

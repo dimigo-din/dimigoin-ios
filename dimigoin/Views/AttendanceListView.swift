@@ -187,7 +187,7 @@ struct AttendanceListItem: View {
                         // TODO: - 인원체크 담당자 - 다른 사람 위치 바꾸기
                     }
             } else {
-                PlaceBadge(placeName: "\(attendance.grade)학년 \(attendance.klass)반", placeType: .classroom)
+                PlaceBadge(placeName: "\(attendance.grade)학년 \(attendance.class)반", placeType: .classroom)
             }
             Spacer()
             if api.user.type == .teacher {
