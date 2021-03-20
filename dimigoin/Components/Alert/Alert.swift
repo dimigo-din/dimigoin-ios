@@ -102,7 +102,7 @@ public enum Alert {
                             }
                         }
                     }
-                    .frame(width: UIDevice.current.userInterfaceIdiom == .phone ? abs(geometry.size.width - 80) : 295, height: 380)
+                    .frame(width: UIDevice.current.userInterfaceIdiom == .phone ? abs(geometry.size.width - 80) : 295)
                     .background(Color(UIColor.systemBackground).cornerRadius(10))
                     .edgesIgnoringSafeArea(.all)
                     .padding(.horizontal, UIDevice.current.userInterfaceIdiom == .phone ? 40 : (geometry.size.width - 295)/2)
@@ -255,7 +255,7 @@ struct ChangeLocationDialog: View {
    
     var body: some View {
         NavigationView {
-            VStack {
+                VStack {
                 VSpacer(20)
                 Text("\(getStringTimeZone())").notoSans(.bold, size: 11, .accent)
                 Text("어디에 계신가요?").notoSans(.bold, size: 16)
@@ -337,10 +337,13 @@ struct ChangeLocationDialog: View {
                     }
                 }
             }
-        }.frame(maxHeight: 450, alignment: .center).keyboardResponsive()
+            .navigationBarHidden(true)
+        }.frame(height: isShowPlaceList ? 480 : 320, alignment: .center)
         .navigationViewStyle(StackNavigationViewStyle())
         .cornerRadius(10)
+        .animation(.easeInOut)
     }
+    
     func dismiss() {
         UIApplication.shared.windows.first!.rootViewController?.dismiss(animated: true, completion: nil)
     }

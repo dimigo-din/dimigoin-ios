@@ -293,7 +293,6 @@
 			children = (
 				426B44FB25E8BB2000ADC3E3 /* DimigoinKit */,
 				08C9AC0124A74A83002AF525 /* Views */,
-				08C9ABFF24A74A83002AF525 /* Model */,
 				08C9AC0824A74A83002AF525 /* Components */,
 				08C9ABFC24A74A83002AF525 /* Modifiers */,
 				428DC353255EB4F300A4A7B5 /* Fonts */,
@@ -326,14 +325,6 @@
 				42E5B40725CA10B70067692A /* TemplateImageModifier.swift */,
 			);
 			path = Modifiers;
-			sourceTree = "<group>";
-		};
-		08C9ABFF24A74A83002AF525 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				4250012525595F9E00C593CF /* Alert.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		08C9AC0124A74A83002AF525 /* Views */ = {
@@ -407,6 +398,7 @@
 		422373DC25FCB6410046C6B7 /* Alert */ = {
 			isa = PBXGroup;
 			children = (
+				4250012525595F9E00C593CF /* Alert.swift */,
 				422373DD25FCB6580046C6B7 /* AlertButton.swift */,
 				422373E825FCB6810046C6B7 /* AlertView.swift */,
 				422373ED25FCB69D0046C6B7 /* AlertViewController.swift */,
@@ -1032,7 +1024,7 @@
 				CODE_SIGN_ENTITLEMENTS = dimigoin/Application/Dimigoin.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 399;
+				CURRENT_PROJECT_VERSION = 401;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
@@ -1064,7 +1056,7 @@
 				CODE_SIGN_ENTITLEMENTS = dimigoin/Application/Dimigoin.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 399;
+				CURRENT_PROJECT_VERSION = 401;
 				DEVELOPMENT_ASSET_PATHS = "\"dimigoin/Preview Content\"";
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				ENABLE_PREVIEWS = YES;
@@ -1138,7 +1130,7 @@
 				CODE_SIGN_ENTITLEMENTS = Widget/WidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 399;
+				CURRENT_PROJECT_VERSION = 401;
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				INFOPLIST_FILE = Widget/Info.plist;
@@ -1168,7 +1160,7 @@
 				CODE_SIGN_ENTITLEMENTS = Widget/WidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 399;
+				CURRENT_PROJECT_VERSION = 401;
 				DEVELOPMENT_TEAM = 9MGM27T9ZC;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				INFOPLIST_FILE = Widget/Info.plist;

@@ -11,9 +11,12 @@ import DimigoinKit
 
 struct ContentView: View {
     @ObservedObject var api = DimigoinAPI()
-    var tapbarIdx = 2
-    @State var place = Place()
     
+    init() {
+        if needsUpdate() {
+            Alert.updateRequired()
+        }
+    }
     
     var body: some View {
         NavigationView {
@@ -30,7 +33,7 @@ struct ContentView: View {
                                 .placeholderWhileFetching(isFetching: $api.isFetching)
                         }
                     } else {
-                        MainView(tapbarIdx: tapbarIdx)
+                        MainView()
                             .environmentObject(api)
                             .placeholderWhileFetching(isFetching: $api.isFetching)
                     }
@@ -41,11 +44,5 @@ struct ContentView: View {
             }.edgesIgnoringSafeArea(.bottom)
             .navigationBarHidden(true)
         }.navigationViewStyle(StackNavigationViewStyle())
-        .onAppear {
-            if needsUpdate() {
-                Alert.updateRequired()
-            }
-        }
-        
     }
 }

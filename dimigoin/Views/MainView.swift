@@ -16,10 +16,6 @@ struct MainView: View {
     @State var dragOffset = CGSize.zero
     @State var isShowIdCard: Bool = false
     
-    init(tapbarIdx: Int) {
-        self._tapbarIndex = .init(initialValue: tapbarIdx)
-    }
-    
     var body: some View {
         ZStack {
             if tapbarIndex != 2 {

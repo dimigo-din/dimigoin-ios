@@ -15,7 +15,7 @@
 "패스워드를 입력하세요"="Password";
 "로그인"="Login";
 "아이디 또는 비밀번호를 잊으셨나요?"="Did you forgot your ID or Password?";
-"존재하지 않는 아이디거나 잘못된 패스워드입니다."="Not Existing ID or Wrong Password";
+"존재하지 않는 아이디거나 잘못된 패스워드입니다."="Incorrecting ID or Wrong Password";
 
 // Tap bar
 "학생증"="IDCard";
