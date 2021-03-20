@@ -136,7 +136,7 @@ struct LocationItemEtc: View {
     var body: some View {
         VStack {
             Button(action: {
-                Alert.selectLocation(api: api)
+                Alert.changeLocation(api: api)
             }) {
                 Circle()
                     .fill(!api.isPrimaryPlace(place: api.currentPlace) ? .accent : Color(UIColor.secondarySystemGroupedBackground))

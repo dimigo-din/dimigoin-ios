@@ -159,7 +159,7 @@ public enum Alert {
         )).present()
     }
     
-    public static func selectLocation(api: DimigoinAPI) {
+    public static func changeLocation(api: DimigoinAPI) {
         AlertViewController(alertView: AlertView(content: {
             AnyView(
                 ChangeLocationDialog().environmentObject(api)
@@ -167,6 +167,15 @@ public enum Alert {
         }
         )).present()
     }
+    
+//    public static func changeLocation(api: DimigoinAPI, studentId: String) {
+//        AlertViewController(alertView: AlertView(content: {
+//            AnyView(
+//                ChangeLocationDialog().environmentObject(api)
+//            )
+//        }
+//        )).present()
+//    }
     
     public static func updateRequired() {
         AlertViewController(alertView: AlertView(content: {
@@ -252,6 +261,15 @@ struct ChangeLocationDialog: View {
     @State var remark: String = ""
     @State var isShowPlaceList: Bool = false
     @State var isRemarkEmpty: Bool = false
+    var student: Attendance = Attendance()
+    
+    init() {
+        self.student = Attendance()
+    }
+    
+    init(student: Attendance) {
+        self.student = student
+    }
    
     var body: some View {
         NavigationView {
@@ -308,24 +326,44 @@ struct ChangeLocationDialog: View {
                             withAnimation(.easeInOut) { self.isRemarkEmpty = true }
                         } else {
                             dismiss()
-                            api.changeUserPlace(placeName: selectedPlace.name, remark: remark.isEmpty ? "없음" : remark) { result in
-                                print(result)
-                                switch result {
-                                case .success(_):
-                                    Alert.present("위치 변경에 성공했습니다.", message: "\"\(selectedPlace.name)\"(으)로 변경되었습니다.", icon: .checkmark, color: .accent)
-                                case .failure(let error):
-                                    switch error {
-                                    case .noSuchPlace:
-                                        Alert.present("위치 변경에 실패했습니다.", message: "유효한 장소가 아닙니다.", icon: .dangermark, color: .red)
-                                    case .notRightTime:
-                                        Alert.present("위치 변경에 실패했습니다.", message: "자습 현황 등록 시간이 아닙니다.", icon: .dangermark, color: .red)
-                                    case .tokenExpired:
-                                        Alert.present("위치 변경에 실패했습니다.", message: "토큰이 만료 되었습니다.", icon: .dangermark, color: .red)
-                                    case .unknown:
-                                        Alert.present("위치 변경에 실패했습니다.", message: "알 수 없는 에러", icon: .dangermark, color: .red)
+                            if student == Attendance() {
+                                api.changeUserPlace(placeName: selectedPlace.name, remark: remark.isEmpty ? "없음" : remark) { result in
+                                    switch result {
+                                    case .success(_):
+                                        Alert.present("위치 변경에 성공했습니다.", message: "\"\(selectedPlace.name)\"(으)로 변경되었습니다.", icon: .checkmark, color: .accent)
+                                    case .failure(let error):
+                                        switch error {
+                                        case .noSuchPlace:
+                                            Alert.present("위치 변경에 실패했습니다.", message: "유효한 장소가 아닙니다.", icon: .dangermark, color: .red)
+                                        case .notRightTime:
+                                            Alert.present("위치 변경에 실패했습니다.", message: "자습 현황 등록 시간이 아닙니다.", icon: .dangermark, color: .red)
+                                        case .tokenExpired:
+                                            Alert.present("위치 변경에 실패했습니다.", message: "토큰이 만료 되었습니다.", icon: .dangermark, color: .red)
+                                        case .unknown:
+                                            Alert.present("위치 변경에 실패했습니다.", message: "알 수 없는 에러", icon: .dangermark, color: .red)
+                                        }
+                                    }
+                                }
+                            } else {
+                                setUserPlace(api.accessToken, studentId: student.id, placeName: selectedPlace.name, places: api.allPlaces) { result in
+                                    switch result {
+                                    case .success(_):
+                                        Alert.present("위치 변경에 성공했습니다.", message: "\"\(selectedPlace.name)\"(으)로 변경되었습니다.", icon: .checkmark, color: .accent)
+                                    case .failure(let error):
+                                        switch error {
+                                        case .noSuchPlace:
+                                            Alert.present("위치 변경에 실패했습니다.", message: "유효한 장소가 아닙니다.", icon: .dangermark, color: .red)
+                                        case .notRightTime:
+                                            Alert.present("위치 변경에 실패했습니다.", message: "자습 현황 등록 시간이 아닙니다.", icon: .dangermark, color: .red)
+                                        case .tokenExpired:
+                                            Alert.present("위치 변경에 실패했습니다.", message: "토큰이 만료 되었습니다.", icon: .dangermark, color: .red)
+                                        case .unknown:
+                                            Alert.present("위치 변경에 실패했습니다.", message: "알 수 없는 에러", icon: .dangermark, color: .red)
+                                        }
                                     }
                                 }
                             }
+                            
                         }
                     }) {
                         Text("확인")
