@@ -104,7 +104,6 @@ struct Blur: UIViewRepresentable {
     var style: UIBlurEffect.Style = .systemMaterial
     func makeUIView(context: Context) -> UIVisualEffectView {
         let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: style))
-//        blurEffectView.alpha = 0.9
         return blurEffectView
     }
     func updateUIView(_ uiView: UIVisualEffectView, context: Context) {

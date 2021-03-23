@@ -34,7 +34,7 @@ struct LocationSelectionView: View {
         VStack {
             VStack {
                 HStack {
-                    Text(NSLocalizedString(getStringTimeZone(), comment: "")).notoSans(.bold, size: 10, .accent)
+                    Text(getStringTimeZone().localized).notoSans(.bold, size: 10, .accent)
                     Spacer()
                 }
                 HStack {

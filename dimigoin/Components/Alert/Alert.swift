@@ -168,14 +168,14 @@ public enum Alert {
         )).present()
     }
     
-//    public static func changeLocation(api: DimigoinAPI, studentId: String) {
-//        AlertViewController(alertView: AlertView(content: {
-//            AnyView(
-//                ChangeLocationDialog().environmentObject(api)
-//            )
-//        }
-//        )).present()
-//    }
+    public static func changeLocation(api: DimigoinAPI, student: Attendance) {
+        AlertViewController(alertView: AlertView(content: {
+            AnyView(
+                ChangeLocationDialog(student: student).environmentObject(api)
+            )
+        }
+        )).present()
+    }
     
     public static func updateRequired() {
         AlertViewController(alertView: AlertView(content: {
@@ -322,9 +322,9 @@ struct ChangeLocationDialog: View {
                             .background(RoundSquare(topLeft: 0, topRight: 0, bottomLeft: 10, bottomRight: 0).fill(Color.gray4))
                     }
                     Button(action: {
-                        if remark.isEmpty {
-                            withAnimation(.easeInOut) { self.isRemarkEmpty = true }
-                        } else {
+//                        if remark.isEmpty {
+//                            withAnimation(.easeInOut) { self.isRemarkEmpty = true }
+//                        } else {
                             dismiss()
                             if student == Attendance() {
                                 api.changeUserPlace(placeName: selectedPlace.name, remark: remark.isEmpty ? "없음" : remark) { result in
@@ -345,7 +345,7 @@ struct ChangeLocationDialog: View {
                                     }
                                 }
                             } else {
-                                setUserPlace(api.accessToken, studentId: student.id, placeName: selectedPlace.name, places: api.allPlaces) { result in
+                                setUserPlace(api.accessToken, studentId: student.id, placeName: selectedPlace.name, remark: remark.isEmpty ? "없음" : remark, places: api.allPlaces) { result in
                                     switch result {
                                     case .success(_):
                                         Alert.present("위치 변경에 성공했습니다.", message: "\"\(selectedPlace.name)\"(으)로 변경되었습니다.", icon: .checkmark, color: .accent)
@@ -364,7 +364,7 @@ struct ChangeLocationDialog: View {
                                 }
                             }
                             
-                        }
+//                        }
                     }) {
                         Text("확인")
                             .foregroundColor(.white)

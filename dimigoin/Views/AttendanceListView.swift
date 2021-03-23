@@ -182,15 +182,28 @@ struct AttendanceListItem: View {
             Text("\(attendance.name)").notoSans(.bold, size: 15, .gray4)
             Spacer()
             if attendance.isRegistered {
-                PlaceBadge(place: attendance.attendanceLog[0].place)
-                    .onTapGesture {
-                        // TODO: - 인원체크 담당자 - 다른 사람 위치 바꾸기
+                if api.user.permissions.contains(.attendance) {
+                    Button(action: {
+                        Alert.changeLocation(api: api, student: attendance)
+                    }) {
+                        PlaceBadge(place: attendance.attendanceLog[0].place)
                     }
+                } else {
+                    PlaceBadge(place: attendance.attendanceLog[0].place)
+                }
             } else {
-                PlaceBadge(placeName: "\(attendance.grade)학년 \(attendance.class)반", placeType: .classroom)
+                if api.user.permissions.contains(.attendance) {
+                    Button(action: {
+                        Alert.changeLocation(api: api, student: attendance)
+                    }) {
+                        PlaceBadge(placeName: "\(attendance.grade)학년 \(attendance.class)반", placeType: .classroom)
+                    }
+                } else {
+                    PlaceBadge(placeName: "\(attendance.grade)학년 \(attendance.class)반", placeType: .classroom)
+                }
             }
             Spacer()
-            if api.user.type == .teacher {
+            if api.user.permissions.contains(.attendance) {
                 Button(action: {
                     withAnimation(.easeInOut) { self.isFetching = true }
                     getAttendenceHistory(api.accessToken, studentId: attendance.id) { result in

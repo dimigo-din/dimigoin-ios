@@ -23,33 +23,11 @@ struct SelectPlaceView: View {
     }
     
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                ScrollView {
-                    Text("야간자율학습 학생현황").notoSans(.bold, size: 12, .accent)
-                    Text("장소를 선택해주세요").notoSans(.bold, size: 20)
-                    PlaceList(api: api, selectedPlace: $selectedPlace)
-                }
-//                VStack {
-//                    Spacer()
-//                    VStack {
-//                        Spacer()
-//                        Button(action: {
-//                            self.presentationMode.wrappedValue.dismiss()
-//                        }) {
-//                            Text("선택완료")
-//                                .notoSans(.bold, size: 14)
-//                                .foregroundColor(.white)
-//                                .frame(width: geometry.size.width-40, height: 45)
-//                                .background(Color("accent").cornerRadius(10))
-//                        }
-//                        Spacer()
-//                    }.frame(height: 60)
-//                    .frame(maxWidth: .infinity)
-//                    .background(Rectangle().fill(Color.systemBackground).shadow(color: Color.black.opacity(0.05), radius: 20, x: 0, y: 0).edgesIgnoringSafeArea(.all))
-//                    .edgesIgnoringSafeArea(.all)
-//
-//                }
+        ZStack {
+            ScrollView {
+                Text("야간자율학습 학생현황").notoSans(.bold, size: 12, .accent)
+                Text("장소를 선택해주세요").notoSans(.bold, size: 20)
+                PlaceList(api: api, selectedPlace: $selectedPlace)
             }
         }
     }
