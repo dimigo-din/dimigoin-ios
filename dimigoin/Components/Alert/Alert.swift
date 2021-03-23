@@ -348,7 +348,7 @@ struct ChangeLocationDialog: View {
                                 setUserPlace(api.accessToken, studentId: student.id, placeName: selectedPlace.name, remark: remark.isEmpty ? "없음" : remark, places: api.allPlaces) { result in
                                     switch result {
                                     case .success(_):
-                                        Alert.present("위치 변경에 성공했습니다.", message: "\"\(selectedPlace.name)\"(으)로 변경되었습니다.", icon: .checkmark, color: .accent)
+                                        Alert.present("위치 변경에 성공했습니다.", message: "\(student.name)의 위치가 \"\(selectedPlace.name)\"(으)로 변경되었습니다.", icon: .checkmark, color: .accent)
                                     case .failure(let error):
                                         switch error {
                                         case .noSuchPlace:
