@@ -10,7 +10,7 @@
 
 // Login View
 "디미고인"="Dimigoin";
-"날짜를 선택해주세요"="Dimigoin";
+"날짜를 선택해주세요"="Please select a date";
 "아이디를 입력하세요"="ID";
 "패스워드를 입력하세요"="Password";
 "로그인"="Login";
